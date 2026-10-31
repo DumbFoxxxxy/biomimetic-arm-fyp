@@ -1,0 +1,600 @@
+===== PAGE 1 =====
+Mechanism and Machine Theory 164 (2021) 104404 
+Contents lists available at ScienceDirect 
+Mechanism and Machine Theory 
+journal homepage: www.elsevier.com/locate/mechmachtheory 
+Research paper 
+Proﬁle and contact force estimation of cable-driven 
+continuum robots in presence of obstacles 
+K.P. Ashwin a , Soumya Kanti Mahapatra b , Ashitava Ghosal b , ∗
+a Department of Mechanical Engineering, BITS Pilani K.K. Birla Goa Campus, Goa, 403726, India 
+b Department of Mechanical Engineering, Indian Institute of Science, Bangalore, 560012, India 
+a r t i c l e i n f o 
+Article history: 
+Received 12 March 2021 
+Revised 6 May 2021 
+Accepted 19 May 2021 
+Available online 11 June 2021 
+Keywords: 
+Continuum robot 
+Cable driven 
+Tendon driven 
+Kinematics 
+Contact force estimation 
+a b s t r a c t 
+Accurate prediction of shape and contact forces signiﬁcantly improves the performance 
+of a continuum robot during its operation in obstacle-laden environments. This paper 
+presents an optimization-based mathematical framework to predict the bending proﬁle of 
+a cable-driven continuum robot in presence of obstacles. The kinematics model is derived 
+from the concept of strain energy minimization and can easily incorporate obstacles as in- 
+equality constraints in the optimization-based approach. The location of point of contact 
+can be identiﬁed by observing the Lagrange multipliers of the inequality constraints. Using 
+the kinematics model and the principle of virtual work, a method to estimate the reaction 
+forces at contact is proposed. The model shows high accuracy, with RMS error of 1.35 mm 
+in prediction of the pose for experiments conducted on a 180 mm long robot prototype. 
+Validation experiments are also conducted on the prototype by imposing contact at differ- 
+ent locations on the robot. In all cases, the average error in predicting the contact force is 
+found to be less than 1.0 g for applied loads ranging from 50 to 350 g. 
+©2 0 2 1 Elsevier Ltd. All rights reserved. 
+1. Introduction 
+A continuum robot, as opposed to rigid link robot is characterized by a continuous elastic structure which is deformed 
+using different actuation techniques [1] . Continuum robots are convenient for situations where compliance is preferred such 
+as during human-robot interactions or handling delicate objects. Due to the hyper-redundancy in the continuum robot, they 
+are also suitable for operations in inaccessible areas as well as for obstacle avoidance problems. A class of continuum robots 
+which are actuated using cables (or tendons) are of particular interest due to their simplicity in design and miniaturizability 
+[2,3] . A typical cable-driven continuum robot (CCR) consists of a slender elastic backbone on which a set of disks are ﬁxed 
+with constant spacing (refer Fig. 1 (a)). Through the holes in the disks, cables are routed along the length of the backbone 
+and are terminated at the end-disk. By pulling the cable from the base, a moment arm is generated at the tip, causing the 
+CCR to bend. 
+Accurate mathematical models for the physics of CCR is of great interest since they can be used in robot design and 
+control. A good mathematical model for CCR also helps to understand the behavior of the robot during contact with its 
+environment. Since CCRs are generally light-weight and their applications involve slow movements, study of statics and 
+kinematics are usually prioritized over dynamics. A detailed review of such analyses can be found in the works of Webster III 
+∗ Corresponding author. 
+E-mail addresses: ashwinp@goa.bits-pilani.ac.in (K.P. Ashwin), soumyam@iisc.ac.in (S.K. Mahapatra), asitava@iisc.ac.in (A. Ghosal). 
+https://doi.org/10.1016/j.mechmachtheory.2021.104404 
+0094-114X/© 2021 Elsevier Ltd. All rights reserved. 
+
+===== PAGE 2 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 1. (a) Cable-driven continuum robot with cables terminating at the tip. (b) Slope angle is equivalent to the change in angle between consecutive disks 
+of CCR. 
+and Jones [4] , Chirikjian [5] , Rao et al. [6] etc. In [6] , the authors classiﬁed the modeling approaches as distributed and 
+lumped models based on the type of backbone parametrization and their modeling assumptions. In distributed models, the 
+backbone is considered as a 3-D curve which is represented using a single parameter, usually the normalized arc-length of 
+the curve. For such models, the kinematic analysis is conducted by representing the rate of change of position and rotation of 
+backbone in the Frenet-Serret frame as functions of strain variables [4] . For lumped model analysis, the continuum backbone 
+is discretized into ﬁnite segments and variables such as Denavit-Hartenberg parameters or joint co-ordinates are used for 
+parameterizing the backbone curve [7,8,9] . 
+For static analysis of distributed models, the forces and moments distributed in the entire length of the robot are ﬁrst 
+accounted for. Different modeling considerations such as cable routing characteristics [10] and additional forces [11] add 
+different levels of complexity to these formulations. For straight-routed robots, Euler-Bernoulli beam theory is used for con- 
+stitutive relations [12] while for generally-routed robots, Cosserat-rod theory is used [10] . The solution to these boundary- 
+value problems are usually computed by numerical integration. For static analysis of lumped models, a pseudo-rigid body 
+approach is commonly used with the backbone considered as a series of rigid links connected using torsional springs [13] , 
+[14] . The internal torques of the backbone segments is related to the applied torques (and forces) by means of the robot’s 
+Jacobian where the stiffness of springs and the optimal lengths of segments are determined from experiments. In the dis- 
+tributed models, external force constraints are incorporated as boundary conditions for the governing differential equations 
+[15] . In the lumped model, the kinematic and static constraints are directly applied by specifying the position or load at the 
+individual segments [14] . 
+Understanding the characteristics of the robot during contact with the environment is essential for their control in 
+obstacle-laden environments. In the above cases, prior knowledge of the location of contact between the CCR and the object 
+is necessary to estimate its post-collision characteristics so that either the differential equations or the solution procedure 
+can be modiﬁed accordingly. In order to estimate the exact location of contact and the reaction forces due to the same, 
+different strategies are used in the literature. In [16] , the authors present an algorithm to estimate the contact location by 
+reducing the deviation between the theoretical and measured values of loci of the ﬁxed centroid of the end-disk. This is fur- 
+ther extended in [17] by minimizing the deviation in instantaneous screw axis of the motion. Many researchers use sensors 
+which can directly measure the robot proﬁle and estimate the contact characteristics with the help of a static model of the 
+robot [18,19,20,21] . Using explicit sensors, the contact forces can be obtained as shown in [14] , but the feasibility of such 
+an approach depends on the design speciﬁcations of the robot. In [22] , the authors use a model-based hybrid controller 
+to estimate the contact characteristics while in [23] a model-based controller uses Extended Kalman Filter to estimate the 
+forces. Finite element method (FEM) based models using Cosserat-rod theory and Euler-Bernouilli beam theory for CCR mod- 
+elling and contact analysis are shown to give results with good accuracy [24,25,26] . Apart from linear elastic considerations, 
+hyper-elastic models are also used for modelling continuum robots as can be seen in [27] . 
+Except for the FEM-based models, all the above cases of contact characteristics estimation require employment of one or 
+more sensing techniques and advanced control algorithms to estimate the exact location of contact and the reaction forces 
+due to collision. In the following sections, we present an optimization-based framework for solving the kinematics of CCR 
+in presence of obstacles where prior knowledge about the exact location of contact on the robot is not necessary. In the 
+approach described in this paper, only the position and shape of the external obstacles need to be given, and the proﬁle of 
+the robot after collision can be calculated without the use of any external sensors. The framework is an improved version 
+of the model developed in [28] , where the CCR is parametrized as a lumped model comprising of a series of adjoined 
+hypothetical 4-bar linkages. The accuracy of predicting the pose using this method is veriﬁed from experiments and it is 
+also demonstrated that the exact contact location on the robot can be obtained as a by-product of the solution procedure. 
+A method to estimate the contact forces on obstacles, using the developed kinematics model and the principle of virtual- 
+2 
+
+===== PAGE 3 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Table 1 
+Nomenclature. 
+Symbol Description 
+B Flexural rigidity 
+φ Slope angle 
+s Arc-length parameter 
+L 0 Length of backbone 
+l 0 Length of a backbone segment 
+n Number of backbone segments 
+a Radial distance between the centre of the backbone and the cables 
+X 0 Position vector of undeformed backbone at the disk 
+X a Position vector of the ﬁrst unactuated cable at the disk 
+x 0 Position vector of the deformed backbone at the disk 
+x a Position vector of the ﬁrst actuated cable at the disk 
+X b Position vector of the second unactuated cable at the disk 
+x b Position vector of the second actuated cable at the disk 
+l Length of cable pulled 
+f (x ) Function for boundaries of obstacles 
+x e , y e X and Y co-ordinates of the tip of the robot 
+θe Orientation of the robot tip 
+P x , P y Reaction forces in X and Y directions, at the tip 
+M e Moment at the tip 
+R x , R y Reaction forces at the base 
+M r Reaction moment at the base 
+δx, δy Virtual displacements in X and Y directions 
+δθ Virtual displacement in θ direction 
+F l Applied load 
+μ Coeﬃcient of friction 
+d Distance between backbone and the obstacle(load cell) 
+l a , l b Length of the ﬁrst and second cable inside a segment 
+work, is also presented in this work. The method is experimentally veriﬁed and it is shown that the contact force can be 
+estimated with average error less than 1.0 g. The demonstrated method will be advantageous for applications where intrinsic 
+or extrinsic force measurement is not practically viable. 
+The rest of the paper is organized as follows: In Section 2 , the optimization-based kinematics formulation starting from 
+strain energy minimization principles is introduced ﬁrst. The extension of kinematics formulation to include obstacles and 
+identiﬁcation of contact location is presented next. Then contact force estimation using virtual work principle is shown 
+and lastly, the extension of the formulation to 3D is presented. In Section 3 , the numerical results from the optimization- 
+based formulation are compared with the results obtained from experiments conducted on a 3D-printed prototype. This is 
+followed by a discussion on the computation time and accuracy. In Section 4 , the main conclusions and the scope for future 
+extensions of this work are presented. 
+2. Methodology 
+2.1. Optimization-based kinematics of CCR 
+In this section, we derive the optimization-based kinematics of CCR from the principle of strain energy minimization. 
+For the kinematic analysis shown in the sections 2.1, 2.2 and 2.3 , we consider a CCR actuated using only one cable which is 
+routed parallel to the backbone. Description of the symbols which will be used in the rest of this paper is given in Table 1 . 
+In most of the CCR designs, the backbone is a long slender member whose deformation can be considered as an elastic 
+beam undergoing bending deformation. Upon application of an external load, the member deforms such that its strain 
+energy is minimum at the static equilibrium. This is equivalent to the expression 
+min 
+φ
+∫ L 0 
+0 
+B 
+(
+dφ
+ds 
+)2 
+ds (1) 
+where φ is the slope angle, s is the arc-length parameter, B is the ﬂexural rigidity and L 0 is the length of the backbone. In 
+a ﬁnite difference form, the above equation can be written as 
+min 
+/Delta1φ
+n ∑ 
+i =1 
+B 
+(
+/Delta1φ
+/Delta1s 
+)2 
+δs (2) 
+3 
+
+===== PAGE 4 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 2. Nomenclature and variables used in optimization. 
+Assuming that the backbone is discretized into equal number of segments and the material is isotropic, the above equation 
+becomes 
+min 
+/Delta1φ
+C 
+n ∑ 
+i =0 
+( /Delta1φ) 2 (3) 
+where C is a constant. Hence, the CCR in static equilibrium will have a deformed proﬁle where the sum of squares of the 
+change in slope angles is minimized –m o d u l o a constant. Since the construction of CCR ensures that the disk is always 
+perpendicular to the backbone, the change in slope angle is also equivalent to the angle between the two consecutive disks 
+(refer Fig. 1 (b)). Hence, minimization of the latter ensures that the kinematic criterion for the backbone with perpendicular 
+disks is met. When the CCR is actuated, the above condition is augmented by the kinematic constraints imposed by the 
+length of the cables in the segment and the size of the guiding disks. With these added constraints, we can uniquely 
+identify the proﬁle of the actuated CCR. 
+For mathematically representing the minimization problem and the constraints, the following nomenclature is assigned 
+(refer Fig. 2 ): 
+• The backbone and cables are discretized into n segments, each comprising of a closed loop made of a backbone segment, 
+top disk, cable segment and a bottom disk. 
+• The segment lengths of backbone and cable are l 0 and l a respectively and they take the values l 0 = l a = L 0 /n in the 
+un-actuated state. 
+• Distance between the cable and the centre of the backbone is ﬁxed along the disk and is given by the constant a which 
+is the same for all the disks. 
+For analysis, the numbering of segments start from bottom, where the bottom most disk has the index i = 0 , and the 
+disk at the tip of the robot has the index i = n . The vertices of the loop in the i th segment are termed (X i 0 , X i a , X i +1 a , X i +1 0 )
+in the counter-clockwise direction starting from the bottom left vertex. When the CCR is actuated, the linkage reduces its 
+length from 
+L 0 
+n 
+to 
+L 0 − l 
+n 
+where l is the amount by which the cable is pulled. The loop deforms as shown in Fig. 2 and the 
+quantities X i +1 (·) change to x i +1 (·) . 
+Using the aforementioned nomenclature, the optimization problem can be written as: 
+arg min 
+x 0 , x a 
+n −1 ∑ 
+i =0 
+(
+arccos 
+((
+x i +1 0 − x i +1 a 
+‖ x i +1 0 − x i +1 a ‖ 
+)
+·
+(
+x i 0 − x i a 
+‖ x i 0 − x i a ‖ 
+)))2 
+Subject to: 
+‖ x i 0 − x i −1 0 ‖ = l 0 
+‖ x i a − x i −1 a ‖ = l a 
+‖ x i 0 − x i a ‖ = a, i = 1 , 2 , 3 , . . . , n (4) 
+4 
+
+===== PAGE 5 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Given data: l 0 , l a , a ; 
+where the variables without segment index represent the arrays x (·) = [ x 1 (·) , x 2 (·) , . . . , x n (·) ] etc. 
+The above optimization problem is solved as a global optimization problem with constraints. This approach allows us to 
+add global constraints to the minimization routine and can be used for obstacle avoidance [29] . The numerical results and 
+experimental validation of the numerical results are presented in Section 3 . 
+2.2. Kinematics model with obstacles 
+For the constrained global optimization problem, obstacle avoidance can be achieved by adding extra constraints in ad- 
+dition to the equality constraints in (4) [29,30] . For obstacle avoidance, the problem can be reformulated as: 
+arg min 
+x 0 , x a 
+n −1 ∑ 
+i =0 
+(
+arccos 
+((
+x i +1 0 − x i +1 a 
+‖ x i +1 0 − x i +1 a ‖ 
+)
+·
+(
+x i 0 − x i a 
+‖ x i 0 − x i a ‖ 
+)))2 
+Subject to: 
+‖ x i 0 − x i −1 0 ‖ = l 0 
+‖ x i a − x i −1 a ‖ = l a 
+‖ x i 0 − x i a ‖ = a, i = 1 , 2 , 3 , . . . , n 
+f (x 0 ) ≽ 0 
+f (x a ) ≽ 0 (5) 
+Given data: l 0 , l a , a, f (x ) 
+where f (x ) is the function for boundaries of the obstacles 1 . For example, if f (x ) = ( x − x c ) 2 + ( y − y c ) 2 − r 2 c , then the discrete 
+points of the backbone and the cable will always lie outside a circle with center (x c , y c ) and radius r c . 
+As mentioned in Section 1 , this method does not require explicit knowledge of the location of point of contact in the 
+CCR. In fact, the location of the point of contact can be found by observing the Lagrange parameters of the constrained 
+optimization problem. Wherever the nodal co-ordinates violate the non-linear constraint, the Lagrange multipliers turn non- 
+zero and hence can be used as an identiﬁer to determine the nodes which are in contact. 
+2.3. Estimating contact forces using the kinematics model 
+In this section, we show that the results from the kinematics can be used to estimate the contact forces using the 
+principle of virtual work. 
+The position and orientation of the tip of the robot ( x e , y e , θe ) can be represented as a function of the change in cable 
+length: 
+x e = f x (l) , y e = f y (l) , θe = f θ (l) (6) 
+where the functions f x , f y and f θ can be obtained from the kinematics model. The variational displacements will be 
+δx e = f 
+′ 
+x δl, δy e = f 
+′ 
+y δl, θe = f 
+′ 
+θ δl (7) 
+where f 
+′ 
+(·) = df (·) dl . When the tip of CCR is constrained due to external object, a set of reaction forces and moments (P x , P y , M e ) 
+as well as (R x , R y , M e ) are generated at the tip and the base respectively (see Fig. 3 ). 
+Let δx, δy, and δθ denote the virtual displacement ﬁeld corresponding to the reaction forces at the base. The virtual dis- 
+placement at the tip due to (P x , P y , M e ) will be 
+(δx + f ′ x δl, δy + f ′ y δl, and δθ + f ′ θ δl ), respectively. By invoking the principle 
+of virtual work, we get 
+−R x δx − R y δy − M r δθ + P x 
+(δx + f ′ x δl ) + P y (δy + f ′ y δl ) + M e (δθ + f ′ θ δl ) = 0 (8) 
+Regrouping the terms, 
+( −R x + P x ) δx + ( P y − R y ) δy + ( −M r + M e ) δθ + 
+(
+P x f 
+′ 
+x + P y f 
+′ 
+y + M e f 
+′ 
+θ
+)δl = 0 (9) 
+from which we obtain the static equilibrium equations: 
+R x = P x , R y = P y , M r = M e 
+P x f 
+′ 
+x + P y f 
+′ 
+y + M e f 
+′ 
+θ = 0 (10) 
+From the kinematics, we get the functions f 
+′ 
+x , f 
+′ 
+y , and f 
+′ 
+θ. The component M e = M r is the moment generated at the tip of 
+the robot due to the applied load F l , i.e., M e = a × F l [31] . Hence, by knowing one of the force components F x or F y , the other 
+can be calculated. 
+1 The generalized inequality symbol ≽ is used to represent vector inequalities 
+5 
+
+===== PAGE 6 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 3. Free body diagram of the CCR with obstacle in contact at the tip. 
+2.4. Extension to 3D 
+If two non-opposing cables are actuated simultaneously, the CCR bends in a plane which lies in between the two bending 
+planes generated by pulling the two cables individually. The optimization-based kinematics formulation can be extended to 
+such 3D cases by minimizing the slope angles in both the individual bending planes. This is equivalent to minimization 
+of total strain energy which consists of two strain energy components corresponding to the two bending directions. If x b 
+represents the co-ordinates on the second cable and l b is the length of a segment in the second cable, we can write the 
+optimization problem as follows: 
+arg min 
+x 0 , x a , x b 
+n −1 ∑ 
+i =0 
+[ (
+arccos 
+(
+x i +1 0 − x i +1 a 
+‖ x i +1 0 − x i +1 a ‖ · x i 0 − x i a ‖ x i 0 − x i a ‖ ))2 + (arccos ( x i +1 0 − x i +1 b ‖ x i +1 0 − x i +1 b ‖ · x i 0 − x i b ‖ x i 0 − x i b ‖ ))2 ] 
+Subject to: 
+‖ x i 0 − x i −1 0 ‖ = l 0 , ‖ x i a − x i −1 a ‖ = l a , ‖ x i b − x i −1 b ‖ = l b 
+‖ x i 0 − x i b ‖ = a, ‖ x i 0 − x i a ‖ = a, 
+arccos 
+(
+x i a − x i 0 
+‖ x i a − x i 0 ‖ ·
+x i b − x i 0 
+‖ x i b − x i 0 ‖ 
+)
+= arccos 
+(
+X i a − X i 0 
+‖ X i a − X i 0 ‖ ·
+X i b − X i 0 
+‖ X i b − X i 0 ‖ 
+)
+f (x 0 ) ≽ 0 , f (x a ) ≽ 0 , f (x b ) ≽ 0 
+i = 1 , 2 , 3 , . . . , n (11) 
+Given data: X 0 , X a , X b , l 0 , l a , l b , a, f (x ) 
+The extra constraint on the angles between the vectors x a and x b ensure that the position of the holes remain ﬁxed 
+during bending. 
+3. Results and discussion 
+To validate the formulation, the equations are numerically solved and compared with the proﬁle of a robot prototype. 
+The prototype ( Fig. 4 (a)) is 3D printed using ABS material and is 183 mm long with 10 spacer disks of 3 mm each attached 
+at equal spacing. 
+This ﬁxes the length l 0 as 20 mm. The disks have 12 holes of 1.3 mm diameter arranged around the periphery of a circle 
+with 8 mm radius. Hence, a = 8 mm for this robot. For the cable, nylon cord of diameter 0.5 mm is used and is attached 
+to the topmost disk. The deformation of the robot is captured using a camera positioned perpendicular to the plane of 
+bending, and the proﬁle obtained from theoretical formulation is super-imposed on the captured images for comparison. 
+Fig. 4 (b) shows the actual deformation of the robot prototype with the simulated results superimposed on the same. 
+The red markers show the values of x 0 and the blue markers show the values of x a . The optimization problem was 
+solved using fmincon routine in MATLAB considering 18 segments (19 nodal co-ordinates) and interior-point algorithm 
+speciﬁed in the algorithm option. The co-ordinates of nodes of the backbone and the co-ordinates of the nodes on the 
+cable are assigned to two separate vector arrays in a main script. The initial values of nodes are taken such that the robot 
+6 
+
+===== PAGE 7 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 4. (a) Fabricated prototype of CCR with single cable passing through the disks. The cable is terminated at the topmost disk. The CCR is loaded by 
+hanging known weights from below, as shown in the inset. (b) CCR bending with simulated results superimposed on experimental photograph. 
+is initially vertical. One of the arguments of fmincon routine is the function to be minimized, which is calculated from 
+the ﬁrst expression in equation (4) . The optimization routine also collects the equality constraints in the form of a single 
+vector function, as a separate argument. A main script runs the fmincon routine by progressively reducing the value of 
+l for each iteration. The initial values of nodal vectors for each iteration is chosen as the ﬁnal values obtained from the 
+previous iteration so as to reduce the computation time. A total of 76 optimization variables are solved at once which took 
+about 2.6 seconds per iteration in an Intel processor at 2.00 GHz and 8 GB RAM. For all the experiments, the cable is pulled 
+by a certain amount, and the reduction of lengths of each cable segments are assumed to be equal, i.e., l a = l 0 − l n for all 
+the segments. Cable displacement is computed from photos using image processing. The root mean square of the difference 
+between the value of x 0 obtained experimentally and numerically is used as a measure of accuracy of estimation. For the 
+results shown in Fig. 4 (b), the RMS error is 1.35 mm, which is 0.75% of the length of the CCR. 
+3.1. Experimental validation of kinematics with obstacles 
+The solution to the optimization problem (5) is compared with experimental results for a single obstacle in 2D plane 
+and is shown in Fig. 5 (a). 
+An object with circular cross-section of diameter 30 mm is ﬁxed at a distance of 44 mm in the X direction and 104 mm 
+in the Y direction from the base. The proposed formulation correctly predicts the pose of the CCR with an error of 0.58% 
+of the total length of the CCR. In Fig. 5 (b), the numerical solution is compared with experimental proﬁle for CCR in contact 
+with two obstacles. The ﬁrst obstacle of diameter 25 mm is kept at a distance of 33 mm and 89 mm from the base in the X
+and Y directions respectively, the second obstacle of diameter 30 mm is kept at 59 mm and 140 mm from the base in the X
+and Y directions respectively. The error in this case in 0.58% of the total length of the CCR. In both cases, computation time 
+is about 4 seconds. 
+The Lagrange multipliers corresponding to the inequality constraint can be obtained from the output of the fmincon 
+routine. Fig. 6 show the Lagrange multipliers corresponding to the inequality constraints f 1 (x a ) ≽ 0 and f 2 (x a ) ≽ 0 , respec- 
+tively. The peak of the curves occur at the nodes 11 and 17 which corresponds to the disks 6 and 9 from the bottom. These 
+are the actual contact locations as can be observed from Fig. 5 (b). 
+3.2. Experimental validation of contact force measurement 
+The values for the tip displacement in x, y and θ directions as functions of l can be obtained from the kinematic analysis 
+as shown in Fig. 7 . 
+Linear curves are ﬁtted in this proﬁle whose slopes directly give the values of f 
+′ 
+x , f 
+′ 
+y , and f 
+′ 
+θ. Fig. 8 shows the experi- 
+mental set-up where a load cell is kept at 26 mm from the backbone in the X direction and 127 mm from the base. 
+As the CCR is pulled, the third disk from the top comes into contact with the load cell and the force readings in X
+direction are directly observed from the meter. The datum for the applied load F l is set to the value where the CCR is 
+in contact with the load cell. As per the experimental set-up, the component F y should be zero since the direction is not 
+constrained and the tip is allowed to slide along the surface of the load cell. However, this is not the case due to friction 
+7 
+
+===== PAGE 8 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 5. Resulting deformation for CCR in contact with (a) one obstacle, (b) two obstacles. 
+Fig. 6. Contact position estimation from Lagrange multipliers. 
+Fig. 7. Tip displacement in X, Y, θ directions as function of cable displacement. 
+8 
+
+===== PAGE 9 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 8. Experimental set-up for measuring contact forces. Force value is obtained from the meter in grams as shown in the inset. 
+Fig. 9. Contact force and kinematics for obstacle contact at third disk from the top. 
+between the load cell and the CCR. In order to account for this force, we assume the vertical force P y = μP x . Then from 
+equation (10) , we get 
+P x = −
+aF l f 
+′ 
+θ
+μ f 
+′ 
+y + f 
+′ 
+x 
+(12) 
+The quantity μ is found out from one experimental data point and is used throughout the rest of this paper. 
+Fig. 9 shows the experimental results with the numerical results superimposed on the ﬁgure. 
+Since the load cell imposes constraint in the X-direction only on the 15 th node, the constraint equation is prescribed as 
+f (x ) = d − x [15] a (13) 
+where x [15] a is the X-component of the position vector x a at the 15 th node and d is the distance between the backbone and 
+the load cell. The values of forces obtained experimentally is plotted alongside the numerical solution in Fig. 10 (a). 
+The experimental results accurately match the theoretical results with maximum error less than 1.0 g –t h e least count of 
+the load cell used for force measurements. More experiments are conducted by varying the distance between the backbone 
+and the load cell and the comparison between experimental and theoretical values are tabulated in Table 2 2 . 
+2 Each measurements were repeated 6 times and the mean value, rounded off to the nearest integer, is shown in the Table. 
+9 
+
+===== PAGE 10 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 10. Comparison between experimental and theoretical values of contact forces (a) when the third disk from the top touches the load cell, (b) for 
+different contact points in CCR. 
+Table 2 
+Experimental vs theoretical values of contact force when load cell is placed at d distance from the 
+centre of backbone. 
+F l (gram) Experimental F x (gram) Theoretical F x (gram) 
+d = 24 mm d = 31 mm d = 36 mm d = 51 mm 
+50 3 4 3 3 3.5 
+100 7 7 7 7 7.1 
+150 10 11 10 10 10.7 
+200 14 14 14 14 14.2 
+250 17 18 17 17 17.8 
+300 20 21 21 21 21.3 
+350 23 25 24 24 24.9 
+From experiments, the value of force is observed not to appreciably change with offset d. Further experiments are con- 
+ducted by changing the point of contact on the CCR. The resulting curves are plotted in Fig. 10 (b) for comparison. For all 
+cases, the average error in prediction is less than the least count of 1.0 g. 
+3.3. Simulation of kinematics with obstacles in 3D 
+Simulated results for the bending of CCR in 3D is shown in Fig. 11 . Accurate measurement of the CCR pose in 3D as well 
+as estimating the three dimensional contact forces to validate the theoretical solution is a work currently underway. 
+3.4. Discussion 
+The developed framework is able to predict the pose of the CCR with maximum error of 0.75% of the total length of the 
+CCR. All the numerical procedures are conducted by gradually increasing the cable contraction through small incremental 
+steps. As expected, the convergence of problems with obstacles is slower compared to those without obstacles. However, 
+the time taken for convergence for a single obstacle and two obstacles is almost the same. For the fmincon procedure pre- 
+sented in this paper, the authors did not manually specify the gradient of objective function. We believe that by specifying 
+the gradient, the convergence time could be further reduced. 
+The deviation between theoretical and experimental results for static analysis could be due to measurement errors from 
+the experimental set-up. Possible sources of errors are cable extensions under large weights, friction between the discs and 
+cable and dimensional inaccuracy arising from the surface ﬁnish of the 3D printed prototype. It should also be mentioned 
+that the proposed method for static analysis does not take into account the material properties of the CCR and also does 
+not derive its equations from elastic equilibrium equations. Hence, it is not possible to know the stress state of the system 
+using this method, which is one of its disadvantages. 
+As mentioned in Section 1 of the paper, there exists many methods in the literature which are shown to calculate the 
+kinematics of the robot with good degree of accuracy. However, the method presented in this paper is experimentally ver- 
+iﬁed to give accurate results while being methodologically simpler. This is because calculating the post-collision behaviour 
+of the CCR using available theoretical models require the knowledge of exact contact location on the CCR–which is either 
+directly obtained from observations or estimated using advanced controllers with the help of measured tip-pose data. In 
+10 
+
+===== PAGE 11 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+Fig. 11. Trajectory of CCR in 3D where two cables are actuated by equal amounts. 
+the proposed model however, prescription of the contact location itself is not necessary for calculating the post-collision 
+kinematics. A single formulation captures the characteristics for both pre-collision and post-collision kinematics, which is 
+the major advantage of this model. 
+4. Conclusions and future work 
+In this paper, an optimization-based framework for the kinematics of cable-driven continuum robots is presented. The 
+framework is derived from the minimum strain-energy principle and is experimentally shown to be accurate for predicting 
+the deformed pose of a robot with 0.75% error. In the developed method, presence of obstacles can be directly incorporated 
+in the optimization problem as inequality constraints. The method shown in the paper requires only the knowledge of the 
+position and shape of the obstacle, instead of the exact location of contact, to calculate the proﬁle of the robot after collision. 
+It is also shown that the contact location can be obtained by observing the Lagrange multipliers of the inequality constraints 
+in the optimization problem. The solution from experiments show that the framework gives the pose of a CCR with an error 
+of 0.58% in presence of single and multiple obstacles. A simpliﬁed approach to estimate the contact forces using the derived 
+kinematics and the method of virtual work is demonstrated. The statics analysis is shown to estimate the contact forces 
+with average error of less than 1.0 g. 
+As shown, the kinematic model can be extended to 3D motion of the CCR when two cables are actuated. Development 
+of 3D force measurement for the 3D contact is a work in progress. Improving the model to reduce the computation time for 
+real-time implementation in control systems is also a work in progress. 
+Declaration of Competing Interest 
+The authors declare that they have no known competing ﬁnancial interests or personal relationships that could have 
+appeared to inﬂuence the work reported in this paper. 
+Acknowledgement 
+The 3D printing of the CCR was done at the Design Innovation Center (DIC), UTSAAH Laboratory both at the Centre 
+for Product Design and Manufacturing and at the Makery Lab at the Robert Bosch Centre for Cyber Physical Systems. The 
+authors thank the help provided at these labs. 
+References 
+[1] G. Robinson , J.B.C. Davies , Continuum robots - a state of the art, in: Proceedings of the 1999 IEEE International Conference on Robotics and Automation, 
+ICRA99, 4, IEEE, 1999, pp. 2849–2854 . Conference date: 10-05-1999 Through 15-05-1999 
+[2] I.D. Walker , Continuous backbone “continuum” robot manipulators, Int Sch Res Notices 2013 (2013) . 
+[3] I.D. Walker , H. Choset , G.S. Chirikjian , Snake-like and continuum robots, in: Springer Handbook of Robotics, Springer, 2016, pp. 4 81–4 98 . 
+[4] R.J. Webster III , B.A. Jones , Design and kinematic modeling of constant curvature continuum robots: a review, Int J Rob Res 29 (13) (2010) 1661–1683 . 
+[5] G.S. Chirikjian , Conformational modeling of continuum structures in robotics and structural biology: a review, Adv. Rob. 29 (13) (2015) 817–829 . 
+11 
+
+===== PAGE 12 =====
+K.P. Ashwin, S.K. Mahapatra and A. Ghosal Mechanism and Machine Theory 164 (2021) 104404 
+[6] P. Rao , Q. Peyron , S. Lilge , J. Burgner-Kahrs , How to model tendon-driven continuum robots and benchmark modelling performance, Frontiers in 
+Robotics and AI 7 (2021) 223 . 
+[7] D.B. Camarillo , C.F. Milne , C.R. Carlson , M.R. Zinn , J.K. Salisbury , Mechanics modeling of tendon-driven continuum manipulators, IEEE Trans. Rob. 24 
+(6) (2008) 1262–1273 . 
+[8] A .K. Mishra , A . Mondini , E. Del Dottore , A. Sadeghi , F. Tramacere , B. Mazzolai , Modular continuum manipulator: analysis and characterization of its 
+basic module, Biomimetics 3 (1) (2018) 3 . 
+[9] H. Xu , J. Gan , X. Zhang , A generalized pseudo-rigid-body PPRR model for both straight and circular beams in compliant mechanisms, Mech Mach 
+Theory 154 (2020) 104054 . 
+[10] D.C. Rucker , R.J. Webster III , Statics and dynamics of continuum robots with general tendon routing and external loading, IEEE Trans. Rob. 27 (6) (2011) 
+1033–1044 . 
+[11] T. Do , T. Tjahjowidodo , M. Lau , S. Phee , A new approach of friction model for tendon-sheath actuated surgical systems: nonlinear modelling and 
+parameter identiﬁcation, Mech Mach Theory 85 (2015) 14–24 . 
+[12] M. Dehghani , S.A .A . Moosavian , Static modeling of continuum robots by circular elements, in: 2013 21st Iranian Conference on Electrical Engineering 
+(ICEE), IEEE, 2013, pp. 1–6 . 
+[13] M. Khoshnam , R.V. Patel , A pseudo-rigid-body 3R model for a steerable ablation catheter, in: 2013 IEEE International Conference on Robotics and 
+Automation, IEEE, 2013, pp. 4 427–4 432 . 
+[14] V.K. Venkiteswaran , J. Sikorski , S. Misra , Shape and contact force estimation of continuum manipulators using pseudo rigid body models, Mech Mach 
+Theory 139 (2019) 34–45 . 
+[15] H.-T. Ryu , J. Woo , B.-R. So , B.-J. Yi , Shape and contact force estimation of inserted ﬂexible medical device, Int. J. Control Autom. Syst. 18 (1) (2020) 
+163–174 . 
+[16] A. Bajo , N. Simaan , Finding lost wrenches: Using continuum robots for contact detection and estimation of contact location, in: 2010 IEEE International 
+Conference on Robotics and Automation, IEEE, 2010, pp. 3666–3673 . 
+[17] A. Bajo , N. Simaan , Kinematics-based detection and localization of contacts along multisegment continuum robots, IEEE Trans. Rob. 28 (2) (2011) 
+291–302 . 
+[18] A. Gao , N. Liu , M. Shen , M. EMK Abdelaziz , B. Temelkuran , G.-Z. Yang , Laser-proﬁled continuum robot with integrated tension sensing for simultaneous 
+shape and tip force estimation, Soft Rob. 7 (4) (2020) 421–443 . 
+[19] Q. Qiao , D. Willems , G. Borghesan , M. Ourak , J. De Schutter , E. Vander Poorten , Estimating and localizing external forces applied on ﬂexible instruments 
+by shape sensing, in: 2019 19th International Conference on Advanced Robotics (ICAR), IEEE, 2019, pp. 227–233 . 
+[20] H. Yuan , P.W.Y. Chiu , Z. Li , Shape-reconstruction-based force sensing method for continuum surgical robots with large deformation, IEEE Rob. Autom. 
+Lett. 2 (4) (2017) 1972–1979 . 
+[21] M. Khoshnam , R.V. Patel , Estimating contact force for steerable ablation catheters based on shape analysis, in: 2014 IEEE/RSJ International Conference 
+on Intelligent Robots and Systems, IEEE, 2014, pp. 3509–3514 . Conference date: 10-05-1999 Through 15-05-1999 
+[22] A. Bajo , N. Simaan , Hybrid motion/force control of multi-backbone continuum robots, Int J Rob Res 35 (4) (2016) 422–434 . 
+[23] D.C. Rucker , R.J. Webster , Deﬂection-based force sensing for continuum robots: A probabilistic approach, in: 2011 IEEE/RSJ International Conference on 
+Intelligent Robots and Systems, IEEE, 2011, pp. 3764–3769 . 
+[24] T. Morales Bieze , A. Kruszewski , B. Carrez , C. Duriez , Design, implementation, and control of a deformable manipulator robot based on a compliant 
+spine, Int J Rob Res 39 (14) (2020) 1604–1619 . 
+[25] S. Grazioso , G. Di Gironimo , B. Siciliano , A geometrically exact model for soft continuum robots: the ﬁnite element deformation space formulation, 
+Soft Rob. 6 (6) (2019) 790–811 . 
+[26] O. Goury , B. Carrez , C. Duriez , Real-time simulation for control of soft robots with self-collisions using model order reduction for contact forces, IEEE 
+Rob. Autom. Lett. 6 (2) (2021) 3752–3759 . 
+[27] A. Shiva , S.H. Sadati , Y. Noh , J. Fra ´s , A. Ataka , H. Würdemann , H. Hauser , I.D. Walker , T. Nanayakkara , K. Althoefer , Elasticity versus hyperelasticity con- 
+siderations in quasistatic modeling of a soft ﬁnger-like robotic appendage for real-time position and force estimation, Soft Rob. 6 (2) (2019) 228–249 . 
+[28] K.P. Ashwin , A. Ghosal , Forward kinematics of cable-driven continuum robot using optimization method, in: Mechanism and Machine Science, Springer, 
+2021, pp. 391–403 . 
+[29] M.S. Menon , G.K. Ananthasuresh , A. Ghosal , Natural motion of one-dimensional ﬂexible objects using minimization approaches, Mech Mach Theory 67 
+(2013) 64–76 . 
+[30] K.P. Ashwin , A.N. Chaudhury , A. Ghosal , Eﬃcient representation of ducts and cluttered spaces for realistic motion planning of hyper-redundant robots 
+through conﬁned paths, Comput.-Aided Des. 119 (2020) 102777 . 
+[31] I.A. Gravagne , C.D. Rahn , I.D. Walker ,L a r g e deﬂection dynamics and control for planar continuum robots, IEEE/ASME Trans. Mechatron. 8 (2) (2003) 
+299–307 . 
+12

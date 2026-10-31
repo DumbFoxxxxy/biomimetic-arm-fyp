@@ -1,0 +1,1880 @@
+{
+  "scope": "27 anatomical muscle structure mappings and surface-distance probes on upper-limb and imported support references; no origin/insertion landmark or cable-anchor verification",
+  "method": "atlas determines allowed structures first; proximity never chooses anatomical identity. Exact nearest triangle is bounded using centroid distance plus maximum triangle radius. Patch threshold2mm, additional5mm count is diagnostic only.",
+  "muscles": [
+    {
+      "id": "FJ1446",
+      "name": "Abdominal part of right pectoralis major",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "abdominal_aponeurosis"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "胸大肌腹部的腱膜起始区域",
+        "insertion_named_region": "肱骨结节间沟外侧唇",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/pectoralis-major",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "abdominal_aponeurosis",
+          "status": "support geometry absent from current five bones; must design frame interface or add anatomical reference",
+          "coordinate_fabricated": false
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨结节间沟外侧唇",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 49,
+          "selected_face_count_5mm": 139,
+          "sampled_muscle_surface_area_within_2mm_mm2": 220.8207777024303,
+          "minimum_centroid_gap_mm": 0.01807589290355851,
+          "data": "FJ1446_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1447",
+      "name": "Clavicular part of right pectoralis major",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "clavicle"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "锁骨前侧内段",
+        "insertion_named_region": "肱骨结节间沟外侧唇",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/pectoralis-major",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "锁骨前侧内段",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 321,
+          "selected_face_count_5mm": 480,
+          "sampled_muscle_surface_area_within_2mm_mm2": 950.4200129263849,
+          "minimum_centroid_gap_mm": 0.0008964292502600601,
+          "data": "FJ1447_origin_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨结节间沟外侧唇",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 113,
+          "selected_face_count_5mm": 305,
+          "sampled_muscle_surface_area_within_2mm_mm2": 418.53472661270484,
+          "minimum_centroid_gap_mm": 0.009262279520174001,
+          "data": "FJ1447_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1456",
+      "name": "Right pectoralis minor",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "ribs",
+          "costal_cartilage"
+        ],
+        "insertion_structures": [
+          "scapula"
+        ],
+        "origin_named_region": "第三至第五肋附近",
+        "insertion_named_region": "喙突上内侧",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/pectoralis-minor",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "ribs",
+          "target_reference_ids": [
+            "FJ3334",
+            "FJ3336",
+            "FJ3338",
+            "FJ3340",
+            "FJ3342",
+            "FJ3344",
+            "FJ3346",
+            "FJ3347",
+            "FJ3348"
+          ],
+          "named_region": "第三至第五肋附近",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 2756,
+          "selected_face_count_5mm": 4524,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2481.408204544171,
+          "minimum_centroid_gap_mm": 8.603371177428695e-05,
+          "data": "FJ1456_origin_ribs.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "costal_cartilage",
+          "target_reference_ids": [
+            "FJ3333",
+            "FJ3335",
+            "FJ3337",
+            "FJ3339",
+            "FJ3341",
+            "FJ3343",
+            "FJ3345"
+          ],
+          "named_region": "第三至第五肋附近",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 25.90269318862262,
+          "data": "FJ1456_origin_costal_cartilage.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "喙突上内侧",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 240,
+          "selected_face_count_5mm": 659,
+          "sampled_muscle_surface_area_within_2mm_mm2": 196.23718224094682,
+          "minimum_centroid_gap_mm": 0.004007727803307436,
+          "data": "FJ1456_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1459",
+      "name": "Right serratus anterior",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "ribs"
+        ],
+        "insertion_structures": [
+          "scapula"
+        ],
+        "origin_named_region": "胸侧上八至九肋相关区域",
+        "insertion_named_region": "肩胛内侧缘",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/serratus-anterior",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "ribs",
+          "target_reference_ids": [
+            "FJ3334",
+            "FJ3336",
+            "FJ3338",
+            "FJ3340",
+            "FJ3342",
+            "FJ3344",
+            "FJ3346",
+            "FJ3347",
+            "FJ3348"
+          ],
+          "named_region": "胸侧上八至九肋相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 7240,
+          "selected_face_count_5mm": 20192,
+          "sampled_muscle_surface_area_within_2mm_mm2": 10020.401453403007,
+          "minimum_centroid_gap_mm": 0.00021904825133334596,
+          "data": "FJ1459_origin_ribs.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛内侧缘",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 3729,
+          "selected_face_count_5mm": 6686,
+          "sampled_muscle_surface_area_within_2mm_mm2": 5034.873600201958,
+          "minimum_centroid_gap_mm": 0.00022352101510422531,
+          "data": "FJ1459_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1460",
+      "name": "Right subclavius",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "first_rib",
+          "costal_cartilage"
+        ],
+        "insertion_structures": [
+          "clavicle"
+        ],
+        "origin_named_region": "第一肋与肋软骨交界",
+        "insertion_named_region": "锁骨中段下方沟",
+        "source_url": "https://www.meddean.luc.edu/lumen/meded/grossanatomy/dissector/mml/subc.htm",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "first_rib",
+          "target_reference_ids": [
+            "FJ3334"
+          ],
+          "named_region": "第一肋与肋软骨交界",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 85,
+          "selected_face_count_5mm": 378,
+          "sampled_muscle_surface_area_within_2mm_mm2": 158.63218288675182,
+          "minimum_centroid_gap_mm": 0.004013548300821749,
+          "data": "FJ1460_origin_first_rib.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "costal_cartilage",
+          "target_reference_ids": [
+            "FJ3333",
+            "FJ3335",
+            "FJ3337",
+            "FJ3339",
+            "FJ3341",
+            "FJ3343",
+            "FJ3345"
+          ],
+          "named_region": "第一肋与肋软骨交界",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 294,
+          "selected_face_count_5mm": 422,
+          "sampled_muscle_surface_area_within_2mm_mm2": 207.3550016615211,
+          "minimum_centroid_gap_mm": 0.00017459953592405725,
+          "data": "FJ1460_origin_costal_cartilage.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "锁骨中段下方沟",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 590,
+          "selected_face_count_5mm": 1057,
+          "sampled_muscle_surface_area_within_2mm_mm2": 843.2413161620083,
+          "minimum_centroid_gap_mm": 0.004047881726079063,
+          "data": "FJ1460_insertion_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1464",
+      "name": "Sternocostal part of right pectoralis major",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "sternum",
+          "costal_cartilage",
+          "ribs"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "胸骨、上部肋软骨相关区域",
+        "insertion_named_region": "肱骨结节间沟外侧唇",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/pectoralis-major",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "sternum",
+          "target_reference_ids": [
+            "FJ3153",
+            "FJ3178",
+            "FJ3290"
+          ],
+          "named_region": "胸骨、上部肋软骨相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 571,
+          "selected_face_count_5mm": 1080,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2067.0930723316287,
+          "minimum_centroid_gap_mm": 0.008081211235853685,
+          "data": "FJ1464_origin_sternum.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "costal_cartilage",
+          "target_reference_ids": [
+            "FJ3333",
+            "FJ3335",
+            "FJ3337",
+            "FJ3339",
+            "FJ3341",
+            "FJ3343",
+            "FJ3345"
+          ],
+          "named_region": "胸骨、上部肋软骨相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 688,
+          "selected_face_count_5mm": 1497,
+          "sampled_muscle_surface_area_within_2mm_mm2": 4952.698639682803,
+          "minimum_centroid_gap_mm": 0.004070460674764603,
+          "data": "FJ1464_origin_costal_cartilage.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "ribs",
+          "target_reference_ids": [
+            "FJ3334",
+            "FJ3336",
+            "FJ3338",
+            "FJ3340",
+            "FJ3342",
+            "FJ3344",
+            "FJ3346",
+            "FJ3347",
+            "FJ3348"
+          ],
+          "named_region": "胸骨、上部肋软骨相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 225,
+          "selected_face_count_5mm": 424,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2866.4245028525343,
+          "minimum_centroid_gap_mm": 0.014825288284714145,
+          "data": "FJ1464_origin_ribs.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨结节间沟外侧唇",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 89,
+          "selected_face_count_5mm": 244,
+          "sampled_muscle_surface_area_within_2mm_mm2": 269.88858005382707,
+          "minimum_centroid_gap_mm": 0.0015414430519938437,
+          "data": "FJ1464_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1467",
+      "name": "Acromial part of right deltoid",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩峰",
+        "insertion_named_region": "肱骨三角肌粗隆",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/deltoid",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩峰",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 240,
+          "selected_face_count_5mm": 384,
+          "sampled_muscle_surface_area_within_2mm_mm2": 368.1298091763947,
+          "minimum_centroid_gap_mm": 0.008173558075449235,
+          "data": "FJ1467_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨三角肌粗隆",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 100,
+          "selected_face_count_5mm": 187,
+          "sampled_muscle_surface_area_within_2mm_mm2": 878.6738009095135,
+          "minimum_centroid_gap_mm": 0.006477226594503907,
+          "data": "FJ1467_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1468",
+      "name": "Clavicular part of right deltoid",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "clavicle"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "锁骨外侧段",
+        "insertion_named_region": "肱骨三角肌粗隆",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/deltoid",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "锁骨外侧段",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 951,
+          "selected_face_count_5mm": 1031,
+          "sampled_muscle_surface_area_within_2mm_mm2": 703.7126652061988,
+          "minimum_centroid_gap_mm": 9.144451349148532e-05,
+          "data": "FJ1468_origin_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨三角肌粗隆",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 66,
+          "selected_face_count_5mm": 121,
+          "sampled_muscle_surface_area_within_2mm_mm2": 339.53098415329384,
+          "minimum_centroid_gap_mm": 0.08280990151552631,
+          "data": "FJ1468_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1477",
+      "name": "Lateral head of right triceps brachii",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "humerus"
+        ],
+        "insertion_structures": [
+          "ulna"
+        ],
+        "origin_named_region": "肱骨后侧、桡神经沟上方",
+        "insertion_named_region": "尺骨鹰嘴近端",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/triceps-brachii",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨后侧、桡神经沟上方",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 249,
+          "selected_face_count_5mm": 439,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2638.3348722175783,
+          "minimum_centroid_gap_mm": 0.008215468808273445,
+          "data": "FJ1477_origin_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "ulna",
+          "target_reference_ids": [
+            "FJ3391"
+          ],
+          "named_region": "尺骨鹰嘴近端",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 193,
+          "selected_face_count_5mm": 227,
+          "sampled_muscle_surface_area_within_2mm_mm2": 167.72369622390397,
+          "minimum_centroid_gap_mm": 0.058629383239382264,
+          "data": "FJ1477_insertion_ulna.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1478",
+      "name": "Long head of right biceps brachii",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "radius"
+        ],
+        "origin_named_region": "肩胛盂上结节",
+        "insertion_named_region": "桡骨粗隆；另有腱膜连接不在本骨模型中",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/biceps-brachii",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛盂上结节",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 12,
+          "selected_face_count_5mm": 20,
+          "sampled_muscle_surface_area_within_2mm_mm2": 41.597022785636455,
+          "minimum_centroid_gap_mm": 0.1913951184267332,
+          "data": "FJ1478_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "radius",
+          "target_reference_ids": [
+            "FJ3349"
+          ],
+          "named_region": "桡骨粗隆；另有腱膜连接不在本骨模型中",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 33,
+          "selected_face_count_5mm": 111,
+          "sampled_muscle_surface_area_within_2mm_mm2": 151.43514691462246,
+          "minimum_centroid_gap_mm": 0.05064093414287272,
+          "data": "FJ1478_insertion_radius.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1479",
+      "name": "Long head of right triceps brachii",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "ulna"
+        ],
+        "origin_named_region": "肩胛盂下结节",
+        "insertion_named_region": "尺骨鹰嘴近端",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/triceps-brachii",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛盂下结节",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 103,
+          "selected_face_count_5mm": 166,
+          "sampled_muscle_surface_area_within_2mm_mm2": 338.319421585087,
+          "minimum_centroid_gap_mm": 0.025124073050601454,
+          "data": "FJ1479_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "ulna",
+          "target_reference_ids": [
+            "FJ3391"
+          ],
+          "named_region": "尺骨鹰嘴近端",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 110,
+          "selected_face_count_5mm": 194,
+          "sampled_muscle_surface_area_within_2mm_mm2": 254.57698064304182,
+          "minimum_centroid_gap_mm": 0.004334558689020103,
+          "data": "FJ1479_insertion_ulna.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1480",
+      "name": "Medial head of right triceps brachii",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "humerus"
+        ],
+        "insertion_structures": [
+          "ulna"
+        ],
+        "origin_named_region": "肱骨后侧、桡神经沟下方",
+        "insertion_named_region": "尺骨鹰嘴近端",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/triceps-brachii",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨后侧、桡神经沟下方",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 301,
+          "selected_face_count_5mm": 381,
+          "sampled_muscle_surface_area_within_2mm_mm2": 4537.608453582711,
+          "minimum_centroid_gap_mm": 0.0011759954498317621,
+          "data": "FJ1480_origin_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "ulna",
+          "target_reference_ids": [
+            "FJ3391"
+          ],
+          "named_region": "尺骨鹰嘴近端",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 97,
+          "selected_face_count_5mm": 165,
+          "sampled_muscle_surface_area_within_2mm_mm2": 600.7377141710092,
+          "minimum_centroid_gap_mm": 0.005226982351796783,
+          "data": "FJ1480_insertion_ulna.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1486",
+      "name": "Right brachialis",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "humerus"
+        ],
+        "insertion_structures": [
+          "ulna"
+        ],
+        "origin_named_region": "肱骨远端前侧",
+        "insertion_named_region": "尺骨冠突与粗隆",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/brachialis",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨远端前侧",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 461,
+          "selected_face_count_5mm": 694,
+          "sampled_muscle_surface_area_within_2mm_mm2": 6256.7304663152445,
+          "minimum_centroid_gap_mm": 0.0009369813271489368,
+          "data": "FJ1486_origin_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "ulna",
+          "target_reference_ids": [
+            "FJ3391"
+          ],
+          "named_region": "尺骨冠突与粗隆",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 140,
+          "selected_face_count_5mm": 215,
+          "sampled_muscle_surface_area_within_2mm_mm2": 619.7266595617816,
+          "minimum_centroid_gap_mm": 0.004370764357031982,
+          "data": "FJ1486_insertion_ulna.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1488",
+      "name": "Right coracobrachialis",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛喙突尖部",
+        "insertion_named_region": "肱骨内侧中段",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/coracobrachialis",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛喙突尖部",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 22,
+          "selected_face_count_5mm": 103,
+          "sampled_muscle_surface_area_within_2mm_mm2": 41.63963121579148,
+          "minimum_centroid_gap_mm": 0.1240721661499642,
+          "data": "FJ1488_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨内侧中段",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 103,
+          "selected_face_count_5mm": 133,
+          "sampled_muscle_surface_area_within_2mm_mm2": 390.4393345590447,
+          "minimum_centroid_gap_mm": 0.019851479243243462,
+          "data": "FJ1488_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1500",
+      "name": "Right infraspinatus muscle",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛冈下窝",
+        "insertion_named_region": "肱骨大结节中面",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/infraspinatus",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛冈下窝",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 360,
+          "selected_face_count_5mm": 456,
+          "sampled_muscle_surface_area_within_2mm_mm2": 6608.130885721153,
+          "minimum_centroid_gap_mm": 0.0007277718203139957,
+          "data": "FJ1500_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨大结节中面",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 228,
+          "selected_face_count_5mm": 262,
+          "sampled_muscle_surface_area_within_2mm_mm2": 904.2756006955179,
+          "minimum_centroid_gap_mm": 0.0016599981958188542,
+          "data": "FJ1500_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1504",
+      "name": "Right subscapularis",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛下窝",
+        "insertion_named_region": "肱骨小结节",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/subscapularis",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛下窝",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 762,
+          "selected_face_count_5mm": 1434,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2285.5046607037966,
+          "minimum_centroid_gap_mm": 0.7748959779442268,
+          "data": "FJ1504_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨小结节",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 288,
+          "selected_face_count_5mm": 341,
+          "sampled_muscle_surface_area_within_2mm_mm2": 902.9758519952537,
+          "minimum_centroid_gap_mm": 0.001596119625255289,
+          "data": "FJ1504_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1506",
+      "name": "Right supraspinatus",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛冈上窝",
+        "insertion_named_region": "肱骨大结节上面",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/supraspinatus",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛冈上窝",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 268,
+          "selected_face_count_5mm": 427,
+          "sampled_muscle_surface_area_within_2mm_mm2": 2220.5129460163953,
+          "minimum_centroid_gap_mm": 0.006621277970498862,
+          "data": "FJ1506_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨大结节上面",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 270,
+          "selected_face_count_5mm": 372,
+          "sampled_muscle_surface_area_within_2mm_mm2": 1046.2146221805397,
+          "minimum_centroid_gap_mm": 0.0007997231866444727,
+          "data": "FJ1506_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1507",
+      "name": "Right teres major",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛下角后侧",
+        "insertion_named_region": "肱骨结节间沟内侧唇",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/teres-major",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛下角后侧",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 89,
+          "selected_face_count_5mm": 283,
+          "sampled_muscle_surface_area_within_2mm_mm2": 1243.4062534793577,
+          "minimum_centroid_gap_mm": 0.05257824343932501,
+          "data": "FJ1507_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨结节间沟内侧唇",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 214,
+          "selected_face_count_5mm": 268,
+          "sampled_muscle_surface_area_within_2mm_mm2": 282.94805636045317,
+          "minimum_centroid_gap_mm": 0.0007344613719271837,
+          "data": "FJ1507_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1508",
+      "name": "Right teres minor",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛外侧缘上部",
+        "insertion_named_region": "肱骨大结节下面",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/teres-minor",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛外侧缘上部",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 133,
+          "selected_face_count_5mm": 235,
+          "sampled_muscle_surface_area_within_2mm_mm2": 881.6770640306748,
+          "minimum_centroid_gap_mm": 0.0038217659293027523,
+          "data": "FJ1508_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨大结节下面",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 96,
+          "selected_face_count_5mm": 121,
+          "sampled_muscle_surface_area_within_2mm_mm2": 714.2360248048915,
+          "minimum_centroid_gap_mm": 0.0009439556249233076,
+          "data": "FJ1508_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1512",
+      "name": "Short head of right biceps brachii",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "radius"
+        ],
+        "origin_named_region": "肩胛喙突尖部",
+        "insertion_named_region": "桡骨粗隆；另有腱膜连接不在本骨模型中",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/biceps-brachii",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛喙突尖部",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 52,
+          "selected_face_count_5mm": 125,
+          "sampled_muscle_surface_area_within_2mm_mm2": 47.247204639581234,
+          "minimum_centroid_gap_mm": 0.015120626739118766,
+          "data": "FJ1512_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "radius",
+          "target_reference_ids": [
+            "FJ3349"
+          ],
+          "named_region": "桡骨粗隆；另有腱膜连接不在本骨模型中",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 36.4460729390242,
+          "data": "FJ1512_insertion_radius.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1513",
+      "name": "Spinal part of right deltoid",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "scapula"
+        ],
+        "insertion_structures": [
+          "humerus"
+        ],
+        "origin_named_region": "肩胛冈",
+        "insertion_named_region": "肱骨三角肌粗隆",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/deltoid",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛冈",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 404,
+          "selected_face_count_5mm": 559,
+          "sampled_muscle_surface_area_within_2mm_mm2": 1175.8269406181375,
+          "minimum_centroid_gap_mm": 0.0020533952869253944,
+          "data": "FJ1513_origin_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "humerus",
+          "target_reference_ids": [
+            "FJ3368"
+          ],
+          "named_region": "肱骨三角肌粗隆",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 183,
+          "selected_face_count_5mm": 249,
+          "sampled_muscle_surface_area_within_2mm_mm2": 764.725353533028,
+          "minimum_centroid_gap_mm": 0.0062741823386257035,
+          "data": "FJ1513_insertion_humerus.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1520",
+      "name": "Ascending part of right trapezius",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "occiput",
+          "nuchal_ligament",
+          "cervical_spine",
+          "thoracic_spine"
+        ],
+        "insertion_structures": [
+          "clavicle",
+          "scapula"
+        ],
+        "origin_named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+        "insertion_named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/trapezius",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "occiput",
+          "target_reference_ids": [
+            "FJ3309"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 146.05848568376607,
+          "data": "FJ1520_origin_occiput.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "nuchal_ligament",
+          "status": "support geometry absent from current five bones; must design frame interface or add anatomical reference",
+          "coordinate_fabricated": false
+        },
+        {
+          "role": "origin",
+          "structure": "cervical_spine",
+          "target_reference_ids": [
+            "FJ3161",
+            "FJ3164",
+            "FJ3167",
+            "FJ3170",
+            "FJ3172",
+            "FJ3176",
+            "FJ3177"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 33.14359370041081,
+          "data": "FJ1520_origin_cervical_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "thoracic_spine",
+          "target_reference_ids": [
+            "FJ3154",
+            "FJ3155",
+            "FJ3156",
+            "FJ3158",
+            "FJ3160",
+            "FJ3163",
+            "FJ3166",
+            "FJ3169",
+            "FJ3171",
+            "FJ3173",
+            "FJ3174",
+            "FJ3175"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 730,
+          "selected_face_count_5mm": 1871,
+          "sampled_muscle_surface_area_within_2mm_mm2": 696.0601083016604,
+          "minimum_centroid_gap_mm": 0.002834405328880945,
+          "data": "FJ1520_origin_thoracic_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 13.487567967947383,
+          "data": "FJ1520_insertion_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 503,
+          "selected_face_count_5mm": 932,
+          "sampled_muscle_surface_area_within_2mm_mm2": 765.5478328956997,
+          "minimum_centroid_gap_mm": 0.0006440093670953758,
+          "data": "FJ1520_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1521",
+      "name": "Descending part of right trapezius",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "occiput",
+          "nuchal_ligament",
+          "cervical_spine",
+          "thoracic_spine"
+        ],
+        "insertion_structures": [
+          "clavicle",
+          "scapula"
+        ],
+        "origin_named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+        "insertion_named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/trapezius",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "occiput",
+          "target_reference_ids": [
+            "FJ3309"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 787,
+          "selected_face_count_5mm": 1014,
+          "sampled_muscle_surface_area_within_2mm_mm2": 1561.8546671437243,
+          "minimum_centroid_gap_mm": 0.0034928992524191323,
+          "data": "FJ1521_origin_occiput.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "nuchal_ligament",
+          "status": "support geometry absent from current five bones; must design frame interface or add anatomical reference",
+          "coordinate_fabricated": false
+        },
+        {
+          "role": "origin",
+          "structure": "cervical_spine",
+          "target_reference_ids": [
+            "FJ3161",
+            "FJ3164",
+            "FJ3167",
+            "FJ3170",
+            "FJ3172",
+            "FJ3176",
+            "FJ3177"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 373,
+          "selected_face_count_5mm": 982,
+          "sampled_muscle_surface_area_within_2mm_mm2": 408.7821045440361,
+          "minimum_centroid_gap_mm": 0.01085422323388392,
+          "data": "FJ1521_origin_cervical_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "thoracic_spine",
+          "target_reference_ids": [
+            "FJ3154",
+            "FJ3155",
+            "FJ3156",
+            "FJ3158",
+            "FJ3160",
+            "FJ3163",
+            "FJ3166",
+            "FJ3169",
+            "FJ3171",
+            "FJ3173",
+            "FJ3174",
+            "FJ3175"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 13.42400962277665,
+          "data": "FJ1521_origin_thoracic_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 386,
+          "selected_face_count_5mm": 1065,
+          "sampled_muscle_surface_area_within_2mm_mm2": 646.2325732993322,
+          "minimum_centroid_gap_mm": 0.000894245147799653,
+          "data": "FJ1521_insertion_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 11.487954081036637,
+          "data": "FJ1521_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1532",
+      "name": "Right levator scapulae",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "cervical_spine"
+        ],
+        "insertion_structures": [
+          "scapula"
+        ],
+        "origin_named_region": "C1–C4横突区域",
+        "insertion_named_region": "肩胛内侧缘上段",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/levator-scapulae",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "cervical_spine",
+          "target_reference_ids": [
+            "FJ3161",
+            "FJ3164",
+            "FJ3167",
+            "FJ3170",
+            "FJ3172",
+            "FJ3176",
+            "FJ3177"
+          ],
+          "named_region": "C1–C4横突区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 528,
+          "selected_face_count_5mm": 949,
+          "sampled_muscle_surface_area_within_2mm_mm2": 193.93786599858328,
+          "minimum_centroid_gap_mm": 0.01833958124043268,
+          "data": "FJ1532_origin_cervical_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛内侧缘上段",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 798,
+          "selected_face_count_5mm": 1074,
+          "sampled_muscle_surface_area_within_2mm_mm2": 434.3639007946375,
+          "minimum_centroid_gap_mm": 0.0014467848714311501,
+          "data": "FJ1532_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1536",
+      "name": "Right rhomboid major",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "thoracic_spine"
+        ],
+        "insertion_structures": [
+          "scapula"
+        ],
+        "origin_named_region": "T2–T5棘突区域",
+        "insertion_named_region": "肩胛内侧缘相关区域",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/rhomboid-major-and-minor",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "thoracic_spine",
+          "target_reference_ids": [
+            "FJ3154",
+            "FJ3155",
+            "FJ3156",
+            "FJ3158",
+            "FJ3160",
+            "FJ3163",
+            "FJ3166",
+            "FJ3169",
+            "FJ3171",
+            "FJ3173",
+            "FJ3174",
+            "FJ3175"
+          ],
+          "named_region": "T2–T5棘突区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 454,
+          "selected_face_count_5mm": 1207,
+          "sampled_muscle_surface_area_within_2mm_mm2": 246.96402417589903,
+          "minimum_centroid_gap_mm": 0.005749540409173876,
+          "data": "FJ1536_origin_thoracic_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛内侧缘相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 1377,
+          "selected_face_count_5mm": 1849,
+          "sampled_muscle_surface_area_within_2mm_mm2": 939.0741833376868,
+          "minimum_centroid_gap_mm": 0.0011660307514092026,
+          "data": "FJ1536_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1537",
+      "name": "Right rhomboid minor",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "nuchal_ligament",
+          "cervical_spine",
+          "thoracic_spine"
+        ],
+        "insertion_structures": [
+          "scapula"
+        ],
+        "origin_named_region": "项韧带及C7、T1区域",
+        "insertion_named_region": "肩胛内侧缘相关区域",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/rhomboid-major-and-minor",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": false,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "nuchal_ligament",
+          "status": "support geometry absent from current five bones; must design frame interface or add anatomical reference",
+          "coordinate_fabricated": false
+        },
+        {
+          "role": "origin",
+          "structure": "cervical_spine",
+          "target_reference_ids": [
+            "FJ3161",
+            "FJ3164",
+            "FJ3167",
+            "FJ3170",
+            "FJ3172",
+            "FJ3176",
+            "FJ3177"
+          ],
+          "named_region": "项韧带及C7、T1区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 165,
+          "selected_face_count_5mm": 461,
+          "sampled_muscle_surface_area_within_2mm_mm2": 154.62445280088056,
+          "minimum_centroid_gap_mm": 0.024056100783630765,
+          "data": "FJ1537_origin_cervical_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "thoracic_spine",
+          "target_reference_ids": [
+            "FJ3154",
+            "FJ3155",
+            "FJ3156",
+            "FJ3158",
+            "FJ3160",
+            "FJ3163",
+            "FJ3166",
+            "FJ3169",
+            "FJ3171",
+            "FJ3173",
+            "FJ3174",
+            "FJ3175"
+          ],
+          "named_region": "项韧带及C7、T1区域",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 7.252355901652128,
+          "data": "FJ1537_origin_thoracic_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "肩胛内侧缘相关区域",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 392,
+          "selected_face_count_5mm": 538,
+          "sampled_muscle_surface_area_within_2mm_mm2": 285.62960062129866,
+          "minimum_centroid_gap_mm": 0.017284162921047036,
+          "data": "FJ1537_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    },
+    {
+      "id": "FJ1554",
+      "name": "Transverse part of right trapezius",
+      "anatomical_structure_constraints": {
+        "origin_structures": [
+          "occiput",
+          "nuchal_ligament",
+          "cervical_spine",
+          "thoracic_spine"
+        ],
+        "insertion_structures": [
+          "clavicle",
+          "scapula"
+        ],
+        "origin_named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+        "insertion_named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+        "source_url": "https://www.rad.washington.edu/muscle-atlas/trapezius",
+        "source_review_date": "2026-10-30",
+        "broad_attachment_review": true,
+        "anatomical_landmark_coordinates_verified": false,
+        "drill_or_wire_anchor_frozen": false
+      },
+      "regions": [
+        {
+          "role": "origin",
+          "structure": "occiput",
+          "target_reference_ids": [
+            "FJ3309"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 0,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 100.69311380966202,
+          "data": "FJ1554_origin_occiput.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "nuchal_ligament",
+          "status": "support geometry absent from current five bones; must design frame interface or add anatomical reference",
+          "coordinate_fabricated": false
+        },
+        {
+          "role": "origin",
+          "structure": "cervical_spine",
+          "target_reference_ids": [
+            "FJ3161",
+            "FJ3164",
+            "FJ3167",
+            "FJ3170",
+            "FJ3172",
+            "FJ3176",
+            "FJ3177"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 75,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 2.725781271323931,
+          "data": "FJ1554_origin_cervical_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "origin",
+          "structure": "thoracic_spine",
+          "target_reference_ids": [
+            "FJ3154",
+            "FJ3155",
+            "FJ3156",
+            "FJ3158",
+            "FJ3160",
+            "FJ3163",
+            "FJ3166",
+            "FJ3169",
+            "FJ3171",
+            "FJ3173",
+            "FJ3174",
+            "FJ3175"
+          ],
+          "named_region": "斜方肌整体起始区；各分部区域须按模型另行标定",
+          "status": "no <=2mm proximity patch; needs landmark review",
+          "selected_face_count_2mm": 0,
+          "selected_face_count_5mm": 78,
+          "sampled_muscle_surface_area_within_2mm_mm2": 0.0,
+          "minimum_centroid_gap_mm": 3.0009218754950147,
+          "data": "FJ1554_origin_thoracic_spine.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "clavicle",
+          "target_reference_ids": [
+            "FJ3362"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 26,
+          "selected_face_count_5mm": 73,
+          "sampled_muscle_surface_area_within_2mm_mm2": 141.73032804601672,
+          "minimum_centroid_gap_mm": 0.0019049734848947013,
+          "data": "FJ1554_insertion_clavicle.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        },
+        {
+          "role": "insertion",
+          "structure": "scapula",
+          "target_reference_ids": [
+            "FJ3384"
+          ],
+          "named_region": "斜方肌整体止区含锁骨外段、肩峰和肩胛冈；不要求每分部同时连接两骨",
+          "status": "unverified atlas-constrained proximity patch",
+          "selected_face_count_2mm": 447,
+          "selected_face_count_5mm": 690,
+          "sampled_muscle_surface_area_within_2mm_mm2": 995.8420245431682,
+          "minimum_centroid_gap_mm": 0.0012024178694358238,
+          "data": "FJ1554_insertion_scapula.npz",
+          "semantic_landmark_localized": false,
+          "centroid_is_not_drill_point": true
+        }
+      ],
+      "fiber_direction_verified": false,
+      "frozen": false
+    }
+  ],
+  "missing_support_structure_types": [
+    "abdominal_aponeurosis",
+    "nuchal_ligament"
+  ]
+}

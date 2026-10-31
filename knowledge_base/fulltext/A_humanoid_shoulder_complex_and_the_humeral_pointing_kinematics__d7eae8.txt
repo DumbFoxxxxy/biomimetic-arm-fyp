@@ -1,0 +1,887 @@
+===== PAGE 1 =====
+IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003 499
+A Humanoid Shoulder Complex and
+the Humeral Pointing Kinematics
+Jadran Lenarˇciˇc and Michael Staniˇsic´
+Abstract—This paper presents a humanoid robotic shoulder complex
+and the kinematics of humanoid humeral pointing as performed by this
+complex. The humanoid shoulder complex is composed of two subsystems,
+a parallel mechanism which serves as the innermost shoulder girdle and
+a serial mechanism which serves as the outermost spherical glenohumeral
+joint. These two subsystems are separated by an offset distance and a twist
+angle. The subsystems operate cooperatively as an offset double pointing
+system. Humanoid humeral pointing is defined as a configuration in which
+the displacement of the shoulder girdle and the humerus are coplanar, and
+in which a ratio between an inclination angle in each subsystem achieves a
+constant value consistent with human humeral pointing. One redundant de-
+gree of freedom remains in the humanoid shoulder girdle, and it can be used
+to optimize system configuration and operating criteria, such as avoiding
+the singular cones of the humanoid glenohumeral joint.
+Index Terms—Humanoid robot, humanoid shoulder, kinematics, parallel
+mechanism, shoulder girdle.
+I. I NTRODUCTION
+One recent target in industrial and service robotics is the develop-
+ment of a humanoid manipulator. By learning from solutions in nature,
+robot designers are developing new manipulator designs and control
+strategies in order to reproduce human-like motion and to achieve the
+desired human-like mobility, versatility, redundancy, or compliance.
+Humans in the future may be expected to work in the vicinity of
+and alongside robots. Eventually, humans will teach, supervise, and
+cooperatively work with robots. To reach this level of man-machine
+synergy, the human-to-robot interface must be simplified/improved.
+The interest in humanoid robotics is to simplify this interface. For
+example, if the motion and structure of a robot were similar to that of
+a human (i.e., a humanoid robot):
+• a human coworker would better anticipate the machine’s move-
+ments;
+• the robot would have a human level of dexterity (unlike today’s
+industrial robots);
+• the robot would more easily learn its motion by observation of a
+kinematically similar human.
+Mechanically, a humanoid can be thought of as having the following
+subsystems:
+• a multifingered dexterous hand for grasping and fine manipula-
+tions [1];
+• a wrist for controlling hand orientation [2]–[4];
+• an arm (shoulder complex, upper arm, elbow, and forearm) for
+controlling hand position [5], [6];
+• a waist for attitude control of the torso [7];
+• biped locomotion (hip, upper leg, knee, lower leg, ankle, and foot)
+for gross movements [8].
+Manuscript received November 27, 2001; revised July 26, 2002. This paper
+was recommended for publication by Associate Editor M. Buehler and Editor I.
+Walker upon evaluation of the reviewers’ comments. This work was supported
+by the Ministry of Education, Science and Sports, Republic of Slovenia, under
+SLO-USA Project 3411-99-71-0012.
+J. Lenar ˇciˇc is with the Jo ˇzef Stefan Institute, Department of Auto-
+matics, Biocybernetics and Robotics, 1000 Ljubljana, Slovenia (e-mail:
+jadran.lenarcic@ijs.si).
+M. Staniˇsic´ is with the University of Notre Dame, Department of Aerospace
+and Mechanical Engineering, Notre Dame, IN 46556 USA.
+Digital Object Identifier 10.1109/TRA.2003.810578
+With the exception of the humanoid shoulder complex, these me-
+chanical subsystems have been relatively well studied and several pro-
+totype subsystems have been developed. According to [9], “So little
+has been done with robot shoulders that this is a virgin area for de-
+signers.” The “shoulder” of industrial manipulators usually contains
+either a universal or a spherical joint. However, the human shoulder
+complex is more than just a simple ball-and-socket joint. In [10] a five
+degree-of-freedom (DOF) humanoid shoulder was proposed. A precise
+replica of the human shoulder based on the use of McKibben actuators
+was reported in [11]. By building robotic replicas of biological systems,
+there is a hope to engineer better robots as well as learn more about bi-
+ology [12].
+The human shoulder is an extremely sophisticated and interrelated
+system that can produce an infinity of complex spatial motions.
+The goal of this work is to present the kinematics of the humanoid
+humeral pointing, a movement which is understood as the primary
+task of the shoulder. Here, the shoulder complex is modeled as a
+redundant system composed of two pointing subsystems separated
+by an offset distance and a twist angle. These subsystems are the
+shoulder girdle and the spherical glenohumeral joint, and they operate
+cooperatively as an offset double-pointing system. Among an infinite
+number of configurations of the humanoid shoulder that correspond to
+a given humeral pointing direction, we define the humanoid humeral
+pointing as a configuration in which the displacement of the shoulder
+girdle and the humerus are coplanar and in which a ratio between
+an inclination angle in each subsystem achieves a value consistent
+with human humeral pointing. The offset distance between the two
+pointing systems is changeable. In this paper, in order to mimic the
+human proportions, it is treated as a dependent coordinate whose value
+depends on the girdle’s inclination angle. The redundant twist between
+the shoulder girdle and the glenohumeral joint can be used in the
+control stage of the humanoid shoulder complex to avoid singularities
+in the parallel girdle mechanism and to avoid the singular cones of the
+glenohumeral joint.
+This paper begins with a description of the principles that govern
+the human shoulder motion, then a development of a humanoid robotic
+shoulder complex is presented and the kinematics of the humeral
+pointing are developed. In the end, we discuss some design and control
+aspects associated with the proposed humanoid shoulder complex.
+II. P RIMARY FUNCTION OF HUMAN SHOULDER
+COMPLEX IN HUMAN ARM MOTIONS
+Basic human shoulder motion capabilities and analytical explana-
+tions of human arm proportions were reported in [13]–[16] . The human
+shoulder complex is properly divided into two interconnected subsys-
+tems. First is the innermost portion of the shoulder complex, referred
+to as the shoulder girdle [17]. It consists of the sternum/thorax/torso,
+clavicle, and scapula as seen in Fig. 1.
+Second is the outermost portion of the shoulder complex, thegleno-
+humeral joint [17], see Fig. 1. The glenohumeral joint moves with the
+scapula of the shoulder girdle. The humerus connects to the scapula
+through this glenohumeral joint.
+In order to design an effective humanoid shoulder complex, it is nec-
+essary to understand the primary function of the human shoulder com-
+plex, which is to point (i.e., aim) the humerus. With addition of a roll
+about the pointed humeral axis, the complete orientation of the elbow
+is controlled. As reported by [14] and [15], motion within the human
+shoulder girdle is primarily a consequence of this humeral pointing ac-
+tion. That is to say, when the humerus is held in a fixed pointing direc-
+tion and then a humeral roll is developed (in order to properly orient
+the elbow), there is little to no additional movement observed within
+1042-296X/03$17.00 © 2003 IEEE
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+500 IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003
+Fig. 1. Human shoulder complex (frontal view).
+the human shoulder girdle. The humeral roll primarily induces a mo-
+tion within the glenohumeral joint of the shoulder complex. The con-
+clusion is that the primary function of the shoulder girdle is to assist the
+glenohumeral joint in pointing (aiming) the humerus. For this reason,
+our kinematic model of the humanoid shoulder complex at this point
+will only consider the problem of humeral pointing. Future research
+will determine the humeral roll necessary to properly orient the elbow
+after the humeral pointing direction is known, as well as the complete
+kinematics of a humanoid arm in order to properly position the hand.
+A secondary function of the human shoulder complex is for “shrug-
+ging.” In shrugging, the humeral axis is translated (i.e. no change in its
+direction). Shrugging is a self-motion of the highly redundant human
+shoulder complex. This self-motion may be used to optimize secondary
+tasks which are not considered here. As well, shrugging may be used
+in physical human communication, such as signaling, “I don’t know.”
+This secondary function is not considered in this paper.
+It is interesting to note that in the human shoulder complex in Fig. 1,
+the shoulder girdle is a single closed-loop chain (the simplest type of
+parallel mechanism), whereas the glenohumeral joint is a serial chain.
+As the innermost portion of the shoulder complex, the shoulder girdle
+bears the full load and inertial forces of the arm and manipulated object.
+Thus, the shoulder girdle must have a high load-carrying capacity. At
+the same time, motion developed within the shoulder girdle is signif-
+icantly smaller than that within the glenohumeral joint. The shoulder
+girdle motion just sufficiently supplements the glenohumeral joint mo-
+tion so the human has nearly a hemisphere of humeral pointing ca-
+pability [18]. Without the comparatively small motion contributions
+of the shoulder girdle, the human’s humeral workspace would be sig-
+nificantly less than this hemisphere. The shoulder girdle also allows
+the scapula to move toward the front of the torso so that a human
+can point the humerus across the front of the torso, and thus, reach
+across the front of the torso without interfering with it. This “reaching
+across the chest” motion would be severely limited without an articu-
+lated shoulder girdle. Although the motion (articulations) within the
+shoulder girdle are comparatively small, the girdle’s role is crucial
+to achieving the large interference-free workspace that the human’s
+humerus possesses. So, it is not surprising that the human shoulder
+girdle is a simple single-loop parallel mechanism, since it is well known
+in robotics that high load-carrying capacity with small motion capabil-
+ities are exactly the properties of a parallel mechanism, in contrast to
+serial mechanisms whose comparative properties are larger workspace
+and lesser load-carrying capacity [19].
+A. DOFs in the Human Shoulder Complex
+A kinematical representation of the human shoulder complex (that
+does not include muscles) is presented in Fig. 2. The clavicle is attached
+Fig. 2. A kinematic model for the human shoulder complex.
+to the torso through the compound sternoclavicular joint, in which the
+clavicle articulates with the manubrium of the sternum and the carti-
+lage of the first rib [17]. The lateral end of the clavicle is attached to
+the acromion of the scapula. The sternoclavicular and the acromioclav-
+icular joint can be seen as two universal joints separated by an interme-
+diate roll. In Fig. 2, this is modeled by a universal joint connecting the
+clavicle to the torso and by a spherical joint connecting the clavicle to
+the scapula.
+The scapulothoracic articulation contains two mating surfaces sepa-
+rated by subscapularis and serratus anterior muscles, which glide over
+each other during motion. It allows (nonplanar) translation and rotatory
+movement of the scapula with respect to the torso. This nonsynovial
+connection is very compliant due to the layers of muscles between the
+scapula and thorax. The motion of the scapula over the thorax has a
+moving center which is very difficult to characterize due to the com-
+pliance [17]. In a first approximation, we can kinematically model this
+joint by two circular sliders and a rotation. The output of the human
+shoulder girdle is a movement of the scapula. In accordance with Fig. 2,
+the number of DOFs of the scapula /40/70 /41 can be calculated by using the
+Grüubler–Kutzbach formula [19] as follows:
+/70 /61 /21/40/110 /0 /106 /0 /49/41 /43
+/106
+/105/61/49
+/102/105 /61 /54/40/54 /0 /54 /0 /49/41 /43 /53 /2 /49/43/49 /2 /51/61/50 /58 (1)
+Here, /110 is the number of links in the mechanism, including the fixed
+link of the torso, /21 are the DOFs of the space in which the mechanism
+functions (three for the position and three for the orientation in this
+case), /106 is the number of joints, /102/105 is the number of DOFs in joint
+/105. The scapula (supported by the clavicle) thus has two independent
+DOFs, which serve to perform the operation of pointing.
+The glenohumeral (ball-and-socket synovial) joint gives to the
+humerus three additional rotations. One of these enables the humerus
+to roll about its longitudinal axis, while the other two enable pointing
+of the humerus with respect to the scapula. As a result, the humerus has
+five DOFs, where four (two in the girdle and two in the glenohumeral
+joint) form a redundant double-pointing system, and the fifth is the
+humeral roll that enables a complete spatial orienting of the humerus.
+In humans, the humeral roll appears to be independent of the
+humeral pointing direction. The rest of the shoulder complex performs
+the task of pointing and is, therefore, kinematically redundant. For
+a given humeral pointing direction, there corresponds an infinite
+number of mechanism configurations. This kinematic redundancy
+is delimited by the ranges of motion in the shoulder girdle and by
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003 501
+Fig. 3. Kinematic equivalent of the human shoulder complex.
+the interdependencies between the girdle and the glenohumeral joint
+motions.
+B. Coupling in the Human Shoulder Girdle and
+Glenohumeral Joint Motions
+A quantitative description of the human shoulder girdle motion is
+far from simple [17]. The movement patterns of single bones in the
+girdle differ among individuals and may be influenced by a conscious
+control, learning, and training. In Fig. 3, the shoulder girdle (as shown
+in Fig. 2) is substituted by a simplified kinematic equivalent which
+consists of a universal joint containing two rotations intersecting in
+point /65 . The center of the glenohumeral joint is denoted by point /66 .
+Point /83 , on the other hand, represents a fixed reference, and is placed
+at the intersection of two anatomical horizontal axes (shown as dashed
+lines), the posterior/anterior axis that passes through the center of the
+sternoclavicular joint, and the medial/lateral axis that lies in the middle
+of the torso. In order to mimic the distance between points/83 and /66 ,a n
+additional translation must be introduced. It is a dependent coordinate
+and can be treated as a function of the rotation angles in point /65 .
+In [20], the relative position between points /83 and /66 was measured
+in a number of male and female subjects performing different manip-
+ulation tasks. It was observed that the maximum working cone of axis
+/83/66 can be produced when the humerus is stretched downward. An av-
+erage maximum cone angle is about 50/14. The central axis of this cone is
+inclined typically about 10/14 upward and 5/14 forward, with respect to the
+medial/lateral axis. During the shoulder motion, the distance between
+points /83 and /66 changes as a function of the inclination angle between
+axis /83/66 and the central axis of its working cone. The change is about
+/6 10% of the average value. Typically, /83/66 shortens when the girdle
+moves upward and backward and expands when the girdle is moving
+downward and forward.
+To obtain a desired relative position of point /66 with respect to
+point /83 , the rotation center /65 can be chosen arbitrarily. However, by
+changing the location of /65 , it is possible to regulate the amount of
+translation in the direction of /83/65 and the amount of rotations in point
+/65 . The location of point /65 is, therefore, important in the design of
+the humanoid shoulder girdle. A design limitation that must be taken
+into account are the ranges of rotations in point /65 . A commercial
+universal joint has /54/52/14 /40/6 /51/50/14 /41 range. To fulfill this limit, point /65
+must be fixed at a distance /65/66 , which is about 80% of the average
+distance /83/66 . With this assumption, the overlapping of the working
+cone of /65/66 with the working cone of /83/66 is achieved when axis /83/65
+is inclined about 7/14 upward and forward with respect to the anatomical
+medial/lateral anatomical axis. As a result of this placement of point
+/65 , the translation in direction /83/65 will vary for about /6 8% of the
+average distance /83/66 , which is also a reasonable design assumption.
+During the elevation of the humerus, the glenoid fossa, on which the
+humerus moves, tilts upward. This movement, in which the humerus
+and the girdle move conjointly, is called the shoulder rhythm [17], [21].
+Measurements of the shoulder rhythm in the frontal plane were reported
+in [21]–[23] where it was observed that to a given angle,/13 corresponds
+with an angle/13/49 (as shown in Fig. 3), which is associated with the lower
+reach of axis /65/66 (while the upper reach is constant and is delimited
+by the working cone of this axis). Hence, an increase in the humeral
+elevation causes a decrease in the girdle’s range, as well as in the kine-
+matic redundancy of the shoulder complex. The ratio between /13/49 and
+/13 is nearly constant for all /13 and differs among subjects. In a first ap-
+proximation, /13/49 /58 /13 /61/49/58/51 .
+We can observe that the humerus and the girdle move conjointly also
+in the horizontal plane and in any other plane intersecting in axis /83/65 .
+Because of the kinematic redundancy of the human shoulder complex,
+the pointing of the humeral axis can be produced in an immense number
+of ways. In this paper, the humanoid pointing is defined as a unique
+configuration in which the displacement of the shoulder girdle and the
+humerus are coplanar, and in which the relationship between angles
+/13/49 and /13 achieves a value consistent with a measured human ratio.
+The described shoulder rhythm movement can, thus, be understood as
+a specific case of the humanoid pointing.
+III. D EVELOPMENT OF A HUMANOID SHOULDER COMPLEX
+Prior humanoid shoulder complex designs have either considered
+only the function of the human glenohumeral joint [6], [9], [24] or only
+the function of the human shoulder girdle [25]–[28]. The humanoid
+shoulder complex proposed in [6], [9] uses a symmetrically actuated
+double-pointing system (developed earlier as a dextrous wrist [29],
+[30]). The design lacks the shoulder girdle, but would serve well as
+a glenohumeral joint whose range of motion must exceed the 64/14 cone
+typically available with a single universal joint. The complex devel-
+oped in [24] considers only a single universal joint as a glenohumeral
+joint, also not incorporating a shoulder girdle. The primary goal there
+is the actuation of the system through pneumatic McKibbon muscles.
+The range of motion in this system will be less than the human’s, and
+it will suffer from humerus to torso interferences when reaching across
+the chest, due to the lack of an articulated shoulder girdle.
+The research of [25], [26] considers the function of only the
+humanoid shoulder girdle. They designed and built a cybernetic
+shoulder girdle capable of human-like sensitivity compliance. Their
+design offers compactness, large workspace, human-like motion,
+singularity-free motion, and small backlash. A parallel mechanism
+with four DOFs, which is capable of closely reproducing human
+girdle motions, is described in [27] and [28]. No consideration of the
+glenohumeral joint or the coupling of its motion to that within the
+shoulder girdle is given.
+In this paper, we consider the synthesis and kinematic control of
+both subsystems (a cybernetic shoulder girdle and glenohumeral joint).
+The kinematic control equations presented here incorporate a necessary
+coupling between the motion of these two subsystems which has been
+observed in human motion studies [14], [15].
+In [17], a kinematic model is given for the human shoulder complex.
+This is closely related to the model shown in Figs. 2 and in 3, which are
+our starting point. Construction of the model in Fig. 3 as a humanoid
+shoulder complex is a possibility, but the location and types of actuators
+would be problematic.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+502 IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003
+Fig. 4. Serial humanoid shoulder complex.
+A. A Serial Humanoid Shoulder Complex
+Fig. 4 shows a serial humanoid shoulder complex which is capable of
+developing the shoulder girdle and glenohumeral joint movements as is
+shown in the kinematic model of the human shoulder complex shown in
+Fig. 3. For now, neglect the shown frame assignments and dimensions
+which will be used later in the kinematic analysis. The point/65 serves as
+the effective center for the nonsynovial gliding motion of the scapula
+over the back of the thorax. There are three rotations (articulations)
+associated with center /65 , /18/49 , /18/50 , which were introduced in Fig. 3, and
+an additional rotation /18/51 , whose role will be described later. The linear
+displacement /108/48 is introduced to develop the bulk of what is, in reality,
+a moving center for this motion of the scapula over the thorax. This
+displacement is related to the articulations at center/65 and has no effect
+on the humeral pointing direction.
+The point /66 serves as the effective center for the motion in the gleno-
+humeral joint. Although this center is not actually fixed in the human,
+its movement is very small and it is not necessary to cause it to dis-
+place, unlike with the center at /65 . There are three rotations, /18/52 , /18/53 ,
+and /18/54 associated with center /66 . Rotation /18/54 is the humeral roll and
+will not be considered here further, since it does not contribute to the
+pointing of the humerus. As well, displacement /108/48 plays no role in
+humeral pointing. We will use this serial kinematic model (neglecting
+/108/48 and /18/54 ) to develop the kinematic humeral pointing equations for the
+humanoid shoulder complex.
+B. Humanoid Shoulder Girdle as a Parallel Mechanism
+The serial model in Fig. 4 will further incorporate a parallel mech-
+anism which enshrouds the center /65 . This parallel mechanism allows
+Fig. 5. Parallel mechanism humanoid shoulder girdle.
+for controlling the three rotations at center /65 with three leg lengths /108/49 ,
+/108/50 , and /108/51 , shown conceptually in Fig. 5.
+In Fig. 5, the details of the three rotations at center /65 are no longer
+shown, neither are the rotations at center /66 (for purposes of visual
+clarity). Controlling the three rotations at center /65 via the three leg
+lengths /108/49 , /108/50 and /108/51 allows us to remotely control the actuators control-
+ling these rotations from within the torso. As well, the parallel mech-
+anism significantly increases both load-carrying capacity and rigidity
+of the center /65 , as in the human shoulder girdle.
+In comparing Fig. 5 to Fig. 1, we may consider that the center /65
+approximates the effective center of rotation of the scapula (the outer-
+most moving platform in Fig. 5) as it glides over the back of the thorax.
+The legs /108/49 , /108/50 , and /108/51 may be thought of as the combined action of
+the human clavicle and various human ligaments, which constrain the
+gliding action of the human scapula on the thorax, i.e., they provide a
+means of controlling the three rotations associated with center/65 in the
+humanoid shoulder girdle.
+C. Coupling in the Humanoid Shoulder Girdle and Glenohumeral
+Joint Motions
+Fig. 6 shows the frontal view of the left arm in its minimum and
+maximum elevation overlaid by the corresponding configurations of
+the humanoid shoulder complex.
+The lateral size of the humanoid shoulder girdle varies from subject
+to subject and in this paper, it will be represented by/100/51 , i.e., the distance
+between centers /65 and /66 in Fig. 4. The maximum inclination angle/13/49
+at center /65 is 32/14 and the extension/contraction of the central leg varies
+within /108/48 /61 /100/51 /6 /49/48/37 . More details on the kinematic design of this
+parallel mechanism are discussed in [27], [28], and partially in the last
+section of this paper.
+The complete humanoid shoulder complex contains seven DOFs,
+four in the shoulder’s girdle ( /108/48 , /108/49 , /108/50 , /108/51 ) and three in the shoulder’s
+glenohumeral joint ( /18/52 , /18/53 , /18/54 ). In our humanoid shoulder complex,
+neither /108/48 nor /18/54 contribute to humeral pointing and are not considered
+further in this problem. The value of /108/48 depends on /13/49 and rotation /18/54
+determines the final elbow orientation.
+An example of the humanoid humeral pointing compared to the
+human humeral pointing in the frontal plane is illustrated in Fig. 6. We
+shall refer to humanoid humeral pointing as when line segments /83/65 ,
+/65/66 , and /66/67 in this shoulder complex are coplanar and, in addition,
+when the ratio between angles /13/49 and /13/50 achieves an anatomically
+consistent value.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003 503
+Fig. 6. Humanoid and shoulder complex in abduction-adduction (frontal
+view).
+TABLE I
+DENA VIT–HARTENBERG PARAMETERS
+IV . HUMERAL POINTING KINEMATICS OF
+THE SERIAL SHOULDER COMPLEX
+Values of/49/59/13/49 , /13/50 , and /108/48 vary as functions of the pose of the girdle.
+These dependencies have an anatomical background and must be ob-
+tained in advance by measuring a specific human subject performing
+the task of pointing, while the value of /18/54 is affected by the task of
+humeral rolling to control elbow orientation, which is not discussed in
+this paper.
+Frame assignments, Denavit–Hartenberg parameters, and notation in
+general, follow [31]. Table I gives the Denavit–Hartenberg parameters
+for the serial chain in Fig. 4. Each row in the table details the displace-
+ments at joint /105 and the geometry of link /40/105 /0 /49/41, as in [31] ( /108/48 and
+/18/54 ), are not considered. The /94/88 /53 axis is taken to be the axis of the hu-
+manoid humerus. /94/88 /53 points from center /66 to the elbow axis (which
+is not shown). This serial chain is a double-pointing system. The first
+pointing system, with rotations /18/49 , /18/50 , and /18/51 , has its center at /65 . The
+second pointing system, with rotations /18/52 , /18/53 , and /18/54 , has its center
+at /66 . Rotation /18/51 controls a twist angle between these two pointing
+systems. The dimension /100/51 is the offset between the two pointing sys-
+tems and is representative of the lateral width of the humanoid shoulder
+girdle. A double-pointing system is also inherent to the human shoulder
+complex, as we have discussed earlier.
+A. Forward Humeral Pointing Kinematics for the Serial Humanoid
+Shoulder Complex
+The forward humeral pointing kinematics of the serial humanoid
+shoulder complex are developed using the homogenous transforma-
+tions /105/0 /49/105 /84 as in [31]. This homogeneous transformation contains a
+(3 /2 3) direction cosine matrix /91/105/0 /49/105 /82 /93and a (3 /2 1) position vector
+/105/0 /49 /22/80 /105 , which define the orientation and origin position of frame
+/102/105/103 relative to frame /102/105/0 /49/103, respectively, both in frame /102/105/0 /49/103 co-
+ordinates
+/105/0 /49
+/105 /84 /61 /91 /105/0 /49/105 /82 /93 /105/0 /49 /22/80 /105/48/48/48 /49
+/105/0 /49
+/105 /84 /61
+/99/105 /0 /115/105 /48 /97/105/0 /49
+/115/49 /99/111/115/11 /105/0 /49 /99/105 /99/111/115/11 /105/0 /49 /0 /115/105/110/11 /105/0 /49 /0 /100/105 /115/105/110/11 /105/0 /49
+/115/105 /115/105/110/11 /105/0 /49 /99/105 /115/105/110/11 /105/0 /49 /99/111/115/11 /105/0 /49 /100/105 /99/111/115/11 /105/0 /49
+/48/48 /48 /49
+/99/105 and /115/105 represent /99/111/115/18/105 and /115/105/110/18/105, respectively. Writing the homo-
+geneous transformation /105/0 /49/105 /84 for each joint /105 and link /105/0 /49 using the
+information in each row of Table I, and multiplying together yields
+/48
+/51 /84 /61
+/99/49 /99/50 /99/51 /0 /115/49 /115/51 /0 /99/49 /99/50 /115/51 /0 /115/49 /99/51 /0 /99/49 /115/50 /0 /100/51 /99/49 /115/50
+/115/49 /99/50 /99/51 /0 /99/49 /115/51 /0 /115/49 /99/50 /115/51 /0 /99/49 /99/51 /115/49 /115/50 /100/51 /115/49 /115/50
+/0 /115/50 /99/51 /115/50 /115/51 /0 /99/50 /0 /100/51 /99/50
+/48/48 /48 /49
+(2)
+/51
+/53 /84 /61
+/99/52 /99/53 /0 /99/52 /115/53 /115/52 /48
+/115/53 /99/53 /48/48
+/115/52 /99/53 /0 /115/52 /115/53 /99/52 /48
+/48/48 /48 /49
+/58 (3)
+Given the joint angles /18/49 /0 /18/53 , the homogeneous transformations in
+(2) and (3) may be computed, then multiplied together to yield /48/53 /84 /61 /48/51
+/84 /51/53 /84 . The first column of/48/53 /84 is the homogeneous direction/48 /94/88 /53 , which
+is the pointing direction of the humanoid humerus.
+Our interest is more in the inverse pointing problem, where this
+humerus pointing direction is given and the corresponding joint angles
+must be determined.
+B. Inverse Humeral Pointing Kinematics for the Serial Humanoid
+Shoulder Complex
+The serial humanoid shoulder complex in Fig. 4 is kinematically re-
+dundant for the purpose of pointing the humeral link /40 /94/88 /53 /41. It contains
+five rotations (five DOFs), whereas pointing is a two-DOF task. Thus,
+the system has three redundant DOFs for this task. Our goal is to deter-
+mine a set of the five joint rotations for a given output pointing direction
+of the humanoid humerus.
+To resolve two of the three redundant DOFs, a geometric constraint
+resulting from laboratory observations of human humerus pointing is
+enforced. In this way, the humanoid shoulder will produce humeral
+pointing while mimicking human shoulder motion.
+This geometric constraint is that the /94/88 /53 , /94/90 /51 , and /94/88 /48 axes remain
+coplanar for pointing motions of the humeral link and they define the
+humeral plane, shown in a direct view in Fig. 7. This coplanar con-
+dition minimizes the articulations at each of the centers /65 and /66 so
+that the two pointing systems are working synergistically and not an-
+tagonistically. Within the humeral plane, the rotation pairs (/18/49 , /18/50 ) and
+(/18/52 , /18/53 ) correspond to the pointing systems with centers at /65 and /66 ,
+respectively. Rotation /18/51 is a twist angle between these two pointing
+systems. Compare Fig. 7 to Fig. 4 to see the arrangement of the axes
+of rotation at center /65 and /66 .
+Within the humeral plane, there are three interrelatedinclination an-
+gles, /13, /13/49 , and /13/50 . /13 represents the inclination of the humerus from the
+torso. Angle/13/49 represents the inclination within the humanoid shoulder
+girdle (related to the human scapular inclination from the torso), and/13/50
+represents the inclination of the humerus relative to the scapula. Obser-
+vation of human humeral pointing shows that inclination angles/13/49 and
+/13/50 are coupled by the biomechanics of the human shoulder. The ratio
+of /13/50 to /13/49 varies slightly with the orientation of the humeral plane, but
+it is taken here to be a constant
+/13/50
+/13/49
+/61 /114 (4)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+504 IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003
+Fig. 7. Direct view onto the humeral plane.
+where /114 is typically in the neighborhood of two for most individuals
+[32]. Let the desired pointing direction of the humerus, /48 /94/88 /53 ,h a v e
+known desired components /120/53 , /121/53 , and /122/53
+/48 /94/88 /53 /61
+/120/53
+/121/53
+/122/53
+(5)
+then the normal to the humeral plane, /22/110 , can be found from the vector
+product
+/48 /22/110 /61
+/48 /94/88 /53 /2 /40/0 /48 /94/88 /48 /41
+/48 /94/88 /53 /2 /40/0 /48 /94/88 /48 /41 /61
+/48
+/0 /122/53
+/121/53
+/49
+/121/50/53 /43 /122/50/53 (6)
+and the inclination of the humerus from the torso can be found from
+the scalar product
+/13 /61/99 /111 /115/0 /49 /48 /94/88 /53 /1 /0 /48 /94/88 /48 /61 /99/111/115 /0 /49 /91/0 /120/53 /93/58 (7)
+Knowing /13 from (7), the inclination angles /13/49 and /13/50 are found by
+solving (4) and knowing that /13/49 and /13/50 sum to equal /13 (see Fig. 7).
+Thus
+/13/49 /61 /13/114 /43/49 (8)
+then /13/50 comes from (4).
+Knowing inclination angles/13 and /13/49 from (7) and (8) and the normal
+direction of the humeral plane from (6), the direction of the /48 /94/90 /51 axis
+(with components /120/51 /121/51 and /122/51 ), consistent with the observation of a
+humeral plane, may be computed. With reference to Figs. 7 and 8
+/48 /94/90 /51 /61
+/120/51
+/121/51
+/122/51
+/0 /99/111/115/13/49
+/115/105/110/13/49 /115/105/110/18/110
+/0 /115/105/110/13/49 /99/111/115/18/110
+(9)
+where
+/18/110 /61 A /116/97/110 /50/40/121/53 /59/0 /122/53 /41/58 (10)
+(Atan2 is the inverse tangent computer function that considers both the
+sine and cosine of an angle to return a value in the correct quadrant.)
+With /48 /94/90 /51 defined above, the inverse kinematic solutions for /18/49 and /18/50
+come from equating (9) to the third column of (2), from which
+/18/50 /61 /99/111/115 /0 /49 /91/0 /122/51 /93 (11)
+and
+/18/49 /61 A /116/97/110 /50/40/115/49 /59/99/49 /41/61 A /116/97/110 /50 /121/51
+/115/50
+/59/0 /120/51
+/115/50
+/58 (12)
+Fig. 8. Lateral view of the humeral plane.
+The value of /18/51 affects the values of /18/52 and /18/53 . Our determination
+of /18/51 will be in consideration of the performance of a parallel plat-
+form which will be used to actuate the pointing system centered at /65 .
+This will be discussed shortly. For now, suppose that/18/51 is known from
+this consideration of the parallel platform performance. The direction
+cosine matrix /48/51 /82 , the upper left (3 /2 3) portion of /48/51 /84 in (2), can be
+computed. Then
+/51 /94/88 /53 /61 /48/51 /82 /84 /48 /94/88 /53 (13)
+which, when equated to /51 /94/88 /53 in (2) (the first column of /51/53 /82 ), can be
+solved for /18/52 and /18/53
+/18/53 /61 /115/105/110 /0 /49 /91/0 /120/53 /40/99/49 /99/50 /115/51 /43 /115/49 /99/51 /41
+/43 /121/53 /40/115/49 /99/50 /115/51 /0 /99/49 /99/51 /41/43 /122/53 /115/50 /115/51 /93 (14)
+/18/52 /61 A /116/97/110 /50/40/115/52 /59/99/52 /41 (15)
+where
+/115/52 /61 /0 /120/53 /99/49 /115/50 /43 /121/53 /115/49 /115/50 /0 /122/53 /99/50
+/99/53
+and
+/99/52 /90 /61 /120/53 /40/99/49 /99/50 /99/51 /0 /115/49 /115/51 /41 /0 /121/53 /40/115/49 /99/50 /99/51 /43 /99/49 /115/51 /41 /0 /122/53 /115/50 /99/51
+/99/53
+/58
+This completes the inverse kinematic solution, with the exception of a
+strategy for determining/18/51 , which is described in the following section.
+V. PARALLEL MECHANISM HUMANOID
+SHOULDER GIRDLE KINEMATICS
+As discussed earlier, center/65 of the shoulder girdle is enshrouded by
+three extensible legs,/108/49 , /108/50 , and/108/51 , as shown conceptually in Fig. 5, thus
+creating a parallel mechanism for the humanoid shoulder girdle. This
+is analogous to the closed-loop human shoulder girdle, the advantages
+of which have been discussed.
+A. Inverse Kinematics of the Humanoid Shoulder Girdle as a
+Parallel Mechanism
+Our purpose here is to determine the values of the leg extensions
+for a given /48 /94/88 /53 direction. The /108/105/59/40/105 /61/49 /59/50/59/51/41 will correspond to the
+values of /18/105/59/40/105 /61/49 /59/50/59/51/41 which came from the inverse kinematics of
+the serial humanoid shoulder girdle of the previous section.
+The required leg lengths /108/105 are found directly by computing the dis-
+tance from the fixed centers /102/105 to their corresponding moving centers
+/109 /105, shown in Fig. 5. This problem has a unique single solution.
+The centers of the spherical joints are arranged on the fixed and
+moving platforms on circles with uniform 120 /14 spacing, as shown in
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003 505
+Fig. 5. The radius of the circle of centers on the fixed and moving plat-
+form is /114/102 and /114/109 , respectively. These dimensions are reported and
+discussed in our previous papers [27], [28] and are compatible with
+human torso and shoulder dimensions. Positions of the fixed centers/102/105
+in frame /102/48/103 are (/108/48 is assumed known)
+/48 /22/114/102 /61
+/108/48
+/114/102
+/48
+/48 /22/114/102 /61
+/108/48
+/0 /49/50 /114/102/112
+/51
+/50 /114/102
+/48 /22/114/102 /61
+/108/48
+/0 /49/50 /114/102
+/0
+/112
+/51
+/50 /114/102
+(16)
+and positions of the moving centers /109 /105 in frame /102/51/103 are
+/51 /22/114/109 /61
+/48
+/0 /114/109
+/48
+/51 /22/114/109 /61
+/0
+/112
+/51
+/50 /114/109
+/49
+/50 /114/109
+/48
+/51 /22/114/109 /61
+/112
+/51
+/50 /114/109
+/49
+/50 /114/109
+/48
+/58
+(17)
+The /51 /22/114/109 must be transformed into frame /102/48/103
+/48 /22/114/109
+/49 /61 /48/51 /84
+/51 /22/114/109
+/49 /59 /40/105 /61/49 /59/50/59/51/41 (18)
+where /48/51 /84 is known from (3), given a set of values for /18/49 , /18/50 , and /18/51 .
+Defining /48 /22/108/105 as a vector along the extension of leg /105/40/105 /61/49 /59/50/59/51/41
+/48 /22/108/105 /61 /48 /22/114/109 /0 /48 /22/114/102 (19)
+then the required leg lengths of the platform mechanism may be com-
+puted from (16)–(19) and (2) by
+/108/105 /61 /48 /22/108/105 /58 (20)
+These leg lengths result in the desired values of /18/49 , /18/50 , and /18/51 , which
+themselves have been calculated for humerus pointing that satisfies the
+condition of a humeral plane.
+B. Platform Considerations in Control of /18/51
+The pointing redundancy in angles/18/49 , /18/50 , and /18/51 can be resolved by
+choosing angle /18/51 in order to enhance performance of the humanoid
+shoulder girdle and/or glenohumeral joint. There are three primary con-
+siderations, namely:
+1) avoidance of the kinematic singularities within the shoulder
+girdle;
+2) avoidance of the kinematic singularities of the glenohumeral
+joint;
+3) maximizing the overlap within the prismatic pairs of the exten-
+sible legs in the shoulder girdle (i.e., maximizing joint stability);
+4) avoiding mechanical interference between the legs of the
+shoulder girdle.
+Control of /18/51 is a balance between these goals. This is a tradeoff,
+since the optimization of one goal typically does not lead to the opti-
+mization of another. Control of /18/51 has to be considered over a cone of
+possible pointing directions for /48 /94/90 /51 with a 30/14 half angle. This corre-
+sponds to an inclination angle /13/49 /61/51 /48 /14 in the humeral plane. This
+limited volume of the humanoid shoulder complex workspace is jus-
+tified by (7), which shows this range results in a humerus inclination
+angle of /13 /61/57 /48 /14 which would be a hemisphere of humanoid humerus
+pointing, slightly exceeding observed human shoulder complex capa-
+bilities [18]. Define the vector of leg lengths as/22/108 /61/91 /108/49 /59/108/50 /59/108/51 /93/84 and the
+vector of joint angles as /22/18 /61/91 /18/49 /59/18/50 /59/18/51 /93/84 in the humanoid shoulder
+girdle. The differential form of (19) can then be written as
+/100/22/108 /61 /64/22/108/64/18/49 /64/22/108/64/18/50 /64/22/108/64/18/51 /100 /22/18 /61 /74/100 /22/18/58 (21)
+The (3 /2 3) matrix of partial derivatives is the Jacobian matrix of the
+humanoid shoulder girdle, /74 , whose elements come from differentia-
+tion of (19) [including (16)–(19) and (2)]. Given /40/100/22/108/41/61/40/100/116/41, the joint
+rates /40/100/18/41/61/40/100/116/41(which represent the angular velocity of the platform)
+come from inversion of /74 . When /74 is singular, an arbitrary (three-di-
+mensional) platform rotation cannot be developed. As well, certain di-
+rections of moment loads on the moving platform cannot be supported
+[33]. The singularity condition of this parallel mechanism has been ge-
+ometrically interpreted by [33]. Each of the three outer legs forms a
+plane with the center /65 , and each of these three planes will intersect
+each other in a line. When these three lines of intersection become co-
+incident, the parallel mechanism used for the shoulder girdle will be
+singular, and forces along the three legs will be unable to support a
+moment along the axis of this line.
+Leg lengths /22/108 were computed for all platform orientations inside
+the limited girdle workspace, again by the use of (16)–(19) and (2).
+Since the mechanism is symmetric, the minimum value and the max-
+imum value do not vary between the three legs. These maximum and
+minimum leg lengths can be determined as functions of the starting
+angle /18/51 (searching through all values /18/49 , /18/50 , and /108/48 which define the
+workspace). Once these values are known, the overlapping of leg trans-
+lations can be determined. With regard to the structural integrity and
+stability of the sliding pairs in each extensible leg, it is desirable to
+maximize the overlapping. Although the legs are statically two-force
+members, imperfections in manufacturing and dynamic effects will re-
+sult in some bending moment at each sliding joint and a greater overlap
+will result in a better ability to support this moment.
+In our simulations, we take /18/51 to have a nominal value /0 /54/48/14 [27].
+This ensures a suitable distance from any singular configurations of the
+girdle mechanism. We then allow/18/51 to vary from/0 10/14 to 20/14 from this
+nominal value, in order to enhance the dexterity of the glenohumeral
+joint by avoiding the singular cones [2] of center /66 with the humeral
+axis.
+VI. C ONCLUSIONS
+We have demonstrated that the humanoid humeral pointing operation
+can be performed by a series of two pointing systems /18/49 , /18/50 and /18/52 ,
+/18/53 , separated by an offset distance /40/100/51 /41 and a twist angle /40/18/51 /41. The
+first pointing system is included in the shoulder girdle and the second
+in the spherical glenohumeral joint. Even though the shoulder girdle
+possesses relatively small ranges of motion, it considerably enlarges
+the humeral workspace by introducing the ability to avoid collisions
+between the humerus and the torso, and by avoiding singularity cones
+in the glenohumeral joint.
+In this paper, we defined the humanoid humeral pointing as a
+coplanar inclination in the shoulder girdle and the glenohumeral joint.
+These two displacements are characterized by a coupling ratio between
+the inclination angles that is consistent with the anatomy of a specific
+human subject. We presented the direct and the inverse kinematics of
+this motion for a humanoid robotic shoulder complex, which possesses
+a shoulder girdle realized as a parallel platform mechanism and a serial
+spherical glenohumeral joint attached to the girdle’s platform. With
+respect to the task of pointing, this system is kinematically redundant
+and can, therefore, produce an infinite number of configurations
+that correspond to the humanoid humeral pointing. The kinematic
+redundancy enables us to optimize the twist angle /18/51 with respect to
+selected operating criteria. The results obtained in this paper are useful
+in the design and control of a humanoid robotic shoulder.
+APPENDIX
+COMPUTATIONALPROCEDURE
+The following is an outline of a computational procedure that ref-
+erences the equations developed herein which would be used in the
+kinematic portion of a control algorithm.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+506 IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION, VOL. 19, NO. 3, JUNE 2003
+Given: a desired pointing direction of the humerus as
+/48 /94/88 /53 /61/91 /120/53 /59/121/53 /59/122/53 /93/84
+i.e., the components of this unit vector, /120/53 , /121/53 , and /122/53 are known nu-
+merically.
+Determine: the required actuations, /108/48 , /108/49 , /108/50 , and /108/51 in the shoulder
+girdle, as well as /18/52 , /18/53 , and /18/54 in the glenohumeral joint of the hu-
+manoid shoulder complex.
+Solution Procedure:
+1) Choose a value of /100/51 which is the lateral width of the shoulder
+complex and is representative of the broad width of the hu-
+manoid’s chest.
+2) Compute from (7) the inclination angle of the humerus, /13, al-
+ways in the range /48/14 /20 /13 /20 /57/48/14 .
+3) Compute the value of /13/49 from (8). Nominally, /114 /61/50 in (7), but
+may vary slightly in order to better match the kinematics of one
+person or another.
+4) Compute an /108/48 , where typically /108/48 /61 /100/51 /6 /49/48/37 and has its
+minimum value at highest girdle elevation /13/49 and maximum
+value at the lowest elevation.
+5) Compute /13/50 from (4).
+6) Compute /18/110 from (10).
+7) Compute /18/50 from (11). As with any pointing system, this has a
+double-valued solution, either of which is suitable.
+8) Compute /18/49 from (12).
+9) Choose a value of /18/51 which optimizes one of the criteria dis-
+cussed in Section V-B of the paper. In order to avoid the sin-
+gularities of the shoulder girdle, one may choose to fix /18/51 at
+/0 /54/48/14 . This is what we have done in our animations. However,
+we are developing an iterative algorithm to optimize dexterity
+of the glenohumeral joint by choosing /18/51 to avoid the singular
+cones of the glenohumeral joint with the humerus.
+10) Compute /48/51 /82 from the upper left-hand (3 /2 3) portion of ho-
+mogenous transformation /48/51 /84 in (2).
+11) Compute /18/53 from (14). As with any pointing system, this has a
+double-valued solution, either of which is suitable.
+12) Compute /18/52 from (15), taking note that expressions for /115/52 and
+/99/52 are given directly below (15).
+13) Compute /18/54 based upon consideration of the required direction
+of the elbow axis, using the value of /51 /22/114/109/105 /40/105 /61/49 /59/50/59/51/41 from
+(17).
+14) Compute the /48 /22/114/109/105 /59/40/105 /61/49 /59/50/59/51/41 from (18).
+15) Compute the /48 /22/108/105/59/40/105 /61/49 /59/50/59/51/41 from (19), using the result above
+and the values in (16).
+16) Compute from (20) values of the /108/105/59/40/105 /61/49 /59/50/59/51/41/58
+And the solution is now complete, with:
+• /108/48 coming from step 3);
+• /18/53 coming from step 10);
+• /18/52 coming from step 11);
+• /18/54 from step 12);
+• and finally, /108/105/59/40/105 /61/49 /59/50/59/51/41 coming from step 16).
+REFERENCES
+[1] S. C. Jacobsen, J. E. Wood, D. F. Knutti, and K. B. Biggers, “The
+Utah/MIT Hand: work in progress,” Int. J. Robot. Res. , vol. 3, no. 4,
+pp. 21–50, 1984.
+[2] R. P. Paul and C. N. Stevenson, “Kinematics of robot wrists,” Int. J.
+Robot. Res., vol. 2, no. 1, pp. 31–38, 1983.
+[3] V . Milenkovic, “Non-Singular Industrial Robot Wrist,” US Patent
+4 907 937, Mar. 13, 1990.
+[4] M. M. Stani ˇsic´ and O. Duta, “Symmetrically actuated double pointing
+systems: the basis of singularity-free wrists,” IEEE Trans. Robot. Au-
+tomat., vol. 6, pp. 562–569, Oct. 1990.
+[5] S. J. Remis and M. M. Stani ˇsic´, “Design of a singularity-free articulated
+arm subassembly,” IEEE Trans. Robot. Automat., vol. 9, pp. 816–824,
+Dec. 1994.
+[6] M. Rosheim, “Design of an omnidirectional arm,” in Proc. IEEE Int.
+Conf. Robotics and Automation, 1990, pp. 2162–2167.
+[7] J. H. Park and Y . K. Rhee, “Trajectory generation for reduced trunk mo-
+tions of biped robots,” in Proc. IEEE/RSJ Int. Conf. Intelligent Robots
+and Systems, 1998, pp. 90–95.
+[8] C. L. Shih, W. A. Gruver, and T. T. Lee, “Inverse kinematics and inverse
+dynamics for control of a biped walking machine,” J. Robot. Syst., vol.
+10, no. 4, pp. 531–555, 1993.
+[9] M. Rosheim, Robot Evolution. New York: Wiley, 1994.
+[10] M. E. Rosheim, “In the footsteps of Leonardo,” IEEE Robot. Automat.
+Mag., vol. 4, no. 2, pp. 12–14, 1997.
+[11] B. Hannaford, J. M. Winters, C. P. Chou, and P. H. Marbot, “The An-
+throform arm: a system for the study of spinal circuits,” Ann. Biomed.
+Eng., vol. 23, pp. 399–408, 1995.
+[12] B. Hannaford, J. M. Winters, and C. P. Chou, “The Anthroform
+biorobotic arm,” in Video Proc. IEEE Int. Conf. Robotics and Automa-
+tion, San Diego, CA, 1994.
+[13] T. Tsuji, P. G. Morasso, K. Goto, and K. Ito, “Human hand impedance
+characteristics during maintained posture,” Bio. Cybern., pp. 475–485,
+1995.
+[14] J. Lenar ˇciˇc, “Basic kinematic characteristics of humanoid manipula-
+tors,” Lab. Robot. Automat., vol. 11, pp. 31–38, 1999.
+[15] J. Lenar ˇciˇc and A. Umek, “Simple model of human arm reachable
+workspace,” IEEE Trans. Syst., Man, Cybern. , vol. 6, pp. 1239–1246,
+Apr. 1994.
+[16] H. Dreyfuss, The Measure of Man and Women . New York: Watson-
+Guptill, 1993.
+[17] V . M. Zatsiorsky, Kinematics of Human Motion . Champaign, IL:
+Human Kinetics, 1997.
+[18] A. E. Engin and S. T. Tümer, “Kinematic modeling of the human
+shoulder complex—Part I: physical model and determination of joint
+sinus cones,” ASME J. Biomech. Eng., vol. 111, pp. 107–121, 1989.
+[19] L. W. Tsai, Robot Analysis, The Mechanics of Serial and Parallel Ma-
+nipulators. New York: Wiley, 1999.
+[20] A. Kohne, N. Klop ˇcar, and J. Lenarˇciˇc, “A robotic model of the shoulder
+girdle contraction,” in Proc. ERK Electrotechnical and Computer Sci-
+ence Conf.—Part B, Portoroˇz, Slovenia, 2001, pp. 219–222.
+[21] Z. Dvir and N. Berne, “The shoulder complex in elevation of the arm: a
+mechanism approach,” J. Biomech., vol. 11, pp. 219–225, 1978.
+[22] V . T. Inman, J. B. Saunders, and L. C. Abbott, “Observation on the func-
+tion of the shoulder joint,” J. Bone, Joint Surgery , vol. 26, pp. 1–30,
+1944.
+[23] A. Umek-Venturini and J. Lenar ˇciˇc, “The kinematics of the human arm
+elevation in the frontal plane,” in Proc. 11th Int. Symp. Biomedical En-
+gineering, Zagreb, Croatia, 1996, pp. 105–108.
+[24] C. P . Chou and B. Hannaford, “Measurement and modeling of McK-
+ibben pnuematic artificial muscles,” IEEE Trans. Robot. Automat., vol.
+12, pp. 90–102, Feb. 1996.
+[25] M. Okada, Y . Nakamura, and S. Hoshino, “Development of the
+cybernetic shoulder—a three-DOF mechanism that imitates biological
+shoulder-motion,” in Proc. IEEE Int. Conf. Intelligent Robotic Systems,
+vol. 2, 1999, pp. 543–548.
+[26] , “Design of active/passive hybrid compliance in the frequency do-
+main,” in Proc. IEEE Int. Conf. Robotics and Automation , San Fran-
+cisco, CA, 2000, pp. 2250–2257.
+[27] J. Lenar ˇciˇc, M. M. Staniˇsic´, and V . Parenti-Castelli, “Kinematic design
+of a humanoid robotic shoulder complex,” in Proc. IEEE Int. Conf.
+Robotics and Automation, 2000, pp. 27–32.
+[28] , “A 4-DOF parallel mechanism simulating the movement of the
+human sternum-clavicle-scapula complex,” Adv. Robot Kinematics, pp.
+325–333, 2000.
+[29] M. Rosheim, “Wrist Actuator,” U.S. Patent 4 729 253, Mar. 8, 1988.
+[30] , “Robot Wrist Actuator,” U.S. Patent 4 723 460, Feb. 9, 1988.
+[31] J. J. Craig, Introduction to Robotics: Mechanics and Control. Reading,
+MA: Addison-Wesley, 1989.
+[32] J. Lenar ˇciˇc and N. Klop ˇcar, Scapular Versus Clavicular Motion in
+Human Shoulder Elevation and Flexion . Ljubljana, Slovenia: Jozef
+Stefan Inst., 2000.
+[33] K. Wohlhart, “Displacement analysis of the general spherical Stewart
+platform,” Mech., Mach. Theory, vol. 29, no. 4, pp. 581–589, 1994.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:53:40 UTC from IEEE Xplore. Restrictions apply.

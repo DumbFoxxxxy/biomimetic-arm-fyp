@@ -1,0 +1,1597 @@
+===== PAGE 1 =====
+2672 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Development and Characteristics of a Highly
+Biomimetic Robotic Shoulder Inspired by
+Musculoskeletal Mechanical Intelligence
+Haosen Y ang , Student Member , IEEE,G u o w uW e i , Member , IEEE,a n dL e iR e n , Member , IEEE
+Abstract—This article provides a comprehensive analysis of the
+existing landscape of conventional and highly biomimetic robotic
+arms, highlighting a prevalent tradeoff between size, range of
+motion, and load capacity in current highly biomimetic designs.
+To overcome the limitations, this article undertakes an in-depth
+exploration of the human shoulder, focusing on the identiﬁcation
+of mechanical intelligence within the biological glenohumeral joint,
+such as the incomplete ball-and-socket structure, coupling stability
+of humeroradial and glenohumeral joints, and the self-locking
+mechanism of the glenohumeral joint. These intelligent features
+can potentially enhance both the stability and mobility of robotic
+joints, all the while preserving their compactness. To validate
+these potential beneﬁts, this article introduces a novel, highly
+biomimetic robotic glenohumeral joint that meticulously replicates
+human musculoskeletal structures, from bones and ligaments to
+cartilage, muscles, and tendons. This novel design incorporates
+the mechanical intelligence found in the biological joint. Through
+rigorous simulations and empirical studies, this article demon-
+strates that the aforementioned mechanical intelligences signif-
+icantly enhance the ﬂexibility and load capacity of the robot’s
+glenohumeral joint. Furthermore, extensive manipulation exper-
+iments conﬁrm the robustness and viability of the proposed highly
+biomimetic robotic arm. Remarkably, the presented robotic arm
+executed 46.25% glenohumeral ﬂexion/extension, 105.43% adduc-
+tion/abduction, and 99.23% rotation, and can sustain a payload
+of 4 kg, and open the door which requires a torque of over 1.5
+Nm to twist the handle. Hence, this article not only validates the
+intrinsic mechanical intelligence identiﬁed in the deconstruction of
+the human shoulder joint, but also contributes a pioneering design
+of a new, highly biomimetic robotic arm, signiﬁcantly pushing
+boundaries of current robotic technology.
+Manuscript received 4 July 2023; revised 10 January 2024; accepted 31 March
+2024. Date of publication 16 April 2024; date of current version 1 May 2024.
+This paper was recommended for publication by Associate Editor L. Wen and
+Editor K. Mombaur upon evaluation of the reviewers’ comments. This work was
+supported in part by the National Natural Science Foundation of China (NSFC)
+under Grant 91948302 and Grant 52021003 and in part by Research England
+(RE) at NERIC. (Corresponding authors: Guowu Wei; Lei Ren.)
+Haosen Y ang is with the Department of Mechanical, Aerospace and Civil
+Engineering, The University of Manchester, M13 9PL Manchester, U.K., and
+also with the NERIC, University of Salford, M5 4WT Salford, U.K. (e-mail:
+haosen.yang@postgrad.manchester.ac.uk).
+Guowu Wei is with the North of England Robotics Innovation Centre
+(NERIC), School of Science, Engineering and Environment, University of
+Salford, M5 4WT Salford, U.K. (e-mail: g.wei@salford.ac.uk).
+Lei Ren is with the Key Laboratory of Bionic Engineering, Ministry of
+Education, Jilin University, Changchun 130025, China, and also with the School
+of Mechanical, Aerospace and Civil Engineering, University of Manchester,
+M13 9PL Manchester, U.K. (e-mail: lren@jlu.edu.cn).
+This article has supplementary downloadable material available at
+https://doi.org/10.1109/TRO.2024.3390057, provided by the authors.
+Digital Object Identiﬁer 10.1109/TRO.2024.3390057
+Index Terms—Artiﬁcial glenohumeral joint, biomimetic robot,
+human-robot interaction (HRI), mechanical intelligence, robotic
+arm, soft tissues.
+I. I NTRODUCTION
+B
+IOMIMETIC robots, mirroring human kinetics, show sig-
+niﬁcant potential in the human–robot interaction (HRI)
+ﬁeld. Their anthropomorphic design fosters adaptability to
+human-centric environments, enhancing usability and societal
+acceptance. While a variety of robots have emerged over the past
+70 years, challenges in biomimetic design persist, particularly
+in crafting humanoid glenohumeral joints. This study addresses
+this issue and proposes a bioinspired solution.
+Existing robotic arm designs frequently employ multiple ro-
+tary joints to simulate human shoulder movement. Although this
+approach simpliﬁes the design and provides extensive motion
+range, it demands substantial space. On the other hand, hu-
+manoid robotic arms utilize a single joint with multiple rotational
+degrees of freedom, offering a compact design but imposing
+restrictions on joint torque or size. These designs often rely on
+rigid materials for precision, potentially compromising safety in
+HRI scenarios.
+In contrast, the human shoulder joint exempliﬁes a compact,
+highly mobile structure that strikes a balance between mobility
+and stability, showcasing substantial load-bearing capacity. It
+can generate high torque and possesses damping and elastic
+characteristics, enhancing safety and resilience. Hence, a bio-
+logically inspired robotic shoulder joint may not only maintain
+stability within the normal load range, but also dislocate and
+recover under extreme forces that can potentially augment safety
+measures for robotic systems during close-range human inter-
+actions.
+Existing biomimetic research has yielded designs that mimic
+human structures, often leveraging a tendon-driven approach.
+However, these designs (no rigid shafts and hinge joints are
+used) typically offer an incomplete representation of human
+anatomy, particularly concerning soft tissues, leading to poten-
+tial structural stability issues. Speciﬁcally, the mobility-stability
+tradeoff in certain biomimetic robotic arms results in a lim-
+ited range of joint motion. A reﬁned representation of soft
+tissues can enhance both load capacity and safety in robotic
+designs. Furthermore, such incorporation reduces oscillations
+during mechanical movements, as these robotic joints inherently
+1941-0468 © 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2673
+demonstrate rotational resistance due to the soft tissues. Greater
+attention must be devoted to these tradeoffs and the intricate role
+of soft tissues in future design to enhance biomimetic potential.
+Currently, highly biomimetic robotic arms primarily replicate
+the appearance and movement characteristics of human joints,
+often neglecting the complex beneﬁts of human structure, such
+as the function of ligaments, tendons, and cartilage. This leads
+to a considerable gap between robotic and human anatomy.
+This research embarks on an exploration of the mechanical
+intelligence inherent in human joints, through a comprehensive
+deconstruction study, with the goal of identifying areas of op-
+portunity to enhance robotic performance. The insights derived
+from the deconstruction study will be applied to the proposed
+robot design, with the aim of more accurately emulating the
+human joint. The development of such highly biomimetic robots
+has the potential to revolutionize current robotic designs, vali-
+date human tissue function, and further corroborate the ﬁndings
+of the deconstruction study. This research constitutes the ﬁrst
+attempt to elucidate the functionality and superiority of various
+human anatomical structures via physical robotic prototypes,
+thereby bridging the divide between anatomical understanding
+and practical applications.
+II. R ELA TEDWORK
+A. Existing Highly Biomimetic Shoulder Designs
+Common shoulder joint designs for robotic arms often use
+multiple rotary joints in series to achieve three-degree rotational
+freedom [1], [2] (The opposite is the use of a universal joint),
+a strategy seen in industrial robots. This modular approach
+offers several advantages, such as simpliﬁed design, stream-
+lined manufacturing and maintenance, wide motion range, and
+potentially large joint torque with the use of high-performance
+motors without limiting the limb size. However, a signiﬁcant
+downside to this strategy is the substantial space it requires
+due to the need for the distance between individual joints for
+geared motor installation. This results in a larger overall shoulder
+size, which complicates the creation of compact, space-efﬁcient
+robotic systems and may lead to bulky robotic arms that are
+impractical in limited spaces or for close HRIs.
+Humanoid bionic arms frequently employ a single joint
+to achieve multiple rotational degrees of freedom within the
+shoulder joint [3], [4], [5]. A typical design incorporates a
+spherical joint providing two rotational degrees of freedom.
+This is supplemented by a bifurcated upper arm, where one
+segment is anchored to the ball joint, whereas the other per-
+mits relative lateral/internal rotation. This conﬁguration retains
+the advantages of multiple degrees of freedom in series while
+simultaneously achieving a compact design. Nevertheless, this
+design approach introduces its unique set of challenges. The
+motor often necessitates positioning near or within the spherical
+joint itself, inevitably leading to a compromise in either the joint
+torque or joint size. This requisite often results in a reduction
+of joint torque, given the limited space available for motor
+installation. Alternatively, to maintain torque, the joint size may
+have to be increased to accommodate a larger motor, leading to
+a bulkier design. Moreover, such an arrangement often diverges
+substantially from the natural appearance of the biological shoul-
+der. The mechanical structure and overt components can impart
+a distinctly robotic appearance, which may be unsuitable for
+applications necessitating a humanoid look, such as displaying
+humanoid robots, prosthetics, and certain ﬁlm props.
+This prevalent design approach predominantly relies on rigid
+materials to achieve superior stiffness and precision, crucial for
+the accurate and reliable operation of robotic arms. However,
+this focus on rigidity and precision often comes at the expense
+of safety, particularly in the context of HRI.
+The human shoulder joint embodies a number of exceptional
+advantages that can be leveraged for the development of ad-
+vanced robotic and automated systems. Compactness and mo-
+bility: The human shoulder joint, speciﬁcally the glenohumeral
+joint, is compact yet highly mobile. Capable of achieving three
+stable degrees of freedom and an extensive range of motion, this
+joint stands as the most mobile in the human upper limb. This
+compactness and mobility in one structure allows for dynamic
+movement capabilities in a conﬁned space. Stability: The shoul-
+der joint maintains a balance between mobility and stability.
+While being extremely ﬂexible, it is also resilient, resisting
+easy dislocation (can bear considerable loads). This enables
+the handling of strenuous tasks without interruption, thereby
+demonstrating signiﬁcant load capacity. In most mechanisms,
+mobility and stability often exist as conﬂicting performance
+indicators; however, the glenohumeral joint exempliﬁes a unique
+balance between these two properties. High torque output: The
+human shoulder joint can generate substantial torque, a feature
+that would be beneﬁcial for robotic systems involved in heavy-
+duty tasks. Safety and compliance: Unlike traditional rigid
+joints, the human shoulder joint exhibits damping and elastic
+characteristics. This compliance allows for a degree of ﬂexibility
+and resilience, providing safety against sudden external forces.
+Self-recovery mechanism: Biological joints exhibit controlled
+dislocation under extreme forces, serving as an injury mitigation
+strategy. Translating this to robotics, particularly in designs
+for close human interaction, could enhance safety. Implement-
+ing joints with intentional dislocation capabilities, followed by
+repositioning similar to orthopaedic realignments, may reduce
+risks in unintended collisions or forceful interactions, example
+includes those presented in [6].
+Exploring these features for integration into a robotic arm
+system could signiﬁcantly enhance safety, particularly in HRI
+environments, and provide improved performance in a compact
+form. The potential of these inherent human joint properties to
+advanced robotic and automated systems deserves more in-depth
+exploration.
+The study of biomimetics has captivated many researchers,
+leading to designs that emulate human biological structures [6],
+[7], [8], [9], [10], [11], [12], [13], [14], [15]. Numerous designs
+adopt a tendon-driven approach, akin to that of a biological arm,
+utilizing the inherent physical properties of tendons to imitate the
+compliance and dynamic characteristics of the musculoskeletal
+system. This approach often culminates in designs that bear
+greater resemblance to a biological arm.
+Existing designs of robotic arms, despite successfully em-
+ulating fundamental human shoulder functions, often present
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+2674 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+only a partial replication of human anatomy due to the oversim-
+pliﬁcation of biological principles, consequently compromising
+performance. Modern musculoskeletal robotic arms typically
+model the glenohumeral joint as a spherical joint, prioritizing
+stability by fully enclosing the ball within the socket. However,
+this simpliﬁcation restricts the joint’s range of motion. In robotic
+models, such as Kengoro [16] and Kenshiro [17], stability of the
+glenohumeral joint is prioritized at the cost of certain functional
+aspects. For instance, Kengoro achieves only 50% of the biolog-
+ical shoulder’s range of motion for shoulder ﬂexion/extension,
+whereas Kenshiro provides a mere 10% of the range of mo-
+tion for shoulder rotation. Conversely, the human glenohumeral
+joint adopts a level of instability to extend the motion range.
+The humeral head is signiﬁcantly larger than the glenoid
+and not entirely enclosed by it, thus allowing greater joint
+mobility.
+The lack of soft tissue representation in these models con-
+tributes to a signiﬁcant deviation from the biological human
+form. An elaborate inclusion of soft tissue can enhance load
+capacity, compliance, and ﬂexibility at joint extremities. Soft
+tissues also offer a recovery mechanism following dislocation
+due to extreme external forces, augmenting safety in HRI. These
+tissues serve as critical elements in damping oscillations dur-
+ing mechanical movements, suggesting their complex role that
+requires careful consideration to fully harness the potential of
+biomimetic design.
+Conventional robotic arms utilize bearings and shafts to re-
+sist multidirectional impacts and mechanical structures to limit
+motion, depending on material strength for precision and load
+capability. Despite substantial advancements in mirroring the
+functionality and morphology of human arms, contemporary
+biomimetic robots still rely predominantly on traditional me-
+chanical connections. These designs may lack compliance and
+exhibit reduced resilience to ﬂuctuating loads. Current muscu-
+loskeletal robotic arms may also demonstrate restricted load-
+carrying capacity and vulnerability to joint dislocation. This
+joint instability during movement is evident in the associated
+presentation video [18]. In contrast, the human body integrates
+tension and compression structures, with soft tissues like carti-
+lage, ligaments, and tendons primarily limiting motion. These
+tissues function as a low-pass ﬁlter, absorbing forces without
+causing dislocation or damage. Section II-B will examine the
+biological structures that contribute to impact mobility and
+improved load-bearing capacity.
+B. Anatomy Study—Mechanical Intelligence
+The human shoulder, an intricate system enabling complex
+arm motion and expansive reach, comprises three bones (the
+clavicle, scapula, and humerus) and four joints. The gleno-
+humeral joint, integral to shoulder mobility, offers three degrees
+of freedom and approximately two-third of the shoulder’s mo-
+tion range, the scapulothoracic joint provides the residual one-
+third motion [19]. Both sternoclavicular and acromioclavicular
+joints [20] contribute to shoulder stability, forming a triangular
+linkage among the clavicle, scapula, and torso. This article
+primarily focuses on the glenohumeral joint.
+Fig. 1. (a) Capsule and ligament of the glenohumeral joint. (b) GHL [21].
+(c) Mean insertion of GHL and CHL [22].
+The glenohumeral joint is the most mobile joint in the upper
+limb [23]. It has remarkable mobility, primarily facilitated by
+seven ligaments, which only restrict the joint’s motion within
+certain limits. The coracohumeral ligament (CHL) and gleno-
+humeral ligament (GHL) [see Fig. 1(a) and (b)] play key roles
+in limiting joint motion. CHL (anterior and posterior) restricts
+anterior-inferior translation during joint rotation [24], whereas
+GHL (superior-SGHL, middle-MGHL, and inferior-IGHL) pro-
+vides stability during arm adduction and abduction. The GHL’s
+inferior band (IGHL) with its anterior (AIGHL) and posterior
+subcomponents (PIGHL) contribute to stability during 90 ◦ of
+ﬂexion and internal rotation when the shoulder is abducted [21],
+[25]. The locations at which the ligaments are inserted are shown
+in Fig. 1(c). The intraarticular nature of the glenohumeral joint
+is attributed to its joint capsule [26].
+Within this motion range, the ligaments are taut, and the joint
+is “unstable.” The joint’s ball and socket structure with a small
+socket enables a large range of motion for each of the three
+degrees of freedom. The high-performance capabilities of the
+glenohumeral joint are underscored by the following distinctive
+features.
+1) Humeral Head’s Articular Surface Substantially Sur-
+passes the Scapula’s: Research data [27] reveals the humeral
+head to be larger, with the glenoid’s width and height being
+62.5% and 73.5% of the humeral head’s, respectively. McPher-
+son et al. [28] conﬁrmed this founding, suggesting a greater
+coronal constraint that limits superior-inferior translation while
+facilitating sagittal movement. According to Fig. 2(a), the range
+of motion of glenohumeral joint rotation is θr33 = θfr −2θ0r
+(θfr and θ0r are described in the ﬁgure). The range of motion
+of joint abduction/adduction is θr32 = θfa −θ0a (θfa and θ0a
+are described in the ﬁgure). Fig. 2(b) illustrates a decrease
+in θr33 and θr32 as θ0r and θ0a increase, providing evidence
+that increasing the articular surface of the humeral head while
+reducing that of the scapula promotes enhanced joint mobility.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2675
+Fig. 2. (a) Size of humeral head and glenoid. (b) Relation between θ0r , θ0a
+andθr33, θr32.
+TABLE I
+RANGE OF MOTION FOR BIOLOGICAL GLENOHUMERAL JOINT
+The glenoid labrum addresses this mismatch by expanding the
+dimensions of the glenoid cavity, thus augmenting mobility
+while still sacriﬁcing stability. In the biological glenohumeral
+joint, it enables a wide motion range as evidenced in Table I,
+and sufﬁcient load capability is also achieved.
+The load capacity in the biological glenohumeral joint is
+upheld through passive and active elements as the ligaments are
+only kept tightened when maximum joint motion is reached. Pas-
+sive elements include humeral-glenoid conformity, the glenoid
+labrum, the peripheral thickening, and loading-induced de-
+formability of the glenoid cartilage, and negative intrajoint
+pressure, which generates a vacuum effect, securing the humeral
+head within the glenoid cavity. Active elements involve muscle
+forces pressing the humeral head into the glenoid fossa, mainly
+provided by the rotator cuff group. The subscapularis muscle,
+which creates a self-locking mechanism when the arm is ad-
+ducted. Further, multiple tendons crossing the elbow and gleno-
+humeral joint provide additional stability. The biceps muscle’s
+long head, attached to the glenoid labrum, adds a compressive
+force during biceps movement, aiding in joint stabilization.
+These mechanisms jointly sustain shoulder joint stability.
+2) Negative Intraarticular Pressure: Researchers have dis-
+covered the crucial mechanical function of the glenoid labrum,
+which is to function as an antishear bumper [30], [31], [32].
+When the humeral head is pressed into the glenoid fossa in the
+presence of an intact labrum, air or ﬂuid is squeezed into the
+joint capsule, creating a negative pressure within the glenoid
+fossa. This creates a situation similar to a cylindrical valve ﬁlled
+with ﬂuid (as illustrated in Fig. 3), which effectively stabilizes
+the glenohumeral joint. Habermeyer et al. [33] examined the
+inﬂuence of atmospheric pressure on glenohumeral joint stabi-
+lization, demonstrating stability forces ranging from 68–225 N
+exerted by external atmospheric pressure on a cadaveric shoul-
+der. This result is also supported by the study conducted by
+Fig. 3. Cylindrical valve ﬁlled with ﬂuid and the glenohumeral joint [35].
+Fig. 4. Muscle groups and tendons in the glenohumeral joint. Tendons (blue),
+muscles (red), bones (yellow), bursa (purple). Rotator cuff (supraspinatus,
+subscapularis, teres minor, and infraspinatus) and biceps muscle. (a) Front view.
+(b) Back view. (c) Deltoid muscle. (Adapted from imagery provided by the
+National Institute of Arthritis and Musculoskeletal and Skin Diseases).
+Y amamoto et al. [34]. Both researchers pointed out that the
+dynamic stability provided by muscular balance might also be
+inﬂuenced by the absence of negative intraarticular pressure.
+Combined with the results in the concavity-compression force,
+the difference with and without labrum may indicate the negative
+intraarticular pressure contributed up to 10% of the stability
+ratio.
+3) Rotator Cuff Muscle Stabilize the Joint: The dynamic
+stability of the glenohumeral joint during active movement
+relies heavily on surrounding tendons, with three main mus-
+cle groups contributing signiﬁcantly: the rotator cuff muscles,
+the biceps tendon, and the deltoid muscle (see Fig. 4). The
+rotator cuff, comprising supraspinatus, subscapularis, teres mi-
+nor, and infraspinatus, dynamically stabilizes the glenohumeral
+joint by compressing the humeral head into the glenoid fossa
+during midrange shoulder movement, with ligaments playing a
+more pivotal role in motion extremes. With comparable cross-
+sectional depths for posterior and anterior rotators, an equal
+force couple prevents translation across the joint. The subscapu-
+laris muscle creates a self-locking mechanism when the arm is
+adducted. Under the condition of constant muscle length, an
+increase in the downward force applied to the humerus may
+enhance the stability of the glenohumeral joint. This concept
+will be subjected to a theoretical exploration in a subsequent
+section.
+4) Tendons Across Multiple Joints: The long head of the
+biceps tendon [see Fig. 4(a)], uniquely originating intraartic-
+ularly, traverses three joints: the glenohumeral, humeroulnar,
+and proximal radioulnar joints. Its loading during elbow ﬂex-
+ion and forearm rotation provides a compression force to the
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+2676 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Fig. 5. (a) Humeral head cartilage. (b) Glenoid labrum. (c) Negative intraarticular pressure formed by the humeral head and glenoid labrum. (d) Gleno humeral
+joint with lubricating oil during ﬂexion/extension, rotation, adduction/abduction movements.
+glenohumeral joint, thus contributing to stability. Alexander
+et al. [36] examined this tendon’s role in glenohumeral stability,
+comparing the anterior humeral head translation in an intact and
+vented capsule, under both loaded and unloaded conditions of
+the long head of the biceps tendon. Their ﬁndings suggest a
+considerable impact on the joint’s overall stability by the loaded
+tendon, reducing anterior and inferior translations by 42.6% and
+73.3%, respectively. Analogously, the long head of the triceps,
+which also crosses the elbow joint, may assist glenohumeral
+stabilization during elbow extension.
+III. M ECHANICAL DESIGN AND PROTOTYPE
+This section elaborates on the design speciﬁcations of the
+proposed highly biomimetic glenohumeral joint. The overar-
+ching goal of this design is to emulate the human joint struc-
+ture as precisely as possible, incorporating the previously de-
+tailed mechanical intelligence. This is intended to validate the
+functionality and spotlight the advantages of this mechanical
+intelligence, thereby addressing the challenges presented by
+current highly biomimetic robotic arms. Concurrently, it offers
+an opportunity to corroborate ﬁndings from classical anatomical
+studies. The skeletal model adopted for this robotic arm utilizes
+commercially available 3-D scanning ﬁles, and the biological
+soft tissues are substituted with suitable engineering materials.
+A. Design of the Soft Tissues
+1) Glenoid Labrum: Researchers have discovered that the
+glenoid labrum can act as an antishear bumper, and this char-
+acteristic has been replicated in the design of the glenohumeral
+joint. As illustrated in Fig. 5(c), the humeral head is coated with
+a 1.5 mm thick cartilage [see Fig. 5(a)], which is printed with
+Formlabs durable resin (elongation at break: 55%, ultimate ten-
+sile strength: 28 MPa, tensile modulus: 1 GPa) using Formlabs
+Form 3 printer in precision mode (0.025 mm/layer). This high
+precision enables a smooth and polished ﬁnish. The glenoid
+labrum [see Fig. 5(b)] is printed using Formlabs elastic resin
+(elongation at break: 100%, ultimate tensile strength: 3.23 MPa,
+shore hardness: 50 A), which has similar properties to silicone
+and allows for airtight adhesion to the humeral head. The glenoid
+labrum has a vent hole that can be connected to a syringe through
+a silicone tube. By applying lubricating oil to the humeral head
+and attaching the glenoid labrum, the air inside the labrum is
+extracted using the syringe, creating a negative pressure between
+the humeral head and the labrum. This negative pressure allows
+the humeral head to be securely attached to the labrum, providing
+stability to the glenohumeral joint. Upon evaluation, it was found
+that the lubricating oil effectively mitigated excessive damping
+in the humerus during ﬂexion/extension, rotation, and adduc-
+tion/abduction movements, ensuring smooth operation when
+equipped with artiﬁcial muscles, as shown in Fig. 5(d).T h e
+negative pressure generated between the humeral head and the
+labrum provided stable adhesion and was capable of withstand-
+ing considerable tension (more than 50 N).
+2) Ligaments: However, it was found experimentally that
+the ﬂexible material of the glenoid labrum tends to deform
+slightly after prolonged joint motion, leading to a reduction in
+air tightness. Therefore, a pretensioned ligament system was
+developed to provide stable joint ﬁxation and avoid the need
+for constant manual lubrication while maintaining the same
+performance. The function of the negative pressure chamber is
+thus eliminated and supplanted by pretensioned ligaments.
+According to anatomy, the ligaments in the glenohumeral
+joint can be simpliﬁed into seven major portions to limit the
+joint’s position. These seven ligaments were replicated on the
+prototype based on the approximate location of their origin and
+insertion points, as indicated in blue in Fig. 6(b) and (c).T h e
+ligament, composed of six polyethylene ﬁshing wires (each with
+a diameter of 0.55 mm and breaking strength of 45.36 kg), is
+prestretched with 200 N force prior to installation to approximate
+a nonextensible length. Due to the elimination of the glenoid
+labrum with negative pressure and the overlong length of the
+ligaments required in the joint’s initial position (too short would
+reduce the range of motion of the joint), the ligaments are in
+a state of extreme laxity and unable to stabilize the joint. To
+provide the joint with basic stability similar to negative pressure,
+i.e., stability even without the contribution of tendons, built-
+in compression spring systems are used. This design applies
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2677
+Fig. 6. (a) Simpliﬁed diagram of the pretensioned ligament system. (b) Arrangement of ligaments in the glenohumeral joint. (c) Top view of six ligamen ts with
+the pretension mechanism. (d) Arrangement of the pretensioned ligament system and length adjustment mechanisms in the prototype. (e) Detail of the l ength
+adjustment mechanism.
+approximately a 10 N preload to each ligament, allowing them
+to be tensioned at the joint’s initial position, as shown in the
+diagram in Fig. 6(a). During the dynamic process of joint articu-
+lation, the alterations in ligament length consequently engender
+more signiﬁcant deformation in the associated spring mecha-
+nism. As shown in Fig. 6(b) and (c), except for CHL, one end
+of the ligaments is ﬁxed into the scapula through compression
+springs (inside the scapula, represented and boxed in red). When
+the ligaments are tensioned, the spring is compressed, and the
+exposed ligaments will be extended. The alternate ends of the lig-
+ament bundles insert into the humeral head, traverse the humerus
+internally, and anchor to the length adjustment mechanisms
+[see Fig. 6(d)]. The operative principle of these mechanisms
+is illustrated in Fig. 6(e). The ligament bundles connect to the
+mechanism’s connectors via the humerus’s internal conduit.
+Rotating the microwheel induces axial movement of adjustment
+screws within the slots, modulating the length of the ligaments.
+This mechanism permits a ligament length adjustment of up to
+20 mm.
+The length of the ligaments is determined through testing
+during the development process. The initial length of the liga-
+ments is estimated and then adjusted using the above-mentioned
+mechanism. The length of the ligaments is adjusted until the
+springs are compressed to their solid length when the joint moves
+to the limited position of each degree of freedom and the exposed
+ligaments cannot be extended any further. This helps to limit the
+position of the joint. Due to the limited elastic travel of the spring,
+once the ligaments have been adjusted to the appropriate length,
+the exposed length of the ligaments will resume to the minimum
+when the joint returns to its initial position, which may be either
+tensioned or relaxed. During the movement of the joint, the
+ligaments will be strengthened and springs will be compressed,
+which provides resistance to the joint dislocation, and thus
+provides basic stability to the joint. Due to the low coefﬁcient of
+elasticity of the compression springs used, this mechanism does
+not cause excessive resistance to joint movement. Compared
+with the design without the spring, in this design, the length
+of the ligament is directly set to the desired maximum length.
+However, when the joint is in its initial position, the ligaments
+are not tensioned and do not provide any stability to the joint.
+This may result in easy dislocation of the joint in the absence of
+any tendon contribution.
+3) Tendon and Muscles: To address the size and weight
+limitations, seven major muscles are reproduced on the robotic
+shoulder, as listed in Table II. The muscles are powered by
+four soft actuators, comprising four external spring compliant
+actuators (ECAs). Details can be found in our previous work
+[37], [38]. The other muscles are actuated using noncompliant
+actuators. Fig. 7(a)–(d) illustrates the arrangement of the mus-
+cles, including the motors and tendons. The motors and driving
+pulleys for the subscapularis, infraspinatus, and supraspina-
+tus muscles are embedded within the scapula due to space
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+2678 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Fig. 7. Tendon and muscle arrangement of the proposed robotic shoulder. (a) Right view. (b) Front view. (c) Rear view. (d) Top view. Tendon and muscle
+arrangement of the proposed robotic shoulder prototype. (a) Right view; (b) Front view; (c) Rear view; (d) Top view.
+TABLE II
+ARTIFICIAL MUSCLES APPLIED IN THE PROPOSED ROBOTIC ARM
+constraints. In the proposed prototype, the tendon is covered
+by a red braided sleeve, as shown in Fig. 7(e)–(h).
+IV . CHARACTERISTICS OF THE GLENOHUMERAL JOINT
+A. Incomplete Ball and Socket Structure
+To enable a wide range of motion, the glenohumeral joint’s
+ligaments only tense as the joint near its extreme positions. Joint
+stability primarily derives from the cross-joint tendons, such as
+the deltoid, biceps, and rotator cuff. This mechanism efﬁciently
+mitigates the stability-mobility tradeoff. As the humeral angle
+alters and force direction coincides with a tendon, the tendon can
+resist the tension directly, thus fortifying the joint. The simplicity
+of this mechanism obviates the need for mathematical analysis.
+Discussion is limited to situations of natural shoulder adduction
+under axial force.
+Fig. 8(c) illustrates a simpliﬁed diagram of the glenohumeral
+joint. When the humerus is naturally adducted, the humeral head
+and glenoid of the scapula form an incomplete ball and socket
+joint. The edge of the joint contact surface is denoted asC when
+the angle between the scapula and the horizontal is 0 (shown by
+the solid line). However, when the angle between the scapula and
+the horizontal isθs, as shown by the dashed line, the contact edge
+point changes to C′. The angle between C′O and the horizontal
+is θh.A s θs increases, θh also increases, resulting in increased
+joint stability when a force is applied in the vertical direction.
+Assuming an axial force Fe is applied to the humerus, as
+shown in Fig. 8(d), the glenohumeral joint is subjected to a ten-
+dency to dislocate. At this point, the situation can be simpliﬁed
+by considering three forces acting on the humeral head. The
+ﬁrst is the applied force Fe itself, whereas the other two are the
+support force Fs from the joint contact point, and the tendon
+force Ft from the infraspinatus and supraspinatus. However,
+the frictional force that further prevents joint dislocation is not
+considered in this simpliﬁed model.
+When the joint is dislocated, the joint contact point slides from
+C′ toC′′. The length of the tendon OS (to represent the tendons
+of infraspinatus and supraspinatus) is stretched from ls to ls1.
+The position of tendons changes fromOS toOS′, and the angle
+with the horizontal line increases to θa.θh decreased to θc.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2679
+Fig. 8. Rotator cuff in the glenohumeral joint. (a) Rear view (b) Front view.
+(c) Simpliﬁed diagram of the glenohumeral joint (humeral head and glenoid). (d)
+Force analysis diagram of the ball and socket structure when the glenohumeral
+joint dislocated.
+According to the force balance, there are
+{
+Ftsinθa +Fssinθc = Fe
+Ftcosθa = Fscosθc
+. (1)
+In ΔOSS′, it has the following:
+⎧
+⎪⎪⎪⎪⎪⎪⎨
+⎪⎪⎪⎪⎪⎪⎩
+lss = R(sinθh − sinθc)
+ls = lt0 +R(cosθc − cosθh)
+ls1 =
+√
+l2s +l2ss
+cosθa = lsls1
+sinθa = lssls1
+(2)
+where lss is the length of SS′, and it is equal to C′M . R is
+the radius of the humeral head. ls is the length of OS, ls =
+lt0 +MC′′, lt0 is the initial length of OS, which is known. ls1
+is the length of OS′.
+When the motor is unactuated,Ft can be calculated as follows:
+Ft = kt(ls1 −lt0) (3)
+where kt is the stiffness of the tendon.
+Combine (1) to (3), the relation betweenFe andθc in different
+θh, Fe = fch(θc,θ h) can be obtained.
+θh can be adjusted by modifying the joint contact surface on
+the scapula, such as changing the size of the socket in the ball
+and socket structure of the glenohumeral joint, or by rotating the
+scapula and altering θs to adjust the joint contact surface.
+Fig. 9 presents Fe = f(θc) in different θh. The blue curve
+presents the situation when θh =3 0◦. In this setting, if the
+external force Fe reaches 400 N and does not withdraw, the
+joint will be completely dislocated until θc decreases to 0. The
+Fig. 9. Simulation result of Fe = f (θc) in different θh.
+Fig. 10. (a) Simpliﬁed diagram of the glenohumeral joint and elbow when the
+long head of the biceps is retained. (b) Condition that stability coupling failure.
+maximum axial external force the joint can withstand is 400 N
+whenθh =3 0◦. It is observable that with an increase in θh,t h e
+joint’s resistance to the maximum value of Fe correspondingly
+elevates, thereby enhancing the joint stability.
+B. Coupling Stability of Humeroradial and Glenohumeral
+Joints
+The long head of the biceps muscle crosses both the humerora-
+dial and glenohumeral joints, potentially increasing stability in
+the glenohumeral joint when the biceps actuate elbow ﬂexion.
+This coupling of joint stability allows the two-joint system to
+avoid signiﬁcant shortcomings due to reduced load capacity in
+one joint.
+Fig. 10 depicts the simpliﬁed diagram of the glenohumeral
+joint, illustrating the isolated long head of the biceps in the
+absence of other soft tissues such as ligaments and tendons.
+When an external force Fe is applied to the distal end of the
+forearm, the tension in the biceps increases. As the long head of
+the biceps also crosses the glenohumeral joint, it can press the
+humeral head into the glenoid, resulting in a more stable ball
+and socket joint.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 9 =====
+2680 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Assuming that the length of the long head of the biceps tendon
+[shown in blue in Fig.10(a)] remains constant, the angle between
+the two joints,θe andθf , are coupled. The relationship between
+them is determined by the radius of the humeral head,r1, and the
+moment arm of the elbow, r2, and can be expressed as follows:
+(θd +θe)r1 = θfr2 (4)
+whereθd is the angle between the perpendicular bisector of the
+lineS1S2 (S1 andS2 are the edge points of glenohumeral joint
+contact surface), denoted as O1S, and the horizontal line. θd is
+known.θe is the angle between the axial line of the humerus and
+the horizontal line. θf is the angle between the axial line of the
+forearm and the humerus.
+When a vertical downward external force Fe is applied to
+the distal end of the forearm, the tension in the tendon will
+increase. The system will stabilize at a position that has the
+lowest potential energy H, where θe and θf lead H at its
+minimum value. H can be expressed as follows:
+H = l1sinθe +l2 sin(θf −θe) (5)
+where l1 is the distance between O1 and O2. l2 is the distance
+between O2 and the force acting point. Combine (4), θe can be
+calculated.
+The force analysis of the humeral head is conducted in the
+equilibrium position as shown in Fig.10(a). Without considering
+friction and gravity, it can be simpliﬁed to three forces acting
+on the humeral head. The ﬁrst force is the support force Fl
+along the axial line of the humerus. The second force is the
+combined forceFt due to the tendon warping the humeral head.
+The direction of Ft is the perpendicular bisector of T2T3. T2
+andT3 are contact points of tendon T1T2T3T4 with the humeral
+head. Ft across the center of the humeral head O1. The third
+force is the support force Fs to the humeral head (ball) from the
+glenoid of the scapula (socket). The direction of Fs across O1,
+and should be balanced with the other two forces. In the position
+shown in Fig. 10(a), the direction of Fs is at the perpendicular
+bisector ofS1S2 (S1 andS2 are the contact edge points between
+glenoid of scapula and humeral head).
+It is assumed that the tendon is unstretchable and will not
+break and the strength of the skeletal material is inﬁnite. When
+θd −θs +θe < 180◦ [θs is the angle of ∠S2O1S,a ss h o w ni n
+Fig. 10(b)], even ifFe increases inﬁnitely, the three forces above
+remain balanced and the system remains stable. If the tendon can
+be stretched but will not break, the stretched amount may only
+causeθe andθf to be balanced at the new position and the system
+may remain stable. These are the conditions to realize stability
+coupling in the elbow and shoulder due to the biceps crossing
+both joints.
+θd −θs +θe = 180◦ is the condition for stability coupling
+failure, whereO2,O1,S2 are in the same line. The joint contact
+surface between the scapula and the humeral head S1S2 can
+not provide the splitting force that is perpendicular to O1O2 to
+the right in order to prevent joint dislocating. The humeral head
+will tend to dislocate to the left as shown in Fig. 10(b). Thus,
+θd −θs +θe < 180◦ is the condition to maintain glenohumeral
+joint stability if only the long head of the biceps is retained.
+Fig. 11. (a) Self-locking mechanism is active in the glenohumeral joint.
+(b) Self-locking mechanism fails (or reduces joint stability) in the glenohumeral
+joint. (c) Threshold for the self-locking mechanism fails.
+When θd +θe increases, the stability of the glenohumeral joint
+will decrease.
+C. Self-Locking Mechanism
+When the arm is naturally adducted, the tendons cross the
+glenohumeral joint (deltoid, subscapularis, and biceps) and in-
+corporate with the ball and socket structure in the glenohumeral
+joint forming a self-lock mechanism. The subscapularis func-
+tions in a similar way to the biceps, which wraps around the
+humeral head. As shown in Fig. 11(a),T1T2T3T4 represents the
+tendon. When an axial load F1 is applied to the humerus, the
+combined force from the tendon wrapping the humeral head
+is Ft. There will be a support force Fs from the glenoid, its
+direction may be across the joint contact edge point S2. When
+the joint is in the position shown in Fig. 11(a), these three forces
+should be balanced and the self-lock mechanism is activated.
+As demonstrated in Fig. 11(b), the system stability diminishes
+during scapula rotation, leading to potential joint dislocation as
+a consequence of tendon stretching. Without this tendon stretch-
+ing, the humeral head may slip from the glenoid under minor
+humerus rotation, as illustrated in the enclosed diagram. The
+threshold for self-locking mechanism failure may be reached
+when pointS2 is higher thanO1, as shown in Fig. 11(c), and the
+external force will stretch the tendon directly and dislocate the
+joint slightly, as shown in the enclosed diagram.
+V. S TATI CANAL YSIS ANDSIMULA TION
+This section establishes and simulates the relationship be-
+tween the glenohumeral joint’s output torque for each motion
+and its positional parameters. This analysis is crucial in a highly
+biomimetic design where joint movements frequently alter ten-
+don force directions.
+A. Glenohumeral Joint Flexion/Extension
+In the robotic arm prototype, the glenohumeral joint ﬂexion
+is achieved by the deltoid (anterior) muscle, since the torso
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 10 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2681
+Fig. 12. Actuation system for the glenohumeral joint. (a) Flexion/extension actuation system. (b) Mechanism schematic. (c) Abduction/adduction a ctuation
+system. (d) Mechanism schematic. (e) Abduction mechanism, top view. (f) Adduction mechanism schematic. (g) Simpliﬁed structure for joint rotation actuation.
+(h) Cross-sectional view. (i) Status of actuation system during humeral rotation.
+is absent. The tendon of the deltoid (anterior) originates from
+the lateral surface of the humerus and inserts into the middle
+section of the clavicle, as shown by the red line in Fig. 12(a).
+As the humerus rotates, the movement of the origin point of
+the deltoid is minor and has little effect on the joint output
+torque. Therefore, only the relationship between the joint output
+torque τ31f (glenohumeral joint ﬂexion), the joint abduction
+angleθ32, and the joint ﬂexion angleθ31 will be analyzed in this
+case.
+This structure can be simpliﬁed as shown in Fig. 12(b).T o
+facilitate the calculation, a coordinate system is created. As
+the humerus moves from the initial position ON , it abducts
+θ32 around the y-axis to position ON′, and then ﬂexes θ31
+around the z-axis to ON′′. −−→ON after rotation to −−−→ON′′ is as
+follows:
+−−−→
+ON′′ =( −l6 sinθ32cosθ31,l 6 sinθ32 sinθ31,−l6 cosθ32)
+(6)
+where l6 is the length of ON′′ and it is constant.
+cosθm can be calculated as follows:
+cos θm =
+−→OA ·−−−→ON′′
+l5l6
+(7)
+where θm is the angle of ∠AON′′, l5 is the length of OA, and
+it is constant.
+According to the cosine law, the length ofAN′′,l4 is obtained
+as follows:
+l4 =
+√
+l25 +l26 −2l5l6cosθm. (8)
+The length of OM (perpendicular to AN′′), l7 can be calcu-
+lated as follows:
+l7 = l5l6 sinθm/l4. (9)
+The joint torque for ﬂexion can be calculated as follows:
+τ31f = Ft1l7. (10)
+Leveraging a Maxon EC 4-pole 120 W motor with a 1:128
+gearbox enables the establishment of the relationship between
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 11 =====
+2682 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Fig. 13. Simulation result of the relation between (a) τ31f ,θ32 andθ31,( b )τ31e,θ32 andθ31,( c )τ33,θ32 andθ33,( d )τ32b andθ33 for the three muscles, and
+(e)τ32 d andθ32.
+τ31f andθ32,θ31 whenFt1 is equal to 700 N. This relationship
+is depicted in Fig. 13(a).
+In the proposed robotic arm, the deltoid (posterior) is responsi-
+ble for driving the glenohumeral joint extension. The blue dashed
+line in Fig. 12(a) shows the origin of the deltoid (posterior)
+from the lateral surface of the humerus and its insertion point
+on the spine process of the scapula. By applying the same
+calculation approach, the relationship between the glenohumeral
+joint extension output torque τ31e and joint angles θ32 and θ31
+can be determined, as shown in Fig. 13(b).
+B. Glenohumeral Joint Abduction
+In the robotic arm prototype, the glenohumeral joint abduction
+can be driven by three muscles, namely, the deltoid (middle), the
+supraspinatus, and the long head of the biceps. As illustrated in
+Fig. 12(c), the motor of the biceps is positioned on the lateral
+aspect of the middle part of the humerus, the red-colored tendon
+passes through the intertubercular groove and crosses the notch
+between the acromion and coracoid process on the scapula
+before inserting into the scapula. The motor of the supraspinatus
+is located inside the scapula, the green-colored tendon crosses
+the groove between the acromion and coracoid process and
+connects to the protrusion on the side of the humeral head.
+The paths of the supraspinatus and the long head of the
+biceps are in close proximity and can be discussed together.
+The long head of the biceps crosses the “tube” formed by the
+intertubercular groove [see Fig. 12(c)]. As the humerus rotates,
+the tendon insertion point Ts0 of both muscles will also rotate
+to Ts, as shown by the red line in Fig. 12(d). The red tendon
+will move from its dashed line position to the solid line position
+by an angle θ33. As the tendon crosses the notch between the
+acromion and coracoid process, it bends at an angle θbs at point
+S. According to the top view in Fig. 12(e),θbs can be calculated
+as follows:
+cosθbs = l8 +l9cosθ33√
+(l8 +l9cosθ33)2 +(l9sinθ33)2
+(11)
+where l8 is the length of OS and l9 is the length of OTs,a s
+shown in Fig. 12(e).
+The output torque when the supraspinatus and the long head
+of the biceps drive the glenohumeral joint abduction can be
+calculated approximately as follows:
+τ32b1 =( Ft2 +Ft3)l9cosθbs (12)
+where Ft2 and Ft3 represent the tension force generated by the
+supraspinatus and biceps, respectively.
+The motor of the deltoid (middle) is located on the lateral side
+of the humerus, with the tendon (blue) attached to the acromion
+of the scapula. As the humerus rotates, the origin point of the
+tendon on the motor,D0, will move from the dashed to the solid
+position toD, as shown in Fig. 12(d). The contact point between
+the tendon and the humeral head moves from Td0 to Td.D u e
+to the complexity of the structure, θg (the angle of ∠Td0OTd)
+will vary as the joint abducts, approximated as θg =0 .5θ33.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 12 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2683
+The output torque when the deltoid (middle) drives the joint to
+abduct, τ32b2 can be approximately calculated as follows:
+τ32b2 = Ft4l9cosθg (13)
+where Ft4 represents the tension force generated by the deltoid
+(middle).
+Given that the supraspinatus employs a Maxon ECX
+TORQUE 22 mm motor with a 1:62 gearbox, the biceps uses
+a Maxon EC 4-pole 90 W motor with a 1:128 gearbox, and
+the deltoid (middle) incorporates a Maxon EC 4-pole 120 W
+motor with a 1:128 gearbox, the relationship between the output
+torque, τ32b (τ32b = τ32b1 +τ32b2), and θ33 can be established
+when three tendons, with forces Ft2 = 600 N, Ft3 = 500 N,
+andFt4 = 700 N, respectively, drive the joint abductions. These
+relationships are illustrated in Fig. 13(d). The deltoid (middle)
+contributes the most to τ32b. The glenohumeral joint rotation
+angle does not exceed±60◦ and has a minor effect on the output
+torque τ32b. If all three tendons act simultaneously, the joint
+torque can reach a maximum of 54 Nm.
+C. Glenohumeral Joint Adduction
+In the robotic arm prototype, the glenohumeral joint adduction
+is actuated by the long head of the triceps, as shown by the yellow
+line in Fig. 12(c). The motor of the long head of the triceps is not
+rigidly ﬁxed to the humerus, and therefore, the position of the
+tendon is less displaced when the humerus rotates, remaining
+approximately in its original position [i.e., the position marked
+in yellow in Fig. 12(c)]. Thus, only the relationship between the
+output torqueτ32 d and the adducted angleθ32 is considered. The
+structure can be simpliﬁed as shown in Fig. 12(f). The output
+torque τ32 d for glenohumeral joint adduction can be calculated
+as follows:
+τ32 d = Ft5l10 cos(θ32 −θk) (14)
+wherel10 is the distance from the insertion pointA of the tendon
+in the scapula to the center O of the humeral head. Ft5 is the
+tendon force output by the long head of the triceps. θk is the
+angle between the moment armOB andOA when the joint is in
+its initial position. Taking in the position parameters l10 and θk
+of the prototype, given Ft5 = 700 N (Maxon EC 4-pole 22 mm
+120 W motor with 1:128 gearbox is used to drive the long head of
+triceps), the relationship between τ32 d and θ32 can be obtained
+as shown in Fig. 13(e).
+D. Glenohumeral Joint Rotation
+In the robotic arm prototype, the glenohumeral joint rotation
+is driven by the subscapularis and infraspinatus, as shown in
+Fig. 12(c) (subscapularis is represented by the orange line,
+infraspinatus is represented by the purple line). The motors
+of these two muscles are located inside the scapula, and their
+tendons are connected to the humeral head. The subscapularis
+assists in internal rotation, and the infraspinatus drives external
+rotation. The two muscles are arranged symmetrically. When
+the glenohumeral joint is in its initial position, as shown in
+Fig. 12(c), the tendon passes through the center of the circle
+of the humeral head in the plane shown. The maximum output
+torqueτ33 during joint rotation is related to the joint position, in-
+cluding the ﬂexion/extension angleθ31, the abduction/adduction
+angleθ32, and the rotation angle θ33. Of these, θ32 andθ33 have
+a greater effect on τ33. The relationship between τ33 and θ32,
+andθ33 is discussed, denoted as τ33 = f(θ32,θ 33).
+As shown in Fig. 12(g), the glenohumeral joint abducts at
+an angle and the humerus is rotated from ON to ON′.T h e
+tendons of the subscapularis and infraspinatus will slide over
+the humeral head and no longer pass through the center O of
+the humeral head. The tendon insertion points Ts and Ti will
+move upward with joint abduction. Point M is the center of the
+truncated circle, where the truncated circle passes through the
+contact points Mi andMs between the tendon and the humeral
+head. Point R is on the truncated circle.
+Fig. 12(h) shows the section view of the joint on the sym-
+metrical plane. The subscapularis tendon is attached from the
+motor A to the point T of the humeral head (projection of the
+tendon insertion point Ts on the symmetrical plane). AT passes
+through pointM . As the glenohumeral joint abducts at an angle
+θ32, OT0 rotates to OT , forming an angle θ32. The length of
+TP ,l15 is as follows:
+l15 = l14sinθ32 (15)
+where l14 is the length of the OT ,i ti sk n o w n .
+As ΔTPA and ΔMOA are similar, the length l16 of MO
+can be calculated as follows:
+l16 = l11l15l11 +l14cosθ32 (16)
+where l11 is the length of the OA, it is known.
+The length of MR ,l12 can be calculated as follows:
+l12 =
+√
+l218 −l216 (17)
+where l18 is the radius of the humeral head, it is known. In
+ΔAOT , according to the cosine theorem, the length of AT ,l17
+can be calculated as follows:
+l17 =
+√
+l211 +l214 −2l11l14 cos(π −θ32). (18)
+According to the sine theorem, ∠ATO ,θn can be calculated
+as follows:
+θn = arcsin
+(l11 sin(π −θ32)
+l17
+)
+. (19)
+Under the action of the subscapularis tendon, the joint is
+rotated at θ33 from the position shown, as in Fig. 12(i).T h e
+tendon will slide from the dashed position to the solid position.
+The projectionOT ofOTs will be decreased toOT1. The length
+of OT1, l′14 can be calculated as follows:
+l′14 = l14 cos(θr0 +θ33)cosθr0 (20)
+whereθr0 is the initial angle between TsO andTO , it is known.
+The torque, τ33, driving the glenohumeral joint rotation due
+to tendon force, Ft6, is given as follows:
+τ33 = Ft6l12 cosθn. (21)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 13 =====
+2684 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+TABLE III
+COMPARISON OF ROBOTIC JOINT TORQUE WITH HUMANS
+Combining (17), (19), and (21) by replacing l14 with l′14 in
+(20), the joint torque, τ33 = f(θ32,θ 33) can be obtained.
+Given the symmetrical arrangement of the infraspinatus and
+subscapularis muscles, the infraspinatus tendon’s analysis can
+be approached similarly. Given Ft6 = 600 N (Maxon EC 4-
+pole 22 mm 90 W motors with 1:128 gearboxes are used to
+drive the infraspinatus and subscapularis tendon), based on the
+prototype’s parameters, the relationship betweenτ33 andθ32,θ33
+is obtained and shown in Fig.13(c). It can be observed that asθ32
+approaches 90◦,τ33 will approach 0. This is because the insertion
+point of the tendons of the infraspinatus and subscapularis has
+reached its highest position, where the moment arm driving the
+joint rotation is close to 0 and unable to output torque. In the
+biological arm, the rotation of the glenohumeral joint at this
+point is driven by other muscles, but the torque is reduced in this
+position.
+Table III documents the maximum joint torques for each
+speciﬁc movement of the glenohumeral joint. To prevent proto-
+type damage, maximal torques for each motion were not tested.
+Rather, the prototype’s glenohumeral joint performance was
+assessed via practical operational testing.
+VI. P ERFORMANCE AND VALIDA TION
+This section presents a validation of the motion and manipu-
+lation performance of the proposed robotic arm. It includes an
+evaluation of the active range of motion of each joint and an
+object manipulation test. Mechanical intelligence, such as the
+self-locking mechanism and multijoint tendon interactions, will
+be validated via a simpliﬁed robotic arm model.
+A. Range of Motion
+To record each active joint motion, the scapula of the robotic
+arm is ﬁxed to the platform, and a gyroscope is used. Before
+each experiment, the gyroscope is calibrated, and its position is
+modiﬁed so that each measured joint motion corresponds to a
+change in the x-axis rotation angle of the gyroscope. The test
+results are shown in Figs. 14 and 15, and the recorded ranges are
+compared with the data for the human arm, which is presented
+in Table IV. Video 2 in the Supplementary Material presents the
+shoulder rotation motion test. Owing to the lack of musculature
+such as the pectoralis major (the torso is required) that facilitates
+glenohumeral joint ﬂexion, the range of motion for the robotic
+arm is restricted.
+Fig. 14. Range of motion test for each motion in the proposed robotic arm.
+(a) Glenohumeral joint adduction/abduction. (b) Flexion. (c) Rotation.
+Fig. 15. Data recorded of the range of motion test. The maximum extension
+angle depicted by the red line in the ﬁgure is constrained by the arm’s ﬁxed
+platform, preventing full extension.
+TABLE IV
+JOINT RANGE OF MOTION OF THE ROBOTIC ARM AND HUMAN ARM
+B. Load Capacity
+First, the biceps muscle crosses both the elbow joint and
+the glenohumeral joint, whether this mechanical intelligence
+principle can improve the stability of the glenohumeral joint will
+be validated. The experimental apparatus, shown in Fig. 16(a),
+incorporates a ﬁxed base on which the scapula is hinged, allow-
+ing adjustable rotation and angular constraint. A simpliﬁed arm
+model with the humerus and forearm hinged at the elbow joint
+was formed, retaining only the long head of the biceps tendon
+originating from the scapula and inserted into the forearm.
+Adjustments can be made to the scapula’s angle ( θd) and the
+tendon’s length during the experiment. Fig. 16(b) illustrates the
+experimental design.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 14 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2685
+Fig. 16. Evaluation of tendon traversing multiple joints. (a) Schematic diagram of the experimental set-up. (b) Detailed depiction of the experimen tal conﬁguration.
+Experimental outcomes for varyingθa:( c )0 ,( d )3 0◦,( e )5 6◦, (f) 71◦, (g) 90◦, (h) 120◦, (i) 145◦, (j) 165◦. (k) Observational results upon reaching the mechanism’s
+failure condition.
+A force sensor applied a perpendicular force to the distal
+forearm during the experiment. The test was conducted itera-
+tively, modifyingθd and adapting the tendon length accordingly.
+Fig. 16(c)–(i) demonstrates instances where θd equals 0, 30 ◦,
+56◦,7 1◦,9 0◦, and 120 ◦, respectively. These scenarios did not
+meet the critical failure condition of the equilibrium system,
+i.e., θd −θh +θe < 180◦ (θh is described in Fig. 16(a), and θh
+= 45◦).
+Fig. 16(j) presents a case where θd = 165◦ and θd −θh +
+θe = 195◦ > 180◦. Nevertheless, due to considerable friction
+between the humeral head and the scapula (omitted in theo-
+retical calculations), the system maintained marginal stability
+when force was applied to the distal forearm. When the force
+was removed, the reduction in positive pressure caused friction
+between the humeral head and the scapula to approach zero,
+rendering the system unstable. Selected experimental results
+are presented in Video 1 within the Supplementary Material.
+The resultant dislocation of the glenohumeral joint occurred at
+θd −θh +θe = 212◦ > 180◦.
+All tendons enveloping and spanning the glenohumeral joint
+(such as the deltoid, subscapularis, biceps, etc.) are capable of
+integrating the joint’s ball-and-socket structure to attain self-
+locking mechanical intelligence. As long as the structural fail-
+ure’s critical conditions are unmet, the joint undergoing a vertical
+downward force allows the tendon to press the humeral head
+into the glenoid. An escalation in the external force heightens
+the force compressing the humeral head, hence rendering the
+glenohumeral joint more stable.
+To substantiate this property, Fig. 17(a) shows a simpliﬁed
+model of the robotic glenohumeral joint. An identical experi-
+mental setup was used, as previously employed, validates that
+tendons can augment joint stability. The representation of a ten-
+don enveloping the glenohumeral joint involves using a tendon
+that originates from the scapula and is inserted into the humerus
+(shown in blue). This experiment involves the omission of the
+forearm, and attaching a force sensor to the distal humerus
+with a cable. This allows the manual application of a vertical
+Fig. 17. Experiment of the self-lock mechanism. (a) Schematic diagram of
+the experimental set-up. Experimental outcomes for varying θa: (b) 0, (c) 30 ◦,
+(d) 71◦,( e )9 0◦, (f) 120◦, (g) 165◦.
+downward tension to the humerus, with the force’s magnitude
+being exhibited on the display.
+The alteration of the scapula’s angle, i.e., θd [described in
+Fig. 16(a)], entails a concurrent adjustment of the tendon’s
+length to ensure its tightness when the humerus is pulled ver-
+tically downward. Under different θd, force was applied to the
+distal humerus to observe joint dislocation. The experimental
+results at θd of 0, 30 ◦,7 1 ◦,9 0 ◦, 120 ◦, 165 ◦ are shown in
+Fig. 17(c)–(g), respectively.
+The observation reveals that the self-locking structure is ef-
+fective and the joint remains stable when θd <90◦. However,
+when θd >90◦, the tendon fails to apply the force necessary to
+push the humeral head into the glenoid under the external force.
+As the tendon stretches, the self-locking structure fails, resulting
+in joint dislocation. This condition worsens when θd continues
+to increase, culminating in a complete dislocation of the joint
+whenθd equals 165◦.
+Further, to demonstrate the load capabilities of the biomimetic
+robotic glenohumeral joint, a nondestructive experiment was
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 15 =====
+2686 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+Fig. 18. Completed robotic arm prototype holds the dumbbells (2, 3, 5kg).
+conducted. The test involved lifting various weights using the
+fully assembled arm prototype. As shown in Fig. 18, the robotic
+arm successfully lifted three different weights, speciﬁcally 2,
+3, and 5 kg dumbbells. Notably, no dislocations were observed
+during the lifting process.
+C. Manipulative Experiments in Restricted Environments
+This section presents an experimental evaluation of the pro-
+posed robotic arm, encompassing both shoulder and elbow
+mechanisms, focusing on operational functionality. The experi-
+ment primarily assesses the shoulder’s motion performance and
+the arm’s overall compactness. The employed control strategy is
+an open-loop system, wherein an operator manually manipulates
+multiple motors to execute a series of movement sequences.
+1) Shaving Simulation: Fig. 19(a) portrays the robotic arm
+prototype replicating the human action of picking up a razor and
+executing a reciprocal shaving motion. Upon grasping the razor,
+the robotic arm elevates it to “facial” proximity using shoulder
+movements. The back-and-forth motion approximates the act of
+shaving. Eventually, the razor is returned to the table. This task’s
+complexity lies in the necessity for the robotic arm to perform
+a large shoulder internal rotation to correctly position the razor
+beneath the “face.” The corresponding experimental footage can
+be found in Video 3 of the Supplementary Material.
+2) Simulating Door Knocking: Fig. 19(b) (Video 4 in the
+Supplementary Material) features a wooden board positioned
+adjacent to the robotic arm to mimic a door. Emulating the joint
+movements during a human hand’s door knock, the robotic arm
+performs the depicted motion sequence. The process starts with
+positioning the back of the hand close to the “door,” swiftly
+executing a knock through elbow ﬂexion and extension, and
+then returning to its initial position. The test’s challenge resides
+in correctly positioning the back of the hand within a conﬁned
+space, speciﬁcally the central region of the “door,” for maximal
+acoustic impact. Inaccurate hand positioning, too close to the
+ground, for instance, can result in the back of the hand striking
+the ﬂoor and causing test failure. In addition, the robotic arm
+must avoid ground contact during hand positioning. With less
+than 25 cm separating the “door” and the robotic arm, successful
+hand positioning within the correct area requires considerable
+compactness from the robotic arm.
+3) Goblet Lifting and Clinking Simulation: Fig. 19(c) (Video
+5 in the Supplementary Material) depicts the robotic arm pro-
+totype imitating the action of a human arm lifting a goblet and
+performing a toasting motion. Initially placed on a table, the
+goblet is grasped by the ﬂexing ﬁngers and thumb of the robotic
+hand. Subsequent elbow ﬂexion lifts the goblet, followed by
+forearm rotation simulating the act of clinking the goblet in
+a toast. The task’s complexity lies in the signiﬁcant degree of
+shoulder internal rotation and the need for a ﬁrm grip on the
+goblet to prevent slipping during actions such as lifting and
+tilting.
+4) Book Handling: Fig. 19(d) (Video 6 in the Supplementary
+Material) shows the robotic arm receiving a book manually,
+which it secures by ﬂexing its thumb. The book is lifted via wrist
+ﬂexion and positioned in a reading-like posture. Subsequently,
+the robotic arm returns the book to the desk.
+5) Mouse Operation: Fig. 19(e) (Video 7 in the Supplemen-
+tary Material) presents a scenario in which a mouse is placed
+on a desk in front of the robotic arm, near the edge. The robotic
+arm positions its hand over the mouse. Then, the glenohumeral
+joint adducts to grip the mouse, with the robotic arm effectively
+maneuvering the mouse through elbow ﬂexion, mimicking a
+human arm operating the mouse. The task’s challenge lies in
+the mouse’s initial positioning, located on the desk edge and
+distally on the arm’s right side. This arrangement emulates
+a real-world situation, with the arm at the edge of the desk,
+requiring shoulder abduction and extension to reach the mouse,
+pushing the shoulder joint close to its limits.
+6) Object Transference to a Platform: Fig. 19(f) ( V i d e o8i n
+the Supplementary Material) illustrates the robotic arm convey-
+ing an object onto a platform of varying heights. The process
+commences with the robotic arm gripping the object using its ﬁn-
+gers and thumb. Through shoulder ﬂexion, the object is reposi-
+tioned onto the platform, followed by its release from the robotic
+hand. The sequence concludes with the shoulder executing a
+lateral rotation. It is noteworthy that both the platform and the
+objects to be grasped are in immediate proximity to the robotic
+arm. The objects are situated near the table’s edge, and the
+platform is positioned directly in front of the robotic arm without
+signiﬁcant intervening distance. To circumvent contact with the
+platform and table, the robotic arm has limited operational space.
+The ﬁgures illustrate that the robotic arm retains a minimal
+spatial footprint throughout the test. This sequence highlights
+the robotic arm’s capability to function within conﬁned spaces
+and underscores its compact design. This beneﬁt can be ascribed
+to the glenohumeral joint, which offers three degrees of freedom
+within a single joint.
+7) Opening the Door: Fig. 20 demonstrates the robotic arm
+undertaking a door-opening task. Within the test. Initially, fol-
+lowing a composite action sequence of the shoulder joint, the
+robotic hand is positioned on the door handle and subsequently
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 16 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2687
+Fig. 19. Manipulative Experiments (SD denotes shoulder; EB denotes elbow; FA denotes forearm). (a) Shaving imitation test. (b) Door knocking test. ( d) Mouse
+movement on desk test. (e) Item transference to platform test.
+Fig. 20. Test of opening the door (SD: shoulder; EB: elbow).
+secures a ﬁrm grip. Subsequently, the long head of the triceps
+instigates shoulder adduction to unlock the door by rotating the
+handle. Thereafter, the elbow ﬂexes to facilitate door opening
+and extends for the closing action. In the experiment, a torque
+exceeding 1.5 Nm was required to unlock the door handle. The
+door-opening experiment serves as a widely used performance
+assessment for dexterous robots. While opening a door poses
+no challenge for an able-bodied individual, it may prove more
+difﬁcult for someone with arm impairments. In conducting this
+test, the robotic arm faces the challenge of generating sufﬁcient
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 17 =====
+2688 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+torque to rotate the door handle. When the human arm turns a
+door handle, downward pressure can be naturally applied to the
+handle by leveraging the body weight. However, the robotic arm
+prototype lacks a torso, preventing it from simply grabbing and
+pressing the handle downward. Instead, the robotic arm must se-
+curely grasp the handle before rotating it. In addition, positioning
+the robotic hand in the appropriate location is another challenge,
+which requires the coordination of multiple motion sequences.
+Pulling the door also requires sufﬁcient joint torque. This test
+serves to verify the robotic arm’s proﬁciency in handling more
+demanding daily tasks. The corresponding experimental footage
+can be found in Video 9 of the Supplementary Material.
+VII. D ISCUSSION
+The proposed glenohumeral joint design eschews the tradi-
+tional design of a hinge joint with a rigid axis and draws on and
+replicates the biological structure of humans, including bones,
+ligaments, tendons, and compliant actuators with biomuscular
+performance characteristics. The current design is in the early
+stages of development and there are still functional reﬁnements
+to be made, but after a series of tests it is possible to identify
+several notable advantages over existing robotic arms.
+Appearance: The design closely resembles the human gleno-
+humeral joint. The inclusion of the deltoid muscle enables
+the robotic arm to closely mimic the human shoulder joint’s
+aesthetic with realistic musculature, especially when clothed.
+This stands in contrast to conventional robotic arms that, even
+undergarments, often display an angular, nonanatomical shoul-
+der structure, devoid of human muscle contours. In future
+plans, artiﬁcial skin will be added to the prototype to achieve a
+closer similarity in appearance and structure to the human arm.
+While this attribute does not necessarily augment performance, a
+human-like appearance is critical given the growing demand for
+domestic service robots, facilitating their seamless integration
+into familial settings.
+Compactness: The bioinspired glenohumeral joint in the pro-
+posed design offers three degrees of rotational freedom within
+a single compact joint, a striking divergence from traditional
+models that employ sequential rotational joints for the same
+range of motion. This streamlined design thereby elevates the
+capability of the entire robotic arm prototype to operate within
+limited spaces. The signiﬁcance of dimensional constraints is
+apparent when the robotic arm functions in conﬁned areas or
+close to objects, mirroring human tasks such as stir-frying at a
+stove or using a computer mouse. Overly long or large robotic
+limbs may resort to suboptimal and impractical postures under
+these conditions. Moreover, the proposed robotic arm employs a
+local tendon-driven approach, with all actuators mounted on the
+arm’s main structure, mirroring human anatomy. This design
+offers enhanced compactness and ﬁdelity to the human form,
+particularly when compared with remote-tendon-driven robots
+(including those utilizing pneumatic muscles), which necessi-
+tate the enclosure of actuators (or air pumps) within a device
+unrestricted by volume and mass considerations remotely.
+Range of motion: Simultaneously achieving exceptional com-
+pactness, the proposed design replicates the range of motion
+closely akin to the human glenohumeral joint. In total, 46.3%
+ﬂexion/extension (the absence of the muscles on the torso, such
+as the pectoralis major, results in this limitation. Subsequent
+modiﬁcations could address this ﬂaw by integrating relevant
+torso muscles into the design), 105.4% adduction/abduction,
+and 99.2% internal/external rotation were achieved, respec-
+tively. The performance parameters of several existing tra-
+ditional and highly biomimetic robotic arms are outlined in
+Table V. A comparison reveals that compared with existing
+highly biomimetic robotic arms such as Kenshiro [18],t h e
+proposed robotic arm demonstrates a 766% improvement in
+the shoulder’s lateral/internal rotation, paralleling Kengoro[16].
+However, given the incorporation of scapular movement in Ken-
+goro’s shoulder, coupled with the lack of torso muscles in the
+proposed robotic arm, the range of shoulder ﬂexion/extension
+is only 46.6% of Kengoro’s. As both the proposed robotic arm
+and Kengoro employ a design simulation based on the human
+skeletal-muscle system, there exists a possibility to extend the
+existing glenohumeral joint design and integrate the scapulotho-
+racic joint [50], i.e., the joint between the scapula and torso.
+Such modiﬁcations in the proposed robotic arm, particularly the
+inclusion of scapular motion, could enhance its range of motion
+by a third [19], achieving a range of motion similar to a human
+shoulder while retaining the same form and size as the human
+arm.
+Safety during HRI: The system, hinged and ﬁxed by soft tis-
+sues, resembles a biological joint’s tension-compression system,
+exhibiting damping and ﬂexibility when subjected to external
+forces. This feature greatly improves safety, as limited external
+forces can be absorbed by the soft tissues. In cases of excessive
+external force, the joint can dislocate and recover independently.
+For irreversible dislocations caused by extreme external forces,
+manual repairs can be performed without replacing any parts,
+similar to an orthopaedic doctor repairing a dislocated human
+joint.
+Joint stability: Compared with existing highly biomimetic
+robotic arms, the proposed design optimizes the joint stabil-
+ity. While conventional robotic arms using hinge joints easily
+achieve joint stability, biomimetic designs with biological joints,
+such as ECCE [18] and Roboy robot [12], can become unstable.
+By observing the demonstration video, the vibration and insta-
+bility of the joint can be observed at the end of the movement.
+The inclusion of soft tissues and mechanical intelligence in this
+design achieves stability akin to hinge joints, resulting in an
+enhanced joint stability.
+Payload:Performance parameters of various existing conven-
+tional and bioinspired robotic arms are listed in Table V.T h e
+completed proposed robotic arm, excluding the motor drive and
+power supply, weighs approximately 4 kg (including the arm
+structure and all muscles). This weight is comparable to robots
+of equivalent capacity, such as LIMS [44] (5.5 kg), Tsumaki
+et al. [45] (2.9 kg), and LWH [47] (3.5 kg). Notably, despite
+these similarities in weight, the proposed robotic arm exhibits a
+higher payload capacity of 4 kg.
+The list of videos for testing the proposed robotic gleno-
+humeral joint and demonstrating the capabilities of the robotic
+arm is provided in Table VI.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 18 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2689
+TABLE V
+COMPARISON OF DIFFERENT ROBOTIC ARMS
+TABLE VI
+MULTIMEDIA EXTENSIONS
+VIII. C ONCLUSION
+This article, grounded in an in-depth study of human anatomy,
+has unveiled the inherent mechanical intelligence within the
+human shoulder and elucidated potential performance enhance-
+ments in designing robotic arms. The aim is not merely to
+propose a new paradigm for highly biomimetic robot design,
+but also to further afﬁrm the functions and advantages of human
+tissue in anatomical research. As a discipline, anatomy has spent
+centuries proposing and validating the structure and function of
+human tissue. This research pioneers an approach to highlight
+the function and superiority of various human anatomical struc-
+tures through the construction of robotic physical prototypes,
+thereby bridging the chasm between anatomical knowledge and
+practical applications.
+The methodology employed does not blindly or simplistically
+replicate human structures. Instead, it seeks to discover, encap-
+sulate, and validate the ingenuity inherent in human structures
+throughout the emulating process. This evolution paves a path-
+way to new robotic design directions, where both successes and
+failures provide invaluable learning opportunities. One initial
+challenge faced was the arrangement of the seven ligaments
+in the glenohumeral joint. In the initial stages, the ligaments
+were tightly stretched to ensure joint stability. However, motion
+testing of the prototype revealed that the range of motion fell
+considerably short of the design goal due to ligament length
+constraints. To rectify this, ligaments were lengthened to enable
+an effective range of motion, which, in turn, caused the joint
+to dislocate even without external forces. Further anatomical
+exploration underscored the critical role of seemingly trivial
+structures, such as the negative pressure within the joint. An
+attempt was initially made to mimic the negative pressure be-
+tween the internal labrum of the glenohumeral joint and the
+humeral head, but technical and material limitations necessitated
+an alternative approach: the use of a spring-loaded preloaded
+ligament system.
+This article’s signiﬁcant contributions lie in afﬁrming the via-
+bility and success of robotic arms that precisely mirror the mus-
+culoskeletal structure of the human arm, offering a progressive
+strategy to augment existing robotic arm designs. For instance,
+tendons traversing multiple joints can augment the load-bearing
+capacity of glenohumeral joints, the employment of incomplete
+ball-and-socket structures can enhance joint range of motion,
+while the utilization of various soft tissues can offset stability
+deﬁciency. The ﬁnal prototype achieved a payload exceeding
+4 kg and a load capacity of well over 5 kg, reaching a range of
+motion closely equivalent to a human joint, albeit with a conﬁned
+ﬂexion range due to the lack of a torso. The compactness was
+also validated through operational experiments. These insights
+and experiences can serve as a crucial benchmark for future
+designers, inspiring the creation of subsequent generations of
+highly biomimetic robotic arms.
+As for future plans, the intention is to build upon the current
+design for further reﬁnement. This could include adjustments to
+the torso section to facilitate scapula motion and the introduc-
+tion of the pectoralis major and dorsal muscles to achieve full
+glenohumeral joint ﬂexion/extension.
+ACKNOWLEDGMENT
+The authors would like to thank Dr. Lingyun Y an for contribut-
+ing valuable support in the provision of drive algorithms, and
+facilitating complex manipulative experiments. His invaluable
+contribution was instrumental to this study.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 19 =====
+2690 IEEE TRANSACTIONS ON ROBOTICS, VOL. 40, 2024
+REFERENCES
+[1] E. Walker Jr., R. Igou, J. P . Karlen, K. A. Kowalski, and P . H. Eismann, “A
+modular dexterous robot for glove box applications,” Oak Ridge National
+Lab., TN, USA, Tech. Rep. Y/DW-1341, 1994.
+[2] C. Borst et al., “Rollin-Justin-mobile platform with variable base,” in Proc.
+IEEE Int. Conf. Robot. Automat. , 2009, pp. 1597–1598.
+[3] M. Grebenstein et al., “The DLR hand arm system,” in Proc. IEEE Int.
+Conf. Robot. Automat., 2011, pp. 3175–3182.
+[4] J. Englsberger et al., “Overview of the torque-controlled humanoid robot
+Toro,” inProc. IEEE-RAS Int. Conf. Humanoid Robots, 2014, pp. 916–923.
+[5] J. K. Paik, B. H. Shin, Y .-b. Bang, and Y .-B. Shim, “Development of
+an anthropomorphic robotic arm and hand for interactive humanoids,” J.
+Bionic Eng., vol. 9, no. 2, pp. 133–142, 2012.
+[6] Y .-S. Seo et al., “Human-mimetic soft robot joint for shock absorption
+through joint dislocation,”Bioinspiration Biomimetics, vol. 15, no. 1, 2019,
+Art. no. 016001.
+[7] K. Hosoda, S. Sekimoto, Y . Nishigori, S. Takamuku, and S. Ikemoto,
+“Anthropomorphic muscular–skeletal robotic upper limb for understand-
+ing embodied intelligence,” Adv. Robot. , vol. 26, no. 7, pp. 729–744,
+2012.
+[8] A. Diamond, R. Knight, D. Devereux, and O. Holland, “Anthropomimetic
+robots: Concept, construction and modelling,” Int. J. Adv. Robotic Syst. ,
+vol. 9, no. 5, 2012, Art. no. 209.
+[9] I. Mizuuchi et al., “Development of musculoskeletal humanoid Kotaro,”
+in Proc. IEEE Int. Conf. Robot. Automat. , 2006, pp. 82–87.
+[10] Y . Sodeyama, T. Nishino, Y . Namiki, Y . Nakanishi, I. Mizuuchi, and M.
+Inaba, “The designs and motions of a shoulder structure with a spher-
+ical thorax, scapulas and collarbones for humanoid “Kojiro”,” in Proc.
+IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2008, pp. 1465–1470.
+[11] P .-A. Mouthuy et al., “Humanoid robots to mechanically stress human cells
+grown in soft bioreactors,” Commun. Eng., vol. 1, no. 1, 2022, Art. no. 2.
+[12] S. Trendel et al., “CARDSFlow: An end-to-end open-source physics envi-
+ronment for the design, simulation and control of musculoskeletal robots,”
+in Proc. IEEE-RAS 18th Int. Conf. Humanoid Robots (Humanoids), 2018,
+pp. 245–250.
+[13] Y . Zhu, G. Wei, L. Ren, Z. Luo, and J. Shang, “An anthropomorphic
+robotic ﬁnger with innate human-ﬁnger-like biomechanical advantages
+Part I: Design, ligamentous joint, and extensor mechanism,” IEEE Trans.
+Robot., vol. 39, no. 1, pp. 485–504, Feb. 2023.
+[14] Y . Zhu, G. Wei, L. Ren, Z. Luo, and J. Shang, “An anthropomorphic
+robotic ﬁnger with innate human-ﬁnger-like biomechanical advantages
+Part II: Flexible tendon sheath and grasping demonstration,” IEEE Trans.
+Robot., vol. 39, no. 1, pp. 505–520, Feb. 2023.
+[15] H. Y ang, G. Wei, and L. Ren, “Enhancing the performance of a biomimetic
+robotic elbow-and-forearm system through bionics-inspired optimiza-
+tion,” IEEE Trans. Robot., vol. 40, no. 1, pp. 1–20, 2024.
+[16] Y . Asano, K. Okada, and M. Inaba, “Design principles of a human mimetic
+humanoid: Humanoid platform to study human intelligence and internal
+body system,” Sci. Robot., vol. 2, no. 13, 2017, Art. no. eaaq0899.
+[17] Y . Asano, K. Okada, and I. Masayuki, “Musculoskeletal design, control,
+and application of human mimetic humanoid Kenshiro,” Bioinspiration
+Biomimetics, vol. 14, no. 3, 2019, Art. no. 036011.
+[18] V . Potkonjak, B. Svetozarevic, K. Jovanovic, and O. Holland, “The puller-
+follower control of compliant and noncompliant antagonistic tendon drives
+in robotic systems,”Int. J. Adv. Robotic Syst., vol. 8, no. 5, 2011, Art. no. 69.
+[19] K. Aliaj, R. L. Lawrence, K. B. Foreman, P . N. Chalmers, and H. B.
+Henninger, “Kinematic coupling of the glenohumeral and scapulothoracic
+joints generates humeral axial rotation,” J. Biomech. , vol. 136, 2022,
+Art. no. 111059.
+[20] E. G. d. Sanctis, G. Ciolli, F. Mocini, S. Cerciello, G. Maccauro, and
+F. Franceschi, “Evaluation of the range of motion of scapulothoracic,
+acromioclavicular and sternoclavicular joints: State of the art,” Shoulder
+Elbow, vol. 15, no. 2, pp. 132–139, 2023.
+[21] A. J. Felstead and D. Ricketts, “Biomechanics of the shoulder and elbow,”
+Orthopaedics Trauma, vol. 31, no. 5, pp. 300–305, 2017.
+[22] C. Y ang, A. Goto, W. Sahara, H. Y oshikawa, and K. Sugamoto, “In vivo
+three-dimensional evaluation of the functional length of glenohumeral
+ligaments,” Clin. Biomech., vol. 25, no. 2, pp. 137–141, 2010.
+[23] C. M. Rugg et al., “Surgical stabilization for ﬁrst-time shoulder dislo-
+cators: A multicenter analysis,” J. Shoulder Elbow Surg. , vol. 27, no. 4,
+pp. 674–685, 2018.
+[24] M. Falworth, P . Jayakumar, and S. Lambert, “Biomechanics and joint
+replacement of the shoulder and elbow,” in Basic Orthopaedic Sciences .
+Boca Raton, FL, USA: CRC, 2018, pp. 303–318.
+[25] R. M. Frank, D. Taylor, N. N. V erma, A. A. Romeo, T. S. Mologne, and
+M. T. Provencher, “The rotator interval of the shoulder: Implications in
+the treatment of shoulder instability,” Orthopaedic J. Sports Med. ,v o l .3 ,
+no. 12, 2015, Art. no. 2325967115621494.
+[26] E. Itoi, H.-C. Hsu, and K.-N. An, “Biomechanical investigation of the
+glenohumeral joint,” J. Shoulder Elbow Surg., vol. 5, no. 5, pp. 407–424,
+1996.
+[27] R. S. Churchill, J. J. Brems, and H. Kotschi, “Glenoid size, inclination,
+and version: An anatomic study,” J. Shoulder Elbow Surg., vol. 10, no. 4,
+pp. 327–332, 2001.
+[28] E. J. McPherson, R. J. Friedman, Y . H. An, R. Chokesi, and R. L. Dooley,
+“Anthropometric study of normal glenohumeral relationships,”J. Shoulder
+Elbow Surg., vol. 6, no. 2, pp. 105–112, 1997.
+[29] M. Nordin and V . H. Frankel, Basic Biomechanics of the Musculoskeletal
+System. Philadelphia, PA, USA: Lippincott Williams & Wilkins, 2001.
+[30] V . Kumar and P . Balasubramaniam, “The role of atmospheric pressure in
+stabilising the shoulder. An experimental study,” J. Bone Joint Surgery.
+Brit. volume, vol. 67, no. 5, pp. 719–721, 1985.
+[31] C. S. Resnik, J. Fronek, C. Frey, D. Gershuni, and D. Resnick, “Intra-
+articular pressure determination during glenohumeral joint arthrography
+preliminary investigation,”Invest. Radiol., vol. 19, no. 1, pp. 45–49, 1984.
+[32] T. Hashimoto, K. Suzuki, and K. Nobuhara, “Dynamic analysis of intraar-
+ticular pressure in the glenohumeral joint,”J. Shoulder Elbow Surg.,v o l .4 ,
+no. 3, pp. 209–218, 1995.
+[33] P . Habermeyer, U. Schuller, and E. Wiedemann, “The intra-articular
+pressure of the shoulder: An experimental study on the role of the glenoid
+labrum in stabilizing the joint,”Arthroscopy: J. Arthroscopic Related Surg.,
+vol. 8, no. 2, pp. 166–172, 1992.
+[34] N. Y amamoto et al., “The effect of the inferior capsular shift on shoulder
+intra-articular pressure: A cadaveric study,” Amer . J. Sports Med., vol. 34,
+no. 6, pp. 939–944, 2006.
+[35] T. T. Manson, H. J. Pfaefﬂe, J. H. Herdon, M. M. Tomaino, and K. J.
+Fischer, “Forearm rotation alters interosseous ligament strain distribution,”
+J. Hand Surg., vol. 25, no. 6, pp. 1058–1063, 2000.
+[36] S. Alexander, D. F. Southgate, A. M. Bull, and A. L. Wallace, “The role
+of negative intraarticular pressure and the long head of biceps tendon
+on passive stability of the glenohumeral joint,” J. Shoulder Elbow Surg. ,
+vol. 22, no. 1, pp. 94–101, 2013.
+[37] H. Y ang, G. Wei, L. Ren, and L. Y an, “Compliant actuators that mimic
+biological muscle performance with applications in a highly biomimetic
+robotic arm,” 2023, arXiv:2310.20602.
+[38] H. Y ang, G. Wei, and L. Ren, “A novel soft actuator: MISA and its
+application on the biomimetic robotic arm,” IEEE Robot. Autom. Lett. ,
+vol. 8, no. 4, pp. 2373–2380, Apr. 2023.
+[39] S. Shigemi, A. Goswami, and P . V adakkepat, “ASIMO and humanoid
+robot research at Honda,” in Humanoid Robot.: A Reference , Dordrecht,
+The Netherlands: Springer, 2018, pp. 55–90.
+[40] I.-W. Park, J.-Y . Kim, J. Lee, and J.-H. Oh, “Mechanical design of
+the humanoid robot platform, HUBO,” Adv. Robot. , vol. 21, no. 11,
+pp. 1305–1322, 2007.
+[41] M. Quigley, A. Asbeck, and A. Ng, “A low-cost compliant 7-DoF
+robotic manipulator,” in Proc. IEEE Int. Conf. Robot. Automat. , 2011,
+pp. 6051–6058.
+[42] A. V . Sureshbabu, J. H. Chang, L. Fiorio, A. Scalzo, G. Metta, and A.
+Parmiggiani, “A parallel kinematic wrist for the R1 humanoid robot,” in
+Proc. IEEE Int. Conf. Adv. Intell. Mechatron. , 2017, pp. 1215–1220.
+[43] A. Zahavi, F. A. Afrange, S. N. Haeri, U. Ajeevan, and D. C. Liyanage,
+“ABB Y uMi high-speed pick and place game in action,” in 29th DAAAM
+Int. Symp. Intell. Manuf. Automat. , 2018, pp. 1216–1221.
+[44] Y .-J. Kim, “Anthropomorphic low-inertia high-stiffness manipulator
+for high-speed safe interaction,” IEEE Trans. Robot. , vol. 33, no. 6,
+pp. 1358–1374, Dec. 2017.
+[45] Y . Tsumaki, Y . Suzuki, N. Sasaki, E. Obara, and S. Kanazawa, “A 7-
+DoF wire-driven lightweight arm with wide wrist motion range,” in Proc.
+IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2018, pp. 1–9.
+[46] S. Mick et al., “Reachy, a 3d-printed human-like robotic arm as a testbed
+for human-robot control strategies,” Front. Neurorobot., vol. 13, 2019,
+Art. no. 65.
+[47] H. Y ang, Y . Y an, S. Su, Z. Dong, and S. H. U. Hassan, “LWH-arm: A
+prototype of 8-DoF lightweight humanoid robot arm,” in Proc. IEEE 3rd
+Int. Conf. Robot. Automat. Sci. , 2019, pp. 6–10.
+[48] K. Choi et al., “A hybrid dynamic model for the ambidex tendon-driven
+manipulator,” Mechatron., vol. 69, 2020, Art. no. 102398.
+[49] W. Li et al., “Modularization of 2-and 3-DoF coupled tendon-driven
+joints,” IEEE Trans. Robot., vol. 37, no. 3, pp. 905–917, Jun. 2021.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 20 =====
+Y ANG et al.: DEVELOPMENT AND CHARACTERISTICS OF A HIGHL Y BIOMIMETIC ROBOTIC SHOULDER 2691
+[50] A. Sheikhzadeh, J. Y oon, V . J. Pinto, and Y . W. Kwon, “Three-dimensional
+motion of the scapula and shoulder during activities of daily living,” J.
+Shoulder Elbow Surg., vol. 17, no. 6, pp. 936–942, 2008.
+Haosen Yang (Student Member, IEEE) received the
+Ph.D. degree in robotics from the Department of
+Mechanical, Aerospace, and Civil Engineering, the
+University of Manchester, Manchester, U.K., in 2023.
+His research interests include musculoskeletal
+robots, soft actuators, bioinspired robots, soft robots,
+robotic hands, robotic arms, humanoid robotics, and
+artiﬁcial muscles.
+Guowu Wei (Member, IEEE) received the Ph.D.
+degree in robotics from King’s College London, Lon-
+don, U.K., in 2012.
+He is currently a Reader of robotics and mechanical
+engineering with the School of Science, Engineer-
+ing and Environment, University of Salford, Salford,
+U.K. He has more than 150 peer-reviewed publica-
+tions. His research was funded by EPSRC, EU-FP7,
+ICUK, NSFC, and Royal Academy of Engineering.
+His research interests include robotics, humanoid
+robotics, mechatronics, manipulation and grasping,
+reconﬁgurable mechanisms and robotics, origami-inspired mechanisms and
+robotics, and bio-robotics and healthcare robotics.
+Dr. Wei is the Associate Editor for Robotica,a n d Journal of Mechanical
+Engineering Science , the Topic Editor for Mechanical Science, the Academic
+Editor for Applied Bionics and Biomechanics, and Machines, and the Associate
+Editor for the IEEE/RSJ International Conference on Intelligent Robots and Sys-
+tems (IROS) and IEEE International Conference on Robotics and Automation
+(ICRA). He is currently the Deputy Chair of IFToMM MO U.K., and Secretary
+of the IEEE RAS U.K. and Ireland Chapter.
+Lei Ren (Member, IEEE) received the Ph.D. degree
+in biomechanical engineering from the University of
+Salford, Manchester, U.K., in 2005.
+He is currently the Leader of biomechanics special-
+ism with Department of Mechanical, Aerospace, and
+Civil Engineering, University of Manchester, Manch-
+ester, U.K., and with the Key Laboratory of Bionic
+Engineering, Ministry of Education, Jilin University,
+Changchun, China. He has authored or coauthored
+more than 280 peer reviewed publications and is the
+holder of 120 patents. His research works have been
+reported by Nature, Science News, Wired, Telegraph, Science Daily, and BBC.
+His research interests include the ﬁeld of biorobotics and biomechanics, includ-
+ing humanoid locomotion, hand grasping and manipulation, and bioinspired
+limb prosthetics.
+Dr. Ren is currently the Deputy General Secretary of the International Society
+of Bionic Engineering, Nottingham, U.K. and with the Council of Chairs,
+Biomedical Engineering Society, Landover, MD, USA. He is an Associate
+Editor-in-Chief for Journal of Bionic Engineering , an Associate Editor for
+Frontiers in Bioengineering and Biotechnology , and the Editorial Member of
+Frontiers of Mechanical Engineering, Journal of Healthcare Engineering ,a n d
+Chinese Journal of Mechanical Engineering . He was the Principle Investigator
+and the Co-Investigator of more than 30 research projects funded by the Engi-
+neering and Physical Sciences Research Council, Bio-technology and Biological
+Sciences Research Council, National Natural Science Foundation of China, and
+MoST.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:39:30 UTC from IEEE Xplore. Restrictions apply.

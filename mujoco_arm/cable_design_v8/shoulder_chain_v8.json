@@ -1,0 +1,236 @@
+{
+  "schema_version": 8,
+  "model_name": "v8_shoulder_five_dof",
+  "coordinate_frame": {
+    "origin": "thorax bottom centre",
+    "x": "right",
+    "y": "up",
+    "z": "back",
+    "units": "mm"
+  },
+  "geometry_mm": {
+    "SC": [
+      40.0,
+      235.0,
+      -106.0
+    ],
+    "AC": [
+      156.86,
+      233.24,
+      -11.97
+    ],
+    "P": [
+      62.18,
+      210.1,
+      91.39
+    ],
+    "SUP": [
+      72.76,
+      268.45,
+      82.21
+    ],
+    "INF": [
+      44.55,
+      112.87,
+      106.69
+    ],
+    "scapula_mesh_pos_from_ac_mm": [
+      -94.68,
+      -23.14,
+      103.36
+    ],
+    "clavicle_mesh_pos_from_sc_mm": [
+      22.18,
+      -24.9,
+      197.39
+    ],
+    "expected_sc_ac_mm": 150.0
+  },
+  "joints": {
+    "sc_elevation": {
+      "axis_design": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "range_deg": [
+        -10.0,
+        55.0
+      ],
+      "damping": 0.4,
+      "armature": 0.005
+    },
+    "sc_protraction": {
+      "axis_design": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_deg": [
+        -25.0,
+        25.0
+      ],
+      "damping": 0.4,
+      "armature": 0.005
+    },
+    "ac_ball": {
+      "type": "ball",
+      "decomposition_axes": "zero-pose scapular U/V/W",
+      "component_limit_deg": 35.0,
+      "damping": 0.5,
+      "armature": 0.01
+    }
+  },
+  "zero_pose": {
+    "sc_elevation_deg": -0.0531965166947268,
+    "sc_protraction_deg": 1.986637529225197,
+    "ac_u_deg": 0.06310993268654919,
+    "ac_v_deg": 0.0,
+    "ac_w_deg": 0.0,
+    "offset_limit_deg": 10.0
+  },
+  "surface": {
+    "name": "R400",
+    "radius_mm": 400.0,
+    "center_xz_mm": [
+      -200.0133315449832,
+      -210.6915621748561
+    ],
+    "x_range_mm": [
+      55.0,
+      140.0
+    ],
+    "y_range_mm": [
+      60.0,
+      280.0
+    ],
+    "nominal_offset_mm": 0.35,
+    "arc_positive_direction": "s increases along the R400 surface",
+    "axial_positive_direction": "+design-y",
+    "phi_axis": "target outward normal"
+  },
+  "targets": {
+    "fractions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "K6": {
+      "s_mm": 30.0,
+      "t_mm": 22.5,
+      "phi_deg": 30.0
+    },
+    "SCAP_EXT": {
+      "s_mm": 22.5,
+      "t_mm": 30.0,
+      "phi_deg": 20.0
+    },
+    "SCAP_INT": {
+      "s_mm": 0.0,
+      "t_mm": 0.0,
+      "phi_deg": -5.0
+    },
+    "SLIDE_FWD": {
+      "s_mm": 15.0,
+      "t_mm": 0.0,
+      "phi_deg": 0.0
+    },
+    "SLIDE_BACK": {
+      "s_mm": -15.0,
+      "t_mm": 0.0,
+      "phi_deg": 0.0
+    },
+    "AXIAL": {
+      "s_mm": 30.0,
+      "t_mm": 20.0,
+      "phi_deg": 0.0
+    },
+    "AXIAL_NEGATIVE": {
+      "s_mm": 0.0,
+      "t_mm": -20.0,
+      "phi_deg": 0.0
+    }
+  },
+  "ik": {
+    "position_tolerance_mm": 0.25,
+    "orientation_tolerance_deg": 0.25,
+    "bone_length_tolerance_mm": 0.05,
+    "max_adjacent_sc_deg": 20.0,
+    "max_adjacent_ac_deg": 20.0,
+    "position_weight": 1.0,
+    "orientation_weight_mm_per_rad": 100.0,
+    "max_nfev": 4000,
+    "zero_pose_offset_limit_deg": 10.0
+  },
+  "contact": {
+    "band_mesh": "mujoco_arm/engineering/assets/thorax_contact_band.stl",
+    "pad_mesh": "mujoco_arm/engineering/assets/scapula_contact_pad.stl",
+    "pad": {
+      "short_mm": 50.0,
+      "long_mm": 130.0,
+      "thickness_mm": 4.0,
+      "corner_radius_mm": 4.0,
+      "active_collision": false
+    },
+    "roller": {
+      "radius_mm": 8.0,
+      "width_mm": 16.0,
+      "material": "POM",
+      "stiffness_N_per_m": 2000.0,
+      "normal_travel_mm": 4.0,
+      "preload_N": 5.0,
+      "preload_sensitivity_N": [
+        3.0,
+        5.0,
+        10.0
+      ],
+      "dual_spacing_mm": 40.0,
+      "friction": [
+        0.1,
+        0.005,
+        0.0001
+      ]
+    },
+    "band": {
+      "thickness_mm": 5.0,
+      "friction": [
+        0.1,
+        0.005,
+        0.0001
+      ],
+      "condim": 3,
+      "solref": [
+        0.002,
+        1.0
+      ],
+      "solimp": [
+        0.9,
+        0.95,
+        0.001
+      ]
+    }
+  },
+  "acceptance": {
+    "joint_object_count": 3,
+    "scalar_dof_count": 5,
+    "position_residual_mm_max": 0.25,
+    "orientation_residual_deg_max": 0.25,
+    "bone_length_error_mm_max": 0.05,
+    "full_mesh_clearance_mm_min": -0.5,
+    "contact_pad_penetration_mm_min": -0.5,
+    "roller_detachment_mm_max": 1.0,
+    "roller_penetration_mm_min": -0.5,
+    "contact_force_N": [
+      3.0,
+      10.0
+    ],
+    "preload_state_must_match": true
+  },
+  "regression": {
+    "v7_elbow_report": "mujoco_arm/exports/cable_design_v7/elbow_report_v7.json",
+    "v7_integration_report": "mujoco_arm/exports/cable_design_v7/integration_report_v7.json",
+    "demo_check": "mujoco_arm/check_tendon_demo.py"
+  }
+}

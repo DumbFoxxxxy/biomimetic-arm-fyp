@@ -1,0 +1,180 @@
+{
+  "fixed_joint_centers_design_mm": {
+    "SC": [
+      40,
+      235,
+      -106
+    ],
+    "AC": [
+      156.86,
+      233.24,
+      -11.97
+    ],
+    "GH": [
+      159.06,
+      187.54,
+      7.3
+    ],
+    "E": [
+      184.34,
+      -101.35,
+      7.3
+    ]
+  },
+  "joint_center_displacements_mm": 0,
+  "SC_AC_length_mm": 150,
+  "GH_E_length_mm": 290,
+  "main_plate_standoff_vector_design_mm": [
+    5.24398608396279,
+    -0.00022579426521575734,
+    6.041573462287911
+  ],
+  "SUP_INF_P": "nominal outline/reference controls displaced by stand-off away from protected joint regions; P remains an old reference marker, not an asserted surface contact",
+  "AC_ball_nominal_radius_mm": 10,
+  "final_SC_slot": {
+    "frozen": false,
+    "fit_file": "shoulder_path_fit_conservative.json",
+    "SC_center_moved_mm": 0,
+    "chest_local_removed_volume_mm3": 141.46761474572122,
+    "max_protected_bearing_conflict_mm3": 0,
+    "surface_simplification_tolerance_mm": 0.02,
+    "parts": [
+      {
+        "bone": "thorax_geom",
+        "volume_mm3": 12489158.157493697,
+        "positive_components_over_1mm3": [
+          12489158.157493697
+        ],
+        "triangles": 1382,
+        "status": "Error.NoError"
+      },
+      {
+        "bone": "clavicle_visual",
+        "volume_mm3": 39716.60062543145,
+        "positive_components_over_1mm3": [
+          39716.60062543145
+        ],
+        "triangles": 3668,
+        "status": "Error.NoError"
+      },
+      {
+        "bone": "scapula_mesh",
+        "volume_mm3": 75285.33059417066,
+        "positive_components_over_1mm3": [
+          75285.33059417066
+        ],
+        "triangles": 9482,
+        "status": "Error.NoError"
+      },
+      {
+        "bone": "humerus_shaft",
+        "volume_mm3": 129675.75792312923,
+        "positive_components_over_1mm3": [
+          130193.2261931193
+        ],
+        "triangles": 5880,
+        "status": "Error.NoError"
+      },
+      {
+        "bone": "ulna_shaft",
+        "volume_mm3": 125210.53371526951,
+        "positive_components_over_1mm3": [
+          217486.94820444804
+        ],
+        "triangles": 1346,
+        "status": "Error.NoError"
+      }
+    ]
+  },
+  "final_reverse_relief": {
+    "frozen": false,
+    "additional_SC_mount_reverse_slot_mm3": 0.0,
+    "additional_scapular_removal_mm3": 1010.6219805656438,
+    "total_scapular_removed_fraction": 0.11244223547446264,
+    "protected_AC_radius_mm": 12,
+    "protected_GH_radius_mm": 14,
+    "trials": [
+      {
+        "action": "SLIDE_BACK",
+        "trial_joint_deg": -0.5,
+        "scapular_volume_mm3": 75238.57819777798,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SLIDE_BACK",
+        "trial_joint_deg": -1.0,
+        "scapular_volume_mm3": 75174.97599679085,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SLIDE_BACK",
+        "trial_joint_deg": -1.5,
+        "scapular_volume_mm3": 75093.57061474338,
+        "accepted": false,
+        "reason": "remaining collision outside allowed contour relief",
+        "remaining_collisions": [
+          {
+            "bones": [
+              "thorax_geom",
+              "clavicle_visual"
+            ],
+            "volume_mm3": 0.7193987849305937
+          }
+        ]
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -0.5,
+        "scapular_volume_mm3": 75174.97599679085,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -1.0,
+        "scapular_volume_mm3": 75174.97599679085,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -1.5,
+        "scapular_volume_mm3": 75174.97599679085,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -2.0,
+        "scapular_volume_mm3": 75174.97311450847,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -2.5,
+        "scapular_volume_mm3": 74274.70861360502,
+        "accepted": true,
+        "reason": null,
+        "remaining_collisions": []
+      },
+      {
+        "action": "SCAP_INT",
+        "trial_joint_deg": -3.0,
+        "scapular_volume_mm3": 70789.18756921114,
+        "accepted": false,
+        "reason": "15 percent total scapular material-removal budget",
+        "remaining_collisions": []
+      }
+    ]
+  },
+  "anchors_frozen": false
+}

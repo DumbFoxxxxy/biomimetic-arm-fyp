@@ -1,0 +1,731 @@
+===== PAGE 1 =====
+Design and Empirical Investigation of a Biomimetic Anthropomorphic
+Robotic Arm Featuring Human-Like Biomechanical Capabilities and
+Performance
+A thesis submitted to the University of Manchester for the degree of
+Doctor of Philosophy
+in the Faculty of Science and Engineering
+2023
+Haosen Y ang
+Department of Mechanical, Aerospace and Civil Engineering
+
+===== PAGE 2 =====
+Blank page
+2
+
+===== PAGE 3 =====
+Contents
+Contents 3
+List of figures 8
+List of tables 20
+List of publications 22
+Abstract 23
+Terms and abbreviations 24
+Declaration of originality 25
+Copyright statement 26
+Acknowledgements 27
+1 Introduction 29
+1.1 Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+1.2 Research aims . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+1.3 Research objectives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+1.4 The significance of the research . . . . . . . . . . . . . . . . . . . . . . . . 31
+1.5 Structure of the thesis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+2 Literature Review 32
+2.1 Anatomy and biomechanics of the human arm . . . . . . . . . . . . . . . . . 32
+2.1.1 Shoulder complex . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+2.1.2 Elbow and forearm . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+2.1.3 Key anatomical and musculoskeletal features . . . . . . . . . . . . . . 46
+2.2 Review of the existing robotic arms . . . . . . . . . . . . . . . . . . . . . . 48
+2.2.1 Industrial robotic arms . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+2.2.2 Humanoid robotic arms . . . . . . . . . . . . . . . . . . . . . . . . . 51
+2.2.3 Advantages and limitations . . . . . . . . . . . . . . . . . . . . . . . 65
+2.3 Mechanical intelligence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+3
+
+===== PAGE 4 =====
+2.3.1 Mobility and compactness . . . . . . . . . . . . . . . . . . . . . . . . 72
+2.3.2 Stability (load carrying ability) and mobility . . . . . . . . . . . . . . 76
+2.3.3 Output capability and compactness . . . . . . . . . . . . . . . . . . . 82
+2.4 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+3 Optimal Actuation Systems Selection: Factors and Considerations 84
+3.1 Nylon fibre artificial muscle . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+3.1.1 T wisted and coiled actuator (TCA) . . . . . . . . . . . . . . . . . . . 85
+3.1.2 Knitted nylon fibre muscle (KTCA) . . . . . . . . . . . . . . . . . . . 88
+3.1.3 T wisted and coiled actuator with a rod (TCAR) . . . . . . . . . . . . . 93
+3.1.4 Advantages and limitations . . . . . . . . . . . . . . . . . . . . . . . 98
+3.2 Pneumatic muscle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+3.2.1 Mechanical design of the pneumatic muscle . . . . . . . . . . . . . . 100
+3.2.2 Applications of the pneumatic muscle . . . . . . . . . . . . . . . . . . 100
+3.2.3 Advantages and limitations . . . . . . . . . . . . . . . . . . . . . . . 102
+3.3 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 102
+4 Compact Compliant Actuators that Mimic Humanoid Performance with Ap-
+plications in a Biomimetic Robotic Arm 104
+4.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 104
+4.2 Related work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 106
+4.2.1 Motor-based compliant actuators . . . . . . . . . . . . . . . . . . . . 106
+4.2.2 Biomimetic robots . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+4.3 Design and characteristics of compliant actuators . . . . . . . . . . . . . . . 109
+4.3.1 Internal linear torsion spring compliant actuator (ICA) . . . . . . . . . 110
+4.3.2 External Linear Spring Compliant Actuator (ECA) . . . . . . . . . . . 111
+4.3.3 Magnets Integrated Non-linear Compliant Actuator (MCA) . . . . . . 112
+4.4 Modeling and analysis of the actuators . . . . . . . . . . . . . . . . . . . . . 113
+4.4.1 Force and tendon displacement relationship . . . . . . . . . . . . . . 113
+4.4.2 Joint stiffness adjustment . . . . . . . . . . . . . . . . . . . . . . . . 114
+4.4.3 Maximum allowable joint acceleration . . . . . . . . . . . . . . . . . 117
+4.4.4 Joint torque control . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+4.5 Prototypes and comparisons . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+4.5.1 Comparison of simulation results . . . . . . . . . . . . . . . . . . . . 122
+4.6 Evaluation and application . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+4.6.1 Force-displacement relationship . . . . . . . . . . . . . . . . . . . . . 124
+4.6.2 Joint stiffness-displacement relationship . . . . . . . . . . . . . . . . 124
+4
+
+===== PAGE 5 =====
+4.6.3 Accomplishment of variable joint stiffness with MCAs - passive mode 125
+4.6.4 Implementation of variable joint stiffness with MCAs - active mode . . 129
+4.6.5 Performance validation of compliant actuators on the biomimetic
+robotic arm . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 131
+4.7 Discussions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 135
+4.8 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 138
+5 Enhancing the Performance of a Biomimetic Robotic Elbow-and-Forearm
+System Through Bionics-Inspired Optimization 140
+5.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 140
+5.2 Related work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 142
+5.2.1 Existing robotic arm designs . . . . . . . . . . . . . . . . . . . . . . 142
+5.2.2 Performance of the biological elbow and forearm . . . . . . . . . . . . 143
+5.3 Biomimetic design of the Elbow-and-Forearm system . . . . . . . . . . . . . 144
+5.3.1 Design of the skeletal structure . . . . . . . . . . . . . . . . . . . . . 144
+5.3.2 Design of the soft tissues . . . . . . . . . . . . . . . . . . . . . . . . 145
+5.4 Modeling and Stability Analysis of the Radius-Ulna Joints . . . . . . . . . . 147
+5.4.1 Ball and socket structure of the humeroradial joint . . . . . . . . . . . 148
+5.4.2 TFCC stabilize the DRUJ . . . . . . . . . . . . . . . . . . . . . . . . 150
+5.4.3 Improving forearm stability through IOM . . . . . . . . . . . . . . . . 152
+5.4.4 Variation in MCL strain during elbow movement . . . . . . . . . . . . 158
+5.5 Skeleton-ligament Prototype and Muscular-skeleton actuation system . . . . 159
+5.5.1 Ligaments and adjustment mechanisms . . . . . . . . . . . . . . . . . 160
+5.5.2 Skeleton-ligament prototype and intelligent mechanisms . . . . . . . . 161
+5.5.3 Muscular-skeleton actuation system . . . . . . . . . . . . . . . . . . . 162
+5.6 Validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 168
+5.6.1 Validation of Soft-Feel-End mechanism in regulating forearm posi-
+tioning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 168
+5.6.2 Validating the contribution of IOM, TFCC, annular ligament to fore-
+arm stability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 169
+5.6.3 Validation of performance . . . . . . . . . . . . . . . . . . . . . . . . 171
+5.7 Discussion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 174
+5.8 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175
+6 Development and Characteristics of a Highly Biomimetic Robotic Shoulder
+Through Bionics-Inspired Optimization 177
+6.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 177
+5
+
+===== PAGE 6 =====
+6.2 Existing highly biomimetic shoulder designs . . . . . . . . . . . . . . . . . 179
+6.3 Mechanical design and prototype . . . . . . . . . . . . . . . . . . . . . . . . 181
+6.3.1 The design of the soft tissues . . . . . . . . . . . . . . . . . . . . . . 182
+6.4 Characteristics of the Glenohumeral Joint . . . . . . . . . . . . . . . . . . . 185
+6.4.1 Incomplete ball and socket structure in the glenohumeral joint . . . . . 185
+6.4.2 Coupling stability of humeroradial and glenohumeral joints . . . . . . 188
+6.4.3 The self-locking mechanism . . . . . . . . . . . . . . . . . . . . . . . 190
+6.5 Static Analysis and Simulation . . . . . . . . . . . . . . . . . . . . . . . . . 191
+6.5.1 Glenohumeral joint flexion/extension . . . . . . . . . . . . . . . . . . 191
+6.5.2 Glenohumeral joint abduction . . . . . . . . . . . . . . . . . . . . . . 193
+6.5.3 Glenohumeral joint adduction . . . . . . . . . . . . . . . . . . . . . . 195
+6.5.4 Glenohumeral joint rotation . . . . . . . . . . . . . . . . . . . . . . . 195
+6.6 Performance and Validation . . . . . . . . . . . . . . . . . . . . . . . . . . 198
+6.6.1 Range of motion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 198
+6.6.2 Load capacity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 199
+6.7 Discussion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 201
+6.8 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 204
+7 The design of the robotic hand 206
+7.1 Simplified biomimetic robotic hand . . . . . . . . . . . . . . . . . . . . . . 208
+7.1.1 Design of the robotic finger . . . . . . . . . . . . . . . . . . . . . . . 209
+7.1.2 Design of the robotic wrist . . . . . . . . . . . . . . . . . . . . . . . 210
+7.1.3 Prototype of the simplified robotic hand . . . . . . . . . . . . . . . . 210
+7.2 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 212
+8 Actuation System Construction and Control Strategies of the Robotic Arm 214
+8.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 214
+8.2 The design of control centre . . . . . . . . . . . . . . . . . . . . . . . . . . 214
+8.3 Control strategies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 216
+8.3.1 Manual control . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 216
+8.3.2 Master-slave control . . . . . . . . . . . . . . . . . . . . . . . . . . . 219
+8.3.3 Master-slave control of the hand . . . . . . . . . . . . . . . . . . . . . 221
+8.4 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 222
+9 Evaluating the Efficacy of the Novel Robotic Arm Design. 223
+9.1 Assessing humanoid arm-manipulation proficiency . . . . . . . . . . . . . . 223
+9.1.1 Basic motion test . . . . . . . . . . . . . . . . . . . . . . . . . . . . 223
+9.1.2 Manipulative experiments in restricted environments . . . . . . . . . . 226
+6
+
+===== PAGE 7 =====
+9.1.3 6) Flip the playing card . . . . . . . . . . . . . . . . . . . . . . . . . 229
+9.2 Evaluate the performance of the robotic arm . . . . . . . . . . . . . . . . . . 231
+10 Conclusions and Future Plan 234
+10.1 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 234
+10.2 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 234
+10.3 Future work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 236
+References 237
+Appendices 261
+A Matlab code for theoretical analysis of the biomechanical advantages 262
+B Joint torque calculation 274
+C Validation of the performance of the robotic arm proposed 291
+Word count: 48831
+7
+
+===== PAGE 8 =====
+List of Figures
+2.1 Bones, joints of the human arm.[2] . . . . . . . . . . . . . . . . . . . . . . . . 33
+2.2 Joints in the shoulder complex.[2] . . . . . . . . . . . . . . . . . . . . . . . . 33
+2.3 Glenohumeral joint with the joint opened to expose the articular surface. [4] . 34
+2.4 Constraint to the glenoid in the coronal and sagittal plane.[5] . . . . . . . . . . 34
+2.5 Movement of the shoulder complex. . . . . . . . . . . . . . . . . . . . . . . . 35
+2.6 Motion at the sternoclavicular joint [7]. (a) anterior view; (b) top view; (c)
+anterior view. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+2.7 The acromioclavicular joint presents a unique articulation. (a) Anterior view.
+(b) A rear perspective of the joint, exposed from behind. [4] . . . . . . . . . . 36
+2.8 The sternoclavicular joint (SC) and its ligaments (a coronal section has been
+made through the sternum and adjacent to demonstrate the inside of the ster-
+noclavicular joint): anterior sternoclavicular ligament (ASC), costoclavicular
+ligament (CC), and interclavicular ligament.[2] . . . . . . . . . . . . . . . . . 37
+2.9 The acromioclavicular joint and its five ligaments: trapezoid ligament, conoid
+ligament, acromioclavicular ligament, coracoacromial ligament, and superior
+transverse scapular ligament.[2] . . . . . . . . . . . . . . . . . . . . . . . . . 37
+2.10 (a) The capsule and ligament of the glenohumeral joint [2] (b) glenohumeral
+ligament[12] (c) Mean insertion of glenohumeral ligament and coracohumeral
+ligament[13]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+2.11 Muscle groups and tendons in the glenohumeral joint. Tendons are marked
+in blue, muscles are marked in red, bones are marked in yellow, the bursa is
+marked in purple (a) Rotator cuff (supraspinatus, subscapularis, teres minor
+and infraspinatus) and biceps muscle, front view. (b) Rotator cuff and biceps
+muscle, back view. (c) The deltoid muscle. (Secondary recreation based on
+the figure from the national institute of arthritis and musculoskeletal and skin
+diseases) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+2.12 Anatomy of the elbow joint.[2] . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+2.13 The detail of the humeroulnar joint. . . . . . . . . . . . . . . . . . . . . . . . 40
+2.14 Axis for supination and pronation of forearm rotation. . . . . . . . . . . . . . 40
+2.15 Distal radioulnar joint (DRUJ). . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+8
+
+===== PAGE 9 =====
+2.16 The medial collateral ligament (MCL) of the elbow joint.[18] . . . . . . . . . 41
+2.17 The dynamic representation of the medial collateral ligament complex at dif-
+ferent points of elbow flexion[22]. . . . . . . . . . . . . . . . . . . . . . . . . 42
+2.18 Origin of the anterior and posterior bundles of the MCL[7]. . . . . . . . . . . 42
+2.19 The lateral collateral ligament (LCL) of the elbow[18], including lateral ulnar
+collateral ligament (LUCL), radial collateral ligament (RCL), and the annular
+ligament. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+2.20 Origin of the lateral collateral ligament complex at the elbow axis of rota-
+tion[7]. The ligament remains isometric throughout the flexion/extension range
+of the elbow. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+2.21 Schematic structure of the interosseous membrane (IOM) marked in light blue.
+Ten ligaments in the interosseous membrane are marked in blue. . . . . . . . . 43
+2.22 Ligament of DRUJ: triangular fibrocartilage complex (TFCC).[2] . . . . . . . 44
+2.23 (a) Main elbow flexor Muscles; (b) biceps;[30] (c) brachioradialis and brachialis.[30] 45
+2.24 Main elbow extensor muscles[30]: (a) triceps, (b) anconeus. . . . . . . . . . . 45
+2.25 (a) Main forearm supinator: biceps brachii, supinator. (b) Main forearm prona-
+tor: pronator teres, pronator quadratus. . . . . . . . . . . . . . . . . . . . . . 46
+2.26 The motion of the glenohumeral joint. [35] . . . . . . . . . . . . . . . . . . . 47
+2.27 Classification for the existing robotic arms. . . . . . . . . . . . . . . . . . . . 49
+2.28 The first industrial robotic arm “Unimate”. . . . . . . . . . . . . . . . . . . . 49
+2.29 History of industrial robotic arm since 1959. . . . . . . . . . . . . . . . . . . 50
+2.30 Commonly used industrial robots: (a) Articulated robots; (b) SCARA robots;
+(c) Delta robots; (d) Cartesian coordinate robots. . . . . . . . . . . . . . . . . 50
+2.31 Motor-driven humanoid robotic arms (a) K-1207i[67]; (b) DLR-Rollin’ Justin[38];
+(c) DLR-David [39] (d) TORO[40]; (e) Anthropomorphic robotic arm[41]; (f)
+Phoenix robot[68]; (g) Tesla robot[69]; (h) Xiaomi cyber one, photo is from
+https://www.arabnews.com/node/2146771/corporate-news; (i) Agibot, photo is
+from https://www.agibot.com/ . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+2.32 (a) Antagonism Variable Stiffness Actuators; (b) Bidirectional Variable Stiff-
+ness Actuators[42]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+2.33 Antagonism Actuators[42] . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+2.34 (a) Floating Spring Joints; (b) Variable stiffness mechanism[42] . . . . . . . . 54
+2.35 (a) The rest position of the Variable stiffness mechanism; (b) Passive deflection
+of rest position; (c) Stiff setup of the Variable stiffness mechanism; (d) Depicts
+the system in stiff pre-set with the external load applied[70]. . . . . . . . . . . 55
+9
+
+===== PAGE 10 =====
+2.36 Artificial muscles-driven robotic arm (a) 7R anthropomorphic arm[71]; (b)
+Kenzoh[52]; (c) 7 DOF musculoskeletal robot structure with pneumatic mus-
+cles[53]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+2.37 Artificial muscles-driven robotic arm (a) Hydraulic artificial muscles driven
+robotic arm[73] ; (b) 10 DoF robot arm driven by pneumatic artificial mus-
+cles[72]; (c) Lightweight robotic arm with coiled shape memory alloy and
+twisted and coiled polymer actuator[74]. . . . . . . . . . . . . . . . . . . . . . 57
+2.38 (a) humanoid robotic arm for badminton robot [75]; (b) Wiring diagram of the
+three-DOF joint; (c) Single DOF joint actuated by SIPC cylinder. . . . . . . . 57
+2.39 The prototype of the bio-inspired soft robotic arm and its force reaction test. [76] 58
+2.40 The shoulder complex linkage mechanism. [77] . . . . . . . . . . . . . . . . . 59
+2.41 The schematic drawing of the robotic glenohumeral joint [54] . . . . . . . . . 59
+2.42 (a) Robotic arm of Kenshiro [34]; (b) Artificial muscle developed by using
+motor. [34] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+2.43 (a)Kotaro[50]; (b)Kojiro[79]; (c) Spherical shape thorax and scapula-collarbone
+structure[79]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+2.44 (a) humanoid robot ‘Roboy’ [1]; (b) ECCE3[28], [80] . . . . . . . . . . . . . . 60
+2.45 (a) Workspace and manipulator for Kenshiro. (b) workspace and manipulator
+for humans based on the 6-DoF model (forearm rotation does not affect the
+workspace). Only the glenohumeral joint is considered in the shoulder. The
+figure shows the right arm, including the arm, forearm, and shoulder. The size
+for Kenshiro and the Human arm is the same, Data from[34]. . . . . . . . . . . 62
+2.46 (a) UR-10 robotic arm[90]; (b) The muscular arrangement of the human arm. . 66
+2.47 (a) K-1207i; (b) DLR-Rollin’ Justin; (c) Humaniod robotic hand. . . . . . . . . 66
+2.48 Joint DOF comparison between several humanoid robotic arms and a human
+arm. (excluding the DOFs for wrist and hand; Axial-driven including motor-
+direct-driven, tendon-driven ones with traditional joints) . . . . . . . . . . . . 67
+2.49 Performance of human arm, axial-driven, musculoskeletal robotic arms. . . . . 71
+2.50 Movement of the Scapulothoracic joint. (a) elevation and depression. (b) Pro-
+traction and retraction (abduction/adduction). (c) Upward and downward rota-
+tion (Lateral/medial rotation)[36]. . . . . . . . . . . . . . . . . . . . . . . . . 72
+10
+
+===== PAGE 11 =====
+2.51 (a) Scapulothoracic upward rotation is represented as a combination of eleva-
+tion at the sternoclavicular (SC) joint and upward rotation at the acromioclav-
+icular (AC) joint; (b) Scapulothoracic elevation is depicted as a combination
+of elevation at the SC joint and downward rotation at the AC joint; (c) Scapu-
+lothoracic protraction is illustrated as a combination of protraction at the SC
+joint and internal rotation at the AC joint[36]. . . . . . . . . . . . . . . . . . 73
+2.52 (a) 5 DOF model of the shoulder complex[93]; 6 DOF model of the shoulder
+complex[93]; 7 DOF model of the shoulder complex[93]; 9 DOF model of the
+shoulder complex[93]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+2.53 Another biomechanical model of the shoulder complex. (a) dynamic model;
+(b) Tondu model; (c) Maurel’s model[93]. . . . . . . . . . . . . . . . . . . . . 74
+2.54 Sphere joint in the glenohumeral joint of robotic arms. . . . . . . . . . . . . . 75
+2.55 (a) Measurements of the humeral head[100]; (b) Measurements of the glenoid. 76
+2.56 Cylindrical valve filled with fluid and the glenohumeral joint[106]. . . . . . . . 77
+2.57 Intra-articular pressure was measured in 18 cadaveric shoulders in neutral po-
+sitions and during 90°of abduction, without any additional reaction force ap-
+plied[106]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+2.58 (a) Rotator cuff muscles (Secondary recreation based on the figure from the
+national institute of arthritis and musculoskeletal and skin diseases). (b) The
+long head of the biceps tendon. . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+2.59 (a) A compression force applied on the hand is transmitted mainly through
+the wrist to the radius; (b)A distal-directed force is applied on the hand, pre-
+dominantly through the radius[18]; (c) Schematic structure of the interosseous
+membrane. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+2.60 Graph of strain in the interosseous membrane versus forearm rotation at in-
+creasing loading across the wrist. The stain values are the meads for all speci-
+men preparations at each position of forearm rotation and are maximal at neu-
+tral forearm rotation[110]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+2.61 Length change of each IOM ligament. The distal 3 ligaments (CB, AB, and
+DOB) had little change in length during forearm rotation. The proximal 2 com-
+ponents (proximal oblique cord and dorsal oblique accessory cord) changed
+substantially in length[110]. . . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+2.62 Stabilizing transverse force as the radius was pulled away from the ulna as sta-
+bilizing structures were incrementally sectioned in an illustrative arm[114]. . . 81
+2.63 Description of the pronator (a) and supinator (b) muscles, and the mechanism
+that converts a translation motion into rotation (c)[116]. . . . . . . . . . . . . 82
+11
+
+===== PAGE 12 =====
+3.1 Production process of TCA. (a) T wisting the fibre by hanging a weight; (b)
+Coiling the twisted fibre; (c) The twisted and coiled fibre; (d) Stretch the coiled
+fibre by 10% and heat in the oven; (e) Stretch the coiled fibre by 30% and
+heated in the oven; (e) The completed TCAs. . . . . . . . . . . . . . . . . . . 85
+3.2 (a) Initial length of TCA under 100g load; (b) Length of TCA when heated
+under 100g load; (c) Initial length of TCA under 200g load; (d) Length of TCA
+when heated under 200g load. . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+3.3 Relationship between contraction time and current of TCA. . . . . . . . . . . 87
+3.4 (a) Initial length of TCA under 50g load in water; (b) Length of TCA when
+heated under 50g load in water; (c) Initial length of TCA under 100g load in
+water; (d) Length of TCA when heated under 100g load in the water. . . . . . . 87
+3.5 Passive stiffness of a single TCA. . . . . . . . . . . . . . . . . . . . . . . . . 88
+3.6 (a) Model of knitted structure; (b) Knitting process of the KTCA using a custom-
+designed knitting tool; (c) KTCA with spring. . . . . . . . . . . . . . . . . . . 89
+3.7 (a) Silver paint; (b) Multiple TCAs are connected by silver paint; (c) Knitted
+nylon fibre muscle. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+3.8 The stretch behaviour of KTCA when subjected to tensile forces. (a) Initial
+stage; (b)-(c) Stages when the tensile force is applied. . . . . . . . . . . . . . . 90
+3.9 (a) Initial length of KTCA under 500g load; (b) Length of KTCA when heated
+under 500g load. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+3.10 (a) Micro brushless motor (10W) and fan; (b) T ubing fan; (c) Knitted process
+of KTCA; (d) KTCA with internal air cooling; (e) Electronic speed controller
+(ESC); (f) Temperature sensor. . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+3.11 KTCA with water cooling. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+3.12 Pronator teres made from KTCA with (a) internal air cooling and (b) water
+cooling. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+3.13 TCAR production process. (a) T wisting a nylon fibre; (b) Secured the twisted
+fibre on the grill; (c) Coiling the twisted fibre around a mandrel; (d) Completed
+TCAR before heating; (e) Anneal the TCAR. . . . . . . . . . . . . . . . . . . 93
+3.14 TCAR with copper wire. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 94
+3.15 (a) Initial length of TCAR under 100 g load; (b) Length of TCAR when heated
+under 100 g load; (c) Initial length of TCAR under 200 g load; (d) Length of
+TCAR when heated under 200g load. . . . . . . . . . . . . . . . . . . . . . . 95
+3.16 (a) Schematic diagram of a flat muscle made of multiple parallel TCARs. (b)
+Prototype of flat muscle made from TCARs. . . . . . . . . . . . . . . . . . . . 96
+12
+
+===== PAGE 13 =====
+3.17 (a) The initial state of the flat muscle made with multiple TCADs. (b) Maxi-
+mum contraction rate of flat muscle. . . . . . . . . . . . . . . . . . . . . . . . 96
+3.18 (a) Initial length of TCAR under 100 g load in water; (b) Length of TCAR
+when heated under 100 g load in water; (c) Initial length of TCAR under 200 g
+load in water; (d) Length of TCAR when heated under 200 g load in the water. 96
+3.19 Copper wire coated TCAR constriction rate (contracted length / full length)
+under different loads with the current of 3 A. . . . . . . . . . . . . . . . . . . 97
+3.20 Relation between force and strain of TCAR. . . . . . . . . . . . . . . . . . . . 97
+3.21 The application of the TCAR: (a) Pronator quadratus made from TCAR; (b)
+Pronator teres made from TCAR. . . . . . . . . . . . . . . . . . . . . . . . . 98
+3.22 Pronator quadratus made from TCAR, drives the forearm pronation. . . . . . . 98
+3.23 Pronator teres made from TCAR, drive the forearm supination. . . . . . . . . . 98
+3.24 (a) Pneumatic muscle work for thumb rotation. (b) The development process
+of the pneumatic muscle. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 100
+3.25 Pneumatic muscle support system of air compressor. . . . . . . . . . . . . . . 101
+3.26 Pneumatic muscle applied to assist the forearm supination. . . . . . . . . . . . 101
+3.27 Pneumatic muscle applied to assist the finger flexion. . . . . . . . . . . . . . . 101
+3.28 Pneumatic muscle applied to assist the thumb rotation. . . . . . . . . . . . . . 102
+4.1 The relationship between the tension and length of the muscle[161]. The pas-
+sive tension-length curve (blue) is based on Magid & Law’s model[160]. . . . 107
+4.2 Schematic diagrams and CAD models of three compliant actuators, including
+(a) (e) Internal Linear Torsion Spring Compliant Actuator (ICA); (b) (e) Exter-
+nal Linear Spring Coft Actuator (ECA); (c) (f) Magnet Integrated Non-linear
+Compliant Actuator (MCA). . . . . . . . . . . . . . . . . . . . . . . . . . . . 109
+4.3 The process of using two compliant actuators to drive the joint movement
+through tendons. (a) In the initial stage, the tendons in both actuator 1 and 2
+are not under tension; (b) applying joint stiffness to the joint by tensioning the
+tendons; (c) driving the joint to the target angle; (d) controlling the joint torque
+when the joint is restricted. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+4.4 Joint stiffness adjustment using a pair of compliant actuators. . . . . . . . . . . 114
+4.5 The prototypes of the three compliant actuators: (a) ICA; (b) ECA; (c) MCA. . 119
+4.6 (a) The simulation and experimental results of the three compliant actuators,
+Ft = fdi(di), and the tension-length curve of the biological muscle; (b) Ksi =
+fKi(δ = 0 .087, d si); (c) Simulation result of the relation between θ¨max and dsi;
+(d) τti = ftdi(dsi, d ti) (R = 10 mm); (e) side view of τti = ftdi(dsi, d ti) (R = 10
+mm); (f) relationship between τtmi and dsi. . . . . . . . . . . . . . . . . . . . 120
+13
+
+===== PAGE 14 =====
+4.7 Repulsive force-distance experiment test rig. . . . . . . . . . . . . . . . . . . 121
+4.8 (a) The schematic diagram of the force-displacement relationship test rig. (b)
+Test rig setup for force-displacement relationship test; (c) The schematic dia-
+gram of the variable joint stiffness test rig. (d) Test rig set-up for the adjustable
+joint stiffness test. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+4.9 (a) Robotic arm prototype based on human skeleton system. The joint is artic-
+ulated by ligaments. (b) The lateral collateral ligament and annular ligament
+of the human elbow and the robotic elbow; (c) Strain varies on each part of
+the medial collateral ligament when the joint angle changes. Part 1 is under
+tension when θ > 0, part 2 is under tension when θ < 0; (d) A robotic hand
+is attached to the arm, a skeletal ligament system similar to that of the human
+forearm is replicated in the robotic arm. . . . . . . . . . . . . . . . . . . . . . 125
+4.10 MCAs’ application with adjustable joint stiffness in an incomplete robotic arm
+prototype. Recorded results of the 1-low (a) and 4-highest (b) joint stiffness
+settings. (c) Forearm positions at different joint stiffnesses during shoulder
+flexion/extension. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+4.11 (a) Simplified diagram of the robotic arm system; (b) Simplified dynamic
+model of the elbow joint. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+4.12 (a) The test setup and the steps of the platform hitting experiment. (b) The re-
+sults when the forearm hit on the platform with varied Ks3. (c) The recordings
+of the position of forearm θ1 and the platform θ2 at different Ks3 values. . . . . 130
+4.13 Tendon and muscle arrangement of the proposed robotic arm (right). (a) Right
+view; (b) Front view; (c) Rear view. . . . . . . . . . . . . . . . . . . . . . . . 131
+4.14 The kinematic model of the proposed robotic arm (the hand is not included). . 132
+4.15 Table tennis playing test. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 133
+4.16 (a) Simplified structure of the elbow flexion actuation system; (b) Simulation
+result of the maximum joint torque-joint angle relationship (brachialis L1 =
+30mm, l1 = 5 mm, biceps L2 = 35 mm, l2 = 7 mm, the weight of the forearm
+m = 1 kg, R = 10 mm, S = 120 mm, Ft1 = 250 N,). . . . . . . . . . . . . . . 133
+4.17 A dumbbell lifting test was conducted by equipping a robotic arm with two
+MCAs. (a) (b) A highly biomimetic robotic arm actuated by proposed com-
+pliant actuators; (c) Test with 3kg dumbbell; (d) Test with 2kg dumbbell; (e)
+The forearm position θ2 and the angular velocity ω recorded at the maximum
+achievable speed as well as acceleration that did not overload the actuators. . . 134
+4.18 Door open test of a biomimetic robotic arm driven by five compliant actuators
+proposed, including two MCAs, two ECAs, and one ICA. . . . . . . . . . . . . 135
+14
+
+===== PAGE 15 =====
+5.1 The design of the proposed robotic system (physical prototype and CAD draw-
+ing of the prototype’s design). (a) Front view of the forearm; (b) TFCC struc-
+ture; (c) Side view of the elbow, indicating the RCL and annular ligament; (d)
+Front view of the elbow, indicating the MCL, LCL and annular ligament; (e)
+Side view of the elbow, indicating the MCL. . . . . . . . . . . . . . . . . . . . 144
+5.2 (a) Radius head allows an effective distance between radius and ulna; (b) The
+curved radius avoids interaction between the radius and ulna during forearm
+rotation; (c) The ulna is curved downwards near the elbow joint. . . . . . . . . 145
+5.3 The situation prior to the installation of IOM. (a) Distracting forces are applied
+to the radius distal head, and the proximal head of the radius is tightly pressed
+against the annular ligament. (b) Compressive forces are applied, and the prox-
+imal head of the radius is pressed against the humerus . . . . . . . . . . . . . 147
+5.4 The simplified diagram of the force on the humeroradial joint. (a) Initial stage;
+(b) Stage when the joint is dislocated. . . . . . . . . . . . . . . . . . . . . . . 148
+5.5 The simulation result of the relationship between the force applied on the distal
+radius and the length change of LCL. . . . . . . . . . . . . . . . . . . . . . . 150
+5.6 The simplified diagram of the TFCC structure when the forearm (a) fully supinated,
+(b) during pronating, and (c) fully pronated. . . . . . . . . . . . . . . . . . . . 151
+5.7 The simulation result of relation between ∆d, ∆p and θ22. . . . . . . . . . . . 152
+5.8 (a) ligaments in IOM; (b) The simplified structure of ligaments 5 and 7; (c)
+The simplified diagram when the radius is under lateral external force to the
+left; (d) The simplified diagram when the radius is under lateral external force
+to the right. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 153
+5.9 Simulation and experimental results of the relation between strain on each lig-
+ament of IOM and θa. The enclosed values represent the magnitudes of lateral
+test forces applied on the distal forearm during the experiment. . . . . . . . . . 157
+5.10 Test rig setup for validation of the relation between strain on each ligament of
+IOM and θa. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 157
+5.11 Simplified diagram of the MCL when the elbow is (a) fully extended, (b) at
+90°and (c) at 135°. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 158
+5.12 The simulation results of the strain on the MCL when the angle of the elbow
+joint changes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 159
+15
+
+===== PAGE 16 =====
+5.13 (a) The prototype of the skeleton-ligament system of the forearm and elbow,
+including front view, left and right side views; (b) Triangular fibrocartilage
+complex (TFCC) during pronation. The DRUL will slide across the distal ulna
+head and then across the ECU before starting to bend; (c) LCL including RCL
+and LUCL, annular ligament of the human and robotic elbow prototype; (d)
+The MCL of the human and robotic elbow; (e) The human forearm and hand,
+and the prototype of the robotic forearm and hand. . . . . . . . . . . . . . . . 160
+5.14 ligaments position/length adjustment mechanisms. (a) Overview of the 13 ad-
+justment mechanism; (b) The length adjustment mechanism for ones marked
+in blue 1-7; (c) The position/length adjustment mechanism for ones marked in
+orange 1-7. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 161
+5.15 (a) Human forearm, posterior view; (b) Robotic forearm, posterior view; (c)
+Robotic forearm, anterior view; (d) Human forearm, anterior view. . . . . . . . 163
+5.16 (a) The muscle arrangement of the elbow flexion/extension. (b) The brachialis
+and triceps assist in elbow rotation. (c) The simplified diagram of the elbow
+flexion actuation system in different θ21. . . . . . . . . . . . . . . . . . . . . . 164
+5.17 The simulation results of the relation between τ21f and θ21. . . . . . . . . . . . 165
+5.18 The actuation system of forearm pronation/supination: (a) front view, (b) side
+view; (c) cross-section view; (d) simplified diagram of the pronation actuation
+by biceps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 165
+5.19 (a) The simulation result of the relation between τ22p, τ22s1, τ22s and θ22. (b)
+The simulation result of the relation between τ22s2 and θ21. . . . . . . . . . . . 166
+5.20 (a) The schematic diagram of the test rig for forearm rotation resistance mea-
+surement (front view); (b) Test rig setup for forearm rotation resistance mea-
+surement; (c) side view. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 168
+5.21 The experiment results of forearm rotation resistance measurement with differ-
+ent θ21. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 169
+5.22 (a) The schematic diagram of the test rig for validation of the contribution of
+the soft tissue to forearm stability in a lateral direction; (b) Test rig setup for
+validation of the contribution of the soft tissues to forearm stability in the lat-
+eral direction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 170
+5.23 The experimental results of the test of the contribution of IOM, TFCC, angular
+ligament to forearm stability. . . . . . . . . . . . . . . . . . . . . . . . . . . . 171
+5.24 (a) Elbow flexion/extension; (b) Forearm supination/pronation; (c) Gyroscope
+sensor data acquisition for joint range of motion evaluations . . . . . . . . . . 172
+16
+
+===== PAGE 17 =====
+5.25 (a) The completed robotic arm prototype holds the dumbbells. (b) The robotic
+arm lifts the 2 kg dumbbell and the recorded data of forearm position. . . . . . 173
+5.26 Table tennis playing test. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 173
+6.1 (a) Humeral head cartilage; (b) Glenoid labrum; (c) Negative intra-articular
+pressure formed by the humeral head and glenoid labrum; (d) The glenohumeral
+joint with lubricating oil during flexion/extension, rotation, adduction/abduc-
+tion movements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 182
+6.2 (a) Simplified diagram of the pretensioned ligament system; (b) Arrangement
+of ligaments in the glenohumeral joint. (c) Top view of six ligaments with the
+pre-tension mechanism. (d) The arrangement of the pre-tensioned ligament
+system and length adjustment mechanisms in the prototype. (e) Detail of the
+length adjustment mechanism. . . . . . . . . . . . . . . . . . . . . . . . . . . 183
+6.3 Tendon and muscle arrangement of the proposed robotic shoulder: (a) Right
+view; (b) Front view; (c) Rear view; (d) Top view. Tendon and muscle arrange-
+ment of the proposed robotic shoulder prototype. (a) Right view; (b) Front
+view; (c) Rear view; (d) Top view . . . . . . . . . . . . . . . . . . . . . . . . 185
+6.4 Rotator cuff in the glenohumeral joint: (a) rear view (b) front view. (c) The
+simplified diagram of the glenohumeral joint (humeral head and glenoid). (d)
+The force analysis diagram of the ball and socket structure when the gleno-
+humeral joint dislocated. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 186
+6.5 The simulation result of Fe = f (θc, θ h) in different θh. . . . . . . . . . . . . . 188
+6.6 (a) Simplified diagram of the glenohumeral joint and elbow when the long
+head of the biceps is retained. (b) A condition that stability coupling failure. . . 188
+6.7 (a) Self-locking mechanism is in active in the glenohumeral joint; (b) Self-
+locking mechanism fails (or reduced joint stability) in the glenohumeral joint.
+(c) The threshold for the self-locking mechanism fails. . . . . . . . . . . . . . 190
+6.8 (a) Actuation system for glenohumeral joint flexion/extension; (b) Simpli-
+fied schematic of flexion/extension actuation; (c) Actuation system for gleno-
+humeral joint abduction/adduction; (d) Simplified schematic of abduction ac-
+tuation; (e) Top view of abduction actuation system; (f) Simplified diagram of
+adduction actuation system for glenohumeral joint; (g) Simplified structure for
+glenohumeral joint rotation actuation; (h) Cross-sectional view of joint rotation
+actuation system; (i) Status of actuation system during humeral rotation. . . . . 191
+6.9 The simulation result of the relation between (a) τ31f , θ32 and θ31, (b) τ31e, θ32
+and θ31, (c) τ33 and θ32, θ33, (d) τ32b and θ33 for the three muscles, (e) τ32d and
+θ32. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 193
+17
+
+===== PAGE 18 =====
+6.10 Range of motion test for each motion in the proposed robotic arm, gleno-
+humeral joint adduction/abduction (a), flexion (b), rotation (c). . . . . . . . . . 198
+6.11 Data recorded of the range of motion test. . . . . . . . . . . . . . . . . . . . . 198
+6.12 Evaluation of tendon traversing multiple joints: (a) Schematic diagram of the
+experimental set-up; (b) Detailed depiction of the experimental configuration.
+Experimental outcomes for varying θa: 0(c), 30°(d), 56°(e), 71°(f), 90°(g),
+120°(h), 145°(i), 165°(j). (k) Observational results upon reaching the mecha-
+nism’s failure condition. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 199
+6.13 The experiment of the self-lock mechanism: (a) Schematic diagram of the ex-
+perimental set-up. Experimental outcomes for varying θa: 0(b), 30°(c), 71°(d),
+90°(e), 120°(f), 165°(g). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 199
+6.14 The completed robotic arm prototype holds the dumbbells (2kg, 3kg,5kg). . . . 200
+7.1 MCR-Hands during 2017-2021. (a) MCR-Hand I[220]; (b) MCR-Hand II[221];
+(c) MCR-Hand III[222]; (d) MCR-Hand Lite . . . . . . . . . . . . . . . . . . 206
+7.2 Robotic hands are applied in the proposed robotic arm. (a) MCR-Hand III at-
+tached to the forearm; (b) MCR-Hand Lite attached to the forearm; (c) A sim-
+plified robotic hand attached to the forearm. . . . . . . . . . . . . . . . . . . . 208
+7.3 The design of the robotic finger . . . . . . . . . . . . . . . . . . . . . . . . . 209
+7.4 Ligaments of the wrist. (a) palmar and (b) dorsal of the robotic wrist; (c) pal-
+mar and (d) dorsal of the human wrist [223]. . . . . . . . . . . . . . . . . . . 211
+7.5 prototype of the robotic finger. . . . . . . . . . . . . . . . . . . . . . . . . . . 212
+7.6 Simplified bionic robotic hand. (a) muscles for finger extension; (b) actuators
+for finger (thumb) and wrist extension in the robotic hand; (c) actuators for fin-
+ger (thumb) and wrist flexion in the robotic hand; (d) muscles for finger flexion. 212
+8.1 Control centre. (a) CAD model; (b) Perspective view; (c) Cooling fan installed
+in the box cover; (d) The arrangement of the electronics; (e) Connector panel;
+(f) Prototype of the control centre; (g) Connector panel of the control centre
+prototype. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215
+8.2 (a) The master robotic arm; (b) The control centre without the top cover; (c)
+PC; (d) Side view of the slave robotic arm; (e) 1200W power supply. . . . . . . 216
+8.3 Control centre interface of the manual control. . . . . . . . . . . . . . . . . . 217
+8.4 Flowchart of the manual control. . . . . . . . . . . . . . . . . . . . . . . . . . 218
+8.5 Position Record Module. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 219
+8.6 Master robotic arm. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 220
+8.7 Flowchart of the master-slave control. . . . . . . . . . . . . . . . . . . . . . . 220
+18
+
+===== PAGE 19 =====
+8.8 Sevro-based Micro-controller system integration. . . . . . . . . . . . . . . . . 221
+9.1 Finger and thumb motion in the robotic arm. . . . . . . . . . . . . . . . . . . 224
+9.2 Basic motion tests. (a) Waving the hand left and right; (b) Waving the hand
+back and forth; (c) Simulation of arm swing during running. . . . . . . . . . . 224
+9.3 Basic motion test of the forearm rotation and wrist flexion/extension . . . . . . 225
+9.4 Shaving Simulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 226
+9.5 Simulating Door Knocking . . . . . . . . . . . . . . . . . . . . . . . . . . . . 226
+9.6 Goblet Lifting and Clinking Simulation . . . . . . . . . . . . . . . . . . . . . 227
+9.7 Book Handling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228
+9.8 Mouse Operation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228
+9.9 Test of playing poker. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 229
+9.10 Object Transference to a Platform . . . . . . . . . . . . . . . . . . . . . . . . 230
+9.11 Test of opening the door (SD: shoulder; EB: elbow). . . . . . . . . . . . . . . 230
+9.12 Performance of human arm, axial-driven, musculoskeletal, and proposed robotic
+arm. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 233
+19
+
+===== PAGE 20 =====
+List of Tables
+2.1 Range of motion for human arm (data from [33], [34]). . . . . . . . . . . . . . 47
+2.2 Joint torque for human arm (data from[34], [36]). . . . . . . . . . . . . . . . . 48
+2.3 Percentages of total body weight and length of segments (data from[37]) . . . . 48
+2.4 Motion range for the selected motor direct driven robotic arms. . . . . . . . . . 52
+2.5 Motion range comparison between motor directly driven and muscular-skeletal
+robotic arms. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+2.6 Motion range for the selected motor direct driven robotic arm. . . . . . . . . . 61
+2.7 The relevant humanoid robotic arm in the last 20 years. . . . . . . . . . . . . . 63
+2.8 The relevant humanoid robotic arm in the last 20 years. . . . . . . . . . . . . . 64
+2.9 Comparison of motion range for Kenshiro, Kojiro and a human arm. (in °) . . . 68
+2.10 The rating criteria of the proposed indicator: mobility/dexterous/workspace. . . 69
+2.11 The rating criteria of the proposed indicator: compliance/safety. . . . . . . . . 69
+2.12 The rating criteria of the proposed indicator: output capability. . . . . . . . . . 70
+2.13 The rating criteria of the proposed indicator: joint stability/load-carrying ability. 70
+2.14 The rating criteria of the proposed indicator: joint motion accuracy. . . . . . . 70
+2.15 Mean angle of shoulder motion during various static tasks, data from[33] . . . 74
+2.16 The humeral head size measurements compared by gender[100]. . . . . . . . . 76
+2.17 The glenoid size measurements compared by different groups[101]. . . . . . . 76
+2.18 Translation data (mm ± standard error of the mean) in the different directions
+in 0, 30°, 60°, and 90°of the glenohumeral abduction following an application
+of 20N load[108]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+3.1 Features of different artificial muscles . . . . . . . . . . . . . . . . . . . . . . 103
+4.1 Performance of the prototypes . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+4.2 Parameters of the three prototypes . . . . . . . . . . . . . . . . . . . . . . . . 122
+4.3 Artificial muscles applied in the proposed robotic arm. . . . . . . . . . . . . . 132
+4.4 Comparison of different compact SEAs . . . . . . . . . . . . . . . . . . . . . 135
+4.5 A comparison between various compact VSAs. . . . . . . . . . . . . . . . . . 136
+5.1 Performance of biological elbow and forearm (data from [203], [204]). . . . . 144
+20
+
+===== PAGE 21 =====
+5.2 The position parameter of ligaments in IOM. . . . . . . . . . . . . . . . . . . 156
+5.3 Performance of robotic elbow and forearm. . . . . . . . . . . . . . . . . . . . 171
+5.4 Comparison of different robotic arms . . . . . . . . . . . . . . . . . . . . . . 175
+6.1 Artificial muscles applied in the proposed robotic arm and hand. . . . . . . . . 185
+6.2 Comparison of robotic arm’s joint torque with humans. . . . . . . . . . . . . . 197
+6.3 The joint range of motion of the robotic arm and human arm. . . . . . . . . . . 199
+6.4 Comparison of different robotic arms . . . . . . . . . . . . . . . . . . . . . . 202
+8.1 Artificial muscles applied in the proposed robotic arm. . . . . . . . . . . . . . 216
+9.1 Tests and corresponding difficulty levels. . . . . . . . . . . . . . . . . . . . . 223
+B.1 The parameters of the joint torque calculation. . . . . . . . . . . . . . . . . . 274
+21
+
+===== PAGE 22 =====
+List of publications
+1. H. Y ang, G. Wei, and L. Ren, “Enhancing the Performance of a Biomimetic Robotic
+Elbow-and-Forearm System Through Bionics-Inspired Optimization,” IEEE transactions on
+robotics (TR-O), 2023 (under review).
+2. H. Y ang, G. Wei, and L. Ren, “Development and Characteristics of a Highly Biomimetic
+Robotic Shoulder Through Bionics-Inspired Optimization”, IEEE transactions on robotics
+(TR-O), 2023 (under review).
+3. H. Y ang, G. Wei, and L. Ren, ”A Novel Soft Actuator: MISA and Its Application on the
+Biomimetic Robotic Arm.” IEEE Robotics and Automation Letters 8.4 (2023): 2373-2380.
+22
+
+===== PAGE 23 =====
+Abstract
+In the modern technological paradigm, robotics has found applications from manufactur-
+ing to healthcare. Current robots grapple with challenges in safety, mobility, compactness,
+and load-bearing. This research delves into the human arm anatomy, examining bones, lig-
+aments, tendons, and muscles, to pinpoint design deficiencies in current humanoid robots.
+Drawing on these anatomical insights, a bionic robotic arm that addresses these identified
+limitations is proposed and validated. Central to this study are three compliant actuators:
+ICA, ECA, and MCA. Notably, the MCA ’s nonlinear stiffness closely mirrors biological joint
+dynamics. Meanwhile, the ECA and ICA boast high power ratios, and the MCA displays
+a broad spectrum of joint stiffness. The proposed robotic forearm and elbow design aligns
+closely with human skeletal biomechanics. Moving beyond the conventional emphasis on soft
+tissues, the proposed design emulates biological joints, ensuring that the robotic arm matches
+the human range of motion and torque capacities. Additionally, the research delves into the
+biomechanics of the human shoulder. It addresses current design inadequacies and presents
+a biomimetic glenohumeral joint that embodies key properties of the biological shoulder, es-
+pecially stability and mobility. Tests confirm the enhanced flexibility and load-bearing capa-
+bilities of this design. In the ultimate evaluation of the robotic arm, the study concludes that
+anatomically replicating soft tissues, like ligaments, joint capsules, cartilage, and tendons,
+substantially enhances the joint stability and flexibility of the bionic robot.
+23
+
+===== PAGE 24 =====
+Terms and abbreviations
+Abbreviation Definition
+DoA Actuated degree of freedom
+DoF Degree of freedom
+SC Sternoclavicular joint
+AC Acromioclavicular joint
+GH Glenohumeral joint
+ST Scapulothoracic joint
+ASC Anterior sternoclavicular ligament
+CC Costoclavicular ligament
+CHL Coracohumeral ligament
+ACHL Anterior coracohumeral ligament
+PCHL Posterior coracohumeral ligament
+GHL Glenohumeral ligament
+SGHL Superior glenohumeral ligament
+MGHL Middle glenohumeral ligament
+IGHL Inferior glenohumeral ligament
+AIGHL Anterior inferior glenohumeral ligament
+PIGHL Posterior inferior glenohumeral ligament
+HU Humeroulnar joint
+HR Humeroradial Joint
+PRUJ Proximal radioulnar Joint
+DRUJ Distal radioulnar Joint
+MCL Medial collateral ligament
+AMCL Anterior medial collateral ligament
+LCL Lateral collateral ligament
+LUCL Lateral ulnar collateral ligament
+RCL Radial collateral ligament
+IOM Interosseous membrane
+DOB Distal membranous portion of IOM
+CB Central band of the middle ligamentous complex of IOM
+AB Accessory band of the middle ligamentous complex of IOM
+VSA Variable stiffness actuators
+A VS Antagonism with variable stiffness actuation
+BVSA Bidirectional variable stiffness actuator
+FSJ Floating spring joints
+SIPC Soft impact pneumatic cylinders
+LHB Long head of the biceps
+TCA T wisted and coiled nylon fibre actuator
+TCAR T wisted and coiled actuator with rod
+KTCA Knitted twisted and coiled nylon fibre actuator
+ESC Electronic speed controller
+PRM Position Record Module
+ICA Internal linear torsion spring compliant actuator
+ECA External linear spring compliant actuator
+MCA Magnets integrated non-linear compliant actuator
+HRI Human–robot interaction
+24
+Reproduced with permission of copyright owner. Further reproduction prohibited without permission.

@@ -1,0 +1,52 @@
+{
+  "scope": "two unmounted manufacturing geometry candidates; not whole-arm completion",
+  "checks": {
+    "FJ1486": {
+      "20_parts_single_material_each": true,
+      "OBJ_STL": true,
+      "module_neutral_clear": true,
+      "nominal_wire_threading_geometry": true,
+      "nominal_channel_clear": true,
+      "11_end_fitting_paths": true,
+      "rigid_caps_STEP": true,
+      "rigid_cap_CAD_input_current": true,
+      "nominal_guide_wall": true,
+      "three_print_files_current": true
+    },
+    "FJ1477": {
+      "20_parts_single_material_each": true,
+      "OBJ_STL": true,
+      "module_neutral_clear": true,
+      "nominal_wire_threading_geometry": true,
+      "nominal_channel_clear": true,
+      "11_end_fitting_paths": true,
+      "rigid_caps_STEP": true,
+      "rigid_cap_CAD_input_current": true,
+      "nominal_guide_wall": true,
+      "three_print_files_current": true
+    }
+  },
+  "evidence_sha256": {
+    "FJ1486/design.json": "7972eb79ec0268a9ba4267be9cd785cef7f9ac55561300b003df7f7db821e8e1",
+    "FJ1486/cad_input.json": "943ef39e2e93aee0c2060adaeeb2f157257f473a300f20a40a9a112ef6e900dd",
+    "FJ1486/geometry_checks.json": "3401d160b075d3ebab3a35fd1618dd7785d8e4c45f403d3889d66b5724e52df2",
+    "FJ1486/end_assembly_checks.json": "1caeb3458c25a8e083b51352898c227723265261f6319128e8c12b15714b889f",
+    "FJ1486/hard_caps/cad_roundtrip.json": "5f6cbd94dae7162fb87f09f69c1667c6aec307cb67e3ecb566b989ccca9fabc6",
+    "FJ1486/print_candidates/print_transforms.json": "27eae72e4e01f45b7dc0bab910f8244fefcac4eeba62d2bc43bb0fe43b172e83",
+    "FJ1477/design.json": "ac24319d73bd20c004c2ae2c57da9beeea4492d4e90b19f756a06bc1a2e88abe",
+    "FJ1477/cad_input.json": "6aca5eef14b594f2f2ad5d1bdde305a5a826777e9d633eac474b4b8189f8e976",
+    "FJ1477/geometry_checks.json": "0567513e6240e2fbc406426d47e4b836c0f248c4c4df2fa1c5ff7a5086d2121a",
+    "FJ1477/end_assembly_checks.json": "1caeb3458c25a8e083b51352898c227723265261f6319128e8c12b15714b889f",
+    "FJ1477/hard_caps/cad_roundtrip.json": "1ea6b7c8ff22455d11714c8b9bd52c69bd165ffb0cce8e30a524410cd81c0a43",
+    "FJ1477/print_candidates/print_transforms.json": "98cd3dfd8c5ae401bb4fa4fdc10e071568d3143bf8bd7ea59d2a376c9bfce9bf"
+  },
+  "frozen": false,
+  "installed_drive_pass": false,
+  "not_verified": [
+    "bone-side adapters and grounded reaction path",
+    "passive tendon guides/drum and full-range moment arms",
+    "nonlinear deformation and soft contact",
+    "printing, crimp grip, preload, fatigue and loads",
+    "shoulder/scapular muscle manufacture and whole-arm actuation"
+  ]
+}

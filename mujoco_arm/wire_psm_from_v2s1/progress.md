@@ -1,0 +1,11 @@
+# Progress
+
+2026-10-29: Began user-requested anchor/routing task. Read frozen skeleton package, V2 route metadata/hardpoints, current TPU assay limitations and original PSM mechanism. No skeletal or anchor changes frozen yet.
+
+Implemented body-root projections, 16-channel search, actual swivelling R8 guide routing, C-end/passive-tendon coupling, zero-pose pull-direction closure and dense807-pose screening. User allowed separate passive tendon and relaxed belly-length targets. Longer belly search was not retained where it destroyed pull-direction closure; compact replacements preserved the full7-dimensional/14-direction zero-pose cone. Corrected coordinate-frame mutation fast paths and sparse-Jacobian assumptions before accepting results.
+
+Current selected module coordinates are in psm_module_candidate.json/XML. Latest search includes known collision witnesses and early-motion samples (79 coarse poses), inter-wire tests, finite sheave outer envelopes, zero-pose14x34 belly-box checks and preservation of zero-pose closure. Some routes still fail during motion; no machining freeze. Final dense audit and coordinate/native-reference exports in progress. Compression/extension25% are planning scenarios only, never material ratings.
+
+Review package PSM-W1 exported:128 coordinate references,675 zero wire path points,807-pose dense audit, staged range CSV and rendered image. Zero hard geometry, belly-envelope and wire-pair issue lists all empty;48 actual bone roots project within0.00003575mm of bone surfaces. Zero7-dimensional rank and14 pull directions retained. Dynamic full-range failure remains: hard/cable prefix elbow145, GH flex20, abd22, internal14deg etc; see range_screening.csv, not final physical maxima. Conditional25/25 scenario is not calibrated and has smaller coverage.
+
+Strongly typed SolidWorks bridge compiled and successfully created PSM-W1_REFERENCE_LAYOUT_20261029_213315.SLDPRT as an independent reference part.128 named point sketches reopened/verified with zero coordinate error,643 wire line segments saved. Source CAD untouched. Native readback report included. Overall motion-routing optimization remains open; only a review proposal is delivered, no manufacturing-ready claim.

@@ -1,0 +1,293 @@
+[
+  {
+    "id": "supraspinatus",
+    "group": "rotator_cuff",
+    "required": true,
+    "enabled": true,
+    "shape_class": "straight_diamond",
+    "origin_body": "scapula_external_rotation",
+    "origin_local": [
+      0.000664519154515375,
+      0.0014717553579819053,
+      -0.004614962230103856
+    ],
+    "insertion_body": "shoulder_abduction",
+    "insertion_local": [
+      0.0034091785530228264,
+      0.00023840665284437536,
+      0.013126472826229701
+    ],
+    "via": [],
+    "cables": 1,
+    "max_force_n": 220.0,
+    "origin_world": [
+      0.1478345191545154,
+      0.0829617553579819,
+      1.339765037769896
+    ],
+    "insertion_world": [
+      0.14053717855302286,
+      0.08356340665284438,
+      1.3196844728262296
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "infraspinatus",
+    "group": "rotator_cuff",
+    "required": true,
+    "enabled": true,
+    "shape_class": "fan",
+    "origin_body": "scapula_external_rotation",
+    "origin_local": [
+      0.0006709734926486704,
+      0.0014454040192198648,
+      -0.004661587850364413
+    ],
+    "insertion_body": "shoulder_abduction",
+    "insertion_local": [
+      0.0034069609537922363,
+      0.00023022828365738235,
+      0.013122980472998279
+    ],
+    "via": [],
+    "cables": 1,
+    "max_force_n": 260.0,
+    "origin_world": [
+      0.1478409734926487,
+      0.08293540401921987,
+      1.3397184121496355
+    ],
+    "insertion_world": [
+      0.14053496095379225,
+      0.0835552282836574,
+      1.319680980472998
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "deltoid_anterior",
+    "group": "deltoid",
+    "required": true,
+    "enabled": true,
+    "shape_class": "fan",
+    "origin_body": "clavicle_axial_rotation",
+    "origin_local": [
+      -8.235678900842913e-05,
+      3.70088160630182e-05,
+      2.0956442119768327e-05
+    ],
+    "insertion_body": "shoulder_abduction",
+    "insertion_local": [
+      0.0034010115735832757,
+      0.00023129184843401164,
+      0.012994841978762224
+    ],
+    "via": [],
+    "cables": 1,
+    "max_force_n": 420.0,
+    "origin_world": [
+      0.2743496432109916,
+      0.01809900881606302,
+      1.3228069564421199
+    ],
+    "insertion_world": [
+      0.1405290115735833,
+      0.08355629184843402,
+      1.319552841978762
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "deltoid_middle",
+    "group": "deltoid",
+    "required": true,
+    "enabled": true,
+    "shape_class": "wrap",
+    "origin_body": "scapula_external_rotation",
+    "origin_local": [
+      0.0006198059405802212,
+      0.0014721977782665334,
+      -0.004589144934275737
+    ],
+    "insertion_body": "shoulder_abduction",
+    "insertion_local": [
+      0.0034010115735832757,
+      0.00023129184843401164,
+      0.012994841978762224
+    ],
+    "via": [
+      {
+        "body": "shoulder_abduction",
+        "local": [
+          0.003412985163428374,
+          0.00023392514654455,
+          0.013058956710979374
+        ]
+      }
+    ],
+    "cables": 1,
+    "max_force_n": 480.0,
+    "origin_world": [
+      0.14778980594058025,
+      0.08296219777826654,
+      1.3397908550657243
+    ],
+    "insertion_world": [
+      0.1405290115735833,
+      0.08355629184843402,
+      1.319552841978762
+    ],
+    "via_world": [
+      {
+        "body": "shoulder_abduction",
+        "position": [
+          0.1405409851634284,
+          0.08355892514654456,
+          1.3196169567109792
+        ]
+      }
+    ],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "deltoid_posterior",
+    "group": "deltoid",
+    "required": true,
+    "enabled": true,
+    "shape_class": "fan",
+    "origin_body": "scapula_external_rotation",
+    "origin_local": [
+      0.0006492904844791099,
+      0.0014831940605044595,
+      -0.004571889690202624
+    ],
+    "insertion_body": "shoulder_abduction",
+    "insertion_local": [
+      0.0034011961941342295,
+      0.00023137023714831173,
+      0.012996831895962032
+    ],
+    "via": [],
+    "cables": 1,
+    "max_force_n": 360.0,
+    "origin_world": [
+      0.14781929048447914,
+      0.08297319406050446,
+      1.3398081103097972
+    ],
+    "insertion_world": [
+      0.14052919619413426,
+      0.08355637023714832,
+      1.319554831895962
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "elbow_flexors",
+    "group": "elbow",
+    "required": true,
+    "enabled": true,
+    "shape_class": "straight_diamond",
+    "origin_body": "shoulder_abduction",
+    "origin_local": [
+      0.003400226608921514,
+      0.0002418425048170576,
+      0.013009575188879808
+    ],
+    "insertion_body": "radius",
+    "insertion_local": [
+      -0.0006574057462648426,
+      -0.0013637762179034211,
+      -0.00030981025444134504
+    ],
+    "via": [],
+    "cables": 2,
+    "max_force_n": 650.0,
+    "origin_world": [
+      0.14052822660892153,
+      0.08356684250481707,
+      1.3195675751888798
+    ],
+    "insertion_world": [
+      0.053261594253735195,
+      0.0774922237820966,
+      1.0356321897455585
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  },
+  {
+    "id": "triceps",
+    "group": "elbow",
+    "required": true,
+    "enabled": true,
+    "shape_class": "y_branch",
+    "origin_body": "shoulder_abduction",
+    "origin_local": [
+      0.003390344788753481,
+      0.0002115298702304358,
+      0.013006660773915655
+    ],
+    "insertion_body": "forearm_ulna",
+    "insertion_local": [
+      -0.006252442979443814,
+      -0.008879527050825203,
+      -0.003339018408606762
+    ],
+    "via": [],
+    "cables": 1,
+    "max_force_n": 700.0,
+    "origin_world": [
+      0.1405183447887535,
+      0.08353652987023044,
+      1.3195646607739155
+    ],
+    "insertion_world": [
+      0.06857855702055622,
+      0.0797944729491748,
+      1.039896981591393
+    ],
+    "via_world": [],
+    "psm_parameters": {
+      "x_mm": 15.0,
+      "y_mm": 10.0,
+      "z_mm": 30.0,
+      "p_mm": 2.0
+    }
+  }
+]

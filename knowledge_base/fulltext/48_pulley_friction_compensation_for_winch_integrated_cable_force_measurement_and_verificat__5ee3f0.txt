@@ -1,0 +1,608 @@
+===== PAGE 1 =====
+Pulley Friction Compensation for Winch-Integrated Cable Force
+Measurement and Veriﬁcation on a Cable-Driven Parallel Robot
+Werner Kraus, Michael Kessler and Andreas Pott
+Abstract— In a cable-driven parallel robot, elastic cables are
+used to manipulate the end effector within the workspace. Cable
+force measurement is necessary for several control algorithms
+like cable force control, contact control, or load identiﬁcation.
+The cable force sensor can be placed directly at the connection
+point on the platform or somewhere along the cable using
+pulleys. The pulleys between the force sensor and the platform
+disturb the force measurement accuracy due to friction. This
+paper deals with modeling and compensation of the friction.
+The friction behavior in the drive train with focus on the effects
+of the pulleys is non-trivial, as the cable movement consists
+of microscopic and macroscopic movements and standstills.
+Friction models from Coulomb and Dahl are adapted to deal
+with the pulley friction. The experimental evaluation showed
+an improvement of 70% with respect to the uncompensated
+case.
+I. I NTRODUCTION
+Due to their huge workspace, high dynamics and
+lightweight structure, cable-driven parallel robots, in the
+following referred to as cable robots, received high interest
+in the last decades ([1], [2]). The cable robot Mini-IPAnema
+actuated by eight cables which allows for 6 DoF is shown
+in Fig. 1.
+Cable force measurement is necessary for control of cable
+forces, measurement of the external forces at the platform for
+admittance control, or contact control and load identiﬁcation.
+It is straightforward to integrate the cable force sensors
+directly at the attachment point of the cables at the platform.
+An example can be seen in Fig. 1. As the cable forces are
+measured directly at the point of interest, one can achieve the
+highest precision. One the other hand, the cable force sensors
+and their A/D-converters are part of the moving platform
+and there has to be an electric connection to the control PC
+over the ﬁeld bus. This may lead to an additional source of
+damage.
+To avoid the cable force sensors on the platform (Fig. 2a),
+the sensors can also be integrated as measurement units
+using pulleys (Fig. 2b) or integrated in the winch (Fig. 2c).
+The advantages are that the force sensor is covered and
+protected and the wiring can be ﬁxed inside the robot frame.
+It simpliﬁes the assembly of the end effector, as the cable
+is just connected with a bolt. As the force measurement is
+now performed within the cable course, the measured cable
+force does not correspond directly to the force applied to
+the end effector. The pulleys introduce additional forces like
+inertia or friction into the cable. In a typical robot design,
+This work was supported as a Fraunhofer Master Project.
+All the authors are with the Fraunhofer Institute for Manufacturing
+Engineering and Automation IPA in Stuttgart, Germany
+Werner.Kraus at ipa.fhg.de
+Fig. 1: Cable-driven parallel robot Mini-IPAnema with 8
+cables and 6 DoF
+multiple pulleys are used to guide the cable, where one
+to three pulleys lie between the force sensor and the end
+effector. This leads to disturbed inputs of algorithms based
+on cable forces. In this paper, we present a friction model
+for the pulley friction to increase the measurement accuracy.
+Friction modeling can be found in several areas of
+robotics: in humanoid robots, the upper limb is often cable
+actuated and the load cell is placed in the body. These
+systems are realized using pulleys or bowden cables. E.g.
+[3], discrete elements with friction losses are applied for a
+cable-conduit system used for surgical robots. Viscous and
+dry friction coefﬁcients are applied in the computed torque
+control approach for a cable robot [4]. In the cable-driven
+locomotion interface the Dahl model was applied for the
+modeling of the reel friction [5].
+The challenge for compensating the pulley friction is the
+high frequent transition between static friction and kinetic
+friction. The presliding mode needs special consideration [6].
+The Coulomb model is not sufﬁcient, as it is stateless and
+cannot model friction in standstill. Well-known models for
+2015 IEEE International Conference on Robotics and Automation (ICRA)
+Washington State Convention Center
+Seattle, Washington, May 26-30, 2015
+978-1-4799-6923-4/15/$31.00 ©2015 IEEE 1627
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+(a) Direct at the platform
+ (b) Using pulleys
+ (c) Winch integrated
+Fig. 2: Principles for cable force measurement
+dynamic friction are the Dahl and LuGre model [7], [8]. We
+choose the Dahl model, as it has less parameter and we do
+not expect stick slip effects.
+This paper is structured as follows: The robot model
+including kinematic and cable force distributions are sum-
+marized in section 2. The approach for friction modeling
+according to Coulomb and Dahl is described in section 3.
+The parametrization for all cables is presented and the
+results were discussed. The veriﬁcation of the model for
+wrench hysteresis, admittance control and IPAnema 3 winch
+is described in section 4. Finally, conclusions and an outlook
+on future works are given in section 5.
+II. R OBOT MODEL
+For completeness, we brieﬂy review the robot model [9].
+The geometry of the robot is described by proximal anchor
+points on the robot base Ai and the distal anchor points
+on the end effector Bi described by vector bi. The index i
+denotes the cable number and m is the absolute number of
+cables. By applying a vector loop as shown in Fig. 3, the
+cable vector li follows as
+li = ai(r, R)− r− R bi , (1)
+where r is the platform position vector and rotation matrix
+R describes the platform orientation. As we take the pulleys
+at winches into account, the vector ai to the starting point
+of the cable depends on the current pose of the robot [10].
+The structure equation with the structure matrix AT result-
+ing from the force and torque equilibrium at the end effector
+for the cable force distribution f is given by
+[ u1 ··· um
+b1× u1 ··· bm× um
+]
+| {z }
+AT(r,R)
+
+
+f1
+...
+fm
+
+
+|{z}
+f
+=−
+[fp
+τp
+]
+|{z}
+w
+, (2)
+where ui = li‖li‖. The wrench w consists of applied forcesfp and torques τp and includes also the gravity g.
+The wrench w is derived from
+w =−ATfis , (3)
+where fis corresponds to the measured cable forces.
+Fig. 3: Description of the robot geometry based on one
+kinematic loop
+III. P ULLEY FRICTION MODEL
+A. Coulomb and viscose Friction of a Series of Pulleys
+In the following, we derive the basic equations for the
+determination of the friction forces for a series of pulleys as
+depicted in Fig. 5. We assume, that the pulleys are always
+moved by friction due to tension in the cable. Eytelwein’s
+formula with coefﬁcient of friction between the cable and
+the pulley µp and wrapping angle αi of the ith pulley
+Fj =Fj−1eµpα (4)
+must hold that the friction of the pulley’s bearing is dom-
+inant, otherwise the cable slides over the pulley what is
+another type of friction. This includes also the case of cable
+sagging where the friction drops. In the following, we neglect
+gravitational sagging and dynamic effects due to wire mass
+and elasticity.
+The force equilibrium for a cable guided around a pulley
+under the consideration of a friction force FR,j and the cable
+velocity v can be determined by
+Fj =Fj−1 + sgn(v)FR,j , (5)
+whereFj andFj−1 are the cable forces before and after the
+pulley, respectively. The friction force of one pulley FR,j
+is modeled with the Coulomb friction coefﬁcient µi and a
+viscose friction parameter Fpv by
+FR,j =µiFN,j +Fpv|v| , (6)
+where FN,j is the normal force acting on the bearing. Thus,
+for the friction estimation, the force acting on the pulley is
+relevant. In the following, we are using the abbreviations
+cαj = cosαj and sv = sgn(v). The normal force FN,j is
+the sum of incoming and outgoing cable force acting under
+the actual wrapping angle αj and is determined by
+FN,j =
+√
+F 2j−1− 2Fj−1Fjcαj +F 2j . (7)
+1628
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Fig. 4: Pulley unit of mini cable robot for force measurement
+Fs
+Fig. 5: Course of one cable between the platform and the
+force sensor guided by three pulleys
+The assumption that the normal force vector is the bisection
+of the wrapping angle allows for the following approxima-
+tion:
+FN,j≈ Fj−1 +Fj2 √2(1−cαj) . (8)
+Inserting (8) in (6) and subsequently in (5) results in
+Fj =Fj−1 +svµj
+Fj−1 +Fj
+2
+√
+2(1−cαj) +Fpvv , (9)
+solved for the cable force after pulley Fj yields
+Fj = Fj−1(2 +svµj
+√
+2(1−cαj)) + 2Fpvv
+2−svµj
+√
+2(1−cαj)
+. (10)
+Because of the force sensor, the ﬁrst pulley needs special
+consideration. The force equilibrium for the ﬁrst pulley along
+the direction of the force sensor vector Fs is
+−F0cα1 +F1 =Fs . (11)
+For α1 = 90◦ the solution is trivial:
+F1(α1 = 90◦) =Fs , (12)
+According to (11) for α1 = 180◦ F0 = Fs− F1 holds.
+Inserting this into (10) for j=1 yields
+F1 = (Fs−F1)1 +µ1sv1−µ1sv . (13)
+Resolved afterF1, the cable force in the ﬁrst segment returns
+F1(α1 = 180◦) =Fs 1 +µ1sv2 . (14)
+To get the cable force acting at the platform, which corre-
+sponds to the cable force in the last segment Fnp, one has to
+evaluate (10) for every pulley starting fromF1. The wrapping
+angle of the last pulley before the platform αnp depends on
+the actual pose of the platform and results from the inverse
+kinematic. The wrapping angles around the lasting pulleys
+are deﬁned during installation of the robot and are constant
+during operation of the robot.
+The macroscopic friction Ff of one cable can now be
+derived with
+Ff =Fnp−F1 , (15)
+and is now extended by the Dahl model to deal with both
+microscopic and macroscopic cable movements.
+B. Dahl model
+The general form of the Dahl model is a ﬁrst order
+differential equation
+df
+dx =σ
+[
+1− ffc sgn(v)]α , (16)
+where α describes the shape of the hysteresis area. We
+take α = 1 like in other literature ([5], [11], [7]). The
+basic idea of the Dahl model is to store the friction force
+acting at a direction change and to apply a smooth transition
+between the stored and actual calculated friction described
+by a stiffness value. An implementable solution of the Dahl
+model is
+Fd =Ff sgn(vk) + (F0 +Ff(sgn(vi))e− σFf|l−l0| , (17)
+where σ is a design parameter describing the stiffness
+value of the transition between microscopic and macroscopic
+movement, l0 and F0 representing the actual cable length l
+and friction force of the Dahl model Fd when the direction
+of movement changes [11].
+C. Identiﬁcation Experiment
+The identiﬁcation experiment is performed on the com-
+pletely assembled robot, as shown in Fig. 1. For the iden-
+tiﬁcation of the friction between the force signal gained in
+the measurement unit Fs at the platform, an additional force
+sensor is attached directly at the platform. In this way, the
+reference force Fref is measured, which can be assumed as
+ideal as there is no friction, except for measurement errors.
+The reference trajectory accounts for the identiﬁcation of
+the friction during microscopic and macroscopic movements
+and the transition between them. Movements with small
+amplitudes and breaks are chosen to stimulate the hysteresis
+behavior represented by the Dahl model. To account for
+the viscose friction, the velocity is varied throughout the
+identiﬁcation. A distribution in different cable forces and
+wrapping angles is reached by a trajectory which covers the
+workspace. In detail, the reference trajectory consists of the
+following phases.
+1629
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+TABLE I: Final parametrization for all 8 cables based on the
+reference trajectory and comparison of the model errors
+i µ [] σ
+[N/mm]
+Fpv
+[Ns/m]
+Fref −
+Fs [N]
+Fref −Fs −
+Fd [N]
+Fref
+[N]
+1 0.016 1.000 1.70 0.46 0.16 8.11
+2 0.011 1.003 3.50 0.43 0.21 5.33
+3 0.014 0.999 1.55 0.84 0.14 6.54
+4 0.017 0.602 1.38 0.49 0.14 8.22
+5 0.024 1.000 1.75 0.55 0.18 5.10
+6 0.023 0.999 2.08 0.43 0.16 5.83
+7 0.024 1.001 1.18 0.44 0.10 3.98
+8 0.025 0.998 1.29 0.65 0.24 8.11
+mean 0.019 0.950 1.80 0.54 0.17 6.40
+• Stop and go movement in the same direction with
+amplitudes from 0.25 to 10 mm, velocity of 0.083 m/s
+and a break of 0.5 s. This experiment is conducted in
+both positive and negative directions.
+• Alternating movement with amplitudes from 0.25 to
+10 mm, velocity of 0.083 m/s and a break of 0.5 s.
+• Alternating movement with an amplitude of 100 mm
+and rising velocity of 0.167 m/s up to 1.0 m/s.
+• Rectangular trajectory with a velocity of 0.167 m/s and
+0.5 m/s throughout the workspace.
+The commanded cable lengths are derived from inverse
+kinematics and do not oscillate in standstill of the platform.
+The movement of the winches is continuous. During the
+experiments, the cable force control presented in [12] was
+active to control the cable forces. The cable force control
+leads to transient set points of the cable lengths. Especially
+in standstill of the platform, microscopic cable movement is
+typical due to the interacting cable force controllers. This is
+important for the sliding mode of the friction model.
+D. Final parametrization for all cables
+A Levenberg-Marquardt optimization is used for parame-
+ter identiﬁcation for each cable. In the mini cable robot, all
+pulleys are of equal size and inertia. Thus, we assume the
+friction coefﬁcient to be the same. The friction depends on
+the force acting on the bearing. For each cable, the friction
+model is described with three friction parameters. To deal
+with calibration difference between the two force sensors,
+a constant offset ϵ is introduced for the optimization, but
+neglected in the later implementation. The target function Ψ
+for the parameter set p = [µσF pvϵ] is
+min
+p
+∑
+(Ψ(Fs,v,l,α np) +ϵ−Fref)2 . (18)
+For the identiﬁcation, the reference trajectory is repeated for
+each cable and the reference sensor is changed from one
+cable to another. The resulting parameters for the friction
+model derived by the optimization function can be seen in
+table I. Also the mean deviation of the real friction error and
+friction error after compensation are presented.
+E. Discussion
+The overview over the identiﬁed parameters for all 8 ca-
+bles reveals quite a high variance of the real parameters. The
+Coulomb friction ranges between 0.011 and 0.025 and the
+viscose friction between 1.18 and 3.5 Ns/m. The parameter
+σ is always around 1. The inﬂuence of the pulley friction
+before,Fref−Fs, and after the compensationFref−Fs−Fd is
+also given in table I. In average, the results show a reduction
+of the error by approximately two thirds. On the other hand
+this means that one third of the force difference between the
+two force signals Fs and Fref is not included in the model.
+The mean cable force amounts to 6.40 N, while the friction
+force created by the pulleys is 0.54 N. Without compensation,
+the pulley friction disturbs the force measurement by 8.4%.
+In the following, we describe some effects by which the
+model could be extended.
+In [13] we discussed the error of the cable force sensor
+itself. Each force sensor has its one characteristic which may
+lead to calibration errors. Applying a model between two
+force sensor signals involves also the measurement errors.
+In the actual implementation we introduced a constant offset
+to the target function. A linear model of the force sensor error
+might be more precise. Otherwise, the calibration differences
+of the sensors inﬂuence the friction parameters.
+In [14] we described hysteresis effect of Dyneema cables.
+We assume that this effect may also inﬂuence the cable force
+measurement over the pulleys. For each cable segment be-
+tween two pulleys one could apply a separate cable model. In
+a ﬁrst approximation, direction-dependent friction parameters
+could be a practicable approach.
+In the previous described approach, the direction of move-
+ment of the cable was determined based on the winch
+direction. This approach is capable to deal with both micro-
+scopic and macroscopic cable movement. The state of the
+sgn(v) function is crucial for the friction model, as in ﬁrst
+approximation holds
+Fnp =F1 + sgn(v)Ff . (19)
+A wrong assumption of the direction causes an error of two
+times the Coulomb friction forceff. When the winch velocity
+is very small, external force acting at the platform may lead
+to reversion of the friction at the pulleys. For cable robots
+this seems to be interesting as the cables are interacting over
+the platform with each other.
+IV. V ERIFICATION
+A. Implementation
+The control algorithms are implemented on the cable robot
+Mini-IPAnema 3 using eight cables and a platform formed
+like a handle as shown in Fig. 1. The space of the robot’s
+frame is 1.1 m x 0.8 m x 1.0 m. The actuators are 200 W servo
+drives of type Beckhoff AM3121. Without an additional
+gear box, the drum with a diameter of 20 mm is connected.
+The nominal rated cable force neglecting friction amounts to
+65 N.
+The robot control is realized on a Windows PC with
+Beckhoff TwinCAT 3.1 CNC at a cycle time of 1 ms. The
+ﬁeld bus protocol is EtherCAT. For the force measurement,
+each cable is equipped with a cable force sensor of type
+Futek LRM200 with a measurement range of 111 N. The
+1630
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Fig. 6: Structure of the pulley friction compensation imple-
+mented in the PLC
+z-position of the platform [mm]
+-50 -25 0 25 50
+wrench in z (gravitional force is removed) [N]-8
+-6
+-4
+-2
+0
+2
+4
+Accelerations forces appear in the wrench
+Hysteresis is almost
+completely compensated
+Hysteresis width for z:
+without comp.: 7.6 N
+→ with comp.: 0.8 N
+Fig. 7: Reduction of the wrench hysteresis, exemplary in
+vertical axis
+analog output signal of the force sensors is digitized in A/D-
+converters and sent via the ﬁeld bus to the control. The cable
+type is LIROS D-Pro 01505-0150 based on Dyneema SK 75
+ﬁbre (Polyethylene) with a diameter of 1.5 mm.
+An overview over the implementation of the friction model
+in the PLC is shown in Fig. 6. The input parameters are the
+signals of the eight cable force sensor Fs, the set point cable
+length and velocities of the winches lset, vset and the pose
+depending wrapping angle α of the last pulley calculated in
+the inverse kinematic module. As the velocity set point is
+used, the model is always ahead of the real friction. Thus,
+the output of the Dahl model is time-shifted as to correlate
+the modeled friction with the real effect.
+B. Wrench Hysteresis
+Beside the control of cable forces, the cable force mea-
+surement can also be used to estimate the applied forces on
+the platform by evaluation of (3). In this way, we estimated
+the payload on the platform and compensated for the cable
+elongation in [15]. Using cable force sensors attached di-
+rectly to the platform, we could improve the relative accuracy
+under changing load by over 50%. Hysteresis should be
+very low, otherwise the measured wrench depends on the
+direction from which the pose is reached. To investigate the
+inﬂuence of pulley friction on the wrench measurement, we
+programmed the robot to cyclically cross a position in all six
+DoF.
+TABLE II: Improvement of the Wrench hysteresis with and
+without compensation
+Cartesian Hysteresis width [N, Nm] Lasting
+axis without comp. with comp. Hysteresis [%]
+x 7.376 0.979 13.3
+y 4.183 0.463 11.1
+z 7.619 0.817 10.7
+a 0.519 0.165 31.8
+b 0.528 0.154 29.2
+c 0.111 0.020 18.1
+time [s]
+0 0.5 1 1.5 2 2.5 3 3.5 4
+z position of the platform [mm]
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+friction compensation off
+→ amplitude ~1.14 mm
+friction compensation on
+→ amplitude ~0.328 mm
+Enabling Compensation
+→ significant reduction
+of the oscillation caused
+Fig. 8: Reduction of the oscillation of the admittance control
+in idle mode
+The measurement results are summarized in Table II and
+show the inﬂuence of the pulley friction on the measured
+wrench. The hysteresis ranges in the same dimension as
+the gravitational force of the unload platform which is
+4 N. Especially for translational movements, the friction
+compensation is able to compensate for a signiﬁcant part of
+the Hysteresis. The orientation workspace is quite limited.
+Therefore, the compensation around the rotation axes a, b
+and c is comparatively lower.
+Exemplary, the hysteresis curve for the investigation of
+the z-axis of the robot is shown in Fig. 7. Depending
+on the direction, the wrench changes by 7.6 N. Using the
+friction compensation, the hysteresis can almost completely
+compensated to a width of only 0.8 N.
+C. Admittance Control
+In [16], we presented an admittance control for the Mini
+IPAnema, which allows for haptic interaction with the cable
+robot. The user force wadm is measured and transformed to
+the set point pose xset according to a virtual system behavior
+represented by a spring-mass-damper system
+I¨xset + D ˙xset + Cxset = wadm , (20)
+where I, D and C are the desired inertia, damping and
+spring constant, respectively. The user force is measured
+with the cable force sensors according to (3). Since the
+cable force sensors were moved from the platform to the
+indirect measurement over the pulley system, the platform
+tends to oscillate in idle mode. Actually, in idle mode is no
+user force and the platform should stand still. The reason for
+the oscillation lies in the static friction of the pulleys which
+1631
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+Fig. 9: Winch integrated cable force sensor in IPAnema 3
+winch
+0 20 40 60 80 100 120−150
+−100
+−50
+0
+50
+100
+friction force [N]
+time [s]
+ 
+ 
+Freal
+Fmodel
+Fig. 10: Friction for the IPAnema 3 winch during handling
+of 50 kg
+is interpreted as user force and turned over in a movement
+of the platform. Here, the friction compensation also proofs
+an improvement: The amplitude of the oscillation can be
+damped by two-thirds from 1.14 mm to 0.328 mm as can be
+seen in Fig. 8.
+D. IPAnema 3 winch
+For the IPAnema 3 robot, the force sensor is integrated
+in the winch as can be seen in Fig. 9. The detailed de-
+scription of the IPAnema family including the winch can be
+found in [17]. Here, we present preliminary results regarding
+friction using only one winch with different loads. For the
+identiﬁcation experiment, a load of 210 kg with a velocity
+of up to 1 m/s was moved using a pulley unit consisting
+of two pulleys at the ceiling. The reference trajectory con-
+sists of microscopic and macroscopic movements. For the
+IPAnema 3 winch, the identiﬁcation delivered µ = 0.013,
+σ = 36.6 N/mm and Fpv =74.5 Ns/m.
+For a preliminary veriﬁcation of the model, a load of 50 kg
+was applied to the winch. The real friction error and modeled
+error are shown in Fig. 10. With the friction model, the
+absolute mean error in the cable force measurement can be
+reduced from 46.5 to 20.4 N. Roughly calculated, the friction
+losses amounts 11.6% of the nominal cable force caused by
+the load.
+V. C ONCLUSION
+In the paper we analyzed the inﬂuence of friction on the
+control of cable-driven parallel robots. Well-known cable
+robot demonstrators employ typically one to ﬁve pulleys to
+guide the cable from the actuation to the mobile platform.
+For a series of pulleys, the basic foundations were derived.
+Experimental studies on the IPAnema Mini robot show
+improvement of round 70 % in the accuracy of the cable
+force measurement. Initial tests on the large-scale IPAnema 3
+system are encouraging. The analysis of the mechanical
+coupling between the cables and the platform hypothesize
+a friction effect that is propagated from the platform to the
+proximal pulleys and which cannot be described with the
+winch center approach proposed in this paper. Future work
+may target at analyzing this ﬁnding in detail.
+REFERENCES
+[1] R. G. Roberts, T. Graham, and T. Lippitt, “On the Inverse Kinematics,
+Statics, and Fault Tolerance of Cable-Suspended Robots,” Journal of
+Robotic Systems, vol. 15, no. 10, pp. 581–597, 1998.
+[2] X. Tang, “An Overview of the Development for Cable-Driven Parallel
+Manipulator,” Advances in Mechanical Engineering, vol. 2014, no. 10,
+2014.
+[3] V . Agrawal, W. J. Peine, and B. Yao, “Modeling of Transmission
+Characteristics Across a Cable-Conduit System,” IEEE Transactions
+On Robotics, vol. 26, no. 5, pp. 914–924, 2010.
+[4] J. Lamaury, M. Gouttefarde, A. Chemori, and P.- ´E. Herv ´e, “Dual-
+Space Adaptive Control of Redundantly Actuated Cable-Driven Par-
+allel Robots,” IEEE International Conference on Intelligent Robots
+and Systems, 2013.
+[5] M. J.-D. Otis, T.-L. Nguyen Dang, Laliberte Thiery, D. Quellet,
+D. Laurendeau, and C. Gosselin, “Cable Tension Control and Analysis
+of Reel Transparency for 6-DOF haptic foot platform on a cable-driven
+locomotion interface,” World Academy of Science, Engineering and
+Technology, pp. 520–532, 2009.
+[6] P. Dupont, V . Hayward, B. Armstrong, and F. Altpeter, “Single
+state elastoplastic friction models,” IEEE Transactions on Automatic
+Control, vol. 47, no. 5, pp. 787–792, 2002.
+[7] C. Canudas de Wit, H. Olsson, K. J. Astr ¨om, and P. Lischinsky, “A
+new model for control of systems with friction,” IEEE Transactions
+on Automatic Control , vol. 40, no. 3, pp. 419–425, 1995.
+[8] P. R. Dahl, “A solid friction model,” The Aerospace Corporation ,
+1968.
+[9] R. Verhoeven, “Analysis of the Workspace of Tendon-based Stewart
+Platforms,” Ph.D. dissertation, University of Duisburg-Essen, Duis-
+burg, 2004.
+[10] A. Pott, “Inﬂuence of Pulley Kinematics on Cable-Driven Parallel
+Robots,” in Latest Advances in Robot Kinematics , 2012, pp. 197–204.
+[11] M. Mahvash and A. M. Okamura, “Friction compensation for a
+force-feedback telerobotic system,” IEEE International Conference on
+Robotics and Automation , pp. 3268–3273, 2006.
+[12] W. Kraus, V . Schmidt, P. Rajendra, and A. Pott, “System Identiﬁcation
+and Cable Force Control for a Cable-Driven Parallel Robot with
+Industrial Servo Drives,” IEEE International Conference on Robotics
+and Automation, 2014.
+[13] ——, “Load identiﬁcation and compensation for a Cable-Driven
+parallel robot,” IEEE International Conference on Robotics and Au-
+tomation, pp. 2485–2490, 2013.
+[14] P. Miermeister, W. Kraus, T. Lan, and A. Pott, “An Elastic Cable
+Model for Cable-Driven Parallel Robots Including Hysteresis Effects,”
+Cable-Driven Parallel Robots, 2014.
+[15] W. Kraus and A. Pott, “Load identiﬁcation and compensation for
+a Cable-Driven parallel robot,” IEEE International Conference on
+Robotics and Automation , pp. 2485–2490, 2013.
+[16] W. Kraus, A. Mangold, W. Y . Ho, and A. Pott, “Haptic Interaction
+with a Cable-Driven Parallel Robot Using Admittance Control,” in
+Cable-Driven Parallel Robots , 2015, pp. 201–212.
+[17] A. Pott, H. M ¨utherich, W. Kraus, V . Schmidt, P. Miermeister, and
+A. Verl, “IPAnema: A family of Cable-Driven Parallel Robots for
+Industrial Applications,” Cable-Driven Parallel Robots , 2012.
+1632
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:16:19 UTC from IEEE Xplore. Restrictions apply.

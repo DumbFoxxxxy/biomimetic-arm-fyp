@@ -1,0 +1,535 @@
+===== PAGE 1 =====
+Humanlike Shoulder Complex for Musculoskeletal Robot Arms
+Shuhei Ikemoto 1, Fumiya Kannou 2 and Koh Hosoda 1
+Abstract— In recent years, musculoskeletal robots are being
+intensively studied to exploit the advantages of biological mus-
+culoskeletal systems for robot d evelopments. In these robots,
+it is very important to assure engineering, biomechanical,
+and anatomical plausibility at the same time. However , these
+requirements are often in contradiction. Especially, in the
+human’s shoulder complex, mimicking the glenohumeral joint
+and the scapulothoracic joint has been difﬁcult because of
+the need to assure a wide range of movement and the joint’s
+stability at the same time. In this paper , we propose mechan-
+ical structures to realize the functions of the glenohumeral
+joints and scapulothoracic joint. These structures were used
+to develop a musculoskeletal robot arm driven by pneumatic
+artiﬁcial muscles. In addition, i n order to verify the feasibility
+of the robot arm, we present a dynamic motion in which the
+robot arm throws a ball by a simple control strategy.
+I. I NTRODUCTION
+Musculoskeletal systems in living organisms improved
+during their evolutionary history. Therefore, these structures
+must reﬂect the needs for surviv ing in their environments.
+The approach of mimicking the musculoskeletal system to
+exploit its advantages has attr acted considerable attention
+in robotics. Furthermore, it is also expected that ﬁndings
+obtained by developing these robots will contribute to other
+research ﬁelds such as biomechanics.
+The superior limb girdle is fundamental for the arm
+movements. Because of its importance and because it is
+one of most complex parts in a human body in terms
+of the geometry, kinematics, and dynamics, it has been
+intensively studied in biomechanics[1]. At the same time,
+it has been considered promising to mimic its structure to
+develop musculoskeletal robot arms because its structure
+should contribute in the realization of humanlike sophisti-
+cated arm motions. In fact, in recent years, several robot
+arms, equipped with mechanisms inspired from the superior
+limb girdle, have been developed[2][3][4].
+The shoulder joint complex mainly consists of four joints,
+namely the sternoclavicular (SC), arcromioclavicular (AC),
+scapulothoracic (ST) and glenohumeral (GH) joints, shown
+in Fig.1. In particular, the GH and ST joints are difﬁcult to
+implement in an engineering way. Because the GH joint has
+three degrees-of-freedom (DOFs) , presents high stability and
+has a very wide range of movement, the use of conventional
+three DOFs joints such as ball joints is unsatisfying. In
+addition, because the ST joint is categorized as a functional
+1S. Ikemoto and K. Hosoda are with Department of Multimedia En-
+gineering, Osaka University, Osaka, Japan. ikemoto, koh.hosoda
+at ist.osaka-u.ac.jp
+2F. Kannouo and K. Hosoda are with Department of Adaptime Ma-
+chine System, Osaka University, Osaka, Japan. fumiya.kannou at
+ams.eng.osaka-u.ac.jp
+Fig. 1. Illustration of a human’s superior limb girdle. The white and
+light gray text boxes indicate the main joints and bones that constitute the
+shoulder joint complex, respectively.
+joint (i.e. a “virtual joint” der ived from contacts between the
+scapula and the thorax), its engineering implementation is
+not straightforward. In fact, implementations of these two
+joints are the biggest points of difference among previously
+developed musculoskeletal robots with humanlike superior
+limb girdles. So far, in developing these robots, mimick-
+ing the actual structures found in a shoulder joint com-
+plex decreases the engineering p erformance and, conversely,
+giving importance to the engineering performance usually
+makes mimicking the actual biological structures difﬁcult.
+Therefore, designing structures, which assure engineering,
+biomechanical, and anatomical plausibility at the same time,
+remains one of the most fascinating topics in this interdisci-
+plinary research ﬁeld.
+In this study, we develop a musculoskeletal robot arm
+with a humanlike superior limb girdle which can assure both
+engineering, biological, and anatomical plausibility in terms
+of its kinematics. To realize the wide range of movement
+of the GH joint with high stability, we propose a new ball
+joint mechanism. In a conventional ball joint, the movement
+is stable but the range of movement is greatly reduced by
+the retainer which covers more than half of the ball part
+of the joint for the stable movement. In the new ball joint
+mechanism, the design of retainer is improved to assure
+both a stable movement and a wide range of movement. In
+regard to the ST joint, we design the scapula and thorax as
+a ﬂat planar object and a cylindr oidal object, respectively.
+In this design, both the mobility and stability of the planar
+scapula part sliding on the cylindroidal thorax are achieved
+2012 IEEE/RSJ International Conference on
+Intelligent Robots and Systems
+October 7-12, 2012. Vilamoura, Algarve, Portugal
+978-1-4673-1736-8/12/S31.00 ©2012 IEEE 4892
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Fig. 2. Top: Illustration of a human’s glenohumeral joint. Bottom, left:
+example of opened joint. Bottom, right : example of closed joint (spherical
+bearing manufactured by HEPHAIST). In humans the humeral head is kept
+on the glenoid fossa to prevent the abarticulation not only by muscles, but
+also by an articular capsule, an articular labrum and ligaments. Both types
+of joints are still insufﬁcient to support wide range of movement and high
+stability which found in human’s GH joint.
+thanks to the line contact existing between the two parts.
+In addition, this design allows the scapula to leave from
+the thorax, as well known in physiology[5] for the human
+muscoloskeletal system. To drive the developed skeletal
+structure, pneumatic artiﬁcial muscles (P AMs) were used
+because their inherent ﬂexibility allows freer allocations
+of actuators than conventional actuators such as electrical
+motors. In the developed musculoskeletal robot arm, P AMs
+are located according to the muscles present in a human
+superior limb girdle. At the end of this paper, we show that
+the developed musculoskeletal robot arm can dynamically
+throw a ball thanks to the wide range of movement with
+high stability and the ﬂexibility of P AMs.
+II. R ELA TED RESEARCHES
+In this paper, we classify engineering designs of the
+GH joint into two types, called the opened joint and the
+closed joint, and we introduce related researches upon this
+classiﬁcation. A simple illustration of the human’s GH joint
+is shown in the top part of Fig.2. The bottom of Fig.2 shows
+examples of opened and the closed joint.
+The opened joint, shown in the left bottom of Fig.2, is
+a type of joint consisting of a ball part and a cup part,
+corresponding to the humeral head and the glenoid fossa,
+respectively. For instance, th e musculoskeletal humanoid
+robot “Kojiro” developed by Mizuuchi et al. adopted an
+opened joint as its GH joint[6]. In addition, “ECCEROBOT”
+developed by Marques et al. employed the opened joint with
+elastic and inelastic ligaments to stably actuate the joint[4].
+Because not only muscles, but also an articular capsule, an
+articular labrum, and ligamen ts keep the humeral head on
+the glenoid fossa in humans, as shown in the top of Fig.2,
+this approach presents high biological plausibility.
+The typical advantages of the opened joint are its wide
+range of movement and its high anatomical plausibility. Con-
+versely, the abarticulation can occur because the ball part can
+be dislocated from the cup part. To prevent the abarticulation,
+it is necessary to keep pushing the ball part onto the cup part
+by actuators. In other words, we must control actuators to
+exert not only the joint torque but also the holding force
+to use the opened joint. Introduce elastic ligaments can
+simplify this problem, however, it is still necessary to face
+the original difﬁculty of choosing the elasticity of ligaments.
+Furthermore, dealing with this problem in dynamic motions
+becomes an increasing challenge.
+Instead of the opened joint, many musculoskeletal robots
+adopt commercially available joints as the GH joint. In
+several musculoskeletal robots, joints which have less than
+3 DOFs were adopted and combined to realize 3 DOFs GH
+joint[3][7]. For instance, a combination of a universal joint
+and a joint for axial rotation can realize a 3 DOFs joint.
+However, because the three rota tion centers are mismatched,
+the kinematics fundamentally differs from the opened joint
+and the GH joint. Therefore, spherical joints, which provide 3
+DOFs with the same rotation centers, are a suitable competi-
+tor of the opened joint. Fig.2 shows a commercially available
+spherical joint. Because the c up part of this kind of joints
+covers the ball part more than in the case of opened joint, in
+the following we call this type of joints as closed joint. For
+instance, in [8], a closed joint was adopted as the GH joint
+in the musculoskeletal robot. In contrast with the opened
+joint, since in the closed joint the cup part, called retainer,
+covers more than half of the ball part, the abarticulation is
+perfectly prevented. For these joints the typical advantage is
+thus the stability of the movement, while the disadvantage
+is the narrow movement range.
+From the above-mentioned related researches, it can be
+seen that both the opened joint and the closed joint are
+still insufﬁcient to support bot h a wide range of movement,
+stability of movement, and biological plausibility at the same
+time.
+The ST joint is a functional joint and allows three
+kinds of movements which are elevation/depression, abduc-
+tion/adduction, and upward/downward rotation. So far it has
+been often modeled in biomechanics as a constraints that
+forces two points on the scapula to be on the surface of
+the thorax [9]. Although it is known in physiology that
+the scapula can leave from the thorax during motions[5],
+these models simplify the constraint in order to solve the
+kinematics or the dynamics because, even under these sim-
+plifying assumptions, the model is very complex. Since
+there are several observations and hypotheses about the
+4893
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+relative movement of the humerus to the scapula even in
+kinesiology [10][11][5], the simpliﬁcation of the constraint
+is still controversial.
+Also in robotics, many designs of the ST joint have been
+proposed and tested[12][13][4]. In particular, an advanced
+designs of the ST joint was proposed and developed by
+Sodeyama et al., who investigated the range of movement
+in details. The design consists of a clavicle, a spherical
+scapula and a thorax in order to make the surface of spherical
+scapula contacting the surface of the spherical thorax as in
+the ST joint[2]. This design is plausible in engineering terms
+because the surface contact reduces the contact pressure
+effectively and this improves the stability of the contact.
+Although [2] successfully shows the wide range of movement
+provided by the designed shoulder girdle, in principle the
+scapula cannot perform the elevation/depression available in
+human beings.
+Therefore, it can be said that the modeling and the imple-
+mentation of the ST joint are still controversial. In addition,
+quantitative evaluations of ST joint’s designs could be found
+only in [2] and the measure is the range of movement of the
+link corresponding to the humerus.
+III. D ESIGN OF MUSCULOSKELETAL ROBOT ARM
+Fig.3 shows the the developed musculoskeletal robot arm
+and the conﬁguration of its DOFs. This robot arm has a
+humanlike superior limb girdle. In addition, excluding the
+AC and SC joints, the robot has 7 DOFs, which are similar
+to the DOFs present in humans and to the DOFs of previously
+developed musculoskeletal robots which are not focusing on
+the superior limb girdle[7][8]. In the following subsections,
+we will provide details on the designs of the GH joint, the
+ST joint, and other parts such as the arm and the hand. At
+the end of this section, we also describe the actuators and
+control system.
+A. Glenohumeral Joint
+As explained in last section, the biggest technical problem
+in the realization of the GH joint is to provide a wide
+range of movement, high movement stability, and biological
+plausibility at the same time. To deal with this problem, we
+propose a new mechanism, based on a ball joint in which
+rotatable claws hold the ball part on the cup part.
+Fig.4 shows the three dimensional model of the new ball
+joint. The ball part, the hol ding claws, and the cup part
+are made from low friction aromatic polyamide plastics to
+smoothen the movement. In addition, the size of the joint
+is comparable to the human’s GH joint. In this mechanism,
+when the shaft connected to the ball part collides to one of
+the claws, the claws passively rotate and the shaft can move
+into the gap between the claws. Because of this design, we
+call this newly developed joint as a partially opened joint.
+The most important feature of the partially opened joint is
+that the rotation centers of three DOFs coincide as for the GH
+joint. Given its structure, it is obvious that the proposed joint
+provides both a wide range of movement and high stability
+of the movement. In the human GH joint shown in Fig.2,
+Fig. 3. The developed musculoskeletal robot arm and the conﬁguration of
+the DOFs. This robot arm has a humanlike superior limb girdle and each
+parts are comparable to the one of humans.
+Fig. 4. The new mechanism for the ball joint. The ball part, the holding
+claws and the cup part are made from low friction aromatic polyamide
+plastics to smoothen the movement. The humerus can slant to a degree of
+plus or minus 90 degrees in any direction.
+the articular capsule, the articular labrum, and the ligaments
+contribute to prevent the abarticulation but not to drive the
+joint. Therefore, the rotatable craws can be thought of as the
+engineering design of these tissues.
+B. Scapulothoracic Contact Joint
+When the ST joint is implemented in the form of two
+contacting components corresponding to the scapula and
+the thorax, the shapes of the parts determine the contact
+condition. Therefore, the shapes should be designed to realize
+both the mobility and stability of the scapula part over the
+execution of all kinds of movements of the human’s ST
+joint which are elevation/depression, abduction/adduction,
+and upward/downward rotation. In addition, assuming to
+drive the joint by P AMs, the shapes should also imitate the
+4894
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Fig. 5. The three dimensional models of the ﬂat planar scapula and the
+cylindroidal thorax. The ST joint is p rovided by line contact of the scapula
+and the thorax.
+ones of the scapula and the thorax of humans because the
+shapes condition the conﬁguration of P AMs. In other words,
+mimicking not only the functionality of the joint but also
+the shapes of bones is important for mimicking not only the
+skeletal structure but also th e musculoskeletal system.
+Fig.5 shows the three dimensional model of the ﬂat planar
+scapula and the cylindroidal thorax of the developed muscu-
+loskeletal robot arm. To construct the ST joint, a straight
+bar corresponding the clavicle connects the two parts via
+conventional ball joints. Similar to the implementation of
+the GH joint, all sliding parts are made from low friction
+aromatic polyamide plastics to smoothen the movement in
+Fig.5. In addition, the sizes of the scapula, the thorax and
+the clavicle are comparable with those of humans.
+To improve the mobility of the scapula part, the contact
+pressure should be reduced to smoothen the movement. On
+the other hand, to achieve the stability of the movement, the
+number of contacting points between the two parts should be
+increased. However, as explained in last section, because of
+the clavicle (SC and AC joints), providing surface contact on
+the curved surface of the thorax is geometrically impossible
+if the full scapula motion is permitted. Furthermore, even
+if the clavicle is omitted to realize the ST joint, the shapes
+of the scapula and the thorax would need to be spherical,
+and this would be greatly different from what is seen in
+humans. Therefore, providin g a line contact between the ﬂat
+planar scapula and the cylindroidal thorax appears a suitable
+solution for realizing the ST joint.
+C. Arm and Hand
+Fig.6 shows the three dimensional model of the arm and
+the hand of the developed musculoskeletal robot arm. The
+structure presents several similarities with human’s skeletal
+structure. For example, the forearm consists in a radioulnar
+joint (two bones called ulna and radius set in a parallel
+conﬁguration that allows for twisting) and the wrist joint
+employs an ellipsoidal joint[10]. Each ﬁnger has 3 DOFs
+corresponding to IP , MP , and CMC joints from distal for
+the thumb and DIP , PIP , and MP joints from distal for the
+Fig. 6. The three dimensional models of the hand and the arm. Each of
+the ﬁngers in the hand has 3 DOFs. The arm has a skeletal structure similar
+to that of humans (e.g. the radioulnar joint and the ellipsoidal wrist joint). .
+Fig. 7. The conﬁguration of the pneumatic artiﬁcial muscles mounted on
+the developed musculoskeletal robot ar m. the conﬁguration is schematically
+similar to that of humans.
+others ﬁngers[10]. The sizes of the arm and hand are also
+comparable to the ones of humans.
+D. Actuators and Control System
+To drive the developed skeletal structure explained above,
+P AMs were employed. Because P AMs have inherent ﬂexi-
+bility, it is possible to allocate them freer than it is for other
+actuators. Fig.7 shows the conﬁguration of the 25 P AMs. The
+conﬁguration is schematically similar to that of humans (e.g.
+there are not only monoarticular muscles but also biarticular
+muscles). The hand is driven by two P AMs in the manner of
+underactuated robotic hands[14].
+Each pneumatic artiﬁcial muscle is equipped both with an
+internal pressure sensor and an axial tension sensor (except
+for muscles No.23 and No.24: these muscles, which are driv-
+ing the hand, have only internal pressure sensors). Because
+the conﬁguration of the muscles is very complex, mounting
+large sensors is spatially difﬁcult. Therefore, this robot arm
+employs compact sensors, namely PSE530 pressure sensor
+manufactured by SMC, and compact hand-build axial tension
+sensors[15].
+4895
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Fig. 8. The control system of the developed musculoskeletal robot arm.
+Each muscle’s pressure is controlled by a PID controller.
+TABLE I
+COMPARISON OF RANGES OF MOVEMENT .
+Type of
+movement
+Developed
+Robot Arm
+Human
+[5]
+Existing
+Robot Arm[2]
+Abduction
+ 170
+ 180
+ 90
+Adduction
+ 0
+ 0
+ 10
+Flexion
+ 170
+ 180
+ 170
+Extension
+ 0
+ 50
+ 80
+Horizontal
+ﬂexion
+ 80
+ 135
+ No data
+Horizontal
+extension
+ 0
+ 30
+ No data
+Fig.8 shows the control system for the developed muscu-
+loskeletal robot arm. In this control system, each muscle’s
+pressure is controlled by a PID controller.
+IV . E XPERIMENT
+In this section, we ﬁrst evaluate the range of movement
+of the developed musculoskeletal robot arm. The result is
+compared with the range of humans and with the results
+reported in [2]. Second, we present a throwing motion
+executed by the developed robot arm in order to demonstrate
+the feasibility of the structure.
+A. Range of Movement
+The range of movement of the developed robot arm was
+measured by adjusting the PID gain of the control system and
+the desired pressures in order for the range of movement to
+be maximized. Fig.9 shows the postures of the developed
+musculoskeletal robot arm that can be taken as extremes of
+the ranges of movement. Table I reports the comparisons of
+the range of movement among the developed musculoskeletal
+robot arm, a human, and the existing musculoskeletal robot
+arm shown in [2]. Note that the range of movement of
+the developed musculoskeletal robot arm is measured as the
+angle between positions assumed by the humerus link when
+observed on the lateral plane (abduction/adduction), on the
+sagittal plane (ﬂextion/extension) and on the horizontal plane
+(horizontal ﬂexion/horizontal extension). As it is technically
+difﬁcult to measure displacem ent angles of ball joints, the
+angle was measured from the photographs of front view, side
+view, and top view of the robot arm. In these results, it can be
+seen that the developed musculoskeletal robot arm presents
+a similar range of movement for the abduction, adduction
+and ﬂexion directions. Additionally, on these directions, the
+Fig. 9. Postures assumed at the extremes of the range of movement. The
+angle between the humerus and vertical axis (the sum of the scapula’s angle
+and the GH joint’s angle) is measured as the range of movement.
+developed robot arm provides better ranges than the existing
+robot arm. Therefore, this comparison shows the validity
+of the design of the developed musculoskeletal robot arm.
+The human’s wide range of movement is, however, still not
+completely attained. bThe main reason is that the amount
+of contraction of P AMs is approximately 25 percent of
+their length and this is insufﬁcient in the current muscle
+conﬁguration. In other words, the limitation of the current
+range of movement does not come from the skeletal structure,
+which is the main focus in this study. Therefore, optimizing
+the conﬁguration of the P AMs will be required in the future.
+B. Throwing Motion
+In order to demonstrate the feasibility of realizing dynamic
+motions, we present a throwing motion of the developed
+robot arm. With the developed musculoskeletal robot arm,
+sets of desired pressures of the P AMs must be provided to
+generate motions. In this paper, we prepared four sets of
+desired pressures, corresponding to the initial, the cocked
+up, the swung down and the releasing the ball postures. We
+then generated a throwing motion by switching from a set
+of pressures to the successive at opportune time intervals.
+Fig.10 shows the realized throwing motion obtained by
+tuning the sets of desired pressures and their switching inter-
+4896
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+Fig. 10. Sequential snapshots of t he throwing motion. The FPS of th e sequential snapshots is 10Hz.
+The movie is available at http://www-hi.ist.osaka-u.ac.jp/ ∼ikemoto/throwing.html
+vals. As shown in this ﬁgure, the developed musculoskeletal
+robot arm could throw a ball dynamically. In addition, the
+system could repeat the throwing for over 100 times. From
+this demonstration, it was shown that the partially opened
+joint and the ST joint consisting of the ﬂat planar scapula
+and the cylindroidal thorax are still able to work in the
+execution of dynamic motions such as the ball throwing. In
+addition, because the musculoskeletal robot arm could move
+outside of the previously reported range of movement (i.e. the
+range of movement was increased on the horizontal extension
+direction and on the ﬂexion direction), as visible in Fig.10, it
+is clear that the skeletal structure originally has wider range
+of movement than the results shown above. At the same time,
+this means that the P AMs mounted on the musculoskeletal
+robot arm are able to store and release kinetic energy as
+elastic energy. This implies that analyzing the pressures and
+the tensions of P AMs is possibly a good way to show the
+advantages of the skeletal structure. Therefore, analyzing the
+realized throwing motion will be an important future research
+direction.
+V. C ONCLUSION
+The design of the humanlike shoulder complex for mus-
+culoskeletal robot arms was proposed in this research. We
+ﬁrst proposed a new ball joint mechanism, called partially
+opened joint, which gives the GH joint both a wide range
+of movement and high stability. Second, we presented a
+humanlike ST joint consisting of a ﬂat planar object, a
+cylindroidal object, and a rod connecting the two objects
+which correspond to the scapula, the thorax, and the clavicle
+of humans, respectively. To drive the developed skeletal
+structure containing the partially opened joint and the hu-
+manlike ST joint, P AMs were used because their inherent
+ﬂexibility allows freer allocations of actuators than conven-
+tional actuators such as electrical motors. In other words,
+P AMs can be located according to muscles present in the
+human superior limb. To validate the proposed designs, the
+range of movement was compared with that of a human and
+of an existing robot arm. In addition, we showed that the
+developed musculoskeletal robot arm can dynamically throw
+a ball thanks to the wide movable areas of joints and the
+ﬂexibility of P AMs.
+REFERENCES
+[1] J. Y ang, X. Feng, J. H. Kim, and S. Rajulu, “Review of biomechanical
+models for human shoulder complex.” International Journal of Human
+Factors Modeling and Simulation , vol. 1, no. 3, pp. 271–293, 2010.
+[2] Y . Sodeyama, T. Nishino, Y . Namiki, Y . Nakanishi, I. Mizuuchi, and
+M. Inaba, “The designs and motions of a shoulder structure with a
+spherical thorax, scapulas and collarbones for humanoid gkojiroh,” in
+IEEE/RSJ International Conference on Inte lligent Robots and Systems .
+IEEE, 2008, pp. 1465–1470.
+[3] I. Fukuyori, Y .Nakamura, Y .Matsumoto, and H.Ishiguro, “Flexible
+control mechanism for multi-dof robotic arm based on biological
+ﬂuctuation,” International conference on the simulation of adaptive
+behavior (SAB 2008)Osaka Japan , pp. 22–31, 2008.
+[4] H. G. Marques, M. Jantsch, S. Wittmeier, C. Alessandro, O. Holland,
+C. Alessandro, A. Diamond, M. Lungarella, and R. Knight, “Ecce1:
+the ﬁrst of a series of anthropomimetic musculoskelal upper torsos,” in
+Proc. IEEE Int. Conf. on Humanoid Robots(Humanoids2010) , 2010.
+[5] A. Kapandji, R. Tubiana, and L. Honore, The Physiology of the Joints,
+6th edition . Churchill Livingstone, 2007, vol. 1: The Upper Limb.
+[6] I. Mizuuchi, Y . Nakanishi, Y . Sodeyama, Y . Namiki, T. Nishino,
+N. Muramatsu, J. Urata, K. Hongo, T. Y oshikai, and M. Inaba, “An ad-
+vanced musculoskeletal humanoid kojiro,” in IEEE-RAS International
+Conference on Humanoid Robots , nov. 2007, pp. 294 –299.
+[7] B.Tondu, S.Ippolito, J.Guiochet, and A.Daidie, “A seven-degrees-of-
+freedom robot-arm driven by pneuma tic artiﬁcial muscle for humanoid
+robots,” The International Journal of Robotics Research , vol. 24, no. 4,
+pp. 257–274, 2005.
+[8] S. Ikemoto, Y . Nishigori, and K. Hosoda, “Adaptive motion of a mus-
+culoskeletal robot arm utilizing physical constraint,” in Proceedings
+of the International Symposium on Adaptive Motion in Animals and
+Machines, 2011.
+[9] F. V an der Helm, “A ﬁnite element musculoskeletal model of the
+shoulder mechanism,” Journal of Biomechanics , vol. 27, no. 5, pp.
+551–553, 1994.
+[10] D. Neumann and D. Wong, Kinesiology of the musculoskeletal system:
+foundations for physical rehabilitation . Mosby St Louis, MO, 2002.
+[11] K. Nobuhara, The shoulder: Its function and clinical aspects .W o r l d
+Scientiﬁc Pub Co Inc, 2003.
+[12] Y . Sodeyama, I. Mizuuchi, T. Y oshikai, Y . Nakanishi, and M. Inaba, “A
+shoulder structure of muscle-drive n humanoid with shoulder blades,”
+in IEEE/RSJ International Conference on Inte lligent Robots and
+Systems. IEEE, 2005, pp. 4028–4033.
+[13] N. Sakai, Y . Sawae, and T. Murakami, “A development of joint
+mechanism of robot arm based on human shoulder morphology,” in
+Biomedical Robotics and Biomechatronics, 2006. BioRob 2006. The
+First IEEE/RAS-EMBS International Conference on , feb. 2006, pp.
+982 –987.
+[14] L. Birglen, C. Gosselin, and T. Lalibert´ e, Underactuated robotic hands.
+Springer V erlag, 2008, vol. 40.
+[15] K. Narioka, R. Niiyama, Y . Nishigori, Y . Ikeuchi, K. Masuda, F. Kan-
+nou, S. Ikemoto, K. Ogawa, S. Shirafuji, N. Koyama, K. Suzuki,
+K. Tanaka, M. Higashida, S. Moriyama, Y . Inoue, K. Hosoda, and
+Y . Kuniyoshi, “Enhanced design of a pneumatic artiﬁcial muscle for
+musculoskeletal robot,” in IEEE International Conference on Robotics
+and Automation (Workshop) , 2011.
+4897
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 17,2026 at 12:25:16 UTC from IEEE Xplore. Restrictions apply.

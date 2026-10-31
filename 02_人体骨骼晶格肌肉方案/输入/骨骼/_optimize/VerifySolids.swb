@@ -1,0 +1,83 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo ErrorHandler
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    WriteLog "start"
+
+    Dim base As String
+    base = "D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC)
+    Dim solidDir As String
+    solidDir = base & "\" & ChrW(&H5B9E) & ChrW(&H4F53) & ChrW(&H6A21) & ChrW(&H578B)
+
+    CheckOne solidDir, ChrW(&H6861) & ChrW(&H9AA8), "radius"
+    CheckOne solidDir, ChrW(&H5C3A) & ChrW(&H9AA8), "ulna"
+    CheckOne solidDir, ChrW(&H80B1) & ChrW(&H9AA8), "humerus"
+    CheckOne solidDir, ChrW(&H80A9) & ChrW(&H80DB) & ChrW(&H9AA8), "scapula"
+
+    swApp.ExitApp
+    Exit Sub
+
+ErrorHandler:
+    WriteLog "ERROR " & Err.Number & " " & Err.Description
+    swApp.ExitApp
+End Sub
+
+Sub CheckOne(dir As String, cnName As String, asciiName As String)
+    Dim path As String
+    path = dir & "\" & cnName & ".SLDPRT"
+    Dim errs As Long
+    Dim warns As Long
+    Dim doc As Object
+    Set doc = swApp.OpenDoc6(path, 1, 0, "", errs, warns)
+    If doc Is Nothing Then
+        WriteLog "[" & asciiName & "] OPEN FAILED err=" & errs
+        Exit Sub
+    End If
+    Dim nSolid As Long
+    Dim nSheet As Long
+    Dim nGen As Long
+    nSolid = CountArr(doc.GetBodies2(0, False))
+    nSheet = CountArr(doc.GetBodies2(1, False))
+    nGen = CountArr(doc.GetBodies2(4, False))
+    Dim faces As Long
+    faces = 0
+    Dim bodies As Variant
+    bodies = doc.GetBodies2(0, False)
+    If Not IsEmpty(bodies) Then
+        Dim bd As Object
+        Set bd = bodies(0)
+        faces = bd.GetFaceCount()
+    End If
+    Dim box As Variant
+    box = doc.GetPartBox(True)
+    WriteLog "[" & asciiName & "] solid=" & nSolid & " sheet=" & nSheet & " general=" & nGen _
+           & " faces=" & faces & " features=" & doc.GetFeatureCount() _
+           & " box=" & Format(box(0), "0.00") & "," & Format(box(1), "0.00") & "," & Format(box(2), "0.00") _
+           & ".." & Format(box(3), "0.00") & "," & Format(box(4), "0.00") & "," & Format(box(5), "0.00")
+
+    doc.ShowNamedView2 "*Isometric", 7
+    doc.ViewZoomtofit2
+    Dim ok As Boolean
+    ok = doc.SaveBMP(dir & "\_" & asciiName & ".bmp", 1200, 900)
+    WriteLog "    shot=" & ok
+    swApp.CloseDoc doc.GetTitle()
+End Sub
+
+Function CountArr(a As Variant) As Long
+    If IsEmpty(a) Then
+        CountArr = 0
+    Else
+        CountArr = UBound(a) + 1
+    End If
+End Function
+
+Sub WriteLog(msg As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim ts As Object
+    Set ts = fso.OpenTextFile("D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC) & "\_optimize\VerifySolids.log", 8, True)
+    ts.WriteLine Now & " " & msg
+    ts.Close
+End Sub

@@ -1,0 +1,795 @@
+===== PAGE 1 =====
+IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025 1929
+Singular-Perturbation Control of a Tendon-Driven Soft Robot:
+Theory and Experiments
+Lucas Novaki Ribeiro, Pablo Borja
+ , Senior Member , IEEE, Cosimo Della Santina
+ , Senior Member , IEEE,
+and Bastian Deutschmann
+Abstract— The existing model-based control strategies for
+tendon-driven continuum soft robots neglect the dynamics of the
+actuation system. Nevertheless, such dynamics have an important
+impact on the closed-loop performance. This work analyzes the
+influence of the actuation dynamics in tendon-driven continuum
+soft robots performing trajectory-tracking tasks. To this end,
+we use singular perturbation (SP) theory to design controllers
+that account for such dynamics. We provide the analytical
+formulation of the SP controllers and their in-depth experimental
+validation. Additionally, we use high- and low-stiffness tendons
+to experimentally compare the performance of the proposed
+SP controllers against traditional feedback control schemes that
+disregard the actuation dynamics. The experimental results show
+that SP controllers outperform the approaches that neglect the
+actuation dynamics by reducing oscillations and achieving lower
+errors without relying on high gains. Furthermore, it is shown
+that neglecting the actuation dynamics may lead to instability
+when the tendons have a low stiffness coefficient.
+Index Terms— Continuum soft robots, model-based control,
+singular perturbation, tendon-driven robots.
+I. I NTRODUCTION
+T
+HE
+compliant nature of soft robots is ideal for guaran-
+teeing a safe human-robot interaction, robust locomotion,
+and adaptability to unstructured environments. These proper-
+ties can only be fully exploited through appropriate control
+designs, where model-based approaches are appealing because
+they can consider the physical properties of soft robots while
+ensuring a less destructive implementation process than the
+one resulting from learning strategies. Nonetheless, there are
+several challenges in modeling and model-based control of
+soft robots, for example, developing models that accurately
+capture the behavior of these robots with infinite degrees
+Received 27 August 2024; revised 21 January 2025; accepted 22 February
+2025. Date of publication 11 March 2025; date of current version 20 August
+2025. This work was supported by German Research Foundation (DFG),
+as part of the Priority Program 2100 Soft Material Robotic Systems under
+Grant 405032572. The work of Cosimo Della Santina was supported by the
+Horizon Europe Program from Project EMERGE under Grant 101070918.
+Recommended by Associate Editor Y . Pan. (Corresponding author:
+Pablo Borja.)
+Lucas Novaki Ribeiro and Bastian Deutschmann are with the
+Institute of Robotics and Mechatronics, German Aerospace Center
+(DLR), 82234 Weßling, Germany (e-mail: lnovaki.ribeiro@gmail.com;
+bastian.Deutschmann@dlr.de).
+Pablo Borja is with the School of Engineering, Computing and Math-
+ematics, University of Plymouth, PL4 8AA Plymouth, U.K. (e-mail:
+pablo.borjarosales@plymouth.ac.uk).
+Cosimo Della Santina is with the Department of Cognitive Robotics, Delft
+University of Technology, 2628 CD Delft, The Netherlands, and also with the
+Institute of Robotics and Mechatronics, German Aerospace Center (DLR),
+82234 Weßling, Germany (e-mail: c.dellasantina@tudelft.nl).
+This article has supplementary downloadable material available at
+https://doi.org/10.1109/TCST.2025.3546564, provided by the authors.
+Digital Object Identifier 10.1109/TCST.2025.3546564
+of freedom, the inherently underactuated nature of these
+systems, and their highly nonlinear behavior due to their
+compliant structures [1]. These challenges have favored the
+faster development of learning approaches for controlling
+soft robots. Nonetheless, developing model-based strategies
+is still paramount for advancing soft robotics. While several
+recent references, such as [2] and [3], propose relatively
+general model-based strategies for controlling soft robots, the
+actuation subsystem dynamics are often neglected. Notably,
+such dynamics significantly affect the closed-loop system’s
+performance, as shown in [4] for a pneumatic-actuated system.
+This brief focuses on tendon-driven soft robots. As their
+name indicates, these soft robots are actuated by tendons or
+cables. Two comprehensive surveys studying these systems
+are [1] and [5]. Similarly, Rao et al. [6] and Janabi-Sharifi
+et al. [7] provided an overview of modeling strategies for
+tendon-driven continuum soft robots. The references men-
+tioned, mainly [1], discuss the Euler–Lagrange representation
+of soft robots. Concerning model-based control strategies for
+these systems, several approaches have been proposed and
+experimentally validated (see, for instance, [8], [9], [10], [11]).
+Nonetheless, none of these approaches consider the effect
+of the actuation dynamics on the closed-loop system. Such
+dynamics comprise the motors’ behavior and their intercon-
+nection with the robot’s body through the tendons. We stress
+that the actuation dynamics greatly influence the closed-
+loop performance, especially when low-stiffness tendons are
+utilized. Hence, model-based control strategies accounting
+for the actuation dynamics in tendon-driven soft robots
+are a critical missing piece in applications involving these
+systems.
+This brief proposes model-based controllers that account
+for the actuation dynamics in planar tendon-driven continuum
+soft robots. To this end, we represent the behavior of the con-
+tinuum segment via a constant curvature (CC) approximation
+(see [12]). Then, by considering that the actuation subsystem
+evolves much faster than the continuum segment, we propose
+a singular perturbation (SP) approach (see, for instance, [13],
+[14]) to design controllers that consider the elastic couplings
+between the robot’s body and the actuators. The use of SP
+approaches to improve performance in robotics has been
+explored in [15] and [16]. Similarly, several references (e.g.,
+[17], [18]) have studied the effect of elastic tendons on the
+performance of rigid robots; however, a model-based control
+approach that accounts for the rich actuation dynamics in
+tendon-driven systems is new for soft robots. Similarly, no SP
+control designs for soft robots seem to have been reported.
+The main contributions of this work are listed below.
+1063-6536 © 2025 IEEE. All rights reserved, including rights for text and data mining, and training of artificial intelligence
+and similar technologies. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+1930 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025
+Fig. 1. In this work, we look into model-based control strategies for
+the tendon-actuated soft segment depicted in the pictures. This system is
+representative of the challenge we encounter on generic tendon-actuated soft
+robots while being manageable enough to serve as the base of an in-depth
+study. Note the extension spring attaching the tendon in the side view of the
+setup (right).
+1) The design of (model-based) SP controllers to deal
+with the actuation dynamics in planar tendon-driven
+soft robots. Such controllers perform better than those
+that neglect the actuation dynamics, contributing to the
+practical operation of soft robots.
+2) The experimental validation of the proposed controllers
+using the setup depicted in Fig. 1. Additionally, we pro-
+vide an in-depth analysis of the effect of actuation
+dynamics and couplings between the robot and the
+actuators on closed-loop performance.
+3) A detailed comparison of the experimental results
+obtained with the proposed controllers and common
+control schemes that neglect the actuation dynamics.
+The rest of the brief is organized as follows. Section II
+provides the model of the system and the problem formulation.
+Then, Section III proposes the control strategy that solves the
+trajectory tracking problem while considering the couplings
+between the robot and the actuators. Section IV is devoted to
+the experimental validation of the proposed controllers. More-
+over, in this section, we compare the closed-loop performance
+of our approach with existing control designs. Finally, some
+concluding remarks are given in Section V.
+Notation: Bold font in mathematical expressions is used
+to denote matrices and vectors. In particular, the symbol 0
+represents a vector or matrix of appropriate dimensions, the
+elements of which are zeros. Subscripts in typewriter font
+are part of the name of the function, vector, or matrix. The
+subscript i is reserved to denote the ith element of a vector.
+We adopt Newton’s notation for differentiation with respect to
+time. Hence, ˙f = (d f (t))/(dt ).
+Caveat: When clear from the context, we omit the argu-
+ments of the functions to ease the readability.
+II. M ODELING AND PROBLEM STATEMENT
+Consider a tendon-driven soft robot consisting of a compli-
+ant segment, which is elastically coupled—via the tendons—to
+the actuators. The schematic of the system is shown in Fig. 2.
+We model the robot via a CC approximation, that is, the base
+and tip of the compliant segment are connected by the arc
+θ ∈ R. We stress that this kind of approximation stands out for
+its simplicity while being capable of describing the behavior of
+Fig. 2. Schematic of the soft robot. The graphical description of the
+coordinates q is given in the upper left corner. The dynamics of the linear
+motor actuator are represented as a mass-spring-damper system.
+compliant structures reasonably accurately [12]. Additionally,
+we consider a linear elastic deformation along the central axis
+of the segment, denoted by ℓ ∈ R. Hence, the configuration
+of the soft segment is described by the variables (see Fig. 2)
+q =
+[θ ℓ ]⊤ ∈ R2. (1)
+Furthermore, the behavior of the robot is characterized via the
+Euler–Lagrange formalism, resulting in the dynamics
+M (q) ¨q + C (q, ˙q) ˙q + D ˙q + K q + g (q)
+= −P ⊤ (q) Ft (xm, q) (2)
+where xm ∈ R2 is the vector of motors’ positions (dis-
+placements); M:R2 → R2×2 is the mass inertia matrix,
+which is positive definite; the matrix C:R2 × R2 → R2×2
+is related to the centrifugal and Coriolis terms; the segment’s
+damping matrix D ∈ R2×2 is constant, diagonal, and positive
+definite; K ∈ R2×2 denotes the stiffness matrix related to
+the segment, which is also constant, diagonal, and positive
+definite; g:R2 → R2 is the vector of forces due to gravity;
+P:R2 → R2×2 is the Jacobian matrix associated with the
+tendons, which is invertible; Ft:R2 × R2 → R2 is the vector
+of tension forces due to the tendons. We recall that the matrix
+˙M − 2C(q, ˙q) is skew-symmetric (see [19]).
+To derive P(q), we assume that the radii of the pulleys
+are negligible. Hence, we consider a point-wise redirection
+of the tendons. Moreover, we consider linear elastic tendons,
+while the associated tension forces are given by the following
+equation:
+Ft (xm, q) = Kt
+[
+xm − L0 + h (q)
+]
+(3)
+where L0 ∈ R2 represents the length of the tendons at rest;
+Kt = I2kt denotes the stiffness matrix associated with the
+tendons, where kt ∈ R+ is the stiffness coefficient of each
+tendon, which is assumed to be the same for every tendon;
+h:R2 → R2 captures the displacement of the tendon due to
+the configuration of the segment. Hence
+P (q) = ∂ h (q)∂q . (4)
+We neglect the pulleys’ mass and any related dissipation
+phenomena. Hence, the dynamics of the linear motor actuators
+are given by the following equation:
+B ¨xm + Dm ˙xm + Ft (xm, q) = Fm (5)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025 1931
+where B ∈ R2×2 is a diagonal—and positive definite—
+matrix whose nonzero elements are the inertias of the motors;
+Dm ∈ R2×2 is the damping matrix associated with the motors,
+which is positive definite and diagonal; Fm ∈ R2 represents
+the control input vector.
+Problem F ormulation: Given the system described by (2),
+(3), and (5), design a controller Fm(q, ˙q, xm, ˙xm) such that
+the closed-loop system tracks the desired (feasible) trajectory.
+Regarding the trajectory to be tracked, we consider the fol-
+lowing two cases.
+1) The trajectory is discretized by a finite amount of points
+(configurations) denoted by q⋆ ∈ R2. Hence, the robot
+must reach these points sequentially, exhibiting a point-
+to-point motion that describes the desired trajectory.
+2) The trajectory is a time-varying (smooth) curve denoted
+by qd:R≥0 → R2. Thus, the trajectories of the robot
+must converge to the desired one, that is, limt→∞ q(t) = qd.
+Remark 1: The problem and theoretical developments are
+formulated for a single-segment robot with two degrees of
+freedom because the controllers are experimentally validated
+in a system with these characteristics. However, the analysis
+and results can be scaled to robots consisting of multiple
+segments.
+III. C ONTROL DESIGN
+The dynamics associated with the actuators are considerably
+faster than the dynamics of the robot’s body, yielding an
+underactuated system with two different time scales. Hence,
+we adopt an SP approach (see [13], [14], [20]) to analyze
+and control the resulting system. In particular, a boundary
+layer (BL) model—corresponding to the fast dynamics—
+and a quasisteady-state (QSS) model—corresponding to the
+slow dynamics—can be derived for the soft mechanism. The
+developments of this section are inspired by the SP results
+reported in [15] and [18]. We refer the reader to those papers
+for further details on SP results in robotics.
+The fast and slow dynamics—corresponding to the motors
+and the compliant body of the robot, respectively—are coupled
+through Ft(x, q), given in (3). Hence, following the SP
+method adopted in [15], we rewrite the mentioned expression
+as follows:
+Ft (xm, q) = K0ϵ2 [xm − p (q)] (6)
+where K0 ∈ R2×2 is a (diagonal) positive definite matrix, ϵ is
+a small positive constant, and
+p (q) := L0 − h (q) . (7)
+The objective is to express the system’s behavior in terms of
+the BL and QSS models. To this end, we consider the new state
+variables q, ˙q, Ft, and ˙Ft—henceforth, the arguments xm and
+q are dropped from Ft. Then, manipulating (6), we obtain
+˙xm = ϵ2 K −10 ˙Ft + ˙p; ¨xm = ϵ2 K −10 ¨Ft + ¨p. (8)
+Substituting (8) into (5) yields
+B
+(
+ϵ2 K −10 ¨Ft + ¨p) + Dm(ϵ2 K −10 ˙Ft + ˙p) + Ft = Fm (9)
+which can be rewritten as follows:
+ϵ2 ¨Ft = −K0
+{
+B−1
+[
+Dm
+(
+ϵ2 K −10 ˙Ft + ˙p) + Ft − Fm] + ¨p} .
+(10)
+On the other hand, from (4) and (7), the time derivatives of
+p(q) can be expressed as follows:
+˙p = −˙h = −P (q) ˙q; ¨p = −˙P ˙q − P (q) ¨q. (11)
+Hence, substituting (11) into (14) yields1
+ϵ2 ¨Ft = K0 B−1
+[
+Fm − Ft + Dm
+(
+P ˙q − ϵ2 K −10 ˙Ft
+)]
++ K0
+( ˙P ˙q + P ¨q) . (12)
+Accordingly, from (2) and (9), we obtain the following dynam-
+ics for the whole system:
+¨q = −M−1
+[
+(C + D) ˙q + K q + g + P ⊤ Ft
+]
+(13)
+ϵ2 ¨Ft = K0
+{[
+B−1 Dm P + ˙P − P M−1 (C + D)] ˙q
+− P M−1 (K q + g) − ϵ2 B−1 Dm K −10 ˙Ft
+−
+(
+B−1 + P M−1 P ⊤
+)
+Ft + B−1 Fm
+}
+. (14)
+To obtain the QSS value of the configuration variables and
+control input, we set ϵ = 0 in (12)—or (14)—which, after
+some manipulations, yields 2
+¯Ft = B
+( ˙¯P ˙¯q + ¯P ¨¯q) + Dm ¯P ˙¯q + ¯Fm. (15)
+Notice that we have set ˙¯Ft = 0; this is required to guarantee
+that the fast system has an equilibrium. Finally, the QSS model
+is obtained by combining (13) and (15), which yields
+(
+¯M + ¯P ⊤ B ¯P) ¨¯q +( ¯C + ¯P ⊤ B ˙¯P + D + ¯P ⊤ Dm ¯P) ˙¯q
++ K ¯q + ¯g = −¯P ⊤ ¯Fm. (16)
+To obtain the expression for the BL model, it is necessary to
+define the new variable
+y := Ft − ¯Ft (17)
+which captures the variations around the quasisteady states.
+Note that the fast part of the system evolves much faster
+than (16) when ϵ tends to zero. Therefore, we can introduce
+a new time reference to analyze the dynamics (14). To this
+end, we define v := (t − t0)/ϵ, where t0 ∈ R+ corresponds
+to the initial condition. Accordingly, from the chain rule,
+ϵ ˙y = (d y)/(dv) and ϵ2 ¨y = (d2 y)/(dv2). By substituting (15)
+and (17) into (12), setting ¯q = q, and considering the time
+derivatives of Ft as zero,3 we obtain the BL model, which is
+given by the following equation:
+d2 y
+dv2 = −ϵB−1 Dm d ydv − K0(B−1 + P M−1 P ⊤) y
++ K0 B−1 Ff (18)
+1We omit the arguments to ease the readability.
+2The bar symbol, that is, ¯(·), is used to denote the QSS value of a variable
+or function. For instance, ¯P = P( ¯q).
+3Note that this is equivalent to the approach reported in [15].
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+1932 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025
+where
+Ff := Fm − ¯Fm (19)
+corresponds to the control signal used to modify the fast
+dynamics. Following the same rationale, ¯Fm corresponds to
+the controller for the slow dynamics and Fm is the sum of
+both control signals. An advantage of the proposed analysis is
+that we can independently design the controllers for the slow
+and fast subsystems. The following proposition provides such
+controllers and the corresponding closed-loop structures.
+Proposition 1: Consider the QSS and BL models given
+by (16) and (18), respectively, the relation (19), and the control
+signals
+¯Fm =(I + KP2) Fd − KP2 ¯Ft (20)
+Ff = −KP2 y − ϵ KD2 ˙y (21)
+where KP2, KD2 ∈ R2×2 are positive definite (diagonal) gains
+and Fd ∈ R2 is a new control input to be designed. Define
+¯KP := I + KP2. The closed-loop QSS and BL models take
+the form
+Mq ¨¯q = −(Cq + Dq) ˙¯q − K ¯q − ¯g − P ⊤ Fd (22)
+d2 y
+dv2 = −K0 B−1
+(
+Dy
+d y
+dv + Ky y
+)
+(23)
+where
+Mq := ¯M + ¯P ⊤ ¯K −1P B ¯P; Cq := ¯C + ¯P ⊤ ¯K −1P B ˙¯P
+Dq := ¯D + ¯P ⊤ ¯K −1P Dm ¯P; Ky := ¯KP + B P M−1 P ⊤
+Dy := KD2 + ϵ Dm K −10 . (24)
+Moreover, the total control law is given by the following
+equation:
+Fm = ¯KP Fd − KP2 Ft − ϵ KD2 ˙Ft. (25)
+Proof: The closed-loop system (22) can be directly
+obtained by substituting (20) into (16). Nonetheless, a sim-
+pler way to get this expression consists of substituting (20)
+into (15) to obtain
+¯Ft = ¯K −1P
+[
+B
+( ˙¯P ˙¯q + ¯P ¨¯q) + Dm ¯P ˙¯q] + Fd. (26)
+Then, substituting the above expression into (13) to get (22).
+The expression (23) is obtained by substituting (21) into (18)
+and using the definition of ¯KP. The controller (25) is obtained
+by combining (20) and (21) and recalling that ˙y = ˙Ft.
+This brief considers two approaches to designing Fd4
+1) Pose regulation (PR) approach. The control input Fd is
+given by the following equation:
+Fd = −P −⊤[K q⋆ + g (q⋆) − KP1 ˜q − KD1 ˙q] (27)
+with ˜q := q − q⋆.
+2) Proportional derivative plus (PD+) control: The signal
+Fd is given by the following equation:
+Fd = −P −⊤[Md ¨qd + (Cd + Dd) ˙qd + K qd + g (qd)
+−KP1 ˜qd − KD1 ˙˜qd
+]
+(28)
+4For the implementation of Fd, we consider ¯q = q.
+with ˜qd := q − qd and
+Md = M (q) + P ⊤ (q) ¯K −1P B P (q)
+Cd = C (q, ˙q) + P ⊤ (q) ¯K −1P ˙P (q, ˙q)
+Dd = D + P ⊤ (q) ¯K −1P Dm P (q) . (29)
+The complete control law is described by (25) together
+with (27) for the PR case and by (25) together with (28) for
+the PD+ approach.
+An extensive exposition of standard PR and PD+controllers
+applied to rigid robots is given in [19]. Furthermore, the
+stabilization properties of the PR approach for fully actuated
+and a class of underactuated soft robots are discussed in [21].
+Similarly, the application of PD+ controllers to soft robots is
+reported in [1].
+We remark that the inner-loop controller—given by the
+terms −KP2 Ft and −ϵ KD2 ˙Ft in (25)—stiffens the tendons
+but not the robot. Indeed, the robot still behaves as a soft robot,
+preserving all the advantages of its compliant nature. Hence,
+the inner-loop controller counteracts the undesired effects that
+the tendons’ compliance may cause between the actuators
+and the robot’s body.
+A. Stability Analysis
+Here, we provide a brief stability analysis for the
+closed-loop system considering Fd as in (27). Similar argu-
+ments can be used for the PD+ case. However, those are
+omitted due to space limitations. For a thorough exposition
+of the stability analysis of slow-fast systems and SP methods,
+we refer the reader to [13], [14], and [20].
+Note that (23) is a linear system (with respect to y). Indeed,
+by defining η := [y⊤ ˙y⊤]⊤, we can write (23) as follows:
+˙η = Aηη; Aη := K0 B−1
+
+
+0 B K−10
+− 1ϵ2 Ky −1ϵ Dy
+
+ . (30)
+Because most matrices are diagonal and positive definite,
+a simple inspection shows that K0 B−1 Ky and K0 B−1 Dy are
+positive definite for any q and t. Hence, for any (constant)
+value of the former, Aη is Hurwitz, implying that the sys-
+tem (30) is exponentially stable. Furthermore, substituting the
+control law (27) into (22) yields
+Mq ¨¯q = −(Cq + Dq + KD1) ˙¯q −(K + KP1) ˜q − ¯g + g (q⋆) .
+(31)
+Consider the Lyapunov function candidate
+V
+(
+¯q, ˙¯q) = 12 ˙¯q⊤ Mq ˙¯q + 12 ˜q⊤(K + KP1) ˜q + E ( ¯q)
+− E (q⋆) − ˜q⊤ g (q⋆) (32)
+where E(q) is the gravitational potential energy. Thus,
+(∂E(q))/(∂q) = g(q). Some simple computations show that
+˙V = −˙¯q⊤( Dq + KD1) ˙¯q ≤ 0. (33)
+Choose KP1 such that
+Kξ := K + KP1 + ∂ g (q)∂q ⏐⏐⏐⏐q=q⋆
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025 1933
+Fig. 3. Experimental results for PR and SP-PR controllers with high-stiffness tendons: the left-hand plot depicts the performance of the PR controller
+considering different gains KP1. The middle shows the comparison between the PR and SP-PR controllers while tracking a sinusoidal reference. Similarly,the right-hand plot provides a comparison of the same controllers tracking a step-like reference. The middle and right-hand plots correspond to the results
+obtained considering KP1 = 35 and KP2 = 3, respectively (for the SP-PR controller).
+is positive definite. Hence, because V (q, ˙q) is positive definite
+with respect to (q⋆, 0), (33) implies that (31) has a stable
+equilibrium at the desired equilibrium. Moreover, because
+Dq + KD1 is positive definite
+˙V = 0 H ⇒˙¯q = 0 H ⇒¨¯q = 0
+H ⇒
+(
+K + KP1
+)
+˜q + ¯g − g (q⋆) = 0 H ⇒¯q = q⋆.
+Hence, it follows from LaSalle’s invariance principle (see[20])
+that the equilibrium is asymptotically stable. Finally, because
+V (q, ˙q) is radially unbounded, the stability properties are
+global.
+Following the result of Thikonov’s theorem (see
+[31, Th. 3.1] and [20, Th. 11.1 and 11.2]) or Fenichel’s
+theorems (see [14, Th. 3]), the provided stability analyses are
+enough to guarantee that the differences q − ¯q and Ft − ¯Ft
+remain bounded for ϵ small. While this result is insufficient
+to ensure q tends to its desired value, it can be combined
+with a local analysis. To this end, we consider the following
+dynamics obtained from (13), (17), (15), and (20)
+Mq ¨q = −
+(
+Cq + Dq + KD1
+)
+˙q −
+(
+K + KP1
+)
+˜q − g
++ g (q⋆) − P ⊤ y. (34)
+Define ξ = [˜q⊤ ˙q⊤]⊤ and linearize (34) around the desired
+equilibrium. The resulting dynamics, together with (31), can
+be expressed as follows:
+[ ˙ξ
+˙η
+]
+=
+[
+Aξ M−1q P ⊤ (q⋆) AI
+0 Aη (q⋆)
+]
+/bracehtipupleft /bracehtipdownright/bracehtipdownleft /bracehtipupright
+=: AT
+[ξ
+η
+]
+(35)
+with
+AI :=
+[ 0 0
+−I 0
+]
+; Aξ :=
+[ 0 I
+−M−1q Kξ − M−1q ( Dq + KD1)
+]
+.
+Note that AT is a triangular matrix. Thus, its eigenvalues are
+determined by the eigenvalues of Aξ and Aη. Furthermore, the
+matrix Aξ is Hurwitz—the analysis is omitted due to space
+limitations—implying that the system (35) is exponentially
+stable. Therefore, ˜q tends to zero, indicating that q tends
+to q⋆, as the time tends to infinity. This linearization-based
+analysis ensures the local exponential stability of the desired
+equilibrium for (34), which, combined with the boundedness
+of the trajectories, justifies the stability of the robot from a
+practical perspective.
+TABLE I
+SINUSOIDAL REFERENCE WITH HIGH -STIFFNESS TENDONS
+IV. E XPERIMENTAL RESULTS
+We perform a series of experiments using the robot depicted
+in Fig. 1—which is based on the robots developed in [22]—to
+validate the effectiveness of the controllers derived from the SP
+approach, that is, (25)-(27) and (25)-(28), which are referred
+to as SP-PR and SP-PD +, respectively. To our knowledge, the
+results reported in this section are the first SP controllers for
+soft robots experimentally validated. Additionally, we compare
+the performance of the proposed controllers with traditional
+PR and PD+ strategies. To generate such controllers, we con-
+sider Ft = Fd, with Fd given by (27) for the PR approach
+and Fd described by (28) for the PD+ strategy. Additionally,
+we consider that the gain matrices have the following structure:
+KPi = KPi I, KDi = KDi I; i ∈ {1, 2} .
+We perform experiments using tendons with different stiffness
+coefficients: kth = 2.11×104 N/m and ktℓ = 3.69 × 103 N/m.
+Then, we consider the root-mean-square error (RMSE),
+steady-state error (SSE), and maximum error as performance
+indices.
+A. High-Stiffness Tendons
+We consider two reference signals: a sine wave and a step-
+like signal.5 Both signals have an amplitude of 20 ◦. As a first
+step, the PR controller is tested with several values for the gain
+KP1. The left-hand plot in Fig. 3 shows the performance of this
+controller following a sine trajectory, where we observe that
+the error decreases as the gain KP1 increases. These plots show
+that the SP approach outperforms the traditional controller.
+However, the improvement is relatively modest. To further
+assess the performance of the proposed controllers, Tables I
+and II show some performance metrics for the four controllers,
+that is, PR, PD+, SP-PR, and SP-PD+, with high-stiffness
+tendons. For comparison purposes, we fix KP1 = 35 for all the
+controllers and KP2 = 1 for the SP cases. The tables illustrate
+5To have a smooth reference, we approximate the step signal with a seventh-
+order polynomial.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+1934 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025
+Fig. 4. Experimental results for PR and SP-PR controllers with low-stiffness tendons: the left-hand plot shows the performance of the PR controller
+considering different gains KP1. The middle plot compares the PR and SP-PR controllers tracking a sinusoidal reference. Similarly, the right-hand plotprovides a comparison of the same controllers tracking a step-like reference. The middle and right-hand plots correspond to the results obtained considering
+KP1 = 35 and KP2 = 1 (for the SP-PR controller).
+TABLE II
+STEP REFERENCE WITH HIGH -S TIFFNESS TENDONS
+Fig. 5. Performance of the SP-PR controller with low tendon stiffness and
+different gains KP1 and KP2. The reference signal is the sine wave representedby the black dashed line.
+that SP approaches exhibit much lower errors—more than 50%
+in some cases—than traditional feedback controllers.
+Interestingly, increasing the gain KP2 in the SP approaches
+results in undesired oscillatory behavior or even instability.
+This may be due to the high bandwidth of a high-stiffness
+tendon coupling. However, we stress that small SSE and
+RMSE can be achieved with much lower gains KP1 than in
+the traditional feedback controllers.
+Remark 2: The PR and PD+ controllers exhibit a decent
+performance if the control gains are increased—as shown
+in the left-hand plot in Fig. 3—because tendons with high
+stiffness guarantee that the approximation Ft = Fm is valid.
+However, systems with more elastic tendons exhibit much
+poorer performance.
+B. Low-Stiffness Tendons
+We conduct the same experiments as in Section IV-A but
+using low-stiffness tendons. In this case, increasing the gain
+KP1 jeopardizes the closed-loop stability, as is illustrated by
+the left-hand plot in Fig. 4 for the PR controller. In fact,
+the system becomes unstable for KP1 = 70 and is unable
+to complete the trajectory. Concerning the SP controllers, the
+gain KP2 plays an important role in improving the performance
+of the closed-loop system, where an appropriate selection of
+this gain permits tracking the reference with low and high
+values for KP1 (see Fig. 5). The middle and right-hand plots of
+TABLE III
+SINUSOIDAL REFERENCE WITH LOW-STIFFNESS TENDONS
+Fig. 4 compare the results obtained from implementing the PR
+and SP-PR controllers. In contrast to the high-stiffness case,
+the SP controller performs notoriously better. In particular,
+we point out that by tuning KP2, the SP-PR controller exhibits
+a much lower SSE than the PR one when KP1 = 35.
+Similarly, an adequate selection of KP2 drastically reduces
+the oscillations when KP1 increases, which can be observed
+by comparing the case KP1 = 70 in the left-hand plot of
+Fig. 4 with Fig. 5. The supplementary video shows a visual
+comparison of the PD+ and SP-PD+ controllers, considering
+a high control gain ( KP1 = 70), where it is evident that
+neglecting the dynamics of the actuators leads to instability.
+Tables III and IV show the performance of the four controllers
+with low-stiffness tendons. To compare the performance of
+the controllers, we fix KP1 = 35 for all the controllers and
+KP2 = 3 for the SP cases. The tables show that SP approaches
+exhibit much lower errors—at least 57% lower, but most
+more than 64% lower—than traditional feedback controllers.
+Fig. 6 summarizes the RMSEs obtained with the four con-
+trollers under analysis, considering two different references
+and high-stiffness and low-stiffness tendons. It is particularly
+notorious that SP controllers outperform traditional feedback
+approaches when the system is actuated using low-stiffness
+tendons. This is because as the tendons’ stiffness decreases,
+the actuation dynamics are no longer negligible, and they play
+a more critical role in the motion of the continuum segment.
+Similarly, Fig. 7 compares the error evolution for the four
+controllers while tracking a sine wave with 20 ◦ of amplitude.
+This figure shows that SP controllers achieve more accurate
+reference tracking. An intuitive interpretation of these results
+is that SP approaches counteract the compliant nature of the
+low-stiffness tendons through an inner-loop controller.
+C. Different Initial Conditions
+To validate the robustness of the controllers with respect
+to the initial configuration of the robot, we generate ran-
+dom initial conditions that belong to a Gaussian distribution
+centered at 0 ◦ and consider a sinusoidal reference signal.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025 1935
+TABLE IV
+STEP REFERENCE WITH LOW-S TIFFNESS TENDONS
+Fig. 6. RMSE for high-stiffness tendons (left) and low-stiffness tendons
+(right). The reference signals are a sine wave and a step, both with an
+amplitude of 20 ◦. The gains for the high-stiffness case are KP1 = 35 (forall controllers) and KP2 = 1 (for SP controllers). Similarly, the gains for thelow-stiffness case are KP1 = 35 (for all controllers) and KP2 = 3 (for SPcontrollers).
+Fig. 7. Evolution of the error for the four tested controllers. The gains are
+KP1 = 35 (for all controllers) and KP2 = 3 (for SP controllers).
+Fig. 8. Comparison between the PD+ and SP-PD+ controllers for different
+initial conditions. The desired trajectory is depicted with a black dashed line.
+Moreover, these experiments are performed with low-stiffness
+tendons, using the same gain KP1 in all the control strategies.
+A comparison between the PD+ and SP-PD+ controllers is
+presented in Fig. 8, where it is observed that the latter exhibits
+a smaller tracking error. Additionally, the PD+ controller still
+exhibits oscillations for certain initial conditions after one
+second, which does not occur in the SP-PD+ case.
+TABLE V
+PR V ERSUS SP-PR U NDER DIFFERENT INITIAL CONDITIONS
+TABLE VI
+PD+ VERSUS SP-PD + UNDER DIFFERENT INITIAL CONDITIONS
+Fig. 9. Frequency responses of the four tested controllers. The upper figure
+corresponds to the gain, while the lower figure shows the phase.
+Tables V and VI provide a performance comparison between
+the PR and SP-PR controllers and the PD+ and SP-PD+
+controllers, respectively. In both cases, the SP controllers per-
+form better than traditional feedback versions. Consequently,
+we conclude that SP controllers converge faster to the desired
+trajectory under similar initial conditions and are more accu-
+rate than conventional feedback controllers.
+D. Frequency Response
+To study the frequency response of the closed-loop system,
+we consider a chirp signal as the reference, performing exper-
+iments for each control approach. The reference frequency
+varies slowly from 0.5 to 4.5 Hz. The gain and phase for
+each controller are depicted in Fig. 9, while the RMSEs are
+shown in Fig. 10. From these plots, we make the following
+observations.
+1) The PR and PD+ strategies show poorer performances
+as the frequency increases. Both control strategies
+exhibit a decrement in gain at a frequency close to 3 Hz
+followed by a peak. While its gain does not tend to
+decrease at high frequencies, the PR strategy exhibits
+the most significant phase lag (more than 60 ◦) and the
+highest RMSE (around 15◦). On the other hand, the gain
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+1936 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY , VOL. 33, NO. 5, SEPTEMBER 2025
+Fig. 10. RMSEs in the frequency spectrum for the different controllers.
+of the PD+ controller decreases drastically as the
+frequency increases. This control strategy exhibits the
+second worst values for phase lag and RMSE.
+2) The SP-PR controller shows considerable improvement
+with respect to the PR strategy. In particular, it shows
+a smaller phase lag and RMSE. However, this con-
+troller’s gain increases at high frequencies. Moreover,
+the RMSE and phase lag increase as the frequency
+increases, making it unsuitable for trajectory tracking
+at high frequencies.
+3) The SP-PD+ controller exhibits better performance than
+the other strategies. In particular, it shows a minor
+gain loss, lower phase lag at high frequencies, and a
+smaller RMSE compared with the other three control
+approaches. This controller is the only one—among the
+four tested strategies—suitable for trajectory tracking at
+high frequencies.
+V. C ONCLUDING REMARKS
+This brief proposed two SP control strategies for planar
+tendon-driven soft robots. These strategies are suitable for
+considering the dynamics of the actuation system. A series of
+experiments were performed to: 1) validate the effectiveness
+of the proposed controllers and 2) compare their performance
+with traditional feedback controllers that neglect the dynamics
+of the actuation system. The experimental results show that
+the proposed SP strategies exhibit better performance than
+traditional feedback approaches, especially as the stiffness of
+the tendons decreases.
+REFERENCES
+[1] C. Della Santina, C. Duriez, and D. Rus, “Model-based control of soft
+robots: A survey of the state of the art and open challenges,” IEEE
+Control Syst., vol. 43, no. 3, pp. 30–65, Jun. 2023.
+[2] B. Caasenbrood, A. Pogromsky, and H. Nijmeijer, “Energy-shaping
+controllers for soft robot manipulators through port-Hamiltonian
+cosserat models,” Social Netw. Comput. Sci., vol. 3, no. 6, p. 494,
+Sep. 2022.
+[3] P. Pustina, P. Borja, C. Della Santina, and A. De Luca, “P-satI-D shape
+regulation of soft robots,” IEEE Robot. Autom. Lett., vol. 8, no. 1,
+pp. 1–8, Jan. 2023.
+[4] M. Stolzle and C. Della Santina, “Piston-driven pneumatically-actuated
+soft robots: Modeling and backstepping control,” IEEE Control Syst.
+Lett., vol. 6, pp. 1837–1842, 2022.
+[5] M. Russo et al., “Continuum robots: An overview,” Adv. Intell. Syst.,
+vol. 5, no. 5, Mar. 2023, Art. no. 2200367.
+[6] P. Rao, Q. Peyron, S. Lilge, and J. Burgner-Kahrs, “How to model
+tendon-driven continuum robots and benchmark modelling perfor-
+mance,” Frontiers Robot. AI, vol. 7, Feb. 2021, Art. no. 630245.
+[7] F. Janabi-Sharifi, A. Jalali, and I. D. Walker, “Cosserat rod-based
+dynamic modeling of tendon-driven continuum robots: A tutorial,” IEEE
+Access, vol. 9, pp. 68703–68719, 2021.
+[8] A. Shu, B. Deutschmann, A. Dietrich, C. Ott, and A. Albu-Schäffer,
+“Robust H ∞ control of a tendon–driven elastic continuum mechanism
+via a systematic description of nonlinearities,” IF AC-PapersOnLine,
+vol. 51, no. 22, pp. 386–392, 2018.
+[9] E. Amanov, T.-D. Nguyen, and J. Burgner-Kahrs, “Tendon-driven con-
+tinuum robots with extensible sections—A model-based evaluation of
+path-following motions,” Int. J. Robot. Res., vol. 40, no. 1, pp. 7–23,
+2021.
+[10] H. Li, L. Xun, G. Zheng, and F. Renda, “Discrete cosserat static model-
+based control of soft manipulator,” IEEE Robot. Autom. Lett., vol. 8,
+no. 3, pp. 1739–1746, Mar. 2023.
+[11] C. A. Monje, B. Deutschmann, J. Muñoz, C. Ott, and C. Balaguer,
+“Fractional order control of continuum soft robots: Combining
+decoupled/reduced-dynamics models and robust fractional order con-
+trollers for complex soft robot motions,” IEEE Control Syst., vol. 43,
+no. 3, pp. 66–99, Jun. 2023.
+[12] R. J. Webster and B. A. Jones, “Design and kinematic modeling of
+constant curvature continuum robots: A review,” Int. J. Robot. Res.,
+vol. 29, no. 13, pp. 1661–1683, Nov. 2010.
+[13] P. Kokotovi ´c, H. K. Khalil, and J. O’Reilly, Singular Perturbation
+Methods in Control: Analysis and Design. Philadelphia, PA, USA:
+SIAM, 1999.
+[14] H. Jardón-Kojakhmetov, J. M. A. Scherpen, and D. D. Puerto-Flores,
+“Stabilization of a class of slow–fast control systems at non-hyperbolic
+points,” Automatica, vol. 99, pp. 13–21, Jan. 2019.
+[15] C. Ott, A. Albu-Schaffer, and G. Hirzinger, “Comparison of adaptive
+and nonadaptive tracking control laws for a flexible joint manipulator,”
+in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., vol. 2, Sep. 2002,
+pp. 2018–2024.
+[16] T. Shi, Y . Pan, and C. Wen, “Modern compliant robot control: Exploring
+benefits from singular perturbation synthesis,” IEEE Trans. Ind. Elec-
+tron., vol. 72, no. 3, pp. 2758–2768, Mar. 2025.
+[17] H. Kobayashi and R. Ozawa, “Adaptive neural network control of
+tendon-driven mechanisms with elastic tendons,” Automatica, vol. 39,
+no. 9, pp. 1509–1519, Sep. 2003.
+[18] M. A. Khosravi and H. D. Taghirad, “Dynamic modeling and control
+of parallel robots with elastic cables: Singular perturbation approach,”
+IEEE Trans. Robot., vol. 30, no. 3, pp. 694–704, Jun. 2014.
+[19] R. Kelly, V . Santibáñez, and A. Loría, Control of Robot Manipulators
+in Joint Space. Berlin, Germany: Springer, 2005.
+[20] H. K. Khalil, Nonlinear Systems, 3rd ed., Upper Saddle River, NJ, USA:
+Prentice-Hall, 2002.
+[21] P. Borja, A. Dabiri, and C. Della Santina, “Energy-based shape regula-
+tion of soft robots with unactuated dynamics dominated by elasticity,”
+in Proc. IEEE 5th Int. Conf. Soft Robot. (RoboSoft), Apr. 2022,
+pp. 396–402.
+[22] J. Reinecke, B. Deutschmann, and D. Fehrenbach, “A structurally
+flexible humanoid spine based on a tendon-driven elastic continuum,” in
+Proc. IEEE Int. Conf. Robot. Autom. (ICRA), May 2016, pp. 4714–4721.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:51:03 UTC from IEEE Xplore. Restrictions apply.

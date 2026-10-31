@@ -1,0 +1,118 @@
+{
+  "source": "D:\\XJTLU\\PSP\\model\\validation\\assembly_audit.txt",
+  "audit": {
+    "assembly": "D:\\XJTLU\\PSP\\model\\biomimetic_structure.SLDASM",
+    "open": "errors=0|warnings=0",
+    "title": "biomimetic_structure.SLDASM",
+    "path": "D:\\XJTLU\\PSP\\model\\biomimetic_structure.SLDASM",
+    "type": "2",
+    "components": "5",
+    "mate_error": "438|对象不支持该属性或方法",
+    "mate_features": "2",
+    "reference_axes": "0",
+    "coordinate_systems": "0",
+    "named_joint_features": "0",
+    "PASS": "audit_complete"
+  },
+  "component_status": {
+    "thorax": {
+      "count": 1,
+      "active_count": 1,
+      "names": [
+        "thorax-1"
+      ]
+    },
+    "clavicle": {
+      "count": 1,
+      "active_count": 1,
+      "names": [
+        "clavicle-1"
+      ]
+    },
+    "scapula": {
+      "count": 1,
+      "active_count": 1,
+      "names": [
+        "scapula-2"
+      ]
+    },
+    "humerus": {
+      "count": 1,
+      "active_count": 1,
+      "names": [
+        "humerus-1"
+      ]
+    },
+    "radius": {
+      "count": 0,
+      "active_count": 0,
+      "names": []
+    },
+    "ulna": {
+      "count": 1,
+      "active_count": 1,
+      "names": [
+        "ulna-1"
+      ]
+    }
+  },
+  "joint_name_status": {
+    "sternoclavicular": [],
+    "acromioclavicular_or_scapulothoracic": [],
+    "glenohumeral": [],
+    "elbow": [],
+    "proximal_radioulnar": [],
+    "distal_radioulnar": []
+  },
+  "counts": {
+    "components": 5,
+    "features": 25,
+    "mates": 0,
+    "mate_features": 1,
+    "reference_axes": 0,
+    "coordinate_systems": 0
+  },
+  "findings": [
+    {
+      "severity": "error",
+      "code": "missing_radius",
+      "message": "No active radius component was found."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_sternoclavicular",
+      "message": "No feature name identifies the sternoclavicular joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_acromioclavicular_or_scapulothoracic",
+      "message": "No feature name identifies the acromioclavicular_or_scapulothoracic joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_glenohumeral",
+      "message": "No feature name identifies the glenohumeral joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_elbow",
+      "message": "No feature name identifies the elbow joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_proximal_radioulnar",
+      "message": "No feature name identifies the proximal_radioulnar joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "joint_names_not_found_distal_radioulnar",
+      "message": "No feature name identifies the distal_radioulnar joint. Its axis cannot yet be mapped reliably."
+    },
+    {
+      "severity": "warning",
+      "code": "no_reference_axes",
+      "message": "No reference axes were found. Define named axes for the shoulder, elbow and radioulnar joints."
+    }
+  ],
+  "ready_for_mujoco_kinematic_export": false
+}

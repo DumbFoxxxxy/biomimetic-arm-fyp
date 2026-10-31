@@ -1,0 +1,2256 @@
+===== PAGE 1 =====
+Bioinspiration &
+Biomimetics
+       
+TOPICAL REVIEW • OPEN ACCESS
+Design features in human joints with
+recommendations for humanoid robot design
+To cite this article: Stuart C Burgess 2026 Bioinspir. Biomim. 21 041005
+ 
+View the article online for updates and enhancements.
+You may also like
+Human-like compliant locomotion: state of
+the art of robotic implementations
+Diego Torricelli, Jose Gonzalez, Maarten
+Weckx et al.
+-
+Musculoskeletal design, control, and
+application of human mimetic humanoid
+Kenshiro
+Yuki Asano, Kei Okada and Masayuki
+Inaba
+-
+A new biarticular actuator design facilitates
+control of leg function in BioBiped3
+Maziar Ahmad Sharbafi, Christian Rode,
+Stefan Kurowski et al.
+-
+This content was downloaded from IP address 89.167.172.6 on 23/09/2026 at 12:47
+
+===== PAGE 2 =====
+Bioinspir. Biomim.21 (2026) 041005 https://doi.org/10.1088/1748-3190/ae91be
+OPEN ACCESS
+RECEIVED
+16 June 2025
+REVISED
+25 March 2026
+ACCEPTED FOR PUBLICATION
+28 July 2026
+PUBLISHED
+1 September 2026
+Original content from
+this work may be used
+under the terms of the
+Creative Commons
+Attribution 4.0 licence.
+Any further distribution
+of this work must
+maintain attribution to
+the author(s) and the title
+of the work, journal
+citation and DOI.
+TOPICAL REVIEW
+Design features in human joints with recommendations for
+humanoid robot design
+Stuart C Burgess∗
+School of Electrical, Electronic and Mechanical Engineering, Faculty of Science and Engineering, University of Bristol, Bristol, United
+Kingdom
+∗ Author to whom any correspondence should be addressed.
+E-mail: s.c.burgess@bris.ac.uk
+Keywords: humanoid robotics, synovial joints, multifunctioning, design strategies
+Abstract
+There are many types of moveable joint in the human body, with each characterised by compact-
+ness and high functionality. In contrast, humanoid robots typically use just three or four simple
+types of joint that are relatively bulky with limited functionality. Therefore, there is significant
+potential for bioinspired design. The paper describes 14 different types of moveable joint in the
+human musculoskeletal system and describes important design features such as linkage mecha-
+nisms, suspension systems and segmentation. In each case, recent examples of bioinspired design
+or potential for bioinspired design are given. Results are tabulated for ease of reference by design-
+ers. The paper highlights key future goals for humanoid robotics such as replicating the MTP
+joints of the foot, replicating the push-retract motion in fingers and replicating the compact link-
+age pronation mechanism of the wrist. Human joints exhibit design principles that are quite differ-
+ent to those of traditional engineering such as high degrees of freedom, redundant actuation and
+multisensory integration. These strategies have potential to inspire a different and more effective
+approach to the mechanical design of humanoid robots.
+1.Introduction
+Human joints generally have superior performance to
+those of humanoid robots in terms of degrees of free-
+dom (DoF), range of motion, compactness, energy
+efficiency and control [ 1–3]. This paper reviews the
+moveable joints in the human musculoskeletal sys-
+tem in order to highlight features and design prin-
+ciples that can potentially improve the performance
+of humanoid robots. In this paper, human moveable
+joints are classified into 14 different types includ-
+ing three types of segmented joint. For each type
+of joint, the design rationale is given together with
+examples of bioinspired designs or potential for
+bioinspiration.
+When considering optimality in joints, account
+must be taken that what is optimal for animal joints
+may not be optimal for robot joints because of dif-
+ferent constraints and objectives. For example, ani-
+mal joints are assembled and integrated from the bot-
+tom up and are living systems with constant renewing
+and repair of materials. However, with modern tech-
+nologies, the difference in constraints is narrowing.
+Manufacturing methods such as 3D printing now
+make it possible to construct joints in a bottom-up
+process [ 4]. This makes it more feasible to achieve
+complex geometries and integration that were pre-
+viously not possible. In addition, there have been
+recent significant advances in self-healing robots [ 5].
+For low-cost robots with modest performance objec-
+tives, there may be limited potential for bioinspiration
+because of the complexity of human joints. However,
+for high-performance humanoid robots, bioinspira-
+tion offers potential for significant improvements in
+capability.
+Mammals are well known to have superior per-
+formance to robots in areas such as balance, locomo-
+tion and hand dexterity [ 1–3]. Of course, robots can
+be highly efficient and superior to animals in some
+well-defined tasks. However, for dynamic move-
+ments, mammals are often far superior in terms of
+speed, agility and range, especially in unstructured
+© 2026 The Author(s). Published by IOP Publishing Ltd
+
+===== PAGE 3 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+environments. Key examples of agility include: catch-
+ing, climbing, sprinting, leaping, and being able
+to quickly change running direction. Such actions
+require fast, precise and coordinated movements of
+multiple joints.
+T able1 gives a summary comparison of the design
+and performance of locomotion and hand dexterity of
+humans and some commercially available humanoid
+robots. The human musculoskeletal system has a
+much wider range of joint designs with 10 out of
+14 joints having multiple DoF . In contrast, humanoid
+robots typically use just three or four types of joint
+(hinge, pivot, linear and spherical) with just one type
+(spherical) having more than one degree of freedom
+[6–8]. Humans also have a far higher quantity of
+joints and actuators. In addition, the human body
+has a far higher number of sensors (e.g. propriocep-
+tors and touch sensors), a more powerful process-
+ing centre (the human brain), more advanced control
+strategies (e.g. multisensory integration and redun-
+dant actuation) and a far higher level of mechanical
+and control integration [1–3]. These factors combine
+to give much higher levels of agility in locomotion
+and dexterity in hands.
+Human feet play a major role in bipedal loco-
+motion because they act as a stiff lever during push-
+off and then reconfigure into a flexible structure for
+landing [ 12]. Current robot feet have limited func-
+tionality compared to human feet in three areas:
+(i) Ankle joint
+There are three rotational DoF in the human
+ankle that allows for significant changes of direc-
+tion in running [ 9]. In contrast, commercial
+humanoid robots, such as those in table 1,
+have a single DoF ankle joint (plantar flexion-
+dorsiflexion) which allows for more gradual
+changes in direction.
+(ii) MTP joints
+The human foot has a major joint at the base of
+the toes (MTP joints) that enables the front of
+the foot to act as a launch pad [ 9, 13]. In con-
+trast, robot feet are generally flat with no toes or
+toe joints. The main problem with flat feet is that
+there is line contact with the ground at push-off
+which is difficult to control, especially on uneven
+ground. The use of spring-loaded MTP joints
+has recently been adopted in some robots like
+Optimus2 [6] but no active MTP joints are cur-
+rently used on commercial robots.
+(iii) Shock absorption
+The arched human foot acts as a shock absorber
+mainly through stretching of the ligaments [ 14].
+In contrast, robot feet are generally stiff with a
+simple rubber pad that has limited shock absorb-
+ing capacity. The biomechanics of the feet is
+addressed in more detail in section 2.5.
+The gap in locomotion performance between
+humans and current robots can be illustrated in activ-
+ities like running. In April 2025 there was the first offi-
+cial example of humanoid robots competing along-
+side humans in a running race on smooth tarmac
+at the Yizhuang half marathon in Beijing. Around
+21 humanoid robots joined around 12 000 runners in
+the half-marathon with the robots having their own
+dedicated lane. The plan is for robots to compete each
+year in the annual Yizhuang half marathon. In the
+2025 inaugural race, the fastest robot finished in a
+time of 2 h and 40 min giving an average speed of
+around 7.9 km h −1 [15]. The winner of the men’s
+race had a time of 1 h and 2 min, giving an aver-
+age speed of 20.4 km h −1. Since the 2025 Yizhuang
+half marathon was only the first race where robots
+have competed against humans, it is almost certain
+that robots will achieve significantly improved perfor-
+mances in future years.
+Of course, the times of human runners vary
+greatly depending on levels of ability and training. In
+one study of females aged 25 (an age where peak per-
+formance would be expected), average half marathon
+times have been calculated from past race results for
+five levels: beginners, novice, intermediate, advanced
+and elite [ 16]. Beginners ran an average time of 2 h
+and 43 min whereas intermediate runners ran an
+average time of 2 h [ 16]. This means that the fastest
+humanoid robot in the 2025 Yizhuang half marathon
+was 3 min faster than the average beginner’s time,
+and 40 min slower than the average intermediate
+time for a 25-year-old female. Therefore, there is
+already overlapping of performance between robots
+and humans.
+It should be noted that if the Yizhuang half
+marathon course had involved rough terrain instead
+of smooth tarmac, then the humanoid robots would
+have been far slower than the fastest humans because
+robots have inferior stability to humans when run-
+ning on uneven surfaces [10, 11].
+The gap in performance between humans and
+robots is even greater when considering unstructured
+activities like team football. Robots and AI strategies
+have been developed that enable bipedal robots to
+play football in real time [ 17]. In 2025 there was a
+three-a-side autonomous AI robot football competi-
+tion in China consisting of two 10-min halves [ 18].
+The level of football skill was very basic with the
+ball being kicked very slowly along the ground. The
+speed at which the robots moved was around an order
+of magnitude slower than with professional human
+footballers.
+Human hands have superior performance to
+humanoid robotic hands in terms of range of motion,
+precision and speed of movement [3]. A key measure
+of performance of hands is the linear push-retract
+motion (writing movement) of fingers which involves
+simultaneous flexion and extension of different joints
+2
+
+===== PAGE 4 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Table1. Comparison of joints in humans and humanoid robots.
+Human Optimus2 [6] Atlas [ 7] Unitree H1 [ 8]
+Approx. mass (kg) 70 57 89 47
+JOINTS
+Different types of joint 14 4 4 3
+Approx. No. movable Joints 100 40 28 19
+Approx. No. actuators 600 40 28 19
+Approx. total DoF 200 40 28 19
+LOCOMOTIONAGILITY
+DoF in each foot 4a [9] 2 1 1
+Foot architecture Arches + toes Flat + toes Flat Flat
+Max. running speed (kph) 45 8 9 12
+Max. walking speed (kph) 15 5 5 5
+Ability to run on rough terrain [ 10, 11] Excellent Moderate Moderate Moderate
+HANDDEXTERITY
+DoF in each hand 27 11 7 0
+Grasping grip Y es Y es Y es No
+Push-retract motion (Sect. 3) Y es No No No
+Compact actuator systems Y es No No No
+a Four main degrees of freedom (three for the ankle and one for the MTP set of joints) [ 9].
+in the fingers and thumb (see section 3 for full
+explanation). At present, no known robotic hand can
+replicate this key push-retract movement.
+In order to close the gap in performance with
+humans, improvements are required in all areas of
+mechanical design including joints, actuators, sen-
+sors, control and integration [1–3]. One way to make
+improvements is to understand the biomechanics of
+human joints and to see where bioinspired design is
+beneficial and appropriate. There is a long history
+of engineers being inspired by the mechanical design
+solutions found in nature. In 1877 John George W ood
+published the book Nature’s Teachings with around
+750 diagrams comparing mechanical design in nature
+with engineering [ 19]. In 1917 D’arcy Thompson
+published the first edition of his classic book On
+Growth and Form showing that biological forms are
+often governed by laws of physics and mathematics
+[20]. At the end of the twentieth century there were
+several significant books published on mechanical
+design in nature including by Wainright in 1976 [21],
+Julian Vincent in 1982 [22], Adrian Bejan in 2000 [23]
+and Steven V ogel in 2003 [24]. There have been recent
+research studies describing design features in natu-
+ral materials [ 25], structures [ 26], coatings [ 27] and
+sensors [28]. However, not much attention has been
+paid to mechanical design features in joints.
+The remainder of the paper is organised as fol-
+lows. Section 2 describes the design and function of
+14 different types of moveable joint found in the
+human musculoskeletal system and gives examples
+of bioinspired joints or potential for bioinspiration.
+These results are tabulated so they can be used as
+a reference for designers. Section 3 describes seven
+main types of movement in the fingers and how
+these are achieved with tendons. Section 4 describes
+some of the key design features in synovial lubri-
+cation and connective elements (i.e. ligaments and
+tendons). Section 5 describes key design features of
+muscle and control strategies used for moving joints.
+Section 6 discusses lessons for future bioinspired
+design of humanoid robots including outlining gen-
+eral design strategies that are found in biology.
+2.Jointkinematics
+2.1.Hingejoints
+Figure 1 summarises three types of hinge joint found
+in the human musculoskeletal system. Pivot joints are
+dealt with separately in section2.2. Even though hinge
+joints and pivot joints are both rotary joints, they
+are dealt with separately because this is the common
+practice in anatomy literature [29].
+(1) Hinge joint with fixed centre of rotation
+The simple single DoF hinge joint in the human
+skeleton is typically formed by the cartilage-
+covered convex head on one bone and the
+cartilage-covered concave groove on the mating
+bone. The hinge joint is also called a ginglymus
+joint. Typical examples are found in the inter-
+phalangeal joints of the fingers and toes. The
+hinge joint is typically constrained by collateral
+ligaments and there is typically a joint capsule
+containing synovial fluid. The joints are actuated
+3
+
+===== PAGE 5 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+via tendons that act like cables (see section 3).
+Robotic fingers also commonly employ hinge
+joints although they generally use a pin-and-hole
+design with lugs rather than ligaments to con-
+strain the hinge [ 30]. The biological ligament
+design is more compact and robust because the
+design is much simpler and contains a degree of
+elasticity. Therefore, there is potential for bioin-
+spired design in this area.
+(2) Linkage hinge joint with moving centre of rotation
+The mammalian knee is a type of suspended hinge
+joint with a significant moving centre of rota-
+tion as shown in figure 1. The knee is considered
+to have six DoF , with flexion-extension and axial
+rotation being the most significant movements
+[31]. The main advantage of the moving centre of
+rotation is that it enables the femur to roll around
+the tibia and thus produce a large range of motion
+(over 150 degrees in a young adult). Without the
+rolling motion, the range of motion would be sig-
+nificantly lower because the tibia and femur bones
+have large radii at the joint interface which would
+restrict range of motion if there was a fixed centre
+of rotation. The large radii are necessary because
+of the large loads that the joint experiences. The
+rolling motion is possible because the knee has
+an inverted four-bar linkage system to guide the
+movement of the joint, as shown in figure 1. The
+two crossed links are formed by the two cruciate
+ligaments and the two parallel bars are effectively
+formed by the tibia and femur bones. The motion
+of the four-bar mechanism must closely match
+the rolling motion of the joint to avoid jamming.
+As well as high range of movement in flexion-
+extension and a moving centre of rotation, the
+knee is also capable of significant axial rota-
+tion around the tibia axis due to the geome-
+try of the tibia plateau and meniscus. Therefore,
+the knee has at least three significant DoF [ 31].
+The high DoF of the knee joint enable humans
+to run and change direction with high levels of
+agility [31]. A bioinspired knee joint that includes
+condyles and ligaments has been developed that
+mimics the flexion-extension and axial rotation
+of the human knee [ 32]. A bioinspired robotic
+knee joint with ligaments and adjustable stiff-
+ness is given in [ 33]. These bioinspired exam-
+ples enable humanoid robots to have increased
+agility.
+(3) Suspended hinge joint with planar movement
+The two temporomandibular joints (TMJ) in the
+jaw combine a hinge joint with bilateral planar
+movement by suspending the lower jaw via articu-
+lar discs as shown in figure1. The TMJ is classed as
+a ‘ginglymoarthrodial’ joint since it is both a ging-
+lymus (hinging joint) and an arthrodial (sliding)
+joint. The freedom of movement in the jaw joints
+gives three main DoF and allows for the complex
+chewing motion of the mouth which involves pla-
+nar motions and hinge motion. The two artic-
+ular discs are situated between the condyles in
+the lower jaw and the notches in the skull and
+these enable the lower jaw to be pulled laterally
+by muscles.
+There is a demand for robots that can simu-
+late human chewing in order to test dental products.
+However, there are not many robots that can accu-
+rately simulate human jaw motion [ 34]. One robotic
+jaw, using a six-bar mechanism, has achieved high
+accuracy in mimicking jaw motion. However, it has
+a bulkier design than the human jaw [35]. In terms of
+humanoid robots, there may not be a need to accu-
+rately replicate human jaw movement. However, the
+TMJ joints give a good example of how an actively
+controlled suspension system can give multiple DoF
+in a joint.
+2.2.Pivotjoints
+Pivot joints are defined here as a shaft in a sleeve joint.
+T wo types of pivot joints are summarised in figure 2.
+(1) Shaft-sleeve pivot joint
+An example of a simple pivot joint (trochoid
+joint) is found between the C1 (atlas) and C2
+(axis) vertebrae at the top of the spinal column
+that enables the head to turn left and right as
+shown in figure 2. The C2 vertebra has a round
+protrusion (odontoid process) that fits into a hole
+in the C1 vertebra that is formed by bone and a lig-
+ament. The C1 vertebra is fixed to the head whilst
+the C2 vertebra supports the head rotation. Pivot
+joints are common in robotics.
+(2) Linkage pivot joint
+Supination and pronation of the wrist joint is an
+example of a ‘linkage pivot joint’ where a bone
+(the radius) pivots (against the humerus) at the
+same time as moving in three dimensions through
+a conical path as part of a linkage mechanism. The
+ulna serves as a stationary central pillar for rota-
+tion of the radius. In contrast, the radius is able
+to pivot at the joint with the humerus to allow
+it to rotate around the ulna as shown in figure 2.
+Because the hand is fixed to the radius, the hand
+rotates as the radius rotates.
+During pronation, the radius physically crosses
+over the ulna, changing the parallel structure into
+an ‘ X’ shape as shown in figure 2. The two bones
+are held together for stability by the interosseous
+membrane, a dense connective tissue sheet that also
+helps transfer forces between them. The ulna, radius
+and connecting ligaments can be approximately mod-
+elled by a four-bar linkage mechanism [ 36]. A very
+4
+
+===== PAGE 6 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure1. Hinge joints.
+simple four-bar model contains two spherical joints
+and two rigid joints in the four bars. However, a
+more accurate four-bar model contains a combina-
+tion of linear, pivot, spherical and universal joints
+(see figure 2) [36].
+The pivoting linkage mechanism in the human
+lower arm has potential for bioinspired design
+because robotic and prosthetic joints are currently
+relatively bulky [ 37] with wrist axes often far away
+from the grasped object, resulting in coupled trans-
+lations that need to be compensated with whole-arm
+motions. One recent example of a 3 DoF robotic wrist
+with rotational axes close to the hand is given in [38].
+However, the spherical parallel architecture is signifi-
+cantly bulkier than the human wrist.
+2.3.Linearjoints
+Linear (planar) joints include unilinear and bilinear
+joints. Figure 3 shows three types of linear joint in the
+human musculoskeletal system.
+(1) Planar joints
+The simple sliding planar joint is typically formed
+by flat or slightly curved surfaces of adjacent
+cartilage-covered bones. Planar joints in mam-
+mals are often bilateral such as with the joints in
+the wrists and ankles. An important planar joint
+in the ankle is the subtalar joint that helps enable
+pronation [39]. Planar joints are also referred to as
+arthrodial or gliding joints. Linear joints are com-
+mon in robotics in linear actuators.
+5
+
+===== PAGE 7 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure2. Pivot joints.
+(2) Linkage tie rod joint
+Because the foot takes the weight of the whole
+body, the ankle joint must carry high loads during
+pronation. A key function of the fibula bone is to
+act as a tie rod in applying a linear stabilising force
+onto the side of the ankle [40]. The fibula motion
+can be approximately modelled as a four-bar
+mechanism with the tibia and fibula represented
+by two long bars and connecting ligaments rep-
+resented by two short bars as shown in figure 3.
+This four-bar concept models the gliding motion
+of the fibula [ 40]. The gliding motion of the
+fibula can also be modelled using a fully parallel
+mechanism with five bars [ 41]. The fibula allows
+fine-tuning of the moment arm (for mechanical
+advantage) for the muscles acting on the ankle-
+foot complex. A second function of the fibula is to
+increase the attachment area for muscles, allowing
+more muscle to act on the joint. A recent bioin-
+spired ankle design has been produced that mim-
+ics the motion of the ankle joint although it does
+not contain a fibula tie rod connection [ 42].
+6
+
+===== PAGE 8 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure3. Linear joints.
+(3) Suspended anchor joint
+The hyoid bone is a fully suspended and isolated
+bone that is connected to several (linear actua-
+tor) muscles as shown in figure 3. The hyoid bone
+plays a crucial role in swallowing, tongue move-
+ment and speech [ 43]. The hyoid bone is located
+just below the mouth and above the larynx and
+is suspended by a network of muscles, ligaments
+and cartilage that tether it to surrounding struc-
+tures like the mandible. Muscles go up from the
+hyoid to the tongue and floor of the oral cavity.
+Other muscles go down to the larynx whilst oth-
+ers go across to the epiglottis and pharynx. There
+are at least eight muscles that form a tensegrity
+structure. One advantage of the hyoid bone being
+suspended is that it helps to co-ordinate mus-
+cles in actions like swallowing [ 43]. Swallowing
+requires precise co-ordination of muscle actions
+to move the epiglottis and open the oesophageal
+sphincter for food passage at the right time.
+Because the hyoid is suspended, this means that
+fine control of the muscles is required. In terms
+of humanoid robots, there may not be a need
+to copy the hyoid bone for the same functions.
+However, the hyoid bone gives a good example
+of how a high number of DoF can be achieved in
+a joint through an actively controlled suspension
+system.
+7
+
+===== PAGE 9 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+2.4.Sphericalandasphericaljoints
+Spherical and aspherical joints are important because
+they give multiple DoF . Figure4 shows three types of
+spherical and aspherical joints in the human muscu-
+loskeletal system.
+(1) Ball and socket joint
+In the case of a ball and socket joint, the ball is
+usually close to spherical, thus giving three DoF
+in rotation. The hip and shoulder are two impor-
+tant ball and socket joints. The shoulder joint
+has a shallower socket that gives greater range
+of motion but less stability. The hip joint needs
+greater stability for the weight-bearing activities
+of running and jumping. Ball-socket type joints
+are common in engineering, although the socket
+usually takes the form of a relatively narrow
+curved sleeve. An example of a musculoskeletal
+humanoid robot using ball and socket joints is
+given in [ 44]. This robot uses twisted and coiled
+polymer actuators and the robot is largely 3D
+printed.
+(2) Ellipsoidal joint
+An ellipsoidal joint (condyloid joint) differs from
+a ball and socket joint in that the bearing surfaces
+are ellipsoidal and not spherical. This means an
+ellipsoidal joint has two degrees freedom in rota-
+tion, making it a biaxial joint. An advantage of an
+ellipsoidal joint over a ball and socket joint is that
+it can have line contact rather than point contact.
+This can make an ellipsoidal joint more stable and
+stronger than a ball and socket joint for the same
+volume. An example of an ellipsoid joint is the
+radiocarpal joint of the wrist that allows flexion-
+extension as well as abduction-adduction and cir-
+cumduction. In the case of the radiocarpal joint,
+the radius bone has a concave ovoid articular sur-
+face and the carpal bones have an elliptical cavity
+(see figure 4). The knuckle joints of the hand also
+have ellipsoid joints.
+An interesting design feature in the wrist is
+that of matching radii in the two joints of
+flexion-extension. During flexion-extension, slid-
+ing movements occur at both the radiocarpal
+and midcarpal joints. The two hinge joints cre-
+ate the potential for two centres of rotation and
+chaotic motion unless the joints have a common
+centre of rotation. This common centre of rota-
+tion is shown in figure 4, with a circular sym-
+bol. The midcarpal joint has a radius smaller than
+the radiocarpal joint and by a ratio that does
+give an approximate common centre of rotation
+[45]. A bioinspired cable-driven spherical wrist
+joint using a ball joint for robots is described
+in [46].
+(3) Saddle joint
+A saddle joint differs from an ellipsoidal joint
+in that the two surfaces are not convex-concave
+but both convex. This gives more freedom of
+movement and a greater range of movement. One
+potential disadvantage is that of lower load capac-
+ity due to the contact area being more of a point
+contact than line contact. A prime example of a
+saddle joint is that of the thumb which requires
+a range of motion in order to make pinch grips
+with each finger. Emulating the functionality of
+the thumb is a key goal for humanoid robotics
+because of the importance of the pinch grip in
+hand tasks. T wo recent examples of bioinspired
+thumbs with high range of motion using soft
+actuators are given in [47, 48].
+2.5.Segmentedjoints
+When multiple joints are linked together into a seg-
+mented assembly, they can exhibit a high num-
+ber of DoF and perform more complex move-
+ments. Segmented joints are also ideal for perform-
+ing multiple functions. Figure 5 shows three types
+of segmented joints in the human musculoskeletal
+system.
+(1) Segmented arches
+The 12 bones of the hind and midfoot (seven
+ankle bones and five metatarsals) form three
+arches as shown in figure 5. The medial lon-
+gitudinal arch passes through the three biggest
+metatarsals and the ankle. The lateral longitudinal
+arch passes through the two smallest metatarsals
+and through the ankle. The transverse arch joins
+the two longitudinal arches, particularly at the
+ball of the feet at the MTP joints. These arches play
+a very important role in bipedal standing, walk-
+ing and running [ 14]. Each of the arches is like a
+Roman block arch with wedge-shaped bones and
+including a keystone. However, unlike a Roman
+arch, the arches of the foot are able to flex under
+load due to stretching of ligaments. The arches
+have four key functions. (i) Stiff lever for push-
+off. When running, the medial longitudinal arch
+becomes a stiff lever due to tightening of muscles
+and ligaments [49] and due to the stiffening effect
+of the transverse arch [ 50]. (ii) The foot tran-
+sitions to being three flexible arches for landing
+[12]. The flexibility is due to elasticity of liga-
+ments such as the plantar fascia and the spring
+ligament [ 14]. (iii) The transverse arch (the ball
+of the foot) acts as a fulcrum during running. (iv)
+The three arches give three-point contact with the
+ground to enable standing on one leg as shown
+in figure 5. These capabilities of the human foot
+represent key goals for future humanoid robots.
+8
+
+===== PAGE 10 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure4. Spherical and aspherical joints.
+Examples of bioinspired arched feet that mimic
+the plantar fasci and flexible arches are given in
+[13, 51, 52].
+(2) Segmented levers
+The five toes of the foot represent five small
+flexible levers and play an important multifunc-
+tional role in standing, walking and running. One
+function of the toes, especially the big toe, is to
+act as stiff levers and form a launch pad in the
+final phase of push-off in walking and running
+as shown in figure 5 [53, 54]. A second function
+of the toes is to provide stability during standing,
+walking and running [ 55]. The toes have enough
+movement and flexibility to conform to uneven
+ground, especially when barefoot. The flexibility
+of toes also helps humans to change direction in
+walking and running [55]. A third function of the
+toes is to give a contact patch with the ground that
+allows for standing on the toes. These capabilities
+of toes represent key goals for future humanoid
+robots.
+(3) Segmented column
+The spinal column has cartilaginous joints that
+have limited movement compared to synovial
+joints. However, even though movement in one
+vertebral cartilaginous joint is small, the com-
+bined effect of many segmented vertebrae can
+produce significant movements [ 56] especially
+when combined with movements at the hips and
+shoulders. Professional gymnasts can commonly
+arch their back forwards and backwards through
+180 degrees. The spinal column, as an assembly of
+joints, has three rotational DoF: bending in two
+planes and twisting around the axis of the spinal
+column. The segmented system of joints creates
+a strong and robust structure at the same time
+as providing flexibility. There are approximately
+33 vertebrae (at least 24 of which are moveable),
+9
+
+===== PAGE 11 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure5. Segmented joints.
+numerous ligaments and many muscles in the
+vertebral column. Each vertebral disc has three
+appendages (one spinous process and two trans-
+verse processes) that act as anchor points for mus-
+cles and ligaments as shown in figure 5. Some
+muscles run longitudinally and some diagonally
+to produce movement with three DoF . Ligaments
+also contribute to stability and flexibility. T wo
+examples of bioinspired spinal columns are given
+in [57, 58].
+10
+
+===== PAGE 12 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+3.Fingerkinematics
+The fingers have three joints with four DoF and mul-
+tiple tendons that enable finely controlled and com-
+plex movements. Each finger has at least six muscles
+controlling its movement: three extrinsic and three
+intrinsic muscles. The index and little fingers have an
+extra indicis extensor, that enables pointing. Figure 6
+shows a schematic of the anatomy of the index fin-
+ger together with key finger movements. Each indi-
+vidual joint can be flexed and extended because there
+are tendon connections on each of the three fin-
+ger bones on the extension and flexion sides. These
+act as antagonistic pairs. There are also interossei
+muscles that abduct and adduct the fingers. There
+are also ligaments that play a role in finger move-
+ments such as the oblique retinacular ligament [ 59].
+The exact biomechanics of tendons and ligaments in
+finger kinematics is not fully understood and subject
+to ongoing research [59]. There are seven main types
+of finger movement that are of interest to robotics
+engineers:
+(1–3) Three flexion and extension movements
+Humans can flex and extend their fingers in at
+least three ways as shown in figure 6. Full flex-
+ion is a very important type of finger move-
+ment because it is used for gripping and hold-
+ing objects. Hand grips are so important that
+babies are born with a palmer grasp reflex
+that is triggered when the palm is stimulated
+by touch. Partial flexion-extensions are more
+complicated to perform because some joints
+have to be kept straight whilst others are flexed
+and extended. Some people can also indepen-
+dently flex the last phalange bone. Many robot
+hands focus on full flexion and full extension in
+the fingers [60].
+(4) Push and retract movement (combined flexion
+and extension)
+The push-retract motion of fingers (see
+figure 6) is performed for intricate activities
+that require a linear motion such as writing
+and threading a needle. It is a very complex
+movement because it involves simultaneous
+flexion and extension at different joints in the
+same finger. This complex movement requires
+multiple tendons to be pulled simultaneously.
+The simultaneous combination of flexion and
+extension is possible because the lumbrical
+passes the knuckle joint on the palmer side
+but then passes over the PIP and DIP joints on
+the dorsal side as shown in figure 6. When the
+lumbrical contracts, it simultaneously causes
+flexion at the MCP joint and extension at the
+PIP and DIP joints, thus moving the finger
+forwards in a pushing motion. T o retract the
+finger, multiple tendons are pulled such as the
+central slip of the central extensor tendon and
+the flexor digitorum profundis (FDP) tendon.
+The longer length of the FDP flexor tendon and
+the relative moment arms of the tendons to the
+joints, helps to produce the retract motion.
+This review has found no robotic hand that
+can reproduce the push-retract motion. This
+capability of human fingers represents a key
+goal for future humanoid robots.
+(5) Abduction-adduction
+Abduction and adduction are important
+motions for activities such as making ges-
+tures and holding round, large objects in one
+hand. The interossei muscles cause abduc-
+tion and adduction at the two DoF ellipsoidal
+metacarpal phalangeal (MCPJ) joints. Many
+robotic hands have been developed that have
+some degree of abduction-adduction [ 61, 62].
+(6) Circumduction
+Circumduction is caused by a combination
+of flexion/abduction/extension/adduction at
+the knuckle joint. T o produce circumduction
+at constant speed is challenging because this
+involves at least four different finger muscles
+moving with varying speed and with pre-
+cise co-ordination. An example of a robot
+that can perform circumduction is given
+in [63].
+(7) Pinch grips
+The thumb can form a pinch grip with each
+finger, including a tripod grip (between the
+thumb, index finger and middle finger) which
+is ideal for holding a pen or tool. The hand
+can also perform simultaneous pinch grips
+(e.g. between the thumb and index finger and
+between the ring and little finger) in activi-
+ties like knitting. A recently developed 19 DoF
+robotic hand can perform pinch grips using five
+pairs of shape memory alloy (SMA) actuators
+[64]. There have been at least three differ-
+ent approaches in the design of robotic hands.
+Some use linkage-driven fingers [62, 65], whilst
+others opt for cable-driven fingers [ 66]. In
+recent times there has been a trend for soft
+robotic fingers [ 67, 68]. Another important
+feature of human hand dexterity is the role
+of sensors for giving feedback on parame-
+ters such as contact pressures [ 69]. There are
+many thousands of touch sensors and nerve
+endings on each hand that sense pressure,
+movement and vibration. An example of a
+bioinspired hand with touch sensors is given
+in [70].
+11
+
+===== PAGE 13 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Figure6. Types of human finger movement.
+4.Lubricationandconnectingelements
+4.1.Synoviallubrication
+Synovial fluid is a clear viscous substance that lubri-
+cates articular surfaces, transports nutrients to car-
+tilage cells and removes waste products. Depending
+on the load level, load duration and joint movement,
+different tribological mechanisms of lubrication take
+place. The tribological mechanisms of synovial lubri-
+cation are complex and still under investigation [ 71].
+Synovial lubrication leads to friction coefficients as
+low as µ ≈ 0.002, even at high pressures [ 72]. This is
+at least an order of magnitude better than is achieved
+in sliding surfaces in robotic and prosthetic joints.
+12
+
+===== PAGE 14 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Some of the mechanisms of synovial lubrication are
+as follows.
+(1) Lubricin boundary lubrication
+The synovial fluid constituent responsible for the
+boundary lubrication is a glycoprotein, termed
+‘lubricin’ . Lubricin has a brush-like molecular
+structure which allows lubricin to self-assemble a
+monolayer of lubricant molecules onto both car-
+tilage surfaces [73]. This macromolecular mono-
+layer on each surface forms a repulsive interface.
+The two layers (1–100 nm in thickness) reduce
+friction and help to prevent cartilaginous wear by
+impeding the direct contact of surfaces.
+(2) Thin-film hydration lubrication
+In fluid-film lubrication mode, the two sliding
+surfaces are separated by a fluid film with a
+thickness larger than the surface asperities. The
+fluid layer consists of phospholipids which have
+hydrophilic heads and hydrophobic tails. The
+structure of the phospholipids allows them to
+self-assemble onto the cartilage surface to form
+a microscopic lipid-based boundary [ 74]. This
+results in a low friction slip plane. Frictional dissi-
+pation takes place through shear of the hydration
+layers at the slip plane.
+(3) Weeping lubrication
+Articular cartilage has a porous collagenous
+matrix structure filled with synovial fluid (inter-
+stitial fluid). When the joint is under load, the car-
+tilage is compressed which forces interstitial fluid
+out of the pore holes in the cartilage and into the
+space between the two bones. The interstitial fluid
+is hydrostatically pressurised which forms a thin
+film that separates the two bones [75]. When load
+is removed, interstitial fluid is reabsorbed into
+cartilage. The hydrostatic pressure results in very
+low friction at low speed [75]. This is very signifi-
+cant because achieving low friction at low speeds
+is challenging in engineered systems due to factors
+such as higher viscous drag.
+At present there is not a strong demand for ultra-
+low sliding friction in robot joints because of the
+use of rolling contact ball bearings. However, ball
+bearings come at the cost of a bulky and complex
+design. In order to achieve compactness and ultra-low
+weight, there is likely to be a future drive to remove
+ball bearings and adopt low sliding friction technolo-
+gies. An additional motivation for having ultra-low
+friction is a desire to make robotic parts long lasting.
+Interestingly, synovial fluid joints match the perfor-
+mance of rolling contact bearings in terms of coeffi-
+cient of friction, so this demonstrates that rolling con-
+tact bearings are not essential.
+It is very challenging to mimic synovial lubri-
+cation because biological systems are living systems
+where synovial fluid is constantly being renewed.
+One successful area of bioinspiration has been in
+the development of hydrogels that replicate hydra-
+tion lubrication [ 76–78]. These hydrogels are often
+composed of sodium hyaluronate and a bottle
+brush polymer which provides a synergistic inter-
+action that enhances lubrication and wear resis-
+tance. There has also been progress in develop-
+ing porous materials and surfaces that can hold
+lubricants [79].
+4.2.Connectivetissues(ligamentsandtendons)
+Ligaments join bones and guide joint motion whilst
+the primary function of tendons is to join muscle to
+bone. Efficient connections play a vital role in pro-
+ducing compact and high-performance joints. The
+importance of ligaments and tendons is illustrated by
+their quantity. There are several hundred ligaments in
+the human body and at least 1200 tendons since each
+muscle has at least two tendons. Some of the impor-
+tant design features in ligaments and tendons are
+as follows:
+(1) Soft structures
+T raditional mechanical connecting elements like
+bolts, bearings and cables are generally rigid. In
+contrast, the ligaments and tendons in animal
+joints are made of soft tissue and are able to bend
+and stretch. Ligaments and tendons are com-
+posed of longitudinally arranged collagen fibres,
+elastin, glycoproteins and proteoglycans which
+results in a tough, strong and flexible connecting
+element. In general, ligaments are more flexible
+than tendons due to a higher degree of elastin.
+The higher flexibility of ligaments is more suited
+to the role of guiding joints whilst the higher stiff-
+ness of tendons is more suited to transmission of
+force. Ligaments and tendons have an undulating
+arrangement of collagen fibres within the extra-
+cellular matrix which allows them to absorb and
+release strain energy and act as shock absorbers.
+A recent example of a bioinspired soft ligament
+has been produced by integrating SMA wires
+with fishing lines [ 80]. The combination of SMA
+wires and polyethylene fibres gives the ligament
+human-like mechanical properties including flex-
+ibility and self-healing. When the ligament under-
+goes stress-induced elongation or relaxation, the
+SMA component can be activated via electrical
+stimulation to restore the ligament to its original
+state.
+(2) Scalable hierarchical structures
+One of the reasons why ligaments and tendons
+are so scalable and robust is that they have a
+13
+
+===== PAGE 15 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+hierarchical structure. The collagen fibres are
+arranged in bundles called fascicles. Groups of
+fascicles are joined together to produce the whole
+ligament or tendon. This hierarchical structure
+means that ligaments and tendons can be formed
+across a wide scale range. A bioinspired ligament
+has been produced using 3D fibres braided from
+polyethene multifilament which reproduces the
+nonlinear behaviour of ligaments and tendons
+[81]. Four braided bands have been produced
+showing that a range of stiffness levels can be
+produced.
+(3) Graded material properties
+The composite structure of ligaments and ten-
+dons means that material properties, such as
+Y oung’s modulus, can vary according to the needs
+of the application. The material properties are
+fine-tuned through adjusting the orientation and
+quantity of constituent materials such elastin
+[82]. One important example of varying material
+properties is at the junction of ligament and bone.
+This junction is a specialised interface referred
+to as an insertion site or enthesis junction. The
+junction consists of fibrocartilage that has a struc-
+turally continuous gradient from uncalcified liga-
+ment to calcified bone, producing optimal merg-
+ing of the soft ligament into hard bone [ 83]. The
+thickness of the enthesis is typically around 500
+µm [ 84]. An additional feature that strengthens
+the interface is that of radii at the junction of
+the ligament and bone. The radii help to avoid
+stress concentrations and increase the area of the
+interface. The enthesis junction results in a very
+compact and efficient design. A similar situation
+exists for tendon joints with muscle and bone with
+grading of material properties.
+The strength, flexibility and merged connec-
+tions of ligaments and tendons is a key reason
+why animal joints are so compact and multi-
+functioning. However, it is extremely challeng-
+ing to replicate the performance of ligaments
+and tendons, especially in the way they are
+seamlessly integrated and assembled with bone.
+However, technologies such as additive manufac-
+ture are now beginning to make merged inter-
+faces possible. In one study, a metal to polymer
+interlocking design was produced using additive
+manufacture [85].
+(4) Adaptive growth
+Ligaments and tendons can adapt in size when
+loads are increased gradually over several months.
+For example, when athletes gradually increase
+loads on their joints, ligaments and tendons
+increase in size to withstand higher loads
+[86].
+5.Actuationandcontrol
+5.1.Muscle
+(1) Soft structure
+Whereas traditional engineering actuators are
+stiff and often need gearing, animal muscle is
+compliant with high stain rates that make gear-
+ing unnecessary. The compliance of animal mus-
+cle enables muscle to perform multiple functions
+beyond actuation. The compliance of muscle
+means that animal joints can withstand impacts
+and enforced displacements. Animal life often
+involves close interactions with objects and other
+animals which would be problematic with stiff
+joints. The compliance of animal muscle also has
+the advantage that it can be formed into an almost
+infinite variety of shapes so that it can fit around
+any joint in the body. A further advantage is that
+muscle can give shape and padding to the body.
+The ideal design of animal muscle has led to a very
+large research effort into the development of soft
+actuators for robots [87, 88].
+(2) Hierarchical and scalable
+Like ligaments, muscle is scalable and robust
+because it has a hierarchical structure. The small-
+est unit of muscle structure consists of myofil-
+ament proteins (actin and myosin) that inter-
+act to cause contraction at the molecular level.
+Myofilaments are organised into functional units
+called sarcomeres which are then combined to
+form an individual muscle fibre called myofib-
+ril. Separate muscle fibres are grouped together
+into fascicles and separate fascicles are grouped
+together to form the whole muscle. The small
+functional muscle units can work effectively
+across a wide scale range. Sarcomeres are approx-
+imately 2 µm long and can be assembled to build
+muscle with great variations in length and diam-
+eter. The stapedius muscle in the ear is the order
+of 1 mm in length whereas the sartorius muscle
+in the thigh can be over 500 mm in length. The
+sphincter muscles of the eye are just 0.1 mm in
+thickness whereas the quadriceps femoris in the
+thigh is several centimetres in thickness. Recent
+developments of fibrous-like and hierarchical soft
+actuators are described in [ 89].
+(3) Graded properties
+Despite the fact that muscles are characterised
+by a very similar basic structure, muscle is not
+a homogeneous tissue [ 90]. Skeletal myocytes
+can be classified into slow-twitch and fast-
+twitch fibres. Fast-twitch fibres can be further
+subdivided into two additional subclassifica-
+tions: (i) fast oxidative for sustained fast aero-
+bic metabolism and (ii) fast glycolytic for fast
+14
+
+===== PAGE 16 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+anaerobic metabolism. Different proportions of
+these muscle fibre types can be found in all skele-
+tal muscles. The diversity in composition allows
+skeletal muscles to be fine-tuned to perform a
+wide range of movements. There has been recent
+progress in producing soft actuators with graded
+properties [91, 92].
+(4) Adaptive structure
+Animal muscle can adapt to changing require-
+ments by adapting in size, length and type. For
+example, when athletes gradually increase their
+training load, their muscles are able to adapt and
+grow in size (hypertrophy) and load capability
+[93]. After injury, muscle tendon units usually
+have reduced range of motion. However, after
+repeated stretching exercises, the range of motion
+can be restored. The muscle length increase is due
+to collagen increasing in alignment in response to
+stretching [93]. Muscle fibres also have the ability
+to heal and even convert to different fibre types to
+adapt to new muscle functions [ 94]. There have
+been recent advances in adaptable robotic actua-
+tors. An actuator has been developed for an ankle
+exoskeleton that adapts stiffness in response to
+changes in loading [ 95]. Also, an SMA actuator
+has been developed that can be trained to per-
+form different actuation tasks involving a range
+of forces and motions [96].
+5.2.Controlstrategies
+Having joints with high DoF requires advanced con-
+trol strategies [ 97]. This section describes some key
+control strategies that particularly relate to joint
+control.
+(1) Positive feedback
+One example of positive feedback in a mechan-
+ical biological system is found in vaginal birth
+where dilation of the birth canal is a self-
+reinforcing process, i.e. the greater the dilation,
+the greater the signals to dilate. A second exam-
+ple on a microscale is a switching mechanism
+in protein bi-stability that enables the protein
+to take up two different stable states [ 98]. A
+bioinspired optomechanical soft robotic actua-
+tor has been developed using the principle of
+positive feedback [99]. The actuator can respond
+to light in a self-regulating way, similar to how
+plants adjust their position towards sunlight.
+By adjusting a baffle plate’s position relative
+to the incident light beam, positive feedback
+can be programmed, enabling the transforma-
+tion of a light-bending strip into a morphing
+switcher [99].
+(2) PI and PID control
+Negative feedback is common in biological
+systems for maintaining a control parameter.
+For example, homeostasis can be modelled as
+a proportional-integral feedback system [ 100].
+This control technique is ideal for systems
+that are not highly dynamic. An example of
+a dynamic system that requires fine control
+is bipedal standing. Bipedal standing can be
+modelled as a proportional-integral-derivative
+feedback system [ 101]. Standing balance in
+humanoid robots often involves PID control
+[102].
+(3) Antagonistic muscle pairs
+In general, muscles work in antagonistic pairs,
+such as flexion and extension muscles. Having
+antagonistic muscle pairs makes it possible for
+two opposing muscles to keep a joint in resid-
+ual tension, also known as muscle tone. Residual
+tension has a number of purposes: (i) helps pos-
+ture by reducing passive stretching; (ii) speeds
+up muscle response to instructions to move;
+and (iii) removes laxity and backlash in joints.
+These things improve the control performance
+of the joints. Examples of robot joints that utilise
+antagonistic actuators are given in [ 103, 104].
+(4) Fine force resolution
+Human muscle is capable of fine force resolu-
+tion. For example, human fingers can apply a
+force with the index finger of as little as 10 mN
+[105] which is over three orders of magnitude
+below the maximum force capability [106]. One
+reason for this fine resolution is that individual
+muscles are comprised of many individual mus-
+cle units and these muscle units can be recruited
+gradually by the nervous system. The nervous
+system is also able to recruit smaller units first
+in order to create either a very small force or
+a gradually increasing force [ 107]. This recruit-
+ment strategy is called Henneman’s size princi-
+ple which states that motor units are recruited in
+order from smallest to largest based on the inten-
+sity of the force being applied [ 107]. Small-to-
+large recruitment minimises force fluctuations
+and energy expenditure.
+A bioinspired actuator assembly that grad-
+ually recruits individual actuators has been
+achieved using bundles of fluidic artificial
+muscles [ 108]. The design uses a uniformly
+applied pressure to many individual fluidic arti-
+ficial muscles while creating differential thresh-
+old pressures among the artificial muscles [108].
+An ultrafast, miniature soft actuator has been
+developed that can apply very small accurate
+forces [109].
+(5) Miniature sensors
+The human body contains several million micro
+sized sensors that enable sensor-rich feedback
+information such as position, acceleration, pres-
+sure and pain. Sensors are particularly densely
+15
+
+===== PAGE 17 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+packed in the feet to aid locomotion and balance
+control. And sensors are densely packed in the
+hands to aid dexterity. Such a rich supply of sen-
+sory data helps achieve robust control. A review
+of bioinspired miniature flexible sensors is given
+in [110].
+(6) Multisensory integration
+One of the challenges of having a vast diversity
+and quantity of sensor feedback is how to deal
+with that information quickly and effectively. In
+locomotion, animals have multisensory integra-
+tion that combines diverse types of feedback into
+a form that can be processed very quickly [ 111,
+112]. Examples of bioinspired sensory integra-
+tion include [113, 114].
+(7) Local reflexes
+Local reflexes represent an automatic localised
+actuation response to certain stimuli such as a
+force or displacement and have the important
+advantage of creating a fast response. A clas-
+sic example of a reflex is the extension of the
+knee which is caused by stretching the mus-
+cle spindle in the quadriceps muscle. The reflex
+is a monosynaptic reflex, meaning it involves a
+direct connection between the sensory nerve, the
+spinal cord, and the motor nerve, thus avoid-
+ing data travelling to and from the brain. The
+reflex contributes to stability in standing and
+locomotion in humans and is therefore of inter-
+est to robotics engineers [ 115]. When standing
+upright, the quadriceps muscles work to keep the
+knees extended and prevent the body from col-
+lapsing. Other examples of a local reflex include
+the withdrawal reflex (nociceptive flexion reflex)
+of the hand from hot surfaces and, as mentioned
+in section 3, the palmer grasp reflex of new-
+born babies. A biologically inspired controller
+based on reflex circuits has recently been devel-
+oped for robots [ 116]. These reflex circuits self-
+organise via Hebbian learning driven by spon-
+taneous motor activity. The circuits are inte-
+grated, creating a computationally inexpensive
+task-space controller [116].
+(8) Muscle synergies
+The human body has around 600 muscles
+but only around 100 active joints and around
+200 DoF . The result is that many joints have
+redundant actuation with more muscles than
+the mechanical DoF . This redundancy enables a
+wide range of muscle activation patterns to be
+produced for the same movement. Redundant
+muscles give robustness because if a muscle is
+injured or tired or misaligned, other muscle pat-
+terns can be adopted to make movements.
+Muscle synergies greatly simplify control
+by causing movements with a single neural
+command [ 117, 118]. The co-activation of
+muscles is usually learned and organised in
+a task-dependent manner. Controlling multi-
+jointed limbs involves the challenging task of
+controlling redundant DoF . The nervous system
+of animals simplifies this control task by using
+global variables such as end-points that have
+fewer DoF . These end-points can be reduced to
+simple parameters like a direction component
+and a length component.
+Actuator synergies for robots have been devel-
+oped using techniques such as reinforcement
+learning with reward-function algorithms
+and trial and error. A bioinspired synergis-
+tic actuation strategy has been developed
+for a quadruped robot using four actuators
+[119]. The synergy-based quadruped requires
+minimal actuation and exhibits emergent,
+animal-like dynamic responses, including pas-
+sive robustness to environmental perturba-
+tions and a wide range of actuated behaviours
+[119]. A synergy-based actuation system
+has been developed for a humanoid robot
+inspired by the fascia network of the human
+body [120].
+(9) Hierarchical control
+In a hierarchy, low level control mechanisms are
+controlled by a higher-level control mechanism,
+with a single controller ultimately in charge
+[121]. Hierarchical control can be efficient
+because a locally controlled event can be con-
+trolled faster and more accurately. Hierarchical
+control can also be more robust because if a local
+area is damaged or lost then the whole system is
+not necessarily affected.
+The musculoskeletal nervous system of ani-
+mals adopts a hierarchical control strategy which
+can be described in three levels [ 122]. At the
+highest level is the cerebral cortex where the
+strategy for movement takes place. At the inter-
+mediate level are the cortical motor areas and
+cerebellum which determine the sequences of
+muscle contractions required to achieve the
+high-level goal. At the lowest level are the brain
+stem and spinal cord which activate the motor
+neurons that generate the goal-directed move-
+ments. A further layer of complexity in biol-
+ogy is that individual cells are also systems that
+receive signals, encode, and process informa-
+tion, and respond, for example, by manufactur-
+ing proteins [123].
+An electronic architecture based on the
+human motor system has been developed for
+rehabilitation exoskeletons [ 124]. The archi-
+tecture is divided into three hierarchical lev-
+els: perception-intention, pattern generator,
+and execution, facilitating modularity, scal-
+ability, and parallelism in the execution and
+operation of the system [ 124]. A bioinspired
+16
+
+===== PAGE 18 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+learning-based hierarchical control system has
+been developed for legged robotic locomotion
+[125]. T wo distinct neural networks were used:
+one tasked with modulating the frequency and
+amplitude of central pattern generators (CPGs)
+to generate the basic locomotor rhythm and
+the other responsible for receiving environ-
+mental perception data and directly modulat-
+ing the rhythmic output from the spinal policy
+to execute precise movements on challenging
+terrains [125].
+(10) Adaptive control
+Adaptive control can be defined as a feedback
+control system that uses intelligence or algo-
+rithms to adjust its characteristics in a chang-
+ing environment in order to continually oper-
+ate in an optimal manner. In contrast to tra-
+ditional engineering systems, animals have rel-
+atively robust control which is able to adapt to
+significant changes in system dynamics. Animals
+are able to detect changes in the control loop and
+make adaptations based on experience as well as
+trial and error [126, 127]. For example, if an ani-
+mal loses a limb or an appendage, it is usually
+able to learn how to control a new way of mov-
+ing despite the major changes in the structure of
+the system [127].
+Adaptive control techniques such as self-tuning
+PID are a well-established technique in areas such as
+aircraft control where account is taken of changes in
+parameters such as fuel mass distribution. However,
+such adaptive control usually requires knowledge of
+the system characteristics and may not be able to
+adapt to significant changes to the system dynam-
+ics. Modern bioinspired techniques in adaptive con-
+trol, however, seek to detect changes in the control
+loop and make adjustments using techniques such as
+pattern generation, learning, fuzzy logic and neural
+networks. The use of learning and CPGs is becom-
+ing a common approach to adaptive control of robot
+locomotion [128].
+6.Discussion
+This paper has identified 14 functionally different
+types of moveable joints in humans, 10 of which have
+more than one degree of freedom. The single degree
+of freedom joints are the hinge joint, the pivot joint,
+the planar joint and the fibula gliding joint. In con-
+trast, humanoid robots typically have just three or
+four types of joint, with only one having more than
+one degree of freedom such as the MCP knuckle joint.
+The wider range of joints, and greater DoF in human
+joints allows for a higher level of fine-tuning of design
+and more complex movements.
+6.1.Keyfuturedesigngoalsforroboticsdesign
+T able2 summarises 12 key areas for future bioinspired
+design in humanoid robots. Joints 1–5 in table2 affect
+locomotion performance with the first three relating
+to the design of feet. As explained in section 2.5, the
+feet are an important area where humanoid robots
+need to improve in order to match the locomotion
+agility of humans.
+Joints 6–9 in table 2 affect arm and hand dex-
+terity. As explained in section 2.2, the linkage pivot
+joint of the wrist is a key goal for future humanoid
+robots. And as explained in section3, the push-retract
+motion is a key goal for future humanoid robots.
+Integrating touch sensors (item 10 in table 2) is also
+important for dexterity.
+Lubrication and actuation (items 11–12 in
+table 2) are also important in joint design. As
+explained in section 4.1, synovial lubrication matches
+the performance of rolling contact bearings but
+has the advantage of simplicity and compactness
+of mechanical components. A key design feature of
+human muscle is the multifunctioning nature, espe-
+cially in giving shape and padding to the body.
+6.2.Designstrategiesforfuturehumanoidrobotics
+As well as drawing inspiration from the design of
+human joints, there is also potential for copying some
+of the design strategies that can be seen in the design
+of the musculoskeletal system as shown in table 3.
+These strategies are generally different to traditional
+engineering design approaches and can inspire a dif-
+ferent and more effective approach to robot design.
+(1) Multi-DoF joints
+Multi-DoF joints lead to a compact design with
+high functionality, as demonstrated with joints
+in the wrist and ankle. A compact design leads
+to a host of benefits such as low mass, low rota-
+tional inertia and low frontal area. Joint freedom
+is achieved in two main ways in human joints:
+firstly, through curved joints—either spherical,
+ellipsoidal or saddle; and secondly, by some kind
+of suspension as with the jaw joint, knee joint
+and hyoid bone. The development of multi-
+DoF joints is a key goal for improving robot
+performance [ 129]. There has been progress
+in producing multi-DoF joints, although these
+are mainly at the level of research prototypes
+[129, 130].
+(2) Segmented joints
+Segmented joints give the opportunity to create
+structures that perform special mechanical func-
+tions such as combining strength and flexibility
+in the spinal column and creating a morphing
+pad in the toes. In both these cases, the stiffness
+of the segmented structure can be dramatically
+increased through tensioning of the muscles and,
+17
+
+===== PAGE 19 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+Table2. Key areas for future bioinspired design in humanoid robots.
+Joint/Part Human design Recent humanoid robot design Benefits of copying human design
+(1) Hind-midfoot Flexible arched foot Stiff flat foot Energy storage/soft landing
+(2) MTP joints Active MTP joints Passive MTP joints Aids push-off
+(3) T oes Flexible toe pad Rigid toe pad Aids change in direction
+(4) Knee Hinge & axial rotation Single DoF hinge Aids change in direction
+(5) Hip Ball & socket (3 DoF) 3 x single DoF joints Compact design
+(6) Shoulder Ball & socket (3 DoF) 3 x single DoF joints Compact design
+(7) Wrist pronation Linkage pivot design Bulky sleeve design Compact design
+(8) Finger Push-retract motion Flexion-extension only Improved dexterity
+(9) Thumb 5 DoF and 9 muscles 3 DoF and 3 actuators Improved dexterity
+(10) T ouch sensors Thousands in hand 16 in hand [70] Improved dexterity
+(11) Lubrication Synovial lubrication Rolling contact bearing Compact design
+(12) Actuators Highly functional Moderately functional Compact design
+Table3. Biological mechanical design strategies.
+Design strategy Examples Advantages
+Challenges for robotics
+design
+(1) Multi-DoF joints Jaw joint
+Knee joint
+Hyoid anchor point
+More compact
+Higher functionality
+More robust
+Complex control
+Precise design
+(2) Segmented joints Spinal column
+T oes
+Foot arches
+High functionality
+Morphing structures
+Reconfigurable
+Complex control
+Precise design
+(3) Linkage joints Wrist supination
+Knee 4-bar mechanism
+Ankle fibula joint
+Complex motions
+Fine-tune mechanical
+advantage
+Complex joints
+Precise design
+(4) Soft structures Elastic muscle
+Gradual muscle recruitment
+Non-rigid limbs
+T olerant of impacts
+Complex materials
+Complex control
+(5) Multi-functioning parts Muscle: actuator, protective padding
+and heater
+Mass-efficient design
+Reduced number of
+components
+Complex design
+(6) Redundant actuation Redundant DoF
+Redundant actuators
+Redundant nerves
+Robust
+Adaptable
+Complex control
+(7) High integration Soft tissue enthesis
+Embedded sensors
+Embedded nerves
+Strong connections
+Compact joints
+Faster control
+Difficult to manufacture
+(8) Advanced control Reconfigure (e.g. foot)
+Multisensory integration
+Antagonistic actuation
+Robust
+Efficient
+Accurate
+Fast processing
+Complex design
+in some cases, through ligaments reaching a limit
+of extension. Segmented joints are known to play
+a role in other animal limbs such as whale flippers
+[131]. One challenge for robotics design is mak-
+ing the connections in segmented joints.
+(3) Linkage joints
+Joints with linkage mechanisms give the possibil-
+ity for fine-tuning complex motion paths, as with
+the wrist pronation joint and knee joint. Linkage
+joints are very common in fish jaws, snake jaws
+and insect wing joints which indicates they are
+good for fine-tuning design goals such as speed
+amplification and force amplification as well as
+motion paths [ 132]. Therefore, linkage systems
+should be considered for robotic joints.
+(4) Soft structures
+As described in sections 4.2 and 5.1, the human
+musculoskeletal system has built-in compliance
+in soft tissue (ligaments, tendons and mus-
+cles) which makes joints tolerant of impacts and
+enforced displacements. Another advantage of
+soft design is that it is often inherently more
+mass efficient. The reason is that stiffness design
+involves meeting a displacement goal that often
+18
+
+===== PAGE 20 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+involves low stress levels. In contrast, strength
+design allows a structure to be designed to expe-
+rience the maximum possible level of stress, thus
+making more efficient use of material [ 133].
+The difference between stiffness design and
+strength design can be illustrated with the design
+of a rectangular cantilever beam of Y oung’s mod-
+ulus E, length L, depth d and variable width b.
+Using simple beam theory and assuming small
+deflections, the deflection, δ, of this beam for a
+given load, P ,is approximately given by:
+δ = 4PL3
+Ebd3 . (1)
+For a given load, P, the mass, m, of the rectangu-
+lar beam is therefore inversely proportional to the
+deflection as follows:
+m ∝ b ∝ 1δ . (2)
+T o minimise mass, the deflection has to be max-
+imised up to the maximum allowable stress level.
+In practice, when a beam is designed for stiff-
+ness, the deflections are relatively very small com-
+pared to strength design and hence a beam that
+is designed for stiffness can weigh several times
+that of a beam designed for strength [ 133]. One
+challenge of large deflections is that displacements
+are non-linear and can be more difficult to con-
+trol. The current trend to develop technologies for
+soft robotics has potential to help make signifi-
+cant progress in reducing the mass of humanoid
+robots.
+(5) Multifunctioning parts
+Multifunctioning is seen not just in joints but also
+in muscles, ligaments and tendons. The advantage
+of multifunctioning is that it reduces the num-
+ber of parts which has the knock-on advantage
+of reducing the number of interfaces, increasing
+compactness and lowering weight. As shown in
+section 5.1, muscles are remarkably multifunc-
+tioning. They perform the roles of (i) actuator;
+(ii) giving optimal shape to the body; (iii) forming
+protective padding at optimal places (e.g. thenar
+pad in the hands); (iv) giving a heat source for the
+blood; (v) providing energy storage and release
+during locomotion; and (vi) giving position feed-
+back. T raditional engineering actuators have not
+been multifunctional but focused on actuation.
+However, there is now progress in producing mul-
+tifunctioning actuators for robots [ 134–136].
+(6) Redundant actuation
+Human joints have redundancy in each aspect of
+actuation. There are redundant DOF in joints,
+redundant actuators and redundant neurophys-
+iological DOF with multiple motoneurons on
+the same muscle. As explained in section 5.2,
+redundant actuation has the advantage of giv-
+ing a wide range of muscle activation patterns
+for the same movement. And redundant mus-
+cles produce robustness because if one muscle
+is injured or tired, other muscle patterns can
+be adopted to make movements. But there is
+a challenge with such redundancy in that con-
+trol is open-ended with no single optimal way
+of moving joints. This approach is very differ-
+ent to traditional engineering where the goal is
+generally to pursue exact constraint design where
+each degree of freedom has one actuator. Most
+current humanoid robots follow that exact con-
+straint design approach. However, there are now
+studies on how to co-ordinate redundant DoF in
+humanoid robots [137].
+(7) High integration
+A major difference between humans and robots is
+the level of integration. The human body has very
+high levels of integration between the muscu-
+loskeletal system, nervous system and blood cir-
+culation system. Each limb contains a few dozen
+muscles with many muscles containing over a
+hundred motor units. This means there are thou-
+sands of motor units in each limb. The ner-
+vous system in each limb must have thousands
+of nerve pathways integrated into the limb mus-
+cles. Additional elements that have to be inte-
+grated are sensors and blood supply. The fact that
+biological systems are assembled, maintained and
+repaired from the bottom up makes deep integra-
+tion possible. T echnologies like additive manufac-
+ture are making it easier to achieve higher levels of
+integration [4].
+(8) Advanced control
+Processing power and complex control does not
+cost much in terms of space and mass because
+the human brain is so efficient from a compu-
+tational point of view. The computational per-
+formance (flops per kg per watt) of the human
+brain is several orders of magnitude greater than
+the best digital computers [ 138]. Therefore, it
+makes sense that the human musculoskeletal sys-
+tem makes much use of complex control methods
+that require high processing power.
+6.3.Theoriginofdesignsophisticationin
+biologicalsystems
+The human musculoskeletal system has a level of
+design sophistication far higher than the best cur-
+rent humanoid robots [ 1–3, 139]. A recent research
+paper on finger biomechanics states the following: ‘In
+the orchestra of human movement, the fingers of the
+hand perform a symphony of astonishing complexity,
+orchestrated by biomechanical engineering of preci-
+sion’ [59]. One textbook on kinesiology states that the
+structures of the foot ‘work in perfect synchronisa-
+tion’ [140].
+19
+
+===== PAGE 21 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+The extreme levels of sophistication in hands and
+feet are surprising given that evolutionary changes
+are assumed to be highly constrained to small step
+changes from one generation to the next. Steven V ogel
+has explained this apparent contradiction this way:
+‘The dazzling diversity of the living world too easily
+disguises the fact that the evolutionary process faces
+constraints far more severe than anything impeding
+human designers. ’ [141]. Some studies on complex
+biological systems point to the non-incremental ori-
+gin of design concepts. In a review of fish jaw link-
+age mechanisms, W esneat stated that some of these
+mechanisms have the appearance of sudden ‘transi-
+tions in engineering design’ [142]. In a detailed review
+of mechanical linkage mechanisms in nature, Muller
+stated that it is very difficult to postulate how com-
+plex linkage mechanisms could evolve in small steps
+[143]. In research on proteins, Miller has shown that
+many proteins have such unique structures that they
+could not have appeared by small step changes [144].
+One theory for explaining the origin of novel con-
+cepts in biological systems without relying on incre-
+mental change is that of co-option and exaptation.
+This involves existing genes and structures becom-
+ing useful for different future functions [ 145, 146].
+This can potentially explain how an organism can
+suddenly carry out a complex function that is new to
+that organism. However, co-option does not explain
+how each original concept first appeared. Another
+theory for explaining sudden innovations in nature
+is to rely on changes to Hox genes that have a role in
+specifying body plans and patterns [ 147]. However,
+body plans involve a detailed specification of many
+parameters and to change from one viable body plan
+to another viable body plan would require many
+simultaneous changes [ 148]. The extreme levels of
+design sophistication in nature have led some biolo-
+gists to argue for a review of the classical evolutionary
+assumption of incremental step changes [149, 150]. In
+addition, some scientists have argued that intelligent
+design concepts such as goal-directed design are nec-
+essary to explain the complexity of biological systems
+[151–156].
+7.Conclusions
+Current humanoid robots are far behind humans
+in terms of locomotion agility and hand dexterity.
+One of the key reasons is that the human muscu-
+loskeletal system has many types of joint with multi-
+ple DoF . This paper has described 14 different types of
+moveable joint in humans with 10 having more than
+one degree of freedom. Multiple DoF are produced
+through sophisticated design features such as linkage
+mechanisms, suspension systems and segmentation.
+A key reason for the lack of agility in humanoid robots
+is the use of stiff flat feet. T o improve locomotion
+agility, a key goal for future humanoid robots is to
+have flexible feet with actuated MTP joints. A key rea-
+son for the lack of dexterity in robot hands is the lim-
+ited DoF of the thumb and the inability to produce
+the push-retract motion. T o improve hand dexterity,
+key future goals include replicating the tendon path-
+ways of human fingers and replicating the compact
+linkage pronation mechanism of the human wrist.
+Human joints contain design strategies that are dif-
+ferent to traditional engineering such as high DoF ,
+redundant actuation and multisensory integration.
+These strategies have potential to inspire a different
+and more effective approach to the mechanical design
+of humanoid robots.
+Acknowledgment
+This work was carried out as part of a funded Visiting
+Professor Fellowship at Cambridge University in
+2021.
+Dataavailabilitystatement
+All data that support the findings of this study are
+included within the article (and any supplementary
+files).
+ORCIDiD
+Stuart C Burgess  0000-0002-2689-508X
+References
+[1] Burden S A, Libby T, Jayaram K, Sponberg S and Donela
+J M 2024 Why animals can outrun robots Sci. Robot.
+9 eadi9754
+[2] Y amane K and Murai A 2018 A comparative study between
+humans and humanoid robots Humanoid Robotics: A
+Reference ed A Goswami and P V adakkepat (Springer)
+[3] Riener R, Rabezzana L and Zimmermann Y 2023 Nov
+7 Do robots outperform humans in human-centered
+domains? Front. Robot. AI10 1223946
+[4] Kladovasilakis N, Sideridis P , Tzetzis D, Piliounis K,
+Kostavelis I and Tzovaras D 2022 Design and development
+of a multi-functional bioinspired soft robotic actuator via
+additive manufacturing Biomimetics7 105
+[5] Kashef T abrizian S, T erryn S and V anderborght B 2025
+T oward autonomous self-healing in soft robotics: a
+review and perspective for future research Adv. Intell. Syst.
+7 2400790
+[6] AI Robot Directory T esla Optimus (Gen 2) (available
+at: www.airobotslist.com/robots/tesla-optimus-gen-2)
+(Accessed 01 January 2026)
+[7] Ackerman E, Boston Dynamics introduces a fully electric
+humanoid robot that “exceeds human performance” IEEE
+Spectrum (Accessed 17 April 2024)
+[8] T urney D, Chinese scientists build world’s fastest
+humanoid robot—but it s not going to win any sprints
+just yet, Live science, Accessed: 13March 2024.
+[9] Conconi M, Sancisi N, Leardini A and Belvedere C 2024
+The foot and ankle complex as a four degrees-of-freedom
+20
+
+===== PAGE 22 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+system: kinematic coupling among the foot bones J.
+Orthop. Res.42 2761–72
+[10] Zheng Y , Zhang Y , Yu J, Guo W and Xie Y 2025 T errain-
+aware hierarchical control framework for dynamic
+locomotion of humanoid robots Electronics
+14 1264
+[11] Singh R P , Morisawa M, Benallegue M, Xie Z and Kanehiro
+F 2024 Robust humanoid walking on compliant and
+uneven terrain with deep reinforcement learning IEEE-
+RAS 23rd Int. Conf. on Humanoid Robots (Humanoids)
+pp 497–504
+[12] Boonpratatong A and Ren L 2010 The human ankle-foot
+complex as a multi-configurable mechanism during the
+stance phase of walking J. Bionic Eng.7 211–8
+[13] Zhang J, Chen X, Yu Z, Han L, Gao Z, Zhao Q, Huang G,
+Li K and Huang Q 2025 HTEC foot: a novel foot struc-
+ture for humanoid robots combining static stability and
+dynamic adaptability J. Def. Technol.44 30–51
+[14] Behling A V , Rainbow M J, W elte L and Kelly L 2023
+Chasing footprints in time—reframing our understand-
+ing of human foot function in the context of current evi-
+dence and emerging insights Biol. Rev. Camb. Philos. Soc.
+98 2136–51
+[15] Ha A, Robots run a half-marathon, slowly, T ech Crunch,
+2025 (available at: https://techcrunch.com/2025/04/
+19/robots-run-a-half-marathon-slowly/) (Accessed 01
+January 2026)
+[16] Running Level Half Marathon Run Times (available at:
+https://runninglevel.com/running-times/half-marathon-
+times) (Accessed 18 March 2026)
+[17] Ribeiro A F A, Lopes A C C, Ribeiro T A, Pereira N S S
+M, Lopes G T and Ribeiro A F M 2024 Probability-based
+strategy for a football multi-agent autonomous robot sys-
+tem Robotics13 5
+[18] Wheeler K 2025 AI magazine, AI football robots: the
+world’s first autonomous tournament
+[19] W ood J G 2010Nature’s Teachings(Cambridge University
+Press) originally published 1877
+[20] Thompson D 2010 On Growth and Form (Cambridge
+University Press)
+[21] Wainwright S A, Biggs W D, Currey J D and Gosline
+J M 1976 Mechanical Design in Organisms (Arnold)
+pp xii+425
+[22] Vincent J 2012 Structural biomaterials: Third Edition
+(Princeton University Press)
+[23] Bejan A 2000 Shape and structure, from engineering to
+nature (Cambridge University Press)
+[24] V ogel S 2013Comparative biomechanics: life’s physical
+world 2nd edn (Princeton University Press) pp 580
+[25] Wang Y , Naleway S E and Wang B 2020 Biological
+and bioinspired materials: structure leading to func-
+tional and mechanical performance Bioact. Mater.
+5 745–57
+[26] Fernandes M C, Aizenberg J, W eaver J C and Bertoldi K
+2021 Mechanically robust lattices inspired by deep-sea
+glass sponges Nat. Mater.20 237–41
+[27] Balakrishnan T S, Sultan M T H, Shahar F S, Ahmad
+K A, Dol S S and Naning F H 2025 Bio-inspired coatings
+for natural fibre composites J. Sci. Adv. Mater. Devices
+10 100841
+[28] Choi K, Lee G, Lee M-G, Hwang H J, Lee K and Lee Y
+2025 Bio-inspired ionic sensors: transforming natural
+mechanisms into sensory technologies Nano-Micro Lett.
+17 180
+[29] Ken Hub Pivot joint (available at: www.kenhub.com/en/
+library/anatomy/pivot-joint) (Accessed 1 January 2026)
+[30] T richada J, Wimonrut T, Tirasuntarakul N and
+Choopojcharoen T 2021 Design of an open source
+anthropomorphic robotic finger for telepresence robot
+Conf.: ICRSA 2021: 4th Int. Conf. on Robot Systems and
+Applications
+[31] Greiner J J, Zsidai B, Mattar L T, Rothrauff B B and
+Musahl V 2025 Anatomy and biomechanics of the knee:
+current concepts Sports Injuries ed M N Doral, J Karlsson,
+J Nyland, O Bilge and E Hamrin Senorski (Springer)
+[32] Nakashima S et al 2025 Bio-Inspired Open Knee Joint with
+Ligamentous Constraints and Antagonistic Actuation
+Biomimetic and Biohybrid Systems. Living Machines vol
+15582 ed Jiménez Rodríguez A et al (Lecture Notes in
+Computer Science) (Springer)
+[33] Liang W, Wu W, Chen W, Ren L, Wang K, Qian Z and
+Ren L 2022 A bioinspired robotic knee with controlled
+joint surfaces and adjustable ligaments Bioinspir. Biomim.
+17 066006
+[34] Soriano-valero S, Román-rodriguez J L, Agustín-panadero
+R, Bellot-arcís C, Fons-font A and Fernández-estevan L
+2020 Systematic review of chewing simulators: reality
+and reproducibility of in vitro studies J. Clin. Exp. Dent.
+12 e1189–95
+[35] Demuynck M, Delnavaz A and V oix J 2021 Human tem-
+poromandibular joint motion: a synthesis approach for
+designing a six-bar kinematic simulator ASME J. Mech.
+Robot.13 065001
+[36] Kecskemethy A and W einberg A 2005 An improved elasto-
+kinematic model of the human forearm for biofidelic
+medical diagnosis Multibody Syst. Dyn.14 1–2
+[37] Bajaj N M, Spiers A J and Dollar A M 2015 State of the art
+in prosthetic wrists: commercial and research devices IEEE
+Int. Conf. on Rehabilitation Robotics (ICORR) pp 331–8
+[38] Patel V V and Dollar A M 2025 Combining grasping and
+rotation with a spherical robot hand mechanism Nat.
+Mach. Intell.7 999–1009
+[39] Y akut Y and T uncer A 2020 Architecture of human joints
+and their movement Comparative Kinesiology of the
+Human Body (Elsevier) pp 47–57
+[40] Ken Hub Tibiofibular Joints (available at: www.kenhub.
+com/en/library/anatomy/tibiofibular-joints) (Accessed 1
+January 2026)
+[41] Baldisserri B and Parenti-Castelli V 2011 Passive motion
+modeling of the human ankle complex joint Proc. IFToMM
+2011, 13th World Congress in Mechanism and Machine
+Science
+[42] Li B, Xu G, T eng Z, Luo D, Pei J, Chen R and Zhang S
+2024 Intelligent ankle-foot prosthesis based on human
+structure and motion bionics J. Neuroeng. Rehabil.
+21 119
+[43] Ishida R, Palmer J B and Hiiemae K M 2002 Hyoid motion
+during swallowing: factors affecting forward and upward
+displacement Dysphagia17 262–72
+[44] Guo J, Low J-H, Liu J, Li Y , Liu Z and Y eow C-H 2022
+Three-dimensional printable ball joints with variable stiff-
+ness for robotic applications based on soft pneumatic elas-
+tomer actuators Polymers14 3542
+[45] Ayhan C and Ayhan E 2022 Kinesiology of the wrist and
+the hand Comparative Kinesiology of the Human Body:
+Normal and Pathological Conditions ed S Angin and
+I E Sims ¸ ek (Elsevier) pp 797–1130
+[46] He Z, Ito Y , Saito S, Narumi S, Kang Y and Shin D 2025
+Development of a cable-driven bionic spherical joint for a
+robot wrist Biomimetics10 52
+[47] Symes D, Rose M, Nunez sardinha E D, Jafari A, Hussain
+J and Etoundi A 2025 The anthro-thumb: a biomimetic
+hybrid soft robotic carpometacarpal saddle joint for the
+thumb Front. Robot. AI12 1–17
+[48] Hao T, Feng J, Ma Y , Wang Z A and Chen K 2025 Thumb-
+inspired multidirectional bending soft pneumatic actuator
+for enhanced grasping and manipulation in robotic hands
+Sensors Actuators A395 117124
+[49] Farris D J, Birch J, Kelly L, Brown A J and Ankrum J A
+2020 Foot stiffening during the push-off phase of human
+walking is linked to active muscle contraction, and not the
+windlass mechanism J. R. Soc. Interface17 1–8
+[50] V enkadesan M, Y awar A, Eng C M, Dias M A, Singh D K,
+T ommasini S M, Haims A H, Bandi M M and Mandre
+S 2020 Stiffness of the human foot and evolution of the
+transverse arch Nature579 97
+21
+
+===== PAGE 23 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+[51] Lee J and Joe H-M 2023 Design of humanoid robot foot
+to absorb ground reaction force by mimicking longitudi-
+nal arch and transverse arch of human foot Int. J. Control
+Autom. Syst.21 3519–27
+[52] Burgess S, Beeston A, Carr J, Siempou K, Simmonds M
+and Zanker Y 2023 A bio-inspired arched foot with indi-
+vidual toe joints and plantar fascia Biomimetics8 455
+[53] van Oeveren B T, de Ruiter C J, Beek P J and van Die ¨en J H
+2024 The biomechanics of running and running styles: a
+synthesis Sports Biomech.23 516–54
+[54] Ridge S T, Olsen M T, Bruening D A, Jurgensmeier K,
+Griffin D, Davis I S and Johnson A W 2019 Walking in
+minimalist shoes is effective for strengthening foot muscles
+Med. Sci. Sports Exerc.51 104–13
+[55] Doerks F , Riedel L, Einfeldt A-K, Windhagen H, Hurschler
+C and Jakubowitz E 2024 Contribution of various fore-
+foot areas to push-off peak at different speeds and slopes
+during walking Gait Posture108 264–9
+[56] Xin H and Diao H 2021 22—Computational biomechan-
+ical modelling of the spine Woodhead Publishing Series in
+Biomaterials, Computational Modelling of Biomechanics
+and Biotribology in the Musculoskeletal System 2nd edn
+edn, ed Z Jin, J Li and Z Chen (W oodhead Publishing)
+pp 577–97
+[57] Ali A R and Abdullah H S 2025 Development of a com-
+pliant spine mechanism for enhanced humanoid robotics
+locomotion Sci. Rep.15 44646
+[58] Nidhi Noble S and Sooraj V 2023 Bio-inspired skeletal
+model and kinematics of humanoid spine and ribs Proc.
+Inst. Mech. Eng. C: J. Mech. Eng. Sci.238 94–107
+[59] Bulli M, Boccolari P , Donati D and T edeschi R 2024
+Review: unravelling the mysteries of the oblique retinac-
+ular ligament: a review of its anatomy and biomechanical
+characteristics Transl. Res. Anat.35 100301
+[60] Lin Y-Y , Raj R and Juang J-Y 2025 A comprehensive review
+of dexterous robotic hands: design, implementation, and
+evaluation Bioinspir. Biomim.20 041003
+[61] Y an Y , Chen X, Cheng C and Wang Y 2022 Design, kine-
+matic modelling and evaluation of a novel soft prosthetic
+hand with abduction joints Med. Nov. Technol. Devices
+15 100151
+[62] Kim U, Jung D, Jeong H, Park J, Jung H-M, Cheong J, Choi
+H R, Do H and Park C 2021 Integrated linkage-driven
+dexterous anthropomorphic robotic hand Nat. Commun.
+12 7177
+[63] Lu Q, Zou J and Gan Z 2025 The folding hand: anthro-
+pomorphic robotic hands with a compact reconfigurable
+humanoid palm IEEE Robotics and Autom. Lett., Design
+10 9908–15
+[64] Y ang Het al 2025 A lightweight prosthetic hand with 19-
+DOF dexterity and human-level functions Nat. Commun.
+16 955
+[65] Liu X, Zheng X and Li S 2017 Development of a humanoid
+robot hand with coupling four-bar linkage Adv. Mech. Eng.
+9
+[66] Han H, Y ang Y , Yu Y , Zhou Y , Zhu X and Wang H,
+Development of a 15-degree-of-freedom bionic hand
+with cable-driven transmission and distributed actuation
+(arXiv:2512.04399)
+[67] Alves S, Babcinschi M, Silva A, Neto D, Fonseca D and
+Neto P 2023 Integrated design fabrication and control of a
+bioinspired multimaterial soft robotic hand Cyborg Bionic
+Syst.4 0051
+[68] Janghorban A and Dehghani R 2022 Design and motion
+analysis of a bio-inspired soft robotic finger based on
+multi-sectional soft reinforced actuator J. Intell. Robot.
+Syst.104 74
+[69] Dahiya R S and V alle M 2013 T ouch sensing—why and
+where? Robotic T actile Sensing(Springer)
+[70] Yin Z H, Huang B, Qin Y , Chen Q and Wang X 2023
+Rotating without seeing: towards in-hand dexterity
+through touch Robotics: Science and Systems 2023 (Daegu,
+Republic of Korea, 10–14 July 2023) pp 1–15
+[71] Ruggiero A 2020 Milestones in natural lubrication of syn-
+ovial joints Front. Mech. Eng.6 52
+[72] Guilak F 2005 The slippery slope of arthritis Arthritis
+Rheum.52 1632–3
+[73] Jay G D and Waller K A 2014 The biology of lubricin: near
+frictionless joint motion Matrix Biol.39 17–24
+[74] Li S, Macakova L, Bełdowski P , Claesson P M and
+Dėdinaitė A 2022 Phospholipids and hyaluronan: from
+molecular interactions to nano- and macroscale friction
+Colloids Interfaces6 38
+[75] Ateshian G A 2009 The role of interstitial fluid pres-
+surization in articular cartilage lubrication J. Biomech.
+42 1163–76
+[76] Lin W and Klein J 2022 Hydration lubrication in biomed-
+ical applications: from cartilage to hydrogels Acc. Mater.
+Res.3 213–23
+[77] Hu L, Y ang Y , Yu W and Xu L 2024 Hydrogels for lubri-
+cation: synthesis, properties, mechanism, and challenges
+Lubricants12 186
+[78] Li W, Lai J, Zu Y and Lai P 2022 Cartilage-inspired hydro-
+gel lubrication strategy Innovation3 100275
+[79] Zhang Z, Zhao R, Wang S and Meng J 2023 Recent
+advances in bio-inspired ionic liquid-based interfacial
+materials from preparation to application Front. Bioeng.
+Biotechnol.11 1117944
+[80] T eng J, Li B, Zhao X, Wang K, Ren L, Xie H, Wang X, Su Y
+and Ren L 2025 Bioinspired 3D braided artificial ligament
+with human-like mechanical properties and self-healing
+capability Front. Bioeng. Biotechnol.13 1701754
+[81] Lu X, Ren L, Wang K, W ei G, Qian Z, Liang W and Ren
+L 2022 Reproduction of the mechanical behavior of lig-
+ament and tendon for artificial joint using bioinspired
+3D braided fibers IEEE Trans Neural Syst Rehabil Eng.
+30 1172–80
+[82] T re ˛bacz H and Barzycka A 2023 Mechanical properties and
+functions of elastin: an overview Biomolecules13 574
+[83] Fang J et al 2024 Decoding the mechanical character-
+istics of the human anterior cruciate ligament enthe-
+ses through graduated mineralization interfaces Nat.
+Commun.15 9253
+[84] Tits A and Ruffoni D 2020 Joining soft tissues to bone:
+insights from modeling and simulations Bone Rep.
+14 100742
+[85] Abreu T, Leal R M, Leit˜ao C and Galv˜ao I 2024 Metal–
+polymer joining by additive manufacturing: effect of print-
+ing parameters and interlocking design J. Manuf. Mater.
+Process.8 228
+[86] Kraemer W J, Ratamess N A and French D N 2002
+Resistance training for health and performance Curr.
+Sports Med. Rep.1 165–71
+[87] Perera O, Liyanapathirana R, Gargiulo G and
+Gunawardana U A 2024 Review of soft robotic actua-
+tors and their applications in bioengineering, with an
+emphasis on hasel actuators’ future potential Actuators
+13 524
+[88] Jin Y , Liu S, Li J, Cao G and Liu J 2023 Mechanical
+responses of soft magnetic robots with various geo-
+metric shapes: locomotion and deformation Robotica
+41 1203–20
+[89] Moon J H, Hyeon J S, Kim S H, Kim H, Ko S H and Kim
+S J 2025 Fiber-type artificial muscles for robotic actuation
+Npj Robot.3 40
+[90] Sánchez Riera C, Lozanoska-ochser B, T esta S, Fornetti E,
+Bouché M and Madaro L 2021 Muscle diversity, hetero-
+geneity, and gradients: learning from sarcoglycanopathies
+Int. J. Mol. Sci.22 2502
+[91] Liu H, Liu R, Chen K, Liu Y , Zhao Y , Cui X and Tian Y
+2023 Bioinspired gradient structured soft actuators: from
+fabrication to application Chem. Eng. J.461 141966
+[92] Yu C, Li X, Y ang X, Qiu X, Zhang X, Chen Z and Luo Y
+2024 Dynamic covalent bonded gradient structured actu-
+ators with mechanical robustness and self-healing ability
+Small20 e2311656
+22
+
+===== PAGE 24 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+[93] W ohlgemuth R P , Sriram S, Henricson K E, Dinh D T,
+Brashear S E and Smith L R 2024 Strain-dependent
+dynamic re-alignment of collagen fibers in skeletal mus-
+cle extracellular matrix Acta Biomater.187 227–41
+[94] Qaisar R, Bhaskaran S and V an Remmen H 2016 Muscle
+fiber type diversification during exercise and regeneration
+Free Radic. Biol. Med.98 56–67
+[95] Shao Y , Zhang W, Su Y and Ding X 2021 Design and opti-
+misation of load-adaptive actuator with variable stiff-
+ness for compact ankle exoskeleton Mech. Mach. Theory
+161 104323
+[96] Dezaki M L, Bodaghi M, Serjouei A, Afazov S and
+Zolfagharian A 2022 Adaptive reversible composite-based
+shape memory alloy soft actuators Sensors Actuators A
+345 113779
+[97] Zhang T, Wang X, Chen G, Liu F , Zha F and Guo W 2025
+Walk2Run: a bio-rhythm-inspired unified control frame-
+work for humanoid robot walking and running J. Bionic
+Eng.22 2849–63
+[98] Hsu C, Jaquet V , Gencoglu M and Becskei A 2016 Protein
+dimerization generates bistability in positive feedback
+loops Cell Rep.16 1204–10
+[99] Y ang J, Pi H, Deng Z, Guo H, Shou W, Zhang H and Zeng
+H 2025 Feedback regulated opto-mechanical soft robotic
+actuators Cell Rep. Phys. Sci.6 102686
+[100] V een L V , Morra J, Palanica A and Fossat Y 2020
+Homeostasis as a proportional–integral control system
+npj Digit. Med.3 77
+[101] Gonzalez D R G, Imbiriba L A and Jandre F C 2025
+Could human balance be represented by continuous
+feedback PID or intermittent feedback control models?
+In: A B Soares, R F Leoni and G C Cardoso (eds) XXIX
+Brazilian Congress on Biomedical Engineering—V ol 2:
+Tissue Engineering, Clinical Engineering and Computational
+Modeling in Biomedical Eng. CBEB 2024. IFMBE Proc. , vol
+126. (Springer)
+[102] Gandarilla I, Santibanez V , Sandoval J and Romero J G
+2021 PID passivity-based control laws for joint position
+regulation of a self-balancing robot Control Eng. Pract.
+116 10492
+[103] Niu X, Y ao X and Dong E 2025 Design and control of bio-
+inspired joints for legged robots driven by shape memory
+alloy wires Biomimetics10 378
+[104] Ma C, Qin F , Wang B, Y ang Q, Wang Q, Charki A, Livina V
+and Sun X 2025 Design of a bio-inspired adaptive central
+pattern generator control for pneumatic muscle antagonis-
+tic joint MA TEC Web Conf.413 04002 MAIQS 2025
+[105] Henningsen H, Knecht S and Ende-henningsen B 1997
+Influence of afferent feedback on isometric fine force reso-
+lution in humans Exp. Brain Res.113 207–13
+[106] Massy-W estropp C, Massy-W estropp N and W echalekar
+H 2023 Normative values for pinch strength-relationship
+with joint hypermobility as measured with the beighton
+criteria J. Hand Surg. Glob. Online5 272–6
+[107] Marshall N J, Glaser J I, T rautmann E M, Amematsro E A,
+Perkins S M, Shadlen M N, Abbott L F , Cunningham J P
+and Churchland M M 2022 Flexible neural control of
+motor units Nat. Neurosci.25 1492–504
+[108] Chapman E M and Bryant M 2018 Bioinspired passive
+variable recruitment of fluidic artificial muscles J. Intell.
+Mater. Syst. Struct.29 3067–81
+[109] Bas O, Gorissen B, Luposchainsky S, Shabab T, Bertoldi K
+and Hutmacher D W 2021 Ultrafast, miniature soft actua-
+tors Multifunct. Mater.4 045001
+[110] Chen Z et al 2025 Bioinspired fabrication of micro- and
+nanostructured flexible sensors from surface architec-
+ture to interface engineering: a review Sensors Actuators
+A394 116931
+[111] Kavounoudias A 2018 Sensation of movement: a mul-
+timodal perception Sensation of Movement 1st edn
+(Routledge/T aylor & Francis Group) (https://doi.org/
+10.4324/9781315627618-6)
+[112] Aiello B R, Gillis G B and Fox J L 2018 sensory feedback
+and animal locomotion: perspectives from biology and
+biorobotics: an introduction to the symposium Integr.
+Comp. Biol.58 827–31
+[113] Kozma R, Kovács L, Galambos P and Rudas I J 2025
+Robotic implementation of brain-inspired multi-sensory
+integration and decision making 2025 IEEE 12th Int. Conf.
+on Computational Cybernetics and Cyber-Medical Systems
+(ICCC), Mahe Island, Beau Vallon, Seychelles pp 53–8
+[114] Lafuente-arroyo S, Maldonado-bascon S, Delgado-mena
+D, Gutiérrez-álvarez C and Acevedo-rodríguez F J 2024
+Multisensory integration for topological indoor localiza-
+tion of mobile robots in complex symmetrical environ-
+ments Expert Syst. Appl.241 122561
+[115] Zehr E P and Stein R B 1999 What functions do reflexes
+serve during human locomotion? Prog. Neurobiol.
+58 185–205
+[116] Almanzor E, Ishida M, Abdulali A and Iida F 2025
+Self-organising bio-inspired reflex circuits for robust
+motor coordination in artificial musculoskeletal systems
+Bioinspir. Biomim.20 046008
+[117] Li G and Hayashibe M 2025 Motor synergy and energy
+efficiency emerge in whole-body locomotion learning Sci.
+Rep.15 712
+[118] Singh R E, Iqbal K, White G and Hutchinson T E 2018
+A systematic review on muscle synergies: from building
+blocks of motor behavior to a neurorehabilitation tool
+Appl. Bionics Biomech.2018 1–15
+[119] Stella F , Achkar M M, Della Santina C and Hughes J 2025
+Synergy-based robotic quadruped leveraging passivity for
+natural intelligence and behavioural diversity Nat. Mach.
+Intell.7 386–99
+[120] Yu S, Nakata Y , Nakamura Y and Ishiguro H 2024 Joint
+angle synergy-based humanoid robot motion genera-
+tion with fascia-inspired nonlinear constraints Robotica
+42 2566–88
+[121] Merel J, Botvinick M and Wayne G 2019 Hierarchical
+motor control in mammals and machines Nat. Commun.
+10 5489
+[122] Purves D et al eds 2010 Neuroscience 4th edn (Sinauer
+Associates, Inc)
+[123] Wurtz T 2021 Nested information processing in the living
+world Ann. N. Y. Acad. Sci.1500 5–16
+[124] Delgado-oleas G, Romero-sorozabal P , Lora-millan J,
+Gutierrez A and Rocon E 2023 Bioinspired hierarchical
+electronic architecture for robotic locomotion assistance:
+application in exoskeletons IEEE Access11 131610–22
+[125] Sun G, Shafiee M, Li P , Bellegarda G, Ijspeert A and
+Sartoretti G 2024 Learning-based hierarchical control:
+emulating the central nervous system for bio-inspired
+legged robot locomotion 2024 IEEE/RSJ Int. Conf. on
+Intelligent Robots and Systems (IROS)
+[126] T uthill J C and Wilson R I 2016 Mechanosensation
+and adaptive motor control in insects Curr. Biol.
+26 R1022–38
+[127] Mongeau J-M, Y ang Y , Escalante I, Cowan N and Jayaram
+K 2024 Moving in an uncertain world: robust and adaptive
+control of locomotion from organisms to machine intelli-
+gence Integr. Comput. Biol.64 1390–407
+[128] Y ao C, Liu C, Xia L, Liu M and Chen Q 2022 Humanoid
+adaptive locomotion control through a bioinspired CPG-
+based controller Robotica40 762–79
+[129] Gopal B L S and Singla R 2023 Design and analysis
+of a spherical joint mechanism for robotic manipu-
+lators Advances in Engineering Design. FLAME 2022.
+Lecture Notes in Mechanical Engineering ed R Sharma,
+R Kannojiya, N Garg and S S Gautam (Springer)
+[130] Castañeda T S, Capsi-morales P , Zhang X and Piazza
+C 2024 Bio-inspired spherical joints for a soft articu-
+lated artificial hand 2024 10th IEEE RAS/EMBS Int. Conf.
+for Biomedical Robotics and Biomechatronics (Biorob) ,
+Heidelberg, Germany pp 1307–12
+23
+
+===== PAGE 25 =====
+Bioinspir. Biomim.21 (2026) 041005 S C Burgess
+[131] Burgess S C 2024 Universal optimal design in the ver-
+tebrate limb pattern and lessons for bioinspired design
+Bioinspir. Biomim.19 05100
+[132] Burgess S C 2021 A review of linkage mechanisms in
+animal joints and related bioinspired designs Bioinspir.
+Biomim.16 041001
+[133] Ashby M 1990 Material Selection in Mechanical Design
+(Pergamon)
+[134] W eng M, Ding M, Zhou P , Y e Y , Luo Z, Y e X, Guo Q and
+Chen L 2023 Multi-functional and integrated actua-
+tors made with bio-inspired cobweb carbon nanotube–
+Polymer composites Chem. Eng. J.452 139146
+[135] Lee J E, Sun Y C and Naguib H E 2025 Multifunctional
+soft actuator hybrids: a review RSC Appl. Polym.3
+767–92
+[136] He Y et al 2025 Multifunctional origami magnetic-
+responsive soft actuators with modular designs J. Mater.
+Sci. Technol.232 103–14
+[137] Morasso P 2025 Coordinating the redundant DOFs of
+humanoid robots Actuators14 354
+[138] Sterling P and Laughlin S 2015 Principles of Neural
+Design (MIT Press) (https://doi.org/10.7551/mitpress/
+9780262028707.001.0001)
+[139] Laufmann S and Glicksman H 2022 Y our Designed Body
+(Discovery Institute)
+[140] Angin S and Demirbüken I 2020 Ankle and foot com-
+plex Comparative Kinesiology of the Human Body: Normal
+and Pathological Conditions ed S Angin and I E S ¸ ims ¸ ek
+(Elsevier) pp 411–39
+[141] V ogel S 1998Cats′ Paws & Catapults—Mechanical Worlds
+of Nature & People: Hardcover (W W Norton & Co) p 23
+[142] W estneat M Wet al 2005 Local Phylogenetic Divergence and
+Global Evolutionary Convergence of Skull Function in Reef
+Fishes of the Family Labridae 272 (Proc Royal Society B) pp
+993–1000
+[143] Muller M 1996 A novel classification of planar four-bar
+linkages and its application to the mechanical analysis
+of animal systems Phil. Trans. R. Soc. Lond. B Biol. Sci.
+351 710
+[144] Miller B J and van Wijnen A 2024 A percolation theory
+analysis of continuous functional paths in protein
+sequence space affirms previous insights on the optimiza-
+tion of proteins for adaptability PLoS ONE19 e0314929
+[145] T rue J R and Carroll S B 2002 Gene co-option in physio-
+logical and morphological evolution Annu. Rev. Cell Dev.
+Biol.18 53–80
+[146] Frenkel-pinter M, Petrov A S, Matange K, T ravisano M,
+Glass J B and Williams L D 2022 Adaptation and exap-
+tation: from small molecules to feathers J. Mol. Evol.
+90 166–75
+[147] Ronshaugen M, McGinnis N and McGinnis W 2002 Hox
+protein mutation and macroevolution of the insect body
+plan Nature415 914–7
+[148] Schwabe C 1994 Theoretical limitations of molecular phy-
+logenetics and the evolution of relaxins Comp. Biochem.
+Physiol.107B 167–77
+[149] Futuyma D J 2015 Can modern evolutionary theory
+explain macroevolution? Macroevolution. Interdisciplinary
+Evolution Research vol 2, ed E Serrelli and N Gontier
+(Springer)
+[150] Shapiro J A 2021 Why the third way of evolution is neces-
+sary Theor. Biol. Forum114 13–26
+[151] Thomson W Lord Kelvin 1889 Popular Lectures and
+Addresses (Macmillan)
+[152] Gaynor F (trans. by) 1968 Max Planck, from a Lecture
+Given in 1937, Scientific Autobiography and Other Papers
+(New Y ork Philosophical Library Greenwood Press) p 184
+[153] Flemming A Evolution or Creation, Published by Marshall
+1938 (Morgan & Scott Ltd)
+[154] Lennox J 2019 Can Science Explain Everything? (The Good
+Book Company)
+[155] Meyer S 2023 Signature in the Cell (HarperOne)
+[156] Demski W 1999 The Design Inference (Cambridge
+University Press)
+24

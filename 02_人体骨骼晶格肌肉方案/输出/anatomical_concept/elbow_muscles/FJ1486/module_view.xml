@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf8'?>
+<mujoco model="FJ1486_unmounted_PSM_geometry">
+  <compiler meshdir="." angle="degree" />
+  <visual>
+    <global offwidth="1200" offheight="1000" />
+  </visual>
+  <asset>
+    <mesh name="TPU_muscle" file="TPU_muscle.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_rigid_cap" file="proximal_rigid_cap.obj" scale=".001 .001 .001" />
+    <mesh name="distal_rigid_cap" file="distal_rigid_cap.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_bolt_left" file="proximal_bolt_left.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_head_washer_left" file="proximal_head_washer_left.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_nut_washer_left" file="proximal_nut_washer_left.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_nut_left" file="proximal_nut_left.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_bolt_right" file="proximal_bolt_right.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_head_washer_right" file="proximal_head_washer_right.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_nut_washer_right" file="proximal_nut_washer_right.obj" scale=".001 .001 .001" />
+    <mesh name="proximal_nut_right" file="proximal_nut_right.obj" scale=".001 .001 .001" />
+    <mesh name="distal_bolt_left" file="distal_bolt_left.obj" scale=".001 .001 .001" />
+    <mesh name="distal_head_washer_left" file="distal_head_washer_left.obj" scale=".001 .001 .001" />
+    <mesh name="distal_nut_washer_left" file="distal_nut_washer_left.obj" scale=".001 .001 .001" />
+    <mesh name="distal_nut_left" file="distal_nut_left.obj" scale=".001 .001 .001" />
+    <mesh name="distal_bolt_right" file="distal_bolt_right.obj" scale=".001 .001 .001" />
+    <mesh name="distal_head_washer_right" file="distal_head_washer_right.obj" scale=".001 .001 .001" />
+    <mesh name="distal_nut_washer_right" file="distal_nut_washer_right.obj" scale=".001 .001 .001" />
+    <mesh name="distal_nut_right" file="distal_nut_right.obj" scale=".001 .001 .001" />
+    <mesh name="active_wire_crimp_barrel" file="active_wire_crimp_barrel.obj" scale=".001 .001 .001" />
+    <mesh name="source" file="../../assets/FJ1486.stl" scale=".001 .001 .001" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 1" dir="0 1 -1" />
+    <light pos="0 1 0" dir="0 -1 0" diffuse=".4 .4 .4" />
+    <geom name="TPU_muscle" mesh="TPU_muscle" type="mesh" rgba=".8 .12 .12 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_rigid_cap" mesh="proximal_rigid_cap" type="mesh" rgba=".2 .5 .7 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_rigid_cap" mesh="distal_rigid_cap" type="mesh" rgba=".2 .5 .7 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_bolt_left" mesh="proximal_bolt_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_head_washer_left" mesh="proximal_head_washer_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_nut_washer_left" mesh="proximal_nut_washer_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_nut_left" mesh="proximal_nut_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_bolt_right" mesh="proximal_bolt_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_head_washer_right" mesh="proximal_head_washer_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_nut_washer_right" mesh="proximal_nut_washer_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="proximal_nut_right" mesh="proximal_nut_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_bolt_left" mesh="distal_bolt_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_head_washer_left" mesh="distal_head_washer_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_nut_washer_left" mesh="distal_nut_washer_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_nut_left" mesh="distal_nut_left" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_bolt_right" mesh="distal_bolt_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_head_washer_right" mesh="distal_head_washer_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_nut_washer_right" mesh="distal_nut_washer_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="distal_nut_right" mesh="distal_nut_right" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="active_wire_crimp_barrel" mesh="active_wire_crimp_barrel" type="mesh" rgba=".55 .6 .65 1" contype="0" conaffinity="0" group="0" />
+    <geom name="source" mesh="source" type="mesh" rgba=".75 .6 .6 0" group="1" contype="0" conaffinity="0" />
+    <geom name="wire_0" type="capsule" fromto="-0.04556823536510899 -0.011835175042728322 0.1256168438192407 -0.050573202389180755 -0.011424016762937625 0.09705495918329773" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_1" type="capsule" fromto="-0.050573202389180755 -0.011424016762937625 0.09705495918329773 -0.05127344272741175 -0.010384449765317742 0.08755549248247653" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_2" type="capsule" fromto="-0.05127344272741175 -0.010384449765317742 0.08755549248247653 -0.05221172075094304 -0.009426595644133683 0.07809656140647349" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_3" type="capsule" fromto="-0.05221172075094304 -0.009426595644133683 0.07809656140647349 -0.05291432773798401 -0.008358976872621061 0.06859791323421396" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_4" type="capsule" fromto="-0.05291432773798401 -0.008358976872621061 0.06859791323421396 -0.05336000606808445 -0.0072648564864967475 0.05905462434186532" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_5" type="capsule" fromto="-0.05336000606808445 -0.0072648564864967475 0.05905462434186532 -0.054010590315758236 -0.006315020255216394 0.04954516458046866" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_6" type="capsule" fromto="-0.054010590315758236 -0.006315020255216394 0.04954516458046866 -0.055585179374632074 -0.00562068887649343 0.040193942299969775" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_7" type="capsule" fromto="-0.055585179374632074 -0.00562068887649343 0.040193942299969775 -0.05702198527845354 -0.005197838003637604 0.0308146678928164" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_8" type="capsule" fromto="-0.05702198527845354 -0.005197838003637604 0.0308146678928164 -0.057891051725511164 -0.005023442693031114 0.02133233054501791" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_9" type="capsule" fromto="-0.057891051725511164 -0.005023442693031114 0.02133233054501791 -0.05959220838216649 -0.0055997404769255275 0.011984995856457516" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_10" type="capsule" fromto="-0.05959220838216649 -0.0055997404769255275 0.011984995856457516 -0.06145236492260092 -0.006448574952317188 0.0026615998353416897" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_11" type="capsule" fromto="-0.06145236492260092 -0.006448574952317188 0.0026615998353416897 -0.06315272775738352 -0.0072489463741738525 -0.0066890995745965826" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_12" type="capsule" fromto="-0.06315272775738352 -0.0072489463741738525 -0.0066890995745965826 -0.06503964867426675 -0.007948884614462795 -0.016005662197149065" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_13" type="capsule" fromto="-0.06503964867426675 -0.007948884614462795 -0.016005662197149065 -0.06674952651914248 -0.007882790558017334 -0.025342221196800872" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_14" type="capsule" fromto="-0.06674952651914248 -0.007882790558017334 -0.025342221196800872 -0.06893582176415147 -0.007934224661555437 -0.03459698830032776" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_15" type="capsule" fromto="-0.06893582176415147 -0.007934224661555437 -0.03459698830032776 -0.07114658365085383 -0.008553149078531656 -0.04385563727676393" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_16" type="capsule" fromto="-0.07114658365085383 -0.008553149078531656 -0.04385563727676393 -0.07320209619169812 -0.00931440700571148 -0.05314353990604515" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_17" type="capsule" fromto="-0.07320209619169812 -0.00931440700571148 -0.05314353990604515 -0.07492138468726828 -0.009770697976015551 -0.06248596976942756" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_18" type="capsule" fromto="-0.07492138468726828 -0.009770697976015551 -0.06248596976942756 -0.07627641131358864 -0.009555188686818806 -0.07188255930834887" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_19" type="capsule" fromto="-0.07627641131358864 -0.009555188686818806 -0.07188255930834887 -0.07762283341263915 -0.008382697939716693 -0.08126688055758105" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+    <geom name="wire_20" type="capsule" fromto="-0.07762283341263915 -0.008382697939716693 -0.08126688055758105 -0.08055677959916399 -0.008141674120529043 -0.09801005430968553" size=".0003" rgba=".08 .08 .08 1" group="2" contype="0" conaffinity="0" />
+  </worldbody>
+</mujoco>

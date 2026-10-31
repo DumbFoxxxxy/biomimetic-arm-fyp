@@ -1,0 +1,1706 @@
+{
+  "model_name": "arm_cable_design_v5",
+  "coordinate_frame": {
+    "origin": "thorax bottom centre",
+    "x": "right",
+    "y": "up",
+    "z": "back",
+    "units": "mm"
+  },
+  "materials": {
+    "polymer_density_kg_m3": 1100.0,
+    "tpu_density_kg_m3": 1200.0,
+    "cable_diameter_mm": 1.0
+  },
+  "load_case": {
+    "gravity_m_s2": 9.81,
+    "external_payload_kg": 0.0
+  },
+  "contact": {
+    "band_mesh": "D:\\XJTLU\\PSP\\mujoco_arm\\engineering\\assets\\thorax_contact_band.stl",
+    "pad_mesh": "D:\\XJTLU\\PSP\\mujoco_arm\\engineering\\assets\\scapula_contact_pad.stl",
+    "thorax_band": {
+      "radius_mm": 400.0,
+      "x_min_mm": 55.0,
+      "x_max_mm": 140.0,
+      "y_min_mm": 60.0,
+      "y_max_mm": 280.0,
+      "thickness_mm": 5.0,
+      "x_segments": 48,
+      "y_segments": 32
+    },
+    "scapula_pad": {
+      "short_mm": 50.0,
+      "long_mm": 130.0,
+      "thickness_mm": 4.0,
+      "corner_radius_mm": 4.0,
+      "corner_segments": 4,
+      "zero_gap_mm": 0.35
+    },
+    "friction": [
+      0.2,
+      0.005,
+      0.0001
+    ],
+    "friction_sensitivity": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "condim": 3,
+    "solref": [
+      0.002,
+      1.0
+    ],
+    "solimp": [
+      0.9,
+      0.95,
+      0.001
+    ]
+  },
+  "guides": {
+    "minimum_radius_mm": 8.0,
+    "maximum_per_cable": 3,
+    "maximum_wrap_deg": 180.0,
+    "friction_coefficient": 0.05,
+    "friction_sensitivity": [
+      0.0,
+      0.05,
+      0.1
+    ]
+  },
+  "joint_limits_deg": {
+    "sc_elevation": [
+      -10.0,
+      55.0
+    ],
+    "sc_protraction": [
+      -25.0,
+      25.0
+    ],
+    "ac_ext": [
+      -35.0,
+      35.0
+    ],
+    "gh_flex": [
+      -120.0,
+      120.0
+    ],
+    "gh_abd": [
+      -120.0,
+      120.0
+    ],
+    "gh_rot": [
+      -110.0,
+      110.0
+    ],
+    "elbow": [
+      0.0,
+      145.0
+    ]
+  },
+  "acceptance": {
+    "minimum_visible_deg": 5.0,
+    "minimum_visible_mm": 5.0,
+    "cable_contraction_percent_max": 18.0,
+    "cable_clearance_mm_min": 2.0,
+    "unintended_mesh_penetration_mm_max": 0.5,
+    "tension_max_N": 150.0,
+    "action_pose_fractions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "final_pose_fractions": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "full_mesh_clearance_mm_min": -0.5,
+    "contact_penetration_mm_min": -0.5,
+    "positive_spanning_required": true,
+    "minimum_channel_count": 16,
+    "maximum_channel_count": 18
+  },
+  "simulation": {
+    "timestep_s": 0.0005,
+    "settle_steps": 1200,
+    "pose_steps": 900
+  },
+  "routes": [
+    {
+      "id": "E01",
+      "group": "elbow",
+      "role": "elbow_flexion",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 2,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            165.78039122696737,
+            147.56030325443794,
+            -12.007472474875334
+          ],
+          "local_mm": [
+            0.0034773206739768256,
+            0.014978107705772523,
+            -0.039861090483694656
+          ],
+          "installation_normal": [
+            0.000948392209281202,
+            -0.006043462214535673,
+            -0.9999812883832772
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_E01_v5",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            185.81295929577075,
+            -86.54853572408308,
+            -17.795899795621228
+          ],
+          "local_mm": [
+            0.02396058982485215,
+            0.01999368833496749,
+            -0.27394876166266713
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9962,
+            0.0872,
+            0.0
+          ],
+          "side_design": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "wrap_angle_deg": 60.0
+        },
+        {
+          "kind": "anchor",
+          "owner": "F",
+          "body": "ulna",
+          "world_mm": [
+            197.61053063255966,
+            -221.04107914880288,
+            -13.726131281232641
+          ],
+          "local_mm": [
+            0.010472619370517246,
+            0.01547432110098799,
+            -0.11953743395331727
+          ],
+          "installation_normal": [
+            0.000948392209281202,
+            -0.006043462214535673,
+            -0.9999812883832772
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_true_elbow_guide",
+      "notes": [
+        "guide omitted: bend point produces only 3.14 deg of wrap for an 8 mm guide"
+      ]
+    },
+    {
+      "id": "E02",
+      "group": "elbow",
+      "role": "elbow_extension",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 2,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            166.8494686852757,
+            147.56662519625107,
+            17.955809283650385
+          ],
+          "local_mm": [
+            0.003474915438862389,
+            -0.015004237797671575,
+            -0.039847950979870234
+          ],
+          "installation_normal": [
+            0.001209194888303503,
+            -0.009573442686825025,
+            0.9999534424376189
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_E02_v5",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            187.2503734080771,
+            -86.5712398092133,
+            22.156082374936567
+          ],
+          "local_mm": [
+            0.023969353232462874,
+            -0.019984146678812875,
+            -0.27396236224907644
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9962,
+            0.0872,
+            0.0
+          ],
+          "side_design": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "wrap_angle_deg": 60.0
+        },
+        {
+          "kind": "anchor",
+          "owner": "F",
+          "body": "ulna",
+          "world_mm": [
+            198.6637395299783,
+            -221.0379808695382,
+            16.25588019598387
+          ],
+          "local_mm": [
+            0.010453689913886021,
+            -0.014526175802061092,
+            -0.11952753210031049
+          ],
+          "installation_normal": [
+            0.001209194888303503,
+            -0.009573442686825025,
+            0.9999534424376189
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_true_elbow_guide",
+      "notes": [
+        "guide omitted: bend point produces only 3.54 deg of wrap for an 8 mm guide"
+      ]
+    },
+    {
+      "id": "G01",
+      "group": "gh",
+      "role": "gh_flexion",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            160.112249,
+            231.372473,
+            -20.089902
+          ],
+          "local_mm": [
+            0.003252248999999978,
+            0.008119901999999998,
+            -0.0018675269999999956
+          ],
+          "installation_normal": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G01_01",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            159.06,
+            187.54,
+            -8.7
+          ],
+          "world_mm": [
+            162.35604544126488,
+            186.68663202976362,
+            -16.021165403304074
+          ],
+          "local_mm": [
+            0.005496045441264869,
+            0.004051165403304074,
+            -0.046553367970236396
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9123121450645674,
+            0.0823336292545072,
+            0.4011330495751618
+          ],
+          "side_design": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ],
+          "wrap_angle_deg": 15.540207191066381
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            173.004919,
+            28.148848,
+            -7.7
+          ],
+          "local_mm": [
+            0.013944918999999998,
+            0.015,
+            -0.15939115199999998
+          ],
+          "installation_normal": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "G02",
+      "group": "gh",
+      "role": "gh_extension",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            149.63981799,
+            228.48691091,
+            26.1614323
+          ],
+          "local_mm": [
+            -0.007220182010000002,
+            -0.038131432300000004,
+            -0.004753089090000003
+          ],
+          "installation_normal": [
+            0.6555546371886055,
+            0.0,
+            0.7551477455839459
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G02_v3",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            145.38624668,
+            268.94507977,
+            -60.24791529
+          ],
+          "local_mm": [
+            -0.011473753320000014,
+            0.04827791529,
+            0.035705079769999995
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9673242597483044,
+            -0.05155615998658519,
+            0.24824531993540708
+          ],
+          "side_design": [
+            0.24456067981728036,
+            -0.06856682994877138,
+            -0.9672066292773669
+          ],
+          "wrap_angle_deg": 108.41975568589456
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            145.47739806,
+            346.931152,
+            13.82575816
+          ],
+          "local_mm": [
+            -0.013582601939999989,
+            -0.00652575816,
+            0.159391152
+          ],
+          "installation_normal": [
+            0.24456067981728039,
+            -0.06856682994877139,
+            -0.967206629277367
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v3_route_and_contraction_repaired",
+      "notes": []
+    },
+    {
+      "id": "G03",
+      "group": "gh",
+      "role": "gh_abduction",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            164.145143,
+            239.151441,
+            -18.293097
+          ],
+          "local_mm": [
+            0.007285142999999977,
+            0.006323096999999999,
+            0.0059114409999999964
+          ],
+          "installation_normal": [
+            0.22786366314529322,
+            0.2566423888240193,
+            0.9392618566069365
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G03_01",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            174.999115,
+            188.934492,
+            7.3
+          ],
+          "world_mm": [
+            173.12257752736147,
+            186.82095159145905,
+            -0.43515200367462104
+          ],
+          "local_mm": [
+            0.016262577527361457,
+            -0.011534847996325379,
+            -0.04641904840854096
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9637225442232281,
+            0.07824874363304866,
+            -0.2551783530704705
+          ],
+          "side_design": [
+            0.22786366314529322,
+            0.2566423888240193,
+            0.9392618566069365
+          ],
+          "wrap_angle_deg": 27.46156144987087
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            187.947839,
+            29.456184,
+            7.3
+          ],
+          "local_mm": [
+            0.028887838999999985,
+            -0.0,
+            -0.158083816
+          ],
+          "installation_normal": [
+            0.22786366314529322,
+            0.2566423888240193,
+            0.9392618566069365
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "G04",
+      "group": "gh",
+      "role": "gh_adduction",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            120.430022,
+            152.529889,
+            54.070958
+          ],
+          "local_mm": [
+            -0.03642997800000002,
+            -0.06604095800000001,
+            -0.08071011100000001
+          ],
+          "installation_normal": [
+            0.15737016125121725,
+            0.8864415243540796,
+            -0.4352655008711137
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G04_01",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            143.120885,
+            186.145508,
+            7.3
+          ],
+          "world_mm": [
+            140.58667317088046,
+            171.87068881585503,
+            14.309301968969585
+          ],
+          "local_mm": [
+            -0.016273326829119555,
+            -0.026279301968969583,
+            -0.06136931118414498
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            -0.8723343786698832,
+            -0.08181619327045325,
+            -0.4820153963405743
+          ],
+          "side_design": [
+            0.15737016125121725,
+            0.8864415243540796,
+            -0.4352655008711137
+          ],
+          "wrap_angle_deg": 120.42480208088934
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            158.061998,
+            26.841512,
+            7.3
+          ],
+          "local_mm": [
+            -0.0009980020000000139,
+            -0.0,
+            -0.160698488
+          ],
+          "installation_normal": [
+            0.15737016125121725,
+            0.8864415243540796,
+            -0.4352655008711137
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "G05",
+      "group": "gh",
+      "role": "gh_internal_rotation",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            108.361,
+            150.205,
+            64.547
+          ],
+          "local_mm": [
+            -0.04849900000000001,
+            -0.076517,
+            -0.083035
+          ],
+          "installation_normal": [
+            0.9000594141168948,
+            -0.19072072286087705,
+            -0.39181456957466065
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G05_01",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            175.560001,
+            128.754373,
+            -4.013708
+          ],
+          "world_mm": [
+            156.03231968054493,
+            132.89224816538282,
+            4.487097536799522
+          ],
+          "local_mm": [
+            -0.0008276803194550837,
+            -0.016457097536799522,
+            -0.1003477518346172
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.12878590661712513,
+            0.9753938900716957,
+            -0.17894398416155324
+          ],
+          "side_design": [
+            0.9000594141168948,
+            -0.19072072286087705,
+            -0.39181456957466065
+          ],
+          "wrap_angle_deg": 136.72516047292876
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            153.287325,
+            131.824865,
+            -3.306602
+          ],
+          "local_mm": [
+            -0.005772674999999993,
+            0.010606602,
+            -0.055715135000000006
+          ],
+          "installation_normal": [
+            0.9000594141168948,
+            -0.19072072286087705,
+            -0.39181456957466065
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "G06",
+      "group": "gh",
+      "role": "gh_external_rotation",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            51.104823,
+            112.862901,
+            114.241937
+          ],
+          "local_mm": [
+            -0.105755177,
+            -0.126211937,
+            -0.12037709900000002
+          ],
+          "installation_normal": [
+            0.9514000476256419,
+            -0.019125960004621207,
+            -0.3073632167840323
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G06_01",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            175.560001,
+            128.754373,
+            18.613708
+          ],
+          "world_mm": [
+            154.10361246958684,
+            129.18570998584568,
+            25.545497225504413
+          ],
+          "local_mm": [
+            -0.0027563875304131786,
+            -0.037515497225504416,
+            -0.10405429001415434
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.11996853655950374,
+            0.9422406466897129,
+            0.3127141089901812
+          ],
+          "side_design": [
+            0.9514000476256419,
+            -0.019125960004621207,
+            -0.3073632167840323
+          ],
+          "wrap_angle_deg": 138.44634370069102
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            153.287325,
+            131.824865,
+            17.906602
+          ],
+          "local_mm": [
+            -0.005772674999999993,
+            -0.010606602,
+            -0.055715135000000006
+          ],
+          "installation_normal": [
+            0.9514000476256419,
+            -0.019125960004621207,
+            -0.3073632167840323
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "S01",
+      "group": "scapula",
+      "role": "upper_scapula_pull_down_medial",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "T",
+          "body": "thorax",
+          "world_mm": [
+            60.230552338257546,
+            117.80221041541684,
+            103.56523229986027
+          ],
+          "local_mm": [
+            0.06023055233825755,
+            -0.10356523229986027,
+            0.11780221041541684
+          ],
+          "installation_normal": [
+            0.6378128201030928,
+            0.0,
+            0.7701914090095654
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            77.67431739903242,
+            273.50782212135124,
+            82.67273389523879
+          ],
+          "local_mm": [
+            -0.08589406410358329,
+            -0.09573435871532471,
+            0.040306919976226936
+          ],
+          "installation_normal": [
+            0.6556,
+            0.0,
+            0.7552
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_wrench_closure_search",
+      "notes": [],
+      "layout_source": "optimize_four_muscle.py, seed 41, four-muscle bladebone topology"
+    },
+    {
+      "id": "S02",
+      "group": "scapula",
+      "role": "upper_scapula_pull_down_lateral",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "T",
+          "body": "thorax",
+          "world_mm": [
+            85.52569067093184,
+            173.58890404443196,
+            80.72998483110943
+          ],
+          "local_mm": [
+            0.08552569067093184,
+            -0.08072998483110944,
+            0.17358890404443195
+          ],
+          "installation_normal": [
+            0.6998501452336001,
+            0.0,
+            0.7142896990832983
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            125.14602849266996,
+            231.66038436139223,
+            38.33562702328318
+          ],
+          "local_mm": [
+            -0.03682236123966199,
+            -0.05313156962158631,
+            -0.0014964385787516838
+          ],
+          "installation_normal": [
+            0.6556,
+            0.0,
+            0.7552
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_wrench_closure_search",
+      "notes": [],
+      "layout_source": "optimize_four_muscle.py, seed 41, four-muscle bladebone topology"
+    },
+    {
+      "id": "S03",
+      "group": "scapula",
+      "role": "lower_scapula_pull_up_medial",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "T",
+          "body": "thorax",
+          "world_mm": [
+            60.51792149446009,
+            267.8687198875554,
+            103.32202590032453
+          ],
+          "local_mm": [
+            0.06051792149446009,
+            -0.10332202590032454,
+            0.2678687198875554
+          ],
+          "installation_normal": [
+            0.6385152442910171,
+            0.0,
+            0.7696091753662911
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            59.02374921524088,
+            114.57527149129535,
+            108.21358649536208
+          ],
+          "local_mm": [
+            -0.10527122160280582,
+            -0.12062854161432311,
+            -0.1186413103377224
+          ],
+          "installation_normal": [
+            0.6555546371886055,
+            0.0,
+            0.7551477455839459
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_wrench_closure_search",
+      "notes": [],
+      "layout_source": "optimize_four_muscle.py, seed 41, four-muscle bladebone topology"
+    },
+    {
+      "id": "S04",
+      "group": "scapula",
+      "role": "lower_scapula_pull_up_lateral",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "T",
+          "body": "thorax",
+          "world_mm": [
+            77.13674973788974,
+            235.76707863051436,
+            88.74897219250035
+          ],
+          "local_mm": [
+            0.07713674973788974,
+            -0.08874897219250034,
+            0.23576707863051435
+          ],
+          "installation_normal": [
+            0.6792528955518348,
+            0.0,
+            0.733904287958892
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            140.6789050493412,
+            80.03552121740302,
+            23.680531136469874
+          ],
+          "local_mm": [
+            -0.02060946584897547,
+            -0.03907541775834814,
+            -0.15310682025117606
+          ],
+          "installation_normal": [
+            0.6556,
+            0.0,
+            0.7552
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v5_wrench_closure_search",
+      "notes": [],
+      "layout_source": "optimize_four_muscle.py, seed 41, four-muscle bladebone topology"
+    },
+    {
+      "id": "S05",
+      "group": "scapula",
+      "role": "auxiliary_scapula_rotation_positive",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "X",
+          "body": "world",
+          "world_mm": [
+            167.30198049,
+            214.99862049,
+            -19.18119356
+          ],
+          "local_mm": [
+            0.16730198049,
+            0.01918119356,
+            0.21499862049000001
+          ],
+          "installation_normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            127.70863289445096,
+            198.38772190405666,
+            47.75402998238002
+          ],
+          "local_mm": [
+            -0.029151367105549057,
+            -0.059724029982380016,
+            -0.03485227809594335
+          ],
+          "installation_normal": [
+            0.6555546371886055,
+            0.0,
+            0.7551477455839459
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v3_scap_int_fallback",
+      "notes": []
+    },
+    {
+      "id": "S06",
+      "group": "scapula",
+      "role": "antagonistic_scapula_rotation",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "X",
+          "body": "world",
+          "world_mm": [
+            174.80995346,
+            226.54307522,
+            64.34381392
+          ],
+          "local_mm": [
+            0.17480995346,
+            -0.06434381392,
+            0.22654307522
+          ],
+          "installation_normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            120.15616552927987,
+            199.71805089445047,
+            54.30941303903035
+          ],
+          "local_mm": [
+            -0.03670383447072014,
+            -0.06627941303903036,
+            -0.03352194910554954
+          ],
+          "installation_normal": [
+            0.6555546371886055,
+            0.0,
+            0.7551477455839459
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v3_scap_int_fallback",
+      "notes": []
+    },
+    {
+      "id": "P01",
+      "group": "pectoral",
+      "role": "pectoral_clavicular_head",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "C",
+          "body": "clavicle_body",
+          "world_mm": [
+            90.0,
+            234.0,
+            -90.7
+          ],
+          "local_mm": [
+            0.05,
+            -0.015299999999999998,
+            -0.001
+          ],
+          "installation_normal": [
+            0.43046530168733155,
+            0.8242825240699151,
+            0.3677743119851692
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_P01_01",
+          "owner": "T",
+          "body": "thorax",
+          "bend_point_mm": [
+            120.0,
+            220.0,
+            -60.0
+          ],
+          "world_mm": [
+            116.41223874543374,
+            213.12992501118666,
+            -63.06525618160872
+          ],
+          "local_mm": [
+            0.11641223874543374,
+            0.06306525618160871,
+            0.21312992501118666
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.7027323147235931,
+            -0.05035085836734914,
+            -0.7096704058257551
+          ],
+          "side_design": [
+            0.43046530168733155,
+            0.8242825240699151,
+            0.3677743119851692
+          ],
+          "wrap_angle_deg": 32.58062866468013
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            167.592161,
+            133.076376,
+            -6.705924
+          ],
+          "local_mm": [
+            0.008532161000000002,
+            0.014005924000000001,
+            -0.05446362399999998
+          ],
+          "installation_normal": [
+            0.43046530168733155,
+            0.8242825240699151,
+            0.3677743119851692
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "P02",
+      "group": "pectoral",
+      "role": "pectoral_sternocostal_head",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "T",
+          "body": "thorax",
+          "world_mm": [
+            25.0,
+            200.0,
+            -107.0
+          ],
+          "local_mm": [
+            0.025,
+            0.107,
+            0.2
+          ],
+          "installation_normal": [
+            0.6064058317426907,
+            0.7339340958985396,
+            -0.3059619422510728
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_P02_01",
+          "owner": "T",
+          "body": "thorax",
+          "bend_point_mm": [
+            120.0,
+            200.0,
+            -80.0
+          ],
+          "world_mm": [
+            114.39953210841794,
+            193.22174338791453,
+            -77.17428503499238
+          ],
+          "local_mm": [
+            0.11439953210841794,
+            0.07717428503499238,
+            0.19322174338791454
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.23163298716819825,
+            -0.5311431848604916,
+            -0.8150049548510677
+          ],
+          "side_design": [
+            0.6064058317426907,
+            0.7339340958985396,
+            -0.3059619422510728
+          ],
+          "wrap_angle_deg": 59.95500362577589
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            164.77351,
+            107.73428,
+            -7.144823
+          ],
+          "local_mm": [
+            0.005713509999999985,
+            0.014444822999999999,
+            -0.07980572
+          ],
+          "installation_normal": [
+            0.6064058317426907,
+            0.7339340958985396,
+            -0.3059619422510728
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "initial",
+      "notes": []
+    },
+    {
+      "id": "G07",
+      "group": "gh",
+      "role": "k7_gh_auxiliary",
+      "diameter_mm": 1.0,
+      "max_tension_N": 150.0,
+      "max_guides": 3,
+      "path": [
+        {
+          "kind": "anchor",
+          "owner": "S",
+          "body": "scapula",
+          "world_mm": [
+            160.112249,
+            231.372473,
+            -20.089902
+          ],
+          "local_mm": [
+            0.003252248999999978,
+            0.008119901999999998,
+            -0.0018675269999999956
+          ],
+          "installation_normal": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ]
+        },
+        {
+          "kind": "guide",
+          "name": "guide_G07_v4",
+          "owner": "S",
+          "body": "scapula",
+          "bend_point_mm": [
+            159.06,
+            187.54,
+            -8.7
+          ],
+          "world_mm": [
+            162.35604544126488,
+            186.68663202976362,
+            -16.021165403304074
+          ],
+          "local_mm": [
+            0.005496045441264869,
+            0.004051165403304074,
+            -0.046553367970236396
+          ],
+          "radius_mm": 8.0,
+          "axis_design": [
+            0.9123121450645674,
+            0.0823336292545072,
+            0.4011330495751618
+          ],
+          "side_design": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ],
+          "wrap_angle_deg": 15.540207191066381
+        },
+        {
+          "kind": "anchor",
+          "owner": "H",
+          "body": "humerus",
+          "world_mm": [
+            173.004919,
+            28.148848,
+            -7.7
+          ],
+          "local_mm": [
+            0.013944918999999998,
+            0.015,
+            -0.15939115199999998
+          ],
+          "installation_normal": [
+            -0.4082228585414691,
+            0.10569159873716343,
+            0.9067432843537437
+          ]
+        }
+      ],
+      "tpu": {
+        "enabled": true,
+        "reference_strain": 0.1,
+        "reference_force_N": 20.0,
+        "compression_force_N": 0.0
+      },
+      "status": "v4_search_initial",
+      "notes": []
+    }
+  ],
+  "schema_version": 5,
+  "zero_pose_offsets_deg": {
+    "sc_elevation": -0.0531965166947268,
+    "sc_protraction": 1.986637529225197,
+    "ac_ext": 0.06310993268654919
+  },
+  "zero_pose_limits_deg": 10.0,
+  "contact_pad_offset_mm": 0.0,
+  "contact_pad_offset_limit_mm": 10.0,
+  "max_channels": 18,
+  "channel_plan": {
+    "preferred_count": 17,
+    "minimum_count": 16,
+    "maximum_count": 18,
+    "optional_eighteenth": [
+      "G08",
+      "S07"
+    ]
+  },
+  "friction_model": {
+    "type": "per_guide_capstan",
+    "mu": 0.05,
+    "sensitivity": [
+      0.0,
+      0.05,
+      0.1
+    ],
+    "static_direction": "worst_case",
+    "dahl_dynamic": "not_applicable_to_quasistatic"
+  },
+  "positive_spanning": {
+    "mode": "hard",
+    "minimum_columns": "dofs_plus_one"
+  },
+  "tension_solver": {
+    "minimum_mandatory_tension_N": 2.0,
+    "maximum_optional_subset": 3,
+    "exact_equilibrium_relative_tolerance": 0.05,
+    "nullspace_objective": "maximize_minimum_tension_margin"
+  },
+  "path_corrections": {
+    "K6": {
+      "0.0": [
+        -3.108570704124526,
+        6.570790255720262,
+        0.7153987237163517
+      ],
+      "0.25": [
+        4.955487562471079,
+        1.2374726205971842,
+        8.506778245688274
+      ],
+      "0.5": [
+        -9.807418847765053,
+        6.153105314065623,
+        -5.040808034155653
+      ],
+      "0.75": [
+        1.1365402319415319,
+        9.642762648397532,
+        -8.28258275566797
+      ],
+      "1.0": [
+        -0.4388101337088246,
+        3.035329006300025,
+        -7.261949900492352
+      ]
+    },
+    "K7": {
+      "0.0": [
+          3.0696428757983174,
+          8.653746118705028,
+          -1.4799346589633244
+      ],
+      "0.25": [
+          3.0696428757983174,
+          8.653746118705028,
+          -1.4799346589633244
+      ],
+      "0.5": [
+          3.0696428757983174,
+          8.653746118705028,
+          -1.4799346589633244
+      ],
+      "0.75": [
+          3.0696428757983174,
+          8.653746118705028,
+          -1.4799346589633244
+      ],
+      "1.0": [
+          3.0696428757983174,
+          8.653746118705028,
+          -1.4799346589633244
+      ]
+    },
+    "SLIDE_BACK": {
+      "0.0": [
+          -0.5825353522907117,
+          8.898396984348553,
+          3.5699386998098803
+      ],
+      "0.25": [
+          -0.5825353522907117,
+          8.898396984348553,
+          3.5699386998098803
+      ],
+      "0.5": [
+          -0.5825353522907117,
+          8.898396984348553,
+          3.5699386998098803
+      ],
+      "0.75": [
+          -0.5825353522907117,
+          8.898396984348553,
+          3.5699386998098803
+      ],
+      "1.0": [
+          -0.5825353522907117,
+          8.898396984348553,
+          3.5699386998098803
+      ]
+    },
+    "SCAP_INT": {
+      "0.0": [
+        -1.2718406371947644,
+        4.752702446353128,
+        5.176315071590363
+      ],
+      "0.25": [
+        -1.2718406371947644,
+        4.752702446353128,
+        5.176315071590363
+      ],
+      "0.5": [
+        -1.2718406371947644,
+        4.752702446353128,
+        5.176315071590363
+      ],
+      "0.75": [
+        -1.2718406371947644,
+        4.752702446353128,
+        5.176315071590363
+      ],
+      "1.0": [
+        -1.2718406371947644,
+        4.752702446353128,
+        5.176315071590363
+      ]
+    }
+  },
+  "path_correction_limits_deg": 10.0,
+  "route_search": {
+    "seed": 71,
+    "G": {
+      "tangent_mm": 20.0,
+      "outward_mm": [
+        0.0,
+        10.0
+      ],
+      "guides": [
+        0,
+        1,
+        2
+      ]
+    },
+    "S": {
+      "tangent_mm": 15.0,
+      "outward_mm": [
+        0.0,
+        10.0
+      ],
+      "guides": [
+        0,
+        1,
+        2
+      ]
+    },
+    "P": {
+      "tangent_mm": 15.0,
+      "outward_mm": [
+        0.0,
+        10.0
+      ],
+      "guides": [
+        0,
+        1
+      ]
+    }
+  },
+  "optional_channels": {
+    "G08": {
+      "group": "gh",
+      "role": "v5_gh_auxiliary",
+      "allowed_actions": [
+        "K2",
+        "K3",
+        "K7"
+      ],
+      "max_guides": 2
+    },
+    "S07": {
+      "group": "scapula",
+      "role": "v5_scapula_stabilizer",
+      "allowed_actions": [
+        "K6",
+        "K7",
+        "SLIDE_BACK",
+        "SCAP_INT"
+      ],
+      "max_guides": 2
+    }
+  }
+}

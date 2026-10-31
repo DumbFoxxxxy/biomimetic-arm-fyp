@@ -1,0 +1,65 @@
+{
+  "scope": "The three hinges remain separately actuated; the hand orientation Jacobian loses a direction at the Euler/gimbal singularity. Passing a prescribed abduction path does not prove arbitrary independent orientation control at 90 deg.",
+  "rows": [
+    {
+      "gh_abduction_deg": 0.0,
+      "orientation_jacobian_singular_values": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999997
+      ],
+      "orientation_rank": 3,
+      "full_tendon_joint_jacobian_rank": 9
+    },
+    {
+      "gh_abduction_deg": 60.0,
+      "orientation_jacobian_singular_values": [
+        1.3660254037844386,
+        1.0,
+        0.3660254037844387
+      ],
+      "orientation_rank": 3,
+      "full_tendon_joint_jacobian_rank": 9
+    },
+    {
+      "gh_abduction_deg": 89.0,
+      "orientation_jacobian_singular_values": [
+        1.4141597134540327,
+        1.0,
+        0.01234118485433068
+      ],
+      "orientation_rank": 3,
+      "full_tendon_joint_jacobian_rank": 9
+    },
+    {
+      "gh_abduction_deg": 90.0,
+      "orientation_jacobian_singular_values": [
+        1.4142135623730951,
+        1.0,
+        1.2757000980418238e-16
+      ],
+      "orientation_rank": 2,
+      "full_tendon_joint_jacobian_rank": 9
+    },
+    {
+      "gh_abduction_deg": 91.0,
+      "orientation_jacobian_singular_values": [
+        1.4141597134540322,
+        1.0000000000000002,
+        0.01234118485433048
+      ],
+      "orientation_rank": 3,
+      "full_tendon_joint_jacobian_rank": 9
+    },
+    {
+      "gh_abduction_deg": 120.0,
+      "orientation_jacobian_singular_values": [
+        1.3660254037844388,
+        0.9999999999999999,
+        0.36602540378443865
+      ],
+      "orientation_rank": 3,
+      "full_tendon_joint_jacobian_rank": 9
+    }
+  ]
+}

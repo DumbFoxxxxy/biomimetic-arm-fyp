@@ -1,0 +1,1512 @@
+{
+  "architecture": "motor active wire -> fixed PSM end A -> internal lattice -> moving end C (active-wire termination); separate fixed-length passive tendon C -> entry tangent G of R8 swivelling sheave -> insertion B. A and G fixed to one bone; C is not a drilling point.",
+  "coupling": "Lp=(|AG|-s)+D(G,B,q), hence s=|AG|+D-Lp; straight axial belly-end guidance assumed, not physically validated",
+  "modules": [
+    {
+      "id": "E01",
+      "carrier": "humerus",
+      "insertion_body": "ulna",
+      "belly_fixed_eye_local_mj_mm": [
+        39.72290288864289,
+        -7.167747683252873,
+        -52.5058373015811
+      ],
+      "guide_center_local_mj_mm": [
+        48.187831743329696,
+        26.748330248821432,
+        -219.23268032702978
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        35.496079305918016,
+        29.42310980104289,
+        -39.35305995117861
+      ],
+      "belly_root_local_mj_mm": [
+        19.79900800644074,
+        -7.167702476276663,
+        -54.24894998487731
+      ],
+      "guide_root_local_mj_mm": [
+        32.9694193440377,
+        13.839919222820457,
+        -220.5641567769962
+      ],
+      "insertion_root_local_mj_mm": [
+        17.31576428821782,
+        13.836374075640057,
+        -40.94363111626345
+      ],
+      "belly_normal_local_mj": [
+        0.9961947202682495,
+        -2.2603487650485476e-06,
+        0.08715563267469406
+      ],
+      "available_AG_mm": 170.3519754744337,
+      "target_joint_index": 6,
+      "target_sign": 1,
+      "target_moment_arm_mm": 28.424297895153863,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 36,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 140.9165214275382,
+      "C_zero_local_mj_mm": [
+        46.640444974621,
+        20.548480121371462,
+        -188.75505726427846
+      ],
+      "belly_zero_length_mm": 139.21167915326862,
+      "belly_min_length_mm": 50.9503942940286,
+      "belly_max_length_mm": 139.21167915326873,
+      "reference_cell_count_15mm": 7,
+      "reference_unloaded_length_mm": 125,
+      "max_cell_shortening_fraction_required": 0.7052343400568705,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 720,
+      "operating_scenario": {
+        "cell_count": 7,
+        "nominal_mm": 125,
+        "C_neutral_mm": 139.21167915326862,
+        "C_low_mm": 98.75,
+        "C_high_mm": 146.3519754744337
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "E02",
+      "carrier": "humerus",
+      "insertion_body": "ulna",
+      "belly_fixed_eye_local_mj_mm": [
+        16.49035025251983,
+        -33.95855537262568,
+        -166.29844152121467
+      ],
+      "guide_center_local_mj_mm": [
+        33.73933240247629,
+        -33.885309390739295,
+        -262.61053842345336
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        44.21544967002329,
+        -4.48174396496224,
+        -57.9772032258725
+      ],
+      "belly_root_local_mj_mm": [
+        16.490351617119085,
+        -13.958555372625685,
+        -166.2984414869699
+      ],
+      "guide_root_local_mj_mm": [
+        32.14816995931528,
+        -13.949190311149447,
+        -262.7497252974854
+      ],
+      "insertion_root_local_mj_mm": [
+        20.306777337259618,
+        -4.481738931733068,
+        -60.06894121148346
+      ],
+      "belly_normal_local_mj": [
+        -6.822996567734663e-08,
+        -1.0,
+        -1.7122394613267033e-09
+      ],
+      "available_AG_mm": 97.84453362293468,
+      "target_joint_index": 6,
+      "target_sign": -1,
+      "target_moment_arm_mm": -23.178508755008096,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 36,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 133.1890203057349,
+      "C_zero_local_mj_mm": [
+        27.22054180424543,
+        -33.91299074688705,
+        -226.2119621872435
+      ],
+      "belly_zero_length_mm": 60.86681399145601,
+      "belly_min_length_mm": 53.445461363098815,
+      "belly_max_length_mm": 73.72130951421315,
+      "reference_cell_count_15mm": 3,
+      "reference_unloaded_length_mm": 65,
+      "max_cell_shortening_fraction_required": 0.2567675252644708,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 806,
+      "operating_scenario": {
+        "cell_count": 3,
+        "nominal_mm": 65,
+        "C_neutral_mm": 60.86681399145603,
+        "C_low_mm": 53.75,
+        "C_high_mm": 73.84453362293468
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G01",
+      "carrier": "humerus",
+      "insertion_body": "clavicle_body",
+      "belly_fixed_eye_local_mj_mm": [
+        82.0071065201544,
+        -6.358937049251178,
+        -260.4474767014393
+      ],
+      "guide_center_local_mj_mm": [
+        56.71785153382157,
+        34.86946081348218,
+        -47.22008159485917
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        114.06294058269643,
+        -80.81633709986774,
+        -31.699888681214787
+      ],
+      "belly_root_local_mj_mm": [
+        38.174545027234466,
+        -6.3608188375031,
+        -264.28234036415904
+      ],
+      "guide_root_local_mj_mm": [
+        18.7996691607747,
+        12.796725980718506,
+        -50.537584570323034
+      ],
+      "insertion_root_local_mj_mm": [
+        114.43116502470158,
+        -80.85271200035778,
+        -7.702742074769474
+      ],
+      "belly_normal_local_mj": [
+        0.99619460105896,
+        4.276791514712386e-05,
+        0.08715599030256271
+      ],
+      "available_AG_mm": 218.64411547542102,
+      "target_joint_index": 3,
+      "target_sign": 1,
+      "target_moment_arm_mm": 25.200002006955916,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 35,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 167.29887784645456,
+      "C_zero_local_mj_mm": [
+        65.8141452305806,
+        20.040015825524588,
+        -123.91585658437731
+      ],
+      "belly_zero_length_mm": 140.0,
+      "belly_min_length_mm": 111.25246966279582,
+      "belly_max_length_mm": 164.12877711106916,
+      "reference_cell_count_15mm": 8,
+      "reference_unloaded_length_mm": 140,
+      "max_cell_shortening_fraction_required": 0.23956275281003486,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 807,
+      "operating_scenario": {
+        "cell_count": 8,
+        "nominal_mm": 140,
+        "C_neutral_mm": 140.0,
+        "C_low_mm": 110.0,
+        "C_high_mm": 170.0
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G02",
+      "carrier": "humerus",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        22.040230943037127,
+        -41.95855561797551,
+        -244.1604358999496
+      ],
+      "guide_center_local_mj_mm": [
+        20.648386367476625,
+        -40.9152209384656,
+        -37.673220088948995
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        21.687501123982052,
+        -52.94148247670865,
+        -57.889726080642575
+      ],
+      "belly_root_local_mj_mm": [
+        22.040232853476223,
+        -13.958555617975513,
+        -244.16043585200688
+      ],
+      "guide_root_local_mj_mm": [
+        14.13675392500226,
+        -13.68887396886111,
+        -38.242944946756154
+      ],
+      "insertion_root_local_mj_mm": [
+        4.6347629342847885,
+        -36.24011414479947,
+        -60.393404402480954
+      ],
+      "belly_normal_local_mj": [
+        -6.822996567734663e-08,
+        -1.0,
+        -1.7122394613267033e-09
+      ],
+      "available_AG_mm": 206.49454247498824,
+      "target_joint_index": 3,
+      "target_sign": -1,
+      "target_moment_arm_mm": -28.307913495299065,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 36,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 102.60556043504826,
+      "C_zero_local_mj_mm": [
+        21.161042634984504,
+        -41.29951101794067,
+        -113.72838257225456
+      ],
+      "belly_zero_length_mm": 130.43668137124823,
+      "belly_min_length_mm": 125.44339617155299,
+      "belly_max_length_mm": 182.2485106449229,
+      "reference_cell_count_15mm": 9,
+      "reference_unloaded_length_mm": 155,
+      "max_cell_shortening_fraction_required": 0.2189378061366445,
+      "kinematic_feasible_pose_count": 784,
+      "scenario_feasible_pose_count": 784,
+      "operating_scenario": {
+        "cell_count": 9,
+        "nominal_mm": 155,
+        "C_neutral_mm": 130.43668137124823,
+        "C_low_mm": 121.25,
+        "C_high_mm": 182.49454247498824
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G03",
+      "carrier": "humerus",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        54.02853985723322,
+        -26.01167053759709,
+        -184.05315170491144
+      ],
+      "guide_center_local_mj_mm": [
+        46.55828016394961,
+        7.895399926762213,
+        -38.84488005831157
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        28.756669573784325,
+        -25.47927642297605,
+        -11.824458506980974
+      ],
+      "belly_root_local_mj_mm": [
+        30.62456913884943,
+        -10.77826447070256,
+        -186.1019402524273
+      ],
+      "guide_root_local_mj_mm": [
+        18.664830380624416,
+        7.895399039784099,
+        -41.28523941233073
+      ],
+      "insertion_root_local_mj_mm": [
+        9.096993975639794,
+        -25.47927215633495,
+        -25.590255168357928
+      ],
+      "belly_normal_local_mj": [
+        0.8358560800552368,
+        -0.5440502166748047,
+        0.07317101955413818
+      ],
+      "available_AG_mm": 149.30149484165545,
+      "target_joint_index": 4,
+      "target_sign": 1,
+      "target_moment_arm_mm": 34.07168076041658,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 77,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 106.53778652719261,
+      "C_zero_local_mj_mm": [
+        48.04282176457524,
+        1.157152700237745,
+        -67.70167070082931
+      ],
+      "belly_zero_length_mm": 119.63127061540713,
+      "belly_min_length_mm": 67.78648376197914,
+      "belly_max_length_mm": 125.07009542614965,
+      "reference_cell_count_15mm": 6,
+      "reference_unloaded_length_mm": 110,
+      "max_cell_shortening_fraction_required": 0.46903906931134287,
+      "kinematic_feasible_pose_count": 747,
+      "scenario_feasible_pose_count": 561,
+      "operating_scenario": {
+        "cell_count": 6,
+        "nominal_mm": 110,
+        "C_neutral_mm": 119.63127061540713,
+        "C_low_mm": 87.5,
+        "C_high_mm": 125.30149484165545
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G04",
+      "carrier": "humerus",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        13.041690613790145,
+        -33.95855522155762,
+        -209.3491094034896
+      ],
+      "guide_center_local_mj_mm": [
+        -22.120689708928012,
+        -27.6102130424536,
+        -45.512343239777636
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -55.9498467139895,
+        -118.72778701434322,
+        -87.43531294904935
+      ],
+      "belly_root_local_mj_mm": [
+        13.041690613790145,
+        -13.958555221557617,
+        -209.3491094034896
+      ],
+      "guide_root_local_mj_mm": [
+        -9.181117374638461,
+        -12.402037383273912,
+        -44.38148350714977
+      ],
+      "insertion_root_local_mj_mm": [
+        -71.696062534302,
+        -100.61546516070553,
+        -87.41445992879855
+      ],
+      "belly_normal_local_mj": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "available_AG_mm": 167.6877466762712,
+      "target_joint_index": 4,
+      "target_sign": -1,
+      "target_moment_arm_mm": -15.030095260554729,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 67,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 158.0170355878546,
+      "C_zero_local_mj_mm": [
+        -6.721556320490144,
+        -30.390427780882664,
+        -117.26357830776445
+      ],
+      "belly_zero_length_mm": 94.25,
+      "belly_min_length_mm": 92.82790527708738,
+      "belly_max_length_mm": 143.51518899928067,
+      "reference_cell_count_15mm": 6,
+      "reference_unloaded_length_mm": 110,
+      "max_cell_shortening_fraction_required": 0.19080105247680687,
+      "kinematic_feasible_pose_count": 690,
+      "scenario_feasible_pose_count": 619,
+      "operating_scenario": {
+        "cell_count": 6,
+        "nominal_mm": 110,
+        "C_neutral_mm": 94.25,
+        "C_low_mm": 87.5,
+        "C_high_mm": 132.5
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G05",
+      "carrier": "scapula",
+      "insertion_body": "humerus",
+      "belly_fixed_eye_local_mj_mm": [
+        -59.02644910325769,
+        -137.29654386835566,
+        -66.14689168502372
+      ],
+      "guide_center_local_mj_mm": [
+        17.91448844725533,
+        -53.13972443545629,
+        -33.393800368997475
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        39.279893059943895,
+        25.632064279272214,
+        -51.89767504305554
+      ],
+      "belly_root_local_mj_mm": [
+        -82.62438764085535,
+        -110.10946348505487,
+        -66.14587589579895
+      ],
+      "guide_root_local_mj_mm": [
+        -8.194617616587445,
+        -28.53779572451879,
+        -30.38387905666532
+      ],
+      "insertion_root_local_mj_mm": [
+        18.89432444116948,
+        13.092414315893308,
+        -53.68256426424695
+      ],
+      "belly_normal_local_mj": [
+        0.6554982662200928,
+        -0.7551966905593872,
+        -2.8216367354616523e-05
+      ],
+      "available_AG_mm": 118.63828690169765,
+      "target_joint_index": 5,
+      "target_sign": 1,
+      "target_moment_arm_mm": 17.65639801938874,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 70,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 127.87935131500466,
+      "C_zero_local_mj_mm": [
+        -5.018537463255647,
+        -78.22351704369967,
+        -43.15619105089726
+      ],
+      "belly_zero_length_mm": 83.27694358938022,
+      "belly_min_length_mm": 64.6324528903515,
+      "belly_max_length_mm": 94.63621371159654,
+      "reference_cell_count_15mm": 4,
+      "reference_unloaded_length_mm": 80,
+      "max_cell_shortening_fraction_required": 0.2561257851608083,
+      "kinematic_feasible_pose_count": 761,
+      "scenario_feasible_pose_count": 758,
+      "operating_scenario": {
+        "cell_count": 4,
+        "nominal_mm": 80,
+        "C_neutral_mm": 83.27694358938022,
+        "C_low_mm": 65.0,
+        "C_high_mm": 94.63828690169765
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "G06",
+      "carrier": "scapula",
+      "insertion_body": "humerus",
+      "belly_fixed_eye_local_mj_mm": [
+        -43.089622533188475,
+        -134.05824650736344,
+        -30.260334190766606
+      ],
+      "guide_center_local_mj_mm": [
+        33.64817657693827,
+        -69.02197254244143,
+        -54.26596858039237
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        11.960539785930244,
+        -29.958555277579762,
+        -41.302548194711335
+      ],
+      "belly_root_local_mj_mm": [
+        -71.93154529319824,
+        -100.82959355326186,
+        -30.259092670603003
+      ],
+      "guide_root_local_mj_mm": [
+        0.6864418052097562,
+        -40.23930919710452,
+        -58.857540388253696
+      ],
+      "insertion_root_local_mj_mm": [
+        11.960540877609695,
+        -13.958555277579764,
+        -41.3025481673155
+      ],
+      "belly_normal_local_mj": [
+        0.6554982662200928,
+        -0.7551966905593872,
+        -2.8216367354616523e-05
+      ],
+      "available_AG_mm": 103.41507252791995,
+      "target_joint_index": 5,
+      "target_sign": -1,
+      "target_moment_arm_mm": -17.159410555857153,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 76,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 84.3214315848854,
+      "C_zero_local_mj_mm": [
+        6.116698935245843,
+        -92.35525474922736,
+        -45.65338659163675
+      ],
+      "belly_zero_length_mm": 66.3125,
+      "belly_min_length_mm": 41.55845001940207,
+      "belly_max_length_mm": 79.11961453316692,
+      "reference_cell_count_15mm": 3,
+      "reference_unloaded_length_mm": 65,
+      "max_cell_shortening_fraction_required": 0.5209233329021762,
+      "kinematic_feasible_pose_count": 660,
+      "scenario_feasible_pose_count": 495,
+      "operating_scenario": {
+        "cell_count": 3,
+        "nominal_mm": 65,
+        "C_neutral_mm": 66.3125,
+        "C_low_mm": 53.75,
+        "C_high_mm": 76.25
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S01",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        -100.67854207628952,
+        -119.78354710938208,
+        181.16553705913208
+      ],
+      "guide_center_local_mj_mm": [
+        92.21341621686067,
+        -125.97188906288764,
+        225.83315032068734
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -81.21185699122287,
+        -130.06965962003483,
+        -73.77484470215242
+      ],
+      "belly_root_local_mj_mm": [
+        -74.12428754442917,
+        -84.69976491333716,
+        181.1655375502669
+      ],
+      "guide_root_local_mj_mm": [
+        68.633601305972,
+        -88.82364229775092,
+        225.83314893876766
+      ],
+      "insertion_root_local_mj_mm": [
+        -91.69982925074436,
+        -117.98651257108463,
+        -73.77439324027475
+      ],
+      "belly_normal_local_mj": [
+        -0.6035057902336121,
+        -0.7973586916923523,
+        -1.1162154756050313e-08
+      ],
+      "available_AG_mm": 198.09290452912182,
+      "target_joint_index": 0,
+      "target_sign": 1,
+      "target_moment_arm_mm": 63.74838065484726,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 36,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 152.26906452351193,
+      "C_zero_local_mj_mm": [
+        21.039572179030117,
+        -123.6884963857176,
+        209.35156255543438
+      ],
+      "belly_zero_length_mm": 125.0,
+      "belly_min_length_mm": 99.33824843394297,
+      "belly_max_length_mm": 127.35351830981102,
+      "reference_cell_count_15mm": 7,
+      "reference_unloaded_length_mm": 125,
+      "max_cell_shortening_fraction_required": 0.24439763396244796,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 807,
+      "operating_scenario": {
+        "cell_count": 7,
+        "nominal_mm": 125,
+        "C_neutral_mm": 125.0,
+        "C_low_mm": 98.75,
+        "C_high_mm": 151.25
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S02",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        136.67592123290513,
+        -74.5878277194866,
+        4.435768882175833
+      ],
+      "guide_center_local_mj_mm": [
+        77.82579243719843,
+        -125.62887691198576,
+        103.13599843955978
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -29.103177375756587,
+        -92.78743609628438,
+        -12.341921985824568
+      ],
+      "belly_root_local_mj_mm": [
+        108.59231451293442,
+        -52.064262427128206,
+        4.435768882175833
+      ],
+      "guide_root_local_mj_mm": [
+        58.533218508365415,
+        -95.23485492407072,
+        103.1359976113884
+      ],
+      "insertion_root_local_mj_mm": [
+        -39.59114772792944,
+        -80.70428809365987,
+        -12.341470333724258
+      ],
+      "belly_normal_local_mj": [
+        0.7801001667976379,
+        -0.6256545782089233,
+        0.0
+      ],
+      "available_AG_mm": 125.73886303216948,
+      "target_joint_index": 0,
+      "target_sign": -1,
+      "target_moment_arm_mm": -80.0487273992489,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 73,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 193.94176339174425,
+      "C_zero_local_mj_mm": [
+        104.14752187673159,
+        -102.7998922581259,
+        58.99062796725587
+      ],
+      "belly_zero_length_mm": 69.5,
+      "belly_min_length_mm": 67.44004770367951,
+      "belly_max_length_mm": 101.39079321350783,
+      "reference_cell_count_15mm": 4,
+      "reference_unloaded_length_mm": 80,
+      "max_cell_shortening_fraction_required": 0.20933253827200815,
+      "kinematic_feasible_pose_count": 777,
+      "scenario_feasible_pose_count": 767,
+      "operating_scenario": {
+        "cell_count": 4,
+        "nominal_mm": 80,
+        "C_neutral_mm": 69.5,
+        "C_low_mm": 65.0,
+        "C_high_mm": 95.0
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S03",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        30.467925250171074,
+        101.58859100235293,
+        324.0
+      ],
+      "guide_center_local_mj_mm": [
+        122.85684387232115,
+        -30.660491110348808,
+        324.0
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -51.19181332755586,
+        -114.60748052691001,
+        -34.78909368861562
+      ],
+      "belly_root_local_mj_mm": [
+        30.467925250171074,
+        101.58859100235293,
+        280.0
+      ],
+      "guide_root_local_mj_mm": [
+        122.85684387232115,
+        -30.660491110348808,
+        280.0
+      ],
+      "insertion_root_local_mj_mm": [
+        -66.92377171683809,
+        -96.4827589998104,
+        -34.78841649579911
+      ],
+      "belly_normal_local_mj": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "available_AG_mm": 161.3243069218721,
+      "target_joint_index": 1,
+      "target_sign": 1,
+      "target_moment_arm_mm": 60.45892124478891,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 78,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 183.69373775199472,
+      "C_zero_local_mj_mm": [
+        102.48377170511242,
+        -1.4976852878415627,
+        324.0
+      ],
+      "belly_zero_length_mm": 125.75,
+      "belly_min_length_mm": 83.4531923661325,
+      "belly_max_length_mm": 134.58937413737982,
+      "reference_cell_count_15mm": 6,
+      "reference_unloaded_length_mm": 110,
+      "max_cell_shortening_fraction_required": 0.29496452926519445,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 797,
+      "operating_scenario": {
+        "cell_count": 6,
+        "nominal_mm": 110,
+        "C_neutral_mm": 125.75,
+        "C_low_mm": 87.5,
+        "C_high_mm": 132.5
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S04",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        -24.301687787847545,
+        -68.60232982965171,
+        316.00000000000006
+      ],
+      "guide_center_local_mj_mm": [
+        122.85684387232115,
+        -30.660491110348808,
+        316.0
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        13.149578812569267,
+        -50.40945870989235,
+        -58.415340911704504
+      ],
+      "belly_root_local_mj_mm": [
+        -24.301687787847545,
+        -68.60232982965171,
+        280.00000000000006
+      ],
+      "guide_root_local_mj_mm": [
+        122.85684387232115,
+        -30.660491110348808,
+        280.0
+      ],
+      "insertion_root_local_mj_mm": [
+        1.372495415657645,
+        -39.844647957023696,
+        -60.79967833693644
+      ],
+      "belly_normal_local_mj": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "available_AG_mm": 151.97110437770223,
+      "target_joint_index": 1,
+      "target_sign": -1,
+      "target_moment_arm_mm": -32.14718224956341,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 75,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 181.765276878517,
+      "C_zero_local_mj_mm": [
+        93.7384465151553,
+        -38.16807849808842,
+        316.0
+      ],
+      "belly_zero_length_mm": 121.9004387210469,
+      "belly_min_length_mm": 73.0361438748676,
+      "belly_max_length_mm": 127.67564624081012,
+      "reference_cell_count_15mm": 6,
+      "reference_unloaded_length_mm": 110,
+      "max_cell_shortening_fraction_required": 0.41070951250147103,
+      "kinematic_feasible_pose_count": 803,
+      "scenario_feasible_pose_count": 781,
+      "operating_scenario": {
+        "cell_count": 6,
+        "nominal_mm": 110,
+        "C_neutral_mm": 121.9004387210469,
+        "C_low_mm": 87.5,
+        "C_high_mm": 127.97110437770223
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S05",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        11.327360779836063,
+        -149.63476608857297,
+        53.0929118271681
+      ],
+      "guide_center_local_mj_mm": [
+        160.84470759237573,
+        -55.00938378938443,
+        170.17599027083884
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -16.194493631931042,
+        -84.21260992290969,
+        -46.87037942734389
+      ],
+      "belly_root_local_mj_mm": [
+        7.968197972371462,
+        -105.7631802426257,
+        53.09291063176226
+      ],
+      "guide_root_local_mj_mm": [
+        124.37310419882104,
+        -30.395927063310207,
+        170.17599010317298
+      ],
+      "insertion_root_local_mj_mm": [
+        -31.940709452243542,
+        -66.100288069272,
+        -46.849526407093094
+      ],
+      "belly_normal_local_mj": [
+        0.07634460926055908,
+        -0.997081458568573,
+        2.716831382088003e-08
+      ],
+      "available_AG_mm": 212.17409651268838,
+      "target_joint_index": 2,
+      "target_sign": 1,
+      "target_moment_arm_mm": 55.87896614578056,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 75,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 105.83383613199936,
+      "C_zero_local_mj_mm": [
+        116.22509769988415,
+        -83.24789747443043,
+        135.23555428438087
+      ],
+      "belly_zero_length_mm": 148.85618981148394,
+      "belly_min_length_mm": 130.99996125350174,
+      "belly_max_length_mm": 186.49793596750277,
+      "reference_cell_count_15mm": 9,
+      "reference_unloaded_length_mm": 155,
+      "max_cell_shortening_fraction_required": 0.177778064788876,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 807,
+      "operating_scenario": {
+        "cell_count": 9,
+        "nominal_mm": 155,
+        "C_neutral_mm": 148.85618981148394,
+        "C_low_mm": 121.25,
+        "C_high_mm": 188.17409651268838
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "S06",
+      "carrier": "thorax",
+      "insertion_body": "scapula",
+      "belly_fixed_eye_local_mj_mm": [
+        -38.21262326363698,
+        43.177019234363954,
+        300.0
+      ],
+      "guide_center_local_mj_mm": [
+        126.06663005680363,
+        -19.811061175104772,
+        299.99999999999994
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -25.125983194844594,
+        -91.98327770447648,
+        -21.156022109222956
+      ],
+      "belly_root_local_mj_mm": [
+        -38.21262326363698,
+        43.177019234363954,
+        280.0
+      ],
+      "guide_root_local_mj_mm": [
+        126.06663005680363,
+        -19.811061175104772,
+        279.99999999999994
+      ],
+      "insertion_root_local_mj_mm": [
+        -40.85794158412682,
+        -73.85855617737687,
+        -21.155344916406445
+      ],
+      "belly_normal_local_mj": [
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "available_AG_mm": 175.94081773480306,
+      "target_joint_index": 2,
+      "target_sign": -1,
+      "target_moment_arm_mm": -21.322769651267098,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 79,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 143.77107159566037,
+      "C_zero_local_mj_mm": [
+        94.22955609064175,
+        -7.604065255351031,
+        299.99999999999994
+      ],
+      "belly_zero_length_mm": 141.84375,
+      "belly_min_length_mm": 100.05690211101512,
+      "belly_max_length_mm": 151.49237672061435,
+      "reference_cell_count_15mm": 7,
+      "reference_unloaded_length_mm": 125,
+      "max_cell_shortening_fraction_required": 0.23755331322842743,
+      "kinematic_feasible_pose_count": 807,
+      "scenario_feasible_pose_count": 806,
+      "operating_scenario": {
+        "cell_count": 7,
+        "nominal_mm": 125,
+        "C_neutral_mm": 141.84375,
+        "C_low_mm": 98.75,
+        "C_high_mm": 151.25
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "P01",
+      "carrier": "thorax",
+      "insertion_body": "humerus",
+      "belly_fixed_eye_local_mj_mm": [
+        90.36707381979812,
+        113.00841224142331,
+        141.4046040811152
+      ],
+      "guide_center_local_mj_mm": [
+        136.88528063140393,
+        77.76657737788535,
+        241.00333992471764
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        22.08282321720966,
+        21.926928281357103,
+        -64.76182039609688
+      ],
+      "belly_root_local_mj_mm": [
+        77.10048179404129,
+        88.35080611654539,
+        141.40460319984524
+      ],
+      "guide_root_local_mj_mm": [
+        116.44511415801526,
+        58.63023628291465,
+        241.00333992471764
+      ],
+      "insertion_root_local_mj_mm": [
+        18.127927959259832,
+        14.981543302109056,
+        -65.10885964861649
+      ],
+      "belly_normal_local_mj": [
+        0.47380685806274414,
+        0.880628764629364,
+        3.147392746427613e-08
+      ],
+      "available_AG_mm": 115.43759643703565,
+      "target_joint_index": 3,
+      "target_sign": 1,
+      "target_moment_arm_mm": 46.02524692012797,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 76,
+      "coarse_pose_count": 79,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 178.90525222077355,
+      "C_zero_local_mj_mm": [
+        125.61588971865153,
+        86.304181055695,
+        216.87478541737818
+      ],
+      "belly_zero_length_mm": 87.47195697148032,
+      "belly_min_length_mm": 21.045475280460806,
+      "belly_max_length_mm": 91.42713902835095,
+      "reference_cell_count_15mm": 4,
+      "reference_unloaded_length_mm": 80,
+      "max_cell_shortening_fraction_required": 0.9825754119923199,
+      "kinematic_feasible_pose_count": 706,
+      "scenario_feasible_pose_count": 497,
+      "operating_scenario": {
+        "cell_count": 4,
+        "nominal_mm": 80,
+        "C_neutral_mm": 87.47195697148031,
+        "C_low_mm": 65.0,
+        "C_high_mm": 91.43759643703565
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    },
+    {
+      "id": "P02",
+      "carrier": "thorax",
+      "insertion_body": "humerus",
+      "belly_fixed_eye_local_mj_mm": [
+        -9.773063193217803,
+        141.61769819561508,
+        74.54264893383315
+      ],
+      "guide_center_local_mj_mm": [
+        125.79192257262262,
+        99.43540663906406,
+        223.85510178910718
+      ],
+      "guide_coordinate_semantics": "fixed incoming tangent/pivot G, not sheave center; R8 sheave center swivels around incoming A-G axis",
+      "insertion_eye_local_mj_mm": [
+        -0.03981016067649912,
+        24.041444778442383,
+        -81.22695161389284
+      ],
+      "belly_root_local_mj_mm": [
+        -8.27682162369876,
+        105.64880323711898,
+        74.54264991144207
+      ],
+      "guide_root_local_mj_mm": [
+        102.50573444701227,
+        71.98083396145175,
+        223.85510178910718
+      ],
+      "insertion_root_local_mj_mm": [
+        -0.03981016067649912,
+        16.041444778442383,
+        -81.22695161389284
+      ],
+      "belly_normal_local_mj": [
+        -0.041562266647815704,
+        0.9991359710693359,
+        -2.7155804716016974e-08
+      ],
+      "available_AG_mm": 206.03742297047114,
+      "target_joint_index": 3,
+      "target_sign": 1,
+      "target_moment_arm_mm": 63.072598091075044,
+      "target_direction_screen_pass": true,
+      "coarse_steel_zero_clear": true,
+      "coarse_steel_clear_poses": 35,
+      "coarse_pose_count": 36,
+      "belly_pose_solved": true,
+      "TPU_volume_verified": false,
+      "hardware_verified": false,
+      "frozen": false,
+      "passive_tendon_fixed_length_mm": 188.55259394425826,
+      "C_zero_local_mj_mm": [
+        104.00143173308362,
+        106.2157181816143,
+        199.85486590377445
+      ],
+      "belly_zero_length_mm": 172.91930952490048,
+      "belly_min_length_mm": 56.68437314921442,
+      "belly_max_length_mm": 181.9090099181587,
+      "reference_cell_count_15mm": 9,
+      "reference_unloaded_length_mm": 155,
+      "max_cell_shortening_fraction_required": 0.7282639025984117,
+      "kinematic_feasible_pose_count": 770,
+      "scenario_feasible_pose_count": 696,
+      "operating_scenario": {
+        "cell_count": 9,
+        "nominal_mm": 155,
+        "C_neutral_mm": 172.91930952490048,
+        "C_low_mm": 121.25,
+        "C_high_mm": 182.03742297047114
+      },
+      "pose_count": 807,
+      "actual_TPU_capability_verified": false
+    }
+  ],
+  "action_slices": {
+    "K1": [
+      0,
+      146
+    ],
+    "K2": [
+      146,
+      261
+    ],
+    "K3": [
+      261,
+      382
+    ],
+    "K4": [
+      382,
+      453
+    ],
+    "K5": [
+      453,
+      544
+    ],
+    "K6": [
+      544,
+      585
+    ],
+    "K7": [
+      585,
+      746
+    ],
+    "SLIDE_FWD": [
+      746,
+      753
+    ],
+    "SLIDE_BACK": [
+      753,
+      756
+    ],
+    "SCAP_EXT": [
+      756,
+      777
+    ],
+    "SCAP_INT": [
+      777,
+      781
+    ],
+    "PECTORAL": [
+      781,
+      807
+    ]
+  },
+  "zero_pose_geometric_rank": 7,
+  "zero_pose_direction_cone": [
+    {
+      "joint": "sc_elevation",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "sc_elevation",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "sc_protraction",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "sc_protraction",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "ac_ext",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "ac_ext",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_flex",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_flex",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_abd",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_abd",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_rot",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "gh_rot",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "elbow",
+      "sign": -1,
+      "geometric_pull_direction_exists": true
+    },
+    {
+      "joint": "elbow",
+      "sign": 1,
+      "geometric_pull_direction_exists": true
+    }
+  ],
+  "zero_pose_effective_moment_arms_mm": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      28.424297899224975
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -23.178508746865877
+    ],
+    [
+      0.0,
+      0.0,
+      14.287277877000827,
+      25.200002011027024,
+      7.761052581567133,
+      -21.25352565993255,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -28.307913496316843,
+      18.10601756652482,
+      -6.51503071187912,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.11209855916598431,
+      34.07168076041658,
+      6.835602687813876,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -31.711206999068658,
+      -15.030095252412508,
+      -12.530646416369358,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -15.27186723451893,
+      17.352031047924907,
+      17.65639801938874,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -34.15159149350409,
+      33.64305807705672,
+      -17.159410563999373,
+      0.0
+    ],
+    [
+      63.74838065077615,
+      89.90128878493525,
+      45.829427942174796,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      -80.04872739110668,
+      -104.49228210924119,
+      -15.452158534855041,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      62.528698341636066,
+      60.45892124478891,
+      -16.02017645181688,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      107.73971636684905,
+      -32.14718224956341,
+      -20.184238312411466,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      31.37467847239914,
+      202.3710487758914,
+      55.8789661396739,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      76.73732470226109,
+      51.268688438412255,
+      -21.322769647195987,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      95.34191567596164,
+      32.18839784143638,
+      19.22448621478749,
+      46.02524692012797,
+      2.7027329717491706,
+      -10.43727993219179,
+      0.0
+    ],
+    [
+      77.55240477671104,
+      48.04400245645485,
+      17.388504993563224,
+      63.07259808293282,
+      -13.59502869515847,
+      1.5099202572513508,
+      0.0
+    ]
+  ],
+  "joint_names": [
+    "sc_elevation",
+    "sc_protraction",
+    "ac_ext",
+    "gh_flex",
+    "gh_abd",
+    "gh_rot",
+    "elbow"
+  ],
+  "TPU_envelope_scenario_mm": [
+    14,
+    34
+  ],
+  "planning_strain_scenario": {
+    "cell_compression_fraction": 0.25,
+    "cell_extension_fraction": 0.25,
+    "physically_calibrated": false,
+    "extension_assay_available": false
+  },
+  "TPU_envelope_calibrated": false,
+  "frozen": false
+}

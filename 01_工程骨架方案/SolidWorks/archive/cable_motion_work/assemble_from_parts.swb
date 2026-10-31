@@ -1,0 +1,154 @@
+Dim swApp As Object
+Dim reportPath As String
+Dim root As String
+
+Sub main()
+    Dim templ As String
+    Dim asm As Object
+    Dim c As Object
+    Dim xf As Object
+    Dim savePath As String
+    Dim ok As Boolean
+    Dim errs As Long
+    Dim warns As Long
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\assemble_from_parts.txt"
+    ResetFile reportPath
+
+    templ = "C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2026\templates\gb_assembly.asmdot"
+    WriteLine reportPath, "template|" & templ
+    If Len(templ) = 0 Then
+        WriteLine reportPath, "ERROR|no_assembly_template"
+        swApp.ExitApp
+        Exit Sub
+    End If
+
+    Set asm = swApp.NewDocument(templ, 0, 0, 0)
+    If asm Is Nothing Then
+        WriteLine reportPath, "ERROR|new_assembly"
+        swApp.ExitApp
+        Exit Sub
+    End If
+    On Error Resume Next
+    WriteLine reportPath, "doctype|" & CStr(asm.GetType) & "|" & SafeStr(asm.GetTitle) & "|" & SafeStr(asm.GetPathName)
+    On Error GoTo 0
+    Dim actErr As Long
+    swApp.ActivateDoc3 asm.GetTitle(), False, 0, actErr
+    savePath = root & "\arm_zero.SLDASM"
+    ok = asm.SaveAs3(savePath, 0, 0)
+    WriteLine reportPath, "initial_save|" & CStr(ok)
+
+    AddPart asm, root & "\Thorax.SLDPRT"
+    AddPart asm, root & "\universal_joint_pin.SLDPRT"
+    AddPart asm, root & "\clavicle.SLDPRT"
+    AddPart asm, root & "\scapula.SLDPRT"
+    AddPart asm, root & "\humerus.SLDPRT"
+
+    Dim comps As Variant
+    Dim i As Long
+    comps = asm.GetComponents(False)
+    If Not IsEmpty(comps) Then
+        For i = LBound(comps) To UBound(comps)
+            Set c = comps(i)
+            WriteLine reportPath, "comp|" & SafeStr(c.Name2) & "|" & SafeStr(c.GetPathName())
+            If InStr(1, SafeStr(c.Name2), "humerus", vbTextCompare) = 1 Then
+                c.SetXform HumerusTransform()
+            End If
+        Next i
+    End If
+
+    asm.EditRebuild3
+    ok = asm.SaveAs3(savePath, 0, 0)
+    WriteLine reportPath, "save|" & savePath & "|" & CStr(ok)
+
+    comps = asm.GetComponents(False)
+    If Not IsEmpty(comps) Then
+        For i = LBound(comps) To UBound(comps)
+            Set c = comps(i)
+            WriteLine reportPath, "after|" & SafeStr(c.Name2) & "|" & TransformText(c)
+        Next i
+    End If
+
+    swApp.CloseDoc asm.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Sub AddPart(asm As Object, path As String)
+    Dim c As Object
+    Dim comps As Variant
+    Dim n As Long
+    n = 0
+    Set c = Nothing
+    On Error Resume Next
+    Set c = asm.AddComponent5(path, 0, "", False, "", 0#, 0#, 0#)
+    WriteLine reportPath, "try5|" & path & "|" & CStr(Err.Number) & "|" & SafeStr(Err.Description)
+    On Error GoTo 0
+    asm.EditRebuild3
+    comps = asm.GetComponents(False)
+    If IsEmpty(comps) Then
+        n = 0
+    Else
+        n = UBound(comps) - LBound(comps) + 1
+    End If
+    WriteLine reportPath, "component_count|" & CStr(n)
+    If n = 0 Then
+        WriteLine reportPath, "ERROR|add_component|" & path
+    Else
+        WriteLine reportPath, "added|" & path
+    End If
+End Sub
+
+Function HumerusTransform() As Variant
+    HumerusTransform = Array( _
+        0.0871557427476582, 0.9961946980917455, 0#, _
+        -0.9961946980917455, 0.0871557427476582, 0#, _
+        0#, 0#, 1#, _
+        -0.0416293461215685, 0.3296495406835773, 0#, _
+        1#, 0#, 0#, 0#)
+End Function
+
+Function TransformText(c As Object) As String
+    Dim xf As Object
+    Dim vals As Variant
+    Dim j As Long
+    Dim s As String
+    s = ""
+    On Error Resume Next
+    Set xf = c.Transform2
+    If Not xf Is Nothing Then vals = xf.ArrayData
+    On Error GoTo 0
+    If IsArray(vals) Then
+        For j = LBound(vals) To UBound(vals)
+            s = s & "|" & CStr(vals(j))
+        Next j
+    Else
+        s = "|NODATA"
+    End If
+    TransformText = s
+End Function
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function

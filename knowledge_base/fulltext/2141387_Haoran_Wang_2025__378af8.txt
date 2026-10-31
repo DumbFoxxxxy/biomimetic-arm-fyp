@@ -1,0 +1,978 @@
+===== PAGE 1 =====
+ 
+ 
+ 
+ 
+SCHOOL OF ADVANCED TECHNOLOGY 
+SAT301 FINAL YEAR PROJECT 
+ 
+ 
+Design of a highly biomimetic humanoid robotic 
+arm driven by biomimetic muscles structure 
+ 
+Final Thesis 
+ 
+ 
+ 
+ 
+In Partial Fulfillment 
+of the Requirements for the Degree of 
+Bachelor of Engineering 
+ 
+ 
+ 
+Student Name : Haoran Wang 
+Student ID : 2141387 
+Supervisor : Quan Zhang 
+Assessor : Pengfei Song 
+ 
+
+===== PAGE 2 =====
+Abstract
+In the fields of robotics and biomechanics, exploring artificial muscle structures that
+simulate the functions of human muscles has always been an important research direc-
+tion. However, the existing humanoid robots often fail to get closer to human mobility
+and simulate the performance of human muscles. To solve this problem, we propose
+a method for designing artificial upper limb models inspired by the contraction mech-
+anism of human muscles. This model consists of an upper limb skeletal model and a
+lattice muscle biomimetic structure, including models of the left upper limb and chest
+of the human body, as well as biomimetic muscle structure models of muscles such as
+the biceps brachii, triceps brachii and deltoid. The electronic control system struc-
+turally controls the bionic muscles through a stepper motor and a spiral slide table in a
+linear drive mode. The innovation of this muscle bionic structure lies in the combina-
+tion of the linear drive mechanism, the X-lattice elastic structure and the TPU flexible
+material, and simulates the muscle contraction effect by designing the deformation of
+the X-lattice. Its internal pattern structure has been specially designed and exhibits
+unique performance at different deformation stages. The characteristics in the X, Y,
+and Z directions ensure the effectiveness of the structure. Furthermore, in this study,
+polynomial fitting of the upper limb model was used to examine the relationship be-
+tween the motor mechanisms driving various muscle groups in different postures. The
+results show that the musculoskeletal robotic arm can basically reproduce the activities
+of the human arm. In conclusion, this research provides a new approach for the design
+of artificial upper limb models. Future work will focus on optimizing the modeling and
+control of different muscle groups in the human body, seeking materials with better
+performance, aiming to enhance the flexibility and adaptability of robots and expand
+their applications in areas such as assistance and rehabilitation.
+KEY WORDS : Biomimetic, Robotic Arm, Humanoid, Cable-Driven
+i
+
+===== PAGE 3 =====
+Acknowledgements
+As I reach the completion of this thesis, I look back on my academic journey with a
+heart full of gratitude. Every bit of growth and achievement I’ve attained is inseparable
+from the wholehearted support of numerous teachers, classmates, and family members.
+They are like twinkling stars, illuminating my path forward.
+First and foremost, I would like to express my most sincere gratitude to my supervisor,
+Professor Quan Zhang. On the road of exploring the fields of robotics and mechanical
+engineering, Professor Zhang is undoubtedly my academic guide. Over the past four
+years, with his profound knowledge and keen academic insights, he has ignited my
+passion for the major and guided me to continuously explore in the ocean of scien-
+tific research. Whether it was confusion in academics or diﬀiculties in life, Professor
+Zhang has always patiently provided answers and meticulous care. He generously of-
+fered me abundant learning opportunities, helping me enhance myself, and also gave
+strong support in terms of research funds, allowing me to focus on my studies without
+distractions. Professor Zhang’s rigorous academic attitude and pursuit of excellence
+have been deeply engraved in my heart and will serve as a benchmark for my future
+endeavors.
+I am also very grateful to Dr.Qilei Sun. Dr.Sun, with her profound professional knowl-
+edge reserve and unique academic insights, gave me meticulous guidance in my research
+direction. From the inspiration of ideas when choosing the topic for the thesis, to the
+optimization of the experimental plan and the methods of data analysis during the
+research process, and then to the logical organization and sentence refinement when
+writing the thesis, she has spared no effort and provided guidance without reserva-
+tion. She also often shares the latest academic developments and industry trends,
+broadening my academic horizons and giving me a deeper understanding of the field
+of robotics. Under her care and guidance, I not only mastered solid scientific research
+skills, but also cultivated the ability of independent thinking and problem-solving,
+which strengthened my determination to delve deeply into the professional field.
+During my study, seniors like Tianyi Xiang, Ruidan Xu and Bowen Gu from the class
+of 2020 have provided me with selfless help and care. At crucial moments during
+ii
+
+===== PAGE 4 =====
+School of Advanced Technology
+experiments, they unreservedly shared their experiences, and when I encountered bot-
+tlenecks in thesis writing, they patiently offered suggestions. Their enthusiasm and
+sincerity not only enabled me to complete my studies smoothly but also made me
+feel the warmth and strength of academic inheritance. This friendship will be forever
+etched in my memory.
+The time spent working hand in hand with the students of the class of 2021 and
+colleagues from IR504 was equally unforgettable. Through countless topic discussions
+and experimental operations, we helped each other and made progress together. Those
+days and nights of striving for my dreams and the sparks of intellectual collisions have
+formed the most precious memories of my college days.
+Finally, I want to express my deepest gratitude to my parents, Mr. Haizhi Wang and
+Mrs. Min Chen. They have shielded me from the storms of life with their selfless love.
+At every stage of my growth, they have silently offered support and encouragement.
+Although they may not be eloquent, every concerned look and every warm word from
+them are the driving forces that keep me moving forward bravely.I am grateful for all
+the encounters and assistance I’ve received. I will cherish this affection in my heart
+and transform it into the strength to move forward in the future.
+iii
+
+===== PAGE 5 =====
+Contents
+Contents iv
+List of Figures v
+List of Tables vii
+1 Introduction 1
+1.1 Motivation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+1.2 Aims and Objective . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2 Literature Review 5
+3 Methodology 8
+3.1 Build the left upper limb 3D model . . . . . . . . . . . . . . . . . . . . 8
+3.2 Design the Biomimetic Muscles Structure (BMS) . . . . . . . . . . . . 9
+3.3 Control system construction. . . . . . . . . . . . . . . . . . . . . . . . . 12
+4 Results and Analysis 15
+4.1 Left upper limb 3D model . . . . . . . . . . . . . . . . . . . . . . . . . 15
+4.2 Biomimetic Muscles Structure (BMS) . . . . . . . . . . . . . . . . . . . 16
+4.3 Control system for the robotic arm . . . . . . . . . . . . . . . . . . . . 20
+3.3.1 Fitting of motion control curves . . . . . . . . . . . . . . . . . . . 20
+3.3.2 Workplace of robotic arm . . . . . . . . . . . . . . . . . . . . . . 24
+5 Conclusion and Future works 26
+5.1 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+5.2 Future works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+Reference 29
+iv
+
+===== PAGE 6 =====
+List of Figures
+3.1 Schematic diagram of elbow joint design . . . . . . . . . . . . . . . . . 8
+3.2 Schematic diagram of shoulder joint design . . . . . . . . . . . . . . . . 9
+3.3 Subfigure (a) shows the basic shape of the X-lattice. (b) Shows Z -
+shaped blocks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+3.4 The process of X-shaped lattice change with compression. . . . . . . . 12
+3.5 Basic structure of the biomimetic muscle and the blue area is X-shaped
+lattice structure. The black line in the blue area is the Z-shaped blocks. 12
+3.6 Stepper motor and lead screw slide table . . . . . . . . . . . . . . . . . 13
+3.7 ETH_NEC_NLM_16 motion control card. . . . . . . . . . . . . . . . 13
+3.8 The working principle of the control system. . . . . . . . . . . . . . . . 14
+4.1 Restore the degree of freedom of the elbow joint. . . . . . . . . . . . . 15
+4.2 The shoulder joint is designed with three degrees of freedom and can
+move around the X, Y and Z axes. Subfigure (a) shows the overall effect
+of the upper limb model, and (b), (c), and (d) show the movement of
+the shoulder joint around the X, Y, and Z axes respectively. . . . . . . 16
+4.3 BMS model of elbow joint driving muscles. . . . . . . . . . . . . . . . . 17
+4.4 BMS model of shoulder joint driving muscles. . . . . . . . . . . . . . . 18
+4.5 Characteristics of the lattice in x, y, z directions. . . . . . . . . . . . . 19
+4.6 The deformation of BMS. Subfigure (a) : BMS (taking Muscle One as
+an example) in a static state. (b) and (c) represent the compressive
+and tensile deformations on the x-axis. (e) represents the compressive
+deformation of the BMS in the y direction. (d) represents the bending
+deformation of the Muscle 1 on the Z-axis. . . . . . . . . . . . . . . . . 19
+4.7 Subfigure (a) shows the front view of the upper limb model with BMS
+installed. (b) ğLeft view of the upper limb model. (c) ğRear view of
+upper limb model. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+4.8 The fitting curves of Muscle 1, Muscle 2, and corresponding joint angles
+for elbow joint movement from 0 degrees to 120 degrees. . . . . . . . . 20
+v
+
+===== PAGE 7 =====
+List of Figures School of Advanced Technology
+4.9 The fitting curves of Muscle 4−8, Muscle 10−11, and corresponding joint
+angles for shoulder adduction and abduction from 0 degrees to 65 degrees. 21
+4.10 The fitting curves of Muscle 4−8, Muscle 10−11, and corresponding joint
+angles for flexion and extension of shoulder from -45 degrees to 65 degrees. 22
+4.11 The fitting curves of Muscle 3, Muscle 9, and corresponding joint angles
+for internal and external rotation of shoulder from -15 degrees to 15
+degrees. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+4.12 The Monte Carlo method demonstrates the workspace that human and
+robotic arms can reach. Subfigure (a) shows the workspace of a human
+arm, with blue dots indicating the area that the end of the human arm
+can reach. Subfigure (b) shows the workspace that the designed robotic
+arm in this study can reach, with red dots indicating the area that the
+end of the robotic arm can reach. . . . . . . . . . . . . . . . . . . . . . 25
+vi
+
+===== PAGE 8 =====
+List of Tables
+4.1 RMSE and MAE of the fitting curves for Muscle 1 and Muscle 2 . . . . 21
+4.2 RMSE and MAE of the fitting curves for Muscle 4−8 and Muscle 10−11 22
+4.3 RMSE and MAE of the fitting curves for Muscle 4−8 and Muscle 10−11 23
+4.4 RMSE and MAE of the fitting curves for Muscle 3 and Muscle 9 , in the
+internal and external rotation of shoulder. . . . . . . . . . . . . . . . . 23
+vii
+
+===== PAGE 9 =====
+Chapter 1
+Introduction
+1.1 Motivation
+In recent years, research on biomimetic dexterous hands and upper limb robotic arms
+has flourished in the field of biomimetic robots, driven by various demands and sci-
+entific exploration. These motivations cover key areas such as medical rehabilitation,
+industrial manufacturing, scientific research, and special task execution, aiming to
+solve many challenges in the real world and promote innovation and breakthroughs in
+related technologies.
+Biomimetic arms are of great significance in improving prosthetic mobility, restoring
+limb function, and other medical rehabilitation fields. Patients with upper limb dis-
+abilities have an urgent need to restore limb function and improve their ability to
+live independently. Biomimetic robot technology provides a new way to achieve this
+goal. According to the research of Chu Chengzhong et al.[ 1], the SMA artificial muscle
+biomimetic dexterous hand they designed has the characteristics of high fidelity, real-
+istic movements, and stable work. This bionic hand can simulate the fine movements
+of the human hand, such as grasping and pinching, and is expected to help patients
+with upper limb disabilities complete basic daily operations such as eating, dressing,
+writing, etc., greatly improving their quality of life.
+In addition, the intelligent bionic arm developed by Open Bionics has achieved better
+interaction with the human nervous system through advanced technology, allowing
+patients to control the movement of prostheses more naturally and appearing closer
+to real arms, reducing the psychological burden of patients wearing prostheses and
+further promoting their integration into social and daily life [ 2].
+In the field of industrial manufacturing, bionic robotic arms can also meet the needs
+of improving production eﬀiciency and adapting to diverse demands. Modern indus-
+trial manufacturing demands extremely high precision, flexibility, and eﬀiciency in the
+1
+
+===== PAGE 10 =====
+Chapter 1. Introduction School of Advanced Technology
+production process. Biomimetic dexterous hands and upper limb robotic arms, with
+their high flexibility and precise operational capabilities, have become key technolo-
+gies to meet these needs. The ”Finger joint structure, biomimetic dexterous fingers,
+and biomimetic dexterous hands” applied by Zhaowei Electromechanical demonstrate
+innovative designs for biomimetic robot hand structures in the field of industrial man-
+ufacturing. This design can achieve more precise and complex operations, such as
+precise assembly of small components in electronic device manufacturing, improving
+product quality and production eﬀiciency[ 3].
+The application of bionic upper limb robotic arms in industrial automation production
+lines is becoming increasingly widespread. The human hand has 27 degrees of freedom
+and 33 grasping actions, suitable for performing various tasks that require strong
+grip strength, from grasping fine objects to tool operations. They can quickly adapt
+to the production needs of different products and achieve diversified task operations
+through programming, such as material handling, product testing, etc. Compared with
+traditional industrial robots, bionic dexterous hands and upper limb robotic arms have
+better flexibility and adaptability, and can better cooperate with human workers in
+complex working environments, achieving a human-machine integration production
+mode. This is of great significance for improving the flexibility and competitiveness of
+the entire industrial manufacturing system.
+In addition, another motivation is scientific research, and the study of bionic arms is
+beneficial for revealing biomechanical principles and promoting the development of the
+discipline. Biomimetic robots provide an ideal experimental platform for in-depth re-
+search on the biomechanical principles of human upper limbs. By constructing highly
+simulated biomimetic dexterous hands and upper limb robotic arm models, researchers
+can accurately simulate the mechanical behavior of human upper limbs in various mo-
+tion states. For example, research on the collaborative working mechanism, joint
+kinematics, and dynamic characteristics of the musculoskeletal system. This helps to
+reveal the mysteries of human movement and provides important experimental evi-
+dence for the development of biomechanical theory. At the same time, research on
+biomimetic robots involves the interdisciplinary integration of multiple fields, such as
+materials science, control theory, computer science, neuroscience, etc. In the field of
+materials science, researchers are committed to developing new flexible materials to
+achieve lightweight, high flexibility, and high durability of biomimetic robots, such
+as some polymer materials with special properties. In the field of control theory,
+continuously optimized control algorithms enable biomimetic robots to achieve more
+precise and natural motion control, such as control strategies based on machine learn-
+ing and artificial intelligence. These interdisciplinary research collaborations not only
+2
+
+===== PAGE 11 =====
+Chapter 1. Introduction School of Advanced Technology
+drive the advancement of biomimetic robot technology, but also promote the common
+development of various disciplinary fields.
+Biomimetic machinery also shoulders the task of traditional robots - special task ex-
+ecution: responding to extreme environments and dangerous scenarios. For example,
+the bionic arm designed by the Cleveland Clinic team has high flexibility and precise
+operational capabilities, allowing for maintenance of space station equipment, opera-
+tion of experimental equipment, and sample collection in microgravity environments.
+This bionic arm can not only improve the eﬀiciency of space mission execution, but
+also reduce the risks of astronauts in activities such as spacewalks, providing strong
+technical support for human exploration of the universe. In disaster rescue scenar-
+ios, upper limb robotic arms also play an important role [ 4]. When disasters such
+as earthquakes and fires occur, rescue personnel often face dangerous and complex
+environments. Biomimetic robots can enter dangerous areas such as ruins and in-
+side buildings to perform tasks such as searching for trapped individuals, transporting
+heavy objects, and breaking down obstacles. They can work in harsh environmental
+conditions such as high temperatures, dust, and confined spaces, providing important
+assistance for rescue work, improving rescue eﬀiciency, and saving more lives.
+In summary, the research motivation for biomimetic robots, especially biomimetic dex-
+terous hands and upper limb robotic arms, has been extensive and profound in recent
+years. These studies not only bring new hope to patients with upper limb disabilities,
+but also provide innovative solutions for upgrading industrial manufacturing, deepen-
+ing scientific research, and executing special tasks. With the continuous development
+of technology, bionic robots are expected to play an important role in more fields and
+make greater contributions to the progress of human society.
+1.2 Aims and Objective
+Inspired by the natural contraction mechanism of human muscles, this article will
+design and implement a mesh biomimetic muscle structure with high stretchability and
+anisotropy. In this design, the mechanism of human muscle contraction is imitated by
+combining a flexible and deformable lattice structure with a line driven mechanism.
+This structure has anisotropic properties and a wide range of motion, allowing it to
+operate under contact forces and flexible deformation. The rope connected to the
+motor will control the contraction and extension of muscles, enabling the joints of the
+arm to perform functions such as weight. Due to the rope driven method, the driving
+device can be remotely driven. Therefore, robotic arms will be able to grasp larger
+or heavier objects. Zhe Xu and Emanuel Todorov [ 5] emphasized that traditional
+3
+
+===== PAGE 12 =====
+Chapter 1. Introduction School of Advanced Technology
+robotic arms typically rely on mechanical components such as hinges, linkages, and
+universal joints to simplify biological structures. Although these structures help mimic
+the kinematics of human arms, they inevitably bring about differences between robots
+and humans. The softness of human skin and the synergistic effect of compliant muscles
+form various types of grasping, which together constitute physical intelligence capable
+of achieving emergent and self-organizing behavior, thereby making strong responses
+to uncertainties in the environment. Therefore, this article will focus on minimizing the
+use of mechanical components in the design process and emphasize the development of
+artificial muscles to maintain a high degree of anthropomorphism. This article will also
+use powder bed melting 3D printing and TPU material design to achieve scalable and
+cost-effective production. The scalability and isotropy of the lattice network structure
+enable it to operate with high adaptability and eﬀiciency, making it highly suitable
+for robot applications that require detailed and flexible movements.
+In summary, this article will have the following main aims and objectives:
+1) Build the left upper limb 3D model.
+Design the model of the left upper limb using solidworks [ 6] to replace the human
+skeleton.
+2) Design the biomimetic muscles structure (BMS).
+Optimize the muscle group structure of the left upper limb. Muscle modeling was
+completed using solidworks, and latticization was accomplished using Rhinoceros
+[7]. Finally, the TPU muscle model was fabricated using powder bed fusion 3D
+printing technology.
+3) Develop a control system for the robotic arm.
+Utilize polynomial regression to model the motion curves of individual muscle
+models, refining the kinematics of the robotic arm.
+4
+
+===== PAGE 13 =====
+Chapter 2
+Literature Review
+With the vigorous development of robotics, the research on biomimetic musculoskeletal
+robots has increasingly become the focus of attention in both academia and industry.
+To make the movement of robots more similar to that of humans, simulating the
+performance of human muscles has become a key research direction. By conducting
+bio-inspired design of the structure and function of the musculoskeletal system, the
+flexibility, adaptability, and movement eﬀiciency of robots in complex environments
+can be significantly enhanced, which has great application potential in fields such as
+medical rehabilitation, human-robot collaboration, and disaster rescue.
+In recent years, researchers have been committed to imitating the human muscu-
+loskeletal structure, promoting the continuous development of musculoskeletal robots.
+For example, robots like Kengoro and Musashi adopt a rope-driven system and are
+equipped with more than 70 ”muscles”, achieving human-like movement through the
+coordinated cooperation between the skeletal structure and muscles [ 8]. The ECCE1
+robot has a rope-driven upper body structure [ 9], and the Roboy innovatively combines
+rope-driven and biological tendons, providing new ideas for the movement control of
+robots [ 10]. The lower limb robot developed by Kurumaya et al. [ 11] uses multi-
+filament McKibben muscles to achieve simple leg movements , the shoulder complex
+designed by Ikemoto et al. uses pneumatic actuators [ 12], and the Athlete Robot
+also uses pneumatic actuators to complete dynamic actions [ 13]. It can be seen that
+most of the driving methods of bio-inspired musculoskeletal robots focus on two types:
+pneumatic driving and cable driving.
+In the realm of musculoskeletal robotics, pneumatic actuation has emerged as a preva-
+lent and influential mode of actuation. Prominent examples include the shoulder
+complex devised by Ikemoto et al. [ 12] and the Athlete Robot [ 13], both of which in-
+corporate pneumatic actuators to facilitate their functional movements. Additionally,
+Guo and his research cohort have engineered highly programmable and customizable
+5
+
+===== PAGE 14 =====
+Chapter 2. Literature Review School of Advanced Technology
+pneumatic fabric soft robots utilizing textile-based materials. These innovative robotic
+systems not only exemplify the inherent flexibility, operational eﬀiciency, scalability,
+and cost-effective design attributes of pneumatic actuation but also present novel op-
+portunities for secure human-robot interaction, personalized wearable devices, and
+healthcare applications [ 14]. Pneumatic actuation confers several significant advan-
+tages to robotic systems. Its rapid response time, high power-to-mass ratio, and rel-
+atively low cost render it an eﬀicient power generation solution. However, pneumatic
+artificial muscles are accompanied by notable limitations. The compressibility of gases
+and the structural design constraints of the actuators inherently restrict the range of
+motion, thereby limiting the dexterity and flexibility of robotic movements. Moreover,
+the compressible nature of gases poses substantial challenges in achieving precise con-
+trol over muscle morphology, impeding the creation of intricate and human-like muscle
+shapes that closely mimic the complexity and functionality of biological counterparts
+[15].
+Cable-driven systems have been extensively employed in musculoskeletal robotics, pri-
+marily due to their unique advantages in replicating human-like muscle movements.
+For instance, the multi-filament McKibben muscles utilized in the lower-limb robot de-
+veloped by Kurumaya et al. [ 11] essentially represent a form of cable-driven actuation.
+This mechanism mimics muscle contraction and relaxation through the retraction and
+release of cables, thereby enabling leg movements. Zhe Xu and Emanuel Todorov [ 5]
+also leveraged cable-driven technology to fabricate a dexterous robotic hand, where
+bio-inspired tendons made from cables were used to control finger movements. Ad-
+ditionally, Qin [ 16] demonstrated the feasibility of cable-driven actuation and the
+effectiveness of its control methods through a continuum robot with redundant de-
+grees of freedom and a posterior actuation mechanism, which is driven by steel wire
+ropes. However, cable-driven systems have exhibited several critical limitations in
+practical applications. When robots are required to perform contact operations with
+the environment, the lack of suﬀicient compliance in cable-driven muscles renders them
+ill-suited to adapt to the complex and variable contact forces. This significantly in-
+creases the diﬀiculty of manipulation tasks. Moreover, the structural characteristics of
+cable-driven systems pose challenges in achieving large-range, highly flexible bending
+motions. As a result, it remains a significant challenge to replicate the natural and
+fluid movements of human muscles.
+In this paper, the bionic structural muscles driven by cables fall within the category
+of soft actuators. The development of soft actuators has, to a certain extent, over-
+come some shortcomings of traditional actuators. ElastoAmerican Origami, various
+shapes of origami structures, and 3D printed soft actuators are developed using elastic
+6
+
+===== PAGE 15 =====
+Chapter 2. Literature Review School of Advanced Technology
+materials with high stretchability and large deformability, but there are diﬀiculties in
+contact operations and large muscle applications [ 17]; Although HASEL actuators and
+Peano HASEL actuators have been applied to circular muscles, they are diﬀicult to
+use for large three-dimensional muscles [ 18] [19]; Mixed carbon nanotube yarn muscles
+and artificial muscles made from fishing and sewing threads are durable but lack thick-
+ness and are not suitable for thick three-dimensional muscles; The artificial muscles
+inspired by fluid driven origami can apply greater force, but are diﬀicult to operate
+due to thin skin; Shape memory McKibben muscles and high reverse drive McKibben
+muscles have limitations in adapting to muscle shapes [ 20] [ 21].
+BMS aims to simulate the contraction mechanism of human muscles by combining
+flexible and deformable 3D pattern structures with line driven mechanisms. Human
+muscles produce contraction movements through myosin and actin filaments, while
+small actuators maintain relative positions within the muscles to drive contractions.
+This study converts this mechanism into line driven contraction. Traditional line
+driven muscles are diﬀicult to achieve various shapes similar to human muscles due to
+their lack of thickness. On the other hand, in order to enable BMS to better route
+lines along muscle fiber pathways, create flexible structures in wireless areas, and
+maintain muscle shape during contraction, thus achieving movements closer to human
+muscles. BMS needs to have flexibility and range of motion in the x direction to achieve
+contraction, suﬀicient strength in the y direction to support the structure and allow
+contraction in the x direction, and a certain strength in the z direction to maintain the
+positional relationship between the circuit and surrounding structures. For this, we
+referred to the work of Yoshimura et al. [ 22], whose research on patterned structure
+muscle effectively addressed this type of problem. However, they did not delve deeper
+into the restoration of the degrees of freedom of the musculoskeletal system and its
+motion control. We will apply these biomimetic muscles to human bone models based
+on their foundation and complete the construction of their driving control system.
+7
+
+===== PAGE 16 =====
+Chapter 3
+Methodology
+3.1 Build the left upper limb 3D model
+In the design of a highly biomimetic humanoid robotic arm driven by biomimetic
+muscle structures, before designing the muscle model, it is necessary to first determine
+the design scheme of the skeletal model. To give full play to the optimal performance
+of the biomimetic muscles in this study, the designed skeletal model should accurately
+restore the degrees of freedom of human bones as much as possible. For the human
+upper arm, forearm, and elbow joint, as shown in Figure 3.1, they are abstracted and
+simplified into a structure composed of two cylinders connected by hinges. This design
+retains all the original degrees of freedom of human bones while effectively reducing
+the modeling complexity.
+Figure 3.1: Schematic diagram of elbow joint design
+Additionally, as illustrated in Figure 3.2, the shoulder joint is designed as a spherical
+joint. Since spherical joints can achieve multi - angle movements ranging from simple
+to complex and can effectively cover various motion conditions, they can accurately
+8
+
+===== PAGE 17 =====
+Chapter 3. Methodology School of Advanced Technology
+simulate the movement characteristics of the human shoulder joint with three degrees
+of freedom, providing a reliable structural basis for the biomimetic movement of the
+robotic arm [ 23].
+Figure 3.2: Schematic diagram of shoulder joint design
+After completing the design and modeling of the skeletal structure using SolidWorks
+software, considering the maximization of the performance of the biomimetic muscles,
+we carefully selected resin as the 3D printing material for the skeletal model. The
+resin material has unique performance advantages. On the one hand, it can ensure
+that the skeletal model maintains good hardness to meet the requirements of its struc-
+tural strength. On the other hand, this material can achieve the lightweight of the
+model, avoiding the negative impact on the performance of the biomimetic muscles
+due to excessive weight. Thus, the biomimetic muscles can fully exert their optimal
+performance during movement and achieve the expected biomimetic effect.
+3.2 Design the Biomimetic Muscles Structure (BMS)
+Before initiating the design of the muscle model, we first conducted a comprehensive
+and in - depth analysis and reasonable simplification of the human muscles that drive
+the movements of the shoulder and elbow joints.
+Regarding the flexion and extension movements of the elbow joint, the main muscles
+involved in generating force include the biceps brachii, triceps brachii, brachialis, and
+the anterior forearm muscles. To facilitate subsequent modeling and research, based
+on the specific roles of each muscle group in the flexion and extension movements of
+9
+
+===== PAGE 18 =====
+Chapter 3. Methodology School of Advanced Technology
+the elbow joint, we carried out a reasonable classification and substitution process.
+Specifically, the biceps brachii, brachialis, and the anterior forearm muscles were col-
+lectively represented by Muscle 1, while the triceps brachii was independently modeled
+as Muscle 2.
+For the shoulder joint, the main muscles involved in shoulder activities are the deltoid
+muscle (including the anterior, middle, and posterior bundles), teres major muscle,
+pectoralis major muscle, latissimus dorsi muscle, and infraspinatus muscle. In order
+to better reflect the functional characteristics of these muscles in shoulder movements,
+we optimized them into Muscles 3−11 according to their functions.
+Next, we will commence the simulation study of these two biomimetic muscle struc-
+tures. In this research, we draw on the PSM structure proposed by Yoshimura et al.
+[22] to improve our existing reticular muscle biomimetic structure, aiming to precisely
+mimic the contraction mechanism of human muscles. The contraction of human mus-
+cles is achieved through the interaction between actin and myosin filaments. These
+microscopic actuators can maintain their relative positions and generate driving forces
+during the contraction process. Our design concept is to transform this ingenious bio-
+logical mechanism into an innovative muscle - inspired structure that can be effectively
+applied in the field of musculoskeletal robots.
+Specifically, we achieve the function of micro - actuators by carefully designing an X -
+shaped lattice (Figure 3.3 (a) ) and causing it to undergo controlled deformation. The
+constructed lattice muscle biomimetic structure combines the advantages of the X -
+lattice elastic structure and TPU flexible material, endowing it with the ability to op-
+erate flexibly under diverse shapes and complex environmental conditions. Traditional
+wire - driven muscles typically achieve contraction by stretching the wires between the
+muscle endpoints. However, due to the lack of thickness of the wires themselves, the
+structural deformation can only occur along the direction of the wires, resulting in
+a single form of deformation and making it diﬀicult to simulate the rich and diverse
+shape changes similar to those of human muscle activities. To address this issue, we
+constructed an X - shaped lattice structure in the wire - free area and embedded Z
+- shaped (Figure 3.3 (b) ) blocks with rope channels in this lattice structure. This
+design ingeniously balances the needs of maintaining the muscle shape and fixing and
+deforming the ropes.
+10
+
+===== PAGE 19 =====
+Chapter 3. Methodology School of Advanced Technology
+Figure 3.3: Subfigure (a) shows the basic shape of the X-lattice. (b) Shows Z - shaped
+blocks.
+Furthermore, this structure needs to have anisotropy, which can exhibit different me-
+chanical properties in different directions, thereby enabling more complex forms of
+motion. Meanwhile, during the design process, the characteristics of the X, Y and Z
+directions need to be fully considered to ensure the effectiveness and reliability of the
+structure in practical applications. The specific requirements are as follows: To enable
+the structure to achieve self-contraction and self-stretching under the action of exter-
+nal tension, the structure must have a suﬀicient range of motion and good flexibility
+in the X direction, so as to respond to the dynamic changes of working conditions
+in a timely and effective manner; When external pressure sources exist, the grid-like
+muscle structure in the Y direction needs to have suﬀicient strength and stability to
+maintain the overall structural form and ensure the normal contraction function in
+the X direction. The lattice muscle structure needs to remain stable in the Z direction
+to ensure the stability of the relative position between the wire and the surrounding
+structure. This stability ensures that during the structural deformation process, the
+overall shape of the muscle is effectively maintained by ensuring that the route of the
+wires is not disturbed. The basic structure of bionic muscles is shown in Figure 3.5.
+To achieve the above goals, we must adjust the parameters x, y, z in Figure 3.3
+(a). When the deformation ε of the lattice meets condition 0 ≤ ε ≤ 1 − 2p/x,
+0 ≤ ε ≤ 1 − 2p/y, and 0 ≤ ε ≤ 1 − 2p/z, the main deformation of the lattice
+is manifested as the deformation of the branches that constitute the lattice. In this
+state, the lattice has a relatively large space for compression and extension. However,
+when the deformation ε satisfies condition ε > 1 − 2p/x, ε > 1 − 2p/y, ε > 1 − 2p/z,
+the lattice can no longer be compressed. It will become hard and play a supporting
+role in this direction. Its degree of freedom and flexibility in expansion are greatly
+limited, as shown in Figure 3.4. It can be seen that the values of the parameters x, y,
+z are closely related to the characteristics of the lattice in all directions.
+11
+
+===== PAGE 20 =====
+Chapter 3. Methodology School of Advanced Technology
+Figure 3.4: The process of X-shaped lattice change with compression.
+Figure 3.5: Basic structure of the biomimetic muscle and the blue area is X-shaped
+lattice structure. The black line in the blue area is the Z-shaped blocks.
+3.3 Control system construction.
+Regarding the driving device for the cable - driven muscles, we have selected 13 units
+of the 42BY6H207 - 2 stepper motors to perform the driving function. The specific
+allocation is as follows: Three of these motors are dedicated to driving the movement
+of the elbow joint, aiming to precisely mimic the motion of the elbow. The remaining
+10 motors are responsible for driving the movement of the biomimetic shoulder joint,
+ensuring that the shoulder joint can achieve diverse and flexible motions. In addition,
+to facilitate the traction operation of the cables, we have chosen a sliding table equipped
+with a 2mm lead screw (Figure 3.6 ). This sliding table can achieve smooth and precise
+linear motion under the drive of the motor, ensuring that the cables can be tractioned
+as per the design requirements and thus guaranteeing the normal operation of the
+entire cable - driven muscle system.
+12
+
+===== PAGE 21 =====
+Chapter 3. Methodology School of Advanced Technology
+Figure 3.6: Stepper motor and lead screw slide table
+These stepper motors are driven by TB6600S stepper motor drivers. The TB6600S
+stepper motor drivers feature excellent stability and driving capabilities, which can
+provide accurate and reliable driving signals for the stepper motors, ensuring their
+stable operation.
+To eﬀiciently control the driving program, we have employed the ETH_NEC_NLM_16
+motion control card. This motion control card possesses powerful computing and con-
+trol capabilities, which can precisely control the rotation speed, angle, and direction of
+the stepper motors according to the preset programs and parameters, thereby achiev-
+ing fine - grained manipulation of the cable - driven muscles. The motion control card
+of this model can control up to 16 motors simultaneously at most.
+Figure 3.7: ETH_NEC_NLM_16 motion control card.
+Since the relationship between the contraction of BMS and the joints is diﬀicult to
+calculate geometrically, this study decided to use polynomial regression to fit the
+motion curve between BMS and joints. The basic formula for polynomial regression
+is:
+y = anxn + an−1xn−1 + · · · + a1x1 + a0
+where y is the output (i.e. the contracted length of the biceps or triceps), x is the
+13
+
+===== PAGE 22 =====
+Chapter 3. Methodology School of Advanced Technology
+input (i.e. the angle). an, an−1 · · · a1 are the regression coeﬀicient to be determined
+and n is the order of the polynomial, which is usually chosen based on the data fit.
+After performing fitting operations on the relevant data, we can determine the in-
+trinsic relationship between the joint movement angle and the corresponding muscle
+contraction distance. Based on this relationship, we can further control the stepper
+motor through the motion control card. The stepper motor traction cable completes
+the contraction and extension of the BMS, achieving precise control of the joint angle
+during the movement process, making the designed bionic structure closer to the actual
+movement state of the human body, and improving its performance and flexibility in
+practical applications. The working framework of the control system is shown in the
+Figure 3.8 .
+Figure 3.8: The working principle of the control system.
+14
+
+===== PAGE 23 =====
+Chapter 4
+Results and Analysis
+4.1 Left upper limb 3D model
+After completing the design of the elbow joint and the shoulder joint, we utilized the
+SolidWorks software to evaluate the mobility of the constructed model. As shown in
+Figure 4.1 and Figure 4.2, the elbow joint has successfully restored its inherent degrees
+of freedom, and the shoulder joint is designed to have three degrees of freedom, allowing
+it to move around the X-axis, Y-axis, and Z-axis.
+Figure 4.1: Restore the degree of freedom of the elbow joint.
+15
+
+===== PAGE 24 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.2: The shoulder joint is designed with three degrees of freedom and can move
+around the X, Y and Z axes. Subfigure (a) shows the overall effect of the upper limb
+model, and (b), (c), and (d) show the movement of the shoulder joint around the X,
+Y, and Z axes respectively.
+4.2 Biomimetic Muscles Structure (BMS)
+Based on a systematic analysis of the morphological characteristics and physiological
+functions of the muscles involved in shoulder and elbow movements, we have carried
+out reasonable simplification and constructed corresponding substitute models for in-
+stallation on the upper limb model. During the simplification process, the mechanical
+properties and action mechanisms of each muscle in joint movement were fully consid-
+ered to ensure that the substitute models can effectively simulate the key functions of
+the original muscles. Figure 4.3 and Figure 4.4 clearly presents the corresponding BMS
+models for each major muscle participating in joint movement. These models provide
+an important basis for subsequent research on upper limb movement simulation and
+driving control.
+The internal structure of BMS is composed of periodic lattices formed by the arrange-
+ment of unit patterns along the x, y and z axes. The size order of the parameters
+x, y, z is shown in the Figure 4.5. The length of the Y-axis ( y) has the smallest value,
+and this setting is aimed at reducing the degree of deformation generated by the
+16
+
+===== PAGE 25 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+lattice branches. In this way, it can enable the muscle to rapidly contract to state
+ε > 1 − 2p/y in the Y-direction, thereby ensuring that when the entire muscle is sub-
+jected to environmental forces from the Y-direction, it can maintain effective support.
+The length of the X-axis ( x) is greater than the length of the Y-axis ( y) but smaller
+than the length of the Z-axis ( z). This length relationship ensures that the artificial
+muscle has good contraction performance in the X-direction. The Z-axis ( z) has the
+longest length, and its main function is to provide higher elasticity and structural sup-
+port for the cable path, thus enhancing the stability of the overall structure. Figure
+4.6 demonstrates the performance of the BMS in various directions (taking Muscle 1
+as an example).
+Figure 4.3: BMS model of elbow joint driving muscles.
+17
+
+===== PAGE 26 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.4: BMS model of shoulder joint driving muscles.
+18
+
+===== PAGE 27 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.5: Characteristics of the lattice in x, y, z directions.
+Figure 4.6: The deformation of BMS. Subfigure (a) : BMS (taking Muscle One as an
+example) in a static state. (b) and (c) represent the compressive and tensile deforma-
+tions on the x-axis. (e) represents the compressive deformation of the BMS in the y
+direction. (d) represents the bending deformation of the Muscle 1 on the Z-axis.
+After completing the design of the upper limb model and the muscle model, the BMS
+is installed on the upper limb model. The specific installation situation is shown in
+the Figure 4.7.
+19
+
+===== PAGE 28 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.7: Subfigure (a) shows the front view of the upper limb model with BMS
+installed. (b) ğLeft view of the upper limb model. (c) ğRear view of upper limb
+model.
+4.3 Control system for the robotic arm
+3.3.1 Fitting of motion control curves
+In this study, precise control over joint movement is achieved by implementing con-
+traction control on the BMS.
+1) Elbow Flexion and Extension.
+Figure 4.8: The fitting curves of Muscle 1, Muscle 2, and corresponding joint angles for
+elbow joint movement from 0 degrees to 120 degrees.
+Specifically, during the simulation of elbow joint movement, we precisely control
+Muscle 1 and Muscle 2 to make them work in coordination, so as to complete the
+flexion and extension movements of the elbow. The range of motion of the el-
+bow is set to be between 0 and 120 degrees. To deeply explore the mechanism of
+20
+
+===== PAGE 29 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+muscles in joint movement, this study takes every 5 degrees as a measurement in-
+terval and meticulously records the contraction of the muscles that contribute to
+the force during the deformation of the elbow joint. Subsequently, the collected
+data are analyzed and processed by using the method of fourth-order polynomial
+fitting, and the specific fitting results are shown in the Figure 4.8.
+In elbow flexion and extension movements, Muscle 1 polynomial equation is:
+y1 = 2.577 × 10−8x41 − 8.466 × 10−6x31 + 0.001162x21 + 0.07937x1 − 0.1237
+Muscle 2 polynomial equation is:
+y2 = −3.005 × 10−8x42 + 1.271 × 10−6x32 − 0.001697x22 + 0.002592x1 − 0.02382
+where y is the distance of BMS contraction, x is the angle of joint. Table 4.1
+including the root mean squared error (RMSE) and mean absolute error (MAE)
+for each fitting curve.
+Table 4.1: RMSE and MAE of the fitting curves for Muscle 1 and Muscle 2
+Muscle 1 Muscle 2
+RMSE 0.154728 0.075156
+MAE 0.133518 0.060560
+2) Shoulder Contraction and Abduction.
+The BMS involved in shoulder adduction and abduction activities mainly in-
+cludes Muscle 4−8 and Muscle 10−11. Due to the symmetry of the model, the fit-
+ting curves of Muscle 6 and Muscle 8, as well as Muscle 5 and Muscle 10, Muscle 4
+and Muscle 11, are consistent in this movement.
+Figure 4.9: The fitting curves of Muscle 4−8, Muscle 10−11, and corresponding joint
+angles for shoulder adduction and abduction from 0 degrees to 65 degrees.
+21
+
+===== PAGE 30 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Muscle 7 polynomial equation is:
+y7 = −6.184 × 10−8x47 + 0.0008357 × 10−6x37 − 0.04358x27 + 1.798x7 + 0.1471
+Muscle 6&8 polynomial equation is:
+y6&8 = −1.203 × 10−8x46&8 + 0.001729 × 10−6x36&8 − 0.08413x26&8 + 2.166x6&8 + 1.418
+Muscle 5&10 polynomial equation is:
+y5&10 = 1.028 × 10−8x45&10 − 0.0001065 × 10−6x35&10 + 0.00721x25&10 − 1.231x5&10 + 0.1807
+Muscle 4&11 polynomial equation is:
+y4&11 = 1.131 × 10−8x44&11 − 0.001568 × 10−6x34&11 + 0.06968x24&11 − 1.983x4&11 − 0.5641
+Table 4.2: RMSE and MAE of the fitting curves for Muscle 4−8 and Muscle 10−11
+Muscle 7 Muscle 6&8 Muscle 5&10 Muscle 4&11
+RMSE 0.942989 1.133348 0.583574 0.489161
+MAE 0.669683 0.923127 0.428471 0.364962
+3) Flexion and Extension of shoulder.
+This activity includes Muscle 4−8 and Muscle 10−11.
+Figure 4.10: The fitting curves of Muscle 4−8, Muscle 10−11, and corresponding joint
+angles for flexion and extension of shoulder from -45 degrees to 65 degrees.
+Muscle 7 polynomial equation is:
+y7 = −4.213 × 10−6x47 + 1.076 × 10−5x37 + 0.02538x27 + 0.009785x7 + 10.58
+22
+
+===== PAGE 31 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Muscle 6 polynomial equation is:
+y6 = 1.009 × 10−6x46 − 8.038 × 10−5x36 − 0.0003985x26 + 1.16x6 + 0.4066
+Muscle 8 polynomial equation is:
+y8 = −2.09 × 10−6x48 + 0.0001272x38 + 0.002711x28 − 1.19x8 − 0.8598
+Muscle 10 polynomial equation is:
+y10 = −5.597 × 10−7x410 + 2.431 × 10−5x310 + 0.0005575x210 − 0.7005x10 + 1.368
+Muscle 5 polynomial equation is:
+y5 = 1.729 × 10−6x45 − 2.782 × 10−5x35 − 0.009863x25 + 0.7934x5 + 1.325
+Muscle 11 polynomial equation is:
+y11 = −5.768 × 10−7x411 + 4.894 × 10−5x311 + 0.0004127x211 − 0.6843x11 + 0.7032
+Muscle 4 polynomial equation is:
+y4 = 1.668 × 10−7x44 − 9.043 × 10−5x34 − 0.0006066x24 + 0.6288x4 + 0.5878
+Table 4.3: RMSE and MAE of the fitting curves for Muscle 4−8 and Muscle 10−11
+Muscle 7 Muscle 6 Muscle 8 Muscle 10 Muscle 5 Muscle 11 Muscle 4
+RMSE 3.040807 1.839117 2.118502 0.966414 0.828261 1.144484 1.216990
+MAE 2.152626 1.590623 1.681278 0.823432 0.674984 0.906099 0.974240
+4) Internal and External Rotation of Shoulder
+Muscle 3 polynomial equation is:
+y3 = −1.818 × 10−5x43 − 0.0006667x33 + 0.0004127x23 + 2.46x3 + 0.2165
+Muscle 3 polynomial equation is:
+y9 = 8.485 × 10−5x49 − 0.001333x39 − 0.0203x29 − 2.038x9 + 0.2597
+Table 4.4: RMSE and MAE of the fitting curves for Muscle 3 and Muscle 9 , in the
+internal and external rotation of shoulder.
+Muscle 3 Muscle 9
+RMSE 0.510254 0.288943
+MAE 0.439085 0.241187
+23
+
+===== PAGE 32 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.11: The fitting curves of Muscle 3, Muscle 9, and corresponding joint angles
+for internal and external rotation of shoulder from -15 degrees to 15 degrees.
+From the in-depth exploration and analysis of the above four motion patterns, it is
+found that the values of the Root Mean Squared Error (RMSE) of the two fitting
+curves are both at a low level. This indicates that the average deviation between the
+joint motion angles predicted by the model and the actual true angles is extremely
+small, fully verifying that the polynomial fitting method adopted in this study has
+high accuracy and reliability. In addition, the values of the RMSE are quite similar
+to those of the Mean Absolute Error (MAE). This result further demonstrates that
+the model prediction errors exhibit a relatively uniform distribution across the entire
+data range, effectively reflecting the stability and consistency of the model’s prediction
+results.
+3.3.2 Workplace of robotic arm
+To scientifically verify the performance of the designed robotic arm, this study con-
+structed a corresponding robotic arm kinematic model in MATLAB based on the
+Denavit - Hartenberg (DH) parameter system. Subsequently, the Monte Carlo sim-
+ulation method was employed to systematically evaluate the model’s workspace [ 24].
+Through a large number of random sampling data, the movement ranges of the shoul-
+der and elbow that the model can cover were intuitively presented. This method
+can accurately quantify the workspace of the model, providing an objective basis for
+determining whether the robotic arm has similar motion capabilities and workspace
+characteristics to the human arm.
+24
+
+===== PAGE 33 =====
+Chapter 4. Results and Analysis School of Advanced Technology
+Figure 4.12: The Monte Carlo method demonstrates the workspace that human and
+robotic arms can reach. Subfigure (a) shows the workspace of a human arm, with blue
+dots indicating the area that the end of the human arm can reach. Subfigure (b) shows
+the workspace that the designed robotic arm in this study can reach, with red dots
+indicating the area that the end of the robotic arm can reach.
+As shown in the Figure 4.12, experimental results indicate that the workspace of the
+robotic arm driven by the Biomimetic Muscle Sructure (BMS) significantly deviates
+from that of the human arm. Although this study has successfully replicated the de-
+grees of freedom of the elbow and shoulder joints, the robotic arm still exhibits notable
+limitations in terms of motion range. A detailed analysis reveals two primary factors
+contributing to this issue: First, the Muscle 7 corresponding to the shoulder region
+is designed with a relatively small volume, resulting in a limited contraction stroke
+that restricts its ability to generate suﬀicient driving force for increasing the abduc-
+tion range of the shoulder joint. Second, the resin material used for 3D printing the
+skeletal model has a relatively high density, leading to an overall structure weight ex-
+ceeding the design expectations. Consequently, the output power of the shoulder drive
+motors is insuﬀicient to enable the robotic arm to complete full - range movements,
+thereby constraining the expansion of the robotic arm’s workspace.
+25
+
+===== PAGE 34 =====
+Chapter 5
+Conclusion and Future works
+5.1 Conclusion
+This study focuses on designing an artificial upper limb robotic arm inspired by the
+muscle contraction mechanism of the human body and driven by the Biomimetic Mus-
+cle Structure (BMS). During the research process, a three-dimensional model of the left
+upper limb was successfully constructed, and the skeletal structure of this model accu-
+rately restores the degrees of freedom of human bones. The designed BMS integrates
+a cable-driven system, an X-lattice elastic structure, and TPU flexible materials. By
+means of the X-lattice structure, the anisotropy and deformation behavior of biologi-
+cal muscles are effectively simulated. In addition, the BMS also successfully replicates
+the coordinated contraction of key muscle groups, such as the biceps brachii, triceps
+brachii, and deltoid muscle.
+In terms of the control system, the polynomial regression method is adopted. This
+method can effectively fit the motion curves of muscles and joints, thereby accurately
+establishing the relationship between muscle contraction and joint angles. The experi-
+mental results show that the designed robotic arm can achieve motion patterns highly
+similar to those of the human arm, and has relatively low values of Root Mean Squared
+Error (RMSE) and Mean Absolute Error (MAE) in motion curve fitting, which fully
+verifies the accuracy of the control strategy employed.
+However, it should not be overlooked that this study also has certain limitations. The
+workspace analysis conducted through Monte Carlo simulation reveals a significant
+difference between the reachable area of the robotic arm and that of the human arm.
+Specifically, the relatively small volume of Muscle 7 in the shoulder region restricts the
+abduction range of the shoulder joint. At the same time, the high-density resin material
+used to construct the skeletal model increases the overall weight, further limiting the
+ability of the robotic arm to perform full-range movements. These factors jointly
+26
+
+===== PAGE 35 =====
+Chapter 5. Conclusion and Future works School of Advanced Technology
+restrict the motion range and adaptability of the robotic arm in complex environments.
+Despite the above limitations, this study still provides a new idea and method for the
+design of biomimetic upper limb models. By demonstrating the feasibility of simulating
+human muscle functions in robotic systems, this study has made positive contributions
+to the development of the robotics field and the biomechanics field.
+5.2 Future works
+To further enhance the performance and applicability of the proposed model, subse-
+quent research will focus on the following systematic explorations:
+Firstly, refined modeling and optimization of human muscle groups are crucial. In -
+depth improvements to the Biomimetic Muscle Structure (BMS) model, especially in
+complex motion areas such as the shoulder, are expected to significantly enhance the
+motion performance of the robotic arm. Specifically, by adjusting muscle structure
+parameters and volume ratios, it is possible to effectively expand the muscle contrac-
+tion stroke and increase the driving force output, thereby optimizing the motion range
+and flexibility of the robotic arm.
+Secondly, material innovation represents a key pathway for breaking through perfor-
+mance bottlenecks. Future research will focus on exploring novel lightweight and high
+- strength materials, such as carbon fiber composites and high - performance engi-
+neering polymers, to replace the existing resin materials used for 3D - printed skeletal
+models. This approach can ensure the mechanical integrity of the skeletal structure
+while significantly reducing the overall weight, effectively improving the motion range
+and energy conversion eﬀiciency of the robotic arm, optimizing its power - to - weight
+ratio, and laying a foundation for more eﬀicient motion control.
+Thirdly, the enhancement and upgrading of the control system are indispensable. Fu-
+ture research plans to integrate advanced adaptive control algorithms, such as re-
+inforcement learning algorithms and neural network models. These algorithms can
+dynamically adjust muscle driving strategies by real - time environmental perception
+and achieve coordinated control of multiple muscles (e.g., synchronous regulation of
+antagonistic muscle groups). This will enable the robotic arm to achieve more natural
+and smooth motion patterns and significantly improve its flexibility and adaptability
+in complex environments.
+Fourthly, the exploration and application of sensor integration technology will be an
+important development direction. Force sensors, tactile sensors, and other sensors are
+planned to be embedded in the BMS to construct a real - time feedback control loop,
+thereby enhancing the interaction safety and operation accuracy in human - robot
+27
+
+===== PAGE 36 =====
+Chapter 5. Conclusion and Future works School of Advanced Technology
+collaboration scenarios.
+By systematically addressing the above - mentioned key issues, the anthropomorphic
+level and practical application value of the robotic arm will be significantly improved,
+fully demonstrating the immense potential of biomimetic humanoid robots in industrial
+automation, medical rehabilitation, elderly care, and other fields, and promoting the
+industrialization process and social value transformation of related technologies.
+28
+
+===== PAGE 37 =====
+Reference
+[1] Chengzhong. C, Qiangqiang. H, Chengqiang. F. SMA Artificial Muscle
+Biomimetic Dexterous Hand [EB/OL]. (2018 - 05 - 10)[2024 - 12 - 15].
+http://esetc.ustc.edu.cn/2018/0510/c11301a259506/page.htm.
+[2] Zhaowei Mechatronics. Knuckle Structure, Biomimetic Dexterous Finger and
+Biomimetic Dexterous Hand: China, CN202410558657.3 [P]. 2024 - 05.
+[3] Amy Guttman. This Founder Is Using 3D Printing And Robotics To
+Turn Disabilities Into Superpowers [EB/OL]. (2023 - 03 - 10)[2024 - 12
+- 15]. https://www.forbes.com/sites/amyguttman/2023/03/10/this-founder-is-
+using-3d-printing-and-robotics-to-turn-disabilities-into-superpowers/amp/.
+[4] Futuristic bionic arm helps amputees feel the sensation of touch and movement
+[EB/OL]. (No date)[2024 - 12 - 15]. https://www.cnet.com/science/futuristic-
+bionic-arm-helps-amputees-feel-the-sensations-of-touch-and-movement/.
+[5] Xu Z, Todorov E. Design of a highly biomimetic anthropomorphic robotic hand
+towards artificial limb regeneration[C]//2016 IEEE International Conference on
+Robotics and Automation (ICRA). IEEE, 2016: 3485-3492.
+[6] Solidworks; SOLIDWORKS 3D CAD | SOLIDWORKS
+[7] Rhino; Rhino - Rhinoceros 3D .
+[8] Y. Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima, T. Katayama,
+Y. Iori, H. Toshinori, K. Kawaharazuka, S. Makino, Y. Kakiuchi, K. Okada, and
+M. Inaba, oHuman Mimetic Musculoskele tal Humanoid Kengoro toward Real
+World Physically Interactive Ac tions, pin Proceedings of the 2016 IEEE-RAS
+International Conference on Humanoid Robots, 2016, pp. 876 ⚶883.
+[9] H. G. Marques, M. J¨antsch, S. Wittmeier, O. Holland, C. Alessandro, A. Dia-
+mond, M. Lungarella, and R. Knight, oEcce1: The first of a series of anthro-
+pomimetic musculoskeletal upper torsos, pin 2010 10th IEEE-RAS International
+Conference on Humanoid Robots. IEEE, 2010, pp. 391 ⚶396.
+29
+
+===== PAGE 38 =====
+Reference School of Advanced Technology
+[10] P.-A. Mouthuy, S. Snelling, R. Hostettler, A. Kharchenko, S. Salmon, A. Wain-
+man, J. Mimpen, C. Paul, and A. Carr, oHumanoid robots to mechanically stress
+human cells grown in soft bioreactors, pCommu nications Engineering, vol. 1, no.
+1, p. 2, 2022.
+[11] S. Kurumaya, K. Suzumori, H. Nabae, and S. Wakimoto,oMus culoskeletal lower-
+limb robot driven by multifilament muscles, pRobomech Journal, vol. 3, pp. 1 ⚶
+15, 2016.
+[12] S. Ikemoto, F. Kannou, and K. Hosoda, oHumanlike shoulder complex for muscu-
+loskeletal robot arms, pin 2012 IEEE/RSJ International Conference on Intelligent
+Robots and Systems, 2012, pp. 4892 ⚶4897.
+[13] R. Niiyama, S. Nishikawa, and Y. Kuniyoshi, oAthlete robot with applied human
+muscle activation patterns for bipedal running, pin Proc. IEEE-RAS Int. Conf.
+on Humanoid Robots (Humanoids 2010), Nashville, Tennessee USA, Dec. 2010,
+pp. 498 ⚶503.
+[14] X. Guo, W. Li, F. -Y. Fang, et al., ”Encoded sewing soft textile robots,” Science
+Advances, vol. 10, no. 1, 2024, doi: 10.1126/sciadv.adk3855.
+[15] H. Su, X. Hou, X. Zhang, et al., ”Pneumatic Soft Robots: Challenges and Bene-
+fits,” Actuators, vol. 11, no. 3, pp. 92, Mar. 2022, doi: 10.3390/act11030092.
+[16] G. Qin, A. Ji, Y. Cheng, et al., ”A Snake - Inspired Layer - Driven Con-
+tinuum Robot,” Soft Robotics, vol. 9, no. 6, pp. 1033 - 1046, 2022, doi:
+10.1089/soro.2020.0165.
+[17] R. V. Martinez, C. R. Fish, X. Chen, and G. M. Whitesides, oElastomeric origami:
+Programmable paper-elastomer composites as pneumatic actuators, pAdvanced
+Functional Materials, vol. 22, no. 7, pp. 1376 ⚶1384, 2012.
+[18] E. Acome, S. K. Mitchell, T. G. Morrissey, M. B. Emmett, C. Ben jamin, M.
+King, M. Radakovitz, and C. Keplinger, oHydraulically amplified self-healing
+electrostatic actuators with muscle-like perfor mance, pScience, vol. 359, no. 6371,
+pp. 61 ⚶65, 2018.
+[19] N. Kellaris, V. G. Venkata, G. M. Smith, S. K. Mitchell, and C. Keplinger,
+oPeano-hasel actuators: Muscle-mimetic, electrohy draulic transducers that lin-
+early contract on activation, pScience Robotics, vol. 3, no. 14, p. eaar3276, 2018.
+30
+
+===== PAGE 39 =====
+Reference School of Advanced Technology
+[20] K. Takashima, J. Rossiter, and T. Mukai, oMckibben artificial muscle using
+shape-memory polymer, pSensors and Actuators A: Physical, vol. 164, no. 1, pp.
+116⚶124, 2010.
+[21] G. Na, H. Nabae, and K. Suzumori, oBraided thin mckibben muscles for muscu-
+loskeletal robots, pSensors and Actuators A: Physical, vol. 357, p. 114381, 2023.
+[22] Yoshimura S, Miki A, Miyama K, et al. Patterned Structure Muscle: Arbitrary
+Shaped Wire-driven Artificial Muscle Utilizing Anisotropic Flexible Structure for
+Musculoskeletal Robots[J]. arXiv preprint arXiv:2410.07682, 2024.
+[23] Rodrigues da Silva, M., Marques, F., Tavares da Silva, M., Flores, oModelling
+Spherical Joints in Multibody Systems pin R. (eds) Multibody Mechatronic Sys-
+tems. MuSMe 2021. pp 85 ⚶93.
+[24] M. H. Kalos and P. A. Whitlock, oMonte Carlo Methods, pin Monte Carlo
+Methods, 2nd ed. Hoboken, USA: John Wiley & Sons, Inc., 2009.
+31

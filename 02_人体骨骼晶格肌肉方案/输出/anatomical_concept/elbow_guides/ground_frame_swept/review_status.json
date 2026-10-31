@@ -1,0 +1,179 @@
+{
+  "scope": "M7 current geometry candidate audit:only determinate rigid bodies and local changed installation, no installed compliant actuation proof",
+  "rigid_suite_complete": true,
+  "range_comparison": [
+    {
+      "action": "elbow_flexion",
+      "M4_reference_amplitude_deg": 150.0,
+      "M7_continuous_amplitude_deg": 150.0,
+      "actual_humerus_elevation_deg": 0.0,
+      "first_limit": [],
+      "range_regression": false
+    },
+    {
+      "action": "GH_flexion",
+      "M4_reference_amplitude_deg": 145.9375,
+      "M7_continuous_amplitude_deg": 145.9375,
+      "actual_humerus_elevation_deg": 145.93750000000003,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3384",
+            "FJ3368"
+          ],
+          "volume_mm3": 0.002820133719990188
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "GH_abduction",
+      "M4_reference_amplitude_deg": 123.93750000000001,
+      "M7_continuous_amplitude_deg": 123.93750000000001,
+      "actual_humerus_elevation_deg": 123.93750000000001,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3384",
+            "FJ3368"
+          ],
+          "volume_mm3": 0.001453800947595979
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "GH_axial_positive",
+      "M4_reference_amplitude_deg": 82.25,
+      "M7_continuous_amplitude_deg": 82.25,
+      "actual_humerus_elevation_deg": 0.0,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3384",
+            "FJ1477_proximal_bolt_left"
+          ],
+          "volume_mm3": 0.0017306196321665735
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "GH_axial_negative",
+      "M4_reference_amplitude_deg": 90.0,
+      "M7_continuous_amplitude_deg": 90.0,
+      "actual_humerus_elevation_deg": 0.0,
+      "first_limit": [],
+      "range_regression": false
+    },
+    {
+      "action": "SC_elevation",
+      "M4_reference_amplitude_deg": 27.500000000000004,
+      "M7_continuous_amplitude_deg": 27.500000000000004,
+      "actual_humerus_elevation_deg": 27.497181640150735,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3362",
+            "SC_cap_left"
+          ],
+          "volume_mm3": 0.001463827374685706
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "SC_protraction",
+      "M4_reference_amplitude_deg": 1.6875,
+      "M7_continuous_amplitude_deg": 1.6875,
+      "actual_humerus_elevation_deg": 0.2922081342725135,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3384",
+            "FJ3342"
+          ],
+          "volume_mm3": 0.026247023380614853
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "SC_retraction",
+      "M4_reference_amplitude_deg": 8.625,
+      "M7_continuous_amplitude_deg": 8.625,
+      "actual_humerus_elevation_deg": 1.4921929632935471,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3362",
+            "FJ3336"
+          ],
+          "volume_mm3": 0.0049611091730195015
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "SC_rotation_X",
+      "M4_reference_amplitude_deg": 30.0,
+      "M7_continuous_amplitude_deg": 30.0,
+      "actual_humerus_elevation_deg": 29.539510631258366,
+      "first_limit": [],
+      "range_regression": false
+    },
+    {
+      "action": "AC_upward",
+      "M4_reference_amplitude_deg": 35.5,
+      "M7_continuous_amplitude_deg": 35.5,
+      "actual_humerus_elevation_deg": 35.496313167514536,
+      "first_limit": [
+        {
+          "pair": [
+            "FJ3362",
+            "AC_cap_left"
+          ],
+          "volume_mm3": 0.0012311932007368354
+        }
+      ],
+      "range_regression": false
+    },
+    {
+      "action": "AC_rotation_X",
+      "M4_reference_amplitude_deg": 30.0,
+      "M7_continuous_amplitude_deg": 30.0,
+      "actual_humerus_elevation_deg": 29.539510631258366,
+      "first_limit": [],
+      "range_regression": false
+    },
+    {
+      "action": "AC_rotation_Z",
+      "M4_reference_amplitude_deg": 30.0,
+      "M7_continuous_amplitude_deg": 30.0,
+      "actual_humerus_elevation_deg": 5.137574211713615,
+      "first_limit": [],
+      "range_regression": false
+    },
+    {
+      "action": "coordinated_raise",
+      "M4_reference_amplitude_deg": 120.00000000000001,
+      "M7_continuous_amplitude_deg": 120.00000000000001,
+      "actual_humerus_elevation_deg": 164.99445145380128,
+      "first_limit": [],
+      "range_regression": false
+    }
+  ],
+  "regressions_vs_M4": [],
+  "rigid_instances": 109,
+  "neutral_instances": 153,
+  "free_TPU_or_distal_instances_omitted_from_motion": 44,
+  "CAD_neutral_rigid_solids": 151,
+  "new_or_revised_parts": 24,
+  "complete_arm_assembly_verified": false,
+  "TPU_actuation_verified": false,
+  "physical_test_verified": false,
+  "full_arm_muscle_layout_complete": false,
+  "downstream_transmission_complete": false,
+  "motor_reaction_complete": false,
+  "frozen": false
+}

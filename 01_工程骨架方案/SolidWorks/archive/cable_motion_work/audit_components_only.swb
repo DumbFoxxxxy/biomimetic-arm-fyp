@@ -1,0 +1,97 @@
+Dim swApp As Object
+Dim reportPath As String
+
+Sub main()
+    Dim root As String
+    Dim asmPath As String
+    Dim errs As Long
+    Dim warns As Long
+    Dim asm As Object
+    Dim comps As Variant
+    Dim c As Object
+    Dim i As Long
+    Dim f As Object
+    Dim sf As Object
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\components_only.txt"
+    ResetFile reportPath
+    asmPath = root & "\assembly_zero.SLDASM"
+    Set asm = swApp.OpenDoc6(asmPath, 2, 1, "", errs, warns)
+    If asm Is Nothing Then
+        WriteLine reportPath, "ERROR|open|" & errs & "|" & warns
+        swApp.ExitApp
+        Exit Sub
+    End If
+    WriteLine reportPath, "title|" & SafeStr(asm.GetTitle)
+    comps = asm.GetComponents(False)
+    If IsEmpty(comps) Then
+        WriteLine reportPath, "ERROR|no_components"
+    Else
+        For i = LBound(comps) To UBound(comps)
+            Set c = comps(i)
+            WriteLine reportPath, "component|" & SafeStr(c.Name2) & "|" & _
+                SafeStr(c.GetPathName) & "|fixed=" & CStr(c.IsFixed) & _
+                "|suppressed=" & CStr(c.IsSuppressed) & TransformText(c)
+        Next i
+    End If
+
+    Set f = asm.FirstFeature()
+    Do While Not f Is Nothing
+        If SafeStr(f.GetTypeName2) = "MateGroup" Then
+            Set sf = f.GetFirstSubFeature()
+            Do While Not sf Is Nothing
+                WriteLine reportPath, "mate|" & SafeStr(sf.Name) & "|" & SafeStr(sf.GetTypeName2)
+                Set sf = sf.GetNextSubFeature()
+            Loop
+        End If
+        Set f = f.GetNextFeature()
+    Loop
+    swApp.CloseDoc asm.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Function TransformText(c As Object) As String
+    Dim xf As Object
+    Dim data As Variant
+    Dim j As Long
+    Dim s As String
+    s = ""
+    On Error Resume Next
+    Set xf = c.Transform2
+    If Not xf Is Nothing Then data = xf.ArrayData
+    On Error GoTo 0
+    If IsArray(data) Then
+        For j = LBound(data) To UBound(data)
+            s = s & "|" & CStr(data(j))
+        Next j
+    Else
+        s = "|NODATA"
+    End If
+    TransformText = s
+End Function
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function

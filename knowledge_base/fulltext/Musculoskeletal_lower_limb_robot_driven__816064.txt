@@ -1,0 +1,637 @@
+===== PAGE 1 =====
+Kurumaya et al. Robomech J (2016) 3:18 
+DOI 10.1186/s40648-016-0061-3
+RESEARCH ARTICLE
+Musculoskeletal lower-limb robot driven 
+by multifilament muscles
+Shunichi Kurumaya1*, Koichi Suzumori1, Hiroyuki Nabae1 and Shuichi Wakimoto2
+Abstract 
+This paper presents a redundant musculoskeletal robot using thin McKibben muscles that is based on human anat-
+omy. The purpose of this robot is to achieve motions and characteristics that are very similar to a human body. We use 
+a thin McKibben muscle, which is compliant and flexible, as the actuator of a musculoskeletal robot. Using a bundle 
+of thin McKibben muscles, we develop a multifilament muscle that has characteristics similar to those of human 
+muscles. In contrast, the actuators of conventional musculoskeletal robots are very heavy, not densely attached and 
+have poor backdrivability. Because multifilament muscles are light and can be densely attached, we can attach them 
+to the musculoskeletal robot as skeletal muscle and achieve a redundant system that is equivalent to a human drive 
+mechanism. In this paper, we report a method for fabricating multifilament muscles that imitate various muscles, 
+the development of a lower-limb muscle mechanism for the redundant musculoskeletal robot with thin McKibben 
+muscles and experimental results showing that the proposed musculoskeletal robot achieves humanlike motions that 
+have not yet been reported for other robots.
+Keywords: Musculoskeletal robot, Pneumatic actuator, McKibben muscle, Biomimetics
+© 2016 The Author(s). This article is distributed under the terms of the Creative Commons Attribution 4.0 International License 
+(http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, 
+provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, 
+and indicate if changes were made.
+Background
+Currently, research on humanoid robots that imitate 
+human drive mechanisms is vigorously carried out world-
+wide. Our research group believes that we can achieve 
+humanlike behavior by imitating human mechanisms 
+and structure perfectly using muscle placement, redun -
+dancy and tendon-driven systems. “Humanlike” mecha -
+nisms imply particular mechanisms that conventional 
+robots do not have but a human has. These mechanisms 
+make our robot more similar to a human than other 
+robots. There are motions that are achieved by imitating 
+human motions perfectly, for instance, knee rotation that 
+appears only when the knee is bending or the complex 
+bending motion of an ankle with its many degree of free -
+dom. Many kinematic differences exist between present-
+day robots and human bodies. For example, (1) robotic 
+knees typically consist of a revolute joint with a fixed 
+rotational axis, while human knees consist of a rolling 
+joint with a shifting rotational axis; (2) robotic knees typ -
+ically have one degree of freedom that supports bending, 
+while human knees have two degrees of freedom at bend-
+ing position that support bending and rotation; and (3) 
+robotic ankles typically consist of a ball joint and a non-
+deformable foot, while human ankles consist of extrin -
+sic muscles that not only support ankle motion but also 
+deform the foot to a curved shape with inversion and 
+eversion. These functional differences between present-
+day robots and human bodies also result in characteristic 
+and physical appearance differences.
+The final goal of this research was to further develop 
+humanoid robots with human-like characteristics by 
+imitating the human drive mechanism, including the 
+number and arrangement of muscles in the human body. 
+Human–like characteristics such as a deformable foot 
+plays an important role in walking and knee rotation at 
+a bending position contribute to operating the pedals of 
+a car. Taking advantage of such human-like characteris -
+tics, our robot can be used to test hypotheses related to 
+human motion as well as compare the performance of 
+the robot to that of humans and work in the real world, 
+e.g., as human interactive robots, amusement robots and 
+Open Access
+*Correspondence: kurumaya.s.aa@m.titech.ac.jp 
+1 Department of Mechanical and Aerospace Engineering, Tokyo Institute 
+of Technology, Meguro-ku, Ookayama 2-12-1, Tokyo 152-8550, Japan
+Full list of author information is available at the end of the article
+
+===== PAGE 2 =====
+Page 2 of 15Kurumaya et al. Robomech J (2016) 3:18 
+medical training robots in the future. With this goal in 
+mind, this paper describes efforts to verify the potential 
+for human-like robotic mechanisms by building a similar 
+drive mechanism using our unique thin muscles.
+Musculoskeletal robots that have tendon-driven 
+systems, mainly using motors, can better imitate the 
+motions and characteristics of a human than those that 
+have other drive mechanisms. Kenshiro [1, 2] is driven 
+by motors and tendons. The body of Kenshiro is similar 
+to that of a human because its muscles, bones and joint 
+structures are based on human anatomy. For example, 
+its knee joint is designed to imitate a human one; thus, 
+Kenshiro has the functionality of a kneecap, cruciate liga-
+ment and screw-home mechanism in the knee joint using 
+link mechanics, which allows for humanlike motion. 
+ECCEROBOT (Embodied Cognition in a Compliantly 
+Engineered Robot) [3, 4] is also driven by a tendon-driven 
+system. It consists of a skeleton made from a polymorph 
+that has a bone-like appearance and elastic actuators that 
+include motors and elastic tendons to realize motions 
+that are similar to a human. ECCEROBOT is used to test 
+hypotheses about human motion as well as compare its 
+performance with that of humans. However, the actua -
+tors of these conventional musculoskeletal robots with 
+motor-driven tendon mechanisms are very heavy, not 
+densely attached to the muscles and have poor backdriv -
+ability with respect to the motors, gear wheels and belts. 
+Therefore, these robots do not have a redundancy that is 
+as good as that of a human.
+A McKibben artificial muscle is an actuator that has an 
+elasticity and compliance that is similar to human mus -
+cle and can also be used in a tendon-driven mechanism. 
+According to [5], the Shadow Biped Walker, which is a 
+pioneering redundant robot with pneumatic muscles, has 
+been developed by Shadow Robot Co. in 1988. The mus -
+cle arrangement in the robot is similar to that of human 
+muscles; however, the number of muscles on its one leg 
+is only 14 [6]. Koh Hosoda et al. have developed muscu -
+loskeletal infant robots with pneumatic artificial mus -
+cles [7]. These robots have a humanlike musculoskeletal 
+structure and McKibben pneumatic muscles that imitate 
+human muscles. Compared with motors, these actua -
+tors have some advantages regarding their mechanical 
+softness and compliance. As a result, such robots are a 
+good platform for investigating motion development. 
+In addition, the same research group also developed a 
+biped robot powered by antagonistic pneumatic actua -
+tors [8]. The design concept of this robot is basically the 
+same as that of the robots in [7]. This robot suggests that 
+joint compliance contributes to the realization of various 
+types of locomotion. The humanoid muscle robot torso 
+called “Zwei-Arm-Roboter” has been developed based on 
+an idea that is similar to ours [9]. Developers insist that 
+biologically inspired robots embody no rigid movement, 
+which are made possible by special joints or actuators. 
+However, these pneumatic actuator robots do not per -
+fectly imitate the redundancy of the human drive system 
+with respect to the number of muscles for the same rea -
+son that Kenshiro and ECCEROBOT do not.
+We have developed a thin McKibben muscle [10] with 
+a flexible shape that is the thinnest McKibben mus -
+cle ever reported. This actuator is also lighter and more 
+compact than other actuators such as conventional pneu-
+matic muscles, motors and cylinders. We believe that our 
+unique thin muscle is currently the only actuator capa -
+ble of realizing this purpose: it is thin, deformable and 
+light enough to be used inside a body with limited space; 
+it generates a comparable contracting force and ratio as 
+human muscles; and it can be easily bundled to form var -
+ious shaped multifilament muscles, e.g., a muscle that has 
+two ends on one side, such as a biceps muscle, or a flat 
+muscle such as the pectoralis major and deltoid muscles. 
+Kenshiro [1, 2] has a flat shaped (or planar) muscle [11]; 
+however, this planar muscle requires several pulleys and 
+associated supports. Comparatively, the shape and acting 
+points of a multifilament muscle can be flexibly changed 
+and adjusted during implementation in a robot body. 
+As a result, these muscles can be densely attached in 
+the robot. By replacing conventional actuators with thin 
+McKibben muscles on a musculoskeletal robot, we can 
+use them more densely and build a musculoskeletal robot 
+with a perfectly humanlike redundant system, resulting 
+in characteristics that are more similar to a human than 
+other systems.
+In this paper, we report a new method for fabricating 
+multifilament muscles that imitate various muscles, the 
+development of a lower-limb muscle mechanism with 
+the same number of muscles as a human for a musculo -
+skeletal lower-limb robot driven by these multifilament 
+muscles (Fig. 1), and results that compare the prototype’s 
+motions with that of a human. The experimental results 
+showed that our robot successfully realized human-like 
+knee and ankle motions with foot deformation that have 
+not been previously realized using conventional actuators 
+and robots.
+Thin McKibben muscle
+We are able to mass-manufacture the thin McKibben 
+muscles, as shown in Fig.  2. The outer diameter of the 
+thin McKibben muscle is 1.8 mm, which is currently the 
+thinnest of all McKibben artificial muscles. This actuator 
+is made of a silicone tube with a hardness of 40 shore A, 
+1.3 mm outer diameter and 0.9 mm inner diameter. The 
+outer-sleeve yarn is made up of 0.12 mm Tetoron mono-
+filament. The design specifications of the thin McKib -
+ben muscle used in this study include a braiding angle 
+
+===== PAGE 3 =====
+Page 3 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+of 18° with 24 outer fibers. The characteristics of the 
+thin McKibben muscles are shown in Fig.  3. It has hys -
+teresis because of the rubber properties. The maximum 
+contraction force is 11  N and the maximum contrac -
+tion ratio is 24  % with an air pressure of 0.35  MPa. 
+While the first drive of the muscle displays a relatively 
+Fig. 1 a Redundant musculoskeletal robot with thin McKibben muscles. b Robotic and human quadriceps muscles. The right panel of b is drawn by 
+the authors based on several anatomy texts such as [12]
+Fig. 2 a Roll of thin McKibben muscle (500 m in length). b Magnified view of thin McKibben muscle
+
+===== PAGE 4 =====
+Page 4 of 15Kurumaya et al. Robomech J (2016) 3:18 
+low contraction force because of the virgin hardness of 
+the rubber and the friction between the sleeve yarn and 
+the silicone tube, after several drive cycles, it exhibits a 
+steady hysteresis property, as shown in Fig. 3.
+Design of the multifilament muscles
+Structure of the multifilament muscle
+The typical structure of the multifilament muscle is illus -
+trated in Fig.  4. It has a tendon at each end and can be 
+connected to a skeleton. One end has a tendon that is 
+made of Dyneema (high-density polyethylene) fibers and 
+an air-supply port that is typically made of heat-shrink 
+plastic. The other end has a tendon only. This quick and 
+easy fabrication method achieves a small and soft air-
+supply port with high sealing properties.
+Characteristics of the multifilament muscle
+The multifilament muscle basically works as a contracting 
+linear actuator, as shown in Fig. 5. This muscle consists of 
+60 thin McKibben muscles, 310 mm in length and its con-
+traction ratio is 20 % at an air pressure of 0.25 MPa. It has 
+been reported by Doi et al. [13] that the characteristics of 
+multifilament muscles resemble those of thin McKibben 
+muscles and its contracting force is nearly proportional 
+to the number of muscles, while the contraction ratio is 
+similar to that of a single thin McKibben muscle. Thus, 
+we can easily design a muscle that has the desired prop -
+erty. Generally, the contracting force of the McKibben 
+muscle is proportional to its cross-sectional area. Thus, 
+the contracting force of a multifilament muscle is lower 
+than that of a conventional muscle with the same diam -
+eter because of the dead space between muscles. This 
+actuator is robust: if some of the thin McKibben mus -
+cles that compose the multifilament muscle are broken, 
+the muscle continues to work with a little air leakage. We 
+can repair and use it again by sealing that part. In this 
+research, actuators have been designed and fabricated 
+to be used as human muscles, which have a maximum 
+contraction stress of 0.30 MPa and a maximum contrac -
+tion ratio of 25–30 %. In comparison with human muscle, 
+the contraction ratio of multifilament muscle is almost 
+same as that of human muscles and the contraction force 
+is approximately 10 times higher or more. On the other 
+hand, responsiveness is different between multifilament 
+muscles and human muscles. To make the responsiveness 
+of multifilament muscles as quick as that of human mus -
+cles, the opening area of valves and the length of air sup -
+ply tube need to be improved. 
+Various shapes of multifilament muscles
+Human muscles have various shapes, e.g., a muscle that 
+has two ends on one side, such as a biceps muscle, or a flat 
+muscle such as the pectoralis major and deltoid muscles, 
+as shown in Fig.  6. Thus, it is difficult for conventional 
+actuators alone to imitate the shapes and the functions of 
+such muscles; however, multifilament muscles can imi -
+tate not only the shapes of human muscles, but also their 
+functionality. The advantages of these muscles are that 
+several points of application for a force are easily changed 
+and output force increases in proportion to the number 
+of muscles. Furthermore, a unique method of attaching 
+Fig. 3 Static characteristics of thin McKibben muscle with an air pres-
+sure of 0.35 MPa, where the maximum contraction force is 11 N and 
+the maximum contraction ratio is 24 %
+Fig. 4 Structure of typical multifilament muscle
+
+===== PAGE 5 =====
+Page 5 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+the actuator to the robot is achieved. Compared with the 
+shaped muscle in [8], both ends of the muscle are small 
+and each thin McKibben muscle is decentralized because 
+of this bundling structure. To attach these actuators to 
+a musculoskeletal robot and demonstrate the possibil -
+ity of building various shapes, we fabricated them as a 
+biceps muscle, as shown in Fig.  7. This muscle consists of 
+60 thin McKibben muscles, its length is 210 mm and its 
+contraction ratio is 20 % at an air pressure of 0.25 MPa 
+with a load of 50  N attached at the bottom. Another 
+example we have fabricated is the flat muscle shown in 
+Fig. 8. This muscle consists of 16 thin McKibben muscles, 
+its length is 280 mm and its contraction ratio is 19 % at 
+an air pressure 0.25 MPa with a load of 25 N attached at 
+the bottom. 
+Design of a lower limb musculoskeletal robot
+In this research, we used a skeletal specimen that imi -
+tates a boy 1.6 m in height, usually used as an anatomi -
+cal model of the human skeleton in a hospital or science 
+room, as the body of the musculoskeletal robot. We 
+obtained several advantages by using it as the body of 
+the musculoskeletal robot. For example, most conven -
+tional musculoskeletal robots have a shaft in the knee 
+joints with a fixed rotational axis; however, the human 
+knee has no fixed rotational shaft and rolls with a shift -
+ing rotational center. Kenshiro realized this motion 
+by using a linkage mechanism, which is a very differ -
+ent structure than that of the human knee. The skeletal 
+specimen we used has the same structure in the joint as 
+a human, where the bones roll in contact with each other. 
+Additionally, the skeletal specimen has ligaments made 
+of elastic cord. With such features, the skeletal specimen 
+can move more like a human than conventional robot 
+linkage mechanisms.
+Design of knee motions
+Table  1 summarizes the design specifications of the 
+multifilament muscles for the knee. The number of thin 
+McKibben muscles is determined so that multifilament 
+muscles are as almost the same size as human ones by 
+(a) Air pressure 0M Pa (b) Air pressure 0.25 MPa
+310 mm 250 mm
+Air supply portTendons
+Fig. 5 a Example of the developed multifilament muscle consisting of 60 thin McKibben muscles working as a linear actuator. This is the basic 
+shape that imitates normal muscle. b The contraction ratio is 20 % when the air pressure is 0.25 MPa
+Fig. 6 Various human muscles. a Biceps muscle and b flat muscle 
+such as a deltoid muscle (drawn by the authors based on several 
+anatomy texts such as [7])
+
+===== PAGE 6 =====
+Page 6 of 15Kurumaya et al. Robomech J (2016) 3:18 
+referring pictures and figures of anatomy manuals [14, 
+15]. We have confirmed that there is no significant differ-
+ence between our muscles and human muscles under the 
+supervision of a surgeon. In this paper, we do not have a 
+quantitative discussion. Their lengths are determined by 
+accounting for the height of the skeletal specimen used.
+There are four types of knee motions: extension, flex -
+ion, internal rotation and external rotation. The mus -
+cles needed for each motion based on human anatomy 
+are shown in Fig.  9. The extension of the knee uses four 
+muscles: the rectus femoris, vastus lateralis, vastus inter -
+medius and vastus medialis muscles. The rectus femoris 
+muscle, which is a biarticular muscle, also acts upon the 
+flexion of the hip joint. The flexion of the knee uses three 
+muscles: the biceps femoris, semitendinosus and Semi -
+membranosus muscles. Internal rotation uses the sem -
+itendinosus and Semimembranosus muscles. External 
+rotation uses the biceps femoris muscle. Internal rotation 
+and external rotation are carried out using only the flex -
+ion. This is why both muscles acting upon these motions 
+also act upon the flexion.
+Design of ankle motions
+Table 2 also summarizes the design specifications of the 
+multifilament muscles for the ankle. The number of thin 
+McKibben muscles and their lengths are determined in 
+the same manner as the knee.
+There are four types of ankle motions: dorsal flexion, 
+plantar flexion, inversion and eversion. In reality, there 
+are six types of ankle motions: dorsal flexion, plantar 
+flexion, pronation, supination, adduction and abduction. 
+However, the latter four motions are included in inver -
+sion or eversion because of the limitations caused by 
+muscle interactions. Inversion is an action that includes 
+plantar flexion, supination and adduction. The mus -
+cles used for each motion based on human anatomy are 
+shown in Fig.  10. Eversion is an action that includes dor -
+sal flexion, pronation and abduction. Dorsal flexion uses 
+four muscles: the tibialis anterior, fibularis tertius, exten -
+sor digitorum longus and extensor hallucis longus. Plan -
+tar flexion uses seven muscles: the gastrocnemius, soleus, 
+plantaris, tibialis posterior, fibularis longus, fibularis bre -
+vis and flexor hallucis longus. The gastrocnemius also 
+Fig. 7 a Example of multifilament muscle consisting of 60 thin McKibben muscles that imitates a biceps muscle. b The contraction ratio is 20 % at 
+an air pressure of 0.25 MPa with a 50 N load attached at the bottom
+
+===== PAGE 7 =====
+Page 7 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+acts upon the flexion of the knee joint, which is a biar -
+ticular muscle. Inversion uses four muscles: the tibialis 
+anterior, tibialis posterior, flexor digitorum longus and 
+flexor hallucis longus. Eversion uses four muscles: fibu -
+laris tertius, fibularis longus, fibularis brevis and extensor 
+digitorum longus.
+Development of a lower limb musculoskeletal 
+robot
+Our musculoskeletal robot in Fig.  11 has eight multi -
+filament muscles that affect knee motions on the thigh 
+and 12 muscles that affect ankle motions on the lower 
+leg, where the shape and size of the multifilament mus -
+cles are almost equivalent to those of a human. By fabri -
+cating various types of multifilament muscles, we have 
+achieved the same structure as a human by combining 
+the thin artificial muscles with a skeletal specimen. It 
+is a redundant system, in which 20  multifilament mus -
+cles work independently. We attached the multifilament 
+muscles to the musculoskeletal robot considering the 
+fixed ends and the directions of the tendons. The sheath 
+of a tendon, made of a soft tube, makes the tendon move 
+smoothly.
+The control system for the thin McKibben muscles 
+is shown in Fig.  12. The multifilament muscles on the 
+robot are provided with air pressure through a regula -
+tor and solenoid valves. The air pressure is controlled 
+by a single regulator and the muscles on our musculo -
+skeletal robot are operated by ON/OFF control sole -
+noid valves.
+Motion evaluation results
+We evaluated our redundant musculoskeletal robot 
+over a range of motions. Each motion is generated by 
+activating the corresponding muscles based on human 
+anatomy. Corresponding muscles are operated by 
+ON/OFF control solenoid valves. We measured the 
+range of motion for each robot joint and compared it 
+Fig. 8 a Example of multifilament muscle consisting of 16 thin McKibben muscles that imitates a flat muscle. b The contraction ratio is 19 % at an 
+air pressure of 0.25 MPa with a 25 N load attached at the bottom
+Table 1 Design specifications of  the multifilament thin 
+McKibben muscles for the knee
+Muscle Number of thin McK-
+ibben muscles
+Length of con-
+striction (mm)
+Rectus femoris 65 325
+Vastus lateralis 63 270
+Vastus intermedius 48 270
+Vastus medialis 60 300
+Biceps femoris (long one) 60 250
+Biceps femoris (short one) 72 280
+Semitendinosus 60 350
+Semimembranosus 60 250
+
+===== PAGE 8 =====
+Page 8 of 15Kurumaya et al. Robomech J (2016) 3:18 
+that of the corresponding human joint. Each angle of 
+joint is obtained by measuring the intersection angles 
+between bones in the pictures shown in Figs.  13, 14, 
+15, 16, 17.
+Knee motion evaluation
+The extension and flexion of our musculoskeletal robot 
+were confirmed, as shown in Fig.  13, to be similar to 
+those of a human. The internal rotation and external 
+rotations were also confirmed, as shown in Fig.  14. By 
+comparing the range of motion of our musculoskeletal 
+robot with that of a human (Tables  3 and 4), we find that 
+the internal and external rotations of our robot are equal 
+to those of a human. At the same time, the extension and 
+flexion of our robot are about degree less than those of a 
+human.
+Fig. 9 Classification of the muscles used for each motion of the knee based on human anatomy
+Table 2 Design specifications of  the multifilament thin 
+McKibben muscles for the ankle
+Muscle Number of thin 
+McKibben muscles
+Length of  
+constriction (mm)
+Gastrocnemius 30 each 300
+Soleus 40 300
+Plantaris 10 300
+Tibialis anterior 40 300
+Tibialis posterior 26 300
+Fibularis tertius 10 100
+Fibularis longus 30 300
+Fibularis brevis 40 160
+Flexor digitorum longus 30 300
+Extensor digitorum longus 30 300
+Flexor hallucis longus 20 250
+Extensor hallucis longus 20 250
+
+===== PAGE 9 =====
+Page 9 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+Ankle motion evaluation
+The dorsal and plantar flexions of our musculoskeletal 
+robot were confirmed, as shown in Fig.  15, to be similar 
+to those of a human. Furthermore, pronation and supi -
+nation were confirmed, as shown in Fig.  16. Adduction 
+and abduction during inversion or eversion were con -
+firmed, as shown in Fig.  17, and are no less than those of 
+a human. Inversion and eversion were also confirmed, as 
+shown in Fig. 18. The comparison of the range of motions 
+of our musculoskeletal robot with those of a human 
+(Table 5) shows that except for dorsal flexion, the ranges 
+are no less than those of a human. The plantar flexion 
+of our robot is not more than that of a human; however, 
+nearly the same motion as a human is achieved.
+Another distinct point of the prototype is its foot 
+deformation. As shown in Figs.  15 and 16, the prototype 
+foot deforms in a curved shape, very similar to a human 
+foot. This comes from the bone structure, which, like 
+that of a human, consists of many bones, like a cubic 
+puzzle.
+Conclusions
+We established a method for fabricating multifilament 
+muscles using the thin McKibben muscle that we previ -
+ously developed. We have also successfully imitated var -
+ious-shaped muscles that are found in the human body. 
+Using the multifilament muscles, this report shows that 
+we can create redundant and compact tendon-driven 
+Fig. 10 Classification of the muscles used for each motion of the ankle based on human anatomy
+
+===== PAGE 10 =====
+Page 10 of 15Kurumaya et al. Robomech J (2016) 3:18 
+Fig. 11 a Front and b side view of redundant musculoskeletal robot with thin McKibben muscles. There are eight multifilament muscles on the 
+thigh and 12 muscles on the lower leg, which is equivalent to a human 
+Fig. 12 Robot control system for the thin McKibben muscles based on an Arduino board. The multifilament muscles on the robot are provided 
+with air pressure through a regulator and solenoid valves
+
+===== PAGE 11 =====
+Page 11 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+Fig. 13 a Extension and b flexion of the knee driven by multifilament muscles
+Fig. 14 a Internal rotation and b external rotation of the knee driven by multifilament muscles
+
+===== PAGE 12 =====
+Page 12 of 15Kurumaya et al. Robomech J (2016) 3:18 
+Fig. 15 a Dorsal flexion and b plantar flexion of an ankle driven by multifilament muscles
+Fig. 16 a Pronation and b supination of an ankle driven by multifilament muscles during inversion or eversion
+
+===== PAGE 13 =====
+Page 13 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+systems suitable for the development of a lower-limb 
+musculoskeletal robot. As a result, our robot contains the 
+same number and arrangement of muscles in the human 
+body.
+Fig. 17 a Adduction and b abduction of an ankle driven by multifilament muscles during inversion or eversion
+Table 3 Range of motion of the proposed musculoskeletal 
+robot and human knee joints [16]
+Musculoskeletal robot Human
+Extension (deg) 120 130
+Flexion (deg) 14 0
+Table 4 Range of motion of the proposed musculoskeletal 
+robot and human knee joints
+The numbers in parentheses indicate the flexion angle during internal or 
+external rotation [16]
+Musculoskeletal 
+robot (90°)
+Musculoskeletal 
+robot (100°)
+Human (90°)
+Internal rotation 
+(deg)
+15 − 10–20
+External rotation 
+(deg)
+− 26 20–30
+The experiments show that the musculoskeletal 
+driven mechanism achieves motions that are similar to 
+those of a human. The prototype robot demonstrated 
+nearly the same range of motion for both the knee and 
+ankle as a human by using the same muscle arrange -
+ment and bone structure. Regarding the knee joint, our 
+robot realized the same degrees of freedom at bending 
+position as a human knee joint by using the same mech -
+anism; two degrees of freedom support both bending 
+and rotation. Our robot also demonstrated the use of an 
+extrinsic muscle to deform a foot like a bow with inver -
+sion and eversion (a foot consists of many bones acted 
+upon by an extrinsic muscle). It is the first robot in the 
+world that has realized these human-like characteris -
+tics by imitating the human drive mechanism, includ -
+ing the same number and arrangement of muscles in the 
+human body.
+While this study evaluated these new motions from a 
+kinematics perspective, we are planning to evaluate this 
+musculoskeletal mechanism in terms of force, stiffness 
+and dynamic characteristics in a subsequent research 
+effort. In addition, this study focused only on knee 
+and ankle motions; future research will consider the 
+application of this method to the entire human body, 
+
+===== PAGE 14 =====
+Page 14 of 15Kurumaya et al. Robomech J (2016) 3:18 
+including the hip and establish a control method for a 
+redundant system to perform practical movements.
+Authors’ contributions
+All authors equally contributed. All authors read and approved the final 
+manuscript.
+Author details
+1 Department of Mechanical and Aerospace Engineering, Tokyo Institute 
+of Technology, Meguro-ku, Ookayama 2-12-1, Tokyo 152-8550, Japan. 2 Gradu-
+ate School of Natural Science and Technology, Okayama University, Okayama, 
+Japan. 
+Acknowledgements
+The present study was supported by JSPS KAKENHI Grant Number 26249028, 
+“Realization of a Next-generation McKibben Artificial Muscles.”
+Competing interests
+The authors declare that they have no competing interests.
+Received: 9 February 2016 Accepted: 3 September 2016
+References
+ 1. Asano Y, Mizoguchi H, Osada M, Kozuki T, Urata J, Izawa T, Nakanishi Y, 
+Okada K, Inaba M (2011) Biomimetic design of musculoskeletal human-
+oid knee joint with patella and screw-home mechanism. In: Proceedings 
+of the 2011 IEEE international conference on robotics and biomimetics, p 
+1813–1818
+ 2. Asano Y, Mizoguchi H, Kozuki T, Motegi Y, Osada M, Urata J, Nakanishi Y, 
+Okada K, Inaba M (2012) Lower thigh design of detailed musculoskeletal 
+humanoid “Kenshiro.” In: Proceedings of the 2012 IEEE/RSJ international 
+conference on intelligent robots and systems, p 4367–4372
+ 3. Marques HG, Jäntsch M, Wittmeier S, Holland O, Alessandro C, Diamond 
+A, Lungarella M, Knight R (2010) ECCE1: The first of a series of anthropo-
+mimetic musculoskeletal upper torsos. In: Proceedings of the IEEE-RAS 
+international conference on humanoid robots 2010, p 391–396
+ 4. Holland O, Knight R (2006) The anthropomimetic principle. In: Proceed-
+ings of the AISB06 symposium on biologically inspired robotics, p 1–8
+ 5. Andrikopoulos G, Nikolakopoulos G, Manesis S (2011) A survey on 
+applications of pneumatic artificial muscles. In: Proceedings of the 19th 
+Mediterranean conference on control and automation, p 1439–1446
+ 6. The shadow biped. http://www.shadow.org.uk/projects/biped.shtml. 
+Accessed 7 Aug 2016
+ 7. Narioka K, Niiyama R, Ishii Y, Hosoda K (2009) Pneumatic musculoskeletal 
+infant robots. In: Proceedings of the 2009 IEEE/RSJ International confer-
+ence on intelligent robots and systems
+Fig. 18 a Inversion and b eversion of an ankle driven by multifilament muscles
+Table 5 Range of motion of the proposed musculoskeletal 
+robot and human ankle joints [16]
+Musculoskeletal robot Human
+Dorsal flexion (deg) 19 25
+Plantar flexion (deg) 50 50
+Pronation (deg) 30 20
+Supination (deg) 40 30
+Adduction (deg) 11 10
+Abduction (deg) 28 20
+
+===== PAGE 15 =====
+Page 15 of 15
+Kurumaya et al. Robomech J (2016) 3:18 
+ 8. Takuma T, Hayashi S, Hosoda K (2008) 3D biped robot for multi-modal 
+locomotion driven by antagonistic pneumatic actuators. In: Proceedings 
+of the 4th international symposium on adaptive motion of animals and 
+machines (AMAM2008), Vol 400
+ 9. Boblan I, Schulz A (2010) A humanoid muscle robot torso with biologi-
+cally inspired construction. In: Proceedings of the 41st International 
+symposium on robotics and ROBOTIK 2010, 6th German conference on 
+robotics
+ 10. Takaoka M, Suzumori K, Wakimoto S, Iijima K, Tokumiya T (2013) Fabrica-
+tion of thin McKibben muscles with various design parameters and their 
+experimental evaluations. In: Proceedings of the 5th international confer-
+ence on manufacturing, machine design and tribology (ICMDT 2013), p 
+82
+ 11. Osada M, Mizoguchi H, Asano Y, Kozuki T, Urata J, Nakanishi Y, Okada K, 
+Inaba M (2011) Design of humanoid body trunk with “multiple spine 
+structure” and “planar-muscle-driven” system for achievement of human-
+like powerful and lithe motion. In: Proceedings of the 2011 IEEE interna-
+tional conference on robotics and biomimetics, p 2217–2222
+ 12. Kahle VW, Leonhardt H, Platzer W, translator Oti J (1990) Kaibougaku Atlas 
+taschenatlas der anatomie. ver 3, p 17, Bunnkoudou Co., Ltd, Tokyo
+ 13. Doi T, Wakimoto S, Suzumori K, Kanda T (2015) Research on bundle 
+mechanism of thin McKibben artificial muscles -1st report: static charac-
+teristics of contraction ratio and contraction force. In: Proceeding of the 
+2015 JSME conference on robotics and mechatronics, 1P1-B03
+ 14. Netter F (2011) Atlas of human anatomy, 5th edn. Elsevier Japan KK, 
+Tokyo
+ 15. Kawakami K, Isogai K (2013) Anatomy and surface anatomy of muscles, 
+2nd edn. Daihokaku, Kumamoto
+ 16. Kawashima T, Kuriyama S (2014) Kinniku kansetsu no ugoki to sikumi 
+jiten. Narumido Publishing Company, Tokyo

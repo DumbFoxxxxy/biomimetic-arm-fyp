@@ -1,0 +1,770 @@
+===== PAGE 1 =====
+838 IEEE ROBOTICS AND AUTOMA TION LETTERS, VOL. 4, NO. 2, APRIL 2019
+A Spherical Active Joint for Humanoids and Humans
+Sariah Mghames , Manuel Giuseppe Catalano , Antonio Bicchi , and Giorgio Grioli
+Abstract—Both humanoid robotics and prosthetics rely on the
+possibility of implementing spherical active joints to build dexter-
+ous robots and useful prostheses. There are three possible kine-
+matic implementations of spherical joints: serial, parallel, and hy-
+brid, each one with its own advantages and disadvantages. In this
+letter, we propose a hybrid active spherical joint, that combines the
+advantages of parallel and serial kinematics, to try and replicate
+some of the features of biological articulations: large workspace,
+compact size, dynamical behavior, and an overall spherical shape.
+We compare the workspace of the proposed joint to that of human
+joints, showing the possibility of an almost-complete coverage by
+the device workspace, which is limited only by kinematic singular-
+ities. A ﬁrst prototype is developed and preliminarly tested as part
+of a robotic shoulder joint.
+Index Terms—Robotic joints, parallel robots, human-centered
+robotics.
+I. I NTRODUCTION
+E
+XTENSIVE work to date has been conducted to study
+the architecture and motion of the human body, (see
+e.g. [1]), for its possible mapping into robotic applications. From
+a mechatronic point of view, many of these studies led to the
+design of various solutions, both in kinematic and in actuation,
+that today are commonly used on several robots. Although much
+has been done for the design of artiﬁcial joints, many challenges
+are still open in the realization of kinematic structures capable
+of a good approximation of the human body architecture. This is
+especially true in contexts where functional anthropomorphism
+is needed, as in the design of prostheses and anthropomorphic
+humanoids. Even if speciﬁcations for these two application sce-
+narios can be different, it is well known that both share some
+functional and practical needs, as e.g. large range of motion,
+reduced weight and encumbrance, and the need for high dy-
+namic performance. Looking at robotic applications, although
+Manuscript received September 10, 2018; accepted December 30, 2018. Date
+of publication January 16, 2019; date of current version February 4, 2019.
+This letter was recommended for publication by Associate Editor V . Patoglu
+and Editor A. M. Okamura upon evaluation of the reviewers’ comments. This
+work was supported by the European Union’s Horizon 2020 Research and
+Innovation Programme under Grant 688857 (SoftPro). (Corresponding author:
+Sariah Mghames.)
+S. Mghames is with the Research Center “Enrico Piaggio,” Universit`ad iP i s a ,
+Pisa 57123, Italy (e-mail: ,sariah25_mghames@hotmail.com).
+M. G. Catalano and G. Grioli are with the Soft Robotics for Human Coop-
+eration and Rehabilitation, Istituto Italiano di Tecnologia, Genoa 16163, Italy
+(e-mail:,manuel.catalano@iit.it; giorgio.grioli@gmail.com).
+A. Bicchi is with the Research Center “Enrico Piaggio,” Universit `ad iP i s a ,
+Pisa 57123, Italy, and also with the Soft Robotics for Human Cooperation
+and Rehabilitation, Istituto Italiano di Tecnologia, Genoa 16163, Italy (e-mail: ,
+antonio.bicchi@unipi.it).
+This letter has supplementary downloadable material available at http://
+ieeexplore.ieee.org, provided by the author. The Supplemental Materials con-
+tain a video comparing the workspace of the proposed joint to that of human
+joints, showing the possibility of an almost-complete coverage by the device
+workspace, which is limited only by kinematic singularities. This material is
+18.3 MB in size.
+Digital Object Identiﬁer 10.1109/LRA.2019.2893423
+humanoid robots do not necessarily have to replicate exactly the
+human architecture, there are applications where robots can ben-
+eﬁt from an anthropomorphic structure. Two relevant examples
+are given by those humanoids that have to be used in environ-
+ments made for humans and by tele-operated contexts, where
+a human operator maps its body movements into the robot [2],
+[3]. In the latter case, in particular, a one-to-one joint mapping
+can simplify the use of the robot and make the teleoperation
+more intuitive, easy and functional.
+In prosthetic applications, a good joint design is intended to
+substitute the lost biological joint and should embed character-
+istics close to the ones of the human. It is well known that bio-
+logical joints axes are not ﬁxed during motion and much work in
+literature deals with the development of mechanisms to model
+their movements, as e.g. [4]. Nevertheless, for simpliﬁcation
+reasons it is common, in practice, to model joints with simpler
+ones, that use ﬁxed axes of rotation. Under this simplifying hy-
+pothesis, several joints of the human body can be approximated
+as 3 degrees of freedom (dof) spherical joints [5]. This letter
+deals with the non-trivial problem of replicating the character-
+istics of 3-dof spherical structures in a mechanical joint. The
+majority of existing solutions implement non-anthropomorphic
+serial structures, which present some limitations. These solu-
+tions embed a long chain in their structures which can reduce
+the collision-free conﬁguration space of the robot considered
+as a whole. Their open joints structures tend to perform poorly
+in terms of rigidity, agility and load capability. On the other
+hand, several parallel structure solutions exist but their use is
+limited due to the complexity of their implementation and to the
+reduced workspace. Serial-chain type manipulators have larger
+workspace, whereas their parallel-chain counterparts are com-
+pact, highly dynamic and have higher structural rigidity, due to
+the presence of two or more closed chains. A natural question is
+whether one can combine serial and parallel structures so as to
+retain most of their advantages, while limiting the drawbacks of
+the two approaches to some extent. The proposed work inves-
+tigates this approach and studies the design of a 3-dof joint by
+adopting a hybrid design approach, based, in part, on the 2-dof
+agile eye [6], [7]. We compare the theoretical performance of
+the proposed solution to the range of motion of different joints
+of the human body that the system can approximate. Then, we
+present a shoulder joint prototype (Fig. 1) that will be adapted,
+in future works, to both robotic and prosthetic applications. Un-
+der the simpliﬁed hypothesis of ﬁxed axes of rotation for human
+joints, it is worth to note that the spherical shoulder joint model
+we choose to adopt in this letter is valid for a limited range
+of human shoulder rotations, since it is well known that shoul-
+der rotations result from harmonious movements of the whole
+shoulder complex.
+This letter is organized as in the following: in Section II a
+discussion on the current State of Art of robotic joints design is
+reported. Description of the proposed approach and its analytical
+dissertation is discussed in Section III. The design of an artiﬁcial
+2377-3766 © 2019 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+MGHAMES et al.: SPHERICAL ACTIVE JOINT FOR HUMANOIDS AND HUMANS 839
+Fig. 1. Shoulder joint implementation of the anthropomorphic spherical active
+joint structure.
+TABLE I
+RANGE OF MOTION OF THE HUMAN JOINTS
+∗ LB: lateral Bending; E/F: extension/ﬂexion; SR: side rotation; Ab/Ad: adduc-
+tion/abduction; HEF: horizontal extension/ﬂexion; VEF: vertical extension/ ﬂexion; U/R-
+D: ulnar/radial deviation; F-P/S: forearm pronotion/supination; E/I-R: external/internal
+rotation; E/I: eversion/inversion (extracted from [9]).
+shoulder based on the proposed approach is presented in IV, and
+preliminary experimental validation is provided in Section V.
+Finally, conclusions are drawn in Section VI.
+II. S TATE OF ART
+Three types of joints are present throughout the human body:
+(i) ﬁbrous joints, that are immovable; (ii) cartilagenous joints,
+semi movable, mainly forming the degrees of freedom in the
+spinal cord, and (iii) synovial joints, that are freely movable
+[8]. Looking at the state of art [9] it is possible to say, from
+an engineering point of view, that many common synovial joint
+complexes throughout the human body serve the function of pro-
+viding complete rotation freedom, within a certain range, and as
+such, they can be approximated as spherical joints [5]. They are
+most noticeably found in the neck, shoulders, wrists, ankles and
+hips. Table I [9] summarizes the range of motion of these joints,
+and shows that the 3-dof shoulder serves the largest workspace,
+making it one of the most complex to replicate. It is interesting
+to note, on the contrary, that spherical joints are very rare in cur-
+rent robotic and prosthetic designs. Three different approaches
+are possible when designing a robotic multi-dof joint. In the
+following, we list them together with relevant use examples.
+Serial Joint Structures: Serial joints are widely used in hu-
+manoid and prosthetic applications. Two examples of well-
+known humanoid robots implementing serial structures in their
+joints are the Walk-Man [2] and Ocean One [3]. Another type of
+robotic application is the KuKa LWR manipulator [10]. In the
+prosthetic ﬁeld, the RIC prosthetic arm [11] presents a 6-dof se-
+rial chain. All these arms present a long chain in their structures
+which tends to be encumbering.
+Parallel Joint Structures: Parallel joints are, on the contrary,
+less considered in humanoid and prosthetic applications due to
+the complexity of their structures. The 3-dof spherical 3D agile
+eye, developed by Gosselin et al. in [12] for camera orientation,
+was adopted in [13] for a hip exoskeleton application. The 3D
+agile eye presents singularities in the 3 rotational directions of
+the mobile platform [14]. The Omni-Wrist parallel mechanism,
+presented in [15], was developed for antennas and sensors point-
+ing. In [16], a 6 legs Stewart platform was used for KASPAR
+humanoid neck while
+Hybrid Joint Structures: Serial and parallel conﬁgurations
+have both their advantages and disadvantages [17]. Literature
+addressing the hybrid type of robot manipulators is, in compar-
+ison, relatively scarce. In [18], a gas-actuated anthropomorphic
+prosthesis was developed for trans-humeral amputees. The wrist
+mechanism of the latter system is achieved with 1-RPR and 1-
+SPS parallel mechanism with an additional linear screw rod in
+the forearm for wrist pronation. The system is rather heavy and
+bulky, since it needs air pipes, valves and a source of pressur-
+ized air. The Twente humanoid head [19] is developed with a
+4-dof hybrid neck, where a 2-dof parallel module provides the
+lower-tilt and pan motions, while series connections for the up-
+per tilt and roll motions are created. The system is biologically
+inspired, so it is redundant on the tilt angle, this increases the
+dimensions of the neck joint. The majority of the existing hybrid
+solutions are designed for medical and industrial applications,
+e.g. [20], [21]. In [20], Carbone et al. designed the CaHyMan
+parallel-serial manipulator for surgical tasks adding to CaPaMan
+a telescope arm mounted on its mobile plate. In [22], the authors
+present the ﬁrst 3-dof hybrid wrist for dexterous micromanip-
+ulation tasks based on the state-of-art 2-dof spherical ﬁve-bar
+mechanism to which they added a serial roll dof. The authors
+mount the robotic wrist on a 3-axis commercial linear stage to
+achieve a fully dexterous system. Also, the authors optimized the
+design of the wrist so as to achieve larger dexterous workspace
+encompassing collected anastomosis data. Although the idea
+and its application is original, the work presented in this letter
+investigates in the role of 3-dof hybrid joints in approximating
+the features of common spherical joints found in human body.
+III. M ETHOD
+In [7], Gosselin et al. propose the design of the 2-dof agile
+eye, which is very good for its simplicity (a total of 3 passive
+joints and 4 links) and agility (indeed it was developed initially
+for fast and accurate gaze adjustment). We propose to combine
+it in series with a rotating joint to enable 3-dof rotation. The
+resulting joint (Fig. 2-a) has a serial part and a parallel part with
+two chains. The hybrid solution can be adapted to the require-
+ments of different spherical joints. Design versatility is achieved
+as the position of the passive and active joints can be changed
+with respect to the base frame attached to the body. Figure 2-b
+shows three other possible actuated joint conﬁgurations. Con-
+ﬁgurations A1, A3 and A4 consider either one or two of the
+parallel module motors connected to the central platform, while
+conﬁguration A2 considers both motors inside. The most com-
+pact device is most likely to be achieved with conﬁguration A2;
+however, if the load and ground are switched, the links attached
+to the output shaft of the motors will be rotating inside the ﬁxed
+body for large angular displacement. Therefore, conﬁguration
+A2 is probably more useful in robots than in prostheses. For
+each conﬁguration A1-4, there is the possibility of inverting the
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+840 IEEE ROBOTICS AND AUTOMA TION LETTERS, VOL. 4, NO. 2, APRIL 2019
+Fig. 2. (a) Sketch of the parallel module of the spherical hybrid joint.
+(b) Sketch of the possible actuated joint conﬁgurations. M1, M2 and M3, in
+dark gray, are the joint motors, while EE, in gray, is the end effector.
+positions of ground and load. The convenience of this choice
+depends on the importance given to inertia with respect to com-
+pactness factor.
+A. Kinematics and Singularities
+In the following, we present the generic method followed
+to formulate the displacement kinematics of the joint in its
+different conﬁgurations, which differs from what is presented
+in [23], ﬁrst, in the simplicity to adapt to different conﬁg-
+urations of Fig. 2, and second, in the ability to be visual-
+ized and simulated in a handy toolbox, ARTE Robotic Tool-
+box (http://arvc.umh.es/arte). We conduct a kinematic analysis
+of the generic conﬁguration represented in Fig. 2-a, where we
+deﬁne ˙qs ≜ ˙q8 the angular velocity of the serial chain active
+joint, ˙qp ≜ [˙q1 ˙q2]T the angular velocities of the parallel mod-
+ule active joints. We also deﬁne φ1,2,3 to be the roll, pitch and
+yaw angles of the end-effector relative to the ﬁxed base, respec-
+tively, and ˙φe−e ≜ [ ˙φ1 ˙φ2 ˙φ3]T their rate of change. Serial
+chain 1 is made up of {Z0,Z1,Z3,Z7 } and serial chain 2 of
+{Z0,Z2,Z4,Z5 }.
+We formulate the rotation matrix for each chain as
+R107 =
+⎡
+⎢⎣
+0 Cq3 Sq3
+−Cq1 Sq1 Sq3 −Cq3 Sq1
+−Sq1 −Cq1 Sq3 Cq1 Cq3
+⎤
+⎥⎦, (1)
+R105 =
+⎡
+⎢⎣
+−Sq2 −Cq2 Sq4 −Cq2 Cq4
+0 Cq4 −Sq4
+Cq2 −Sq2 Sq4 −Sq2 Cq4
+⎤
+⎥⎦, (2)
+where R107 is the rotation matrix of chain 1, i.e the rotation of
+frame 7 in the base frame, and R105 is the rotation matrix of
+chain 2, i.e the rotation of frame 5 rotation in the base frame
+(Sx and Cx refer to the sin(x) and cos(x) respectively).
+1) F orward Kinematics: We start by analyzing the parallel
+subsystem ﬁrst. For this module we deﬁne φp ≜ [φ1 φ2]T the
+orientation of the central platform (deﬁned by frame 7) with
+respect to the base and ˙φp its rate of change. From Fig. 2-a,
+it is possible to notice that the closure of the kinematic chain
+at the joint deﬁned by frame 5 implies that y7 axis of the end-
+effector frame (frame 7) of chain 1 is aligned with the −z5 axis
+of the end-effector frame (frame 5) of chain 2. Thus, equating
+the second column of (1) with the negative of the third column
+of (2) yields
+Cq3 = Cq2 Cq4 (3)
+tan q3 = −tan(q2)/Cq1 (4)
+Sq4 = Sq1 Sq3 . (5)
+Hence, letting
+q∗3 = arctan(−tan(q2)/Cq1 ), (6)
+q∗4 =a r c s i n (Sq1 Sq3 ), (7)
+equations (4) and (5) yield the following set of possible so-
+lutions (q3,q4) ∈{ (q∗3,q ∗4),(q∗3,π − q∗4),(q∗3 + π, −q∗4),(q∗3 +
+π, −q∗4),(q∗3 + π,q ∗4 + π)}.
+To comply also with (3), either solutions I and IV or II and
+III apply, based on the value of q2 ,a si n
+{
+‖q2 ‖≤ π/2:( q3,q4) ∈{ (q∗3,q ∗4),(q∗3 + π,q ∗4 + π)}
+‖q2 ‖ >π /2:( q3,q4) ∈{ (q∗3,π − q∗4),(q∗3 + π, −q∗4)}.
+(8)
+2) Inverse Kinematics: Assume a desired rotation matrix of
+the parallel platform is given as
+R0MP = Rx(φ1)Ry (φ2)=
+⎡
+⎢⎣
+Cφ2 0 Sφ2
+Sφ1 Sφ2 Cφ1 −Sφ1 Cφ2
+−Cφ1 Sφ2 Sφ1 Cφ1 Cφ2
+⎤
+⎥⎦.
+(9)
+From Fig. 2-a, it is possible to notice that z7 axis of chain 1 is
+parallel to z0 axis of the base frame. Hence, equating the third
+column of (1) with the third column of (9) yields
+q1 = φ1 or q 1 = φ1 − π. (10)
+Moreover, we have that y7 is parallel to −z5 , so, equating the
+second column of (1) with the negative of the third column of
+(2) yields
+tan(q2)= −tan(q3)Cq1 , (11)
+where q3 ∈{ φ2,π − φ2 }. To comply with Cq1 Cq3 = Cφ1 Cφ2
+equality (from the parallelism between z7 and z0 ), based on
+which quadrant of the planeφ1 and φ2 lie, the solutions for chain
+1 become two of the following: (q1,q3) ∈{ (φ1,φ2),(φ1,π −
+φ2),(π + φ1,φ2),(π + φ1,π − φ2)}.
+Hence, two solutions result for q2 for each conﬁguration of
+chain 1. We let q∗2 = arctan(−tan(q3)Cq1 ), then Eq. (11) has
+4 possible solutions q2 ∈{ q∗2, −q∗2,π − q∗2,π + q∗2 }, only two
+of which are solutions for chain 2 based, once more, on which
+quadrant of the plane φ1 and φ2 lie. Equations (10) and (11)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+MGHAMES et al.: SPHERICAL ACTIVE JOINT FOR HUMANOIDS AND HUMANS 841
+represent the active joint angular positions and make a total of
+4 possible solutions to the inverse kinematic analysis.
+To visualize the kinematic behavior of the proposed joint
+design, we developed a kinematic visualiser (see attached video)
+for the hybrid joint making use of ARTE in Matlab environment.
+3) Jacobian and Dexterity Analysis: In order to evalu-
+ate the dexterity of the mechanism, we proceed by for-
+mulating the Jacobian matrix of the hybrid system which
+maps joint velocities to task space velocities. We introduce
+ﬁrst the result of the Jacobian formulation for the paral-
+lel module (refer to [23] for a detailed procedure). The
+differential inverse kinematics of the parallel module are
+given by
+B ˙qp = D0ωp, (12)
+where ωp is the platform angular velocity relative to the base
+frame. B and D0 are the type I and II Jacobian matrices of the
+parallel module, respectively, given by,
+B =
+[ ⃗z7 · (⃗z1 ∧ ⃗z3)0
+0( ⃗z5 · ⃗z2) ∧ ⃗z4
+]
+, (13)
+D0 =
+[
+(⃗z3 ∧ ⃗z7)T
+(⃗z4 ∧ ⃗z5)T
+]
+, (14)
+where
+⃗z7 = R0MP · [0 0 1] T
+⃗z1 = R01 · [0 0 1] T
+⃗z2 = R02 · [0 0 1] T
+⃗z3 = R01 · R13 (q1) · [ 001 ] T
+⃗z4 = R02 · R24 (q2) · [ 001 ] T
+⃗z5 = R01 · R13 (q1) · R35 (q3) · [0 0 1] T .
+(15)
+Consequently,
+B =
+[Cφ1 Cφ2 Cq1 + Cφ2 Sφ1 Sq1 0
+0 Cq3 Cq2 − Cq1 Sq3 Sq2
+]
+,
+D0 =
+⎡
+⎢⎣
+Cφ1 Cq1 Cφ2 + Cφ2 Sφ1 Sq1 Cq2 Sq1 Sq3
+Sφ2 Sq1 Cq1 Sq3 Sq2 − Cq3 Cq2
+−Cq1 Sφ2 Sq1 Sq3 Sq2
+⎤
+⎥⎦
+T
+,
+(16)
+Type I singularities (i.e. singularities of B) occur whenever
+a leg is fully extended or folded: at such point there exist plat-
+form velocities that are not achievable by means of any input
+joint variable velocity. On the other hand, type II singularities
+(i.e. singularities of D0 ) occur whenever the actuated joints are
+locked: at such point there can be non-zero platform motions
+(ω∗p ) in the kernel of D0 even though no actuated joint in the
+parallel module moves ( ˙qp =0 ).
+By differentiating the rotation matrix R0MP (in Eq. (9)) with
+respect to time, we get ˙R0MP =Ω p R0MP where Ωp is the plat-
+form angular velocity tensor, a3x3 skew symmetric matrix such
+that ωp =[ Ωp,23 Ωp,31 Ωp,12 ]T . By inspection and separa-
+tion of ωp , we can write:
+ωp = S ˙φp, (17)
+where S is a 3x2 matrix whose elements are given by
+S =
+⎡
+⎢⎣
+10
+0 Cφ1
+0 Sφ1
+⎤
+⎥⎦. (18)
+Let D = D0 S. Outside of singularities discussed in the next
+subsection, D is a full rank 2x2 matrix, thus invertible.
+Considering the overall hybrid structure, the end-effector ab-
+solute angular velocity ω is given by
+ω = ωp + ωs = S ˙φp + R0MP JMPs ˙qs, (19)
+where ωs is the end-effector angular velocity in the base frame
+resulting from the joint velocities of the serial chain. JMPs is the
+Jacobian of the serial chain expressed in the mobile platform
+frame. So, ﬁnally, we have that
+ω =
+[
+SD −1 B R0MP JMPs ][ ˙qp˙qs ] = Jh ˙qh, (20)
+where Jh and ˙qh represent the Jacobian and joint angular veloc-
+ities of the hybrid structure. In our case, JMPs =[ 0 0 1 ] T ,
+consequently, R0MP JMPs is equal to the 3rd column of R0MP
+matrix, and
+Jh =
+⎡
+⎢⎣ SD −1 B
+Sφ2
+−Cφ2 Sφ1
+Cφ1 Cφ2
+⎤
+⎥⎦. (21)
+Now, the joint angular velocities can be calculated (outside
+the singular conﬁgurations) in the base frame as:
+˙qh = J−1h ω. (22)
+4) Singularity Analysis: The system in its initial conﬁgura-
+tion (Fig. 2-a) has an orientation of φ1 =0 and φ2 =0 at the
+platform level. From the forward kinematics analysis, Eq. (4)
+yields the following singularities in the joint space,
+q1 = ±π2 when C q1 =0
+q2 = ±π2 when C q2 =0 . (23)
+Indeed, at the singular conﬁgurations of equation (23), the D
+matrix of the hybrid Jacobian in equation (21) becomes non
+invertible. The singularities of the system can be seen by looking
+also at Jh that can lose a rank when the 3rd column, represented
+by the Jacobian of the serial module and at least one of the
+columns of SD−1B become dependent. Hence, we solve a set
+of linear equations:
+(Jh)ij − a(Jh)ik =0 , (24)
+where i =1 ..n and n is the number of rows of Jh . j, k=1 ..3
+are the number of columns of Jh such that j ⁄= k. We found
+that, linear dependency is not the case for our system for values
+different from the ones already accounted for in equation (23).
+B. Workspace Analysis
+In order to assess the theoretical performance of the proposed
+joint in humanoid and prosthetic applications, we evaluate the
+workspace reachable by the system and compare it to that of
+human joints. Fig. 3 illustrates the Euler-Rodrigues parameters
+representation of the robotic joint workspace. We include in the
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+842 IEEE ROBOTICS AND AUTOMA TION LETTERS, VOL. 4, NO. 2, APRIL 2019
+Fig. 3. 3D Euler-Rodrigues parameters representation of the robotic joint
+workspace. Discontinuities in the cylindrical volume represent unfeasible ori-
+entations. Xx = ux sin(θ/2), Xy = uy sin(θ/2) and Xz = uz sin(θ/2),
+where u =[ ux uy uz ] and θ are the axis and angle of rotation, respectively, of
+a Rodrigues rotation representing an orientation in 3D space. A contour slice of
+the dexterity index, with isolines at level 0.01 is also illustrated atXz =0 plane.
+calculation of the workspace all those points that present a dex-
+terity index (inverse of condition number index [24]) larger than
+0.01. Moreover, we exclude from the workspace all points be-
+yond q1 = ±π2 because in that conﬁguration a type II singularityoccurs, rendering the workspace beyond that point practically
+unreachable. A contour slice of the dexterity index (ranging
+from 0 to 1) at level 0.01 is also illustrated at Xz =0 plane.
+The blue isoline in Fig. 3 separates regions of dexterity less than
+0.01 from those with a larger index value.
+Note that in Euler-Rodrigues representation, the unit vectors
+of the rotation axis u form a sphere with unit radius in R3 [25].
+One of the advantages of using this representation of a sphere
+for the rotations is that the workspace is a solid object. Fig. 4
+compares the robotic and biological joint workspaces. It shows
+the presence of a non-symmetrical workspace with respect to
+the Xz =0 plane for all the spherical joints of human body, and
+that’s due to the different performance for positive and negative
+rotations. In order to quantitatively compare the workspace of all
+joints, the information of the approximated reachable workspace
+volume is added to Table II. The shoulder workspace (Table
+4, b) has the largest normalized volume, but it is still smaller
+than that of the robotic joint. However, the volumetric measure
+alone is not sufﬁcient for a complete comparison, because it
+does not inform how much the two volumes overlap. Hence,
+we include as a measure index also the percent coverage of
+each biological workspace. It can be seen, from Table II, that
+the amount of uncovered workspace for neck, shoulder, wrist,
+hip and ankle joints is only 1.32 %, 1.54%, 0.95%, 0.37% and
+0.34% respectively. The largest residual holds for the shoulder
+joint, but it is still very small.
+C. Joint Kinematics: Inverted Ground-Load Conﬁguration
+As suggested at the beginning of Section III, it is possible
+to invert ground and load positions to adapt the design to the
+particular design speciﬁcations. The kinematics of the system
+can be analyzed with the same techniques reported in Sub-
+section III-A. We report here the results for inverted A1 con-
+ﬁguration (refer to Fig. 2) as it corresponds to the prototype
+implemented in the next section. Consider leg 1 made up of
+{Z0,Z1,Z2,Z5 } and leg 2 of {Z0,Z1,Z3,Z4,Z6 }.T h er o t a -
+tion matrix for each chain (considering q1 =0 ) yields:
+R205 =
+⎡
+⎢⎣
+Cq5 Sq2 −Sq5 Sq2 Cq2
+−Sq5 −Cq5 0
+Cq5 Cq2 −Cq2 Sq5 −Sq2
+⎤
+⎥⎦ (25)
+R206 =
+⎡
+⎢⎣
+−Cq6 Cq4 Cq4 Sq6 Sq4
+Sq6 Sq3 + Cq6 Cq3 Sq4 Cq6 Sq3 − Cq3 Sq6 Sq4 Cq3 Cq4
+Cq3 Sq6 − Cq6 Sq3 Sq4 Cq6 Cq3 + Sq6 Sq3 Sq4 −Cq4 Sq3
+⎤
+⎥⎦.
+(26)
+The desired rotation matrix is still (9).
+Inverse Kinematics: The closure of kinematic chains yields:
+⎧
+⎪⎪⎪⎪⎪⎪⎪⎪⎨
+⎪⎪⎪⎪⎪⎪⎪⎪⎩
+q5 = φ1 or q 5 = π − φ1
+q2 = φ2 or q 2 = −φ2
+q4 = asin(Sq5 Sq2 )
+q3 = acos(
+Cq 5
+Cq 4 )
+q6 = asin(
+Cq 5 Sq 2
+Cq 4 ).
+(27)
+IV . SHOULDER PROTOTYPE
+To evaluate possible issues arising from the implementation
+of the proposed design, we decided to test it in the realization of
+a robot shoulder. Fig. 6-a shows the implemented design. The
+serial motor housing is attached to the ground (not shown in ﬁg-
+ure) while the housing of motors M2 and M3 are attached to the
+upper arm. Although the two motors are moving together with
+the arm, increasing therefore the inertia at the output shaft of the
+serial motor, the advantages are several: space is allocated for
+mechanical parts inside the arm, the joint can be easily attached
+to the frame, and compactness is favored. The design speciﬁca-
+tions are based on the average anthropomorphic parameters of a
+male upper limb [26] with 73 Kg weight and 1.7 m height. The
+inertia around the Z axis (axis of V ertical Flexion/Extension
+dof, VFE hereinafter) is 0.4473 Kg.m 2 , similar to the inertia
+around the Y axis (axis of Horizontal Flexion/Extension, HFE
+hereinafter). A lower inertia can be seen around the axis of
+Abduction/Adduction dof (AbAd hereinafter), however, for the
+ﬁrst prototype, we choose to overestimate the parameters of the
+upper arm, and hence select the motors based on the overall
+maximum torque required. The typical human upper arm mass
+is 3.92 Kg. Moreover, we consider a 0.5 Kg payload and a tar-
+get maximum angular speed of π2 rad/s during a minimum jerktrajectory generation.
+To avoid possible problems due to mechanical parts over-
+loading and shaft deﬂection, we estimated the axial and ra-
+dial forces on bearings and conducted an accurate FEM anal-
+ysis. Our design speciﬁcations result in a root mean square
+torque of 7.87 Nm and a maximum required torque of 14.18 Nm
+achieved at 90◦ vertical or horizontal ﬂexion of the joint, while
+considering only gravitational and inertial forces. The latter are
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+MGHAMES et al.: SPHERICAL ACTIVE JOINT FOR HUMANOIDS AND HUMANS 843
+Fig. 4. Illustrative comparison between robotic and (a) neck, (b) shoulder, (c) wrist, (d) hip, and (e) ankle joints workspace.
+TABLE II
+QUANTITA TIVECOMPARISON (PERCENT COVERAGE)B ETWEEN ROBOTIC AND
+BIOLOGICAL JOINTS WORKSPACE
+Fig. 5. Sketch of the parallel module (refer to ﬁgure 2) with inverted ground-
+load distribution.
+used to calculate the maximum radial load on the worm gear
+shaft (refer to Fig. 6-b) due to the dynamic load. Radial and
+axial loads transmitted on worm gears from the active torque
+output of the planetary gear are also calculated for correspond-
+ing bearings selection. The equivalent static radial force (P0 )o n
+the bearing setting in front of the gear shaft (on the load side)
+is 1156 N while that of the bearing behind is 490 N. Hence
+a selection of 6900ZZ I10 O22 B6 with Cor = 1270 N (ba-
+sic static load rating) is made for the front bearing and 688ZZ
+I8 O16 B5 with Cor = 590N is made for the rear bearing.
+Loads are completely transferred to ground through the previ-
+Fig. 6. (a) 3D representation of the hybrid shoulder joint prototype. The
+picture shows the full assembly (left), and sections (right). (b) Sections of motor
+and reducers box assembly.
+ous pair of bearings. Moreover, another bearing (699ZZ I9 O20
+B6) mounted on the shaft of the worm prevents the overloading
+of the Maxon motor output bearing, both in the axial and ra-
+dial directions, due to the active torque transmission (evaluated
+to have a maximum P0 of 610.4N ). All mechanical parts are
+made from aluminum alloy 7075-T651 (Ergal, yield strength
+503 MPa) except gear shafts which are made from stainless
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+844 IEEE ROBOTICS AND AUTOMA TION LETTERS, VOL. 4, NO. 2, APRIL 2019
+Fig. 7. Experimental robot joint trajectories. V ertical, horizontal ﬂex-
+ion/extension and abduction/adduction reference angles are generated by record-
+ing the movements of a user.
+steel. Motors M1 and M2 of the serial and parallel modules, are
+electromechanical Maxon motors DCX 26LG BK L 24V .
+The motors are equipped with a planetary gearbox GPX 26A
+of ratio 16 : 1 and 78% efﬁciency. A worm gear A25U20 of re-
+duction ratio 2 0:1 and efﬁciency 36% is mounted at the output
+shaft of the planetary gearbox. Motor M3 is also a maxon motor
+DCX 26LG BK L 24V equipped with a planetary gearbox
+GPX 32HP of reduction ratio 326 : 1 and efﬁciency 55%.T h e
+ﬁnal shoulder mechanism weighs 2 Kg. The selection of two
+types of reducers for motors M1 and M2 with the aforemen-
+tioned efﬁciency produces a total efﬁciency of 28 % and, con-
+sequently, makes the system irreversible for the corresponding
+degrees of freedom, a choice that can still be energy efﬁcient in
+activities where the arm is supposed to stay at a given position
+for a long time.
+V. S YSTEM VALIDA TION
+To validate the prototype, we controlled it to track a generic
+trajectory1. The data obtained are mapped into the robotic joint
+through the inverse kinematics presented in Section III. Me-
+chanical limits at each point of the conﬁguration space are con-
+sidered during the experiment by introducing a saturation at the
+desired joint position. The 3-dof are controlled by a PI position
+controller, tuned by following Ziegler - Nichols method. Note
+that a damping term was not needed since the low efﬁciency of
+the gearboxes yields a substantial intrinsic damping. Fig. 7 il-
+lustrates the tracking of the desired trajectories. The maximum
+VFE is 112.4◦ at t = 19.26 s; the maximum HFE is 66.8 ◦ at
+t = 16.2 s and the maximum abduction is 38.32 ◦ at t = 20.2 s.
+Note that the aforementioned values are not the maximum lim-
+its of the device. Video footage of the tracking experiment is
+also provided. Improvement of the tracking performance can
+be obtained by future implementation of a more sophisticate
+controller and by decreasing the time delay, due to the sampling
+rate (10 ms in our experiments). Fig. 8 illustrates the tracking
+performance under 0 Kg and 2 Kg payload. It can be noted
+that the maximum current consumption of the VFE (M1) dof
+is 915 mA, 2342 mA and 3725 mA under 0 kg,1 kg and 2 kg
+payload respectively. Similar results were obtained for the HFE
+1The trajectory is obtained by recording the movements of a user (please refer
+to the attached video)
+Fig. 8. Load carrying capacity of the shoulder joint for each dof: (a) trajectory
+tracking without load and (b) with 2 Kg load.
+dof since similar inertia is seen by both dofs, while for the AbAd
+dof the maximum current consumption was 359 mA, 366 mA
+and 352 mA under 0 kg, 1 kg and 2 kg payload respectively. It is
+worth noting that the motors of the shoulder joint are designed
+to lift 3.5 kg payload, however it was veriﬁed during the exper-
+iments that the current implementation of the electronic drive
+circuit (2.5 A maximum continuous consumption [27]) limits
+the feasible workspace for payloads larger than 2 kg. For exam-
+ple, the VFE and HFE dofs reach a maximum position of100.9◦
+and 117◦ respectively, with a maximum current consumption of
+4308 mA under 3 kg. The electronics are currently undergoing
+an upgrade phase.
+Physical Limitations: As expected, the physical shoulder de-
+sign introduces some more limits to the achievable workspace.
+While the serial motor (M1) can span the full range of −60◦ to
+180◦, M2 spans its full range ( −45◦ to 180◦) whenever M3 is at
+0◦ position. M3 spans a range from −25◦ to 90◦ due to physical
+contact between the housing of M2 and that of M1 at −25◦.
+The negative range of M3 can be reached whenever M1 > 0
+and M2 ≽ 0 due to the length of M1, an issue that could be
+solved in the future by selecting a ﬂat torque motor for M1.
+When M2 reaches 80◦, the positive range of M3 is limited to
+20◦. This issue can be solved by optimizing the design of the
+link of M3.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+MGHAMES et al.: SPHERICAL ACTIVE JOINT FOR HUMANOIDS AND HUMANS 845
+VI. C ONCLUSION
+In this letter, we proposed a new approach for the design of 3-
+dof robotic joints. The idea approaches the problem of structural
+and functional anthropomorphism in robotic joints, an issue of
+great importance when dealing with lost joints in amputees and
+with the ease of teleoperating humanoid robots. We looked at
+the characteristics of commonly used serial and parallel struc-
+tures and we tried to gather them in a newly developed 3-dof
+hybrid joint. The solution is presented in its different kinematic
+conﬁgurations for the possibility to be implemented on different
+artiﬁcial joints. A workspace comparison of the hybrid spheri-
+cal joint with biological counterparts shows a good workspace
+coverage. A ﬁrst prototype was built and validated on a robotic
+shoulder joint. Future works will be mainly devoted to the de-
+velopment of a more sophisticate controller for the joint and to
+its integration in a complete 7-dof anthropomorphic arm.
+ACKNOWLEDGMENT
+The authors would like to thank Er. M. Barbarossa, Er. G.
+Santaera, and Er. M. Poggiani for their valuable contribution to
+the implementation of the prototype. The content of this pub-
+lication is the sole responsibility of the authors. The European
+Commission or its services cannot be held responsible for any
+use that may be made of the information it contains.
+REFERENCES
+[1] T. J. Prescott, N. Lepora, and P . F. V erschure, Living Machines: A Hand-
+book of Research in Biomimetics and Biohybrid Systems . Oxford, U.K.:
+Oxford Univ. Press, 2018.
+[2] F. Negrello et al. , “Humanoids at work: The walk-man robot in a
+postearthquake scenario,” IEEE Robot. Autom. Mag., vol. 25, no. 3, pp. 8–
+22, Sep. 2018.
+[3] O. Khatib et al. , “Ocean one: A robotic avatar for oceanic discovery,”
+IEEE Robot. Autom. Mag. , vol. 23, no. 4, pp. 20–29, Dec. 2016.
+[4] T. Lenzi, N. Vitiello, S. M. M. De Rossi, S. Roccella, F. V ecchi, and
+M. C. Carrozza, “Neuroexos: A variable impedance powered elbow ex-
+oskeleton,” in Proc. IEEE Int. Conf. Robot. Autom. , 2011, pp. 1419–
+1426.
+[5] J. Wilhelms and A. V an Gelder, “Fast and easy reach-cone joint limits,”
+Univ. California, Santa Cruz, CA, USA, vol. 6, no. 2, pp. 27–41, 2001.
+[6] C. M. Gosselin and F. Caron, “Two degree-of-freedom spherical orienting
+device,” U.S. Patent 5 966 991, Oct. 19, 1999.
+[7] E. Samson, D. Laurendeau, M. Parizeau, S. Comtois, J.-F. Allan, and
+C. Gosselin, “The agile stereo pair for active vision,” Mach. Vis. Appl. ,
+vol. 17, no. 1, pp. 32–50, 2006.
+[8] G. Tortora and S. Grabowski, Anatomy and Physiology .N e wY o r k ,N Y ,
+USA: Wiley, 2003.
+[9] “Range of joint motion evaluation chart,” Department of Social and
+Health Services, Olympia, W A, USA. Accessed on: Sep. 2017, 2014.
+[Online]. Available: https://www.dshs.wa.gov/sites/default/ﬁles/FSA/
+forms/pdf/13-585a.pdf
+[10] R. Bischoff et al., “The KUKA-DLR lightweight robot arm—A new ref-
+erence platform for robotics research and manufacturing,” in Proc. 41st
+Int. Symp. 6th German Conf. Robot. , 2010, pp. 1–8.
+[11] L. A. Miller et al. , “Control of a six degree of freedom prosthetic arm
+after targeted muscle reinnervation surgery,”Arch. Physical Med. Rehabil.,
+vol. 89, no. 11, pp. 2057–2065, 2008.
+[12] C. M. Gosselin and J.-F. Hamel, “The agile eye: A high-performance three-
+degree-of-freedom camera-orienting device,” in Proc. IEEE Int. Conf.
+Robot. Autom., 1994, pp. 781–786.
+[13] S. Sadeqi, S. P . Bourgeois, E. J. Park, and S. Arzanpour, “Design and
+performance analysis of a 3-RRR spherical parallel manipulator for hip
+exoskeleton applications,”J. Rehabil. Assistive Technol. Eng., vol. 4, 2017.
+[14] I. A. Bonev, D. Chablat, and P . Wenger, “Working and assembly modes
+of the agile eye,” in Proc. IEEE Int. Conf. Robot. Autom., 2006, pp. 2317–
+2322.
+[15] M. E. Rosheim, “Robotic manipulator,” U.S. Patent 5 979 264, Nov. 1999.
+[16] P . K. Lingampally and A. A. Selvakumar, “A humanoid neck using parallel
+manipulators,” in Proc. Int. Conf. Robot. Autom. Humanitarian Appl. ,
+2016, pp. 1–6.
+[17] M. Z. Huang and S.-H. Ling, “Kinematics of a class of hybrid robotic
+mechanisms with parallel and series modules,” in Proc. IEEE Int. Conf.
+Robot. Autom., 1994, pp. 2180–2185.
+[18] K. B. Fite, T. J. Withrow, X. Shen, K. W. Wait, J. E. Mitchell, and M.
+Goldfarb, “A gas-actuated anthropomorphic prosthesis for transhumeral
+amputees,” IEEE Trans. Robot., vol. 24, no. 1, pp. 159–169, Feb. 2008.
+[19] R. Reilink, L. C. Visser, D. M. Brouwer, R. Carloni, and S. Stramigioli,
+“Mechatronic design of the Twente humanoid head,”Intell. Service Robot.,
+vol. 4, no. 2, pp. 107–118, 2011.
+[20] G. Carbone and M. Ceccarelli, “A serial-parallel robotic architecture for
+surgical tasks,” Robotica, vol. 23, no. 3, pp. 345–354, 2005.
+[21] D. Pisla, B. Gherman, C. V aida, and N. Plitea, “Kinematic modelling of a
+5-DOF hybrid parallel robot for laparoscopic surgery,” Robotica, vol. 30,
+no. 7, pp. 1095–1107, 2012.
+[22] A. Degirmenci, F. L. Hammond, J. B. Gafford, C. J. Walsh, R. J. Wood, and
+R. D. Howe, “Design and control of a parallel linkage wrist for robotic
+microsurgery,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2015,
+pp. 222–228.
+[23] F. Caron, “Analyse et conception d’un manipulateur parall ´ele
+spherique a deux degr ´es de libert ´e pour l’orientation d’une cam ´era,”
+Aug. 1997. [Online]. Available: https://robot.gmc.ulaval.ca/publications/
+mmoires-de-maitrise/
+[24] J.-P . Merlet, “Jacobian, manipulability, condition number, and accuracy
+of parallel robots,” J. Mech. Des., vol. 128, no. 1, pp. 199–206, 2006.
+[25] R. J. Saltaren, J. M. Sabater, E. Yime, J. M. Azorin, R. Aracil, and N. Gar-
+cia, “Performance evaluation of spherical parallel platforms for humanoid
+robots,” Robotica, vol. 25, no. 3, pp. 257–267, 2006.
+[26] S. Plagenhoef, F. G. Evans, and T. Abdelnour, “Anatomical data for analyz-
+ing human motion,”Res. Quart. Exercise Sport, vol. 54, no. 2, pp. 169–178,
+1983.
+[27] C. Della Santina et al., “The quest for natural machine motion: An open
+platform to fast-prototyping articulated soft robots,” IEEE Robot. Autom.
+Mag., vol. 24, no. 1, pp. 48–56, Mar. 2017.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:19:46 UTC from IEEE Xplore. Restrictions apply.

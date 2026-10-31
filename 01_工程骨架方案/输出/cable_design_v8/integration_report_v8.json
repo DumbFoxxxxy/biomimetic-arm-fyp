@@ -1,0 +1,46 @@
+{
+  "version": 8,
+  "stage": "integration",
+  "model_checks": {
+    "open_chain": {
+      "path": "D:\\XJTLU\\PSP\\mujoco_arm\\cable_design_v8\\v8_shoulder_open_chain.xml",
+      "loads": true,
+      "njoint": 3,
+      "nq": 6,
+      "nv": 5,
+      "finite": true
+    },
+    "contact": {
+      "path": "D:\\XJTLU\\PSP\\mujoco_arm\\cable_design_v8\\v8_shoulder_contact.xml",
+      "loads": true,
+      "njoint": 4,
+      "nq": 7,
+      "nv": 6,
+      "finite": true
+    }
+  },
+  "model_loads_pass": true,
+  "kinematics_gate_pass": false,
+  "contact_gate_pass": false,
+  "v7_elbow_regression_pass": true,
+  "sixteen_cable_demo_pass": true,
+  "demo_stdout": "model: D:\\XJTLU\\PSP\\mujoco_arm\\arm_tendon_demo.xml\nnq: 7 nu: 16 ntendon: 16\nrest: sc_elevation=+4.431 sc_protraction=-0.878 ac_ext=+10.571 gh_flex=+0.059 gh_abd=+0.880 gh_rot=+0.004 elbow=+0.210\n\nK1_E01: pulls={'E01': 40.0}\n  pose: sc_elevation=+5.20 sc_protraction=-0.76 ac_ext=+9.57 gh_flex=+0.08 gh_abd=+0.11 gh_rot=+0.31 elbow=+120.02\n  delta: sc_elevation=+0.77 sc_protraction=+0.11 ac_ext=-1.00 gh_flex=+0.02 gh_abd=-0.77 gh_rot=+0.31 elbow=+119.81\n\nK2_G01: pulls={'G01': 30.0}\n  pose: sc_elevation=+5.20 sc_protraction=-0.76 ac_ext=+9.56 gh_flex=+26.53 gh_abd=+14.07 gh_rot=-22.85 elbow=+0.00\n  delta: sc_elevation=+0.77 sc_protraction=+0.11 ac_ext=-1.01 gh_flex=+26.47 gh_abd=+13.19 gh_rot=-22.85 elbow=-0.21\n\nK3_G03: pulls={'G03': 40.0}\n  pose: sc_elevation=+4.71 sc_protraction=-0.84 ac_ext=+10.24 gh_flex=+5.12 gh_abd=+44.47 gh_rot=-3.12 elbow=+0.00\n  delta: sc_elevation=+0.27 sc_protraction=+0.04 ac_ext=-0.33 gh_flex=+5.06 gh_abd=+43.59 gh_rot=-3.12 elbow=-0.21\n\nK4_G05: pulls={'G05': 30.0}\n  pose: sc_elevation=+5.07 sc_protraction=-0.80 ac_ext=+9.78 gh_flex=-1.44 gh_abd=+19.15 gh_rot=+9.21 elbow=-0.00\n  delta: sc_elevation=+0.64 sc_protraction=+0.08 ac_ext=-0.79 gh_flex=-1.50 gh_abd=+18.27 gh_rot=+9.21 elbow=-0.21\n\nK5_G06: pulls={'G06': 30.0}\n  pose: sc_elevation=+5.22 sc_protraction=-0.76 ac_ext=+9.54 gh_flex=+2.29 gh_abd=+18.55 gh_rot=-12.68 elbow=+0.00\n  delta: sc_elevation=+0.79 sc_protraction=+0.12 ac_ext=-1.04 gh_flex=+2.23 gh_abd=+17.67 gh_rot=-12.69 elbow=-0.21\n\nK6_S01: pulls={'S01': 40.0}\n  pose: sc_elevation=+30.04 sc_protraction=-3.75 ac_ext=-5.24 gh_flex=+3.15 gh_abd=+0.37 gh_rot=-2.53 elbow=-0.00\n  delta: sc_elevation=+25.61 sc_protraction=-2.87 ac_ext=-15.81 gh_flex=+3.09 gh_abd=-0.51 gh_rot=-2.54 elbow=-0.21\n\nK7_G01_S01: pulls={'G01': 30.0, 'S01': 40.0}\n  pose: sc_elevation=+30.04 sc_protraction=-3.73 ac_ext=-5.26 gh_flex=+26.55 gh_abd=+14.07 gh_rot=-22.96 elbow=+0.00\n  delta: sc_elevation=+25.61 sc_protraction=-2.85 ac_ext=-15.83 gh_flex=+26.49 gh_abd=+13.19 gh_rot=-22.96 elbow=-0.21\n\nSLIDE_S03: pulls={'S03': 15.0}\n  pose: sc_elevation=+10.26 sc_protraction=+2.02 ac_ext=+1.24 gh_flex=-0.01 gh_abd=+0.16 gh_rot=+0.01 elbow=-0.00\n  delta: sc_elevation=+5.83 sc_protraction=+2.90 ac_ext=-9.33 gh_flex=-0.07 gh_abd=-0.72 gh_rot=+0.00 elbow=-0.21\n\nSCAP_EXT_S05: pulls={'S05': 20.0}\n  pose: sc_elevation=+10.98 sc_protraction=+2.46 ac_ext=+0.26 gh_flex=-0.00 gh_abd=+0.21 gh_rot=+0.03 elbow=-0.00\n  delta: sc_elevation=+6.54 sc_protraction=+3.34 ac_ext=-10.31 gh_flex=-0.06 gh_abd=-0.67 gh_rot=+0.02 elbow=-0.21\n\nPECTORALIS_P01: pulls={'P01': 30.0}\n  pose: sc_elevation=+5.31 sc_protraction=-1.01 ac_ext=+9.85 gh_flex=+24.74 gh_abd=+8.55 gh_rot=-32.87 elbow=+0.00\n  delta: sc_elevation=+0.88 sc_protraction=-0.13 ac_ext=-0.72 gh_flex=+24.68 gh_abd=+7.67 gh_rot=-32.87 elbow=-0.21\n\nPECTORALIS_P02: pulls={'P02': 30.0}\n  pose: sc_elevation=+5.18 sc_protraction=-0.85 ac_ext=+9.76 gh_flex=+19.69 gh_abd=+7.15 gh_rot=-12.81 elbow=+0.00\n  delta: sc_elevation=+0.75 sc_protraction=+0.03 ac_ext=-0.81 gh_flex=+19.63 gh_abd=+6.27 gh_rot=-12.81 elbow=-0.21\n\nPECTORALIS_BOTH: pulls={'P01': 30.0, 'P02': 40.0}\n  pose: sc_elevation=+5.30 sc_protraction=-1.00 ac_ext=+9.91 gh_flex=+27.91 gh_abd=+8.70 gh_rot=-39.30 elbow=+0.00\n  delta: sc_elevation=+0.87 sc_protraction=-0.12 ac_ext=-0.66 gh_flex=+27.86 gh_abd=+7.82 gh_rot=-39.30 elbow=-0.21\n\nreport: D:\\XJTLU\\PSP\\mujoco_arm\\exports\\tendon_demo\\check_report.json\n\nPASS: all demo groups produce finite, visible motion.",
+  "demo_stderr": "",
+  "gate_pass": false,
+  "status": "blocked",
+  "frozen_hardpoints": false,
+  "integrated_model_written": false,
+  "failure_reasons": [
+    "kinematics:full_mesh_clearance",
+    "contact:blocked_by_kinematics",
+    "contact:kinematics:full_mesh_clearance"
+  ],
+  "inherited_file_sha256": {
+    "mujoco_arm\\cable_design_v5\\arm_cable_design_v5.xml": "cf073d53483463dce827ed353043a6e72a727617041c633c750363dbaa2bd80d",
+    "mujoco_arm\\cable_design_v5\\cable_design_v5.json": "5e2e54153abb62cdec9b0671b6096ab295b8bf214db223d8cb3ab45030d5d2c6",
+    "mujoco_arm\\cable_design_v6\\arm_cable_design_v6.xml": "e56fa88e07905a295fd67aa96a137030c492af69c5937378462bc7a0f416e407",
+    "mujoco_arm\\cable_design_v6\\cable_design_v6.json": "11923acee4d40b33ef944538e9d90862e43b764184305bd9c5430ef753abd00b",
+    "mujoco_arm\\cable_design_v7\\v7_elbow_standalone.xml": "6edd7330b893c2b35022de92c3c626c8d7147fed7e86fe6ea9f4917dd95f00a0",
+    "mujoco_arm\\cable_design_v7\\v7_shoulder_standalone.xml": "810fd3274c7547dd8a03c5a08d7d56b785e4fcb6350a40bce5eca946de078c1d"
+  }
+}

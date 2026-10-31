@@ -1,0 +1,630 @@
+===== PAGE 1 =====
+J. Mech. Phys. Solids 164 (2022) 104931
+Available online 11 May 2022
+0022-5096/© 2022 Elsevier Ltd. All rights reserved.
+Equilibrium-based convolution neural networks for constitutive 
+modeling of hyperelastic materials 
+L.F. Li , C.Q. Chen * 
+Department of Engineering Mechanics, CNMM and AML, Tsinghua University, Beijing 100084, PR China 
+ARTICLE INFO 
+Keywords: 
+Convolution neural network 
+Unsupervised learning 
+Constitutive modeling 
+Hyperelastic materials 
+ABSTRACT 
+Recently, various machine learning methods have been developed to model the stress-strain 
+constitutive behavior of materials. In these methods, a large database of multi-axial stress 
+versus strain curves is indispensable for training and cross-validation. However, it is usually 
+formidable to experimentally obtain such curves by noting that, although strain can be easily 
+measured, stress can only be extracted for limited specimens with a simple and uniform stress 
+field upon loading. Moreover, most developed approaches are based upon supervised learning 
+and ignore known physical laws, resulting in limited interpretability and generalization. In this 
+paper, an equilibrium-based convolution neural network (ECNN) is proposed to model the 
+constitutive behavior of hyperelastic materials. Only strain and externally applied force are taken 
+as input for training while the hard-to-measure stress is considered as internal variables. There-
+fore, a large database can be easily generated with a single non-uniformly deformed specimen 
+with spatially dependent strain. The equation of equilibrium is embedded in the architecture of 
+the ECNN as a constraint to implicitly establish the correspondence between the internal variables 
+and the stress components and, consequently, the constitutive stress–strain relationship. More-
+over, the ECNN is unsupervised by noting that training is not against the output stress. Numerical 
+and experimental examples are presented to show that the developed ECNN can faithfully extract 
+the stress corresponding to local strain, model the multiaxial stress-strain constitutive behavior of 
+hyperelastic materials, and surrogate equation-based conventional constitutive models of 
+hyperelastic materials. 
+1. Introduction 
+Owing to recent advances in artificial intelligence and computing power, there is emerging interest in machine learning-based 
+constitutive models of materials, e.g., data-driven computing methods to bypass constitutive modeling (Bessa et al., 2017; Iba˜nez 
+et al., 2017; Kirchdoerfer and Ortiz, 2016), knowledge informed algorithms to extract analytical constitutive models from data 
+(Champion et al., 2019; Flaschel et al., 2021; Huang et al., 2020; Lai and Nagarajaiah, 2019; Wang et al., 2022), among others. 
+Although the latter are very attractive, they are conducive to systems with a simple representation that the space of possible functions 
+is sparse. As a result, when there is no sufficient knowledge on the constitutive behavior of a material such as nematic elastomers 
+(Conti et al., 2002) and mechanical metamaterials (Meng et al., 2020; Zhang et al., 2019; Zhou et al., 2021) or a simple analytical 
+model does not even exist, their applications are limited. 
+* Corresponding author. 
+E-mail address: chencq@tsinghua.edu.cn (C.Q. Chen). 
+Contents lists available at ScienceDirect 
+Journal of the Mechanics and Physics of Solids 
+journal homepage: www.elsevier.com/locate/jmps 
+https://doi.org/10.1016/j.jmps.2022.104931 
+Received 26 January 2022; Received in revised form 23 March 2022; Accepted 9 May 2022 
+
+===== PAGE 2 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+2
+Artificial neural networks (ANNs) have a strong nonlinear fitting capability and are a powerful means that can learn from data and 
+make predictions (LeCun et al., 2015). Through automatic differentiation, they can calculate loss and back-propagate to efficiently 
+update network parameters and can thus be easily applied to various practical problems (Baydin et al., 2018). Recently, ANNs have 
+been employed to study various mechanics problems, including fracture mechanics (Liu et al., 2020; Wang and Chen, 2019), design of 
+metamaterials (Bessa et al., 2019; Li et al., 2020), soft robot control (Han et al., 2018; Thuruthel et al., 2019), hydromechanics 
+(Brunton et al., 2020; Raissi et al., 2019), biomechanics (Halilaj et al., 2018; McCoy et al., 2021), among others. As a type of ANNs, 
+convolutional neural networks (CNNs) are particularly successful in the field of image recognition because of the advantages of local 
+perception and parameter sharing (Szegedy et al., 2015). They also have applications in the field of mechanics, e.g., prediction of 
+elastic constants of materials via training and validation through pixel processing of the images (Xue et al., 2020; Yang et al., 2021; Ye 
+et al., 2021). 
+ANNs have shown their potential to surrogate the constitutive modeling and a number of studies have used ANNs as a black-box to 
+establish the stress–strain constitutive relationship of materials (Frankel et al., 2019; Jenab et al., 2016; Lefik and Schrefler, 2003; 
+Pandya et al., 2020). To account for the deformation history dependent feature of elastoplastic materials, neural networks with 
+memory effects, e.g., recurrent neural networks - RNNs (Mozaffar et al. 2019) and gated recurrent units - a branch of RNNs (Gorji et al. 
+2020), have been explored. Bonatti and Mohr (2022) discussed the self-consistency of the developed RNNs for modeling elastoplastic 
+behavior with different incremental loading sizes. However, generalization and interpretability are two widely recognized issues 
+inherent in ANN approaches. Linka et al. (2021) utilized invariant functions to construct the constitutive artificial neural networks of 
+hyperelastic materials from given data in terms of stress and strain. Masi et al. (2021) have developed a thermodynamics-based 
+constitutive model through a combination of several ANNs, with the thermodynamics laws embedded into the networks via con-
+straints. Wen et al. (2021) established a physics-driven machine learning algorithm to map temperature, stress, and rate-dependent 
+deformation in Li-metals. Other physics laws such as mass conservation, Navier-Stokes equation, and hysteretic constitutive re-
+lations can also be considered in a systematic way of establishing neural networks with nonlinear analytic constraints (Bar-Sinai et al., 
+2019; Raissi et al., 2020; Zhang et al., 2020), Beucler et al. (2021), bridging the gap between the disadvantages of ANNs that are hardly 
+interpretable and abundant physical models developed by academic alike over years. ANNs with these flexible constructions can be 
+particularly advantageous and attractive for materials that are too complex to be readily modeled by simple analytical algebra, dif-
+ferential, and/or integral equations and vast pre-knowledge is available. 
+In machine learning-based constitutive models of materials, a large database of multi-axial stress–strain curves is required. 
+However, it is usually expensive and formidable to experimentally obtain multiaxial stress–strain curves, by noting that stress can only 
+be directly inferred from special specimens under specific loadings. Alternatively, numerical tests such as finite element simulations 
+can be resorted to. In fact, almost all the aforementioned machining learning models are based on numerically generated data. 
+However, numerical tests are not applicable when the constitutive behaviors of the constituent components and their interactions of 
+the material to be considered are not prior known, which is especially true for emerging new materials. 
+In this paper, an equilibrium-based convolution neural network (ECNN) for the constitutive modeling of hyperelastic materials is 
+proposed. Only readily measurable quantities (i.e., displacement, strain, and externally applied force) are taken as input data for 
+training while stress is treated as internal variables. Using a single specimen with non-uniform deformation upon loading, massive 
+training data can be obtained, greatly facilitating data generation. By enforcing the equation of equilibrium as an inherent constraint in 
+the ECNN, stress corresponding to a given set of strain can be obtained. Thus, the trained ECNN can serve as a constitutive model. The 
+paper is organized as follows. Section 2 shows the framework of constitutive modeling of hyperelastic materials with the ECNN. The 
+structure of the ECNN and implementation of the constraint in the form of the equilibrium equation are given in Section 3. Numerical 
+and experimental examples are presented in Sections 4 and 5, respectively. Finally, a few concluding remarks are presented. 
+2. Framework of ECNN-based constitutive modeling 
+Machine learning-based constitutive modeling of materials requires a large database of multi-axial stress–strain curves for training 
+and cross-validation, a network algorithm with parameters trained from the database, and model prediction, amongst others. In 
+general, the stress–strain curves should cover the strain and strain spaces as wide as possible to provide reliable training. Therefore, 
+numerous tests with different loading conditions must be conducted. 
+In experiments, although strain can be relatively easy to measure, e.g., through the digital image correlation method, or DIC (Chu 
+et al., 1985; Pan et al., 2009), stress is only directly measurable for specimens when the stress field inside the specimen gauge region is 
+uniform and can be directly inferred from the externally applied loading. Indeed, such specimens are limited to particular geometries, 
+e.g., dog-bone type plates or cylinder specimens for uniaxial loading, cruciform specimens for biaxial loading, thin-walled tubular 
+specimens for combined axial and torsional loading, cylinder specimens for triaxial loading (ASTM, 2015). Generally, one set of 
+uniaxial or multiaxial stress–strain curves can be obtained for each test. To obtain another set of curves, one has to conduct a different 
+loading test with a new specimen (or the same specimen if the deformation is reversible). There is no surprise that multiple tests are 
+very costly, especially for multi-axial testing. 
+Alternatively, one can perform numerical tests to generate multiaxial stress–strain curves through various micromechanics 
+modeling techniques (Nemat-Nasser and Hori, 2013). The biggest limitation of numerical tests lies in that the constituent components 
+and their interactions must follow either a known or pre-assumed constitutive behavior, in addition to the issues of accuracy and 
+time-consuming of the currently available micromechanics methods. Therefore, when the constitutive behavior of the constituent 
+components of materials (especially for emerging new materials) is not prior known, numerical tests are deemed to be not feasible to 
+construct a database of stress–strain curves for machine learning-based constitutive modeling. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 3 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+3
+In this study, the framework of the proposed equilibrium-based convolution neural network (ECNN) for the constitutive modeling 
+of hyperelastic materials comprises two parts, i.e., (i) a scheme to generate a large database of multiaxial stress–strain curves from a 
+single specimen and (ii) a neural network to identify a constitutive model via training, as illustrated in Fig. 1. In the following, only 
+two-dimensional (2D) constitutive modeling is considered. Extension of the developed framework to three dimensional (3D) problems 
+will be discussed in the last section of the paper. 
+For a general planar specimen shown in Fig. 1a, both its full-field strain and the externally applied force are directly measurable. 
+Fig. 1. Constitutive modeling framework of hyperelastic materials with ECNN. (a) A non-uniformly deformed specimen subject to external loading, 
+with its strain field measured by DIC, (b) an unsupervised ECNN to extract the stress corresponding to strain, giving rise to the stress-strain 
+constitutive behavior. 
+Fig. 2. Structure of the proposed ECNN. (a) The input is strain, with stress treated as internal variables subject to the constraint of equilibrium while 
+training is against externally applied force, (b) group convolution is adopted to correlate the internal variables with output stress. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 4 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+4
+The key feature of the specimen is that it deforms non-uniformly upon loading. Compared to uniformly deformed specimens that can 
+only provide one set of stress–strain responses for each test, non-uniformly deformed specimens can generate a database comprising a 
+large number of stress–strain curves from different material points with a single test. By increasing the spatial resolution, the 
+magnitude of loading, and the number of loading paths, the database can be further expanded. 
+As pointed out earlier, the challenge is how to extract the spatial stress components in non-uniform deformation. To this end, an 
+unsupervised convolution neural network is developed as shown in Fig. 1b. The measured strain at each material point and the 
+corresponding external force at each step constitute a set of input data, with the corresponding stress components treated as unknown 
+internal variables and served as output. These internal variables must satisfy the equation of equilibrium, regardless of whether the 
+material is elastic or not. Therefore, we enforce the equilibrium equation as an inherent constraint of the convolution neural network, 
+which is thus equilibrium-based. Once the ECNN is trained, the internal variables are obtained, i.e., the relationship between stress and 
+strain, i.e., the stress-strain constitutive behavior, is determined. Details of the ECNN are given in Section 3. 
+With the generated large database of stress–strain curves, one can use various machine learning methods (Flaschel et al., 2021; 
+Wang et al., 2022) to extract the underlying mathematical formulae-based models with frame-indifferent variables (e.g., principal 
+stretches and invariants). In real hyperelastic materials, however, it is not trivial to derive analytical expressions. In some cases, a 
+simple expression may not exist at all. Therefore, we don’t derive analytical constitutive models. Instead, it is more efficient to 
+establish a constitutive relationship through the ECNN by learning directly from experimental data. 
+3. Equilibrium-based convolution neural network (ECNN) 
+3.1. Structure of ECNN 
+The proposed ECNN is composed of a convolutional neural network with one fully connected layer, as shown in Fig. 2a for N sets of 
+data in T time steps. Discussion of N and T will be given in Section 3.2. For the considered 2D plane strain problem, three in-plane strain 
+components (i.e., ε11, ε22 and ε12) of each set are taken as the input channels. 
+In the calculation, the strains of different sets are independent and, for each set of strain, a set of three internal variables repre-
+senting the corresponding stress components is introduced and is yet to be evaluated. A 1× 1 convolution kernel is adopted to avoid 
+coupling between different sets of strain inputs. The internal variables for each strain set are calculated independently. All strain 
+components are normalized to improve the computation stability. The neural network used in this paper consists of two parts, as 
+illustrated in Fig. 2a and 2b, respectively. First, the data of three input strain channels is expanded to higher dimensional channels by 
+two-step convolutions (N1× N2, with N1= 60 and N2= 180 shown in Fig. 2a). It is noted that the stress components may differ in 
+orders of magnitude. For instance, under pure shear loading, shear stress can be much larger than normal stress. Under such cir-
+cumstances, if we output the internal variables through fully connected layers (i.e., the linear operation), inaccurate results may occur. 
+Therefore, a second part - a group convolution is introduced to split the channels into three sub-groups, each having N2 /3 channels at 
+the beginning and gradually decreasing to 1 by three layers (N3× N4× 1, with N3= 40 and N4= 20 shown in Fig. 2b) and N sets of 
+internal variables. In total, there are T× 3N internal variables following the group convolution where N represents the number of 
+elements connected to the input node and T denotes the time steps in loading. A detailed discussion on the ECNN network and the 
+selection of hyperparameters can be found in Appendix A. It should be emphasized that stress does not participate in training. In 
+general, more layers and channels can be adopted to improve the fitting capability of the ECNN, at the expense of training cost. 
+3.2. Equilibrium constraint and loss functions 
+Note that the internal variables, if they indeed correspond to the stress components, must satisfy the equation of equilibrium. For 
+the internal variables to have the physical meaning of stress components, we output the nodal force through a fully connected layer 
+that is based on the equilibrium condition and minimization of loss functions at the nodal level. By doing so, the weight of the layer can 
+be obtained. Details are given as follows. 
+Once the position and strain of the material points of the specimen shown in Fig. 1a are obtained, e.g., via DIC, one can establish a 
+discrete model using the finite element techniques gridded by pixels. For the convenience of calculation, we use constant strain and 
+stress triangular elements (i.e., 3-noded triangular linear elements). Although it is known that 3-noded triangular elements are not 
+good for high precision calculations they are usually robust. In fact, by increasing mesh density, they can achieve desirable accuracy. In 
+this section, strain and stress are defined at the element level while external forces are at the node level. 
+When there is no body force, a weak form of the quasistatic equation of equilibrium and the associated traction free boundary 
+conditions t= 0 has the form of (Flaschel et al., 2021) 
+∫
+Ω0
+∂(δuα)
+∂Xβ
+PβαdΩ0 = 0, α, β= 1, 2 (1) 
+where δuα is the variation of kinematically admissible displacement, Ω0 is the initial configuration, and Pβα is the first Piola-Kirchhoff 
+stress. Note that the input of the fully connected layer is chosen to be Cauchy stress σ. They are related to each other by P = JF  1σ, 
+where F is the deformation gradient and J is the determinant of F. 
+During training, the nodes are divided into two sets: internal node set (i.e., nodes inside the specimen) and boundary node set (i.e., 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 5 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+5
+nodes on the displacement controlled boundary). For the internal nodes, their net nodal force should be zero. For the boundary nodes, 
+the sum of their nodal forces should be the same as the measurable externally applied force. For each internal node, the strain 
+components of the elements connecting the node are taken as input. The output is the nodal force r with two components for 2D 
+problems. The fully connected layer of internal nodes can then be expressed as 
+riα =
+∫
+Ω0
+∂Si
+∂Xβ
+PβαdΩ0 = 0, i= 1…nI, α, β= 1, 2 (2) 
+where nI is the number of internal nodes and Si is the shape function of the internal node i. 
+Consider that the number of displacement boundary conditions is nB. Assume that the boundary set j contains njB nodes. For the 
+boundary nodes, the external nodal forces are solved in the same way as the internal nodes. When added together, they are balanced by 
+the applied external force R. Accordingly, the fully connected layer of the boundary node set j can be expressed as 
+Rjα =∑njB
+k=1
+rkα =∑njB
+k=1
+∫
+Ω0
+∂Sk
+∂Xβ
+PβαdΩ0, α, β= 1, 2 (3) 
+where Sk is the shape function of node k in the boundary node set j. The weights of the fully connected layers are determined by Eqs. 
+(2–3) and are not updated during training. 
+The loss function is defined by 
+Loss(r, r*, R, R*)= f(r  r*)+ f(R  R*) (4) 
+where r and R are the outputs of the ECNN during training, and r* and R* are the benchmark. The loss function consists of two parts, 
+the first one representing the balance of internal nodal forces as Li = f(r  r*), and the second one denoting the balance of external 
+forces on the displacement boundary as Lb = f(R  R*). Then, one has 
+Ltotal = Li+ Lb (5) 
+The following smooth L1 loss is adopted in the network 
+smoothL1(x)=
+⎧
+⎪⎪⎨
+⎪⎪⎩
+1
+2x2, if|x|< 1
+|x|  12, otherwise (6) 
+The adopted smooth L1 loss has the advantages of both L1 and L2 loss functions (Chang and Chen, 2018): i.e., gradient explosion is 
+avoided for large loss, and, when the loss is small, the gradient converges with high accuracy. For the activation function, it is known 
+that both tanh and sigmoid functions have the problem of vanishing gradients, in addition to limited output ranges. For the ReLu 
+function, this problem does not occur when x> 0 and the computational complexity is low. But the gradients vanishing problem exists 
+Fig. 3. A 2D FE model used to generate the data for the ECNN. (a) A square plate with a central hole under biaxial loading, and (b) four 
+displacement-controlled loading paths are considered (denoted by different colors). 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 6 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+6
+when x< 0. Unlike classification problems, the information in the region x< 0 needs be considered through the prior knowledge in 
+this study. Therefore, we use the improved Leaky ReLu as the activation function. In addition, the Adam optimizer is adopted. The 
+initial learning rate is 0.01 and decays by a factor of 0.8 every 50 epochs. The hardware environment is AMD 3995WX, NVIDIA RTX 
+3090, and 256 GB RAM. Besides, we employ Python 3.9.1 and Pytorch 1.9.1 in deep learning. 
+It should be emphasized that, the stress in Eqs. (1–3) of the proposed ECNN is unknown and treated as internal variables, different 
+from other machine learning-based constitutive models in which both stress and strain are required as input data (e.g., Bonatti and 
+Mohr, 2022; Gorji et al., 2020; Masi et al., 2021; Wang et al., 2022). After training, the correspondence between the internal variables 
+and the stress components is established. As will be demonstrated by both numerical and experimental examples in Sections 4 and 5, 
+the trained ECNN can act as a constitutive model: it outputs stress components (internal variables) to a given set of strain input. 
+4. Numerical examples 
+4.1. Data generation 
+A 2D finite element (FE) model of a biaxially loaded square plate with a central hole (in Fig. 3a) is employed for the purpose of 
+numerical demonstration of the developed ECNN. The FE computed strain field mimics experimental measurement, e.g., DIC. The 
+dimensions of the plate and hole are H and R, respectively. The plate is subject to displacement controlled biaxial loading denoted by u1 
+and u2, with the corresponding reaction forces being F1 and F2, respectively. The deliberately introduced hole renders the deformation 
+of the plate non-uniform, even under uniform remote loading, which gives rise to much richer information about stress and strain 
+compared to uniformly deformed specimens. It should be pointed out that there are additional means to introduce non-uniform 
+deformation into specimens, e.g., non-affine loading. 
+Plane strain deformation is assumed for the model in Fig. 3a which is meshed by a total of 468 3-noded triangular elements with 
+264 nodes. The geometric parameters and displacement loading are normalized with H= 1 m and R/H= 0.1. A mesh sensitivity study 
+is conducted to ensure numerical convergence. Moreover, the imposed loading paths should be as diverse as possible. In total, 4 
+different loading paths are considered, with 9 incremental steps evenly distributed along each path (Fig. 3b). 
+The material is assumed to be hyperelastic, with its strain energy potential U following a polynomial form, 
+U=
+∑N
+i+j=1
+Cij(I1  3)i(I2  3)j+∑N
+i=1
+1
+Di
+(J  1)2i (7) 
+where N, Cij, and Di are material parameters, J= det(F) is the Jacobean, I1 and I2 are the first and second deviatoric strain invariants 
+defined by 
+I1 = λ
+2
+1+ λ
+2
+2+ λ
+2
+3
+I2 = λ
+(  2)
+1 + λ
+(  2)
+2 + λ
+(  2)
+3
+(8) 
+with λi= J1/3λi and λi being the principal stretches. Under the plane strain condition λ3 = 1. The first Piola-Kirchhoff stress is related to 
+the strain energy potential by 
+Pij = ∂U∂Fji (9) 
+The reason for adopting the polynomial potential in Eq. (1) is that it is sufficiently general and can reduce to some well-known 
+hyperelastic models with suitable material parameters, e.g., the Neo-Hooke model with the parameters C10 and D1. We use the 
+strain energy potential with up to quadratic terms of the deviator strain (Isihara et al., 1951). The non-zero material parameters are 
+given in Table 1 unless stated otherwise. 
+Finite element simulations are conducted using the commercially available software ABAQUS. Only nodal displacements (or 
+equivalently strain) and externally applied forces of the FE Model are used to train the developed ECNN while the FEM computed stress 
+are not used in model training and are, instead, merely employed to assess the ECNN predicted ones. All strain in this paper is log-
+arithmic strain. For the FE example in Fig. 3, the generated deformation database consists of 16,848 sets of data. The position and 
+loading dependence of displacements and strain indicate the database can be readily expanded by increasing the mesh density and the 
+number of loading paths and steps. Here, the adopted mesh and loadings are sufficient to demonstrate the developed ECNN. 
+Table 1 
+Material parameters of the adopted polynomial strain energy potential. 
+Parameters N C10 (MPa) C20 (MPa) C02 (MPa) D1 (MPa  1)
+Value 2 2 1.5 1.5 0.5 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 7 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+7
+4.2. Training of ECNN 
+Note that stress is output instead of input quantity of the ECNN and is treated as internal variables satisfying the constraint of the 
+equilibrium equation. Training is conducted in virtue of strain and externally applied forces. The ECNN is thus unsupervised. Unlike 
+supervised learning, there is no need for the ECNN to divide the data into training and cross-validation sets, and all data is used as 
+training. First, the effect of the mapping and group convolution parameters in the ECNN on training error is exploited. It is found that 
+the training error decreases with an increasing number of parameters (results are shown in Appendix A). In particular, the set of 
+parameters with N1= 60, N2= 180, N3= 40, and N4= 20 is found to be adequate to provide good accuracy while retain computational 
+cost. For a balanced accuracy and cost, this set of parameters is adopted in all the following calculations. With the data obtained from 
+the FE model, we repeat the training process 100 times under the same condition to eliminate the influence of random initialization. 
+Box plots of the equilibrium loss functions of boundary and internal nodes for the first 100 epochs are given in Fig. 4a and b, 
+respectively. Fluctuation in the early stages of training is evident. In particular, the loss function of internal nodes even first increases 
+with increasing epoch number, followed by a gradual decrease when the epoch number is further increased. The fluctuation is not too 
+Fig. 4. Evolution of loss functions with the number of training epochs. (a) and (b) Box plots of the respective losses of boundary nodes Lb and 
+internal nodes Li in the first 100 epochs, (c) all loss (i.e., Lb, Li and Ltotal) for 500 training epochs. 
+Fig. 5. The relative error between the FEM and ECNN predicted von Mises stress with the loading being u1= 0.05 and u2 = 0.1. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 8 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+8
+surprising by noting that this is a multi-objective optimization problem and it is hard to ensure a monotonic loss drop in the initial 
+stage. A comparison of Fig. 4a and b shows that the initial Lb is much larger and the gradient induced by Lb dominates backpropagation. 
+Fig. 4c shows three loss functions in all epochs. It is clear that, as the epoch number increases, all three loss functions eventually 
+decrease and converge. These results show that the ECNN is not sensitive to random initialization. 
+Once the ECNN is fully trained, we remove its fully connected layer and take its internal variables as outputs. These variables, as 
+pointed out in Section 2, are the corresponding stress components. Now, the trained ECNN functions as a stress-strain constitutive 
+model: for a given set of input strain it provides a set of corresponding stress. 
+Recall that 16,848 sets of data are generated by the FE model in Fig. 3. It would be interesting to see whether the internal variables 
+Fig. 6. Comparison of the stress predicted by FEM and trained ECNN for the model shown in Fig. 3. Note the FEM predicted stress is not used to 
+train ECNN. 
+Fig. 7. Comparison of the FEM and ECNN predicted stress for a biaxially loaded square plate with an inclined elliptical hole. (a) A biaxially loaded 
+square plate with an inclined elliptical hole, with points A and B located at the semi-major and semi-minor axis of the ellipse, respectively, (b) strain 
+and stress at points A and B during the loading process, and (c) all stress sets predicted by FEM and ECNN. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 9 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+9
+of the trained ECNN correlate well to the corresponding stress components computed by the FE model. 
+A contour plot of the relative difference between the ECNN extracted von Mises stress and the ground truth (i.e., the FEM pre-
+diction) for a particular loading u1= 0.05 and u2= 0.1 is shown in Fig. 5. As can be seen, the relative difference is only within a few 
+percentages. The largest error occurs in the area close to the hole, which is reasonable. The reason is that, upon loading, stress near the 
+hole is larger due to the stress concentration effect and only a smaller amount of stress–strain data near the hole is obtained, resulting in 
+higher discrepancy. 
+Fig. 6 shows the ECNN predicted stresses (internal variables) against the FE computed ones for all loadings, where dash lines are 
+included for eye guidance. An excellent global agreement is observed, with a few data points slightly deviating from the dash lines. The 
+dimensionless relative error Δij as (Bückmann et al., 2015) can be used to quantify the overall discrepancy 
+Δij =
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅∑
+ne
+ 
+σij  σ0ij)2√
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅∑
+ne
+ 
+σ0ij)2√ (10) 
+where ne is the number of elements and σ0ij and σij are the FE computed and ECNN predicted stresses, respectively. For the results in 
+Fig. 6, we have Δ11= 1.95%, Δ22= 2.22%, and Δ12= 6.60%, illustrating the accuracy of the ECNN. The excellent agreement shown in 
+Fig. 6 indicates the developed ECNN can indeed faithfully extract the local stress of the non-uniformly deformed specimen. 
+4.3. Validation of ECNN 
+The local stress field of different structures made of the same material can also be extracted with the trained ECNN, provided that 
+the corresponding strain field is known. Replacing the circular hole in Fig. 3a by an inclined elliptical hole, a new structure is obtained 
+and the dimensions are marked (Fig. 7a) with H= 1 m, R1 /H= 0.2, R2 /H= 0.1, and an inclined angle θ= 45∘. Displacement 
+controlled loadings are set to be u1= 0.1Hsin(3t) and u2 =  0.1Hsin(2t). The FEM calculated and the trained ECNN predicted stresses 
+at points A and B along the main axes of the ellipse are given in Fig. 7b, showing excellent agreement. Moreover, the FE model 
+generates 22,480 sets of stress data for different material points and loading levels. Fig. 7c shows the overall comparison between the 
+FEM and the ECNN predictions. Again, all the data points are close to the ideal regression line. The relative errors are Δ11= 2.54%, 
+Δ22= 1.97%, and Δ12= 4.77%, which show that the trained ECNN can act as a constitutive model to predict the stress of different 
+structures within the trained strain range. 
+To further illustrate the capability of the trained ECNN, three basic deformations of a single element under uniform deformation are 
+simulated via the FE method, i.e., uniaxial loading (Fig. 8a), equi-biaxial loading (Fig. 8b), and simple shear (Fig. 8c). Both loading and 
+unloading are considered. Note that displacement-controlled loadings are employed to generate the database for training while the 
+three basic deformations are stress-controlled and, strictly speaking, are “invisible” from the training database. Nevertheless, the ECNN 
+predictions are shown to agree very well with the FE results, demonstrating the capability of generalization of the trained ECNN. 
+In the numerical examples shown above, the material parameters given in Table 1 are adopted. To show that the ECNN is not 
+limited to the specific hyperelastic material, an alternative Mooney-Rivlin material with 
+U= C10(I1  3)+ C01(I2  3)+ 1D1(J  1)2 (11) 
+where C10= 1.5 MPa, C01= 0.5 MPa, and D1= 0.5 MPa  1, is assumed for the same geometry and loading conditions in Fig. 3. A 
+comparison of all stress sets by FEM and the trained ECNN is shown in Fig. 9. The corresponding relative errors areΔ11 = 1.89%, Δ22 
+= 2.36% and Δ12 = 6.25%, demonstrating the reliability of the ECNN again. 
+Fig. 8. ECNN predictions of three basic deformation modes, compared to single element FEM predictions. (a) Uniaxial loading, (b) equi-biaxial 
+loading, and (c) simple shear. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 10 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+10
+4.4. Robustness to noise 
+When experimentally measuring strain, noise is inevitably present. To explore the effects of noise on the proposed ECNN, different 
+levels of artificial noise that satisfy normal distribution are added to the training data generated by the model shown in Fig. 3. Fig. 10 
+shows the comparison of the ECNN predicted stress components with 5% and 10% noise levels. Table 2 summarizes the relative error 
+Δij under different noise levels. Both Fig. 10 and Table 2 show that the ECNN only has a moderate dependence on the magnitude of 
+noise: the prediction discrepancy is less than 20% for the noise level of 10%. When the noise level increases further, the ECNN pre-
+diction deteriorates, with the largest relative error being 33.93% for a noise of 20%. Adding different load paths to increase the data 
+diversity is expected to improve the model’s robust (Kirchdoerfer and Ortiz, 2018). 
+Fig. 9. Comparison of all stress sets predicted by FEM and trained ECNN for the model shown in Fig. 3. The material in FEM is an alternative 
+Mooney-Rivlin material. 
+Fig. 10. Effect of strain input noise on the predictions of all stress sets by ECNN. Relative noise levels are (a) 5% and (b) 10%. 
+Table 2 
+Relative error of stress components for training data with noise. 
+Noise Level 0% 5% 10% 15% 20% 
+Δ11 1.95% 6.50% 10.26% 13.96% 19.91% 
+Δ22 2.22% 6.40% 9.79% 13.47% 19.01% 
+Δ12 6.60% 13.01% 18.95% 26.32% 33.93% 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 11 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+11
+Fig. 11. Experimental demonstration of ECNN. (a) A uniaxially compressed square specimen with an inclined elliptical hole, (b) a typical set of DIC 
+measured strain used in training (at the last loading step), (c) comparison of the ECNN predicted external forces against the applied ones, (d) stress 
+predicted by ECNN at the last loading step. 
+Fig. 12. Experimental demonstration of ECNN. (a) A uniaxially compressed square specimen with a central hole, (b) a typical set of DIC measured 
+strain used in testing (at the last loading step), (c) comparison of the ECNN predicted external forces against the applied ones, (d) stress predicted by 
+ECNN at the last loading step. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 12 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+12
+5. Experimental examples 
+To further validate the ECNN, experiment examples are presented. Two specimens made of hyperelastic soft rubber material are 
+manufactured. Both specimens have in-plane dimensions of 40 mm×40 mm and an out-of-plane thickness of 40 mm. This particular 
+thickness is chosen so that the plane strain assumption can be approximately satisfied. The first specimen has an elliptical hole with R1 
+= 8 mm and R2= 4 mm (Fig. 11a) and the second one has a central circular hole with R= 6 mm (Fig. 12a). Displacement controlled 
+uniaxial compressive tests are conducted with an IBTC-300 test machine. The imposed maximum displacement is uy = 2 mm within 
+about 100 steps. The loading rate is set to 0.02 mm/s, corresponding to 5× 10  4/s in strain rate to mimic quasi-static loading. 
+Before testing, grey speckles are sprayed to the specimen surfaces to facilitate post-processing. Images of the deformed speckle 
+patterns at various loading steps are recorded using a high-resolution digital camera (SONY FDR-AX40, Tokyo, Japan). The defor-
+mation information is extracted via the DIC method through the commercial software XTDIC (XTOP 3D Technology, Shenzhen, China). 
+Once the coordinate, displacement, and strain field are obtained, they are projected to the corresponding meshes with triangular 
+elements. Then, we use the experimental data for the developed ECNN, following the same procedure as that for the numerical ex-
+amples in Section 4. It is noted that, under uniaxial loading, the deformation information of the specimen with an elliptical hole is more 
+diverse than that of the second specimen with a circular central hole. Therefore, data generated from the first specimen is used as 
+training while that from the second specimen serves as testing. Because 100 steps generate too much data, data from only 8 steps of 
+loading is used in training. 
+The DIC measured strain contours at the last loading step of the first specimen are given in Fig. 11b, showing the non-uniform strain 
+distribution. Because the true stress of the specimen is not known, we are not able to assess the predicted stress directly. Nevertheless, 
+the applied forces can be computed from the ECNN predicted stress field and are compared with the external forces imposed by the test 
+machine (referred to as true forces). Results are summarized in Fig. 11c for all loading levels, showing excellent agreement between 
+each other. With the developed ECNN, stress contours corresponding to the measured strain can be predicted and are plotted in 
+Fig. 11d. 
+Moreover, the trained ECNN can be employed to predict the stress of the second specimen upon compression (Fig. 12a), corre-
+sponding to the measured strain field. A set of typical DIC measured strain contours is presented in Fig. 12b, at the externally applied 
+compressive force of 113N in magnitude. From the predicted stress, the externally applied forces at various loading levels can be 
+obtained and are compared with those read directly from the test machine in Fig. 12c, showing good agreement. Corresponding stress 
+components are output by ECNN in Fig. 12d. The experimental results shown above provide added confidence in the reliability of the 
+developed ECNN as the role of constitutive modeling. 
+6. Discussion and concluding remarks 
+In general, knowledge of the stress–strain response of a material is indispensable for the development of its constitutive model. 
+However, without a constitutive law (which is always true for new materials), stress can only be directly inferred from the externally 
+applied loading for limited specimens with a specific geometry, compared to strain that can be relatively easy to measure. The dilemma 
+is further exaggerated for machine learning-based constitutive modeling in which a large database of multiaxial stress-strain responses 
+is required. The proposed constitutive modeling framework for hyperelastic materials with an equilibrium-based convolution neural 
+network (ECNN) has, to a large extent, addressed the bottleneck. Numerical and experimental examples are presented to demonstrate 
+that, for a given local strain the ECNN is capable of extracting the corresponding stress components. Signal noise is shown to only have 
+a mild effect on the modeling capacity of the ECNN. Moreover, it is found that the trained ECNN can faithfully serve the role of 
+constitutive modeling and can thus surrogate equation-based conventional constitutive models of hyperelastic materials. 
+In the framework, a specimen with non-uniform deformation upon loading is employed to generate data for neural network 
+training. It is advantageous in at least three aspects. First, only readily obtainable quantities (e.g., displacement, strain, and external 
+loading) are required in the training set of data while the hard-to-measure stress is treated as internal variables embedded in the ECNN. 
+By enforcing a constraint in the weak form of the equilibrium equation into the ECNN, stress can be extracted. Second, once the stress is 
+identified, using the spatial dependent and auxiliary multiaxial feature of non-uniform deformation, a single specimen test can 
+generate numerous multiaxial work conjugates in terms of stress and strain at various material points, and thus a large database of 
+multiaxial stress-strain responses. Therefore, costly multiaxial tests can be reduced or even avoided. The database can be further 
+expanded by varying loading steps and loading paths. Third, the ECNN is unsupervised because stress is output instead of an input 
+variable of training, which greatly reduces the complexity of training and cross-validation of a neural network. Moreover, the ECNN is 
+physics (equilibrium) informed, providing increased interpretability and generalization of the machine learning-based constitutive 
+model. 
+It should be pointed out that although only 2D examples are presented for the purpose of demonstration, the proposed framework is 
+not limited to 2D problems. When 3D strain measurement technologies, e.g., the volumetric digital image correlation, or V-DIC 
+(Luetkemeyer et al., 2021) can be used to measure the deformation inside bodies, an extension of the framework to 3D problems is 
+straightforward. However, we do realize that only history independent hyperelastic constitutive behaviors are considered in the ECNN. 
+Extension of the ECNN to model history dependent behavior (e.g., elastoplasticity) is highly desirable. One possibility is to use in-
+cremental strain and stress instead of total ones and replace the convolution neural network with other machine learning algorithms 
+with a memory effect, e.g., recurrent neural networks (Bonatti and Mohr, 2022; Gorji et al., 2020; Mozaffar et al., 2019), which is 
+currently under investigation. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 13 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+13
+CRediT authorship contribution statement 
+L.F. Li: Conceptualization, Investigation, Software, Visualization, Writing – original draft, Writing – review & editing. C.Q. Chen: 
+Conceptualization, Funding acquisition, Project administration, Supervision, Writing – review & editing. 
+Declaration of Competing Interest 
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to 
+influence the work reported in this paper. 
+Acknowledgments 
+We thank Yuhong Jin for his valuable and supportive discussions. This work is supported by the Natural Science Foundation of 
+China (Nos. 12132007, 11732007, and 11921002). 
+Appendix A. Network architecture and training 
+In the finite element and experimental examples, the domain of deformation is meshed, giving rise to elements and nodes. Note that 
+stress is field variables and element-based (because constant strain triangle elements are adopted here) while forces are associated with 
+nodes. The relationship between the external force at a node and the stress around the node can be obtained via Eqs (2–3). The strain of 
+Fig. A1. Workflow of ECNN during and after training. 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 14 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+14
+each element can be calculated for all T time steps. 
+The workflow of the ECNN is summarized in Fig. A1. A node can be associated with multiple elements. To be specific, consider two 
+cases. In case 1, node i is connected to three elements. We take the three strain components of the surrounding three elements as input, 
+with dimensions of T× 3× 3× 1. After convolution, the ECNN outputs the internal variables as Cauchy stress components of di-
+mensions being T× 9. We convert the Cauchy stress to the first P-K stress with dimensions of T× 12. Following Eq. (2), we can 
+calculate the external nodal force by the ECNN and get the loss in training. No activation function and bias are required. For different 
+nodes, the dimension of the fully connected layer is related to the number of elements connected by the node. In case 2, node j is 
+connected to four elements. The dimension of the output of convolutional layers is T× 3× 4× 1. We convert the Cauchy stress to the 
+first P-K stress as T× 16. Following Eq. (2), we can generate a weight matrix of dimension T× 16. The external force dimension of the 
+final output is T× 2. It is straightforward to extend the procedure to other cases, such as nodes connected with N elements where the 
+weight dimension of the fully connected layer is 4N× 2. For nodes on the boundary, we obtain the strain components of all elements 
+connected to the nodes and calculate the total of the external nodal forces and loss. We sum the loss of internal and boundary nodes and 
+update parameters by backpropagation as one epoch. After training, we remove the fully connected layer and use the internal variables 
+as output (i.e., predicted stress components). 
+In the convolution, we use a 1×1 convolution kernel, equivalent to a multilayer perceptron. We use the CNN structure for the strain- 
+to-stress process with the help of the concept of channels. 
+Table A1 shows the training errors of the ECNN with different sets network hyperparameters. For a balance between accuracy and 
+cost, we choose the set of parameters N1 = 60, N2= 180, N3= 40 and N4= 20 in all other calculations presented in the paper. 
+References 
+ASTM, 2015. PlasticsStandard Test Method for Tensile Properties of Plastics. ASTM International, West Conshohocken P.A. U.S.A. 
+Bar-Sinai, Y., Hoyer, S., Hickey, J., Brenner, M.P., 2019. Learning data-driven discretizations for partial differential equations. Proc. Natl. Acad. Sci. 116, 
+15344–15349. 
+Baydin, A.G., Pearlmutter, B.A., Radul, A.A., Siskind, J.M., 2018. Automatic differentiation in machine learning: a survey. J. Mach. Learn. 19, 1–43. 
+Bessa, M.A., Bostanabad, R., Liu, Z., Hu, A., Apley, D.W., Brinson, C., Chen, W., Liu, W.K., 2017. A framework for data-driven analysis of materials under uncertainty: 
+countering the curse of dimensionality. Comput. Methods Appl. Mech. Eng. 320, 633–667. 
+Bessa, M.A., Glowacki, P., Houlder, M., 2019. Bayesian machine learning in metamaterial design: fragile becomes supercompressible. Adv. Mater. 31, 1904845. 
+Beucler, T., Pritchard, M., Rasp, S., Ott, J., Baldi, P., Gentine, P., 2021. Enforcing analytic constraints in neural networks emulating physical systems. Phys. Rev. Lett. 
+126, 098302. 
+Bonatti, C., Mohr, D., 2022. On the importance of self-consistency in recurrent neural network models representing elasto-plastic solids. J. Mech. Phys. Solids 158, 
+104697. 
+Brunton, S.L., Noack, B.R., Koumoutsakos, P., 2020. Machine learning for fluid mechanics. Annu. Rev. Fluid Mech. 52, 477–508. 
+Bückmann, T., Kadic, M., Schittny, R., Wegener, M., 2015. Mechanical cloak design by direct lattice transformation. Proc. Natl. Acad. Sci. 112, 4930–4934. 
+Champion, K., Lusch, B., Kutz, J.N., Brunton, S.L., 2019. Data-driven discovery of coordinates and governing equations. Proc. Natl. Acad. Sci. 116, 22445–22451. 
+Chang, J.R., Chen, Y.S., 2018. Pyramid stereo matching network. In: 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). IEEE, Salt Lake 
+City, UT, pp. 5410–5418. 
+Chu, T.C., Ranson, W.F., Sutton, M.A., 1985. Applications of digital-image-correlation techniques to experimental mechanics. Exp. Mech. 25, 232–244. 
+Conti, S., DeSimone, A., Dolzmann, G., 2002. Soft elastic response of stretched sheets of nematic elastomers: a numerical study. J. Mech. Phys. Solids 50, 1431–1451. 
+Flaschel, M., Kumar, S., De Lorenzis, L., 2021. Unsupervised discovery of interpretable hyperelastic constitutive laws. Comput. Methods Appl. Mech. Eng. 381, 
+113852. 
+Frankel, A.L., Jones, R.E., Alleman, C., Templeton, J.A., 2019. Predicting the mechanical response of oligocrystals with deep learning. Comput. Mater. Sci. 169, 
+109099. 
+Gorji, M.B., Mozaffar, M., Heidenreich, J.N., Cao, J., Mohr, D., 2020. On the potential of recurrent neural networks for modeling path dependent plasticity. J. Mech. 
+Phys. Solids 143, 103972. 
+Halilaj, E., Rajagopal, A., Fiterau, M., Hicks, J.L., Hastie, T.J., Delp, S.L., 2018. Machine learning in human movement biomechanics: best practices, common pitfalls, 
+and new opportunities. J. Biomech. 81, 1–11. 
+Han, S., Kim, T., Kim, D., Park, Y.-L., Jo, S., 2018. Use of deep learning for characterization of microfluidic soft sensors. IEEE Robot. Autom. Lett. 3, 873–880. 
+Huang, Z., Tian, Y., Li, C., Lin, G., Wu, L., Wang, Y., Jiang, H., 2020. Data-driven automated discovery of variational laws hidden in physical systems. J. Mech. Phys. 
+Solids 137, 103871. 
+Iba˜nez, R., Borzacchiello, D., Aguado, J.V., Abisset-Chavanne, E., Cueto, E., Ladeveze, P., Chinesta, F., 2017. Data-driven non-linear elasticity: constitutive manifold 
+construction and problem discretization. Comput. Mech. 60, 813–826. 
+Isihara, A., Hashitsume, N., Tatibana, M., 1951. Statistical theory of rubber-like elasticity. IV. (Two-dimensional stretching). J. Chem. Phys. 19, 1508–1512. 
+Jenab, A., Sari Sarraf, I., Green, D.E., Rahmaan, T., Worswick, M.J., 2016. The use of genetic algorithm and neural network to predict rate-dependent tensile flow 
+behaviour of AA5182-O sheets. Mater. Des. 94, 262–273. 
+Kirchdoerfer, T., Ortiz, M., 2018. Data-driven computing in dynamics: data-driven computing in dynamics. Int. J. Numer. Methods Eng. 113, 1697–1710. 
+Kirchdoerfer, T., Ortiz, M., 2016. Data-driven computational mechanics. Comput. Methods Appl. Mech. Eng. 304, 81–101. 
+Table A1 
+Training error for different ECNN parameters. 
+Mapping 3-20-60 3-40-120 3-60-180 3-80-240 
+Group convolution 20-20-10-1 40-20-20-1 60-40-20-1 80-40-20-1 
+Total parameters 3263 8863 21063 32003 
+Δ11 6.71% 3.64% 1.95% 1.54% 
+Δ22 10.16% 4.09% 2.22% 1.83% 
+Δ12 13.64% 8.83% 6.60% 6.54% 
+L.F. Li and C.Q. Chen 
+
+===== PAGE 15 =====
+Journal of the Mechanics and Physics of Solids 164 (2022) 104931
+15
+Lai, Z., Nagarajaiah, S., 2019. Sparse structural system identification method for nonlinear dynamic systems with hysteresis/inelastic behavior. Mech. Syst. Signal 
+Process. 117, 813–842. 
+LeCun, Y., Bengio, Y., Hinton, G., 2015. Deep learning. Nature 521, 436–444. 
+Lefik, M., Schrefler, B.A., 2003. Artificial neural network as an incremental non-linear constitutive model for a finite element code. Comput. Methods Appl. Mech. Eng. 
+192, 3265–3283. 
+Li, X., Ning, S., Liu, Z., Yan, Z., Luo, C., Zhuang, Z., 2020. Designing phononic crystal with anticipated band gap through a deep learning based data-driven method. 
+Comput. Methods Appl. Mech. Eng. 361, 112737. 
+Linka, K., Hillg¨artner, M., Abdolazizi, K.P., Aydin, R.C., Itskov, M., Cyron, C.J., 2021. Constitutive artificial neural networks: a fast and general approach to predictive 
+data-driven constitutive modeling by deep learning. J. Comput. Phys. 429, 110010. 
+Liu, X., Athanasiou, C.E., Padture, N.P., Sheldon, B.W., Gao, H., 2020. A machine learning approach to fracture mechanics problems. Acta Mater. 190, 105–112. 
+Luetkemeyer, C.M., Scheven, U., Estrada, J.B., Arruda, E.M., 2021. Constitutive modeling of the anterior cruciate ligament bundles and patellar tendon with full-field 
+methods. J. Mech. Phys. Solids 156, 104577. 
+Masi, F., Stefanou, I., Vannucci, P., Maffi-Berthier, V., 2021. Thermodynamics-based artificial neural networks for constitutive modeling. J. Mech. Phys. Solids 147, 
+104277. 
+McCoy, M.D., Hamre, J., Klimov, D.K., Jafri, M.S., 2021. Predicting genetic variation severity using machine learning to interpret molecular simulations. Biophys. J. 
+120, 189–204. 
+Meng, Z., Liu, M., Zhang, Y., Chen, C.Q., 2020. Multi-step deformation mechanical metamaterials. J. Mech. Phys. Solids 144, 104095. 
+Mozaffar, M., Bostanabad, R., Chen, W., Ehmann, K., Cao, J., Bessa, M.A., 2019. Deep learning predicts path-dependent plasticity. Proc. Natl. Acad. Sci. 116, 
+26414–26420. 
+Nemat-Nasser, S., Hori, M., 2013. Micromechanics: Overall Properties of Heterogeneous Materials. Elsevier, Amsterdam Netherlands. 
+Pan, B., Qian, K., Xie, H., Asundi, A., 2009. Two-dimensional digital image correlation for in-plane displacement and strain measurement: a review. Meas. Sci. 
+Technol. 20, 062001. 
+Pandya, K.S., Roth, C.C., Mohr, D., 2020. Strain rate and temperature dependent fracture of aluminum alloy 7075: experiments and neural network modeling. Int. J. 
+Plast. 135, 102788. 
+Raissi, M., Perdikaris, P., Karniadakis, G.E., 2019. Physics-informed neural networks: a deep learning framework for solving forward and inverse problems involving 
+nonlinear partial differential equations. J. Comput. Phys. 378, 686–707. 
+Raissi, M., Yazdani, A., Karniadakis, G.E., 2020. Hidden fluid mechanics: learning velocity and pressure fields from flow visualizations. Science 367, 1026–1030. 
+Szegedy, C., Liu, W., Jia, Y.Q., Sermanet, P., Reed, S., Anguelov, D., Erhan, D., Vanhoucke, V., Rabinovich, A., 2015. Going deeper with convolutions. In: Presented at 
+the 2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Boston, MA, USA, pp. 1–9. 
+Thuruthel, T.G., Shih, B., Laschi, C., Tolley, M.T., 2019. Soft robot perception using embedded soft sensors and recurrent neural networks. Sci. Robot. 4, eaav1488. 
+Wang, M., Chen, C., Liu, W., 2022. Establish algebraic data-driven constitutive models for elastic solids with a tensorial sparse symbolic regression method and a 
+hybrid feature selection technique. J. Mech. Phys. Solids 159, 104742. 
+Wang, S., Chen, S., 2019. Insights to fracture stimulation design in unconventional reservoirs based on machine learning modeling. J. Pet. Sci. Eng. 174, 682–695. 
+Wen, J., Zou, Q., Wei, Y., 2021. Physics-driven machine learning model on temperature and time-dependent deformation in lithium metal and its finite element 
+implementation. J. Mech. Phys. Solids 153, 104481. 
+Xue, T., Wallin, T.J., Menguc, Y., Adriaenssens, S., Chiaramonte, M., 2020. Machine learning generative models for automatic design of multi-material 3D printed 
+composite solids. Extreme Mech. Lett. 41, 100992. 
+Yang, Z., Yu, C.H., Guo, K., Buehler, M.J., 2021. End-to-end deep learning method to predict complete strain and stress tensors for complex hierarchical composite 
+microstructures. J. Mech. Phys. Solids 154, 104506. 
+Ye, S., Huang, W.Z., Li, M., Feng, X.Q., 2021. Deep learning method for determining the surface elastic moduli of microstructured solids. Extreme Mech. Lett. 44, 
+101226. 
+Zhang, R., Liu, Y., Sun, H., 2020. Physics-informed multi-LSTM networks for metamodeling of nonlinear structures. Comput. Methods Appl. Mech. Eng. 369, 113226. 
+Zhang, Y., Li, B., Zheng, Q.S., Genin, G.M., Chen, C.Q., 2019. Programmable and robust static topological solitons in mechanical metamaterials. Nat. Commun. 10, 
+5605. 
+Zhou, Y., Zhang, Y., Chen, C.Q., 2021. Amplitude-dependent boundary modes in topological mechanical lattices. J. Mech. Phys. Solids 153, 104482. 
+L.F. Li and C.Q. Chen

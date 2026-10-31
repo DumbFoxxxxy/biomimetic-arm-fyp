@@ -1,0 +1,74 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo ErrorHandler
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    WriteLog "start"
+
+    Dim folderPath As String
+    folderPath = "D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC)
+
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim fl As Object
+    Set fl = fso.GetFolder(folderPath)
+    Dim file As Object
+    For Each file In fl.Files
+        If UCase(Right(file.Name, 7)) = ".SLDPRT" Then
+            CheckBone file.Path, file.Name
+        End If
+    Next file
+
+    swApp.ExitApp
+    Exit Sub
+
+ErrorHandler:
+    WriteLog "ERROR " & Err.Number & " " & Err.Description
+    swApp.ExitApp
+End Sub
+
+Sub CheckBone(path As String, label As String)
+    Dim errs As Long
+    Dim warns As Long
+    Dim doc As Object
+    Set doc = swApp.OpenDoc6(path, 1, 0, "", errs, warns)
+    If doc Is Nothing Then
+        WriteLog label & " OPEN FAILED err=" & errs
+        Exit Sub
+    End If
+    WriteLog "==== " & label & " ===="
+
+    WriteLog "  solid bodies   = " & CountArr(doc.GetBodies2(0, False))
+    WriteLog "  sheet bodies   = " & CountArr(doc.GetBodies2(1, False))
+    WriteLog "  wire bodies    = " & CountArr(doc.GetBodies2(2, False))
+    WriteLog "  mixed bodies   = " & CountArr(doc.GetBodies2(3, False))
+    WriteLog "  general bodies = " & CountArr(doc.GetBodies2(4, False))
+    WriteLog "  features = " & doc.GetFeatureCount()
+
+    Dim f As Object
+    Set f = doc.FirstFeature()
+    Do While Not f Is Nothing
+        WriteLog "    feature [" & f.Name & "] type=" & f.GetTypeName2()
+        Set f = f.GetNextFeature()
+    Loop
+
+    swApp.CloseDoc doc.GetTitle()
+End Sub
+
+Function CountArr(a As Variant) As Long
+    If IsEmpty(a) Then
+        CountArr = 0
+    Else
+        CountArr = UBound(a) + 1
+    End If
+End Function
+
+Sub WriteLog(msg As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim ts As Object
+    Set ts = fso.OpenTextFile("D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC) & "\InspectBones.log", 8, True)
+    ts.WriteLine Now & " " & msg
+    ts.Close
+End Sub

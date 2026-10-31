@@ -1,0 +1,1073 @@
+===== PAGE 1 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+1 of 13
+APPLIED SCIENCES AND ENGINEERING
+Encoded sewing soft textile robots
+Xinyu Guo1†, Wenbo Li2*†, Fuyi Fang1, Huyue Chen3, Linchuan Zhao1, Xiaoyong Fang1, Zhiran Yi1, 
+Lei Shao3, Guang Meng1, Wenming Zhang1,4*
+Incorporating soft actuation with soft yet durable textiles could effectively endow the latter with active and flex -
+ible shape morphing and motion like mollusks and plants. However, creating highly programmable and customiz-
+able soft robots based on textiles faces a longstanding design and manufacturing challenge. Here, we report a 
+methodology of encoded sewing constraints for efficiently constructing three- dimensional (3D) soft textile robots 
+through a simple 2D sewing process. By encoding heterogeneous stretching properties into three spatial seams 
+of the sewed 3D textile shells, nonlinear inflation of the inner bladder can be guided to follow the predefined 
+spatial shape and actuation sequence, for example, tendril- like shape morphing, tentacle- like sequential manipu-
+lation, and bioinspired locomotion only controlled by single pressure source. Such flexible, efficient, scalable, and 
+low- cost design and formation methodology will accelerate the development and iteration of soft robots and also 
+open up more opportunities for safe human- robot interactions, tailored wearable devices, and health care.
+INTRODUCTION
+Textiles incorporating functions such as active deformation (1), dis-
+play (2), thermal management (3), sensing (4), and power (5) have 
+attracted extensive attention recently. The derivation of smart tex-
+tiles with multifunctionality, high integration, and intelligence is 
+revolutionizing soft materials and wearable technology. For exam-
+ple, through incorporating soft actuation technologies (shape mem-
+ory alloy, artificial muscle, electroactive polymer, etc.) with soft yet 
+durable textiles, actuating or active textiles capable of reacting and 
+adapting to external environments and stimuli through active mor-
+phing or motion can be developed (6–12). The newly endowed ac-
+tuation characteristic for conventional passive textiles is mainly 
+dependent on the performance of soft actuators and the structural 
+design of textiles and their coupling effects. Compared to other soft 
+actuators, great progress and wide application have been achieved 
+by soft pneumatic actuators (SPAs) due to their advantages of large 
+pressure- induced deformation and force, high energy density, fast 
+response, low cost, large design freedom, and versatile modes of ac-
+tuation (13–16). Different from the elastomer- based SPAs which are 
+usually fabricated by the complex and time- consuming molding- 
+casting process (17–19) or the costly three- dimensional (3D) print-
+ing (20–22), the textile- based SPAs can be easily manufactured by 
+wrapping a constraint textile shell around a bladder or bonding off- 
+the- shelf composite fabrics with different anisotropic mechanics 
+properties. Moreover, textile- based SPAs naturally inherit the ad-
+vantages of textiles such as light weight, flexibility, compliance, du-
+rability, and supporting customization which are ideal for human- robot 
+interactions and tailored wearable applications (23–26). However, the 
+efficient design and low- cost manufacturing of textile- based SPAs 
+and soft textile robots (STRs) with highly programmable and con-
+trollable 3D shape morphing and complex motions are longstand-
+ing and recognized challenges (23, 24). As we know, the diversity of 
+achievable motions is crucial for multifunctional devices, especially 
+for wearable devices that require ease of customization for different 
+body parts and individuals (27, 28). Poor fit or casual placement of 
+components or actuators can reduce the performance and limit the 
+function of wearable devices (23).
+One of the main challenges in textile- based soft robotics is the 
+creation of anisotropic mechanics (24). From the design and manu-
+facturing point of view, that is how to create textile- based constraint 
+shells for STRs with specific programmed deformations and mo-
+tions. However, the existing method based on splicing different 2D 
+anisotropy fabrics (woven, knitted, and nonwoven) with different 
+mechanical properties by conventional cut- and- sew or heat- assisted 
+sealing processes (29, 30) has design limitations in 3D morphing and 
+multidimensional motion and also increases the modeling and for-
+mation complexities. Although some promising developments, such 
+as structuring 3D textile shells with locally adjustable mechanical 
+properties through 3D knitting (31– 33) to preprogram the global 
+constraints for inflation, or constructing active textile sheets bottom- 
+up by weaving, knitting, or sewing (34– 36), complex preparation 
+processes or specialized equipment are required which undoubtedly 
+increase the cost and may cause other manufacturing challenges 
+(24). In addition, large inflated profiles and ballooning of the inner 
+bladder when yarn density is low also limit the desired deformation 
+and output force. The lack of efficient and systematic design and 
+modeling methodology leads to time- consuming prototyping and 
+iteration cycles for customization (23).
+To solve the above problem and challenge, we introduce a dis-
+tinctive design methodology of encoded sewing constraint (ESC) 
+for efficiently structuring the 3D textile shells with programmed 
+global strain constraint for STRs. As shown in Fig. 1, we have devel-
+oped a series of multifunctional STRs based on the ESC method and 
+pneumatic actuation which fully demonstrate the remarkable features 
+of high- dimensional programmability (both the shape morphing 
+and the actuation sequence), customizable design, and easy manu-
+facturing of STRs. Different from most of the previous work that 
+only used sewing as a bonding method, we notice that the stretch-
+ability of knit fabrics can be regulated by sewing with different stitch 
+features which offers us the possibility to achieve the bonding and 
+strain constraining simultaneously during the formation of seams. 
+Two typical types of stitches are coded as binary “0” and “1” which 
+respectively indicate two kinds of distinct tensile properties of the 
+1State Key laboratory of Mechanical System and vibration, School of Mechanical 
+engineering, Shanghai Jiao tong University, Shanghai 200240, china. 2School of 
+Aerospace engineering and Applied Mechanics, tongji University, Shanghai 200092, 
+china. 3University of Michigan–Shanghai Jiao tong University Joint i nstitute, 
+Shanghai Jiao tong University, Shanghai 200240, china. 4SJtU Paris elite institute 
+of technology, Shanghai Jiao tong University, Shanghai 200240, china.
+*corresponding author. email: wenboli@ tongji. edu. cn (W.l.); wenmingz@ sjtu. edu. 
+cn (W.Z.)
+†these authors contributed equally to this work.
+copyright © 2024 the 
+Authors, some rights 
+reserved; exclusive 
+licensee American 
+Association for the 
+Advancement of 
+Science. no claim to 
+original U.S. 
+Government Works. 
+distributed under a 
+creative commons 
+Attribution 
+noncommercial 
+license 4.0 (cc BY- nc). 
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 2 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+2 of 13
+sewed knit fabrics (Fig. 2, A and B). Then, a unique 3D shell- shaping 
+strategy based on 3D encoded seams is proposed (Fig. 2B); three 
+pieces of monotonic weft- knit fabric are bonded together by the 
+simple and efficient 2D sewing process to form the constraint textile 
+shell; lastly, highly programmable 3D STRs can be fabricated by inserting 
+slender bladders into the tailored shells (Fig. 2C). After revealing the 
+fundamental anisotropic mechanical properties of the sewed knit 
+fabrics with different stitch features, we derive an effective method-
+ological framework for modeling and predicting the complex spatial 
+bending behavior of the STRs upon inflation (Fig. 2, D and E), which 
+also takes the coupling effects between the tailored shell and the 
+nonlinear inflation of the bladder into account. Owing to the unique 
+design of the 3D encoded seams, the difficulty in the design and 
+analysis of the STRs is substantially reduced, and the efficiency for 
+customization development can be also improved. We then leverage 
+this quantitative framework to program these STRs and produce com-
+plex functionalities, for example, an inflated tailored 3D morphing STR 
+which is highly identical to the natural morphology of a cucumber ten-
+dril (Fig. 2A). We also demonstrate a single- chambered, tentacle- like 
+STR achieving a series of controllable sequential manipulations like 
+winding, transporting a paper cup, and pouring water from it by a 
+single pressure source (Fig. 2F and movie S1).
+RESUL TS
+Principle and verification of encoded sewing constraint
+Weft- knit fabric exhibits more elasticity and has great potential for pro-
+grammability in the weft direction. The fabrics sewed with different 
+stitches along the weft direction show distinct tensile properties affected 
+by stitch type and density (Fig. 3, A and B). The straight stitch with a sew-
+ing density of 8 SPI (stitch per inch) is coded as “0” representing the 
+strong strain constraint for the fabric. Relatively, more stretchable stitch-
+es such as zigzag with different densities are coded as “1” representing 
+the tunable stretchability of the sewed fabrics. We systematically inves-
+tigated the effect of ESC with different stitch features on the mechanical 
+properties of the knit fabric (see figs. S1 and S2). Figure 3B displays the 
+stress- strain curves of the original knit fabric without stitching and 
+fabrics with different sewing constraints, which can provide fundamental 
+guidance for the constraint design.
+We first verify the effectiveness of the ESC for the programmable 
+design of STRs by basic 2D bending units, as shown in Fig. 3C, two 
+same pieces of knit fabric are sewed together with two parallel “0” 
+and “1” seams to form the 2D shells. Then, the unit will bend toward 
+the “0” seam due to the strain mismatch of the two encoded seams 
+upon inflation. ρ denotes the radius of curvature of bending. Two 
+essential design parameters, the stitch density and the distance 
+Fig. 1. Overview of the highly programmable, customizable and easy- to- manufacture soft textile robots for complex morphing and manipulation, various ro -
+bot locomotion controlled by single pressure source, and wearable devices for rehabilitation and orthopedics. 
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 3 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+3 of 13
+d between the seams, program their bending behavior. We first con-
+sider the effect of the stitch density of the “1” seam on the bending. 
+The deformation behavior of anisotropic fabric can be described by 
+the Holzapfel- Gasser- Ogden (HGO) model (37)
+where W is the strain energy density of anisotropic fabric, C10, k1, k2, 
+and κ are material parameters. The appropriate mechanical param-
+eters of the weft- knit fabric under each sewing method can be deter-
+mined by adjusting the simulation parameters and comparing 
+them with the experimental results (see the “Modeling of the 
+weft- knit fabric” section in Materials and Methods for more de-
+tails). I(i)1 = tr/bracketleft.s1F(i)F(i)T /bracketright.s1 and I(i)4 = F(i)M(i) ⋅ F(i)M(i) , where F is the W(i) = C(i)10
+/bracketleft.s2
+I(i)1 − 3/bracketright.s2 + k(i)1
+2k(i)2
+/parenleft.s3
+e
+k(i)2
+/braceleft.s2
+κ
+/bracketleft.s2
+I(i)1 −3/bracketright.s2+(1−3κ)/bracketleft.s2I(i)4 −1/bracketright.s2/braceright.s22 − 1/parenright.s3
+(1)
+Fig. 2. 3D encoded sewing constraint for highly programmable STRs. (A) encoding heterogeneous stretching properties into textiles through two typical types of stitches, which enables a 
+tailored pneumatic textile robot to morph into the natural morphology of a cucumber tendril (scale bar, 40 mm). (B) three- dimensional encoded seams for constructing a textile shell 
+wrapping an elastomeric bladder inside. three pieces of monotonic anisotropy knit fabric are sewed and bonded with each other to form three spatial seams with heterogeneous stretch-
+ing properties which are programmed by the binary system of stitches. (C) two- dimensional sewing process for structuring the 3d textile shell and programming the strain constraint for 
+inflation deformation. d is the distance between the adjacent seams. (D) Bending deformation principle of the StRs. the bending direction is directed by the strain mismatch of the three 
+encoded seams (i, ii, and iii) with different stretching properties. the deformation behavior of the textile is dominated by the combination effects of nonlinear inflation of the inner bladder 
+and the constraint characteristics of the textile shell. (E) Schematic of the cross section of the inflated encoded sewing StR. (F) tentacle- like manipulation of a tailored StR controlled by a 
+monotonic pressure source. the manipulation includes a series of sequential actions like winding, transporting a paper cup, and pouring water from it (scale bar, 50 mm).
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 4 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+4 of 13
+defor mation gradient and M represents the stiffest direction of 
+the fabric.
+The Cauchy equilibrium equation allows us to relate the geo-
+metrical parameters of the STRs to the internal pressure (19)
+where r and θ are the radial and circumferential coordinates in the 
+initial configuration, and r i and r o represent the inner radius and 
+outer radius of the STR cross section, respectively. More specifically, 
+on the cross section of the STR, the arcs corresponding to the cir -
+cumferential angles θ1, θ2, θ3, and θ4 are the circumferential angles 
+that divide the cross section into the ESC area and the original knit 
+fabric area (see the “Modeling of the STR” section in Materials and 
+Methods for more details). The Cauchy stress (30) σ is given by(2)
+Fig. 3. Encoded sewing constraint for 2D STRs. (A) Anisotropic knit fabric sewed with different types of stitches. the weft direction of the fabric is stretchable, and the stretchability 
+of the warp direction is limited. (B) Weft mechanical properties of the original knit fabric without stitching and fabrics sewed by stitch codes “0” and “1” with different stitch densities. 
+(C) Schematic of a 2d bending unit. ρ is the radius of curvature after inflation. (D) curvature- pressure curves of bending units sewed with different stitch densities. the dots indicate 
+the experimental data and the solid lines are the corresponding theoretical prediction results. the experiment was independently performed three times for each condition; error 
+bars represent Sd. (E) Meandering deformation and simulation of a prototype consisting of multiple segments of bending units. the textile shell is manufactured by continuous 
+sewing and bonding of two same pieces of knit fabric following a specific eSc design (scale bar, 50 mm). (F) curvature- pressure curves of bending units with different stitch distances d. 
+the textile shells are sewed by the straight stitch and the same stretchable zigzag stitch with 90 SPi. the dots indicate the experimental data, the solid lines indicate the theoretical 
+predictions, and the circles indicate the theoretical critical pressures for triggering the bending deformations. the experiment was independently performed three times for each 
+condition; error bars represent Sd. (G) two strip prototypes demonstrating the shape- shifting between different patterns of Arabic numerals stimulated by an increasing pressure 
+(scale bar, 100 mm). (H) Sequential morphing of an StR for navigating through obstacles and environmental monitoring (scale bar, 250 mm).
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 5 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+5 of 13
+We couple Eqs. 1 to 3 to obtain the functional relation between 
+1/ρ and p with stitch density, as shown in Fig. 3D (the experimental 
+data fall near the corresponding curves). More detailed results are 
+shown in fig. S4D, which fully verifies the ESC for the bending unit. 
+When the constraint fabric is extended to the strength limitation by 
+the internal pressure (170 kPa), its bending curvature reaches a sta-
+ble maximum value which is negatively correlated with the density 
+of the zigzag stitch. On the basis of this, we demonstrate continuous 
+meandering deformation of a tailored 2D STR whose textile shell is 
+simply fabricated by sewing two same pieces of knit fabric along the 
+encoded seam (Fig.  3E and movie S2), which is very tedious and 
+difficult using the conventional design and formation method (29, 
+37). The corresponding simulation also shows a good agreement 
+with the practical deformation. More simulation details can be 
+found in Materials and Methods and fig. S3.
+We then analyze the effect of the distance d between the seams 
+on the deformation properties of STRs by basic 2D bending 
+units. The deformation characteristics of the basic 2D bending units 
+with different design parameters d driven by pneumatic pressure 
+are shown in fig. S4E. The stable maximum bending curvature 
+values of the bending units are negatively correlated with the dis-
+tance d, suggesting that d also programs the bending behavior 
+of STRs.
+We also found that the design parameter d can program the 
+bending sequence for the STRs due to the coupling effect between 
+the constraint shell and the nonlinear inflation of the internal 
+bladder. The bladders are “unstable” during inflation (38). Once 
+inflated, the internal air pressure of the bladder first increases until 
+the bladder deforms notably; however, the internal air pressure then 
+decreases as the subsequent deformation. Thus, for bladders that are 
+coupled to each other, the bladder with the largest initial deforma-
+tion can be the first to deform substantially, while the others have to 
+“wait. ” The internal bladder of STR comes into contact with the 2D 
+shell during expansion, its initial expansion tendency and final ex-
+pansion radius are determined by the dimensions of the 2D shell 
+(fig. S5A). Therefore, the expanding tendency of the inflating blad-
+der in the “unstable” state is ultimately determined by distance d 
+(fig. S5B). Once inflated, the portion of the bladder corresponding 
+to the largest d will be the first to inflate and drive the deformation 
+of the corresponding region of the STR. As the bladder expands to 
+the dimensional limit of the 2D shell, its internal air pressure rises 
+rapidly, and the remaining portion of the bladder can continue to 
+deform sequentially (fig. S5C). The radius- pressure relationship of 
+the bladder can be derived from theoretical analysis (see the “Non-
+linear inflation of the bladder” section in Materials and Methods). 
+The inflatable deformation behavior of STRs affected by d can thus 
+be predicted by theory. The experimental data fall at the correspond-
+ing theoretical curves and their starting points indicate the critical 
+pressures for bending (Fig. 3F). On the basis of the above quantita-
+tive knowledge, we can easily program the deformation curvature 
+and sequence of 2D STRs to demonstrate the shape- shifting be-
+tween different patterns of Arabic numerals such as “1”- “7”- “8” 
+and “1”- “0”- “6” (Fig.  3G and movie S3) and the sequential 
+morphing of an STR for navigating through obstacles and en-
+vironmental monitoring (Fig. 3H and movie S4), all controlled by 
+single pressure source.
+Design and characterizing of 3D STRs
+The ESC also provides an effective way for structuring 3D textile 
+shells for STRs simply by sewing three same pieces of fabrics 
+(fig. S4A); three encoded seams can guide the spatial deformation 
+and inflation sequence of the internal bladder. Figure 4A illustrates 
+the simulation verification for the spatial deformation principle of 
+the 3D morphing unit. Theoretically, the unit can be designed to 
+bend in an arbitrary direction by adjusting the stitch features of the 
+three seams as depicted in cross- sectional schematics. The bending 
+direction can be predicted by the energy minimization principle 
+(see the “Modeling of the STR” section in Materials and Methods). 
+To simplify the analysis, the stitching on one of the seam edges of 
+the 3D morphing unit is varied, as shown in Fig. 4B, and this vari-
+able seam edge is labeled with “x . ” The experimental data and the 
+simulation results fall on the theoretical curve, indicating the highly 
+programmable and predictable design of the 3D ESC. Figure 4C 
+shows larger stitch density corresponding to more stretchable seams 
+leading to bigger bending curvature under the same pressure 
+(e.g., 100 kPa) for a 3D morphing unit with one “0” seam and 
+two identical “1” seams. The results for other cases are shown in 
+fig. S4 (F and H).
+Figure 4D shows the effect of design parameter d (distance 
+between adjacent seams) on the deformation sequence and curva-
+ture of the 3D morphing unit, showing good agreement with our 
+theoretical models (see “Modeling of the STR” section in Materials 
+and Methods). More details can be found in fig. S4 (G and I). We 
+also tested the block force of different units with the same length 
+(100 mm), as shown in Fig. 4E, a unit with d = 17 mm can generate 
+force beyond 5 N, and the force or the bending stiffness increases 
+with pressure and d.
+Similarly, on the basis of the above quantitative knowledge, we 
+can design and manufacture STRs with more complex 3D shape 
+morphing and sequence actuation abilities, as shown in Fig. 2. 
+We also demonstrate two kinds of 3D spiral STRs, one with multiple 
+curvatures and the other with constant curvature (Fig. 4F and 
+movie S5). The spiral STR can be used as a soft gripper for winding 
+objects with varying shapes and sizes. Figure 4G also shows the 
+contraction actuation performance of the spiral STR, l/l0 (see Fig. 4F) 
+increases with the pressure and stitch density, and a maximum value 
+of about 70% can be achieved corresponding to 90- SPI stitch den-
+sity and 130- kPa pressure.
+Customized multifunctional STRs
+We then designed and manufactured a series of multifunctional STRs 
+to demonstrate the flexibility, effectiveness, and scalability of the ESC 
+method. For example, tailored 2D STRs can respectively morph into 
+different patterns to match the profiles of a vase (Fig. 5A) and a but-
+terfly, as well as English letters such as “S, ” “J, ” “T, ” and “U” (fig. S6, 
+A and B, and movie S6). A 3D spiral artificial muscle (fig. S6C and 
+movie S7) and a 3D soft gripper (Fig. 5B and movie S8) enabled by 
+the spatial shape morphing are also displayed. The highly program-
+mable sequential actuation for the 3D STRs is then demonstrated 
+(movie S9), for example, two tailored soft hands displaying different 
+sequential flexion of the five fingers following inflation (Fig. 5C and 
+fig. S6D), a butterfly- like robot that can mimic the shape and the 
+flapping motion (Fig. 5D), both are controlled by the single pressure 
+source. Figure 5 (E and F) shows two kinds of customizable wearable 
+applications based on STRs, one is a thumb rehabilitation glove 
+which contains four programmed deformation features matching 
+σ=
+/bracketleft.s3
+λθ
+/u1D715W
+/u1D715λθ
+, λz
+/u1D715W
+/u1D715λz
+,0
+/bracketright.s3T
+(3)
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 6 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+6 of 13
+with the motion features of the wearer’s thumb joints (movie S10). 
+The other are tailored posture correction vests which can morph 
+and stiffen upon inflation to match and support the spine shapes of 
+different individuals (movie S10). The output force and the stiffness 
+of the STRs used in the tailored posture correction vest (women’s 
+style) as well as the thumb rehabilitation glove were tested (see 
+fig. S7). The output force of the finger actuator when pressurized by 
+40 and 120 kPa is respectively 0.8 and 4.4 N which are comparable 
+to those influential and pioneering works on soft robotic gloves for 
+hand assistance and rehabilitation (39, 40). The output force at the 
+neck and waist ends of the vest actuator when pressurized by 120 kPa 
+is respectively 13.6 and 14.5 N which are also in the same order 
+compared to similar work on soft robots for human lumbar unit and 
+spinal cord assistance (41). The initial stiffness (displacement between 
+0 and 20 mm) corresponding to the waist and neck ends of the 
+inflated vest actuator and the finger actuator is respectively 0.258, 
+0.22, and 0.11 N/mm. The stiffness of the actuator can provide sup-
+port for the finger and spine to hold their positions. Of course, 
+larger output force and stiffness could result in better effects for 
+wearable devices. We can also increase the pressure to generate higher 
+force in the premise of no breakdown with the actuators or incor -
+porate a variable stiffness mechanism (42) to increase the working 
+stiffness. From another point of view, even if the force or stiffness of 
+the wearable devices are not enough for applications like reha-
+bilitation and posture correction, they can also act as force feedback 
+devices to warn and guide the wearer to a desired posture (7, 43).
+We also designed and fabricated three kinds of bioinspired soft 
+locomotion robots based on the ESC method. They all consist of 
+only one bladder and are controlled by only one pressure signal but 
+can realize complex and continuous locomotion which must be 
+achieved by several actuators with complex collaborative control for 
+soft robots. As shown in Fig. 6A, a bioinspired somersaulting STR 
+Fig. 4. Encoded sewing constraint for 3D STRs. ( A) Bending deformation principle and simulation verification of the 3d morphing unit directed by the 3d eSc. 
+(B) comparison of experimental, theoretical, and simulation results on angular changes of the spatial bending direction. FeA, finite element analysis. (C) the stable bending 
+curvatures of the morphing units corresponding to different stitch densities when subjected to 100- kPa inflation pressure. (D) curvature- pressure curves of the morphing 
+units with different stitch distances d. the dots indicate the experimental data, the solid lines indicate the theoretical predictions, and the circles indicate the theoretical 
+critical pressures for triggering the bending deformations. the experiment was independently performed three times for each condition; error bars represent Sd. (E) the 
+blocking force varying with the applied pressure for a 100- mm- long 3d morphing unit with different stitch distances d. (F) three- dimensional spiral shape morphing with 
+different curvature features and the contraction and winding actuation (scale bar, 30 mm). (G) c ontraction l/l0 [see (F)] as a function of the applied pressure for the con-
+stant curvature spiral StRs with different stitch densities.
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 7 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+7 of 13
+simply consists of a 3D morphing unit as the muscle and a purpose- 
+built PET shell. The muscle actuator is sewed with three different 
+stitch distances d between the seams to form three segments that 
+can sequentially bend to emulate the curling deformation of the 
+telson, abdominal, and thoracic somites of the shrimp- like animal 
+(44). The shell is stitched together with the muscle actuator which 
+not only can stabilize the rolling for the robot but also provide 
+elastic restoring force for the bending deformation of the muscle 
+actuator. In addition, two 2- g masses are attached to the position 
+of the shell corresponding to the telson to assist the rolling process 
+during the somersault locomotion. Inflating by single air pressure, 
+the segments of the single actuator–based somersaulting STR 
+sequentially bends as designed to move the center of gravity for -
+ward, as shown in Fig. 6B. Then, it continues to curl and quickly 
+rolls forward under inertia. Last, the somersaulting STR stops 
+rolling and then flips the body to lie on the ground again after defla-
+tion, completing one cycle of somersault locomotion. Under the 
+actuation frequency of 0.3 Hz and peak pressure of about 80 kPa, the 
+somersaulting STR has been tested to achieve a maximum motion 
+speed of 95.65 mm/s (Fig. 6C and movie S11).
+As shown in Fig. 6D, a caterpillar- inspired bidirectional crawling 
+robot is designed and manufactured using a 3D morphing unit and 
+a piece of PET sheet as well. Different from the bioinspired somer -
+saulting STR, the body actuator of the crawling STR has only two 
+segments corresponding to different stitch distances, and the PET 
+shell is bonded under the body actuator. We leverage the program-
+mable sequential actuation design of the 3D morphing unit to pro-
+vide the crawling STR with different bending postures when it is 
+actuated by different magnitudes of air pressure, thus leading to dif-
+ferent crawling directions. Specifically, when activated by small 
+air pressure, the front segment of the body actuator bends and de-
+forms the PET sheet, while when actuated by large air pressure rela-
+tively quickly, the whole actuator bends and deforms the PET sheet 
+in different bending positions. Such varied curvature distributions 
+and deformation patterns at different air pressures allow the crawling 
+robot to develop two different competing forms of friction at the 
+front and rear ends of the robot during the crawling process (45). 
+This results in the STR crawling forward when actuated by small air 
+pressure (60 kPa) and crawling backward when actuated by larger 
+air pressure (90 kPa). As shown in Fig. 6 (E and F) and movie S12, 
+Fig. 5. Customized multifunctional STRs. (A) two- dimensional morphing and simulation of an StR with the customized pattern matching the profile of a vase (scale bar, 
+30 mm). (B) three- dimensional soft gripper grasping a ball and the morphing simulation (scale bar, 30 mm). (C) A soft hand, displaying sequential flexion of the five fingers 
+following inflation via a single pressure source to play the gesture game (scale bar, 100 mm). (D) Shape morphing and flapping motion of a butterfly- inspired textile 
+driven by a single pressure source (scale bar, 40 mm). (E) customized soft wearable device for thumb rehabilitation (scale bar, 40 mm). (F) customized soft wearable device 
+for spinal posture correction (scale bar, 100 mm).
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 8 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+8 of 13
+Fig. 6. Bioinspired STRs with different locomotion mechanisms. (A) design and composition of single actuator- based bioinspired somersaulting StR. (B) Somersaulting 
+mechanism and the corresponding single pressure control signal. (C) Snapshots of the bioinspired somersaulting StR during one somersault process (scale bar, 80 mm). 
+(D) design and bidirectional crawling principles of a caterpillar- inspired crawling StR. the robot has only one actuator and can crawl in two directions merely controlled 
+by a single pressure source. (E and F) Snapshots of forward and reverse crawling modes of the crawling StR (scale bar, 100 mm). (G) design and locomotion principles of 
+bioinspired tube crawling StR. (H) Snapshots of the continuous tube crawling of the StR driven by a single pressure source (scale bar, 120 mm).
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 9 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+9 of 13
+the bidirectional crawling robot achieves a maximum forward 
+motion speed of 9.4 mm/s and a maximum backward motion speed 
+of 26.78 mm/s at actuation frequency of 0.5 Hz, respectively.
+Moreover, we can use the sewing constraint of narrow channels 
+to form passive flow restrictions (46) for further programming the 
+actuation sequence of STRs. Using this combined programming 
+approach, we demonstrate a bioinspired tube crawling STR. As 
+shown in Fig. 6G, the robot is divided into three segments by the 
+sewing passive flow restrictions. The bladder at section II is pre- 
+stretched during the fabrication process, and the section II textile 
+shell is retracted after the stress is released, creating a stretchable 
+part. We placed the robot in an acrylic tube with an inner diameter 
+of 50 mm. Upon inflation, section I of the robot is first actuated to 
+bend, holding the robot from slipping. Subsequently, section II is 
+driven to extend, followed by section III which bends to hold the 
+end of the robot. Then, the robot deflates, and the fixation of section 
+I first fails, allowing section II to retract toward section III of the 
+robot, and lastly, the robot fully recovers its initial state for one 
+cycle of tube crawling. As shown in Fig. 6H and movie S13, the 
+maximum crawling speed of the robot is 3.6 mm/s under the ac-
+tuation frequency of 0.05 HZ.
+DISCUSSION
+We have demonstrated an efficient and systematic design and manu-
+facturing methodology for highly programmable and customizable 
+3D STRs based on the proposed ESC. The unique design of encoded 
+seams with preprogrammed tensile property not only enables ubiq-
+uitous textiles to structure 3D constraint shells with simple, 2D manu-
+facturing methods but also substantially simplifies the prediction 
+difficulty for complex 3D morphing. By simply regulating the stitch 
+features for seams, we can achieve high- dimensional programma-
+bility for STRs, both the shape morphing and the inflation sequence. 
+Leveraging the highly programmable feature, we not only demon-
+strate diverse shape morphing and multifunctional STRs but also 
+develop several bioinspired soft robots for complex manipulation 
+(such as winding and grasping) and locomotion. We realize the con-
+tinuous rolling, bidirectional crawling, and tube crawling locomo-
+tion respectively by using only one actuator and one control signal, 
+which verify the high physical intelligence of our proposed ESC 
+method and the STRs for substantially reducing the hardware com-
+plexity of soft robots. In addition, due to the natural compatibility of 
+STRs with textiles, the creation of connected arrays for the STRs can 
+be easily achieved by sewing, such as a pneumatic textile flower 
+(fig. S6, E and F , and movie S14). Our proposed ESC method is a ready- 
+to- use method, with no prior preparation for fabricating and modi-
+fying special fibers and adjustments for equipment. It also provides 
+efficient design guidance and a simplified fabrication process for 
+diverse customized requirements.
+Of course, the viscoelastic of the embedded elastic fibers (like 
+spandex) and plastic deformation of the fabric used in STRs are in-
+evitable during the usage, just like the edge curl and shape change of 
+the clothes when worn for a long time. The hysteresis behavior caused 
+by the effects of friction and entanglement between the constraint 
+textile shell and the internal bladder can also affect the deformation 
+and recovery of the STRs. Basically, these are the common issues for 
+textile- based SPAs toward practical applications, along with the 
+problems of working life, robustness, and performance degenera-
+tion in long- term cyclic actuation (23). However, for some cases that 
+the requirement of deformation precision is not high, such as the 
+rehabilitation and robot locomotion, adjusting the control pressure 
+to compensate or eliminate the adverse effect of the viscoelastic and 
+hysteresis for the STRs is also a feasible way for achieving the cor -
+responding functionalities.
+Overall, instead of relying on complex processes and costly 
+equipment, the methodology based on ESC solves the challenge of 
+highly customizable design and low- cost manufacturing of mul-
+tifunctional STRs only by the traditional cut- and- sew processing 
+with off- the- shelf textiles. The introduction of advanced computerized 
+sewing techniques may open up more opportunities for customiz -
+able mass manufacturing. Moreover, the effective quantitative frame-
+work for modeling and predicting of 3D STRs also accelerates the 
+rapid transition of prototype devices from laboratory to consumer 
+products. More generally, this distinctive ESC methodology is scalable 
+and versatile and shows substantial progress in the design and fabri-
+cation of active textiles and soft robots (see table S1). We envision 
+that integrating sensing, logic, communication, and powering capa-
+bilities into our STRs will accelerate the development of the next 
+generation of customizable smart textile robots for a variety of real- 
+world applications.
+MATERIALS AND METHODS
+Textile preparation
+We used the highly elastic anisotropic fabric (1 × 1 weft- knit fabric 
+consisting of 95% cotton and 5% spandex, produced on a double- sided 
+circular weft- knitting machine) which is common and commercial-
+ly available as the basic textile. The 1 × 1 knit fabric is knitted with a 
+front coil warp row and a back coil warp row in an interleaved con-
+figuration, which is made from 40s yarns with a density of 80  × 50 
+(80 yarns per inch in the warp direction and 50 yarns per inch in the 
+weft direction). The knit fabric has a thickness of about 1 mm and a 
+density of 180 g/m2. Its micrographs in the initial and tensile states 
+with and without sewing constraints are shown in fig. S1. A piece of 
+knit fabric with the size of 120 cm by 15 cm is about $1.1, which can 
+be cut and sewed to make six 3D shells for the spiral STRs as shown 
+in Fig. 4F . On average, the total cost of a 60- cm- long spiral STR is 
+about $0.25 adding a latex balloon and ignoring the cost of sewing 
+thread. If the quantity purchased is large, then there will be a lower 
+unit price.
+To facilitate the sewing process, the textile is cut into strips along 
+the radial direction of the weft- knit fabric with reference to pre-
+defined dimensions, which need to contain the required area for the 
+designed stitch. To avoid unintended deformations caused by twist-
+ing during actuation, it is necessary to ensure that the textile orien-
+tation is not distorted as much as possible so that the stitches are 
+perpendicular or parallel to the textile orientation during the sewing 
+process.
+Uniaxial tensile testing of weft- knit fabrics with 
+sewing constraints
+To determine the physical properties of the weft- knit fabric under dif-
+ferent sewing constraints, we obtained stress- strain results for weft- 
+knit fabrics in several typical sewing constraints as well as stitch 
+densities by unidirectional tensile testing (fig. S1). Test specimens are 
+weft- knit fabric samples with radial dimension (W0 = 30 mm), weft 
+dimension (120 mm), and thickness (T0 = 1 mm). The sewing con-
+straints tested include rampart stitch, picot hem stitch, bridging stitch, 
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 10 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+10 of 13
+zigzag stitch, and straight stitch, with each sewing pattern having five 
+stitch densities of 8, 12, 18, 30, and 45 SPI. In addition, one to six rep-
+etitions of straight stitches with 8- SPI density are sewed separately to 
+investigate the sewing constraint that maximizes the limitation of 
+textile deformation. The experimental sample is obtained by sewing 
+along the weft direction on the specimen and sewing a pattern of 
+equal length to the sample on the symmetrical line. After the sample 
+preparation, the sample is placed in the test area of the unidirectional 
+stretching apparatus, and the ends of the sample are clamped using a 
+fixture to ensure that the sample is naturally taut with a test length of 
+L = 100 mm. The test equipment then keeps the tensile end of the 
+specimen stretched at a rate of 1 mm/s until the test area is stretched 
+to 250 mm. The stress- strain curves of the experimental results are 
+shown in fig.  S2, where the strain λ is calculated from the textile 
+stretch as
+Assuming that the material is incompressible, the stress is calculated 
+on the basis of the force of the stretching machine and the current width 
+W =λ − 12 W0 and thickness T =λ − 12 T0 of the textile as
+All experiments were conducted at room temperature.
+The experimental results show that the zigzag stitch and straight 
+stitch are sufficient to continuously adjust the mechanical properties 
+of the weft- knit fabric in a wide range to satisfy the programming 
+design of the textile actuator.
+Biaxial tensile testing of weft- knit fabrics with 
+sewing constraints
+A customized biaxial tensile translation table (Pivid, GD140- 200) is 
+used to perform biaxial tensile testing of weft- knit fabrics with sew-
+ing constraints (fig. S1B). The device is driven by servomotors that 
+actuate the motion of the measuring head, which is controlled by 
+MATLAB (MathWorks). We fix two of the custom- made fixtures 
+to the carrier table and then fix force sensors (DayangChuangan, 
+DYLY- 106) on the other two carrier tables and fix the sensors to 
+the fixtures.
+For the biaxial stretch test, we used cross- weft- knit fabric sam-
+ples with the same orientation as the textile warp and weft. The 
+sample arm size is 50 mm long, 15 mm wide, and 1 mm thick. The 
+sample is sewed in the warp direction with zigzag stitches of 8- , 12- , 
+30- , 45- , and 90- SPI stitch densities and with straight stitches of 
+8 SPI repeated six times. A square area with a side length of 10 mm is 
+marked in the center of the sample for strain observation. The strain 
+conditions in the marked area during the test are recorded using the 
+camera (SONY , CX900E), and then the strains in the warp and weft 
+directions of the weft- knit fabric in the marked area are calculated. 
+On the basis of the tensile force measured by the sensor, the textile 
+stress is calculated (fig. S3).
+Modeling of the weft- knit fabric
+Noting the uniaxial tensile test results, it can be found that the stiff-
+ness difference between the two directions of the weft- knit fabric is 
+very large. Therefore, the HGO continuum model is suitable to 
+be used. The strain energy density model of the material can be 
+expressed as
+where C10, k1, k2, and κ are material parameters. I(i)1 = tr/bracketleft.s1F(i)F(i)T /bracketright.s1 and 
+I(i)4 = F(i)M(i) ⋅ F(i)M(i) , where F is the deformation gradient and M represents the stiffest direction of the textile.
+To determine the appropriate mechanical parameters of the weft- 
+knit fabric under each sewing method, we performed a finite element 
+analysis using Abaqus (SIMULIA). Shell model cells (S4R) are used 
+to generate geometries consistent with the experimental samples, 
+and quasi- static simulations are performed using Abaqus/standard. 
+We then compare the simulated results with the results of the biaxi-
+al tensile tests. During the comparison process, we continuously ad-
+just the material parameters C10, k1, k2, and κ of the simulation until 
+the simulation results achieve the closest result to the experimental 
+results (fig. S3). For the weft- knit fabric with a “0” stitch, the match-
+ing parameters are C10 = 0.2, k1 = 2.5, k2 = 0.001, and κ = 1E- 4. For 
+the weft- knit fabric with “1” stitch of 8 SPI, we found that the match-
+ing parameters are C10 = 0.105, k1 = 0.15, k2 = 0.001, and κ = 0.01. 
+For the weft- knit fabric with “1” stitch of 12 SPI, the matching pa-
+rameters are C10 = 0.1, k1 = 0.15, k2 = 0.001, and κ  = 0.15. For the 
+weft- knit fabric with “1” stitch of 18 SPI, the matching parameters 
+are C10 = 0.1, k1 = 0.17, k2 = 0.001, and κ  = 0.2. For the weft- knit 
+fabric with “1” stitch of 30 SPI, the matching parameters are 
+C10 = 0.1, k1 = 0.4, k2 = 0.07, and κ = 0.25. For the weft- knit fabric 
+with “1” stitch of 45 SPI, the matching parameters are C 10 = 0.01, 
+k1 = 0.4, k2 = 0.05, and κ  = 0.25. For the weft- knit fabric with “1” 
+stitch of 90 SPI, the matching parameters are C 10 = 0.01, k1 = 0.4, 
+k2 = 0.03, and κ  = 0.25. For the weft- knit fabric, the matching pa-
+rameters are C10 = 0.01, k1 = 0.4, k2 = 0.03, and κ = 0.3.
+Modeling of the STR
+The constraint textile shell is inflated to a cylinder by the approxi-
+mately free- expanding bladder, and then the shell begins to deform 
+elastically after the bladder expands to the point where it begins to 
+stretch the textile. Considering the deformation characteristics of 
+the textile, several additional assumptions are proposed as follows: 
+(i) Bladder and textile shell exhibit consistent elastic deformation, 
+the STR therefore can be considered the single- layer material. (ii) 
+Both textile and bladder can be considered incompressible materials.
+The constraint textile shell is sewed from several layers of textile. 
+Upon inflation, it expands into a cylinder with inner radius r i and 
+outer radius ro from the initial inner radius r i0 and initial inner ra-
+dius ro0; the circumferential angle of the cross- section is denoted as 
+θ (as shown in Fig. 3C). Furthermore, r and θ are the radial and 
+circumferential coordinates in the initial configuration. To simplify 
+the analysis, the seam part of the STR is equivalent to an arc of a 
+certain length on the section.
+The deformation of the STR can be fully described by the defor-
+mation gradients F
+λ= L +Δ LL λ (4)
+σ= FWT (5)
+W(i) = C(i)10
+/bracketleft.s2
+I(i)1 − 3/bracketright.s2 + k(i)1
+2k(i)2
+/parenleft.s3
+e
+k(i)2
+/braceleft.s2
+κ
+/bracketleft.s2
+I(i)1 −3/bracketright.s2+(1−3κ)/bracketleft.s2I(i)4 −1/bracketright.s2/braceright.s22 − 1 /parenright.s3 (6)
+F(i) =
+⎛
+⎜
+⎜
+⎜⎝
+λ(i)r 00
+0 λ(i)θ 0
+00 λz (θ)
+⎞
+⎟
+⎟
+⎟⎠
+(7)
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 11 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+11 of 13
+Assuming that the circumferential expansion of the STR is uni-
+form, the circumferential stretch of the STR λ(i)θ can be expressed by
+λz(θ) is the axial stretch given by
+where l denotes the initial flat length of the STR. Since the difference 
+between ri and ro is very small, the radius can be approximated as ri. 
+Therefore, l(θ) represents the actual length of the actuator as a func-
+tion of θ which can be written as
+λ(i)r is the radial stretch which is given by
+where lc and ρ represent the length and curvature radius of the cen-
+tral axis of the STR, respectively.
+More specifically, on the cross section of the STR, the arcs cor -
+responding to the circumferential angles θ1 to θ2, θ3 to θ4, and θ5 to 
+θ6 correspond to the ESC area, and the rest of the area refers to the 
+original knit fabric area (fig. S4, B and C). For the 2D deformed STR, 
+only θ1, θ2, θ3, and θ4 are needed to delineate the circumferential angle 
+region. Here, the distance d between the stitches of the STR in the 
+same section is equal, and after simulation comparison, we deter -
+mine the corresponding circumferential angle of the stitching area as 5°.
+Furthermore, by solving the Cauchy equilibrium equation, the 
+geometry parameters of the 2D and 3D deformed STR can be related 
+to the internal pressure, respectively
+where r is identified as the radius of the STR due to the almost equal 
+values of ri and r0. The Cauchy stress tensors (σ) in both directions 
+are given as
+On the basis of the strain energy density, the strain energy of the 
+system can be calculated.
+where R, θ, and Z are the radial, circumferential, and axial coordi-
+nates in the initial configuration.
+Under the constraints of the volume that can be expressed as
+the parameters of the STR can be obtained by minimizing 
+U. Furthermore, the parameters can be related to the pressure by 
+Eqs. 8 and 9.
+Simulation instruction
+Considering the simplified approach in the “Modeling of the STR” 
+section, we likewise use the shell model in the simulation software 
+Abaqus (SIMULIA) to construct a cylinder with a length of l0 and a 
+radius of r = dn ∕ 2π , where d is the distance between stitches and n 
+denotes the number of pieces of the textile. The cylindrical shell 
+model is divided into regions along the circumferential angle of the 
+cross section, corresponding to the textile region and the ESC area 
+regulated by the stitching. The parameters of the corresponding area 
+refer to the results obtained in the “Modeling of the weft- knit fabric” 
+section. We show the deformation of the 2D STR for l 0 = 100 mm, 
+d = 15 mm and 3D STR for l0 = 100 mm, d = 10 mm with different 
+internal pressures (fig. S4, D and F).
+Programming constraint determination and the 
+manufacture of STR
+On the basis of the conclusions drawn from experimental and theo-
+retical results, we are able to design the ESC of the STR with the 
+target shape of the STR and its function. Then, the constraint textile 
+shell can be manufactured. Once we have oriented the textile shell, 
+the sewing track can be marked on the textile for ease of manufac-
+ture to avoid manufacturing errors, and then the textile can be 
+aligned in preparation for sewing. The seams of the textile are then 
+sewed together using a household sewing machine (Butterfly, 
+JH8530A) according to a compiled sewing pattern. The machine 
+costs about $130 and has 26 stitch patterns to change manually. The 
+thread we used is a 100% polyester sewing thread. The sewing ma-
+chine follows a preprogrammed sewing pattern during the continu-
+ous sewing process and follows a designed sewing track to sew the 
+textile into a shell. An entrance is provided at the end of the textile 
+shell, through which we can insert a long bladder made of latex 
+(Sempertex, 260S) and then install an air tube for air supply at the 
+beginning of the bladder’s air inlet. The unit price of the balloon is 
+about $0.06.
+Since our textile shell is narrow and the bladder is soft, we insert 
+a plastic rod inside the bladder to send the bladder into the textile 
+shell. Subsequently, the plastic stick is withdrawn and the air tube is 
+λ(i)θ = riri0
+(8)
+λz (θ) = l(θ)l (9)
+l(θ) = l0
+ρ− ricosθ
+ρ−r i
+(10)
+λ(i)r = 1λ(i)θ λz (θ) (11)
+(12)
+(13)
+σi =
+/bracketleft.s3
+λθ
+/u1D715W
+/u1D715λθ
+, λz
+/u1D715W
+/u1D715λz
+,0
+/bracketright.s3T
+(14)
+(15)
+V =π r2i ρ l0ρ− ri (16)
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 12 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+12 of 13
+inserted at the air inlet of the bladder. Last, the ends of the textile 
+shell and the bladder are wrapped tightly and fixed with a thread or 
+tied to the air tube to ensure air tightness. Movie S15 shows the en-
+tire process for manufacturing an STR with serpentine deformation. 
+A 450- mm- long fabric shell can be sewed manually within 5 min 
+and the total manufacturing time for the STR is less than 7 min in-
+cluding inserting the balloon, connecting, and sealing the inlet tube.
+Nonlinear inflation of the bladder
+We first consider the initial period of inflation with a lower air pres-
+sure. The internal bladder upon pressurization inflates to take on a 
+cylindrical shape, generating slight bulge deformation of the 
+constraint textile shell whose elastic deformation can be ignored. 
+Hence, only the elastic expansion of the bladder is considered before 
+the elastic deformation of the constraint textile shell occurs. Assum-
+ing that the bladder is incompressible, the generic constitutive rela-
+tion of the isotropic elastic bladder reads
+where s± are elastic coefficients, and it turns out that, in rubber, we 
+may set—for room temperature—
+The stretch tensor Bij has the form
+Therefore, the orthogonal stresses tλλ and tμμ can be written as
+The pressure jump across the membrane is denoted by p, the bal-
+ance of forces according to the geometry of the bladder can be writ-
+ten as follows
+where R denotes the outer radius of the bladder with the thickness t 
+(fig. S5A). Lb is the length of the bladder. In the undistorted state, 
+these quantities shall have the values R0, t0, and Lb0. Hence, follows
+To obtain a relationship between axial stretch λ= Lb
+Lb0
+ and hoop 
+stretch μ= RR0 , we insert Eq. 20 into Eq. 22 and solve for λ.
+where K =− s+
+s−
+ , then formula (22) is used to plot p as a function of 
+μ which is given by
+The accuracy of the theoretical model is verified by comparing 
+the theoretical values with the experimental results (fig. S5C).
+STR testing
+We use a pressure regulator (CPCAC, IR2020- 02BG) to regulate and 
+stabilize the air pressure inside the STR, combined with a barometer 
+(Panasonic, DP- 101) to determine in real time that the pressure inside 
+the STR is accurately stabilized at the value required for our mea-
+surements. To quantify the degree of STR deformation, we recorded 
+the state of the STR at each air pressure with a camera (SONY , 
+CX900E). We then postprocessed the photos using MATLAB 
+(MathWorks) to extract the STR centerline to fit the curvature and 
+then calculated the bending angle per unit length of the STR.
+To quantify the bending stiffness, a 50- mm section at the end of 
+the STR is fixed, and the remaining 100- mm section is used for in-
+flatable bending. A wall is placed in a horizontal plane and a force 
+sensor is attached to the wall to measure the magnitude of the STR 
+output force as the STR bends and compresses the wall.
+Supplementary Materials
+This PDF file includes:
+Figs. S1 to S18
+table S1
+legends for movies S1 to S15
+Other Supplementary Material for this manuscript includes the following:
+Movies S1 to S15
+REFERENCES AND NOTES
+ 1. J. Pikul, S. li, h. Bai, R. hanlon, i. cohen, R. F. Shepherd, Stretchable surfaces with 
+programmable 3d texture morphing for synthetic camouflaging skins. Science 358, 
+210–214 (2017).
+ 2. X. Shi, Y. Zuo, P . Zhai, J. Shen, Y. Yang, Z. Gao, M. liao, J. Wu, J. Wang, X. Xu, large- area 
+display textiles integrated with functional systems. Nature 591, 240–245 (2021).
+ 3. S. Zeng, S. Pian, M. Su, Z. Wang, M. Wu, X. liu, M. chen, Y. Xiang, J. Wu, M. Zhang, 
+hierarchical- morphology metafabric for scalable passive daytime radiative cooling. 
+Science 373, 692–696 (2021).
+ 4. W. Yan, G. noel, G. loke, e. Meiklejohn, t. Khudiyev, J. Marion, G. Rui, J. lin, J. cherston, 
+A. Sahasrabudhe, Single fibre enables acoustic fabrics via nanometre- scale vibrations. 
+Nature 603, 616–623 (2022).
+ 5. J. he, c. lu, h. Jiang, F. han, X. Shi, J. Wu, l. Wang, t. chen, J. Wang, Y. Zhang, Scalable 
+production of high- performing woven lithium- ion fibre batteries. Nature 597, 57–63 
+(2021).
+ 6. M. W. han, S. h. Ahn, Blooming knit flowers: loop- linked soft morphing structures for soft 
+robotics. Adv. Mater. 29, 1606580 (2017).
+ 7. J. W. Booth, d. Shah, J. c. case, e. l. White, M. c. Yuen, O. cyr- choiniere, 
+R. Kramer- Bottiglio, OmniSkins: Robotic skins that turn inanimate objects into 
+multifunctional robots. Sci. Robot. 3, eaat1853 (2018).
+ 8. c. S. haines, M. d . lima, n. li, G. M. Spinks, J. Foroughi, J. d. Madden, S. h. Kim, S. Fang, 
+M. J. de Andrade, F. Göktepe, Artificial muscles from fishing line and sewing thread. 
+Science 343, 868–872 (2014).
+ 9. A. Maziz, A. concas, A. Khaldi, J. Stålhand, n.- K. Persson, e. W. Jager, Knitting and weaving 
+artificial muscles. Sci. Adv. 3, e1600327 (2017).
+ 10. M. Kanik, S. Orguc, G. varnavides, J. Kim, t. Benavides, d. Gonzalez, t. Akintilo, c. c. tasan, 
+A. P . chandrakasan, Y. Fink, Strain- programmable fiber- based artificial muscle. Science 
+365, 145–150 (2019).
+tij = s−B−1ij + s+Bij (17)
+s+ = 3 bar, s− =− 0.3 bar (18)
+⎡
+⎢
+⎢
+⎢
+⎢⎣
+λ2 00
+0 μ2 0
+00 1
+λ2μ2
+⎤
+⎥
+⎥
+⎥
+⎥⎦ (19)
+tλλ =
+/parenleft.s3
+λ2 − 1
+λ2μ2
+/parenright.s3
+(s+ − s−μ2),
+tμμ =
+/parenleft.s3
+μ2 − 1
+μ2λ2
+/parenright.s3
+(s+ − s−λ2)
+(20)
+Radial equilibrium 2Lbdtμμ = pLb2R
+Axial equilibrium 2πRdtλλ = pπR2 (21)
+p = tR tμμ = 2 tR tλλ (22)
+λ(μ) =
+������� 12 Kμ2 − 1μ22K +μ 2 + ������⎛⎜⎜⎝ 12 Kμ2 − 1μ22K +μ 2 ⎞⎟⎟⎠2 + K 1μ2 + 22K +μ 2 (23)
+p
+2 ∣ s− t0R0 ∣ = 1λμ2
+/parenleft.s3
+λ2 − 1
+λ2μ2
+/parenright.s3
+(K +μ 2) (24)
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 13 =====
+Guo et al., Sci. Adv. 10, eadk3855 (2024) 5 January 2024
+Science Adv AnceS | ReSeAR ch AR ticle
+13 of 13
+ 11. d .- Y. lee, S. h. Jeong, A. J. cohen, d. M. vogt, M. Kollosche, G. lansberry, Y. Mengüç, 
+A. israr, d. R. clarke, R. J. Wood, A wearable textile- embedded dielectric elastomer 
+actuator haptic display. Soft Robot. 9, 1186–1197 (2022).
+ 12. Y. Geng, R. Kizhakidathazhath, J. P . lagerwall, Robust cholesteric liquid crystal elastomer 
+fibres for mechanochromic textiles. Nature Mater. 21, 1441–1447 (2022).
+ 13. B. Gorissen, d. Reynaerts, S. Konishi, K. Yoshida, J. W. Kim, M. de volder, elastic inflatable 
+actuators for soft robotic applications. Adv. Mater. 29, 1604977 (2017).
+ 14. M. li, A. Pal, A. Aghakhani, A. Pena- Francesch, M. Sitti, Soft actuators for real- world 
+applications. Nature Rev. Mater. 7, 235–249 (2022).
+ 15. d . Rus, M. t. tolley, design, fabrication and control of soft robots. Nature 521, 467–475 (2015).
+ 16. S. Y. Kim, R. Baines, J. Booth, n. vasios, K. Bertoldi, R. Kramer- Bottiglio, Reconfigurable soft 
+body trajectories using unidirectionally stretchable composite laminae. Nature Comm. 
+10, 3464 (2019).
+ 17. t . J. Jones, e. Jambon- Puillet, J. Marthelot, P .- t. Brun, Bubble casting soft robotics. Nature 
+599, 229–233 (2021).
+ 18. e . Siéfert, e. Reyssat, J. Bico, B. Roman, Bio- inspired pneumatic shape- morphing 
+elastomers. Nat. Mater. 18, 24–28 (2019).
+ 19. F. connolly, c. J. Walsh, K. Bertoldi, Automatic design of fiber- reinforced soft actuators for 
+trajectory matching. Proc. Natl. Acad. Sci. U.S.A. 114, 51–56 (2017).
+ 20. M. Wehner, R. l. truby, d. J. Fitzgerald, B. Mosadegh, G. M. Whitesides, J. A. lewis, 
+R. J. Wood, An integrated design and fabrication strategy for entirely soft, autonomous 
+robots. Nature 536, 451–455 (2016).
+ 21. M. A. Skylar- Scott, J. Mueller, c. W. visser, J. A. lewis, voxelated soft matter via 
+multimaterial multinozzle 3d printing. Nature 575, 330–335 (2019).
+ 22. c. d e Pascali, G. A. naselli, S. Palagi, R. B. Scharff, B. Mazzolai, 3d- printed biomimetic 
+artificial muscles using soft actuators that contract and elongate. Sci. Robot.7, eabn4155 
+(2022).
+ 23. v . Sanchez, c. J. Walsh, R. J. Wood, textile technology for soft robotic and autonomous 
+garments. Adv. Funct. Mater. 31, 2008278 (2021).
+ 24. c. Fu, Z. Xia, c. hurren, A. n ilghaz, X. Wang, textiles in soft robots: current progress and 
+future trends. Biosens. Bioelectron. 196, 113690 (2022).
+ 25. R. A. Shveda, A. Rajappan, t. F. Yap, Z. liu, M. d. Bell, B. Jumet, v. Sanchez, d. J. Preston, A 
+wearable textile- based pneumatic energy harvesting system for assistive robotics. Sci. 
+Adv. 8, eabo2418 (2022).
+ 26. A. Rajappan, B. Jumet, R. A. Shveda, c. J. decker, Z. liu, t. F. Yap, v. Sanchez, d. J. Preston, 
+logic- enabled textiles. Proc. Natl. Acad. Sci. U.S.A. 119, e2202118119 (2022).
+ 27. M. Xiloyannis, R. Alicea, A.- M. Georgarakis, F. l. haufe, P . Wolf, l. Masia, R. Riener, Soft 
+robotic suits: State of the art, core technologies, and open challenges. IEEE Trans. Robot. 
+38, 1343–1362 (2021).
+ 28. t . Proietti, c. O’neill, l. Gerez, t. cole, S. Mendelowitz, K. nuckols, c. hohimer, d. lin, 
+S. Paganoni, c. Walsh, Restoring arm function with a soft robotic wearable for individuals 
+with amyotrophic lateral sclerosis. Sci. Transl. Med. 15, eadd1504 (2023).
+ 29. l. c appello, K. c. Galloway, S. Sanan, d. A. Wagner, R. Granberry, S. engelhardt, F. l. haufe, 
+J. d. Peisner, c. J. Walsh, exploiting textile mechanical anisotropy for fabric- based 
+pneumatic actuators. Soft Robot. 5, 662–674 (2018).
+ 30. P . h. nguyen, W. Zhang, design and computational modeling of fabric soft pneumatic 
+actuators for wearable assistive devices. Sci. Rep. 10, 9638 (2020).
+ 31. v . Sanchez, K. Mahadevan, G. Ohlson, M. A. Graule, M. c. Yuen, c. B. teeple, J. c. Weaver, 
+J. Mccann, K. Bertoldi, R. J. Wood, 3d knitting for pneumatic soft robotics. Adv. Funct. 
+Mater. 33, 2212541 (2023).
+ 32. M. Yang, J. Wu, W. Jiang, X. hu, M. i. iqbal, F. Sun, Bioinspired and hierarchically 
+textile- structured soft actuators for healthcare wearables. Adv. Funct. Mater. 33, 2210351 
+(2023).
+ 33. Y. luo, K. Wu, A. Spielberg, M. Foshey, d. Rus, t. Palacios, W. Matusik, digital fabrication of 
+pneumatic actuators with integrated sensing by machine knitting, in Proceedings of the 
+2022 CHI Conference on Human Factors in Computing Systems (2022), pp. 1–13.
+ 34. P . t. Phan, M. t. thai, t. t. hoang, J. davies, c. c. nguyen, h.- P . Phan, n. h. lovell, t. n. do, 
+Smart textiles using fluid- driven artificial muscle fibers. Sci. Rep. 12, 11067 (2022).
+ 35. S. Kurumaya, h. nabae, G. endo, K. Suzumori, Active textile braided in three strands with 
+thin McKibben muscle. Soft Robot. 6, 250–262 (2019).
+ 36. M. Zhu, t. n. do, e. hawkes, Y. visell, Fluidic fabric muscle sheets for wearable and soft 
+robotics. Soft Robot. 7, 179–197 (2020).
+ 37. F. connolly, d. A. Wagner, c. J. Walsh, K. Bertoldi, Sew- free anisotropic textile composites 
+for rapid design and manufacturing of soft wearable robots. Extreme Mech. Lett. 27, 
+52–58 (2019).
+ 38. i. Müller, P . Strehlow, Rubber and Rubber Balloons: Paradigms of Thermodynamics (Springer 
+Science & Business Media, 2004), vol. 637.
+ 39. P . Polygerinos, S. lyne, Z. Wang, l. F. nicolini, B. Mosadegh, G. M. Whitesides, c. J. Walsh, 
+towards a soft pneumatic glove for hand rehabilitation, in Proceedings of the 2013 IEEE/
+RSJ International Conference on Intelligent Robots and Systems, tokyo, Japan, 3 to 7 
+november 2013 (ieee, 2013), pp. 1512–1517.
+ 40. P . Polygerinos, Z. Wang, K. c. Galloway, R. J. Wood, c. J. Walsh, Soft robotic glove for 
+combined assistance and at- home rehabilitation. Robot. Auton. Syst. 73, 135–143 (2015).
+ 41. G. Agarwal, M. A. Robertson, h. Sonar, J. Paik, design and computational modeling of a 
+modular, compliant robotic assembly for human lumbar unit and spinal cord assistance. 
+Sci. Rep. 7, 14391 (2017).
+ 42. S. hauser, M. Robertson, A. ijspeert, J. Paik, Jammjoint: A variable stiffness device based 
+on granular jamming for wearable joint support. IEEE Robot. Autom. Lett. 2, 849–855 (2017).
+ 43. Y. Zheng, J. B. Morrell, A vibrotactile feedback approach to posture guidance, in 
+Proceedings of the 2010 IEEE haptics symposium, Waltham, MA, 25 and 26 March 2010 
+(ieee, 2010), pp. 351–358.
+ 44. R. l. caldwell, A unique form of locomotion in a stomatopod- backward somersaulting. 
+Nature 282, 71–73 (1979).
+ 45. S. Wu, Y. hong, Y. Zhao, J. Yin, Y. Zhu, caterpillar- inspired soft crawling robot with 
+distributed programmable thermal actuation. Sci. Adv. 9, eadf8014 (2023).
+ 46. B. Gorissen, e. Milana, A. Baeyens, e. Broeders, J. christiaens, K. collin, d. Reynaerts, 
+M. de volder, hardware sequencing of inflatable nonlinear actuators for autonomous 
+soft robots. Adv. Mater. 31, e1804598 (2019).
+Acknowledgments: We thank Y. Zhang for the constructive suggestions and comments on 
+our work. Funding: this work was supported by the national natural Science Foundation of 
+china (grant no. 12002204, to W.l.), national natural Science Foundation of china (grant no. 
+12032015, to W.Z.), national natural Science Foundation of china (grant no. 12121002, to W.Z.), 
+the Science and technology innovation Action Plan of Shanghai, china (grant no. 
+21190760100, to W.Z.), and the Fundamental Research Funds for the central Universities, china 
+(grant no. 22120230025, W.l.). Author contributions: conceptualization: X.G. and W.l. 
+Methodology: X.G. and W.l. investigation: X.G., l.Z., and X.F. visualization: X.G., W.l., F.F., and 
+h.c. Supervision: W.Z. and W.l. Writing—original draft: X.G. and W.l. Writing—review and 
+editing: W.l., W.Z., G.M., l.S., and Z.Y. Competing interests: the authors declare that they have 
+no competing interests. Data and materials availability: All data needed to evaluate the 
+conclusions in the paper are present in the paper and/or the Supplementary Materials.
+Submitted 18 August 2023 
+Accepted 1 december 2023 
+Published 5 January 2024 
+10.1126/sciadv.adk3855
+Downloaded from https://www.science.org on September 21, 2026
+
+===== PAGE 14 =====
+Encoded sewing soft textile robots
+Xinyu Guo, Wenbo Li, Fuyi Fang, Huyue Chen, Linchuan Zhao, Xiaoyong Fang, Zhiran Yi, Lei Shao, Guang Meng, and
+Wenming Zhang
+Sci. Adv. 10 (1), eadk3855. DOI: 10.1126/sciadv.adk3855
+View the article online
+https://www.science.org/doi/10.1126/sciadv.adk3855
+Permissions
+https://www.science.org/help/reprints-and-permissions
+Use of this article is subject to the Terms of service
+Science Advances (ISSN 2375-2548) is published by the American Association for the Advancement of Science. 1200 New York Avenue
+NW, Washington, DC 20005. The title Science Advances is a registered trademark of AAAS. 
+Copyright © 2024 The Authors, some rights reserved; exclusive licensee American Association for the Advancement of Science. No claim
+to original U.S. Government Works. Distributed under a Creative Commons Attribution NonCommercial License 4.0 (CC BY-NC).
+Downloaded from https://www.science.org on September 21, 2026

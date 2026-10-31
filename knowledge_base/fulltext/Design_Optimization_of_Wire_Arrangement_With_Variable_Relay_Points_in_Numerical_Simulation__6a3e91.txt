@@ -1,0 +1,602 @@
+===== PAGE 1 =====
+1388 IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 9, NO. 2, FEBRUARY 2024
+Design Optimization of Wire Arrangement With
+V ariable Relay Points in Numerical Simulation
+for Tendon-Driven Robots
+Kento Kawaharazuka , Shunnosuke Y oshimura , Temma Suzuki , Kei Okada , and Masayuki Inaba
+Abstract—One of the most important features of tendon-driven
+robots is the ease of wire arrangement and the degree of freedom
+it affords, enabling the construction of a body that satisﬁes the
+desired characteristics by modifying the wire arrangement.Various
+wire arrangement optimization methods have been proposed, but
+they have simpliﬁed the conﬁguration by assuming that the mo-
+ment arm of wires to joints are constant, or by disregarding wire
+arrangements that span multiple joints and include relay points.
+In this letter, we formulate a more ﬂexible wire arrangement op-
+timization problem in which each wire is represented by a start
+point, multiple relay points, and an end point, and achieve the
+desired physical performance based on black-box optimization. We
+consider a multi-objective optimization which simultaneously takes
+into account both the feasible operational force space and velocity
+space, and discuss the optimization results obtained from various
+conﬁgurations.
+Index Terms —Biomimetics, redundant robots, tendon/wire
+mechanism.
+I. I NTRODUCTION
+A
+V ARIETY of tendon-driven robots have been constructed
+so far [1], [2], [3]. These have various advantages such
+as variable stiffness control [4] and robust response to wire
+breakage [5]. Among the advantages, we focus on the ease of
+wire arrangement and the degree of freedom it affords in this
+study. Compared to axis-driven robots, tendon-driven robots
+can freely select the start, relay, and end points of wires, and
+can easily construct bodies with various conﬁgurations [3].B y
+modifying the wire arrangement, it is possible to construct a
+body that satisﬁes the desired characteristics, and various wire
+arrangement design optimization methods have been proposed
+so far. [6] numerically optimizes muscle Jacobian and pulley
+radius for robot ﬁngers to ensure a torque space equivalent to
+Manuscript received 30 July 2023; accepted 8 December 2023. Date of
+publication 13 December 2023; date of current version 2 January 2024. This
+letter was recommended for publication by Associate Editor L. Xin and Editor
+X. Liu upon evaluation of the reviewers’ comments. This work was supported
+by JST ACT-X under Grant JPMJAX20A5. (Corresponding author: Kento
+Kawaharazuka.)
+The authors are with the Department of Mechano-Informatics, Grad-
+uate School of Information Science and Technology, The University of
+Tokyo, Tokyo 113-8656, Japan (e-mail: kawaharazuka@jsk.t.u-tokyo.ac.jp;
+yoshimura@jsk.t.u-tokyo.ac.jp; t-suzuki@jsk.t.u-tokyo.ac.jp; k-okada@jsk.
+t.u-tokyo.ac.jp; inaba@jsk.t.u-tokyo.ac.jp).
+This letter has supplementary downloadable material available at
+https://doi.org/10.1109/LRA.2023.3342667, provided by the authors.
+Digital Object Identiﬁer 10.1109/LRA.2023.3342667
+Fig. 1. Concept of this study. We prepare design parameters of wire arrange-
+ment, calculate the evaluation value for target and feasible force / velocity regions
+regarding each design, and obtain the design parameter with the best performance
+by multi-objective black-box optimization.
+that of humans. [7] exploratively optimizes the distance between
+joints and wires to enlarge the feasible joint angle space for
+a continuum robot. [8] optimizes the spacing of ﬁngers, wire
+pulley radius, and pulley spacing based on genetic algorithm for
+a two-ﬁngered hand. [9] numerically optimizes the wire pulley
+radius, elasticity, and pretension for the design of asymmet-
+ric compliance actuators. [10] optimizes the wire attachment
+position for Cable-Driven Parallel Robots (CDPR) based on
+evolutionary algorithm. [11] numerically optimizes the tension
+and wire attachment position for CDPR to optimize its stiffness.
+[12] numerically optimizes the start and end point positions
+of muscles for a musculoskeletal robot with the attached link
+of each point ﬁxed. [13] optimizes the presence or absence of
+moment arm of each muscle for each joint for a musculoskeletal
+robot with brute force search. [14] optimizes muscle Jacobian
+for a musculoskeletal robot by genetic algorithm.
+Here, the wire arrangement conﬁguration is mainly divided
+into two types: a type with constant moment arm using pul-
+leys [6], [8], [9], [13], [14], and a type in which the moment arm
+changes depending on the joint angle by expressing the wire
+route with its start, relay, and end points [7], [10], [11], [12].
+Note that for the type with constant moment arm, the moment
+arm can be designed directly by the pulley radius, and it is easy
+to guarantee the moment arm at various joint angles, but the
+ease of wire arrangement is lost because it is difﬁcult to obtain
+large moment arm due to the large pulleys placed at all joints.
+2377-3766 © 2023 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+KAW AHARAZUKA et al.: DESIGN OPTIMIZA TION OF WIRE ARRANGEMENT WITH V ARIABLE RELA Y POINTS IN NUMERICAL SIMULA TION 1389
+In terms of optimization methods, there are two types: those
+that deal mainly with continuous values and can be optimized
+analytically [6], [9], [11], [12], and those that use black-box
+optimization for discrete values or other complex settings [7],
+[8], [10], [13], [14].
+On the other hand, these studies have either focused on opti-
+mizing constant moment arms or only the start and end points
+of wires, disregarding complex wire conﬁgurations that span
+multiple joints and include bends with various relay points. Also,
+research on complex optimization involving both continuous and
+discrete values from multiple objective functions is scarce. If
+we can explore the presence or absence of wire bends, links
+to which the relay points are attached, and changes in the
+attached positions, it should be possible to create body conﬁgu-
+rations that can appropriately perform a wider variety of tasks.
+Therefore, we propose a wire arrangement design optimization
+method that takes into account variable relay points. We perform
+multi-objective black-box optimization by setting up a problem
+in which each wire can freely choose which position of each
+link it passes through, and by setting the realization of target
+operational force and velocity spaces as objective functions
+(Fig. 1). We show that various target operational force and
+velocity spaces can be realized by appropriately selecting the
+wire relay points, and discuss how the performance varies with
+the number of wires and relay points. We also show that the
+performance of this study is equivalent to or better than that of
+a conﬁguration with constant moment arm using pulleys, while
+maintaining the degree of freedom of wire arrangement and large
+moment arm.
+II. D ESIGN OPTIMIZA TION OF WIRE ARRANGEMENT WITH
+VARIABLE RELA YPOINTS
+First, we set discrete and continuous parameters for wire
+arrangement. Next, we deﬁne target operational force and ve-
+locity spaces, along with their corresponding objective func-
+tions. Lastly, we conduct multi-objective black-box optimization
+based on these design parameters and objectives.
+A. Design Parameters of Wire Arrangement
+In this study, the joint structure is predeﬁned and only the
+wire arrangement is optimized. All motors and the start points
+of wires are located at the root of the robot. This structure
+maximizes the advantage of tendon-driven robots, in that the
+weight of the movable part can be reduced by separating
+the actuators and links. Note that the problem setting of this
+study is feasible in hardware, exempliﬁed by the legs of the
+kangaroo robot [2] shown in Fig. 1.
+An overview of the design parameters is shown in Fig. 2.
+We consider a robot with M wires for a given link structure
+with D joints. Let LINK 0 be the ﬁrst link that the actuators are
+attached to, and LINKD be the last link. We set the end of LINKD
+as an end effector. Let N (N ≥ 2) be the maximum number
+of relay points (including start and end points) for each wire.
+The n-th ( 1 ≤ n ≤ N ) relay point on the m-th ( 1 ≤ m ≤ M )
+wire is attached to the link dmn (0 ≤ dmn ≤ D). The position of
+the relay point attached to the link is expressed as lmn (0.0 ≤
+Fig. 2. Design parameters of wire arrangement. The number of wires M ,t h e
+number of relay points N , the position of the relay point lmn , and the link dmn
+that the relay point is attached to are set as variables.
+lmn ≤ 1.0). For simplicity, the relay points of LINK d (0 ≤ d ≤
+D) are arranged in a straight line on the link, and the position is
+within [Lsd,L ed] (L{s,e}d is a constant). That is, on LINKd,lmn =0
+represents the position Lsd, lmn =1 represents the position Led,
+and the actual link position isLsd +lmn (Led −Lsd). The ﬁrst relay
+point can be attached to only LINK 0, while the rest of the relay
+points can be attached to LINK d (0 ≤ d ≤ D). In summary,
+the design parameter of each wirem is a continuous value oflm1
+at n =1 , and a continuous value of lmn and a discrete value of
+dmn with D +1 choices at n ≥ 2.
+As a comparison, we also perform experiments for the case
+with constant moment arm. The design parameters of each wire
+m are represented by continuous values of moment arm rmd
+(0.0 ≤ rmd ≤ 1.0) for each jointd.L e t[Rsd,R ed] denote the range
+of possible moment arms at each joint d, rmd =0 represents
+the radius Rsd, rmd =1 represents the radius Red, and the actual
+moment arm is Rsd +rmd (Red −Rsd). As described in Section I,
+while this conﬁguration has high performance because the mo-
+ment arm can be designed directly, the ease of wire arrangement
+is lost and the large moment arm becomes difﬁcult to obtain.
+B. Calculation of Objective Functions
+Objective functions are calculated for the obtained designs.
+In this study, we use feasible operational force space (OFS) and
+operational velocity space (OVS) as the objective functions. We
+deﬁne the target OFS and OVS, and ﬁnd design solutions that
+realize them as much as possible. We consider OFS and OVS in
+a two-dimensional (2D) plane, but this can be extended to three
+dimensions (3D) in a similar manner.
+First, some basic formulas are described. Let f be wire
+tension, τ be joint torque, and F be operational force of the
+end effector. Also, let l be wire length, θ be joint angle, and x
+be operational position of the end effector. Here, the following
+relations generally hold,
+l = gm(θ) (1)
+˙l = G(θ) ˙θ (2)
+τ = −GT (θ)f (3)
+x = gj (θ) (4)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+1390 IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 9, NO. 2, FEBRUARY 2024
+Fig. 3. Deﬁnition of variables for calculation of objective function for feasible
+operational force space.
+˙x = J (θ) ˙θ (5)
+τ = J T (θ)F (6)
+where gm denotes the mapping from θ to l and gj denotes the
+mapping from θ to x.A l s o ,G denotes the muscle Jacobian
+andJ denotes the joint Jacobian. The minimum and maximum
+values of wire tension f are denoted by f min and f max, and
+those of wire velocity ˙l are denoted by ˙lmin and ˙lmax.I nt h i s
+study, we do not change the ranges dynamically by considering
+back electromotive force.
+Next, we describe the objective function for the feasible OFS
+(Fig. 3). Deﬁning the target OFS in a 2D plane as an ellipse, its
+parameters are the center point of the ellipse F c =( F cx F cy )T
+and the radius of the ellipse for the x- and y-axes F r{x,y}.N o t e
+that the feasible OFS and OVS are always convex. When this
+ellipse is divided intoNd pieces, the operational forceF i at each
+pointi (0 ≤ i<N d) on the ellipse can be expressed as follows.
+wfi :=
+(
+F rx cos(2πi/Nd)
+F ry sin(2πi/Nd)
+)
+(7)
+F i := wfi +F c (8)
+Here, for each pointi, we introduce a valuehfi that expresses by
+how much the feasible OFS exceeds the target OFS, and deﬁne
+the following point F hi .
+F hi := hfi wfi +F c (9)
+We maximizehfi by the following linear programming.
+maximize
+hfi ,f hfi (10)
+subject to −GT (θ)f = J T (θ)F hi (11)
+f min ≤ f ≤ f max (12)
+When hfi =1 , the target and feasible OFS coincide for the
+direction wfi , and hfi ≥ 1 should be satisﬁed. Therefore, we
+compute hfi for each point i, set the following Efo rc e as
+the objective function, and minimize it.
+Efo rc e :=
+∑
+i
+max
+(
+1−hfi , 0) (13)
+If gravity compensation is considered, F c should be obtained
+by the following quadratic programming,
+minimize
+F c
+||F c||22 (14)
+subject to τ g = J T (θ)F c (15)
+where τ g is the gravity compensation torque required at the
+current joint angle θ and ||·|| 2 is the L2 norm. Note that in
+practice, since J T (θ)F c = τ g in (11), the calculation of F c is
+not necessary for optimization, but only for drawing the elliptic
+center.
+Next, we describe the objective function for the feasible OVS.
+Deﬁning the target OVS in a 2D plane as an ellipse, its parameters
+are the radius vr{x,y} of the ellipse for the x- and y-axes. When
+this ellipse is divided intoNd pieces, the operational velocityvi
+at each point i (0 ≤ i<N d) on the ellipse can be expressed as
+follows.
+wvi :=
+(
+vrx cos(2πi/Nd)
+vry sin(2πi/Nd)
+)
+(16)
+vi := wvi (17)
+Here, for each pointi, we introduce a valuehvi that expresses by
+how much the feasible OVS exceeds the target OVS, and deﬁne
+the following point vhi .
+vhi := hvi wvi (18)
+We maximizehvi by the following linear programming.
+maximize
+hvi , ˙θ
+hvi (19)
+subject to J (θ) ˙θ = vhi (20)
+˙lmin ≤ G(θ) ˙θ ≤ ˙lmax (21)
+Similarly toEfo rc e, we set the followingEvelocity as the objec-
+tive function, and minimize it.
+Evelocity :=
+∑
+i
+max (1−hvi , 0) (22)
+Note that we can deﬁne target spaces of various shapes
+other than ellipsoids, and can freely deﬁne various objec-
+tive functions such as operational wrench force or rotation
+velocity.
+C. Design of Wire Arrangement Using Multi-Objective
+Black-Box Optimization
+We have formulated the design parameters and the objective
+functions. By using them, multi-objective optimization is per-
+formed to determine the design parameters. In this study, we use
+NSGA-II, a multi-objective optimization method implemented
+in optuna [15], a black box optimization library. NSGA-II was
+chosen for its ability to perform multi-objective optimization,
+handle both continuous and discrete parameters, and handle
+a relatively large number of samples. Note that if no solution
+is found for the linear programming problem in (10)–(12) or
+(19)–(21), the design is pruned. In the experiments, we illustrate
+the obtained Pareto solutions with Nsample as the number of
+samples, and discuss the wire arrangement and the feasible OFS
+and OVS of the design. Although only two objective functions
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+KAW AHARAZUKA et al.: DESIGN OPTIMIZA TION OF WIRE ARRANGEMENT WITH V ARIABLE RELA Y POINTS IN NUMERICAL SIMULA TION 1391
+Fig. 4. Experimental setup of this study. The robot conﬁguration for L{s,e}d and the evaluated joint angles are shown. The design parameters were changed toVariable or Constant, gravity conﬁguration to w/o-Gravity or w-Gravity, and target operational force / velocity space to Target-1 or Target-2.
+are used, multi-objective optimization is also possible by using
+other objective functions such as minimizing the wire length to
+suppress elongation or adding constraints on the number and
+positions of relay points.
+III. E XPERIMENTS
+The experimental setup is shown in Fig. 4. We focus on a
+two-joint and three-link mechanism in a 2D plane for detailed
+experiments and comparisons. The robot model used in this
+study is shown under “Robot Conﬁguration” in Fig. 4, where
+LINK0 has a length of 0.4 m and LINK {1,2} has a length of
+0.6 m. Relay points can be attached to any of three links from
+one end to the other. LINK0 is ﬁxed and the weight of LINK{1,2}
+is set to 4 kg assuming the density of aluminum. The total
+value of E{f orce,velocity} for the four joint angles ( 1©– 4©)i s
+used as the actual objective function, where the angle of each
+joint is changed by 15 deg as shown under “Evaluated Joint
+Angles” in Fig. 4. Note that we have chosen this conﬁguration
+for reasons of computational complexity, visualization, and
+the desire to emphasize signiﬁcant changes in joint Jacobian
+due to the change in θ1 +θ2, though a wider range of joint
+angle states should be considered. As a comparison, several ex-
+periments are conducted by changing the design parameters and
+settings. First, as shown under “Design Parameters” in Fig.4,w e
+conduct experiments for two types:Variablein which each relay
+point can be freely selected, and Constant in which the muscle
+Jacobian is kept constant using pulleys. In this comparison,
+we vary the number of wires M and the maximum number of
+relay points N .F o rConstant, the range of moment arms of the
+wire for each joint is set to [ Rsd, Red] = [−0.1, 0.1] [m] (since
+the distance between the joints is 0.4 m, the moment arm can
+be increased to 0.2, but we set it to 0.1 based on the feasibility.
+In some experiments, we set [ −0.4, 0.4] [m] in order to inves-
+tigate the maximum possible performance). We also compare
+two types: w/o-Gravity which is not affected by gravity, and
+w/-Gravity which is affected by gravity as in the human arm
+as shown under “Gravity Conﬁguration”. In addition, as shown
+under “Target Operational Force/V elocity Space”, we perform
+experiments by setting types of target OFS and OVS: Target-1
+and Target-2. For other parameters, we set f min =1 0 [N],
+f max = 200 [N], ˙lmin = −0.4 [m/s], ˙lmax =0 .4 [m/s],Nd =8 ,
+andNsample = 10000 (the performance is equivalent to that of
+a Maxon 90 W BLDC motor with 29:1 gear ratio). For each
+experiment, the sampling results and Pareto solutions are shown,
+and the target space (blue lines) and the feasible space (red lines)
+of force and velocity are shown for the design with the smallest
+|Efo rc e−Evelocity| (the solution in whichEfo rc eandEvelocity
+are considered equally). For Variable, its wire arrangement
+is shown as a ﬁgure, and for Constant, the moment arm of
+each wire for each joint is shown since the wire arrangement is
+difﬁcult to visualize.
+A. Target-1 w/o Gravity
+We show the experimental results for Target-1 and
+w/o-Gravity.F o r Variable, the parameters are varied as
+M = {3, 4} and N = {2, 3}.F o r Constant, the parame-
+ters are varied as M = {3, 4}. The results are shown in
+Fig. 5.
+First, we explain how to interpret the results by referring to the
+example of Variable when M =3 and N =2 . The upper left
+ﬁgure shows the sampling result of optimization, where Efo rc e
+is for thex-axis andEvelocity is for they-axis. The further down
+to the left of the sampling result graph, the better the solution
+becomes. Among the sampling results, the samples represented
+by the red dots are the Pareto solutions. The solution with the
+smallest |Efo rc e−Evelocity| is indicated by a red circle, and
+(Efo rc e,E velocity ) and its wire arrangement are shown. As
+M =3 , there are three wires, and as N =2 , there are two relay
+points, a start point and an end point. Below the ﬁgures, the target
+and feasible OFS and OVS of this design for 1©– 4© in Fig. 4 are
+shown withF{x,y} orv{x,y} as{x,y}-axes. If the feasible space
+(red line) exceeds the target space (blue line), E{f orce,velocity}
+becomes smaller.
+Second, we discuss the overall characteristics of the experi-
+ment. Since it is possible to increase the operational velocity
+by keeping the moment arm as small as possible, there is
+almost certain to be a sampling at Evelocity =0 . On the other
+hand, there are many cases where there is no sampling with
+Efo rc e =0 , because the moment arm has a maximum value. For
+example, for Variable withN =2 ,o rf o rConstant, there is no
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+1392 IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 9, NO. 2, FEBRUARY 2024
+Fig. 5. Experiment of Target-1 w/o Gravity. For Variable with M = {3, 4} and N = {2, 3} and for Constant with M = {3, 4}, the sampling results and Pareto
+solutions are shown. For one Pareto solution with minimized |Efo rc e− Evelocity|, the wire arrangement and target (blue line) and feasible (red line) operational
+force / velocity spaces are shown.
+sampling atEfo rc e =0 . In particular,Efo rc e is much larger for
+Constant than for Variable because it is difﬁcult for Constant
+to obtain large moment arm (this will be analyzed in detail in
+the next experiment). OFS and OVS show that the velocity takes
+large values, while the force takes relatively small values. Next,
+E{f orce,velocity} tends to be smaller as the number of wires and
+relay points increase. The larger the number of wires and relay
+points, the wider the design range becomes, and the more ﬂexibly
+the target OFS and OVS can be covered. For this experimental
+setting, it is found that increasing the number of relay points
+is more effective than increasing the number of wires. When
+N =2 , the feasible OFS and OVS cannot be brought close to the
+target space, and the feasible space is sharp in a certain direction.
+On the other hand, whenN =3 , it is found that the feasible OFS
+and OVS are round and close to the target space. As for the wire
+arrangement, when N =2 for both M =3 and M =4 , there
+exist wires that control the ﬁrst and second joints independently,
+as well as a wire that controls the two joints simultaneously (to
+control the second joint independently, the start point of that
+wire is placed near the ﬁrst joint at LINK 0). On the other hand,
+when N =3 , there are multiple wires that control two joints
+simultaneously, and we can see diverse wire arrangements.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+KAW AHARAZUKA et al.: DESIGN OPTIMIZA TION OF WIRE ARRANGEMENT WITH V ARIABLE RELA Y POINTS IN NUMERICAL SIMULA TION 1393
+Fig. 6. Detailed analysis of Constant without restrictions for Target-1 w/o Gravity. ForVariable with M =4 and N = {4, 5, 6} and for Constant with M =4 ,
+the sampling results and Pareto solutions are shown.
+Fig. 7. Experiment of Target-1 w/ Gravity. For Variable with M =4 , N = {2, 3},a n d{ w/o-Gravity, w/-Gravity}, the sampling results and Pareto solutions
+are shown.
+Third, a detailed analysis is given for Constant. We relax
+the restrictions of R{s,e}d in Fig. 5 and show the results when
+[Rsd, Red] = [−0.4, 0.4], which is not feasible in practice. This
+allows us to compare Variable and Constant without design
+restrictions. Here, we limit the evaluated joint angles to 1©
+and 4© (the reason will be described later), and Variable with
+N = {4, 5, 6} and M =4 is considered for comparison. Note
+that we set Nsample = 50000 for this experiment because the
+number of parameters is much larger than in Fig. 5. The results
+are shown in Fig. 6. It can be seen that for Variable, better
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+1394 IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 9, NO. 2, FEBRUARY 2024
+Fig. 8. Experiment of Target-2 w/o Gravity. For Variable with M = {3, 4} and N = {2, 3}, the sampling results and Pareto solutions are shown.
+solutions are generated as N is increased. For the solution
+with the smallest |Efo rc e−Evelocity|, the performance of
+Variable with N =5 is almost equal to that of Constant.
+In other words, for Constant, performance without restric-
+tions is much higher than that with restrictions. Moreover,
+by increasing N for Variable, we can obtain higher per-
+formance than that of Constant. This is because the same
+G is used for each joint angle for Constant, while dif-
+ferent G is used for each joint angle for Variable.O n
+the other hand, the performance of Variable is not as good
+as or better than that of Constant unless the number of re-
+lay points is considerably increased, as in N = {5, 6}.I n
+this experiment, the evaluated joint angles are limited to 1©
+and 4©, which differ greatly in J . If the evaluated joint an-
+gles are increased to 1©– 4©, it is difﬁcult to form G that
+is appropriate for all of 1©– 4©, and even if G is always
+constant or even if G is varied, the performance does not
+change signiﬁcantly. Therefore, even when N is increased,
+there is no signiﬁcant difference between Constant and
+Variable.
+B. Target-1 w/ Gravity
+We show the experimental results for Target-1 and w/-
+Gravity. We compare the results between w/o-Gravity and w/-
+Gravity for Variable with M =4 by changing the parameters
+as N = {2, 3}. We limit the evaluated joint angles to 2© and
+3© for this experiment (the reason will be described later). The
+results are shown in Fig. 7. The performance of the solutions
+increases by increasing N , or with the presence of gravity. In
+particular, the sampling results show that the presence of gravity
+does not signiﬁcantly change the minimum value of Efo rc e,b u t
+Evelocity becomes smaller overall. Gravity always exerts a force
+in the negative direction on the y-axis. In the current setup of
+feasible wire arrangement, the force in the positive direction
+on the y-axis is easily exerted, but the force in the negative
+direction is hardly exerted and can be compensated by gravity.
+In this experiment, the evaluated joint angles are limited to 2©
+and 3©, which have similar J . If the evaluated joint angles are
+increased to 1©– 4©, the difﬁculty in forming appropriate G for
+all the joint angles increases, and the performance difference
+between w/o-Gravity and w-Gravity becomes smaller.
+C. Target-2 w/o Gravity
+We show the experimental results for Target-2 and w/o-
+Gravity. We perform comparative experiments for Variable by
+changing the parameters as M = {3, 4} and N = {2, 3}.T h e
+results are shown in Fig. 8. It can be seen that the performance
+of the obtained solutions becomes higher by increasing M or
+N . However, increasing N does not signiﬁcantly change the
+performance as in Fig. 5. Compared to Target-1,f o r Target-2,
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+KAW AHARAZUKA et al.: DESIGN OPTIMIZA TION OF WIRE ARRANGEMENT WITH V ARIABLE RELA Y POINTS IN NUMERICAL SIMULA TION 1395
+the increase in M causes a larger change in performance than
+an increase in N . From the result for N =3 and M =4 ,t h e
+feasible OFS and OVS can realize the sharp target spaces well.
+IV . DISCUSSION
+The experimental results are summarized and discussed. First,
+the multi-objective optimization of this study has allowed us
+to obtain a variety of Pareto solutions where a trade-off exists
+to achieve the target OFS or OVS. It is found that the perfor-
+mance of the solution is improved by increasing the number of
+wires or the number of relay points for Variable. Whether it is
+better to increase the number of wires or the number of relay
+points depends on the geometry of the target OFS and OVS.
+Additionally, the performance of Constant is inferior to that of
+Variable, because Constant cannot have large moment arm. On
+the other hand, by removing the restrictions of the moment arm,
+higher performance can be obtained. Since Constant uses the
+same G for all joint angles, Variable theoretically has better
+performance as it can change G according to the joint angle.
+However, in order for Variable to achieve higher performance
+than that of Constant without restrictions, it is necessary to
+signiﬁcantly increase the number of relay points. This implies
+that a large degree of freedom in wire arrangement is necessary
+to make G nonlinear enough to accommodate changes in J
+at each joint angle. Note that by increasing the gear ratio of the
+motor, Constant can achieve high performance without relaxing
+the restrictions, but at the cost of backdrivability. For Variable,
+there is also a trade-off that the friction at the pulleys should
+increase as the number of relay points increases. In addition,
+the effect of gravity may have a positive effect depending on the
+setting. The wire drive can produce anisotropic torque depending
+on the direction of joint rotation, and so gravity can be used
+effectively in many cases.
+We discuss future issues. First, the design parameters of the
+manipulator in this study were relatively simple because we
+handled a planar manipulator. When the manipulator becomes
+3D, it is necessary to take into account the interference of wires
+during movement, which requires a more complicated formu-
+lation. In addition, the joint structure is not optimized in this
+study. Although simultaneous optimization of link lengths with
+wire arrangements can be performed in the same framework,
+the design parameter space becomes huge when closed links
+and branching of links are considered. Furthermore, it should
+be noted that aspects such as wire elongation and friction are
+not addressed in this study. Second, although we have con-
+sidered the feasible OFS and OVS as the objective function
+in this study, this framework can ﬂexibly consider a wider
+variety of objective functions. In the future, it is necessary
+to consider more complex and realistic settings for objective
+functions in accordance with the actual tasks to be realized.
+In addition, we would like to develop a tendon-driven robot
+that actually implements the obtained solution, and conﬁrm its
+effectiveness.
+V. C ONCLUSION
+We proposed a design optimization method for wire arrange-
+ment in a tendon-driven robot with variable relay points. While
+previous studies have focused on conditions with constant mo-
+ment arm or ﬁxed links to attach relay points to, this study deals
+with a broader problem and performs multi-objective black-box
+optimization aiming at achieving a target operational force
+space and velocity space. V arious designs can be represented
+by setting the links each wire attaches to and the positions
+of the relay points as variables. A body using variable relay
+points can be designed more freely in terms of its physical
+capabilities compared to a general tendon-driven robot with
+constant moment arm using pulleys. We expect that this con-
+cept will be a key to solving various wire arrangement design
+problems.
+REFERENCES
+[1] G. Endo, A. Horigome, and A. Takata, “Super Dragon: A 10-m-long-
+coupled tendon-driven articulated manipulator,” IEEE Robot. Automat.
+Lett., vol. 4, no. 2, pp. 934–941, Apr. 2019.
+[2] S. Y oshimura et al., “Design method of a Kangaroo robot with high power
+legs and an articulated soft tail,” inProc. IEEE/RSJ Int. Conf. Intell. Robots
+Syst., 2023, pp. 6631–6638.
+[3] K. Kawaharazuka et al., “Component modularized design of muscu-
+loskeletal humanoid platform Musashi to investigate learning control
+systems,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2019,
+pp. 7300–7307.
+[4] H. Kobayashi, K. Hyodo, and D. Ogane, “On tendon-driven robotic
+mechanisms with redundant tendons,” Int. J. Robot. Res. , vol. 17, no. 5,
+pp. 561–571, 1998.
+[5] K. Kawaharazuka et al., “Robust continuous motion strategy against
+muscle rupture using online learning of redundant intersensory networks
+for musculoskeletal humanoids,” Robot. Auton. Syst. , vol. 152, pp. 1–14,
+2022.
+[6] N. S. Pollard and R. C. Gilbert, “Tendon arrangement and mus-
+cle force requirements for human-like force capabilities in a
+robotic ﬁnger,” in Proc. IEEE Int. Conf. Robot. Automat. , 2002,
+pp. 3755–3762.
+[7] P . Berthet-Rayne, K. Leibrandt, K. Kim, C. A. Seneci, J. Shang, and
+G. Y ang, “Rolling-joint design optimization for tendon driven snake-like
+surgical robots,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2018,
+pp. 4964–4971.
+[8] H. Dong, E. Asadi, C. Qiu, J. Dai, and I. Chen, “Geometric design
+optimization of an under-actuated tendon-driven robotic gripper,” Robot.
+Comput.- Integr . Manuf., vol. 50, pp. 80–89, 2018.
+[9] W. Roozing, Z. Li, D. G. Caldwell, and N. G. Tsagarakis, “Design opti-
+misation and control of compliant actuation arrangements in articulated
+robots for improved energy efﬁciency,”IEEE Robot. Automat. Lett.,v o l .1 ,
+no. 2, pp. 1110–1117, Jul. 2016.
+[10] I. B. Hamida, M. A. Laribi, A. Mlika, L. Romdhane, S. Zeghloul, and G.
+Carbone, “Multi-objective optimal design of a cable driven parallel robot
+for rehabilitation tasks,” Mechanism Mach. Theory , vol. 156, pp. 1–24,
+2021.
+[11] H. Jamshidifar, A. Khajepour, B. Fidan, and M. Rushton, “Kinematically-
+constrained redundant cable-driven parallel robots: Modeling, redundancy
+analysis, and stiffness optimization,” IEEE/ASME Trans. Mechatron. ,
+vol. 22, no. 2, pp. 921–930, Apr. 2017.
+[12] S. Zhong, J. Zhou, and W. Wu, “Constructing constraint force ﬁeld
+in musculoskeletal robot by co-optimizing muscle arrangements and
+constant activations,” in Proc. Int. Joint Conf. Neural Netw. , 2022,
+pp. 1–7.
+[13] T. Asaoka, M. Kawamura, S. Kumakura, and I. Mizuuchi, “Determining
+the optimal multiarticular muscle arrangement of a musculoskeletal robot
+for a speciﬁc motion using dynamics simulation,” inProc. 12th IEEE-RAS
+Int. Conf. Humanoid Robots , 2012, pp. 216–221.
+[14] K. Kawaharazuka et al., “Design optimization of musculoskeletal hu-
+manoids with maximization of redundancy to compensate for mus-
+cle rupture,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2021,
+pp. 3227–3233.
+[15] T. Akiba, S. Sano, T. Y anase, T. Ohta, and M. Koyama, “Optuna:
+A next-generation hyperparameter optimization framework,” in Proc.
+25th ACM SIGKDD Int. Conf. Knowl. Discov. Data Mining , 2019,
+pp. 2623–2631.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:54:02 UTC from IEEE Xplore. Restrictions apply.

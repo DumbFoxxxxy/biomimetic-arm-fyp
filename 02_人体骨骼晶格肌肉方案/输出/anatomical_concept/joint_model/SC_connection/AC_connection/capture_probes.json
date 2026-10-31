@@ -1,0 +1,109 @@
+{
+  "scope": "ball-only straight translations; socket/caps fixed. Not arbitrary-path escape proof or retention-load test.",
+  "step_mm": 0.1,
+  "maximum_probe_mm": 2,
+  "directions": [
+    {
+      "direction": "opening",
+      "first_sampled_interference": {
+        "translation_mm": 0.9,
+        "contacts": [
+          {
+            "part": "AC_cap_left",
+            "overlap_mm3": 0.011010649113387862
+          },
+          {
+            "part": "AC_cap_right",
+            "overlap_mm3": 0.009440810999138956
+          }
+        ]
+      }
+    },
+    {
+      "direction": "rear",
+      "first_sampled_interference": {
+        "translation_mm": 0.4,
+        "contacts": [
+          {
+            "part": "scapula_AC_socket",
+            "overlap_mm3": 2.2858847205355053
+          }
+        ]
+      }
+    },
+    {
+      "direction": "side_x",
+      "first_sampled_interference": {
+        "translation_mm": 0.4,
+        "contacts": [
+          {
+            "part": "scapula_AC_socket",
+            "overlap_mm3": 1.0813627590407446
+          },
+          {
+            "part": "AC_cap_left",
+            "overlap_mm3": 1.0166213828567137
+          }
+        ]
+      }
+    },
+    {
+      "direction": "side_minus_x",
+      "first_sampled_interference": {
+        "translation_mm": 0.4,
+        "contacts": [
+          {
+            "part": "scapula_AC_socket",
+            "overlap_mm3": 1.0864641038261487
+          },
+          {
+            "part": "AC_cap_right",
+            "overlap_mm3": 1.0345071202622265
+          }
+        ]
+      }
+    },
+    {
+      "direction": "side_y",
+      "first_sampled_interference": {
+        "translation_mm": 0.4,
+        "contacts": [
+          {
+            "part": "scapula_AC_socket",
+            "overlap_mm3": 1.0905837523832582
+          },
+          {
+            "part": "AC_cap_left",
+            "overlap_mm3": 0.11123042538270521
+          },
+          {
+            "part": "AC_cap_right",
+            "overlap_mm3": 0.8980518589102454
+          }
+        ]
+      }
+    },
+    {
+      "direction": "side_minus_y",
+      "first_sampled_interference": {
+        "translation_mm": 0.4,
+        "contacts": [
+          {
+            "part": "scapula_AC_socket",
+            "overlap_mm3": 1.0858206366508452
+          },
+          {
+            "part": "AC_cap_left",
+            "overlap_mm3": 0.91066427026296
+          },
+          {
+            "part": "AC_cap_right",
+            "overlap_mm3": 0.10080258623410296
+          }
+        ]
+      }
+    }
+  ],
+  "all_six_straight_directions_blocked_within_2mm": true,
+  "requires": "fasteners, printed clearance and strength validation"
+}

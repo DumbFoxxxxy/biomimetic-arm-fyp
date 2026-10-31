@@ -1,0 +1,80 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo ErrorHandler
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    WriteLog "start"
+
+    Dim base As String
+    base = "D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC)
+
+    TryLoad "radius-solid", base & "\_optimize\welded\radius.stl", 2
+    TryLoad "radius-surface", base & "\_optimize\welded\radius.stl", 1
+    TryLoad "radius-graphics", base & "\_optimize\welded\radius.stl", 0
+
+    swApp.ExitApp
+    Exit Sub
+
+ErrorHandler:
+    WriteLog "ERROR " & Err.Number & " " & Err.Description
+    swApp.ExitApp
+End Sub
+
+Sub TryLoad(label As String, path As String, mode As Long)
+    swApp.SetUserPreferenceIntegerValue 208, mode
+    swApp.SetUserPreferenceIntegerValue 210, 0
+    Dim errs As Long
+    Dim doc As Object
+    Set doc = swApp.LoadFile4(path, "r", Nothing, errs)
+    If doc Is Nothing Then
+        WriteLog "[" & label & "] FAILED err=" & errs
+        Exit Sub
+    End If
+    Dim nSolid As Long
+    Dim nSheet As Long
+    Dim nGen As Long
+    nSolid = CountArr(doc.GetBodies2(0, False))
+    nSheet = CountArr(doc.GetBodies2(1, False))
+    nGen = CountArr(doc.GetBodies2(4, False))
+    WriteLog "[" & label & "] OK errs=" & errs & " solid=" & nSolid & " sheet=" & nSheet & " general=" & nGen
+    ReportFaces doc, 0, "solid"
+    ReportFaces doc, 1, "sheet"
+    Dim box As Variant
+    box = doc.GetPartBox(True)
+    If Not IsEmpty(box) Then
+        WriteLog "    box x=" & Format(box(0), "0.0") & ".." & Format(box(3), "0.0") _
+              & " y=" & Format(box(1), "0.0") & ".." & Format(box(4), "0.0") _
+              & " z=" & Format(box(2), "0.0") & ".." & Format(box(5), "0.0")
+    End If
+    swApp.CloseDoc doc.GetTitle()
+End Sub
+
+Sub ReportFaces(doc As Object, btype As Long, label As String)
+    Dim bodies As Variant
+    bodies = doc.GetBodies2(btype, False)
+    If IsEmpty(bodies) Then Exit Sub
+    Dim i As Integer
+    For i = 0 To UBound(bodies)
+        Dim bd As Object
+        Set bd = bodies(i)
+        WriteLog "    " & label & " body" & i & " faces=" & bd.GetFaceCount() & " edges=" & bd.GetEdgeCount()
+    Next i
+End Sub
+
+Function CountArr(a As Variant) As Long
+    If IsEmpty(a) Then
+        CountArr = 0
+    Else
+        CountArr = UBound(a) + 1
+    End If
+End Function
+
+Sub WriteLog(msg As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim ts As Object
+    Set ts = fso.OpenTextFile("D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC) & "\_optimize\TestImport2.log", 8, True)
+    ts.WriteLine Now & " " & msg
+    ts.Close
+End Sub

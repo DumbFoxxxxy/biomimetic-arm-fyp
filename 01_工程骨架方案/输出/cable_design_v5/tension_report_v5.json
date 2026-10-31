@@ -1,0 +1,1155 @@
+{
+  "model": "D:\\XJTLU\\PSP\\mujoco_arm\\cable_design_v5\\arm_cable_design_v5.xml",
+  "neutral_lengths_mm": {
+    "E01": 370.9175675612534,
+    "E02": 370.0219530136254,
+    "G01": 205.2900868823101,
+    "G02": 213.9942469877825,
+    "G03": 217.32622997943866,
+    "G04": 210.77244052084419,
+    "G05": 99.61919756589315,
+    "G06": 157.4077357325239,
+    "S01": 158.0665020616971,
+    "S02": 82.0935411732916,
+    "S03": 153.37875071371303,
+    "S04": 180.3436315084871,
+    "S05": 74.35380151051541,
+    "S06": 57.462799933781035,
+    "P01": 157.76964698215932,
+    "P02": 222.45930919963186,
+    "G07": 205.2900868823101
+  },
+  "actions": [
+    {
+      "id": "K1",
+      "label": "\u8098\u5c48\u66f2",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 45.36128885808574,
+      "min_cable_clearance_mm": 20.0,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 2.912427668849593,
+        "between": [
+          "E01",
+          "E02"
+        ]
+      },
+      "routes": [
+        {
+          "id": "E01",
+          "length_mm": 202.6645783144079,
+          "neutral_length_mm": 370.9175675612534,
+          "contraction_percent": 45.36128885808574,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "E02",
+          "length_mm": 246.95463358462783,
+          "neutral_length_mm": 370.0219530136254,
+          "contraction_percent": 33.25946431736872,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.0
+        }
+      ]
+    },
+    {
+      "id": "K2",
+      "label": "GH\u5c48\u66f2",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 44.187690771258104,
+      "min_cable_clearance_mm": 4.883466706074779,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 0.0,
+        "between": [
+          "G01",
+          "G07"
+        ]
+      },
+      "routes": [
+        {
+          "id": "G01",
+          "length_mm": 130.80201932877154,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 36.28429832378683,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.420256530580545
+        },
+        {
+          "id": "G02",
+          "length_mm": 357.7685710110874,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": -67.18606974117083,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 13.318830231804828
+        },
+        {
+          "id": "G07",
+          "length_mm": 130.80201932877154,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 36.28429832378683,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.420256530580545
+        },
+        {
+          "id": "P01",
+          "length_mm": 88.05488324277721,
+          "neutral_length_mm": 157.76964698215932,
+          "contraction_percent": 44.187690771258104,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.053835646404261
+        }
+      ]
+    },
+    {
+      "id": "K3",
+      "label": "GH\u5916\u5c55",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 30.32272645553481,
+      "min_cable_clearance_mm": -93.98865805176389,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 0.0,
+        "between": [
+          "G01",
+          "G07"
+        ]
+      },
+      "routes": [
+        {
+          "id": "G01",
+          "length_mm": 188.92391210315324,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 7.9722187406639655,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 21.56029551583789
+        },
+        {
+          "id": "G02",
+          "length_mm": 308.0844456775758,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": -43.968564582563346,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": -92.31696526886897
+        },
+        {
+          "id": "G03",
+          "length_mm": 151.42699174664702,
+          "neutral_length_mm": 217.32622997943866,
+          "contraction_percent": 30.32272645553481,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 25.388401852870167
+        },
+        {
+          "id": "G05",
+          "length_mm": 131.87767810059054,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": -32.381791183732446,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.394717577121938
+        },
+        {
+          "id": "G07",
+          "length_mm": 188.92391210315324,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 7.9722187406639655,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 21.56029551583789
+        }
+      ]
+    },
+    {
+      "id": "K4",
+      "label": "GH\u5185\u65cb",
+      "selected_cables": [
+        "G05",
+        "G06"
+      ],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": true,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": true,
+      "max_contraction_percent": 3.372730655651577,
+      "min_cable_clearance_mm": 5.264801163700621,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 9.336381895435993,
+        "between": [
+          "G05",
+          "G06"
+        ]
+      },
+      "routes": [
+        {
+          "id": "G02",
+          "length_mm": 213.0938931015667,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": 0.420737425837056,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 12.442373830305158
+        },
+        {
+          "id": "G05",
+          "length_mm": 96.25931035067416,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": 3.372730655651577,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 5.294859214815332
+        },
+        {
+          "id": "G06",
+          "length_mm": 168.4720258317389,
+          "neutral_length_mm": 157.4077357325239,
+          "contraction_percent": -7.0290637545387655,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 9.396636980285027
+        }
+      ]
+    },
+    {
+      "id": "K5",
+      "label": "GH\u5916\u65cb",
+      "selected_cables": [
+        "G02",
+        "G05"
+      ],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": true,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 28.178763936195683,
+      "min_cable_clearance_mm": 1.8218871307723763,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 7.487790472068569,
+        "between": [
+          "G02",
+          "G03"
+        ]
+      },
+      "routes": [
+        {
+          "id": "G02",
+          "length_mm": 209.90900212506307,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": 1.9090442477888898,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 12.740594209217917
+        },
+        {
+          "id": "G03",
+          "length_mm": 218.33797674869854,
+          "neutral_length_mm": 217.32622997943866,
+          "contraction_percent": -0.4655428704374892,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 22.75824204062762
+        },
+        {
+          "id": "G05",
+          "length_mm": 119.20674500367184,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": -19.662422420962095,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 5.709392585747716
+        }
+      ]
+    },
+    {
+      "id": "K6",
+      "label": "\u80a9\u80db\u4e0a\u56de\u65cb",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 43.75917685357489,
+      "min_cable_clearance_mm": -6.89870391645508,
+      "visual_clearance_mm": -0.026671022249306064,
+      "cross_cable": {
+        "minimum_mm": 0.0,
+        "between": [
+          "G01",
+          "G07"
+        ]
+      },
+      "routes": [
+        {
+          "id": "E01",
+          "length_mm": 370.91756756125346,
+          "neutral_length_mm": 370.9175675612534,
+          "contraction_percent": -2.993179945411494e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "E02",
+          "length_mm": 370.0219530136255,
+          "neutral_length_mm": 370.0219530136254,
+          "contraction_percent": -3.000424746648139e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G01",
+          "length_mm": 205.29008688231016,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": -2.7040346698806543e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 8.780729599660042
+        },
+        {
+          "id": "G02",
+          "length_mm": 213.99424698778253,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": -1.2970243829598632e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G03",
+          "length_mm": 217.32622997943864,
+          "neutral_length_mm": 217.32622997943866,
+          "contraction_percent": 2.5542775594326446e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G04",
+          "length_mm": 210.77244052084427,
+          "neutral_length_mm": 210.77244052084419,
+          "contraction_percent": -3.950550965824782e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 8.571625383919052
+        },
+        {
+          "id": "G05",
+          "length_mm": 99.61919756589317,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": -2.7861673546677568e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 27.28184478643344
+        },
+        {
+          "id": "G06",
+          "length_mm": 157.40773573252386,
+          "neutral_length_mm": 157.4077357325239,
+          "contraction_percent": 1.7632917141246954e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 40.19729341142462
+        },
+        {
+          "id": "S01",
+          "length_mm": 169.66257835006078,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -7.33620098952875,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": -2.5392665230154496
+        },
+        {
+          "id": "S02",
+          "length_mm": 116.30075795443203,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -41.668584753741186,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": -0.5539954578833886
+        },
+        {
+          "id": "S03",
+          "length_mm": 135.45080062914406,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": 11.688679169145244,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.745686166356165
+        },
+        {
+          "id": "S04",
+          "length_mm": 156.2725072206859,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": 13.347365851767501,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.267481052992764
+        },
+        {
+          "id": "S05",
+          "length_mm": 97.34618510064585,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": -30.92294290679781,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 5.673325800787109
+        },
+        {
+          "id": "S06",
+          "length_mm": 61.733582768658366,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": -7.432256764026289,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 17.539522623033584
+        },
+        {
+          "id": "P01",
+          "length_mm": 149.64485532317565,
+          "neutral_length_mm": 157.76964698215932,
+          "contraction_percent": 5.149781224966817,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": -1.7574661237858975
+        },
+        {
+          "id": "P02",
+          "length_mm": 214.16932546837884,
+          "neutral_length_mm": 222.45930919963186,
+          "contraction_percent": 3.726516890247865,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": -6.89870391645508
+        },
+        {
+          "id": "G07",
+          "length_mm": 205.29008688231016,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": -2.7040346698806543e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 8.780729599660042
+        }
+      ]
+    },
+    {
+      "id": "K7",
+      "label": "\u7ec4\u5408\u62ac\u5347",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 49.44938579356695,
+      "min_cable_clearance_mm": -0.5603787222239713,
+      "visual_clearance_mm": -0.26410612878659423,
+      "cross_cable": {
+        "minimum_mm": 0.0,
+        "between": [
+          "G01",
+          "G07"
+        ]
+      },
+      "routes": [
+        {
+          "id": "E01",
+          "length_mm": 370.91756756125335,
+          "neutral_length_mm": 370.9175675612534,
+          "contraction_percent": 1.496589972705747e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "E02",
+          "length_mm": 370.0219530136254,
+          "neutral_length_mm": 370.0219530136254,
+          "contraction_percent": -1.5002123733240694e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 23.331237314637985
+        },
+        {
+          "id": "G01",
+          "length_mm": 130.80201932877156,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 36.28429832378682,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G02",
+          "length_mm": 357.7685710110874,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": -67.18606974117083,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G03",
+          "length_mm": 223.92178044536882,
+          "neutral_length_mm": 217.32622997943866,
+          "contraction_percent": -3.0348616761787754,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G04",
+          "length_mm": 215.594001246027,
+          "neutral_length_mm": 210.77244052084419,
+          "contraction_percent": -2.2875669671367724,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": -0.5603787222239713
+        },
+        {
+          "id": "G05",
+          "length_mm": 151.23021242457514,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": -51.80830213427878,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G06",
+          "length_mm": 233.84762275663562,
+          "neutral_length_mm": 157.4077357325239,
+          "contraction_percent": -48.56170928854646,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 17.154025388570233
+        },
+        {
+          "id": "S01",
+          "length_mm": 190.25169806315412,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -20.361806949390445,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 6.247519139785311
+        },
+        {
+          "id": "S02",
+          "length_mm": 137.09149491220583,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -66.99425186546505,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 4.523399866991724
+        },
+        {
+          "id": "S03",
+          "length_mm": 133.08364050311522,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": 13.23202211268455,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 10.40613780398985
+        },
+        {
+          "id": "S04",
+          "length_mm": 166.22217591930834,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": 7.830304553068846,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.22758442542488
+        },
+        {
+          "id": "S05",
+          "length_mm": 99.12751326381438,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": -33.31868882291832,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 11.001830342996922
+        },
+        {
+          "id": "S06",
+          "length_mm": 66.4678225927849,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": -15.671047476595417,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 14.356834495790284
+        },
+        {
+          "id": "P01",
+          "length_mm": 79.7535255808027,
+          "neutral_length_mm": 157.76964698215932,
+          "contraction_percent": 49.44938579356695,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 1.8975898930244175
+        },
+        {
+          "id": "P02",
+          "length_mm": 141.91859271108117,
+          "neutral_length_mm": 222.45930919963186,
+          "contraction_percent": 36.20469594116854,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": -0.15719396184657075
+        },
+        {
+          "id": "G07",
+          "length_mm": 130.80201932877156,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 36.28429832378682,
+          "guide_count": 1,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 20.0
+        }
+      ]
+    },
+    {
+      "id": "SLIDE_FWD",
+      "label": "\u80a9\u80db\u524d\u6ed1",
+      "selected_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": true,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": true,
+      "max_contraction_percent": 17.27929929674324,
+      "min_cable_clearance_mm": 2.8972368804316893,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 0.6511101687638263,
+        "between": [
+          "S02",
+          "S04"
+        ]
+      },
+      "routes": [
+        {
+          "id": "S01",
+          "length_mm": 161.2382331107175,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -2.0065801467425453,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.084150849312266
+        },
+        {
+          "id": "S02",
+          "length_mm": 92.72923049202849,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -12.955573808524084,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.019639461888119
+        },
+        {
+          "id": "S03",
+          "length_mm": 154.28054842321538,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": -0.5879547885909995,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.348571021308487
+        },
+        {
+          "id": "S04",
+          "length_mm": 187.95665150808347,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": -4.221396639247599,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 3.3915960900578734
+        },
+        {
+          "id": "S05",
+          "length_mm": 61.505985609007055,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": 17.27929929674324,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 10.047702003013931
+        },
+        {
+          "id": "S06",
+          "length_mm": 49.38861345715862,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": 14.051153939465083,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 10.546412878387772
+        }
+      ]
+    },
+    {
+      "id": "SLIDE_BACK",
+      "label": "\u80a9\u80db\u540e\u6ed1",
+      "selected_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 29.541989780413715,
+      "min_cable_clearance_mm": 5.049158382042167,
+      "visual_clearance_mm": 5.421713014750548,
+      "cross_cable": {
+        "minimum_mm": 10.088735268160198,
+        "between": [
+          "S05",
+          "S06"
+        ]
+      },
+      "routes": [
+        {
+          "id": "S01",
+          "length_mm": 160.41667500953287,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -1.4868254292857306,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.25219060615541
+        },
+        {
+          "id": "S02",
+          "length_mm": 90.47418658750748,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -10.208653804475478,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.155967177204445
+        },
+        {
+          "id": "S03",
+          "length_mm": 155.3867114977298,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": -1.3091518705643277,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.469351301163499
+        },
+        {
+          "id": "S05",
+          "length_mm": 64.45366662075847,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": 13.314900769877683,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 10.981467606693844
+        },
+        {
+          "id": "S06",
+          "length_mm": 48.45069978626859,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": 15.68336412060986,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 12.136335396296802
+        }
+      ]
+    },
+    {
+      "id": "SCAP_EXT",
+      "label": "\u80a9\u80db\u5916\u65cb",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 28.96250103535091,
+      "min_cable_clearance_mm": 2.844835125472722,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 5.1101848231296465,
+        "between": [
+          "S02",
+          "S04"
+        ]
+      },
+      "routes": [
+        {
+          "id": "S01",
+          "length_mm": 163.01826512376243,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -3.1327087001220293,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.974289142487237
+        },
+        {
+          "id": "S02",
+          "length_mm": 88.49779563191478,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -7.801167262482228,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.778118417600183
+        },
+        {
+          "id": "S03",
+          "length_mm": 163.3994524508505,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": -6.533305096376392,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.089625426400403
+        },
+        {
+          "id": "S04",
+          "length_mm": 184.34639520520147,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": -2.2195204029292115,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 3.358867002949338
+        },
+        {
+          "id": "S05",
+          "length_mm": 71.885830345847,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": 3.3192266091725964,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 15.799185328107553
+        },
+        {
+          "id": "S06",
+          "length_mm": 40.82013590801808,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": 28.96250103535091,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 21.828819682206667
+        }
+      ]
+    },
+    {
+      "id": "SCAP_INT",
+      "label": "\u80a9\u80db\u5185\u65cb",
+      "selected_cables": [
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": true,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": true,
+      "max_contraction_percent": 17.78756760686081,
+      "min_cable_clearance_mm": 2.480687849893302,
+      "visual_clearance_mm": 5.850667266115858,
+      "cross_cable": {
+        "minimum_mm": 1.5893611516651363,
+        "between": [
+          "S02",
+          "S04"
+        ]
+      },
+      "routes": [
+        {
+          "id": "S01",
+          "length_mm": 160.07948723922996,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": -1.273505234364683,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.09909850744981
+        },
+        {
+          "id": "S02",
+          "length_mm": 90.8173019032014,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": -10.626610334051461,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.020258293489633
+        },
+        {
+          "id": "S03",
+          "length_mm": 154.7638272925319,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": -0.9030433305615682,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.30244750612411
+        },
+        {
+          "id": "S04",
+          "length_mm": 188.292216118925,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": -4.407466204352127,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 2.55874488052701
+        },
+        {
+          "id": "S05",
+          "length_mm": 63.08541409000813,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": 15.155092532711528,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.305674741831846
+        },
+        {
+          "id": "S06",
+          "length_mm": 51.32074879680651,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": 10.68874322875408,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 9.809590685269749
+        }
+      ]
+    },
+    {
+      "id": "PECTORAL",
+      "label": "\u80f8\u5927\u808c\u62b1\u5408",
+      "selected_cables": [],
+      "target_tensions_N": {},
+      "max_tension_N": null,
+      "relative_residual": null,
+      "pass_tension": false,
+      "pass_80_percent": true,
+      "pass_minimum_visible": true,
+      "pass_minimum_functional": false,
+      "max_contraction_percent": 11.294941355316592,
+      "min_cable_clearance_mm": 1.0106020110999578,
+      "visual_clearance_mm": -0.4661568027912302,
+      "cross_cable": {
+        "minimum_mm": 0.0,
+        "between": [
+          "G01",
+          "G07"
+        ]
+      },
+      "routes": [
+        {
+          "id": "E01",
+          "length_mm": 370.9175675612532,
+          "neutral_length_mm": 370.9175675612534,
+          "contraction_percent": 5.986359890822988e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "E02",
+          "length_mm": 370.0219530136253,
+          "neutral_length_mm": 370.0219530136254,
+          "contraction_percent": 3.000424746648139e-14,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 20.0
+        },
+        {
+          "id": "G01",
+          "length_mm": 198.80189652498564,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 3.1604986172781153,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 16.106858141688328
+        },
+        {
+          "id": "G02",
+          "length_mm": 262.7164624099909,
+          "neutral_length_mm": 213.9942469877825,
+          "contraction_percent": -22.76800246176249,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 12.694529749557152
+        },
+        {
+          "id": "G03",
+          "length_mm": 214.196138669699,
+          "neutral_length_mm": 217.32622997943866,
+          "contraction_percent": 1.44027313685781,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 23.36553658202155
+        },
+        {
+          "id": "G04",
+          "length_mm": 214.23053261081617,
+          "neutral_length_mm": 210.77244052084419,
+          "contraction_percent": -1.64067564119229,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 1.0106020110999578
+        },
+        {
+          "id": "G05",
+          "length_mm": 111.29795537881533,
+          "neutral_length_mm": 99.61919756589315,
+          "contraction_percent": -11.72340080856129,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 5.374244333178618
+        },
+        {
+          "id": "G06",
+          "length_mm": 173.05493587721355,
+          "neutral_length_mm": 157.4077357325239,
+          "contraction_percent": -9.940553475261378,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 9.393410865727986
+        },
+        {
+          "id": "S01",
+          "length_mm": 158.0665020616971,
+          "neutral_length_mm": 158.0665020616971,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 4.026934170744482
+        },
+        {
+          "id": "S02",
+          "length_mm": 82.0935411732916,
+          "neutral_length_mm": 82.0935411732916,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 7.598955205927211
+        },
+        {
+          "id": "S03",
+          "length_mm": 153.37875071371303,
+          "neutral_length_mm": 153.37875071371303,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 8.093929833901711
+        },
+        {
+          "id": "S04",
+          "length_mm": 180.3436315084871,
+          "neutral_length_mm": 180.3436315084871,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 7.4955736137953295
+        },
+        {
+          "id": "S05",
+          "length_mm": 74.35380151051541,
+          "neutral_length_mm": 74.35380151051541,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 4.665341042260808
+        },
+        {
+          "id": "S06",
+          "length_mm": 57.462799933781035,
+          "neutral_length_mm": 57.462799933781035,
+          "contraction_percent": 0.0,
+          "guide_count": 0,
+          "actual_wrap_points": 2,
+          "thorax_clearance_mm": 14.26407332977429
+        },
+        {
+          "id": "P01",
+          "length_mm": 139.94965787903442,
+          "neutral_length_mm": 157.76964698215932,
+          "contraction_percent": 11.294941355316592,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 7.812090200924212
+        },
+        {
+          "id": "P02",
+          "length_mm": 198.0430459169778,
+          "neutral_length_mm": 222.45930919963186,
+          "contraction_percent": 10.975608694686384,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 2.5047264307622736
+        },
+        {
+          "id": "G07",
+          "length_mm": 198.80189652498564,
+          "neutral_length_mm": 205.2900868823101,
+          "contraction_percent": 3.1604986172781153,
+          "guide_count": 1,
+          "actual_wrap_points": 4,
+          "thorax_clearance_mm": 16.106858141688328
+        }
+      ]
+    }
+  ]
+}

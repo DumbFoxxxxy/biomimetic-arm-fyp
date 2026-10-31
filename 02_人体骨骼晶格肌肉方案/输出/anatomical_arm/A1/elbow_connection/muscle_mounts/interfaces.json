@@ -1,0 +1,101 @@
+{
+  "interfaces": [
+    {
+      "muscle": "elbow_flexor",
+      "A_reaction_plate_center_mm": [
+        157.53473369937169,
+        -20.010488544770503,
+        -39.29487636240675
+      ],
+      "A_mount_hole_centers_mm": [
+        [
+          154.75868936778048,
+          -20.126795705130483,
+          -46.8632348709269
+        ],
+        [
+          162.646530750829,
+          -20.126795705130483,
+          -45.528334756361204
+        ]
+      ],
+      "A_sheath_entrance_diameter_mm": 4.2,
+      "B_eye_center_mm": [
+        204.73511361284915,
+        -43.711107843172556,
+        -318.1989725675892
+      ],
+      "B_eye_axis": [
+        0.9859801728810627,
+        -0.0,
+        0.1668625143207115
+      ],
+      "B_eye_hole_diameter_mm": 3.4,
+      "C": "free TPU distal end; connect active wire terminal and separate passive tendon; no artificial rigid slide"
+    },
+    {
+      "muscle": "elbow_extensor",
+      "A_reaction_plate_center_mm": [
+        157.53473369937169,
+        -88.01048854477051,
+        -39.29487636240675
+      ],
+      "A_mount_hole_centers_mm": [
+        [
+          154.75868936778048,
+          -88.12679570513049,
+          -46.8632348709269
+        ],
+        [
+          162.646530750829,
+          -88.12679570513049,
+          -45.528334756361204
+        ]
+      ],
+      "A_sheath_entrance_diameter_mm": 4.2,
+      "B_eye_center_mm": [
+        204.73511361284915,
+        -73.71110784317256,
+        -318.1989725675892
+      ],
+      "B_eye_axis": [
+        0.9859801728810627,
+        -0.0,
+        0.16686251432071147
+      ],
+      "B_eye_hole_diameter_mm": 3.4,
+      "C": "free TPU distal end; connect active wire terminal and separate passive tendon; no artificial rigid slide"
+    }
+  ],
+  "components": {
+    "humerus_mounted": 1,
+    "forearm_mounted": 1
+  },
+  "neutral_TPU_checks": [
+    {
+      "muscle": "elbow_flexor",
+      "part": "humerus_mounted",
+      "overlap_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "muscle": "elbow_flexor",
+      "part": "forearm_mounted",
+      "overlap_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "muscle": "elbow_extensor",
+      "part": "humerus_mounted",
+      "overlap_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "muscle": "elbow_extensor",
+      "part": "forearm_mounted",
+      "overlap_mm3": 0.0,
+      "pass": true
+    }
+  ],
+  "qualification": "nominal mount geometry only; Bowden flange retention/clamp and wire end fittings still require mechanical review; no force or deformation acceptance"
+}

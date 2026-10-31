@@ -1,0 +1,1363 @@
+===== PAGE 1 =====
+Computational Mechanics (2025) 76:117–146
+https://doi.org/10.1007/s00466-024-02591-0
+REVIEW ARTICLE
+Deep learning without stress data on the discovery of multi-regional
+hyperelastic properties
+Ruike Shi 1 · Haitian Yang 1 · Jianxu Chen 2 · Klaus Hackl 3 · Stéphane Avril 4 · Yiqian He 1,3
+Received: 20 May 2024 / Accepted: 22 December 2024 / Published online: 28 January 2025
+© The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, part of Springer Nature 2025
+Abstract
+Constitutive material modeling is an important basis for mechanical analysis. Machine learning methods based on neural
+networks have been extensively used for the discovery of material constitutive laws. Recently, Flaschel et al. (Comput Methods
+Appl Mech Eng 381:113852, 2021) proposed a new “unsupervised” framework that does not need any stress labels, which
+are usually difﬁcult to measure in experiments. However, there is no work on the application of the unsupervised machine
+learning models for multi-regional constitutive models of heterogeneous materials. To address this issue, this paper develops
+a new unsupervised multi-regional constitutive learning model. In the implementation of this machine learning model, two
+indicators, i.e., the residual nodal force indicator and the free energy indicator, are ﬁrst deﬁned to identify nonhomogeneous
+interfaces or material distributions. Then, the combined identiﬁcation of multi-regional constitutive models is conducted by
+adding a switch function to the extended strain invariants layer of the neural network. Finally, multi-regional constitutive
+models can be trained in one neural network at the same time. The effectiveness of the proposed model is veriﬁed through
+numerical simulation examples including an application to constitutive modeling of soft biological tissues undergoing regional
+damage.
+Keywords Machine learning · Hyperelastic constitutive models · Heterogeneous materials · Unsupervised model ·
+Multi-regional distribution
+1 Introduction
+Constitutive models describe the mechanical behavior of
+a given material through mathematical equations [ 1], and
+the constitutive material modeling is critical for computa-
+tional analyses of structures, particularly in characterizing
+and modeling complex materials.
+Traditionally, constitutive modeling resorts to calibrating
+unknown material parameters of a phenomenological model
+B Yiqian He
+heyiqian@dlut.edu.cn
+1 State Key Laboratory of Structural Analysis, Optimization
+and CAE Software for Industrial Equipment, Department of
+Engineering Mechanics, Dalian University of Technology,
+Dalian 116024, China
+2 Leibniz-Institut für Analytische Wissenschaften – ISAS –
+e.V ., 44139 Dortmund, Germany
+3 Institute of Mechanics of Materials, Ruhr-Universität
+Bochum, 44801 Bochum, Germany
+4 Mines Saint-Etienne, University Jean Monnet, INSERM,
+SAINBIOSE U1059, 42023 Saint-Etienne, France
+(a priori selected classical material models) with measure-
+ments from experiments, e.g., to solve inverse problems by
+the ﬁnite element model updating (FEMU) [ 2] or the virtual
+ﬁelds method (VFM) [ 3]. Recently, data-driven approaches
+based on machine learning have been rapidly developed and
+shown signiﬁcant advantages compared to classical material
+models. The key idea of these machine learning approaches
+is to learn the relationships between strains and stresses, and
+provide surrogates for these relationships using neural net-
+works [4–10]. However, a drawback of these approaches is
+their requirement for a large amount of stress labels (so-called
+supervised learning in machine learning), which are very
+difﬁcult to measure in experiments and can be computation-
+ally expensive in numerical simulations [ 11].
+To overcome the limitations of the supervised data-driven
+methods, the Efﬁcient Unsupervised Constitutive Law Iden-
+tiﬁcation and Discovery (EUCLID) was recently proposed
+by Flaschel et al. [ 11, 12] and Thakolkaran et al. [ 13].
+The EUCLID employs sparse regression [ 11, 12] or neu-
+ral networks (NN) [13] to generate constitutive laws and can
+123
+
+===== PAGE 2 =====
+118 Computational Mechanics (2025) 76:117–146
+automatically discover generalized standard material mod-
+els with realistically measurable data, whether it is deﬁned
+by the Helmholtz free energy or the dissipation potential
+[12]. The EUCLID is an unsupervised method that does
+not rely on stress data but it utilizes global reaction forces
+and full-ﬁeld displacement data from DIC or DVC instead.
+This method has been demonstrated for various constitutive
+models, including hyperelasticity [ 11, 13], rate-independent
+plasticity [ 14], elastodynamics [ 15], viscoelastic [ 16], and
+the application for human brain tissue [ 17]. Notably, these
+previous studies have focused mainly on the discovery of a
+single model for homogeneous materials.
+The development of neural network for multi-regional
+constitutive models has important applications as heteroge-
+neous materials widely exist. For instance, soft biological
+tissues are usually heterogeneous [ 18], for example, arte-
+rial wall is a three-layers structure with different constitutive
+models in each layer [ 19, 20]. Therefore, it is of much
+interest to develop unsupervised machine learning meth-
+ods for constitutive modeling of heterogeneous materials
+when their components could have different constitutive
+models and material properties. Generally, the existing of
+multi-regional constitutive models will make the machine
+learning more complex than homogeneous materials in two
+aspects. Firstly, although required, material distributions are
+unknown. Secondly, combined learning increases the com-
+plexity and computational cost of neural networks. However,
+to the best of the authors’ knowledge, there is still no work
+on the application of unsupervised deep learning method for
+constitutive modeling of heterogeneous materials.
+Therefore, inspired by the scope of the NN-EUCLID [13],
+a new machine learning model is further developed spe-
+cially for discovering multi-regional constitutive models of
+heterogeneous materials in this article. The proposed model
+includes two main steps: (1) Firstly, in order to ﬁnd the hetero-
+geneous material distribution, we deﬁne two indicators, i.e.,
+the residual nodal forces and the free energy, which are used
+with full-ﬁeld measurements together to identify the inter-
+face of different materials and material distribution region,
+respectively; (2) Secondly, when the heterogeneous material
+distribution is found, a switch function can be deﬁned to allo-
+cate any spatial point to a speciﬁc material component, and
+then a new neural network can be built, considering regional
+heterogeneities. In this neural network, cloned neurons in the
+ﬁrst layer are used to train multiple constitutive models and
+the switch function is added into these neurons to allocate
+any neuron to a speciﬁc region.
+The paper is organized as follows: In Sect. 2, the basic
+framework of the unsupervised deep learning method is
+introduced and the multiple constitutive modeling based on
+unsupervised deep learning method is presented. Section 3
+gives the identiﬁed results of several numerical examples in
+order to verify the effectiveness of the proposed approach.
+Section 4 concludes the paper and describes possible appli-
+cations for future work.
+2 Methods and materials
+2.1 The basic framework of the NN-EUCLID
+Here the key equations of NN-EUCLID are stated, but the
+entire formulation is not be repeated. Interested readers
+should consult references [ 13] for this.
+2.1.1 ICNN-based constitutive model
+The input convex neural network (ICNN) outputs a strain
+energy density W NNϱ that is polyconvex with respect to the
+input deformation gradient F [21]. As shown in Fig. 1,
+the architecture of this ICNN-based constitutive model for
+homogeneous hyperelastic material is given below
+Input layer : F (1a)
+Invariants layer :
+z(0) =
+[
+I 1 − 3, I 2 − 3, (J − 1)2,(I ai − 1)2,(I bi − 1)2, ...]T
+(1b)
+First hidden layer of size d1 :
+z(1) = F(G( A(1))z(0) + B(1) z(0) + c(1))
+... (1c)
+k th hidden layer of size dk :
+z(k) = F(G( A(k))z(k−1) + B(k) z(0) + c(k))
+... (1d)
+Output (N th) layer of size dN :
+W NNϱ = z(N) = G( A(N))z(N−1) + G(B(N))z(0) + c(N).
+(1e)
+The deformation gradient F of the input layer is trans-
+ferred to the invariant layer for each element. ϱ ={
+A(k), B(k), c(k) : k = 1, ... , N} in Eq. (1e) denotes all the
+trainable parameter sets of ICNN, with their dimensions
+A(k) ∈ Rdk×dk−1 , B(k) ∈ Rdk×d0 , and c(k) ∈ Rdk .T h e
+vectorized invariant layer z(0) stores the transformation of
+the strain invariants, which is then sequentially transformed
+through the hidden layers indexed ask = 1, ... , (N − 1).I n
+any dk > 0 layer, the output from the previous layer z(k−1)
+undergoes a convex linear transformation through G
+(
+A(k)),
+123
+
+===== PAGE 3 =====
+Computational Mechanics (2025) 76:117–146 119
+Fig. 1 Schematic of the ICNN-based homogeneous constitutive model
+where G represents a nonlinear non-negative function applied
+element-wise given as [ 13]
+G(x) = cG log(1 + ex), (2)
+where cG is the hyperparameter.
+Every hidden layer includes a skip connection, where z(0)
+is linearly transformed using B(k) and c(k), and then added
+to the k th layer. Finally, the sum of the convex linear trans-
+formation and the skip connection goes through a nonlinear
+activation function F, which is convex and non-decreasing,
+and also applied element-wise given as [ 13]
+F(x) = cF(log(1 + ex))2, (3)
+where cF is the hyperparameter.
+The output of the last layer ( N th) gives the ICNN-based
+strain energy density W NNϱ , which is the sum of the convex
+linear transformation of the penultimate layer (z(N−1)) output
+and the invariant layer ( z(0))a ss h o w ni nE q .(1e).
+2.1.2 Unsupervised deep learning of constitutive models
+The basic procedure of the NN-EUCLID is illustrated in
+Fig. 2. Firstly, full-ﬁeld displacements and global reaction
+forces are recorded during quasi-static deformation of a
+hyperelastic specimen experiment. Secondly, the strain ﬁelds
+are generated in a ﬁnite element mesh from the full-ﬁeld dis-
+placement. Thirdly, an ensemble of ICNN-based constitutive
+models transforms strain ﬁelds into stress ﬁelds, and these
+stress ﬁelds are used to calculate internal and external nodal
+forces. Finally, constitutive models are iteratively trained to
+minimize the loss function based on the conservation of lin-
+ear momentum.
+The key idea of the unsupervised deep learning method
+is to establish a loss function for a neural network based on
+the conservation of linear momentum [ 11]. The weak form
+of the linear momentum balance in the reference domain /Omega1
+can be expressed as
+∫
+/Omega1
+P :∇ vdV − ∫
+∂/Omega1t
+ˆt · vdS = 0 ∀ admissible v, (4)
+where P is the ﬁrst Piola–Kirchhoff stress, ˆt represents the
+surface traction applied on ∂/Omega1t , and v represents an admissi-
+ble virtual displacement ﬁeld that is sufﬁciently smooth and
+has a zero value on the Dirichlet boundary ∂/Omega1u .
+After discretizing with ﬁnite elements in the reference
+domain, the virtual displacement v(X) at any point is
+obtained as
+v(X) =
+nn∑
+a=1
+N a(X)va , with vai = 0 ∀ (a, i) ∈ nβ∪β=1 Dﬁxβ
+(5)
+123
+
+===== PAGE 4 =====
+120 Computational Mechanics (2025) 76:117–146
+Fig. 2 Schematic of the approach for unsupervised deep learning of constitutive models
+for admissibility,N a is the shape function andva is the virtual
+displacement vector at the a th node.
+By substituting Eq. ( 5) into Eq. ( 4), the momentum bal-
+ance changes to
+∫
+/Omega1
+Pij ∇ j N avai dV − ∫∂/Omega1t ˆti N avai dS = 0, (6)
+which, subsequently, reduces to
+nn∑
+a=1
+vai f ai = 0, where f ai = ∫/Omega1 Pij ∇ j N a dV − ∫∂/Omega1t ˆti N a dS
+(7)
+f ai can be interpreted as the difference between the internal
+force arising from the ICNN-based constitutive model and
+the external force due to the applied tractions on Neumann
+boundaries.
+Finally, the loss function to be minimized in ICNN training
+is written as
+ϱ ← arg min/Psi1,w h e r e
+/Psi1 =
+nt∑
+t=1
+⎡
+⎢⎢⎣ ∑
+(a, i)∈Dfree
+(
+f a, ti )2 + nβ∑
+β=1
+⎛
+⎜⎝Rβ, t − ∑
+(a, i)∈Dﬁxβ
+f a, ti
+⎞
+⎟⎠
+2⎤
+⎥⎥⎦,
+(8)
+where Dfree and Dﬁxβ represent the degrees of freedom with-
+out and with the β th Dirichlet constraint ( β = 1, ... , nβ ),
+respectively, and Rβ, t is the measured global reaction force
+at the t th step ( t = 1, ... , nt ).
+In Eq. ( 7), the ﬁrst Piola–Kirchhoff stress is obtained as
+[13]
+P(F) = ∂ W(F)∂ F = ∂ W NNϱ (E(F))∂ F + FH , (9)
+where the strain energy density of constitutive model W(F)
+is given as
+W(F) = W NNϱ (E(F)) + W 0 + H : E, (10)
+where W NNϱ represents an ICNN model, E is the Green–La-
+grange strain tensor, and W 0 represents a constant scalar that
+vanishes the energy density at the state of zero deformation.
+Thus, when W(F = I) = 0, W 0 can be determined as
+W 0 =− W NNϱ |F=I. (11)
+Meanwhile, the constant matrix H is determined such that
+P(F = I) = 0, and obtained as
+H =−
+∂ W NNϱ
+∂ F |F=I. (12)
+123
+
+===== PAGE 5 =====
+Computational Mechanics (2025) 76:117–146 121
+Fig. 3 Back-substitution of the actual displacement ﬁeld for obtaining the two indicators
+2.2 Multiple constitutive models trained by NN
+In this section, we extend the unsupervised machine learning
+method in Sect. 2.1 to handle material heterogeneity. The key
+idea of the proposed model is ﬁrstly to ﬁnd the heterogeneous
+material distribution and divide the entire domain into multi-
+regional subdomains with their own constitutive models and
+material properties, and ﬁnally identify these multi-regional
+constitutive models in one modiﬁed ICNN.
+2.2.1 Identiﬁcation of material distribution
+Assume that the heterogeneous material is homogeneous
+with the same constitutive model having constant parameters
+everywhere. We ﬁrstly try to apply the NN-EUCLID to train
+a ‘homogenized’ constitutive model represented by a free
+energy ˜W trained according to the procedures in Sect.2.1,b y
+which some variables can be extracted to compute indicators
+aiming to ﬁnd heterogeneous material distribution. Here we
+propose two indicators, i.e., the residual nodal force to deter-
+mine the interface position and the free energy to determine
+the material region, respectively. A schematic of obtaining
+these two indicators is provided in Fig. 3.
+(1) Residual nodal forces indicator : The residual nodal
+forces for the a th ﬁnite element node are deﬁned as
+f ar = 2
+√
+( f ax )2 + ( f ay )2 ∀ a ∈ Dfree. (13)
+where
+f ai = ∫/Omega1 ˜Pij ∇ j N a dV − ∫∂/Omega1t ˆti N a dS, i = x, y, (14)
+with
+˜Pij = ∂ ˜W∂ Fij . (15)
+By deﬁning a vector for nodal number N int, we can select
+the nodes at material interfaces by using a criterion for the
+residual nodal force f ar as
+N jint = a,i f f ar >γ (16)
+where N jint is the j th member of N int, γ is a small value
+used for a threshold and a is the nodal number. By combin-
+ing nodes at material interfaces and nodes at outer boundary
+of the ﬁeld, a total vector for selected nodal number N s is
+obtained as
+N s = {N int, N out}, (17)
+where N out denotes the nodal umber for domain boundary
+nodes.
+Correspondingly, the set of all element number E with
+total number is divided into two parts as
+E = {Ein, Es}, (18)
+where Es denotes all the elements containing nodes number
+in N s, and Ein denotes the other elements.
+Furtherly, aneighboring element searching methodis pro-
+posed in this paper. The key idea is to search the neighboring
+elements from a seed element and makes the found elements
+more and more, until the search ends in the material interfaces
+123
+
+===== PAGE 6 =====
+122 Computational Mechanics (2025) 76:117–146
+or outer boundary of the ﬁeld. In this way, all the subdomains
+can be found one by one. The basic process includes:
+a. Search for one subdomain. Randomly select an element
+Eiin ∈ Ein as the seed element, and search its neighboring
+elements Einew = [Einew1 , ... , Einewj , ... Einewn ] by satisfy-
+ing
+N inewj ∩ N iin ⁄= 0, ∀ j = 1, ... , n, (19)
+where N inewj is the set of nodes number of neighboring ele-
+ment Einewj , N iin is the set of nodes number of the seed
+element Eiin. The newly assembled elements set is
+E I =
+{
+Eiin, Einew}, (20)
+where I denotes the Ith subdomain being searched.
+Choose new seed elements in the set E I ∩ Ein to con-
+tinue the search for this subdomain. Repeat the search and
+assembling process in Eqs. ( 19–20) until
+Einew = 0. (21)
+Stop searching for this subdomain and output Ith subdo-
+main’s elements set E I and update the total found element
+set Efound = {E I }.
+b. Search for more subdomains . Randomly select an ele-
+ment E jin from the rest unsegmented domain as the seed
+element,
+E jin ∈ Ein and E jin /∈ Efound. (22)
+Conduct the process from Eq. (19)t oE q .(21), and obtain
+Jth subdomain’s elements set E J and update
+Efound = {E I , E J } (23)
+Repeat Eqs. (22) and (23) to ﬁnd all the other subdomains
+until
+Efound = E (24)
+Then all the subdomains have been found as
+Efound = {E1, ... , E I , ... E M} (25)
+where M is the total number of subdomains.
+A schematic diagram for above searching process is shown
+in Fig. 4.
+Based on the segmentation result, an encoder C1 for eth
+element can be expressed as
+C1(e) = Ii fe ∈ E I (26)
+Then a switch function in the NN introduced in the fol-
+lowing section is deﬁned by
+/Phi1I
+(
+Xegp
+)
+=
+{
+1 C1(e) = I
+0 else , I = 1, ... , M, e = 1, ... , Nm
+(27)
+where Xegp is the reference conﬁguration coordinates of the
+Gauss point in the e th element.
+(2) Free energy indicator: This indicator is the free energy
+for an element calculated via the ‘homogenized’ ICNN-based
+constitutive model ˜W with actual full-ﬁeld displacements,
+for simplicity, this indicator ˆW e is assumed to be constant
+in each element. For the e th element with one Gauss point
+Xegp, this indicator is calculated by
+ˆW e = ˜W(F(Xegp)). (28)
+The k-means algorithm [ 22] is adopted for clustering
+the ˆW =[ ˆW e] to determine the material distributions.
+Firstly, we assume that the domain has k materials, so ˆW
+has k clusters to determine. The goal is to assign all ele-
+ments with total number Nm into k clusters expressed as
+C2(e) = I ∈ {1, 2, ... , k} such that [ 23]
+J
+(
+C2; μ1, ... , μk) = k∑
+I=1
+∑
+C2(e)=I
+‖ ˆW e − μI ‖2 (29)
+attains its minimum, where both encoder C2 : e ↦→ C2(e)
+and the estimated mean μI are to be optimized.
+Note that the number of clusters k in Eq. ( 29) cannot be
+an optimal value and need to be adjusted. In this paper, we
+use the average Silhouette Method [ 24] to address this issue
+by calculating the silhouette coefﬁcient scores deﬁned as:
+Sk(e) = b(e)−a(e)max{a(e), b(e)} , e = 1, 2, .... Nm , (30)
+where
+a(e) = 1n I −1 ∑C2(e)=I , C2(g)=I‖‖‖ ˆW e − ˆW g‖‖‖2, e ⁄= g , (31)
+b(e) = min
+I⁄=L
+1
+nL
+∑
+C2(e)=I , C2(g)=L
+‖‖‖ ˆW e − ˆW g‖‖‖2, L ∈ {1, 2, ... , k} ,
+(32)
+where a(e) denotes the average energy distance from the e th
+element to the other elements in the same cluster, b(e) is the
+minimum average energy distance from thee th element to all
+elements in a different cluster, minimized over the clusters,
+and nI is the number of elements with the same cluster index
+I ,s oi s nL . The silhouette scores range from –1 to 1, and
+the number of clusters with the silhouette scores closest to
+123
+
+===== PAGE 7 =====
+Computational Mechanics (2025) 76:117–146 123
+Fig. 4 Schematic diagram for the process of segmenting subdomains
+1 is considered the optimal number of clusters, since the
+silhouette value that approaches 1 indicates that the element
+is well matched to its own cluster, and poorly matched to
+other clusters [ 25].
+Finally, the optimal k can be obtained by
+k = arg max
+{
+Sk}, (33)
+where Sk is the average silhouette score of all elements in
+the domain with k clusters.
+Thus, the pointwise switch function /Phi1I in the following
+section can also be deﬁned by
+/Phi1I
+(
+Xegp
+)
+=
+{
+1 C2(e) = I
+0 else , I = 1, ... , k, e = 1, ... , Nm.
+(34)
+Consider an example of a square heterogeneous hyperelas-
+tic domain containing a circular inclusion shown in Fig. 5a,
+and a uniform background ﬁnite element mesh is used as
+in Fig. 5b. Here we set both the inclusion and matrix as
+Neo-Hookean models, while the shear moduli μ and bulk
+moduliκ of the inclusion differ from those of the surrounding
+matrix, i.e., μi = 5.4, κi = 18 for inclusion, and μm = 1.8,
+κm = 6 for matrix. If we assume that both the matrix and
+inclusion have the exact same material properties and that a
+homogenized constitutive model ˜W is trained, the full-ﬁeld
+displacement is substituted into Eqs. ( 13–15) to calculate
+residual nodal forces. As shown in Fig. 6, the contour of f ar
+indicates the interface boundary, because the values of f ar at
+the interface are noticeably larger than those at the surround-
+ing nodes. As shown in Fig. 7, ˆW e is noticeably different
+from one region to another when substituting the real defor-
+mations into the homogenized constitutive model.
+We furtherly make an ablation study on the use of the
+‘homogenized’ constitutive model in Sect. 2.2.1, in which
+the trained homogeneous ICNN model and three standard
+hyperelastic models (see Table 1 for details), are used to ﬁnd
+material distribution respectively. The results in Fig. 8 show
+that both the standard hyperelastic model and the trained
+homogeneous model are effective to ﬁnd material distribu-
+tion. Consider that the standard hyperelastic model is more
+concise to implement, therefore, we use the standard hypere-
+lastic model for homogenized materials in the identiﬁcation
+of material distribution in this work.
+123
+
+===== PAGE 8 =====
+124 Computational Mechanics (2025) 76:117–146
+Fig. 5 Problem setting. a True material distribution and boundary conditions. b Uniform background ﬁnite element meshes
+Fig. 6 Results of identiﬁed inclusion distribution based on residual nodal forces indicators. a Residual nodal forces indicator. b Identiﬁed interfaces.
+c Identiﬁed material regions
+2.2.2 Extended ICNN for heterogeneous materials
+When the heterogeneous material distribution is found
+according to Sect. 2.2.1, we perform constitutive modeling
+identiﬁcation for all multiple regions together. In this paper,
+we use triangular elements and assume that the constitutive
+model within each element is the same, with energy and stress
+being uniform throughout the element. Therefore, we refer to
+the constitutive response as "element-wise" in the following
+text. The NN is improved by introducing additional neurons
+and switch function in Eqs. ( 27)o r( 34) to mark a speciﬁc
+constitutive model that one space point belongs to. This mod-
+iﬁed ICNN for multiple constitutive models can be viewed
+in Fig. 9, which we denote as the MICNN model. We give
+the modiﬁed W NNϱ as follows:
+Input layer : F, X (35a)
+Invariants layer of size d0:
+z(0) =[/Phi1/Omega11 (X)L, .../Phi1 /Omega1i (X)L, .../Phi1 /Omega1n (X)L]
+with n the number of the non - homogeneous regions (35b)
+kth hidden layer of size dk :
+z(k) = F(G( A(k))z(k−1) + B(k) z(0) + c(k)) (35c)
+Output(N th) layer of size dN :
+W NNϱ = z(N) = G( A(N))z(N−1) + G(B(N))z(0) + c(N).
+(35d)
+123
+
+===== PAGE 9 =====
+Computational Mechanics (2025) 76:117–146 125
+Fig. 7 Results of identiﬁed inclusion distribution based on free energy indicator. a Free energy indicators. b Identiﬁed material regions
+Table 1 Types of models used in the ablation study to identify material regions
+Type Expression Parameters (MPa)
+ICNN model ˜W NN −
+Neo-Hookean model ˜W st1 = 12 μ(I 1 − 3) + 12 κ(J − 1)2 μ = 1, κ = 50
+Holzapfel-Gasser-Ogden model ˜W st2 = 12 μ(I 1 − 3) + 12 κ(J − 1)2 + k12k2 ∑i=4, 6(ek2(I i −1)2 − 1) μ = 1, κ = 50,k1 = 10, k2 = 1
+Mixed model ˜W st3 = 12μ(I 1 − 3) + 12κ(J − 1)2 + C01(I 2 − 3)
++ C20
+(
+I 1 − 3
+)2 + k1
+2k2
+∑
+i=4, 6
+(
+ek2
+(
+I i −1
+)2
+− 1
+)
+μ = 1, κ = 50,
+k1 = 10, k2 = 1,
+C01 = 5, C20 = 5
+The switch function /Phi1/Omega1i in Eq. ( 35b) is written as
+/Phi1/Omega1i (X) =
+{
+1 X ∈ /Omega1i
+0 X ∈ /Omega1\/Omega1i
+, (36)
+which returns a value of 1 for the data coordinate information
+when it belongs to a speciﬁc region /Omega1i , and 0 otherwise.
+The strain invariant library L in Eq. (35b) is deﬁned as
+L =
+[
+I 1 − 3, I 2 − 3, (J − 1)2,(I ai − 1)2,(I bi − 1)2, ...]T ,
+(37)
+These strain invariant features are then computed as fol-
+lows:
+V olumetric invariant:J = det(F)
+Isotropic deviatoric invariants : I 1 = J−2/3 I1, I 2 = J−4/3 I2
+Anisotropic deviatoric invariants :
+I ai = J−2/3(ai · Ca i), I bi = J−2/3(bi · Cbi), ... , (38)
+where
+I1 = tr (C), I2 = 12[tr(C)2 − tr(C2)] (39)
+are the principal invariants of tensor C.
+2.3 Data generation
+We simulate DIC experiments using the FEM with linear
+triangular elements [ 26]. Generally, asymmetric biaxial dis-
+placement loading is applied, and the full-ﬁeld displacements
+and reaction forces are recorded at all the load steps.
+To test the proposed method, we assign the following dif-
+ferent well-known hyperelastic models and combine them in
+different ways:
+1. Neo–Hookean model (NEO) [ 27]:
+123
+
+===== PAGE 10 =====
+126 Computational Mechanics (2025) 76:117–146
+Fig. 8 Results of the ablation study on the use of different types of models to identify material regions. a Trained ICNN model. b Neo-Hookean
+model. c HGO model. d Mixed model
+W NEO = 12μ(I 1 − 3) + 12κ(J − 1)2 (40)
+2. Isihara model (IH) [ 28]:
+W IH = 12μ(I 1 − 3) + C01(I 2 − 3) + C20(I 1 − 3)2
++ 12κ(J − 1)2 (41)
+3. Gent-Thomas model (GT) [ 29]:
+W GT = 12μ(I 1 − 3) + C2 ln( I 23 ) + 12κ(J − 1)2 (42)
+4. Modiﬁed Blatz model (MBZ) [ 30]:
+W MBZ = μ2γ
+(
+eγ
+(
+I 1−3
+)
+− 1
+)
++ 12κ(J − 1)2 (43)
+5. Anisotropic Holzapfel–Gasser–Ogden model (HGO)
+[31]:
+W HGO = 12μ(I 1 − 3) + 12κ(J − 1)2
++ k1
+2k2
+∑
+i=4, 6
+(
+ek2
+(
+I i −1
+)2
+− 1
+)
+(44)
+123
+
+===== PAGE 11 =====
+Computational Mechanics (2025) 76:117–146 127
+Fig. 9 Schematic of the MICNN for heterogeneous hyperelasticity
+The expressions of the ﬁrst Piola–Kirchhoff stress for the
+above constitutive models can also be found in references
+[27–31].
+2.4 Measurement noise
+Assume that lengths and displacements are normalized with
+respect to the side length of the undeformed specimen [ 13].
+In DIC, the minimum noise value is usually 0.01 pixel, and
+may vary between 0.01 and 0.05 pixels [ 32]. Assume the
+normalized ﬁeld of view is 1 and 100 pixels are used, then
+the minimum noise is 1 × 10−4 and the noise would vary
+between 1 × 10−4 and 5 × 10−4 (normalized with the plate
+quadrant length). To consider the impact of measurement
+error on identiﬁcation, we add artiﬁcial white noise to the
+measured displacement data by [ 11],
+(45)
+where ufem, a, ti and δa, ti denote the measurement information
+without any noise and random noise, respectively;δa, ti repre-
+sents the Gaussian white noise with zero mean and standard
+deviation σu ranging between 10−4 and 5 × 10−4.
+3 Numerical examples
+All the NN models were trained on PC using Nvidia GeForce
+RTX4080 with 16 GB memory size and the CUDA toolkit
+11.6.1. We test the performance of the proposed method
+with three numerical examples. The ICNN structure and
+training protocol used can be found in Table 2. Due to the ill-
+posedness and sensitivity to the initial guess of weights, we
+create an ensemble consisting of independentne = 10 ICNN
+models with the same structure but different random weight
+initializations. Following the selection method in previous
+NN-EUCLID work [ 13], the ICNN models with a ﬁnal loss
+within lowest 10% are accepted, while others are rejected.
+In this paper, the element-wise relative errors of free
+energy Err We and von Mises stress Err σe are ﬁrstly deﬁned
+to evaluate the accuracy of the proposed method
+Err We =
+⏐⏐⏐⏐(We−W Te )W Te ⏐⏐⏐⏐ × 100%, Err σe =⏐⏐⏐⏐(σe−σ Te )σ Te ⏐⏐⏐⏐ × 100%,
+(46)
+123
+
+===== PAGE 12 =====
+128 Computational Mechanics (2025) 76:117–146
+Table 2 Hyperparameters used in training ICNN
+Number of hidden layers N −
+1
+3
+Number of neurons in each hidden layer ( k = 1,
+…, N − 1)
+dk 64
+Dropout rate in hidden layers − 20%
+Scaling parameter in G cG 1
+Scaling parameter in F cF 1/12
+Number of models in the ensemble ne 10
+Number of epochs − 500
+Learning rate schedule − cyclic
+Base learning rate − 0.001
+Maximum learning rate − 0.1
+Learning rate cycle upward steps − 50
+Learning rate cycle downward steps − 50
+where We and W Te are the identiﬁed energy value and true
+value at e th element, respectively, and similarly, σe and σ Te
+are the identiﬁed von Mises stress and true von Mises stress
+at e th element. Furtherly, the element-wise relative errors
+are processed as max relative error and average relative error
+of full-ﬁeld, which are given as
+E Wmax = max{Err We }, Eσmax = max{Err σe }, e = 1, 2, ... , Nm
+(47)
+and
+E Wave = 1Nm
+Nm∑
+e=1
+Err We , Eσave = 1Nm
+Nm∑
+e=1
+Err σe , (48)
+where E Wmax and Eσmax represents the max relative error of
+free energy and von Mises stress, respectively, E Wave and Eσave
+represents the average relative error of free energy and von
+Mises stress, respectively.
+3.1 A plate with two elliptical inclusions
+Consider a heterogeneous square domain with two elliptical
+inclusions under biaxial tension as shown in Fig. 10a. Five
+constitutive models are considered as shown in Table 3,i n
+which the ﬁrst two cases assume all the components have the
+same constitutive models, while the other cases assume the
+constitutive models are different in each component. These
+classic constitutive models used to test the method are pro-
+vided in previous Sect. 2.3. The domain is discretized by
+10,000 uniform triangular ﬁnite elements and 5101 nodes as
+shown in Fig. 10b. The parameters of loadings along with,
+the loading steps for training and testing are given in Table4.
+For the ﬁrst step of heterogeneous material distribution
+identiﬁcation, the identiﬁcation results are provided in Fig.11
+for ﬁve cases of material combinations in Table 3.T h em a t e -
+rial interfaces or material region can be accurately identiﬁed
+for the residual nodal force indicator and free energy indica-
+tor, respectively.
+For the second step of identiﬁcation, we use the pro-
+posed constitutive identiﬁcation method within subdomains,
+as described in Sect. 2.2.2, by which three constitutive mod-
+els are trained together from the MICNN. The identiﬁcations
+for the NEO-NEO-NEO model and the IH-IH-IH model are
+shown in Fig. 12. We plot the energy and stress curves for
+three feature points (A, B and C) within the domain shown
+in Fig. 10a and compare the results with those of the theo-
+retical model. The results demonstrate that the energy and
+PK1 stress obtained using the proposed heterogeneous con-
+stitutive identiﬁcation method are well consistent with the
+reference solutions provided by the theoretical model, as
+shown in Fig. 12. The results in Fig. 12b indicate that, even
+Fig. 10 A square plate with two
+elliptical inclusions. a Geometry
+and boundary conditions. b Mesh
+123
+
+===== PAGE 13 =====
+Computational Mechanics (2025) 76:117–146 129
+Table 3 Material parameters
+Case 1: NEO-NEO-NEO
+Region /Omega1 Material μ(MPa) κ(MPa)
+IN E O 5 .41 5
+II 0 .94
+III 1 .86
+Case 2: IH-IH-IH
+Region /Omega1 Material μ(MPa) κ(MPa) C01(MPa) C20(MPa)
+II H 4 2 1 0 .50 .3
+II 1 6 0 .20 .4
+III 2 10 1 .21
+Case 3: NEO-NEO-HGO
+Region /Omega1 Material μ(MPa) κ(MPa) k1(MPa) k2(−) θ
+IN E O 5 .41 8 −− −
+II NEO 0 .93 −− −
+III HGO 1 .86 0 .90 .83 0
+◦
+Case 4: NEO-MBZ-HGO
+Region /Omega1 Material μ(MPa) κ(MPa) γ (−) k1(MPa) k2(−) θ
+IN E O 6 3 2 −− − −
+II MBZ 1 20 5 −− −
+III HGO 2 10 − 0.82 6 0
+◦
+Case 5: GT-MBZ-IH
+Region /Omega1 Material μ(MPa) κ(MPa) C01(MPa) C20(MPa) C2(MPa) γ (−)
+IG T 1 8 −− 1 −
+II MBZ 6 .43 0 −−− 5
+III IH 2 10 1 .21 −−
+Table 4 Loading parameters and training data
+Cases Total displacement
+Loadings
+Number of loading steps Loading steps used for training data (numbers of steps
+used)
+1: NEO-NEO-NEO δx =− 0.15, δy =− 0.33 0 S t e p = 3, 6, 9, 12, 15. (5)
+2: IH-IH-IH δx = 0.3, δy = 0.66 0 S t e p = 10, 20, 30, 40, 50. (5)
+3: NEO-NEO-HGO δx = 0.25, δy = 0.55 0 S t e p = 4, 8, 12 … 36, 40. (10)
+4: NEO-MBZ-HGO δx = 0.25, δy = 0.55 0 S t e p = 4, 8, 12 … 36, 40. (10)
+5: GT-MBZ-IH δx = 0.25, δy = 0.55 0 S t e p = 4, 8, 12 … 36, 40. (10)
+when considering only the linear term I 1 in the strain invari-
+ant library L (while the true Isihara constitutive model within
+the domain follows a quadratic function with respect to I 1),
+the numerical results that are consistent with the theoreti-
+cal model can be identiﬁed. In addition, the identiﬁcation
+results combining of the GT-MBZ-IH model, the NEO-NEO-
+HGO model and the NEO-MBZ-HGO model show good
+agreement with the reference solutions, as shown in Fig. 13.
+Although the models used in this example have different
+123
+
+===== PAGE 14 =====
+130 Computational Mechanics (2025) 76:117–146
+Fig. 11 Identiﬁcation of material distribution. a Contour of residual nodal forces indicator f ar . b Contour of free energy indicator ˆW e
+123
+
+===== PAGE 15 =====
+Computational Mechanics (2025) 76:117–146 131
+Fig. 12 Testing results of the
+MICNN model.
+a NEO-NEO-NEO model.
+b IH-IH-IH model
+123
+
+===== PAGE 16 =====
+132 Computational Mechanics (2025) 76:117–146
+Fig. 13 Testing results of the MICNN model. a GT-MBZ-IH case. b NEO-NEO-HGO case. (c) NEO-MBZ-HGO case
+123
+
+===== PAGE 17 =====
+Computational Mechanics (2025) 76:117–146 133
+Fig. 14 Ablation study on
+different cases of training
+dataset. a Step-wise relative error
+of identiﬁed free energy results.
+b Step-wise relative error of
+identiﬁed von Mises stress results
+123
+
+===== PAGE 18 =====
+134 Computational Mechanics (2025) 76:117–146
+Fig. 15 Noise investigation for IH-IH-IH case. a σu = 10−4. b σu = 5 × 10−4
+forms, it is demonstrated that the proposed model can effec-
+tively identify them together. In addition, even when the strain
+invariant library L includes only the linear terms of I 1 − 3,(
+I ai − 1)2, and(I bi − 1)2 (while the true (hidden) constitu-
+tive model within the domain follows an exponential function
+with respect to these invariants), the method is still able to
+achieve accurate constitutive responses with the exponential
+feature missing in the strain invariants layer.
+Moreover, an ablation study is conducted for IH-IH-IH
+case to investigate the impact of the components of the
+machine learning system on the performance of the system
+[33]. Speciﬁcally, the inﬂuence of the selection of the training
+data is tested for this example, by using ﬁve groups of data,
+as given in Fig. 14, Case 1–5. The relative errors in identiﬁed
+energy and stress results for total 60 loading steps at feature
+point B are shown in Fig. 14, in which it is found that as the
+numbers of the selected data for training increase from Case
+1 to Case 3, the max relative error of energy decreases from
+4.17 to 0.25% (see Fig. 14a) and von Mises stress accord-
+ingly decreases from 9.54 to 0.23% (see Fig. 14b). In the
+meantime, by comparing the result of Case 4 and Case 5, in
+which the same amount of data is used for training, obviously
+Case 4 achieves better results, the reason may be that a larger
+123
+
+===== PAGE 19 =====
+Computational Mechanics (2025) 76:117–146 135
+Fig. 16 Full-ﬁeld relative error of von Mises stress under different levels of noise for theGT-MBZ-IH case. a σu = 0. b σu = 10−4. c σu = 5× 10−4
+range of data provides more useful information for training
+of the NN.
+The noise inﬂuence for IH-IH-IH case is shown in Fig.15.
+Under lower noise conditions (σu = 10−4), the identiﬁcation
+results are relatively good, as shown in Fig. 15a. While there
+is a larger deviation at A in the results as the noise level
+increases, the reason is that we introduced absolute displace-
+ment noise, which produces a large relative error for the point
+with very small displacement, leading to a larger deviation
+in the identiﬁcation results at those area.
+And the inﬂuence analysis of the measurement noise for
+GT-MBZ-IH case is shown in Fig. 16, where the contours of
+the relative errors of the von Mises stress under different lev-
+els of noises are given. At low noise, the stress reconstruction
+results are relatively good, with a full-ﬁeld maximum rela-
+tive error Eσmax less than 4.14% for σu = 0 and 15.17% for
+σu = 10−4. As the noise increases, the errors of identiﬁcation
+results at inclusion II have a larger increase than any other
+regions. The maximum relative error Eσmax reaches 51.20%
+at inclusion II for σu = 5 × 10−4, while mean relative error
+Eσave of full-ﬁeld is 4.18%. The reason may be that the MBZ
+constitutive at II is more sensitive to noises [ 30].
+The computational cost for one-time identiﬁcation is given
+in Tables 5 and 6. First, the computational cost increases
+123
+
+===== PAGE 20 =====
+136 Computational Mechanics (2025) 76:117–146
+Table 5 CPU time for one-time identiﬁcation of constitutive models for
+the IH-IH-IH case (hours)
+The number of loading
+steps used for input of
+NN
+581 0
+Identiﬁcation of material
+distribution
+0.04 0.04 0.04
+Identiﬁcation of multi-regional
+constitutive models
+0.57 0.65 0.72
+Total time 0.61 0.69 0.76
+Table 6 CPU time for discovering the GT-MBZ-IH, NEO-NEO-HGO
+and NEO-MBZ-HGO cases (hours)
+Combination of different constitutive models
+GT-MBZ-
+IH
+NEO-NEO-
+HGO
+NEO-MBZ-HGO
+Identiﬁcation
+of
+material
+distribu-
+tion
+0.05 0.05 0.05
+Identiﬁcation
+of multi-
+regional
+properties
+0.76 0.77 0.75
+Total time 0.81 0.82 0.80
+when more loading steps of measurement information are
+used, the reason may be that more measurement information
+used also produces more computational cost for the loss func-
+tion in the NN. Second, the form of the constitutive model
+has only a slight impact on the computational cost of the NN.
+Moreover, the inﬂuence of the number of subdomains is
+investigated. As it is shown in Fig. 17, as the number of
+subdomains increases 2.3 times from 3 to 7, the computa-
+tion time for the proposed model increases 1.16 times from
+0.57 to 0.66 h, indicating that the use of one neural network
+with extended ﬁrst neuron layer is effective to build a uni-
+ﬁed expression for multi-regional constitutive models with a
+reasonable increase of computation time.
+3.2 Irregular inclusion embedded in the domain
+with layered materials
+This example considers the identiﬁcation of the constitutive
+model of an inclusion in a rectangular domain with irregular
+material interfaces, as shown in Fig.18. Also, as we proposed
+two indicators to identify the distribution of heterogeneous
+Fig. 17 CPU time when artiﬁcially increasing subdomains
+Fig. 18 A plate with an irregular inclusion: geometry and boundary
+conditions
+materials, in this section, we use the distribution results iden-
+tiﬁed by the two indicators respectively to conduct the second
+step of constitutive relationship identiﬁcation. The constitu-
+tive parameter settings can be found in Table 7. This domain
+is discretized by three mesh densities with 2400, 9600 and
+38,400 uniform triangular ﬁnite elements. A biaxial tension
+(δx = 0.6, δy = 0.3) is applied. In order to consider realistic
+full-ﬁeld measurements, we kept the full-ﬁeld measurement
+to be constant and only the mesh for identiﬁcation varies, in
+which the measurement is taken from using 38,400 uniform
+triangular ﬁnite meshes. And the full-ﬁeld displacements are
+given in Fig. 19.
+For the residual nodal force indicator, the identiﬁcation
+results for boundary shape are shown in Fig. 20.A st h e
+density of the background element decreases, the identiﬁed
+boundaries become increasingly blurred. Based on the identi-
+ﬁed distribution in Fig. 20a, we proceed with the second step
+of the identiﬁcation process, which involves identifying the
+123
+
+===== PAGE 21 =====
+Computational Mechanics (2025) 76:117–146 137
+Table 7 Material parameter settings for the IH-HGO-GT case
+Region /Omega1 Material μ (MPa) κ (MPa) C2 (MPa) C01 (MPa) C20 (MPa) k1 (MPa) k2 (−) θ (−)
+I IH 1.8 10 – 1.2 0.8 – – –
+II HGO 1.44 12 – – – 2 1.2 π/3
+III GT 3.6 25 2 – – – – –
+Fig. 19 Full-ﬁeld displacements from 38,400 uniform triangular ﬁnite meshes
+Fig. 20 Identiﬁed heterogeneous boundary using residual nodal force indicator. a 38,400 elements. b 9600 elements. c 2400 elements
+123
+
+===== PAGE 22 =====
+138 Computational Mechanics (2025) 76:117–146
+Fig. 21 Identiﬁed free energy and PK1 stress results using the residual nodal force indicator
+constitutive behavior within the domain. As shown in Fig.21
+for the identiﬁed energy and PK1 stress, the results show good
+agreement between the identiﬁed constitutive model and the
+theoretical model.
+For the free energy indicator, the identiﬁcation results for
+material distribution are shown in Fig. 22. As the mesh den-
+sity decreases from 38,400 to 2400, the error in identifying
+the inclusion boundary becomes larger. Although there is
+some identiﬁcation error for free energy and stress at the
+inclusion region especially at material interfaces when using
+the free energy indicator as shown in Fig. 23, the full-ﬁeld
+average relative error E Wave and Eσave still remains less than
+3.2% and the ﬁnal loss /Psi1 decreases when the number of
+elements increases as shown in Fig. 24.
+The time cost of one-time constitutive discovery for the
+IH-HGO-GT case is given in Table8, which indicates that the
+number of meshes has an impact on computational efﬁciency.
+3.3 Identification of constitutive models
+with different levels of damage
+A plate with a hole under tension and boundary conditions
+is considered in this example as shown in Fig. 25. Based on
+continuum damage mechanics, the free energy of damaged
+soft biological tissue can be written as
+W′ = fd × W , (49)
+where W′ is the free energy for the tissue,W is the free energy
+for undamaged tissue, and the damage function fd [34, 35]
+can be deﬁned as
+123
+
+===== PAGE 23 =====
+Computational Mechanics (2025) 76:117–146 139
+Fig. 22 Identiﬁed material distribution using free energy indicators under different FE meshes.a 38,400 elements. b 9600 elements. c 2400 elements
+Fig. 23 Relative error ﬁelds of identiﬁed free energy and von Mises stress under different FE meshes. a 2400 elements. b 9600 elements. c 38,400
+elements
+123
+
+===== PAGE 24 =====
+140 Computational Mechanics (2025) 76:117–146
+Fig. 24 Final loss results and average relative errors under different FE meshes. a Final loss /Psi1. b Average relative errors E Wave and Eσave
+Table 8 CPU time for identiﬁcation of constitutive model for a rectan-
+gular domain with irregular inclusion
+Time cost for
+identiﬁcation of
+material
+distribution
+(hours)
+Time cost for
+identiﬁcation of
+multi-regional
+properties (hours)
+Total
+(hours)
+2400
+elements
+0.02 0.62 0.64
+9600
+elements
+0.05 0.90 0.95
+38,400
+elements
+0.08 1.15 1.23
+(50)
+where is a scalar internal damage variable.
+To simulate a damaged plate state in the plate, the regions
+and levels of damage are set as shown in Fig. 25a according
+to the simulation results in our previous work [36]. Note that
+although damage continuously varies in the domain, we set
+the damage constant in each subdomain for simplicity, and
+the value of the regional damage function fd can be found
+in Table 9. The domain is discretized by 18,195 triangular
+elements as shown in Fig. 25b. The free energy for undam-
+aged tissue W is set as the HGO model with the parameters
+provided in Table 9. In the generation of measurement data
+for the MICNN, a linear varying loading (δy =− 0.3x + 0.6,
+when y = 1) is applied at the top boundary, and totally 50
+steps of loading are used. Every 4th step (i.e., steps 4, 8, …
+36, 40) is selected to create a training dataset consisting of a
+total of 10 steps. The entire dataset of 50 steps is used to test
+the best trained model.
+In the ﬁrst step, we identify the regions with energy indi-
+cator, and the results are shown in Fig. 26. It is shown that
+the energy indicator cannot correctly identify the material
+distribution in this example, the reason could be that there
+is the use of highly continuously changing traction and the
+existence of a hole, producing complex strain ﬁeld and mak-
+ing the difference of free energy indicators in subdomains
+not obvious enough to identify material distribution. In order
+to prove this point, a rectangular domain without a hole but
+with similar material distribution is tested using data from
+uniform biaxial traction, as shown in Fig. 26, in which the
+material distribution is identiﬁed much better.
+Furtherly, in order to improve the performance of free
+energy indicator on the identiﬁcation results of material dis-
+tribution, we use a uniform biaxial traction for acquiring
+material regions in this example. As it is shown in Fig. 27,
+the identiﬁed material regions are much improved, although
+there are still some errors in region near the hole, where
+there exists a relatively rapidly changing stress. Based on
+the obtained material distribution, the constitutive models
+are identiﬁed and the relative error of von Mises stress are
+provided in Fig. 28, it is shown the accuracy of results is
+acceptable as the average error for stress is 6.64%.
+For the residual nodal force indicator, the results are shown
+in Fig. 29. The domain is divided by combining identiﬁed
+inner interfaces and outer boundaries, and the segmentation
+is completed. The results indicate that the residual nodal force
+indicator provides a good identiﬁcation of material distribu-
+tions.
+We further identify the constitutive model for each sub-
+domain based on above identiﬁed material distribution. The
+results of energy and stress with identiﬁed constitutive mod-
+els are shown in Fig. 30, these results in the ﬁve regions
+agree well with the reference solutions. To test the inﬂuence
+123
+
+===== PAGE 25 =====
+Computational Mechanics (2025) 76:117–146 141
+Fig. 25 A circular hole square
+plate assuming damaged zones.
+a Geometry and boundary
+conditions. b Mesh
+Table 9 Setting of HGO material parameters and values of fd within the domain
+HGO material parameters Levels of damage fd
+μ (MPa) κ (MPa) k1 (MPa) k2 (−) θ (−) I II III IV V
+2.8 10 0.9 0.8 π/6 1 0.9 0.35 0.12 0.04
+Fig. 26 Comparison of identiﬁed material regions with and without open-hole using free energy indicator. a True material distributions. b Contour
+of free energy indicators. c Contour of clusters
+123
+
+===== PAGE 26 =====
+142 Computational Mechanics (2025) 76:117–146
+Fig. 27 Identiﬁed material distribution with biaxial uniform tractions using free energy indicator. a True material distributions. b Contour of free
+energy indicators. c Contour of clusters
+Fig. 28 Relative error ﬁeld of identiﬁed von Mises stress using free
+energy indicators
+of the measurement noise, in which the contours of the rel-
+ative errors of the von Mises stress under different levels of
+noises are given in Fig.31. When there is no noise introduced,
+the identiﬁcation results are good, with an average relative
+error Eσave less than 3%. With noise levels of σu = 10−4
+and σu = 5 × 10−4, the average relative error for the identi-
+ﬁed von Mises stress Eσave increase to 16.86% and 33.94%,
+respectively. Moreover, the computational cost for identify-
+ing damaged tissue properties is provided in Table 10.
+Fig. 29 Identiﬁed heterogeneous boundary using residual nodal force indicator. a Residual nodal force indicator. b Identiﬁed inner interfaces and
+outer boundaries. c Identiﬁed regions
+123
+
+===== PAGE 27 =====
+Computational Mechanics (2025) 76:117–146 143
+Fig. 30 Identiﬁed free energy and PK1 stress results
+123
+
+===== PAGE 28 =====
+144 Computational Mechanics (2025) 76:117–146
+Fig. 31 Contours of relative errors of von Mises stress under different levels of noise. a σu = 0. b σu = 10−4. c σu = 5 × 10−4
+Table 10 CPU time for identifying damaged tissues properties
+Identiﬁcation of
+material
+distribution (hours)
+Identiﬁcation of
+multi-regional
+properties (hours)
+Total
+(hours)
+CPU
+time
+0.06 0.91 0.97
+4 Conclusion and outlook
+In recent years, signiﬁcant progress has been made in the
+development of an unsupervised framework proposed by
+Flaschel et al. [ 11] and S. Kumar et al. [ 13] for identifying
+constitutive models and parameters using neural networks.
+This framework eliminates the need for stress data and
+prior knowledge of the speciﬁc form of constitutive mod-
+els during the machine learning process. However, whilst
+previous studies have mainly focused on identiﬁcation of sin-
+gle constitutive model in homogeneous materials, this paper
+introduces a new unsupervised deep learning method specif-
+ically designed for heterogeneous materials.
+The unsupervised machine learning system proposed in
+this article has two steps. Firstly, two material distribution
+indices are deﬁned to identify non-homogeneous material
+interfaces. Speciﬁcally, two indicators are deﬁned includ-
+ing the residual nodal force and element-wise free energy.
+The essential idea is to use the imbalance on the material
+interface when both the actual deformation ﬁeld in hetero-
+geneous material and the homogenized constitutive model
+123
+
+===== PAGE 29 =====
+Computational Mechanics (2025) 76:117–146 145
+are used. Secondly, a new NN is established by extending
+neurons in the ﬁrst layers, utilizing switch function at the
+basic layer of the neural network. This enables the identi-
+ﬁcation of multi-region constitutive models by considering
+the spatial relationships between different material regions.
+The effectiveness of the proposed model is validated through
+numerical examples. In the ﬁrst example, the focus is on
+regional constitutive identiﬁcation using full-ﬁeld displace-
+ment data generated from materials with spatially varying
+constitutive parameters, as well as when multiple material
+combinations exist within the domain. The proposed method
+demonstrates accurate energy and stress identiﬁcation, even
+in situations where the speciﬁc distribution and form of
+constitutive models are unknown. Furthermore, this paper
+explores the application of the proposed method in identify-
+ing constitutive models for irregular inclusion embedded in
+layered materials. While the residual nodal force indicator
+may be sensitive to the threshold and the energy indicator
+may produce some errors in region identiﬁcation due to the
+use of triangular elements, both indicators can approximately
+determine the material distribution or interface. Finally, the
+potential application of the proposed method to identify the
+post-damage mechanical behavior of soft tissues was shown.
+In the above all examples, it is shown that both the residual
+nodal force and energy indicators can generally ﬁnd material
+distribution well, although the performance energy indicator
+could be sensitive with the use of traction boundary condi-
+tions and inner complex shape of inclusions or voids.
+A limitation of the work is the requirement of full-ﬁeld
+measurement information, which could be difﬁcult to obtain
+in some cases, e.g., the inner point of living tissue or three-
+dimensional samples. In future work, the possibility to use
+reduced measurement input will be studied, for instance,
+e.g., only the deformation on boundary or material inter-
+faces. This will generalize the applicability of the proposed
+method easier to apply in real problems. Another limitation
+of this work is that there is a need of sharp boundary between
+two regions with different properties, therefore some special
+methods or simpliﬁcations are required for smooth transition
+between two materials. Another main limitation of the pro-
+posed method is the lack of application to real data. Now that
+the method has been introduced and assessed with simulated
+data, this will be considered in future work, with challenges
+related to experimental bias and other uncertainty and imper-
+fections. Besides, some unsupervised learning approaches,
+like PCA (Principal component analysis) [ 37], will be con-
+sidered in our future work. In these methods, the training
+data consists of a set of inputs without any corresponding
+targets [38], and usually a low dimensional representation is
+achieved to improve the computational efﬁciency [ 39].
+In summary, this paper presents a new unsupervised deep
+learning method for heterogeneous materials, addressing
+the challenges of regional and heterogeneous constitutive
+identiﬁcation. The proposed method has numerous poten-
+tial applications in the ﬁeld of biomedical engineering. For
+instance, the proposed method can be used directly to con-
+struct a multi-regional constitutive model based on medical
+images of soft tissue, like the arterial inner wall or normal
+tissue with tumors, thus the mechanical stress–strain rela-
+tionships for all the components of tissues can be obtained
+together in NN formulas without any assumption of classic
+hyperelastic models. Moreover, these identiﬁed constitutive
+models can be conveniently applied into numerical simula-
+tions of the tissues of interest.
+Acknowledgements Y .H. is funded by the NSFC Grants (12072063,
+11972109), the Grants of State Key Laboratory of Structural Analy-
+sis for Industrial Equipment (S22403, GZ21104), and Alexander von
+Humboldt Foundation (1217594). J. C. is funded by the Federal Min-
+istry of Education and Research (Bundesministerium für Bildung und
+Forschung, BMBF) under the funding reference 161L0272 and also
+supported by the Ministry of Culture and Science of the State of North
+Rhine-Westphalia (Ministerium für Kultur und Wissenschaft des Lan-
+des Nordrhein-Westfalen, MKW NRW) in Germany. K.H is funded by
+the International Visiting Professor Program in DUT.
+References
+1. Marino M (2019) Constitutive modeling of soft tissues.
+Ency Biomed Eng. https://doi.org/10.1016/B978-0-12-801238-3.
+99926-4
+2. Marwala T (2010) Finite element model updating using computa-
+tional intelligence techniques. Springer 511:147–158
+3. Grédiac M, Pierron F, Avril S, Toussaint E (2008) The virtual ﬁelds
+method for extracting constitutive parameters from full-ﬁeld mea-
+surements: a review. Strain 42:233–253
+4. Fernandez M, Jamshidian M, Bohlke T, Kersting K, Weeger
+O (2021) Anisotropic hyperelastic constitutive models for
+ﬁnite deformations combining material theory and data-driven
+approaches with application to cubic lattice metamaterials. Comput
+Mech 67:653–677
+5. Klein DK, Fernández M, Martin RJ, Neff P , Weeger O (2022) Poly-
+convex anisotropic hyperelasticity with neural networks. J Mech
+Phys Solids 159:104703
+6. Leﬁk M, Schreﬂer BA (2003) Artiﬁcial neural network as an incre-
+mental non-linear constitutive model for a ﬁnite element code.
+Comput Methods Appl Mech Eng 192:3265–3283
+7. Bessa MA, Bostanabad R, Liu Z, Hu A, Apley DW, Brinson C,
+Chen W, Liu WK (2017) A framework for data-driven analysis of
+materials under uncertainty: countering the curse of dimensionality.
+Comput Methods Appl Mech Eng 320:633–667
+8. Mozaffar M, Bostanabad R, Chen W, Ehmann K, Cao J, Bessa MA
+(2019) Deep learning predicts path-dependent plasticity. Proc Natl
+Acad Sci USA 116:26414–26420
+9. Linka K, Kuhl E (2023) A new family of Constitutive Artiﬁcial
+Neural Networks towards automated model discovery. Comput
+Methods Appl Mech Eng 403:115731
+10. Y ang H, Guo X, Tang S, Liu WK (2019) Derivation of het-
+erogeneous material laws via data-driven principal component
+expansions. Comput Mech 64:365–379
+11. Flaschel M, Kumar S, De Lorenzis L (2021) Unsupervised dis-
+covery of interpretable hyperelastic constitutive laws. Comput
+Methods Appl Mech Eng 381:113852
+123
+
+===== PAGE 30 =====
+146 Computational Mechanics (2025) 76:117–146
+12. Flaschel M, Kumar S, De Lorenzis L (2023) Automated discovery
+of generalized standard material models with EUCLID. Comput
+Methods Appl Mech Eng 405:115867
+13. Thakolkaran P , Joshi A, Zheng Y , Flaschel M, De Lorenzis L,
+Kumar S (2022) NN-EUCLID: deep-learning hyperelasticity with-
+out stress data. J Mech Phys Solids. 169
+14. Flaschel M, Kumar S, De Lorenzis L (2022) Discovering plasticity
+models without stress data. Npj Comput Mater. https://doi.org/10.
+1038/s41524-022-00752-4
+15. Joshi A, Thakolkaran P , Zheng Y , Escande M, Flaschel M, De
+Lorenzis L, Kumar S (2022) Bayesian-EUCLID: Discovering
+hyperelastic material laws with uncertainties. Comput Methods
+Appl Mech Eng. 398
+16. Marino E, Flaschel M, Kumar S, De Lorenzis L (2023) Automated
+identiﬁcation of linear viscoelastic constitutive laws with EUCLID.
+Mech Mater 181:104643
+17. Flaschel M, Y u H, Reiter N, Hinrichsen J, Budday S, Steinmann
+P , Kumar S, De Lorenzis L (2023) Automated discovery of inter-
+pretable hyperelastic material models for human brain tissue with
+EUCLID. J Mech Phys Solids 180:105404
+18. Witzenburg CM, Dhume RY , Lake SP , Barocas VH (2016) Auto-
+matic segmentation of mechanically inhomogeneous tissues based
+on deformation gradient jump. IEEE Trans Med Imaging 35:29–41
+19. Fegan KL, Green NC, Britton MM, Iqbal AJ, Thomas-Seale LEJ
+(2022) Design and simulation of the biomechanics of multi-layered
+composite poly(vinyl alcohol) coronary artery grafts. Front Cardio-
+vasc Med 9:883179
+20. Holzapfel GA, Sommer G, Gasser CT, Regitnig P (2005) Determi-
+nation of layer-speciﬁc mechanical properties of human coronary
+arteries with nonatherosclerotic intimal thickening and related con-
+stitutive modeling. Am J Physiol Heart Circ Physiol 289:H2048-
+2058
+21. Amos B, Xu L, Kolter JZ (2017) Input convex neural networks,
+in: International Conference on Machine Learning, PMLR, ,
+pp. 146–155
+22. Macqueen J (1967) Some methods for classiﬁcation and analysis
+of multivariate observations. In: Proc. Symp. Math. Statist. and
+Probability
+23. Tang S, Zhang L, Liu WK (2018) From virtual clustering analysis to
+self-consistent clustering analysis: a mathematical study. Comput
+Mech 62:1443–1460
+24. Kaufman L, Rousseeuw PJ (1990) Finding groups in data: an intro-
+duction to cluster analysis, machine design
+25. Song W, Wang Y , Pan Z (2023) A novel cell partition method
+by introducing Silhouette Coefﬁcient for fast approximate nearest
+neighbor search. Inf Sci 642:119216
+26. Bower AF (2009) Applied mechanics of solids. CRC Press
+27. He H, Zhang Q, Zhang Y , Chen J, Zhang L, Li F (2022) A compar-
+ative study of 85 hyperelastic constitutive models for both unﬁlled
+rubber and highly ﬁlled rubber nanocomposite material, Nano.
+Mater Sci 4:64–82
+28. Isihara A, Hashitsume N, Tatibana M (1951) Statistical theory of
+rubber-like elasticity: IV: (two-dimensional stretching). J Chem
+Phys 19:1508–1512
+29. Gent AN, Thomas A (1958) Forms for the stored (strain) energy
+function for vulcanized rubber. J Polym Sci 28:625–628
+30. Lalitha Sridhar S, Mei Y , Goenezen S (2018) Improving the sen-
+sitivity to map nonlinear parameters for hyperelastic problems.
+Comput Methods Appl Mech Eng 331:474–491
+31. Holzapfel GA, Gasser TC, Ogden RW (2000) A new constitutive
+framework for arterial wall mechanics and a comparative study of
+material models. J Elast Phys Sci Solids 61:1–48
+32. Bornert M, Brémand F, Doumalin P , Dupré JC, Fazzini M, Gré-
+diac M, Hild F, Mistou S, Molimard J, Orteu JJ, Robert L, Surrel
+Y , V acher P , Wattrisse B (2008) Assessment of digital image cor-
+relation measurement errors: methodology and results. Exp Mech
+49:353–370
+33. Meyes R, Lu M, Puiseau CW, Meisen T (2019) Ablation studies
+to uncover structure of learned representations in artiﬁcial neu-
+ral networks. In: Proceedings on the International Conference on
+Artiﬁcial Intelligence (ICAI). pp 185–191
+34. Dimitrijevic BJ, Hackl K (2008) A method for gradient enhance-
+ment of continuum damage models, Technische Mechanik-
+European. J Eng Mech 28:43–52
+35. Waffenschmidt T, Polindara C, Menzel A, Blanco S (2014) A
+gradient-enhanced large-deformation continuum damage model
+for ﬁbre-reinforced materials. Comput Methods Appl Mech Eng
+268:801–842
+36. He Y , Zuo D, Hackl K, Y ang H, Mousavi SJ, Avril S (2019)
+Gradient-enhanced continuum models of healing in damaged soft
+tissues. Biomech Model Mechanobiol 18:1443–1460
+37. Jolliffe IT, Cadima J (2016) Principal component analysis: a review
+and recent developments. Philosoph Trans R Soc Math Phys Eng
+Sci 374:20150202
+38. Bishop CM (2006) Pattern recognition and machine learning.
+Springer 2:1122–1128
+39. Kim D-W, Go M-S, Lim JH, Lee S (2023) Data-driven stress
+and strain curves of the unidirectional composites by deep neu-
+ral networks with principal component analysis and selective-data
+augmentation. Compos Struct 313:116902
+Publisher’s Note Springer Nature remains neutral with regard to juris-
+dictional claims in published maps and institutional afﬁliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds
+exclusive rights to this article under a publishing agreement with the
+author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscript version of this article is solely governed by the terms of such
+publishing agreement and applicable law.
+123

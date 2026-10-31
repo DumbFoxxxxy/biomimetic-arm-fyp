@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="v7_elbow_standalone">
+  <compiler angle="degree" autolimits="true" />
+  <option timestep="0.0005" gravity="0 0 -9.81" integrator="implicitfast" />
+  <visual>
+    <global azimuth="45" elevation="-18" />
+  </visual>
+  <asset>
+    <material name="bone_mat" rgba="0.82 0.80 0.72 1" />
+    <material name="sector_mat" rgba="0.20 0.62 0.84 1" />
+    <material name="guide_mat" rgba="0.92 0.35 0.18 1" />
+  </asset>
+  <worldbody>
+    <geom name="floor" type="plane" size="1 1 0.02" pos="0 0 -0.30" rgba="0.3 0.32 0.34 0.2" />
+    <body name="humerus" pos="0 0 0">
+      <geom name="humerus_link" type="cylinder" size="0.012000 0.145000" pos="0 0 0.145000" material="bone_mat" density="1100.0" />
+      <geom name="entry_E01" type="cylinder" size="0.010000 0.006000" pos="0.000000000 -0.105000000 -0.095000000" quat="0.707106781 0.000000000 0.707106781 0.000000000" material="guide_mat" contype="0" conaffinity="0" density="0" />
+      <site name="entry_side_E01" pos="0.000000000 -0.089000000 -0.095000000" size="0.0015" rgba="0.95 0.2 0.2 0.7" />
+      <site name="bridge_E01" pos="0.000000000 -0.099109999 -0.119296253" size="0.0015" rgba="0.25 0.8 0.9 0.7" />
+      <geom name="entry_E02" type="cylinder" size="0.010000 0.006000" pos="0.000000000 -0.105000000 0.095000000" quat="0.707106781 0.000000000 0.707106781 0.000000000" material="guide_mat" contype="0" conaffinity="0" density="0" />
+      <site name="entry_side_E02" pos="0.000000000 -0.121000000 0.095000000" size="0.0015" rgba="0.95 0.2 0.2 0.7" />
+      <site name="bridge_E02" pos="0.000000000 -0.099109999 0.119296253" size="0.0015" rgba="0.25 0.8 0.9 0.7" />
+      <body name="ulna" pos="0 0 0">
+        <joint name="elbow" type="hinge" axis="1 0 0" range="0.000000000 116.000000000" damping="0.2" armature="0.005" />
+        <geom name="ulna_link" type="cylinder" size="0.009840 0.118500" pos="0 0 -0.118500" material="bone_mat" density="1100.0" />
+        <geom name="sector_E01" type="cylinder" size="0.018000 0.007" pos="0 0 0" quat="0.707106781 0.000000000 0.707106781 0.000000000" material="sector_mat" contype="0" conaffinity="0" density="0" />
+        <site name="anchor_E01" pos="0.000000000 0.018360000 0.000000000" size="0.0025" rgba="0.98 0.62 0.15 1" />
+        <site name="sector_side_E01" pos="0.000000000 0.019728279 0.019728279" size="0.0015" rgba="0.95 0.2 0.2 0.7" />
+        <geom name="sector_E02" type="cylinder" size="0.018000 0.007" pos="0 0 0" quat="0.707106781 0.000000000 0.707106781 0.000000000" material="sector_mat" contype="0" conaffinity="0" density="0" />
+        <site name="anchor_E02" pos="0.000000000 -0.018360000 0.000000000" size="0.0025" rgba="0.98 0.62 0.15 1" />
+        <site name="sector_side_E02" pos="0.000000000 -0.019728279 0.019728279" size="0.0015" rgba="0.95 0.2 0.2 0.7" />
+      </body>
+    </body>
+    <site name="external_E01" pos="0.000000000 -0.065000000 -0.260000000" size="0.004" rgba="0.1 0.8 0.5 1" />
+    <site name="external_E02" pos="0.000000000 -0.065000000 0.260000000" size="0.004" rgba="0.1 0.8 0.5 1" />
+  </worldbody>
+  <tendon>
+    <spatial name="cable_E01" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="external_E01" />
+      <geom geom="entry_E01" sidesite="entry_side_E01" />
+      <site site="bridge_E01" />
+      <geom geom="sector_E01" sidesite="sector_side_E01" />
+      <site site="anchor_E01" />
+    </spatial>
+    <spatial name="cable_E02" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="external_E02" />
+      <geom geom="entry_E02" sidesite="entry_side_E02" />
+      <site site="bridge_E02" />
+      <geom geom="sector_E02" sidesite="sector_side_E02" />
+      <site site="anchor_E02" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <position name="pull_E01" tendon="cable_E01" kp="1200" kv="80" ctrllimited="true" ctrlrange="0 1" forcelimited="true" forcerange="-300 0" />
+    <position name="pull_E02" tendon="cable_E02" kp="1200" kv="80" ctrllimited="true" ctrlrange="0 1" forcelimited="true" forcerange="-300 0" />
+  </actuator>
+  <sensor>
+    <tendonpos name="length_E01" tendon="cable_E01" />
+    <tendonpos name="length_E02" tendon="cable_E02" />
+    <jointpos name="elbow_deg" joint="elbow" />
+  </sensor>
+</mujoco>

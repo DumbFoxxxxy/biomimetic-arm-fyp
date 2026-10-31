@@ -1,0 +1,82 @@
+Dim swApp As Object
+
+Sub main()
+    Dim base As String
+    Dim path As String
+    Dim errs As Long
+    Dim warns As Long
+    Dim doc As Object
+    Dim bodies As Variant
+    Dim mb As Object
+    Dim se As Long
+    Dim res As Object
+    Dim i As Long
+
+    On Error GoTo ErrorHandler
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    WriteLog "start"
+
+    base = "D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC)
+    path = base & "\" & ChrW(&H6861) & ChrW(&H9AA8) & ".SLDPRT"
+
+    Set doc = swApp.OpenDoc6(path, 1, 0, "", errs, warns)
+    If doc Is Nothing Then
+        WriteLog "open failed " & errs
+        swApp.ExitApp
+        Exit Sub
+    End If
+    WriteLog "opened"
+
+    For i = 0 To 7
+        WriteLog "GetBodies2(" & i & ") = " & CountArr(doc.GetBodies2(i, False))
+    Next i
+
+    bodies = doc.GetBodies2(7, False)
+    If IsEmpty(bodies) Then
+        bodies = doc.GetBodies2(6, False)
+    End If
+    If IsEmpty(bodies) Then
+        WriteLog "no mesh/graphics body"
+        swApp.CloseDoc doc.GetTitle()
+        swApp.ExitApp
+        Exit Sub
+    End If
+
+    Set mb = bodies(0)
+    WriteLog "isMeshBody=" & mb.IsMeshBody()
+    WriteLog "facetCount=" & mb.GetFacetCount()
+
+    Set res = mb.SurfaceFromMesh(4006, 0.5, 0#, se)
+    If res Is Nothing Then
+        WriteLog "SurfaceFromMesh -> NOTHING err=" & se
+    Else
+        WriteLog "SurfaceFromMesh -> OK err=" & se
+        WriteLog "  returnedType=" & TypeName(res)
+    End If
+
+    swApp.CloseDoc doc.GetTitle()
+    swApp.ExitApp
+    Exit Sub
+
+ErrorHandler:
+    WriteLog "ERROR " & Err.Number & " " & Err.Description
+    swApp.ExitApp
+End Sub
+
+Function CountArr(a As Variant) As Long
+    If IsEmpty(a) Then
+        CountArr = 0
+    Else
+        CountArr = UBound(a) + 1
+    End If
+End Function
+
+Sub WriteLog(msg As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile("D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC) & "\_optimize\TestSurfaceFromMesh.log", 8, True)
+    ts.WriteLine Now & " " & msg
+    ts.Close
+End Sub

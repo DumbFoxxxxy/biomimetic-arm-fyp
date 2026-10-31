@@ -1,0 +1,130 @@
+{
+  "model_name": "k6_s01_engineering_baseline",
+  "units": "mm unless a field ends in _m",
+  "thorax": {
+    "semi_x_mm": 140.0,
+    "semi_z_mm": 106.0,
+    "height_mm": 280.0
+  },
+  "points_mm": {
+    "SC": [40.0, 235.0, -106.0],
+    "AC": [156.86, 233.24, -11.97],
+    "GH": [159.06, 187.54, 7.3],
+    "P": [62.18, 210.1, 91.39],
+    "SUP": [72.76, 268.45, 82.21],
+    "INF": [44.55, 112.87, 106.69]
+  },
+  "scapula": {
+    "normal": [0.6556, 0.0, 0.7552]
+  },
+  "contact": {
+    "thorax_band": {
+      "radius_mm": 400.0,
+      "x_min_mm": 55.0,
+      "x_max_mm": 140.0,
+      "y_min_mm": 60.0,
+      "y_max_mm": 280.0,
+      "thickness_mm": 5.0,
+      "x_segments": 48,
+      "y_segments": 32
+    },
+    "scapula_pad": {
+      "short_mm": 50.0,
+      "long_mm": 130.0,
+      "thickness_mm": 4.0,
+      "corner_radius_mm": 4.0,
+      "corner_segments": 4,
+      "zero_gap_mm": 0.35
+    },
+    "friction": [0.0, 0.005, 0.0001],
+    "condim": 3,
+    "solref": [0.002, 1.0],
+    "solimp": [0.9, 0.95, 0.001]
+  },
+  "joint_limits_deg": {
+    "sc_elevation": [-10.0, 55.0],
+    "sc_protraction": [-25.0, 25.0],
+    "ac_ext": [-35.0, 35.0]
+  },
+  "s01": {
+    "guide_radius_mm": 8.0,
+    "guide_half_length_mm": 8.0,
+    "sidesite_sign": 1.0,
+    "initial": {
+      "A": {
+        "x_mm": 55.0,
+        "y_mm": 255.0,
+        "outward_offset_mm": 8.0
+      },
+      "G": {
+        "x_mm": 112.0,
+        "y_mm": 245.0,
+        "outward_offset_mm": 16.0
+      },
+      "B": {
+        "u_mm": -80.0,
+        "v_mm": 120.0,
+        "w_mm": -10.0
+      }
+    },
+    "selected": {
+      "A": {
+        "x_mm": 89.40667753175855,
+        "y_mm": 256.6037798118978,
+        "outward_offset_mm": 8.989553047449407
+      },
+      "G": {
+        "x_mm": 95.0,
+        "y_mm": 230.0,
+        "outward_offset_mm": 14.0
+      },
+      "B": {
+        "u_mm": -84.6900484794592,
+        "v_mm": 81.2299900219974,
+        "w_mm": 1.7264058085868346
+      }
+    },
+    "search": {
+      "A": {
+        "x_mm": [55.0, 120.0],
+        "y_mm": [180.0, 270.0],
+        "outward_offset_mm": [8.0, 15.0]
+      },
+      "G": {
+        "x_mm": [95.0, 140.0],
+        "y_mm": [220.0, 275.0],
+        "outward_offset_mm": [12.0, 20.0]
+      },
+      "B": {
+        "u_mm": [-110.0, -60.0],
+        "v_mm": [80.0, 130.0],
+        "w_mm": [-10.0, 10.0]
+      },
+      "minimum_A_G_mm": 20.0
+    }
+  },
+  "target": {
+    "up_deg": 36.0,
+    "up_tolerance_deg": 0.5,
+    "max_pull_mm": 40.0,
+    "max_contraction_percent": 18.0,
+    "moment_arm_mm": [52.0, 62.0],
+    "moment_arm_target_mm": 57.0
+  },
+  "acceptance": {
+    "zero_gap_mm": [0.3, 0.6],
+    "max_pad_penetration_mm": 0.5,
+    "max_visual_penetration_mm": 0.5,
+    "max_cable_penetration_mm": 0.5,
+    "max_pose_jump_deg": 2.0,
+    "max_length_jump_mm": 2.0
+  },
+  "simulation": {
+    "timestep_s": 0.0005,
+    "settle_steps": 2000,
+    "pose_steps": 1200,
+    "pull_increment_mm": 1.0,
+    "kp": 1800.0,
+    "kv": 120.0
+  }
+}

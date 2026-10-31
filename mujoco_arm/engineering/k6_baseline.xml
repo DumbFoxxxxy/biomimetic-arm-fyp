@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="k6_s01_engineering_baseline">
+  <compiler angle="degree" autolimits="true" />
+  <option timestep="0.0005" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <global azimuth="140" elevation="-12" />
+    <headlight diffuse="0.85 0.85 0.85" ambient="0.35 0.35 0.35" />
+  </visual>
+  <asset>
+    <mesh name="thorax_visual" file="D:/XJTLU/PSP/mujoco_arm/assets_tendon_demo/thorax.stl" />
+    <mesh name="clavicle_visual" file="D:/XJTLU/PSP/mujoco_arm/assets_tendon_demo/clavicle.stl" />
+    <mesh name="scapula_visual" file="D:/XJTLU/PSP/mujoco_arm/assets_tendon_demo/scapula.stl" />
+    <mesh name="humerus_visual" file="D:/XJTLU/PSP/mujoco_arm/assets_tendon_demo/humerus.stl" />
+    <mesh name="thorax_contact_band" file="D:/XJTLU/PSP/mujoco_arm/engineering/assets/thorax_contact_band.stl" />
+    <mesh name="scapula_contact_pad" file="D:/XJTLU/PSP/mujoco_arm/engineering/assets/scapula_contact_pad.stl" />
+    <material name="thorax_mat" rgba="0.46 0.56 0.66 0.28" />
+    <material name="band_mat" rgba="0.20 0.70 0.75 0.45" />
+    <material name="pad_mat" rgba="0.95 0.50 0.16 0.72" />
+    <material name="scapula_mat" rgba="0.28 0.68 0.46 1" />
+    <material name="clavicle_mat" rgba="0.80 0.72 0.58 1" />
+    <material name="humerus_mat" rgba="0.86 0.73 0.30 1" />
+    <material name="guide_mat" rgba="0.92 0.30 0.18 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_visual" type="mesh" mesh="thorax_visual" pos="0.000000000 0.000000000 0.000000000" material="thorax_mat" contype="0" conaffinity="0" density="0" />
+      <geom name="thorax_contact_band" type="mesh" mesh="thorax_contact_band" material="band_mat" contype="1" conaffinity="2" condim="3" friction="0.000000000 0.005000000 0.000100000" solref="0.002000000 1.000000000" solimp="0.900000000 0.950000000 0.001000000" density="0" group="1" />
+      <geom name="s01_guide" type="cylinder" size="0.008000000 0.008000000" pos="0.105325467 -0.068887082 0.230000000" quat="0.749679015 -0.660475655 0.041872230 0.000000000" material="guide_mat" contype="0" conaffinity="0" density="0" group="1" />
+      <site name="guide_side_S01" pos="0.093388776 -0.068020783 0.229125389" size="0.002000" rgba="1 0.2 0.2 0.8" group="3" />
+      <site name="A_S01" pos="0.095911069 -0.071622454 0.256603780" size="0.003500" rgba="0.95 0.55 0.15 0.9" group="3" />
+      <body name="clavicle_elevation" pos="0.040000000 0.106000000 0.235000000">
+        <joint name="sc_elevation" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-10.000000000 55.000000000" damping="0.6" armature="0.005" />
+        <inertial pos="0 0 0" mass="0.03" diaginertia="2e-5 2e-5 2e-5" />
+        <body name="clavicle_protraction" pos="0 0 0">
+          <joint name="sc_protraction" type="hinge" axis="0.000000000 -0.000000000 0.001000000" range="-25.000000000 25.000000000" damping="0.6" armature="0.005" />
+          <inertial pos="0 0 0" mass="0.03" diaginertia="2e-5 2e-5 2e-5" />
+          <body name="clavicle_body" pos="0 0 0">
+            <geom name="clavicle_visual" type="mesh" mesh="clavicle_visual" pos="0.022180000 -0.197390000 -0.024900000" material="clavicle_mat" contype="0" conaffinity="0" density="0" />
+            <body name="scapula" pos="0.116860000 -0.094030000 -0.001760000">
+              <joint name="ac_ext" type="hinge" axis="0.000176312 0.000152999 0.000972371" range="-35.000000000 35.000000000" damping="0.6" armature="0.01" />
+              <inertial pos="0 0 0" mass="0.08" diaginertia="8e-5 8e-5 8e-5" />
+              <geom name="scapula_visual" type="mesh" mesh="scapula_visual" pos="-0.094680000 -0.103360000 -0.023140000" material="scapula_mat" contype="0" conaffinity="0" density="0" />
+              <geom name="scapula_contact_pad" type="mesh" mesh="scapula_contact_pad" material="pad_mat" contype="2" conaffinity="1" condim="3" friction="0.000000000 0.005000000 0.000100000" solref="0.002000000 1.000000000" solimp="0.900000000 0.950000000 0.001000000" density="0" group="1" />
+              <site name="B_S01" pos="-0.048830386 -0.065846218 -0.124452548" size="0.003500" rgba="0.95 0.55 0.15 0.9" group="3" />
+              <body name="gh_flex" pos="0.002200000 -0.019270000 -0.045700000">
+                <joint name="gh_flex" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="-120 120" damping="0.6" />
+                <inertial pos="0 0 0" mass="0.22" diaginertia="2e-4 2e-4 2e-4" />
+                <geom name="humerus_visual" type="mesh" mesh="humerus_visual" pos="0.000000000 0.000000000 0.000000000" material="humerus_mat" contype="0" conaffinity="0" density="0" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <tendon>
+    <spatial name="cable_S01" width="0.0012" rgba="0.95 0.45 0.12 1">
+      <site site="A_S01" />
+      <geom geom="s01_guide" sidesite="guide_side_S01" />
+      <site site="B_S01" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <position name="pull_S01" tendon="cable_S01" kp="1800.0" kv="120.0" ctrlrange="0 1" forcerange="-250 0" forcelimited="true" />
+  </actuator>
+  <sensor>
+    <tendonpos name="length_S01" tendon="cable_S01" />
+    <jointpos name="angle_sc_elevation" joint="sc_elevation" />
+    <jointpos name="angle_sc_protraction" joint="sc_protraction" />
+    <jointpos name="angle_ac_ext" joint="ac_ext" />
+  </sensor>
+</mujoco>

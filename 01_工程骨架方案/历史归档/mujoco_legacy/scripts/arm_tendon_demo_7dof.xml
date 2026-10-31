@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="tendon_demo_14">
+  <compiler angle="degree" autolimits="true" meshdir="D:/XJTLU/PSP/mujoco_arm/assets_tendon_demo" />
+  <option timestep="0.001" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <global azimuth="135" elevation="-16" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" />
+  </visual>
+  <asset>
+    <mesh name="thorax" file="thorax.stl" scale="1 1 1" />
+    <mesh name="clavicle" file="clavicle.stl" scale="1 1 1" />
+    <mesh name="scapula" file="scapula.stl" scale="1 1 1" />
+    <mesh name="humerus" file="humerus.stl" scale="1 1 1" />
+    <mesh name="ulna" file="ulna.stl" scale="1 1 1" />
+    <material name="thorax_mat" rgba="0.45 0.55 0.65 0.55" />
+    <material name="scapula_mat" rgba="0.30 0.72 0.52 1" />
+    <material name="humerus_mat" rgba="0.85 0.72 0.30 1" />
+    <material name="ulna_mat" rgba="0.35 0.58 0.88 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.18 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_geom" type="mesh" mesh="thorax" material="thorax_mat" contype="0" conaffinity="0" />
+      <body name="scapula_slide" pos="0.062180000 -0.091390000 0.210100000">
+        <joint name="scapula_slide" type="slide" axis="0.000755148 0.000655555 0.000000000" range="-0.015 0.015" damping="0.6" armature="0.002" />
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+        <body name="scapula_up" pos="0 0 0">
+          <joint name="scapula_up" type="hinge" axis="0.000655600 -0.000755200 0.000000000" range="0 50" damping="0.4" armature="0.005" />
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+          <body name="scapula_ext" pos="0 0 0">
+            <joint name="scapula_ext" type="hinge" axis="0.000176312 0.000152999 0.000972371" range="-20 20" damping="0.4" armature="0.005" />
+            <geom name="scapula_mesh" type="mesh" mesh="scapula" material="scapula_mat" contype="0" conaffinity="0" density="700" />
+            <geom name="clavicle_visual" type="mesh" mesh="clavicle" material="scapula_mat" contype="0" conaffinity="0" density="0" />
+            <body name="gh_flex" pos="0.096880000 0.084090000 -0.022560000">
+              <joint name="gh_flex" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="-150 150" damping="0.5" armature="0.008" />
+              <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+              <body name="gh_abd" pos="0 0 0">
+                <joint name="gh_abd" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-150 150" damping="0.5" armature="0.008" />
+                <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                <body name="gh_rot" pos="0 0 0">
+                  <joint name="gh_rot" type="hinge" axis="0.000087156 -0.000000000 -0.000996195" range="-120 120" damping="0.5" armature="0.008" />
+                  <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                  <body name="humerus" pos="0 0 0">
+                    <geom name="humerus_shaft" type="mesh" mesh="humerus" material="humerus_mat" contype="0" conaffinity="0" density="900" />
+                    <geom name="gh_ball" type="sphere" size="0.014" material="joint_mat" contype="0" conaffinity="0" density="0" />
+                    <body name="ulna" pos="0.025280000 0.000000000 -0.288890000">
+                      <joint name="elbow" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="0 145" damping="0.2" armature="0.005" />
+                      <geom name="ulna_shaft" type="mesh" mesh="ulna" material="ulna_mat" contype="0" conaffinity="0" density="800" />
+                      <geom name="elbow_joint" type="sphere" size="0.012" material="joint_mat" contype="0" conaffinity="0" density="0" />
+                      <site name="B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                      <site name="B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    </body>
+                    <site name="A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="G_E01" pos="0.023972664 0.020000000 -0.273947080" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="G_E02" pos="0.023972664 -0.020000000 -0.273947080" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G03" pos="0.028887839 0.000000000 -0.158083816" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G04" pos="-0.000998002 0.000000000 -0.160698488" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                  </body>
+                </body>
+              </body>
+            </body>
+            <site name="A_G01" pos="0.097932249 0.111479902 0.021272473" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G01" pos="0.096880000 0.100090000 -0.022560000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="A_G02" pos="0.059186000 0.048718000 0.040745000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G02" pos="0.096880000 0.068090000 -0.022560000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="A_G03" pos="0.101965143 0.109683097 0.029051441" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G03" pos="0.112819115 0.084090000 -0.021165508" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="A_G04" pos="0.058250022 0.037319042 -0.057570111" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G04" pos="0.080940885 0.084090000 -0.023954492" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="A_G05" pos="0.046181000 0.026843000 -0.059895000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G05" pos="0.113380001 0.095403708 -0.081345627" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="A_G06" pos="-0.011075177 -0.022851937 -0.097237099" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_G06" pos="0.113380001 0.072776292 -0.081345627" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S01" pos="0.080570797 0.056694576 -0.105802586" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S02" pos="0.072354964 0.049558992 0.020219569" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S03" pos="0.006556000 -0.007552000 0.000000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S04" pos="0.064717197 0.042929896 0.012363386" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S05" pos="0.052789779 0.032578036 -0.010583851" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <site name="G_S06" pos="0.048441960 0.028804490 -0.017429055" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+          </body>
+        </body>
+      </body>
+      <site name="A_S01" pos="0.055000000 -0.097481867 0.255000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+      <site name="A_S02" pos="0.055000000 -0.097481867 0.160000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+      <site name="A_S03" pos="0.120000000 -0.029296666 0.210000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+      <site name="A_S04" pos="0.055000000 -0.097481867 0.210000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+    </body>
+    <site name="A_S05" pos="0.160000000 0.030000000 0.220000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+    <site name="A_S06" pos="0.180000000 -0.070000000 0.220000000" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+  </worldbody>
+  <equality>
+    <joint name="lock_scapula_slide" joint1="scapula_slide" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_scapula_up" joint1="scapula_up" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_scapula_ext" joint1="scapula_ext" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_gh_flex" joint1="gh_flex" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_gh_abd" joint1="gh_abd" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_gh_rot" joint1="gh_rot" polycoef="0 1 0 0 0" active="false" />
+    <joint name="lock_elbow" joint1="elbow" polycoef="0 1 0 0 0" active="false" />
+  </equality>
+  <tendon>
+    <spatial name="cable_E01" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_E01" />
+      <site site="G_E01" />
+      <site site="B_E01" />
+    </spatial>
+    <spatial name="cable_E02" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_E02" />
+      <site site="G_E02" />
+      <site site="B_E02" />
+    </spatial>
+    <spatial name="cable_G01" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G01" />
+      <site site="G_G01" />
+      <site site="B_G01" />
+    </spatial>
+    <spatial name="cable_G02" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G02" />
+      <site site="G_G02" />
+      <site site="B_G02" />
+    </spatial>
+    <spatial name="cable_G03" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G03" />
+      <site site="G_G03" />
+      <site site="B_G03" />
+    </spatial>
+    <spatial name="cable_G04" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G04" />
+      <site site="G_G04" />
+      <site site="B_G04" />
+    </spatial>
+    <spatial name="cable_G05" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G05" />
+      <site site="G_G05" />
+      <site site="B_G05" />
+    </spatial>
+    <spatial name="cable_G06" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_G06" />
+      <site site="G_G06" />
+      <site site="B_G06" />
+    </spatial>
+    <spatial name="cable_S01" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S01" />
+      <site site="G_S01" />
+    </spatial>
+    <spatial name="cable_S02" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S02" />
+      <site site="G_S02" />
+    </spatial>
+    <spatial name="cable_S03" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S03" />
+      <site site="G_S03" />
+    </spatial>
+    <spatial name="cable_S04" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S04" />
+      <site site="G_S04" />
+    </spatial>
+    <spatial name="cable_S05" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S05" />
+      <site site="G_S05" />
+    </spatial>
+    <spatial name="cable_S06" width="0.0018" rgba="0.95 0.45 0.12 0.95">
+      <site site="A_S06" />
+      <site site="G_S06" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <position name="pull_E01" tendon="cable_E01" kp="1200" kv="80" ctrlrange="0.290123 0.380123" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_E02" tendon="cable_E02" kp="1200" kv="80" ctrlrange="0.290158 0.380158" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G01" tendon="cable_G01" kp="1200" kv="80" ctrlrange="0.125303 0.215303" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G02" tendon="cable_G02" kp="1200" kv="80" ctrlrange="0.156185 0.246185" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G03" tendon="cable_G03" kp="1200" kv="80" ctrlrange="0.137401 0.227401" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G04" tendon="cable_G04" kp="1200" kv="80" ctrlrange="0.141910 0.231910" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G05" tendon="cable_G05" kp="1200" kv="80" ctrlrange="0.040863 0.130863" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_G06" tendon="cable_G06" kp="1200" kv="80" ctrlrange="0.100249 0.190249" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S01" tendon="cable_S01" kp="1200" kv="80" ctrlrange="0.105347 0.195347" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S02" tendon="cable_S02" kp="1200" kv="80" ctrlrange="0.039865 0.129865" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S03" tendon="cable_S03" kp="1200" kv="80" ctrlrange="0.006478 0.096478" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S04" tendon="cable_S04" kp="1200" kv="80" ctrlrange="0.007907 0.097907" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S05" tendon="cable_S05" kp="1200" kv="80" ctrlrange="0.021661 0.111661" forcerange="-160 0" forcelimited="true" group="2" />
+    <position name="pull_S06" tendon="cable_S06" kp="1200" kv="80" ctrlrange="0.000000 0.084934" forcerange="-160 0" forcelimited="true" group="2" />
+  </actuator>
+  <sensor>
+    <tendonpos name="length_E01" tendon="cable_E01" />
+    <tendonpos name="length_E02" tendon="cable_E02" />
+    <tendonpos name="length_G01" tendon="cable_G01" />
+    <tendonpos name="length_G02" tendon="cable_G02" />
+    <tendonpos name="length_G03" tendon="cable_G03" />
+    <tendonpos name="length_G04" tendon="cable_G04" />
+    <tendonpos name="length_G05" tendon="cable_G05" />
+    <tendonpos name="length_G06" tendon="cable_G06" />
+    <tendonpos name="length_S01" tendon="cable_S01" />
+    <tendonpos name="length_S02" tendon="cable_S02" />
+    <tendonpos name="length_S03" tendon="cable_S03" />
+    <tendonpos name="length_S04" tendon="cable_S04" />
+    <tendonpos name="length_S05" tendon="cable_S05" />
+    <tendonpos name="length_S06" tendon="cable_S06" />
+    <jointpos name="angle_scapula_slide" joint="scapula_slide" />
+    <jointpos name="angle_scapula_up" joint="scapula_up" />
+    <jointpos name="angle_scapula_ext" joint="scapula_ext" />
+    <jointpos name="angle_elbow" joint="elbow" />
+  </sensor>
+</mujoco>

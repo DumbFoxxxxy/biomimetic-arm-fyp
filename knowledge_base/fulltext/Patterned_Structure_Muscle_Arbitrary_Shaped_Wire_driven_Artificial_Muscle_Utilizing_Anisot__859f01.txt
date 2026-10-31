@@ -1,0 +1,960 @@
+===== PAGE 1 =====
+Patterned Structure Muscle : Arbitrary Shaped Wire-driven
+Artificial Muscle Utilizing Anisotropic Flexible Structure
+for Musculoskeletal Robots
+Shunnosuke Yoshimura1, Akihiro Miki 1, Kazuhiro Miyama 1, Yuta Sahara1,
+Kento Kawaharazuka1, Kei Okada 1, and Masayuki Inaba 1
+Abstract— Muscles of the human body are composed of tiny
+actuators made up of myosin and actin filaments. They can
+exert force in various shapes such as curved or flat, under
+contact forces and deformations from the environment. On the
+other hand, muscles in musculoskeletal robots so far have faced
+challenges in generating force in such shapes and environments.
+To address this issue, we propose Patterned Structure Muscle
+(PSM), artificial muscles for musculoskeletal robots. PSM
+utilizes patterned structures with anisotropic characteristics,
+wire-driven mechanisms, and is made of flexible material
+Thermoplastic Polyurethane (TPU) using FDM 3D printing.
+This method enables the creation of various shapes of muscles,
+such as simple 1 degree-of-freedom (DOF) muscles, Multi-
+DOF wide area muscles, joint-covering muscles, and branched
+muscles. We created an upper arm structure using these muscles
+to demonstrate wide range of motion, lifting heavy objects, and
+movements through environmental contact. These experiments
+show that the proposed PSM is capable of operating in various
+shapes and environments, and is suitable for the muscles of
+musculoskeletal robots.
+I. I NTRODUCTION
+Human muscles generate contraction movements through
+the exertion of force by myosin and actin filaments. Each of
+the tiny actuators generates contraction force, and the entire
+muscle contracts while maintaining the relative position of
+the actuators. This mechanism allows muscles to operate in
+various shapes, from thin muscles to wide area muscles and
+muscles distributed in curved shapes. Moreover, muscles can
+operate under contact forces from environment and deforma-
+tions from other muscles’ movements flexibly. Imitating this
+mechanism of moving the body through muscles and imple-
+menting musculoskeletal robots is important, for the purpose
+of creating robots closer to humans and for deepening our
+understanding of human structure and movement. Indeed,
+in the history of musculoskeletal robots, muscle actuators
+have been implemented using methods such as wire-driven
+systems and pneumatic systems [1]–[7]. However, these
+methods have not been able to realize the various shapes
+of human muscles, and operation under contact between
+muscles and the environment. On the other hand, in recent
+years, advancements in soft robotics technology and 3D
+printing have progressed, enabling the application of flexible
+mechanisms to various fields. Therefore, we propose artificial
+1 The authors are with the Department of Mechano-Informatics, Graduate
+School of Information Science and Technology, The University of Tokyo,
+7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan. [yoshimura, miki,
+miyama, sahara, kawaharazuka, okada, inaba]@jsk.t.u-tokyo.ac.jp
+Fig. 1. The overview of this study: On the left, the structure of PSM, the
+process of making PSM using 3D printing, and the four types of PSM are
+shown. On the right, the upper arm structure driven by PSM is shown.
+muscles for a musculoskeletal robot, called Patterned Struc-
+ture Muscle (PSM), by combining wire-driven methods with
+soft robotics and 3D printing technologies. The overview
+of this research is shown in Fig. 1. In this method, the
+mechanism of the contraction movement of the human mus-
+cle is imitated by combining a flexible and deformable 3D
+pattern structure and a wire-driven mechanism. This structure
+has anisotropic characteristics and a wide range of motion,
+which allows it to operate under contact forces and flexible
+deformations. We create various shapes of muscles using this
+method, such as simple 1 degree-of-freedom (DOF) muscles,
+multi-DOF wide area muscles, joint-covering muscles, and
+branched muscles. To demonstrate the practicality of PSM
+and its suitability for musculoskeletal robots, we conduct
+three experiments. Firstly, we create muscles with various
+parameters, and measure their characteristics. Secondly, we
+confirm that the muscles of various shapes can operate
+individually in two different situations. Finally, we create an
+upper arm structure using these muscles and demonstrate its
+wide range of motion, lifting heavy objects, and movements
+through contact between the muscles and the environment.
+A. Related Work
+In recent years, musculoskeletal robots have been devel-
+oped, which mimic the human musculoskeletal structure.
+Kengoro [1] and Musashi [2] have more than 70 muscles
+arXiv:2410.07682v1 [cs.RO] 10 Oct 2024
+
+===== PAGE 2 =====
+driven by wires, and can perform human-like movements
+by combining a skeletal structure and muscles. ECCE1 [3]
+has a wire-driven upper body structure, and Roboy [4]
+combines wire-driven and biological tendons. The lower-
+limb robot [5] developed by Kurumaya et al. uses multifila-
+ment McKibben muscles to perform simple leg movements.
+Ikemoto et al. have developed a shoulder complex using
+pneumatic actuators [6]. The Athlete Robot [7] also uses
+pneumatic actuators to perform dynamic movements. Thus,
+the actuators of musculoskeletal robots have been mainly
+wire-driven muscles [1]–[4] and pneumatic artificial muscles
+[5]–[7]. Wire-driven muscles have the advantage of being
+able to control the length and tension of the wire accurately,
+and are not dependent on the length and force of the wire
+so that they can be used for long contraction distances.
+However, they have the disadvantage of being difficult to
+perform contact operations with the environment, and are
+difficult to operate in wide and curved shapes. Pneumatic
+artificial muscles have the advantage of being able to exert
+large forces even under environmental contact, but have the
+disadvantage of having a limited range of motion, and there
+are constraints on the possible shapes of muscles that can be
+created.
+On the other hand, the development of soft actuators using
+flexible materials has been advanced, which partially over-
+comes these weaknesses. Elastomeric Origami [8], Origami
+structures of various shapes [9], and 3D printed soft actuators
+[10], have been developed using elastomer materials with
+high stretchability and large deformability, but have the
+disadvantage of being difficult to perform contact operations
+and to be used for large muscles. HASEL actuator [11] and
+Peano-HASEL actuators [12] are electrohydraulic actuators
+using flexible materials, and have been applied to circular
+muscles [13], but it is difficult to use them for large three-
+dimensional muscles. Hybrid carbon nanotube yarn muscles
+[14] and artificial muscles from fishing line and sewing
+thread [15] are muscles made of threads, and have the
+advantage of being durable, but they do not have thickness,
+and are difficult to use for thick three-dimensional muscles.
+Fluid-driven origami-inspired artificial muscles [16] have
+compressible pattern structures and skins, and is able to exert
+large forces, but is difficult to perform contact operations
+due to the thin skin. Shape memory McKibben muscles
+[17] and high backdrivable McKibben muscles [18] have
+been developed, but have constraints on the adaptable muscle
+shape.
+Thus far, with soft actuators, various methods have been
+proposed to achieve flexibility, high deformability, and sub-
+stantial force through different materials and mechanisms.
+However, when it comes to practical use in combination
+with the skeleton of a musculoskeletal robot, challenges
+remain regarding applications to muscles of various shapes
+and environmental contact movements.
+Therefore, we aim to create muscles with the following
+features:
+• The proposed artificial muscle, PSM, combines soft
+robotics and wire-driven mechanisms, allowing for flex-
+Contraction
+Numerous 
+tiny actuators
+Pull wire
+(a) Human muscle (b) Patterned Structure Muscle
+Wire
+Flexible 
+structure
+Fig. 2. Comparison between human muscle structure and the concept of
+PSM. While human muscle maintain their shape through the integration of
+small actuators during movement, PSM realizes similar movements through
+the combination of wire and flexible pattern structure.
+ibility while enabling large force generation and long-
+distance contraction.
+• Similar to human muscles, PSM can be created in
+various shapes.
+• PSM can operate under environmental contact and also
+safely, and can be used as muscles for musculoskeletal
+robots by combining multiple PSMs.
+II. M ETHOD
+A. Concept of PSM
+Human muscle structure and the concept of PSM are
+compared in Fig. 2. In human muscles, the myosin and
+actin filaments generate contraction movements, causing
+myofibrils and muscle fibers to exert contraction force. This
+mechanism, where small actuators drive while maintaining
+their relative positions in the muscle, enables contraction
+even in situations such as deformation due to external forces.
+In this study, we imitate this mechanism of the muscle, and
+realize it as a wire-driven mechanism. In traditional wire-
+driven muscles, a wire is stretched between the end points
+of the muscle, and contraction is induced by winding the
+wire with a motor. However, because the wire itself lacks
+thickness, structures resembling various shapes of human
+muscles such as sheet-like muscles cannot be achieved as
+they are. Additionally, since the wire is stretched linearly,
+performing actions with curved shapes is also challenging.
+Therefore, we aim to address these issues through the fol-
+lowing approach. The wire is routed along the path of a
+single muscle fiber between the endpoints of the muscle. In
+areas without wire, flexible structure is created to deform
+while maintaining the shape of the muscle in accordance
+with the contraction of the wire. This allows for movements
+that are closer to human muscles. To realize this structure,
+the requirements of the muscle structure can be described as
+the following three directions of characteristics, as shown in
+Fig. 3.
+• x-direction: Flexibility and range of motion to realize
+self-contraction and extension from external tension.
+• y-direction: Strength that supports the muscle structure
+and allows contraction in the x-direction even in the
+presence of external load in the y-direction.
+
+===== PAGE 3 =====
+Y: external force
+Muscle
+X: contraction
+Bones Joint
+Z: strength to 
+retain the wire 
+under deformation X
+Y
+Z
+Wire
+Fig. 3. The three directions of characteristics required for PSM. In x-
+direction, flexibility and range of motion are required to realize contraction.
+In y-direction, strength is required to support the structure and allow x-
+directional contraction in the presence of external load. In z-direction, a
+certain degree of strength is required to maintain the positional relationship
+of wire and structure.
+1. Inner pattern 
+ structure
+2. Outer 
+structure3. Wire path
+The overall structure 
+of the Patterned 
+Structure Muscle
+X
+Z
+Y
+4. End point
+Fig. 4. PSM is composed of the following four structures: 1. inner pattern
+structure, 2. outer structure, 3. wire path, and 4. end points.
+• z-direction: A certain degree of strength to maintain the
+positional relationship of wire and surrounding structure
+in the muscle, while preserving the route of wire.
+B. Mechanism of PSM
+PSM is composed of the following four structures, shown
+in Fig. 4: 1. inner pattern structure, 2. outer structure, 3.
+wire path, and 4. end points. The end points are attached to
+the bone. Wire is passed through the wire path and the end
+points. When the wire is pulled, the inner pattern structure,
+wire path, and outer structure are compressed between the
+end points, resulting in contraction of the entire muscle. The
+inner pattern structure, as shown in Fig. 5, is a critical part
+that has the most significant impact on the properties of PSM.
+The inner structure of PSM is formed by arranging pattern
+unit structures periodically in the x, y, and z directions. This
+pattern unit structure is composed of multiple branches. The
+structure is called lattice structure, and various representative
+shapes exist [19]. The lattice structure is well suited to
+additive manufacturing [20], and is expected to be widely
+used, from metal components [21] to damping mechanism
+[22]. In the lattice structure we use, the length of the unit
+pattern in the x, y, and z directions are denoted as x, y, z, as
+shown in Fig. 5 (a). The diameter of the branches is denoted
+as p. These x,y,z directions correspond to the directions
+mentioned in Fig. 3. The characteristics of the compression
+deformation are considered in two deformation phases:
+X
+Z
+(b)
+(c)
+Compression
+X
+Z
+Y
+𝑥
+𝑦
+𝑧
+(a)
+𝑝
+Branch
+Vertex
+𝑥 2𝑝
+𝜀 = 0 𝜀 = 1 − 2𝑝𝑥
+𝑓𝑥
+default
+Fig. 5. The inner pattern structure of PSM utilize the lattice structure.
+(a) illustrates the unit structure, (b) illustrates the deformation during
+compression, and (c) shows actual images of the deformation.
+1) Bending deformation phase: Let’s consider three com-
+pressions along the x, y, and z directions, respectively. Let the
+nominal strain of each compression be ε. Until the branches
+come into contact, deformation occurs within the range of
+0 ≤ ε ≤ 1−2p/x, 0 ≤ ε ≤ 1−2p/y, 0 ≤ ε ≤ 1−2p/z, leading
+to a reduction in the angle and distance between the branches,
+as shown in Fig. 5 (b). In this state, the overall compression
+occurs due to a large bending of the branches near the
+vertices, and a small bending near the center of the branches.
+The actual compression process is shown in Fig. 5 (c).
+We call this state the bending deformation phase. In this
+deformation, the magnitude relationship between x, y, and
+z align with the deformation magnitudes of the branches
+in their respective compression directions. Consequently, the
+magnitude relationship for x, y, and z, as well as the repulsive
+forces per unit pattern for each direction, fx, fy, and fz, are
+consistent. Also, the larger the p, the larger the deformation
+volume, and the larger these forces. The average nominal
+stress in compression is expressed as follows:
+σx = fxyz , σy = fyxz , σz = fzxy (1)
+From these expressions, we obtain the following properties:
+• The order of magnitudes of x, y, and z corresponds to
+the order of magnitudes of σx, σy, and σz.
+• Increasing the diameter p results in larger values for σx,
+σy, and σz.
+• Enlarging x, y, and z individually leads to larger bending
+deformation regions in the corresponding x, y, and z
+directions.
+2) Compression deformation phase: When ε > 1 − 2p/x,
+ε > 1 − 2p/y, and ε > 1 − 2p/z in corresponding compres-
+sion directions, the branches come into contact, and overall
+compressive deformation of the material occurs. We call
+this state the compression deformation phase. In general, the
+pressure during compression deformation phase is larger than
+the pressure during bending deformation phase.
+In the design of PSM, the two phases of deformation
+
+===== PAGE 4 =====
+are utilized. By setting the parameters such that y ≤ x ≤ z,
+the following properties can be obtained: First, by reducing
+the value of y in comparison to x and z, the structure
+can transition to the compression deformation phase with
+a small amount of deformation. At the beginning of the
+deformation, the structure is soft, but after a small defor-
+mation, the structure becomes stiff and can support a large
+load. Second, by setting the value of x to be the second
+largest, the contraction distance of x direction in the bending
+deformation phase is made larger than that in the y direction,
+and the repulsive force of x direction, fx, during the bending
+deformation phase is not as large as that in the z direction.
+This means that the structure is flexible in the x-direction,
+enabling substantial contraction over long distances. Finally,
+by setting the value of z to be the largest, the pressure
+during bending deformation in the z direction is made the
+largest. This ensures a certain degree of structural support
+strength to maintain the wire path and overall shape. These
+properties satisfy the requirements of x, y, and z directions
+mentioned in II-A. While utilizing the characteristics of the
+inner pattern structure described above, the wire path, outer
+pattern as a muscle surface and endpoints for connection with
+the bone are realized. The wire path and outer pattern are
+arranged by taking the y-directional projection of the inner
+pattern based on the shapes of the tubes for threading wires
+and the muscle surface, as illustrated in Fig. 4 (3, 2). This
+allows these parts to function without interfering with the
+x-directional deformation, y-directional load support, and z-
+directional internal structural support. Also, the end points
+(Fig. 4 (4)) are composed of simple dense structure that is
+suitable for attachment. In summary, PSM utilizes the three
+directions of anisotropic characteristics, and the combination
+of sparse lattice structure and dense parts, to achieve various
+properties with a single material.
+C. Process of Making PSM
+The process of making PSM is shown in Fig. 6. This
+process consists of modeling, 3D printing, and attaching
+wires and motors. In the modeling process, the overall shape
+of the muscle and the route of the wire are determined firstly,
+and then they are converted into a pattern structure. We
+generate pattern structure from the shape, route and structural
+parameters x, y, z, p by a script. Then, PSM is created by
+FDM 3D printing using Thermoplastic Polyurethane (TPU)
+as the material. Finally, wires and motors are attached to
+complete the assembly.
+Using FDM 3D printing, it is possible to create various
+shapes. Also, it is relatively inexpensive, readily available,
+and easy to use, and does not require special skills or post-
+processing.
+D. V arious Shapes of PSM and Upper Arm Using PSM
+Utilizing the basic characteristics of PSM described so
+far, we created four types of PSM. As shown in Fig. 7,
+these are, muscle 1: simple single muscle, muscle 2: wide
+sheet-like muscle, muscle 3: muscle that covers a joint, and
+muscle 4: branched muscle. Except for the simple single
+Muscle shape,
+Wire path Pattern
+ Attaching 
+motor and wireFDM 3D printer
+Fig. 6. The making process of PSM consists of four steps: 1. modeling
+muscle shapes and wire path, 2. converting them into pattern structure, 3.
+FDM 3D printing, and 4. attaching wires and motors.
+TABLE I
+SPECIFICATIONS OF MUSCLE 1
+Parameter Value
+Pattern size parameter (x,y,z) (15, 10, 30) [mm]
+Pattern branch diameter 2 mm
+Muscle size (X,Y ,Z) (250, 30, 50) [mm]
+Length after contraction in the x-axis 115 mm
+Length after stretching in the x-axis 380 mm
+Range of twisting in the x-axis over ±360 deg
+Bending in the y and z axes over ±360 deg
+Mass of PSM 38 g
+Material of PSM TPU 95A
+Maximum tension of the motor-wire unit 300 [N]
+Maximum speed of the motor-wire unit 250 [mm/s]
+muscle, all of them are 2-DOF muscles. The muscle that
+covers a joint has a round shape to cover the interior, and the
+branched muscle is created to have two branches that contract
+separately. The pattern parameters were standardized to (x, y,
+z, p) = (15, 10, 30, 2) (mm). Specifically, the specifications
+of a simple single muscle is presented in Table I. These
+muscles flexibly deform in response to external forces. In
+particular, photographs illustrating the deformation of PSMs
+by hand are presented in Figure 8. While flexibly deforming
+in response to external forces, they also protect the wire and
+its path.
+Furthermore, we created an upper arm structure, as shown
+in Fig. 9, by combining these muscles. It consists of bones
+and joints printed with PLA, and PSMs made from TPU.
+The motor-wire units from previous research [2] are used,
+and the wires are passed from the motors to the muscles
+through PTFE tubes. The joint structure includes a 3-DOF
+ball joint at the shoulder, and a 2-DOF joint at the elbow that
+enables flexion, extension, as well as internal and external
+rotation. The muscle 1,2,3,4 described above are placed at
+the positions of the biceps brachii, pectoralis major, deltoid,
+and triceps brachii. In addition, a single muscle (muscle 5)
+is added as the back muscle. This structure was created to
+demonstrate the potential of PSM, and is not intended to
+strictly mimic the human musculoskeletal structure.
+III. E XPERIMENTS
+A. Measurement of PSM Properties With V aried Parameters
+First, we measure the anisotropic characteristics of PSM.
+We created six inner structures and PSMs with different
+
+===== PAGE 5 =====
+21 3 4
+0.25 m
+X
+Z
+Y
+Fig. 7. The four shapes of PSM: Muscle 1 is a simple single-wire muscle,
+muscle 2 is a wide sheet-like muscle. muscle 3 is a muscle covering a joint,
+and muscle 4 is a branched muscle. muscle 2,3,4 are 2-DOF muscles.
+Fig. 8. The deformation of muscles 1, 2, 3, and 4 are illustrated from top
+to bottom. In the leftmost column, the deformation caused by pulling the
+wire are shown. On the right side, the stretching deformation in the x-axis,
+and the bending deformation in the y and z axes are shown.
+pattern parameters (x, y, z, p), to measure their compression
+characteristics. Condition A has the reference parameters (15,
+10, 30, 2) (mm), and B, C have thickness p as 1.5 and 2.5,
+respectively. D, E, F have altered x, y, z to 20, 5, 20 from A’s
+parameters, respectively. For measurements, inner structures
+with pattern numbers of 3, 3, 2 for x, y, z were used. The
+characteristics of PSM were measured using muscles with
+dimensions of approximately 75 x 30 x 45 (mm). In the
+case of D, E, F, the size of the entire muscle shapes was
+multiplied by the ratio of the pattern length, and the pattern
+numbers and arrangement were the same as A.
+In Fig. 10, the nominal pressure-strain curves of the
+internal structure are shown. The color of each line in the
+graph corresponds to the color of the x,y,z in the graph
+Shoulder joint
+3 DOF
+Elbow joint
+2 DOF
+2
+1
+3
+4
+2
+5
+5
+3
+4
+41
+3
+2
+Upper arm
+0.28m
+Forearm
+0.28m
+Torso
+Fig. 9. The upper arm structure combining PSMs. Muscle 1 is positioned
+for the biceps brachii, muscle 2 for the pectoralis major, muscle 3 for the
+deltoid, and muscle 4 for the triceps brachii. An additional muscle (muscle 5)
+is added as the back muscle. Note that this design was created to demonstrate
+the feasibility of using PSM as muscles, and is not intended to strictly mimic
+the human musculoskeletal structure.
+title. First, especially for the x and y directions, it can
+be observed that the pressure increases rapidly when the
+strain reaches around 0.6, indicating a transition from the
+bending deformation phase to the compression deformation
+phase. Generally, the pressure during bending deformation
+is large depending on the size of x, y, and z. It means that
+adjusting these size relationships makes it possible to control
+the anisotropic characteristics.
+In Fig. 11, the force-displacement curves of PSMs are
+shown. In the x and z directions, bending deformation occurs
+over a wide area. The x-direction is soft and suitable for
+contraction, while the z-direction is relatively rigid and
+suitable for maintaining shape. In the y-direction, there is
+a transition to compression deformation phase with slight
+deformation, making it the strongest. This is due to not
+only the size of y, but also the presence of internal wire
+paths, which reduce the bending deformation region of the y-
+direction. In summary, it is shown that PSM has anisotropic
+characteristics utilizing the pattern structure, and also that
+these characteristics can be adjusted by changing the pattern
+parameters.
+B. Contraction Motion of PSM
+Next, the performance of the four types of PSM created
+(Fig. 7) are tested in two different environments. To confirm
+its ability to exert large contraction force, a total weight of 10
+kg was lifted using the PSM, as shown in Fig. 12. Also, to
+demonstrate its movements under contact, weights of 1.25
+kg or 1.38 kg were placed or leaned on the horizontally
+positioned PSM, and the contraction was performed, as
+shown in Fig. 13. At the top of the each figure, the PSMs’
+contraction are shown. The muscle number and time are
+shown as 1-a, 1-b, etc. At the bottom, the current and
+wire length of each muscle are shown. In muscles with
+
+===== PAGE 6 =====
+0
+0.05
+0 0.5 1
+A. x15, y10, z30, p2
+0
+0.05
+0 0.5 1
+B. x15, y10, z30, p1.5
+0
+0.05
+0 0.5 1
+C. x15, y10, z30, p2.5
+0
+0.05
+0 0.5 1
+D. x20, y10, z30, p2
+0
+0.05
+0 0.5 1
+E. x15, y5, z30, p2
+0
+0.05
+0 0.5 1
+F. x15, y10, z20, p2
+Stress [N/mm2]
+Strain
+A B C D E F
+X
+Z
+Y
+Fig. 10. Compression measurements on internal structures. Displaying
+nominal stress-strain curves for six inner structures with different pattern
+parameters.
+0
+50
+100
+150
+0 50
+A. x15, y10, z30, p2
+0
+50
+100
+150
+0 50
+B. x15, y10, z30, p1.5
+0
+50
+100
+150
+0 50
+C. x15, y10, z30, p2.5
+0
+50
+100
+150
+0 50
+D. x20, y10, z30, p2
+0
+50
+100
+150
+0 50
+E. x15, y5, z30, p2
+0
+50
+100
+150
+0 50
+F . x15, y10, z20, p2
+Force [N]
+Displacement [mm]
+A B C D E F
+X
+Z
+Y
+Fig. 11. Compression measurements on PSMs. Displaying force-
+displacement curves for six muscles with different pattern parameters.
+multiple degrees of freedom, such as Muscle 2, 3, 4, the
+contraction is performed by contracting one side first, and
+then both sides, and finally the opposite side. The plots
+for the 2-DOF muscles are overlaid in the graph. In the
+initial experimental setup, it was confirmed that the PSM is
+capable of lifting heavy objects. Furthermore, in the second
+experimental environment, it was verified that the PSM can
+operate under the load from the environment. In muscles 2,
+3, and 4, 2-DOF movements such as contraction on only
+one side, contraction on both sides simultaneously, were
+performed, utilizing the interaction of the two wires. In
+these cases, the structure around the wire paths and the wire
+paths themselves undergo deformation while maintaining
+their internal positional relationships, as described in Fig. 2.
+These results show that PSM can utilize the advantages of
+wire-driven actuation, such as the ability to exert large forces
+and control the length of the wire accurately, depending
+on the motor. Additionally, it demonstrates that even in the
+presence of environmental contact, the deformation of wire
+paths remain stable, overcoming the weaknesses of wire-
+driven actuation.
+-2
+3
+8
+0 5 10 15 20 -2
+3
+8
+0 5 10 15 20 -2
+3
+8
+0 5 10 15 20 -2
+3
+8
+0 5 10 15 20
+-50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20
+1-a 1-b 2-a 2-b 2-c 2-d
+3-a 3-b 3-c 4-a 4-b 4-c
+L [mm] I [A]
+time [s]Muscle 1 Muscle 2 Muscle 3 Muscle 4 
+Fig. 12. With each shape of PSM shown in Fig. 7, a total of 10kg weight
+was lifted. In the 2-DOF muscles, two wires were operated independently.
+-2
+3
+8
+0 5 10 15 20 -2
+-1
+0
+1
+2
+0 5 10 15 20
+-2
+-1
+0
+1
+2
+0 5 10 15 20
+-2
+3
+8
+0 5 10 15 20
+-50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20 -50
+150
+0 5 10 15 20
+L [mm] I [A]
+time [s]
+1-a 1-b 2-a 2-b 2-c 2-d
+3-a 3-b 3-c 4-a 4-b 4-c
+Muscle 1 Muscle 2 Muscle 3 Muscle 4 
+Fig. 13. We performed the same contraction motion as in Fig. 12, with the
+muscle placed horizontally and the weight leaning against it, confirming its
+operation under contact. The green weight is 1.38kg, and the black weight
+is 1.25kg. Each of the PSMs pulls one or two 1.25kg weights.
+C. Motion of The Arm Constructed with PSM
+In this experiment, we demonstrate the operation of the
+upper arm structure shown in Fig. 9. Firstly, we perform
+the motion of lifting a weight using the muscle 1, located
+at the position of the biceps brachii, as shown in Fig. 14.
+We send position commands to the motor and make the
+elbow flex with a 1.38kg weight attached to the hand. The
+flexion is carried out over 7 seconds, making the forearm
+almost horizontal. The arm keeps the position for 5 seconds,
+and then extends over 5 seconds. When calculated from the
+moment arm of the muscle 1, a load of about 200N is applied
+to the muscle. This is within the capacity of the motor unit
+used, and the lifting is successful. As shown in III-B, the
+tensile load of PSM is supported by the motor and wire.
+Therefore, PSM can exert a large tensile force according to
+the performance of the motor. This capability is also effective
+in applications for robots, such as the motion of lifting a
+weight in the upper arm.
+
+===== PAGE 7 =====
+-2
+0
+2
+4
+6
+8
+0 5 10 15 20 25 -5
+0
+5
+10
+15
+0 5 10 15 20 25
+I [A]
+L [mm]
+time [s] time [s]
+1 2 3 4
+Fig. 14. We conducted a motion experiment lifting a 1.38kg weight attached
+to the hand using muscle 1 at the position of the biceps brachii in the upper
+arm. We only plot the current and length of muscle 1 in this experimental
+setup, because other muscles’ current and length are almost constant.
+Next, we perform a motion of the entire upper arm for
+about 30 seconds, as shown in Fig. 15. The top of the
+figure shows the motion, and the bottom shows the current
+and wire length of each muscle. The plots for Muscle 1
+and Muscle 5 as described in Fig. 9 were overlaid. The
+format of the plots for the other muscles is the same as
+that in Fig. 12. This motion consists of 8 postures: 1. arm
+down, 2. elbow flexion, 3. forearm pronation, 4. forearm
+supination, 5. raise upper arm, move hand forward, 6. raise
+upper arm further, pull hand backward, 7. lower upper arm
+backward, 8. bring hand to the front of the chest. Firstly,
+the pronation and supination of the forearm are performed
+using the branched muscle, which is placed at the position
+of the triceps brachii. It achieves a rotation of ±30 degrees.
+Secondly, in the motion of raising the upper arm, the two
+degrees of freedom of the deltoid are utilized to move the
+upper arm forward, middle, and backward. While the muscle
+has a round shape that covers the joint, it can function as a
+muscle. After that, the motion of bringing the hand to the
+front of the chest is performed using muscle 2, the pectoralis
+major. The motion is performed with a small current due to
+the presence of two wires. Due to the interaction among
+muscles, each muscle undergoes deformation in bending or
+stretching in response to the contraction of other muscles.
+Even in such situations, PSMs maintain their own structure
+and deform and operate while preserving the wire path. This
+contributes to the wide range of motion of the hand from
+the back to the front. Through this experiment, it has been
+demonstrated that PSM can be used as muscle in an actual
+musculoskeletal robot. Its capability to be created in various
+shapes and multi-DOF makes it useful in the construction of
+musculoskeletal robots.
+Furthermore, we performed simplified movements, such
+as raising the upper arm and bringing the hands in front
+of the chest, in situations involving environmental contacts.
+This is illustrated in Fig. 16. Under the first two conditions,
+the upper arm was moved with two types of bags put on the
+shoulder, containing 1.38kg weights. The bags were placed
+to make contact with the pattern parts of the deltoid, the
+pectoralis major mainly. In particular, 75% of the contact
+area of the bag on the shoulder was directly in contact with
+the pattern part of the deltoid, and the remaining 25% was in
+contact with the end point of the deltoid. In such situations
+1 2 3 4
+5 6 7 8
+1 2 3 4
+5 6 7 8
+-2
+0
+2
+4
+6
+0 20 -2
+0
+2
+4
+6
+0 20 -2
+0
+2
+4
+6
+0 20 -2
+0
+2
+4
+6
+0 20
+-60
+-10
+40
+90
+140
+0 10 20 30
+-100
+-50
+0
+50
+100
+0 10 20 30
+-60
+-10
+40
+90
+140
+0 10 20 30
+-120
+-70
+-20
+30
+80
+0 10 20 30
+I [A]
+Muscle 2 Muscle 3 Muscle 4Muscle 1, 5
+L [mm]
+time [s]
+Fig. 15. A series of movements are performed using the upper arm
+structure. It consists of 8 postures, and the motion is performed for about
+30 seconds. The arm utilizes muscles such as covering joints and branched
+muscles, and the wide range of motion is achieved. The muscles interact with
+each other, undergoing bending and tensile deformation by the contraction
+of other muscles, yet they still function as muscles under these conditions.
+where the muscles are loaded by environmental contacts,
+PSM is able to operate, allowing the upper arm to move.
+Also, in the remaining two conditions, the upper arm was
+moved with cloth wrapped around the structure, and with a
+person directly touching the pattern part of the deltoid. From
+the third experimental condition, it was confirmed that the
+motion could be performed without catching the cloth at their
+muscles and joints. From the final experimental condition, it
+was shown that safety is ensured by covering joints and wires
+with muscles composed of flexible materials, and even when
+the muscles are touched directly by a person, the operation
+can be performed. In summary, using PSM as muscle in a
+musculoskeletal robot allows for safe movements in various
+environments, involving environmental contacts.
+IV. C ONCLUSION
+In this study, we proposed Patterned Structure Muscle
+(PSM), which can be used as a muscle for musculoskeletal
+robots. In the design of PSM, we utilized the anisotropic
+characteristics of the pattern structure, FDM 3D printing
+of flexible material TPU, and wire-driven actuation. This
+approach allows for the movement of muscles with various
+shapes and degrees of freedom under environmental contact
+forces. In the experiment, we confirmed the lifting of heavy
+objects and operation under environmental contact in various
+
+===== PAGE 8 =====
+1
+1
+1
+1
+2
+2
+2
+2
+3
+3
+3
+3
+Fig. 16. Upper arm motion in situations where muscles come into direct
+contact with the environment. Even in scenarios involving contact with bags,
+fabric, or hands, the muscles operate safely while withstanding external
+contact loads.
+shapes of PSMs. We also confirmed that in the upper arm
+structure composed of multiple PSMs, strong movements, a
+wide range of motion, and environmental contact operations
+are achieved. All of these results demonstrate that PSM is
+suitable for use as muscles in musculoskeletal robots.
+PSM is highly scalable because of its sparse-structure and
+3D printing making process. By using conductive filaments
+to detect deformation or embedding sensors, it is believed
+that various functionalities, including tactile sensing, will
+be achieved. Also, in the future, we will create a muscu-
+loskeletal humanoid with a structure that mimics the human
+body using PSM. We think that PSM will enable body
+movements closer to those of human, because PSM can
+imitate the complex movements of vairous human muscles.
+Furthermore, by utilizing environmental contact performance
+and safety, it is believed that significant interactions with
+external environments and humans, such as rolling over
+motiom or hugging, will be realized.
+REFERENCES
+[1] Y . Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima,
+T. Katayama, Y . Iori, H. Toshinori, K. Kawaharazuka, S. Makino,
+Y . Kakiuchi, K. Okada, and M. Inaba, “Human Mimetic Musculoskele-
+tal Humanoid Kengoro toward Real World Physically Interactive Ac-
+tions,” in Proceedings of the 2016 IEEE-RAS International Conference
+on Humanoid Robots , 2016, pp. 876–883.
+[2] K. Kawaharazuka, S. Makino, K. Tsuzuki, M. Onitsuka, Y . Nagamatsu,
+K. Shinjo, T. Makabe, Y . Asano, K. Okada, K. Kawasaki, and M. In-
+aba, “Component modularized design of musculoskeletal humanoid
+platform musashi to investigate learning control systems,” in 2019
+IEEE/RSJ International Conference on Intelligent Robots and Systems
+(IROS), 2019, pp. 7300–7307.
+[3] H. G. Marques, M. J ¨antsch, S. Wittmeier, O. Holland, C. Alessandro,
+A. Diamond, M. Lungarella, and R. Knight, “Ecce1: The first of a
+series of anthropomimetic musculoskeletal upper torsos,” in 2010 10th
+IEEE-RAS International Conference on Humanoid Robots . IEEE,
+2010, pp. 391–396.
+[4] P.-A. Mouthuy, S. Snelling, R. Hostettler, A. Kharchenko, S. Salmon,
+A. Wainman, J. Mimpen, C. Paul, and A. Carr, “Humanoid robots to
+mechanically stress human cells grown in soft bioreactors,” Commu-
+nications Engineering , vol. 1, no. 1, p. 2, 2022.
+[5] S. Kurumaya, K. Suzumori, H. Nabae, and S. Wakimoto, “Mus-
+culoskeletal lower-limb robot driven by multifilament muscles,”
+Robomech Journal, vol. 3, pp. 1–15, 2016.
+[6] S. Ikemoto, F. Kannou, and K. Hosoda, “Humanlike shoulder complex
+for musculoskeletal robot arms,” in 2012 IEEE/RSJ International
+Conference on Intelligent Robots and Systems , 2012, pp. 4892–4897.
+[7] R. Niiyama, S. Nishikawa, and Y . Kuniyoshi, “Athlete robot with
+applied human muscle activation patterns for bipedal running,” in
+Proc. IEEE-RAS Int. Conf. on Humanoid Robots (Humanoids 2010) ,
+Nashville, Tennessee USA, Dec. 2010, pp. 498–503.
+[8] R. V . Martinez, C. R. Fish, X. Chen, and G. M. Whitesides,
+“Elastomeric origami: Programmable paper-elastomer composites as
+pneumatic actuators,” Advanced Functional Materials , vol. 22, no. 7,
+pp. 1376–1384, 2012.
+[9] Z. Jiao, C. Zhang, W. Wang, M. Pan, H. Yang, and J. Zou, “Advanced
+artificial muscle for flexible material-based reconfigurable soft robots,”
+Advanced Science , vol. 6, no. 21, p. 1901371, 2019.
+[10] M. Schaffner, J. A. Faber, L. Pianegonda, P. A. R ¨uhs, F. Coulter, and
+A. R. Studart, “3d printing of robotic soft actuators with programmable
+bioinspired architectures,” Nature communications , vol. 9, no. 1, p.
+878, 2018.
+[11] E. Acome, S. K. Mitchell, T. G. Morrissey, M. B. Emmett, C. Ben-
+jamin, M. King, M. Radakovitz, and C. Keplinger, “Hydraulically
+amplified self-healing electrostatic actuators with muscle-like perfor-
+mance,” Science, vol. 359, no. 6371, pp. 61–65, 2018.
+[12] N. Kellaris, V . G. Venkata, G. M. Smith, S. K. Mitchell, and
+C. Keplinger, “Peano-hasel actuators: Muscle-mimetic, electrohy-
+draulic transducers that linearly contract on activation,” Science
+Robotics, vol. 3, no. 14, p. eaar3276, 2018.
+[13] X. Wang, S. K. Mitchell, E. H. Rumley, P. Rothemund, and
+C. Keplinger, “High-strain peano-hasel actuators,” Advanced Func-
+tional Materials , vol. 30, no. 7, p. 1908821, 2020.
+[14] M. D. Lima, N. Li, M. J. de Andrade, S. Fang, J. Oh, G. M. Spinks,
+M. E. Kozlov, C. S. Haines, D. Suh, J. Foroughi, S. J. Kim, Y . Chen,
+T. Ware, M. K. Shin, L. D. Machado, A. F. Fonseca, J. D. W.
+Madden, W. E. V oit, D. S. Galvo, and R. H. Baughman, “Electrically,
+chemically, and photonically powered torsional and tensile actuation
+of hybrid carbon nanotube yarn muscles,” Science, vol. 338, no. 6109,
+pp. 928–932, 2012.
+[15] C. S. Haines, M. D. Lima, N. Li, G. M. Spinks, J. Foroughi, J. D. W.
+Madden, S. H. Kim, S. Fang, M. J. de Andrade, F. Gktepe, zer Gktepe,
+S. M. Mirvakili, S. Naficy, X. Lepr, J. Oh, M. E. Kozlov, S. J. Kim,
+X. Xu, B. J. Swedlove, G. G. Wallace, and R. H. Baughman, “Artificial
+muscles from fishing line and sewing thread,” Science, vol. 343, no.
+6173, pp. 868–872, 2014.
+[16] S. Li, D. M. V ogt, D. Rus, and R. J. Wood, “Fluid-driven origami-
+inspired artificial muscles,” Proceedings of the National Academy of
+Sciences, vol. 114, no. 50, pp. 13 132–13 137, 2017.
+[17] K. Takashima, J. Rossiter, and T. Mukai, “Mckibben artificial muscle
+using shape-memory polymer,” Sensors and Actuators A: Physical ,
+vol. 164, no. 1, pp. 116–124, 2010.
+[18] G. Na, H. Nabae, and K. Suzumori, “Braided thin mckibben muscles
+for musculoskeletal robots,” Sensors and Actuators A: Physical , vol.
+357, p. 114381, 2023.
+[19] A. Seharing, A. H. Azman, and S. Abdullah, “A review on integration
+of lightweight gradient lattice structures in additive manufacturing
+parts,” Advances in Mechanical Engineering , vol. 12, no. 6, p.
+1687814020916951, 2020.
+[20] W. Tao and M. C. Leu, “Design of lattice structure for additive man-
+ufacturing,” in 2016 International Symposium on Flexible Automation
+(ISF A), 2016, pp. 325–332.
+[21] L.-Y . Chen, S.-X. Liang, Y . Liu, and L.-C. Zhang, “Additive manu-
+facturing of metallic lattice structures: Unconstrained design, accurate
+fabrication, fascinated performances, and challenges,” Materials Sci-
+ence and Engineering: R: Reports , vol. 146, p. 100648, 2021.
+[22] E. C. Clough, T. A. Plaisted, Z. C. Eckel, K. Cante, J. M. Hundley,
+and T. A. Schaedler, “Elastomeric microlattice impact attenuators,”
+Matter, vol. 1, no. 6, pp. 1519–1531, 2019.

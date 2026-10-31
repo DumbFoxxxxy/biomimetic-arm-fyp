@@ -1,0 +1,36 @@
+{
+  "part": "forearm_with_rotor",
+  "construction": "native BRep Boolean union of separately verified source forearm and rotor; microscopic final union mesh was not sewn",
+  "valid": true,
+  "input_volume_mm3": 81944.73607185937,
+  "input_vertex_count": 1256,
+  "relative_volume_error": 2.688792066691342e-07,
+  "bbox_error_mm": 1.0000388783737435e-07,
+  "sampled_mesh_vertex_to_STEP_surface_max_mm": 0.05851640089033843,
+  "surface_sample_count": 512,
+  "surface_check_scope": "512 deterministic vertex samples; not exhaustive surface equivalence proof",
+  "source_STEP_sha256": {
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\cad\\forearm_elbow_hub.step": "8da2df7f4e27da453d3b578bc4484cb5cf4930470fe64133d18af478f005da84",
+    "mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\distal_rotor_space\\pocket_candidate\\rotor_addition\\cad\\rotor_addition.step": "a557696d3aa1c246ea3eea021c4cfc43ce33d554d601237e6b7d3c3cee560985"
+  },
+  "STEP_sha256": "7db371cbff439eddf3c0c0e8c3e9637fb388da18044ee1a4885b680544f64833",
+  "pass": false,
+  "worst_surface_sample": {
+    "vertex_index": 898,
+    "point_mm": [
+      -80.08411209362256,
+      8.429515462546288,
+      -52.56244974933509
+    ],
+    "nearest_STEP_point_mm": [
+      -80.07716538091043,
+      8.487116670118503,
+      -52.55483310690706
+    ],
+    "local_to_elbow_in_rotor_frame_mm": [
+      9.369480515003964,
+      -2.0622331772275873,
+      11.49999999999999
+    ]
+  }
+}

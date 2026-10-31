@@ -1,0 +1,700 @@
+===== PAGE 1 =====
+/gid00030/gid00035/gid00032/gid00030/gid00038/gid00001/gid00033/gid00042/gid00045/gid00001
+/gid00048/gid00043/gid00031/gid00028/gid00047/gid00032/gid00046
+Citation: Su, H.; Hou, X.; Zhang, X.;
+Qi, W.; Cai, S.; Xiong, X.; Guo, J.
+Pneumatic Soft Robots: Challenges
+and Beneﬁts. Actuators 2022, 11, 92.
+https://doi.org/10.3390/act11030092
+Academic Editors: Gary M. Bone and
+Giorgio Olmi
+Received: 8 January 2022
+Accepted: 5 March 2022
+Published: 16 March 2022
+Publisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in
+published maps and institutional afﬁl-
+iations.
+Copyright: © 2022 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+actuators 
+Review
+Pneumatic Soft Robots: Challenges and Beneﬁts
+Hang Su 1,2
+ , Xu Hou 3, Xin Zhang 3, Wen Qi 1,*
+ , Shuting Cai 2, Xiaoming Xiong 2 and Jing Guo 2
+1 Department of Electronics, Information and Bioengineering, Politecnico di Milano, 20133 Milan, Italy;
+hang.su@ieee.org
+2 School of Automation, Guangdong University of Technology, Guangzhou 510006, China;
+shutingcai@126.com (S.C.); xmxiong@gdut.edu.cn (X.X.); toguojing@gmail.com (J.G.)
+3 School of Art, Soochow University, Suzhou 215006, China; 20205205067@stu.suda.edu.cn (X.H.);
+zx_xingxing@163.com (X.Z.)
+* Correspondence: wen.qi@polimi.it; Tel.: +39-02-3317485661
+Abstract: In the ﬁeld of robotics, soft robots have been showing great potential in the areas of
+medical care, education, service, rescue, exploration, detection, and wearable devices due to their
+inherently high ﬂexibility, good compliance, excellent adaptability, and natural and safe interactivity.
+Pneumatic soft robots occupy an essential position among soft robots because of their features such as
+lightweight, high efﬁciency, non-pollution, and environmental adaptability. Thanks to its mentioned
+beneﬁts, increasing research interests have been attracted to the development of novel types of
+pneumatic soft robots in the last decades. This article aims to investigate the solutions to develop and
+research the pneumatic soft robot. This paper reviews the status and the main progress of the recent
+research on pneumatic soft robots. Furthermore, a discussion about the challenges and beneﬁts of the
+recent advancement of the pneumatic soft robot is provided.
+Keywords: soft robotics; soft pneumatic actuators; soft components; control systems; prototyping
+1. Introduction
+Although the traditional rigid robot can achieve complex and accurate motion, it often
+needs a large number of rigid link joints to achieve multi-redundant motion control. This
+type of rigid connection robot is usually called a redundant or hyper-redundant robot [1,2].
+The robot needs to have some ﬂexibility to avoid damage to fragile objects and the human
+body during the task. Because traditional robots usually use rigid drives and rigid joints,
+the industry usually needs several related sensors or technologies such as posture, force
+feedback, and machine vision to perform compliant control of the output power to improve
+the security of rigid robots. When it refers to the above challenges, these types of robots
+have initially been referred to as soft robots [2]. But with the development of soft material,
+bionics, and manufacturing technology, the concept of soft robots, i.e. robots whose main
+body is made of soft materials and whose motion is achieved mainly by elastic deformation
+of the structure itself, is gradually emphasized. Compared with the traditional rigid robot,
+the soft robot has inﬁnite degrees of freedom in principle. Its good safety and ﬂexibility
+make up for the shortcomings of a rigid robot, showing unprecedented adaptability, safety,
+sensitivity, and constantly expanding the application areas of robots. Hence soft robot has
+been one of the main trends in robotics development.
+Soft robotics research directions are divided into the following three main categories.
+(1) The traditional pneumatic or cable drive-based research, such as the German company
+Festo’s pneumatic soft robot and pneumatic artiﬁcial muscle and so on [ 3]. The
+pneumatic and cable drive-based soft robot research has been investigated for over
+20 years. Various actuators and control techniques have been developed.
+(2) Elastic silicone material is used as the main material of the soft robot, combining
+with the latest 3D printing technology. These robots are primarily characterized by
+Actuators 2022, 11, 92. https://doi.org/10.3390/act11030092 https://www.mdpi.com/journal/actuators
+
+===== PAGE 2 =====
+Actuators 2022, 11, 92 2 of 14
+pneumatic driven, small pressure-bearing, large deformation, and ﬂexible motion
+control [4].
+(3) Using advanced smart materials, such as dielectric elastomer (DE) [5], shape memory
+alloy (SMA) [ 6] to generate motion by deformation of materials, which is a new
+application of smart materials in the ﬁeld of soft robotics and it has a broad application
+prospect in the ﬁeld of micro and small robots. Soft robots can be driven by gas, wire,
+smart material, and so on [7]. Among them, pneumatic technology was ﬁrstly used in
+the design of soft robots and had the characteristics of lightweight, good ﬂexibility,
+and strong adaptability to the environment. Moreover, the pneumatic soft robot can
+be driven without ferromagnetic or electronic components with good reliability under
+harsh conditions under the strong radiation [ 8], electromagnetic interference [ 9],
+dust, external extrusion, and heavy impacts [ 7]. It has been well recognized that
+the pneumatic soft robot has occupied an important position in the research of soft
+robotics. This article reviews the status and the main progress of the recent research
+on pneumatic soft robots. This article aims to investigate the solutions to develop and
+research the pneumatic soft robot.
+The structure of this paper is organized as follows: the motivation and types of the
+soft pneumatic robots are provided in Sections 1 and 2. Section 3 describes the detailed
+development, modeling, and control of the soft pneumatic robots. Section 4 discusses the
+challenges and beneﬁts involved in different applications. Finally, the conclusion is drawn
+in Section 5.
+2. Pneumatic Soft Actuators
+The pneumatic drive of soft robots is divided into positive and negative pressure
+drives. The positive pressure driving technique is to drive the soft actuator by moving,
+deforming, and ﬁlling the cavity with compressed gas to expand the main body. In contrast,
+the negative one is to control the soft actuators to move and deform by drawing the air out
+of the cavity through vacuuming, which causes the cavity to shrink [10].
+According to the structure difference, the typical pneumatic actuators can be divided
+into two main types: pneumatic Networks (PneuNets) and ﬁber-constrained actuators.
+2.1. Pneumatic Networks
+The structure of a typical pneumatic network is shown in Figure 1. The actuator
+structure can be divided into two layers, the upper layer is the extendable layer, and the
+lower layer is the restricted layer. The upper layer consists of a linear array of air chambers,
+which are interconnected internally by an air channel. When inﬂated, the inner walls of the
+air cavities of the upper structure expand and squeeze each other, while the bottom layer
+limits the elongation in the length direction, thus producing a bending motion of the whole
+driver toward the side of the limiting layer [11].
+Figure 1. PneuNets structure [12].
+2.1.1. Flexible Fluidic Actuator (FFA)
+The ﬂexible ﬂuidic actuator is an extensible and adaptive soft actuator. FFA is made up
+of elastomers and several cavity channels embedded in the elastomers. Each channel can
+
+===== PAGE 3 =====
+Actuators 2022, 11, 92 3 of 14
+be expanded and deformed by applying ﬂuid pressure. The advantage of this actuator is
+that it is by the biological structure of nature, and the contraction of actuators can produce
+adaptive ﬂexibility [12].
+2.1.2. Honeycomb Pneumatic Networks
+Based on the typical Pneumatic Networks, a new structure called the Honeycomb Pneu-
+matic Networks [13] was proposed. The honeycomb aerodynamic network is structured
+to generate robot moves through the folding-extension deformation of many hexagonal
+structures, which is called structural deformation actuation. In summary, the honeycomb
+structure has good bending and elongation capabilities, providing the arm with good
+ﬂexibility. It has good torsional resistance, which is the basis for the arm’s load capacity.
+Figure 2 shows the basic structure and working principle of the honeycomb pneumatic
+network soft arm [14]. Two rows of honeycomb units are arranged in a staggered manner,
+with two airbags placed on the top and bottom of each unit, and the individual airbags
+are connected by silicone hoses to form a pneumatic network. The airbag is made of
+polyurethane nylon fabric, a composite material with excellent airtightness and pressure-
+bearing properties. When the airbag on one side inﬂates, the structure on that side will
+elongate under the action of the airbag, and the other side will deform less due to the
+restoring force of the structure thus that the whole actuator will bend in the opposite
+direction. In addition, if all airbags are inﬂated simultaneously, the soft arm will elongate.
+By controlling the combination of inﬂation of individual airbags, the soft arm can achieve
+multiple bending and elongation deformations.
+Figure 2. The honeycomb pneumatic networks arm [15].
+2.2. Fiber-Constrained Actuators
+The most important feature of ﬁber-constrained pneumatic ﬂexible actuators is that
+the elastic cavity is reinforced by cuffed or embedded ﬁbers, fabrics, or other ﬁber-like
+structures. These constrained structures generally have anisotropic mechanical properties
+thus that as the actuator’s air pressure increases, the ﬁber structure will constrain the elastic
+cavity to produce anisotropic expansion and deformation, thus achieving a speciﬁc form of
+deformation motion [15]. The pneumatic artiﬁcial muscle (PAM) is a typical representative
+of ﬁber-constrained actuators.
+Biological soft tissues and structures have been the object of research and are studied
+by scientists. The pneumatic artiﬁcial muscle is a gas actuator developed by using a bionic
+design to imitate biological muscles. McKibben artiﬁcial muscle (Figure 3) is the most
+famous pneumatic artiﬁcial muscle. The body of the McKibben artiﬁcial muscle is a soft
+hollow rubber tube, and the outside of the tube is wrapped by a coaxial woven sheath [14].
+Compared to a cylinder, which is essentially a rigid element, ﬂexible pneumatic artiﬁcial
+muscle is more secure [15]. The basic working principle of pneumatic artiﬁcial muscle is
+pumping highly compressed air into or out of the rubber tube, and achieve the body’s radial
+
+===== PAGE 4 =====
+Actuators 2022, 11, 92 4 of 14
+expansion or contraction under the restriction of the coaxial woven sheath to generate axial
+force to drive the robot.
+Figure 3. McKibben artiﬁcial muscle.
+Due to its special structure, a single pneumatic artiﬁcial muscle can only provide
+extension or contraction motion in a single linear direction. Since real robots usually need
+to achieve complex and variable goals, a single muscle is far from attaining multiple degrees
+of freedom thus scientists often use multiple artiﬁcial muscles to drive the joints of the
+robot to solve the above challenges.
+Pneumatic artiﬁcial muscle robots have the following advantages.
+(1) Lightweight and small size. Since the main material of pneumatic artiﬁcial muscle is
+rubber (such as neoprene, acrylate rubber, etc.), and aluminum alloy’s metal connec-
+tion [16], its overall mass is very light. For example, the pneumatic muscle of 5 mm
+inner diameter produced by Festo is only 27 g per meter.
+(2) High gravimetric speciﬁc power. The power to weight ratio of pneumatic artiﬁcial
+muscles is very large [17]. For example, a pneumatic artiﬁcial muscle with a 20 mm
+inner diameter is sufﬁcient to provide 1500 N of pulling force, which can satisfy the
+load demand in practical applications.
+(3) Easy installation and smooth motion. Compared with conventional motors, pneumatic
+artiﬁcial muscles do not need to be assembled with gearboxes and other transmission
+devices. They can be conﬁgured in the robot frame by simply connecting sealed plugs
+and air hoses. Moreover, compared with cylinders, pneumatic muscles do not have
+sliding parts such as pistons and can be driven more smoothly, and the efﬁciency
+of pneumatic potential energy-mechanical energy conversion can be signiﬁcantly
+improved [18].
+(4) Clean and safe. Pneumatic artiﬁcial muscles’ energy source is clean and environmen-
+tally friendly, and the movement process will not pollute the environment. At the
+same time, the pneumatic artiﬁcial muscle has good suppleness, which can drive
+the robot well to achieve ﬂexible active/passive suppleness control in many narrow
+working environments, or on occasions with strong human-robot interaction, such as
+surgery and gait rehabilitation training [19]. It is well known that the characteristics of
+pneumatic artiﬁcial muscles have beneﬁts and some shortcomings due to the speciﬁc
+physical structure. This can be summarized as follows:
+1. Nonlinear and time-varying characteristics. Inﬂuenced by the internal com-
+pressed air, the pneumatic artiﬁcial muscle shows a complex nonlinear relation-
+ship between air pressure and contraction length, and its system parameters can
+often be identiﬁed only within a short period of operating air pressure, which
+poses a challenge to establishing an accurate kinetic model in the entire operating
+air pressure range [20,21].
+2. Hysteresis and creep characteristics. Considering the existence of friction be-
+tween the braided mesh and rubber tube, the elastic deformation of the rubber
+tube during contraction or diastole, the pneumatic artiﬁcial muscle usually has
+hysteresis and creep effect, which affects the rise of output force [22].
+
+===== PAGE 5 =====
+Actuators 2022, 11, 92 5 of 14
+3. Development and Control of the Pneumatic Soft Actuators
+3.1. Development of Soft Pneumatic Robots
+3D printing technology has gradually become the mainstream production technology
+for soft robots [ 23,24]. Moreover, the application of 3D printing technology in the ﬁeld
+of soft robots mainly focused on 3D printing soft robot molds and 3D printing soft robot
+bodies [ 25–27]. Most soft robots [ 28,29] are made of silicone and cast in 3D printing
+molds. 3D printing can create molds of complex structures, allowing soft robots [30] to be
+produced with complex structures [31,32]. The soft robots based on 3D printed bodies are
+more complex and delicate in their internal structural design. They are less time-consuming
+and costly to develop because they are directly produced by 3D printing [33–35].
+In the ﬁeld of soft robotics, 3D printing technologies currently used are Stereolithog-
+raphy (SLA), Selective Laser Sintering (SLS), Direk Ink Writing (DIW), Shape Deposition
+Manufacturing (SDM), Fused Deposition Modeling (FDM). The DIW 3D printing is a di-
+rect material extrusion printing technology developed from Fused Deposition Modeling.
+Currently, the DIW 3D printing covers a wide range of production, such as electrical ﬁeld,
+biological ﬁeld, and material ﬁeld, with many soft materials to choose from. Therefore, the
+study of soft material 3D printing process parameter optimization for soft robots and the
+DIW 3D printing of soft robots are the research hotspots in soft robot manufacturing.
+The soft robot is ﬂexible and deformable, and the sensors not only require high
+precision and high bandwidth but also cannot affect the mechanical response performance
+of the robot [36]. This makes it difﬁcult to apply traditional sensors such as potentiometers
+and resistance strain gauges, and there is an urgent need to develop new compatible and
+embeddable sensors.
+Flexible sensors on the market, such as FlexSensor, Flexiforce, Bend Sensor, stretch
+Sensor are based on the principle of resistance or capacitance change of conductive materials
+under strain. These sensors are ﬂexible and can be used to measure bending, tension, stress.
+However, the elastic modulus of these sensors is larger than that of silicone materials,
+which will affect the motion of the soft robot.
+To make the sensor better adapted to the needs of soft robots, scholars have explored
+many new materials and processing processes. For example, the conductive liquid eGaIn
+is injected into the micro-cavities of the silicon body, and when the body is deformed, the
+internal cavity changes, thus changing the resistance of the conductive liquid [ 33]. By
+changing the arrangement of the inner cavity channels, information such as axial strain,
+pressure, and bending can be measured [37–39]. Using the Hall effect, micro magnets and
+Hall elements are embedded in different parts of the soft robot body to detect the bending
+curvature of the robot according to the change of magnetic ﬁeld strength [40–42].
+For soft robots with 3D motion, sensors are required to measure 3D information. For
+example, trakSTARTM embeds a magnetic ﬂux sensor (EM sensor) into the end-effector of
+the soft body arms, providing real-time feedback on the coordinates and angles of the end
+using a three-dimensional electromagnetic tracking system [43]. Embedding optical ﬁbers
+in the robot body to detect the robot’s haptics [44] or deformation [45,46] by changing in
+internal light intensity. The conductive material is wrapped around an elastic core to make
+a malleable conductive wire embedded in a pneumatic 3D soft body arm to measure each
+cavity channel’s length and bending changes [47].
+Smart materials can deform and generate voltages under the action of external physical
+ﬁelds, and this feature allows smart materials to be used as sensors, too. For example,
+artiﬁcial muscles made by SMA have self-awareness [48], and the pressure can be measured
+by the change of capacitance during the deformation of the dielectric elastomer [49].
+Because soft robots belong to the category of large deformation of the continuum,
+better ductile sensing materials are needed to measure the partial pressure and strain of
+the robot [50]. With the continuous improvement in the performance of sensing materials
+such as elastic modulus, sensitivity, and stability and the upgrading of relative information
+processing devices, the sensing technology for soft robots will develop rapidly.
+
+===== PAGE 6 =====
+Actuators 2022, 11, 92 6 of 14
+3.2. Modeling of Soft Pneumatic Robots
+Essentially different from rigid robots, there is no uniﬁed framework for the analysis
+of these high-degree-of-freedom soft robots [51,52]. Currently, the modeling of soft robots
+is still using the continuous rigid body equations, and the most commonly used model is
+the Constant Curvature (CC) model, which assumes that the conﬁguration space of the 3D
+continuum can be characterized by three parameters [53].
+Since a planar continuum robot with constant curvature circular arc coverage has
+approximately constant curvature in each segment, the CC model is only valid under
+steady-state conditions. For a multi-segment continuum, the Piecewise Constant Curvature
+(PCC) model can be obtained by joining each CC segment together [54], which is a common
+modeling approach for soft robotic arms.
+Trivedi proposed a beam theory modeling method for soft robotic manipulators using
+beam theory and Cosserat elastic rod theory [ 55]. Mart ín proposed the natural-CCD
+algorithm based on the cyclic coordinate descent (CCD) for solving the inverse kinematics
+problem of hyper-redundant and soft manipulators [56]. Renda proposed an alternative
+model for multisection soft manipulator dynamics based on a discrete Cosserat approach
+and developed two effective algorithms [57], which obtained better model accuracy and
+signiﬁcantly reduced the computational time. Hyatt proposed a method for determining
+the approximate kinematic model of a soft robot arm [ 58], which can precisely locate
+the end-effector of a large soft robot manipulator, and collect data while moving the soft
+robot arm.
+The above modeling methods have obvious limitations, and errors in practical appli-
+cation or the dynamical equations are too complex and challenging to apply in practical
+control tasks. Therefore, the modeling of soft robots is still an unconquered problem.
+3.3. Control of Soft Pneumatic Robots
+3.3.1. Control of Pneumatic Networks
+One of the straightforward ways to manage the primary movement of a soft pneu-
+matic robot is to control the pressure of the actuator directly with the reference signal of the
+pressure sensor equipped on the soft pneumatic robot. Another way is to achieve deforma-
+tion [59–61] with motion sensors [62] to sense the movement or deformation information
+of the kinematic structure of the soft robot [63] and manage the motion of the actuator by
+controlling the air intake and exhaust of the actuator. Although it is straightforward to
+handle the movement of the soft actuator by direct pressure management, it still requires
+a balance between quick response performance and low accuracy of control. Because of
+the lack of feedback, the accuracy of the movement is usually cannot be guaranteed. In
+contrast, direct control of robot motion using deformation or motion sensors requires fewer
+control algorithms to achieve more accurate control.
+In terms of control algorithms, although certain control models, such as the Koopman
+operator and model predictive control [64–68] can be established by studying nonlinear
+problems of relatively simple soft robot systems, they often face great difﬁculties for
+soft robot systems of higher complexity. Therefore, control methods based on intelligent
+bionic machine learning [69], neural networks [70,71], and other techniques [72] have been
+introduced into the study of soft robot control, and are expected to achieve better solutions
+in soft robot control [1,73].
+For example, there is a model-based reinforcement learning method using trajectory
+optimization and supervised learning [ 74], which is applied to closed-loop predictive
+control of a soft robotic manipulator without analyzing the model. However, the method
+does not examine the relationship between manipulator design and dynamics, making it
+challenging to identify the sources of modeling errors or develop optimal design strategies.
+There is also a non-model approach for real-time sensing of ﬂexible actuators based on
+embedded soft sensors and recurrent neural nets. This method is highly versatile and can
+exchange sensor information, sensing modes, and the system itself without any changes to
+the learning algorithm. However, this method currently relies on an independent external
+
+===== PAGE 7 =====
+Actuators 2022, 11, 92 7 of 14
+sensing technology to provide reference feedback, and sensors need to be rearranged in
+different structures.
+3.3.2. Control of Pneumatic Muscle
+In contrast to traditional rigid robots, there is no uniﬁed framework for soft robots’ de-
+sign, analysis, and control. The current modeling of soft robots usually uses the continuous
+rigid body equation, and the simplest and most commonly used model of motion assumes
+that the conﬁguration space of a three-dimensional continuum can be characterized by
+three parameters, often referred to as the constant curvature (CC) approximation [75–77].
+LIANG Ding-Kun provides a more systematic discussion of control methods for
+pneumatic artiﬁcial muscle soft robots, which broadly classiﬁes pneumatic muscle-driven
+robot control methods into three categories: traditional, advanced, and intelligent [16].
+Speciﬁcally, considering the inherent hysteresis of pneumatic artiﬁcial muscles, a
+control structure is often used to model the hysteresis as a feedforward compensator
+and then combine it with a conventional feedback controller to achieve good positioning
+tracking control for pneumatic muscle-driven robots. Meanwhile, considering that the
+traditional control methods are difﬁcult to deal with the unmodeled dynamics, time-
+varying, external disturbances, and other uncertainties of the pneumatic muscle system,
+Lenz A summarized a series of more advanced control methods, such as adaptive control
+methods, sliding mode control methods, and self-anti-disturbance control methods, which
+reduce the accuracy requirements of the system model, while being able to compensate for
+the unmodeled and uncertain [78]. These methods reduce the accuracy requirement of the
+system model while compensating for unmodeled and uncertain dynamics, suppressing
+unknown external disturbances, and improving control accuracy and robustness. Further,
+considering it is sometimes difﬁcult to obtain a complete model of a pneumatic muscle-
+driven robot. Cao Y, Anh H, Robinson R proposed a series of intelligent control methods,
+such as neural network control methods, fuzzy control methods, and iterative learning
+control methods, which can achieve higher accuracy and more robust motion control
+without relying on a speciﬁc model of the system [79].
+The dynamics control of soft robots is still an intractable problem. From the study of
+current soft robot control methods, it is clear that non-model methods show good control
+due to the lack of better analytical models. Applying machine learning to the learning of
+dynamic mapping from actuator space to task space is a feasible research method [80].
+4. Challenges and Beneﬁts in the Application
+4.1. Griper in the Manufacturing
+Complex application scenarios and continuous increases in labor costs have prompted
+companies to upgrade their automated production iterations. The soft gripper has attracted
+increasing attention, particularly for manufacturing, such as the SFG soft gripper [81], as
+shown in Figure 4. It should be mentioned that the pneumatically powered elastic soft
+gripper qualiﬁes for a lightweight, elegant, and full-bodied setup. The elastic and nonskid
+characters of the pneumatically powered elastic soft gripper adapt to different shapes. Its
+performance has guaranteed the soft actuators as excellent choices for soft gripping and
+dedicating objects. The soft material, combined with its straightforward handling, makes it
+a safe choice for human-robot collaboration in manufacturing.
+Various soft robots have been developed for manufacturer production and medical
+applications in the related works [82]. Moreover, the corresponding gripper control tech-
+niques have been studied and investigated [ 83]. SRT’s SFG soft gripper (Figure 4) can
+achieve safe and stable gripping of fragile and irregular shaped items in production sce-
+narios and can easily complete a series of repetitive operations such as automatic sorting
+and packing, which are widely used in food, fresh food, 3C electronics, auto parts, daily
+chemicals, logistics and warehousing, pharmaceuticals and other industries [81].
+
+===== PAGE 8 =====
+Actuators 2022, 11, 92 8 of 14
+Figure 4. SFG soft gripper [81].
+For example, FESTO is a leading supplier of industrial automation technology in
+the ﬁeld of pneumatic technology and bionic design. FESTO has combined its advanced
+pneumatic technology with the bionic design of elephant trunks and octopus tentacles in
+recent years and has launched the following three generations of pneumatic soft robots.
+The Bionic Handling Assistant [84], shown in Figure 5, looks similar to a pliable gripper
+arm with a structure and overall function modeled on an elephant’s trunk. It is powered by
+corrugated pneumatic muscles and is made of polyamide using the selective laser sintering
+process (SLS). The Bionic Handling Assistant has many multi-degree-of-freedom soft drive
+units, thus it has strong ﬂexibility.
+Figure 5. Bionic Handling Assistant (2010) [84].
+The Bionic Handling Assistant offers free mobility and pliable operation. It can
+guarantee safe human-machine interaction. In the event of a collision, the pneumatic
+bellows structure gives way immediately and, therefore, does not have to be carefully
+shielded from humans such as conventional robots [85,86]. As a result, the Bionic Handling
+Assistant offers a new way to easily and efﬁciently solve the problem of humans and
+machines interacting safely in the factories of the future.
+4.2. Bionic Application
+The BionicMotionRobot [87], shown in Figure 6, is a lightweight robot with a natural
+form of motion. The pneumatic lightweight robot has 12 degrees of freedom and has a
+payload of three kilograms.
+The arm of the BionicMotionRobot [87] consists of three ﬂexible basic segments, each
+moved by four pneumatic bellows. The complex control and regulation of the 12 ﬂexible
+bellows structures are performed by the Festo Motion Terminal VTEM. An optical shape
+sensor along the system’s longitudinal axis records the whole kinematics’ position, shape,
+and interactions. Thanks to this modular design, the arm can bend in three different
+directions simultaneously and smoothly execute the natural movements of its biological
+prototype.
+The bellows are made of sturdy elastomer. Each of them is covered with a particular
+3D textile knitted fabric, which functions amazingly similar to nature. Similar to the
+muscle ﬁbers in an octopus’s tentacles, its ﬁlaments are oriented to permit the bellow
+conﬁgurations to expand in the required direction of movement whilst limiting this in the
+other directions. It is only thanks to this new ﬁber technology that the power potential of
+the entire kinematics can be exploited.
+
+===== PAGE 9 =====
+Actuators 2022, 11, 92 9 of 14
+Figure 6. BionicMotionRobot (2017) [87].
+Thanks to its safe interaction and natural motion processes, the BionicMotionRobot
+has excellent potential in a wide range of industries: especially in monotonous, repetitive,
+and even dangerous activities. It can act as a third hand that plays a supporting role in
+assembly, relieving the burden on humans.
+The BionicSoftArm [88], shown in Figure 7, is a modular pneumatic lightweight robot.
+Thanks to its modular design, the robot can be used for a wide range of applications. It can
+grip and manipulate a wide range of objects and shapes in combination with various adap-
+tive pneumatic grippers. Depending on the requirements, the length of the BionicSoftArm
+can be varied with up to seven pneumatic actuators, thus providing maximum ﬂexibility in
+terms of range and mobility. This makes it very easy to implement applications that are
+difﬁcult to realize with a standard robot.
+Figure 7. BionicSoftArm (2019) [88].
+4.3. Medical Application
+Continuous Passive Motion (CPM) [ 89] is a theory of rehabilitation medicine that
+suggests continuous passive motion training can assist patients in repairing damaged
+motor nerves, which means that CPM therapy can effectively reduce the likelihood of
+disability in patients with motor dysfunction. A variety of rehabilitation exoskeleton
+robots have been developed to enable patients to perform physical interaction or in the
+community on their own [90–92]. Exoskeletal rehabilitation robots not only assist patients
+with extension, ﬂexion, and twisting movements but also restore the motor function of
+the deviated part of the body gradually during the continuous wearing training. Among
+them, the pneumatic soft rehabilitation exoskeleton device has outstanding features of
+
+===== PAGE 10 =====
+Actuators 2022, 11, 92 10 of 14
+high safety and simple structure and occupies an important position in the rehabilitation
+robotics industry.
+For example, a team at the Chinese University of Hong Kong used a 3D-printed
+soft robotic glove (Figure 8) to help with hand rehabilitation training for stroke patients
+with hemiplegia of the hand. The glove uses pneumatic soft actuators to drive passive
+movements of the hand to help patients regain hand function for activities of daily living,
+providing personalized and cost-effective rehabilitation training [93,94].
+Figure 8. Soft Robotic Glove for rehabilitation.
+Except for the rehabilitation training, open-loop position control of soft Hydraulic
+Actuators for Minimally Invasive Surgery has also been developed in recent years [95,96].
+Although soft pneumatic robots deliver desirable attributes for applications in minimally
+invasive surgery, it is still challenging for practical application in the clinical scenario.
+There was a short variety in the instrument designs and various attributes concerning their
+surgical manipulation performance. Except for the beneﬁts of ﬂexible manipulation, the
+main challenges are thin geometries, and it needs to have completely bubble-free actuators
+to avoid leakage or failure, the high aspect ratio [97], etc.
+5. Summary and Discussion
+Current research on pneumatic soft robots [98] has demonstrated that pneumatic soft
+robots can interact with humans and environments [99–101] in unique ways, move over
+unknown terrain, and grasp objects of irregular shape and posture. These basic operations
+open the door to applications where robots work closely with humans [102,103]. Thanks to
+its mentioned beneﬁts, increasing research interests have been attracted to the development
+of novel types of pneumatic soft robots [ 104] in the last decades. This article aims to
+investigate the solutions to develop and research the pneumatic soft robot. This paper
+reviews the status and the main progress of the recent research on pneumatic soft robots.
+As the robot continues to move toward practicality [ 105], its improvements in sen-
+sitivity, strength, and efﬁciency become increasingly important. Meanwhile, soft robots’
+unmanned and intelligent control is an important direction for future development. It is
+believed that in the near future, with the integration of industrial design into related tech-
+nologies, advances in this ﬁeld will produce new lifestyles and industry changes, allowing
+intelligent pneumatic soft robots to serve all aspects of society and production.
+
+===== PAGE 11 =====
+Actuators 2022, 11, 92 11 of 14
+Author Contributions: Conceptualization, H.S. and W.Q.; literature collection, X.H.; writing—original
+draft preparation, H.S.; writing—review and editing, X.H. and X.Z.; visualization, J.G.; supervision,
+S.C., X.X. and W.Q. All authors have read and agreed to the published version of the manuscript.
+Funding: This research received no external funding.
+Institutional Review Board Statement: Not applicable.
+Data Availability Statement: Not applicable.
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+References
+1. Leng, J.; Sun, J.; Guan, Q.; Liu, Y. Status of and trends in soft pneumatic robotics. Sci. Sin. T echnol. 2020, 50, 897–934. [CrossRef]
+2. Albu-Schaffer, A.; Eiberger, O.; Grebenstein, M.; Haddadin, S.; Ott, C.; Wimbock, T.; Wolf, S.; Hirzinger, G. Soft robotics.IEEE
+Robot. Autom. Mag. 2008, 15, 20–30. [CrossRef]
+3. Rolf, M.; Steil, J.J. Constant curvature continuum kinematics as fast approximate model for the bionic handling assistant. In
+Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems, Algarve, Portugal, 7–12 October 2012;
+IEEE: Piscataway, NJ, USA, 2012; p. 6385596.
+4. Wehner, M.; Truby, R.L.; Fitzgerald, D.J.; Mosadegh, B.; Whitesides, G.M.; Lewis, J.A.; Wood, R.J. An integrated design and
+fabrication strategy for entirely soft, autonomous robots. Nature 2016, 536, 451–455. [CrossRef] [PubMed]
+5. Wang, H.; Zhu, Y.; Zhao, D.; Luan, Y. Performance investigation of cone dielectric elastomer actuator using Taguchi method.Chin.
+J. Mech. Eng. 2011, 24, 685–692. [CrossRef]
+6. Laschi, C.; Cianchetti, M.; Mazzolai, B. Soft robot arm inspired by the octopus. Adv. Robot. 2012, 26, 709–727. [CrossRef]
+7. Tolley, M.T.; Shepherd, R.F.; Galloway, K.C.; Wood, R.J.; Whitesides, G.M. A resilient, untethered soft robot.Soft Robot. 2014, 1,
+213–223. [CrossRef]
+8. Yirmibe¸ so˘ glu, O.D.; Oshiro, T.T.; Olson, G.; Palmer, C.; Mengüç, Y. Evaluation of 3d printed soft robots in radiation environments
+and comparison with molded counterparts. Front. Robot. AI 2019, 6, 40. [CrossRef]
+9. Yap, H.K.; Kamaldin, N.; Lim, J.H.; Nasrallah, F.A.; Goh, J.C.H.; Yeow, C.H. A magnetic resonance compatible soft wearable
+robotic glove for hand rehabilitation and brain imaging. IEEE T rans. Neural. Syst. Rehabil. Eng. 2017, 6, 782–793. [CrossRef]
+10. Yan, J.H.; Shi, P .P .; Zhang, X.B. Review of biomimetic mechanism, actuation, modeling and control in soft manipulators.J. Mech.
+Eng. 2018, 54, 1–14. [CrossRef]
+11. Galloway, K.C.; Polygerinos, P .; Walsh, C.J.; Wood, R.J. Mechanically programmable bend radius for ﬁber-reinforced soft actuators.
+In Proceedings of the 2013 16th International Conference on Advanced Robotics (ICAR), Montevideo, Uruguay, 25–29 November
+2013; IEEE: Piscataway, NJ, USA, 2013; pp. 1–6.
+12. Helps, T.; Rossiter, J. Proprioceptive ﬂexible ﬂuidic actuators using conductive working ﬂuids. Soft Robot. 2018, 5, 175–189.
+[CrossRef] [PubMed]
+13. Fengyu, X.; Fanchang, M.; Baojie, F.; Gaoliang, P .; Jingjin, S.; Guoping, J. Review of driving methods, modeling and application in
+soft robots. J. Nanjing Univ. Posts T elecommun. 2019, 39, 64–75.
+14. Jiang, H.; Wang, Z.; Jin, Y.; Chen, X.; Li, P .; Gan, Y.; Chen, X. Hierarchical control of soft manipulators towards unstructured
+interactions. Int. J. Robot. Res. 2021, 40, 411–434. [CrossRef]
+15. Tondu, B.; Lopez, P . Modeling and control of McKibben artiﬁcial muscle robot actuators.IEEE Control Syst. Mag. 2000, 20, 15–38.
+16. Liang, D.; Chen, Y.; Sun, N.; Wu, Y.; Liu, L.; Fang, Y. Overview of control methods for pneumatic artiﬁcial muscle-actuated robots.
+Control Decis. 2021, 36, 27–41.
+17. Robinson, R.M.; Kothera, C.S.; Wereley, N.M. Variable recruitment testing of pneumatic artiﬁcial muscles for robotic manipulators.
+IEEE/ASME T rans. Mechatron. 2015, 20, 1642–1652. [CrossRef]
+18. Wakimoto, S.; Misumi, J.; Suzumori, K. New concept and fundamental experiments of a smart pneumatic artiﬁcial muscle with a
+conductive ﬁber. Sensors and Actuators A. Physical 2016, 250, 48–54.
+19. Zheng, H.; Wu, M.L.; Shen, X.R. Pneumatic variable series elastic actuator.J. Dyn. Syst. Meas. Control 2016, 138, 081011. [CrossRef]
+20. Daerden, F.; Lefeber, D. Pneumatic artiﬁcial muscles: Actuators for robotics and automation. Eur. J. Mech. Environ. Eng. 2002, 47,
+11–21.
+21. Zhang, D.; Zhao, X.; Han, J. Active model-based control for pneumatic artiﬁcial muscle. IEEE T rans. Ind. Electron. 2016, 64,
+1686–1695. [CrossRef]
+22. Felt, W.; Chin, K.Y.; Remy, C.D. Contraction sensing with smart braid McKibben muscles.IEEE/ASME T rans. Mechatron. 2015, 21,
+1201–1209. [CrossRef]
+23. Wallin, T.J.; Pikul, J.; Shepherd, R.F. 3D printing of soft robotic systems. Nat. Rev. Mater. 2018, 3, 84–100. [CrossRef]
+24. Truby, R.L.; Lewis, J.A. Printing soft matter in three dimensions. Nature 2016, 540, 371–378. [CrossRef] [PubMed]
+25. Rajappan, A.; Jumet, B.; Preston, D.J. Pneumatic soft robots take a step toward autonomy. Sci. Robot. 2021, 6, eabg6994. [CrossRef]
+[PubMed]
+26. Li, Y.; Chen, Y.; Ren, T.; Li, Y.; Choi, S.H. Precharged Pneumatic Soft Actuators and Their Applications to Untethered Soft Robots.
+Soft Robot. 2018, 5, 567–575. [CrossRef]
+
+===== PAGE 12 =====
+Actuators 2022, 11, 92 12 of 14
+27. Scharff, R.B.N.; Fang, G.; Tian, Y.; Wu, J.; Geraedts, J.M.P .; Wang, C.C.L. Sensing and Reconstruction of 3-D Deformation on
+Pneumatic Soft Robots. IEEE/ASME T rans. Mechatron. 2021, 26, 1877–1885. [CrossRef]
+28. Breitman, P .; Matia, Y.; Gat, A.D. Fluid Mechanics of Pneumatic Soft Robots. Soft Robot. 2021, 8, 519–530. [CrossRef] [PubMed]
+29. He, Q.; Cai, S. Soft pumps for soft robots. Sci. Robot. 2021, 6, eabg6640. [CrossRef] [PubMed]
+30. Rus, D.; Tolley, M.T. Design, fabrication and control of origami robots. Nat. Rev. Mater. 2018, 3, 101–112. [CrossRef]
+31. Gul, J.Z.; Yang, B.S.; Yang, Y.J.; Chang, D.E.; Choi, K.H. In situ UV curable 3D printing of multi-material tri-legged soft bot with
+spider mimicked multi-step forward dynamic gait. Smart Mater. Struct. 2016, 25, 115009. [CrossRef]
+32. Hinton, T.J.; Jallerat, Q.; Palchesko, R.N.; Park, J.H.; Grodzicki, M.S.; Shue, H.J.; Ramadan, M.H.; Hudson, A.R.; Feinberg, A.W.
+3D printing PDMS elastomer in a hydrophilic support bath via freeform reversible embedding. ACS Biomater. Sci. Eng. 2016, 2,
+1781–1786. [CrossRef] [PubMed]
+33. Hinton, T.J.; Jallerat, Q.; Palchesko, R.N.; Park, J.H.; Grodzicki, M.S.; Shue, H.J.; Ramadan, M.H.; Hudson, A.R.; Feinberg, A.W.
+Three-dimensional printing of complex biological structures by freeform reversible embedding of suspended hydrogels. Sci. Adv.
+2015, 1, e1500758. [CrossRef] [PubMed]
+34. Nyberg, E.L.; Farris, A.L.; Hung, B.P .; Dias, M.; Garcia, J.R.; Dorafshar, A.H.; Grayson, W.L. 3D-printing technologies for
+craniofacial rehabilitation, reconstruction, and regeneration. Ann. Biomed. Eng. 2017, 45, 45–57. [CrossRef] [PubMed]
+35. Rossiter, J.; Walters, P .; Stoimenov, B. Printing 3D dielectric elastomer actuators for soft robotics[C]//Electroactive polymer
+actuators and devices (EAPAD) 2009. Int. Soc. Opt. Photonics 2009, 7287, 72870H.
+36. Landgraf, M.; Reitelshöfer, S.; Franke, J.; Hedges, M. Aerosol jet printing and lightweight power electronics for dielectric elastomer
+actuators. In Proceedings of the 2013 3rd International Electric Drives Production Conference (EDPC), Nuremberg, Germany,
+29–30 October 2013; IEEE: Piscataway, NJ, USA, 2013; pp. 1–7.
+37. Carreño-Morelli, E.; Martinerie, S.; Bidaux, J.E. Three-dimensional printing of shape memory alloys. T rans. T ech. Publ. Ltd.2007,
+534, 477–480.
+38. Qiao, H.; Chen, J.; Huang, X. A Survey of Brain-Inspired Intelligent Robots: Integration of Vision, Decision, Motion Control, and
+Musculoskeletal Systems. IEEE T rans. Cybern. 2021, 1–14. [CrossRef] [PubMed]
+39. Kramer, R.K.; Majidi, C.; Wood, R.J. Wearable tactile keypad with stretchable artiﬁcial skin. In Proceedings of the 2011 IEEE
+International Conference on Robotics and Automation, Shanghai, China, 9–13 May 2011; IEEE: Piscataway, NJ, USA, 2011;
+pp. 1103–1107.
+40. Park, Y.L.; Chen, B.R.; Wood, R.J. Design and fabrication of soft artiﬁcial skin using embedded microchannels and liquid
+conductors. IEEE Sens. J. 2012, 12, 2711–2718. [CrossRef]
+41. Farrow, N.; Correll, N. A soft pneumatic actuator that can sense grasp and touch. In Proceedings of the 2015 IEEE/RSJ
+International Conference on Intelligent Robots and Systems (IROS), Hamburg, Germany, 28 September–2 October 2015; IEEE:
+Piscataway, NJ, USA, 2015; pp. 2317–2323.
+42. Bilodeau, R.A.; White, E.L.; Kramer, R.K. Monolithic fabrication of sensors and actuators in a soft robotic gripper. In Proceedings
+of the 2015 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Hamburg, Germany, 28 September–3
+October 2015; IEEE: Piscataway, NJ, USA, 2015; pp. 2324–2329.
+43. Ozel, S.; Keskin, N.A.; Khea, D.; Onal, C.D. A precise embedded curvature sensor module for soft-bodied robots. Sens. Actuators
+A Phys. 2015, 236, 349–356. [CrossRef]
+44. Dobrzynski, M.K.; Pericet-Camara, R.; Floreano, D. Contactless deﬂection sensor for soft robots. In Proceedings of the 2011
+IEEE/RSJ International Conference on Intelligent Robots and Systems, San Francisco, CA, USA, 25–30 September 2011; IEEE:
+Piscataway, NJ, USA, 2011; pp. 1913–1918.
+45. Ozel, S.; Skorina, E.H.; Luo, M.; Tao, W.; Chen, F.; Pan, Y.; Onal, C.D. A composite soft bending actuation module with integrated
+curvature sensing. In Proceedings of the 2016 IEEE International Conference on Robotics and Automation (ICRA), Sweden,
+Sweden, 16–21 May 2016; IEEE: Piscataway, NJ, USA, 2016; pp. 4963–4968.
+46. Sun, Y.; Song, S.; Liang, X.; Ren, H. A miniature soft robotic manipulator based on novel fabrication methods. IEEE Robot. Autom.
+Lett. 2016, 1, 617–623. [CrossRef]
+47. Sareh, S.; Jiang, A.; Faragasso, A.; Noh, Y.; Nanayakkara, T.; Dasgupta, P .; Seneviratne, L.D.; Wurdemann, H.A.; Althoefer, K.
+Bio-inspired tactile sensor sleeve for surgical soft manipulators. In Proceedings of the 2014 IEEE International Conference on
+Robotics and Automation (ICRA), Hong Kong, China, 31 May–7 June 2014; IEEE: Piscataway, NJ, USA, 2014; pp. 1454–1459.
+48. Searle, T.C.; Althoefer, K.; Seneviratne, L.; Liu, H. An optical curvature sensor for ﬂexible manipulators. In Proceedings of the
+2013 IEEE International Conference on Robotics and Automation, Karlsruhe, Germany, 6–10 May 2013; IEEE: Piscataway, NJ,
+USA, 2013; pp. 4415–4420.
+49. Sareh, S.; Noh, Y.; Li, M.; Ranzani, T.; Liu, H.; Althoefer, K. Macrobend optical sensing for pose measurement in soft robot arms.
+Smart Mater. Struct. 2015, 24, 125024. [CrossRef]
+50. Wurdemann, H.A.; Sareh, S.; Shafti, A.; Noh, Y.; Faragasso, A.; Chathuranga, D.S.; Liu, H.; Hirai, S.; Althoefer, K. Embedded
+electro-conductive yarn for shape sensing of soft robotic manipulators. In Proceedings of the 2015 37th Annual International
+Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), Milan, Italy, 25–29 August 2015; IEEE: Piscataway,
+NJ, USA, 2015; pp. 8026–8029.
+51. Zhang, J.J.; Yin, Y.H.; Zhu, J.Y. Electrical resistivity-based study of self-sensing properties for shape memory alloy-actuated
+artiﬁcial muscle. Sensors 2013, 13, 12958–12974. [CrossRef]
+
+===== PAGE 13 =====
+Actuators 2022, 11, 92 13 of 14
+52. Mannsfeld, S.C.; Tee, B.C.; Stoltenberg, R.M.; Chen, C.V .; Barman, S.; Muir, B.V .; Sokolov, A.N.; Reese, C.; Bao, Z. Highly sensitive
+ﬂexible pressure sensors with microstructured rubber dielectric layers. Nat. Mater. 2010, 9, 859–864. [CrossRef] [PubMed]
+53. Tianmiao, W.; Yufei, H.A.O.; Xingbang, Y.; Wen, L. Soft robotics: Structure, actuation, sensing and control.J. Mech. Eng. 2017, 53,
+1–13.
+54. Li, X.; Sun, K.; Guo, C.; Liu, T.; Liu, H. Enhanced static modeling of commercial pneumatic artiﬁcial muscles. Assem. Autom. 2020,
+40, 407–417. [CrossRef]
+55. Chen, Y.; Wang, L.; Galloway, K.; Godage, I.; Simaan, N.; Barth, E. Modal-Based Kinematics and Contact Detection of Soft Robots.
+Soft Robot. 2021, 8, 298–309. [CrossRef]
+56. Hannan, M.W.; Walker, I.D. Kinematics and the implementation of an elephant’s trunk manipulator and other continuum style
+robots. J. Robot. Syst. 2003, 20, 45–63. [CrossRef]
+57. Webster, R.J., III; Jones, B.A. Design and kinematic modeling of constant curvature continuum robots: A review. Int. J. Robot. Res.
+2010, 29, 1661–1683. [CrossRef]
+58. Trivedi, D.; Lotﬁ, A.; Rahn, C.D. Geometrically exact models for soft robotic manipulators. IEEE T rans. Robot. 2008, 24, 773–780.
+[CrossRef]
+59. Martin, A.; Barrientos, A.; Del Cerro, J. The natural-CCD algorithm, a novel method to solve the inverse kinematics of hyper-
+redundant and soft robots. Soft Robot. 2018, 5, 242–257. [CrossRef]
+60. Renda, F.; Boyer, F.; Dias, J.; Seneviratne, L. Discrete cosserat approach for multisection soft manipulator dynamics.IEEE T rans.
+Robot. 2018, 34, 1518–1533. [CrossRef]
+61. Hyatt, P .; Kraus, D.; Sherrod, V .; Rupert, L.; Day, N.; Killpack, M.D. Conﬁguration estimation for accurate position control of
+large-scale soft robots. IEEE/ASME T rans. Mechatron. 2018, 24, 88–99. [CrossRef]
+62. Rogers, E.; Polygerinos, P .; Walsh, C.; Goldﬁeld, E. Smart and connected actuated mobile and sensing suit to encourage motion in
+developmentally delayed infants. J. Med. Devices 2015, 9, 3. [CrossRef]
+63. Park, Y.L.; Wood, R.J. Smart pneumatic artiﬁcial muscle actuator with embedded microﬂuidic sensing. In Proceedings of the
+SENSORS 2013 IEEE, Baltimore, MD, USA, 3–6 November 2013; IEEE: Piscataway, NJ, USA, 2013; pp. 1–4.
+64. Galloway, K.C.; Chen, Y.; Templeton, E.; Rife, B.; Godage, I.S.; Barth, E.J. Fiber Optic Shape Sensing for Soft Robotics.Soft Robot.
+2019, 6, 671–684. [CrossRef] [PubMed]
+65. Polygerinos, P .; Wang, Z.; Overvelde, J.T.; Galloway, K.C.; Wood, R.J.; Bertoldi, K.; Walsh, C.J. Modeling of soft ﬁber-reinforced
+bending actuators. IEEE T rans. Robot. 2015, 31, 778–789. [CrossRef]
+66. Rus, D.; Tolley, M.T. Design, fabrication and control of soft robots. Nature 2015, 521, 467–475. [CrossRef] [PubMed]
+67. Bruder, D.; Gillespie, B.; Remy, C.D.; Vasudevan, R. Modeling and control of soft robots using the koopman operator and model
+predictive control. arXiv 2019, arXiv:1902.02827.
+68. Yu, X.; He, W.; Li, Y.; Xue, C.; Li, J.; Zou, J.; Yang, C. Bayesian estimation of human impedance and motion intention for
+human-robot collaboration. IEEE T rans. Cybern. 2019, 51, 1822–1834. [CrossRef] [PubMed]
+69. Zhong, S.; Zhou, J.; Qiao, H. Bioinspired Gain-Modulated Recurrent Neural Network for Controlling Musculoskeletal Robot.
+IEEE T rans. Neural Netw. Learn. Syst. 2021, 1–15. [CrossRef] [PubMed]
+70. He, W.; Sun, Y.; Yan, Z.; Yang, C.; Li, Z.; Kaynak, O. Disturbance observer-based neural network control of cooperative multiple
+manipulators with input saturation. IEEE T rans. Neural Netw. Learn. Syst. 2019, 31, 1735–1746. [CrossRef]
+71. Su, H.; Mariani, A.; Ovur, S.E.; Menciassi, A.; Ferrigno, G.; De Momi, E. Toward Teaching by Demonstration for Robot-Assisted
+Minimally Invasive Surgery. IEEE T rans. Autom. Sci. Eng. 2021, 18, 484–494. [CrossRef]
+72. Chen, J.; Qiao, H. Motor-Cortex-Like Recurrent Neural Network and Multi-Tasks Learning for the Control of Musculoskeletal
+Systems. IEEE T rans. Cogn. Dev. Syst. 2020, 1. [CrossRef]
+73. He, W.; Xue, C.; Yu, X.; Li, Z.; Yang, C. Admittance-based controller design for physical human–robot interaction in the constrained
+task space. IEEE T rans. Autom. Sci. Eng. 2020, 17, 1937–1949. [CrossRef]
+74. Xu, F.; Wang, H.; Chen, W.; Wang, J. Adaptive visual servoing control for an underwater soft robot. Assem. Autom. 2018, 38,
+669–677. [CrossRef]
+75. Thuruthel, T.G.; Falotico, E.; Renda, F.; Laschi, C. Model-based reinforcement learning for closed-loop dynamic control of soft
+robotic manipulators. IEEE T rans. Robot. 2018, 35, 124–134. [CrossRef]
+76. Wang, Q.; Wang, W.; Hao, D.; Yun, C. Hysteresis Modeling and Application of Mckibben Pneumatic Artiﬁcial Muscles.J. Mech.
+Eng. 2019, 55, 73–80. [CrossRef]
+77. Pedro, P .; Ananda, C.; Rafael, P .B.; Carlos, A.R.; Alexandre, B.C. Closed structure soft robotic gripper. In Proceedings of the 2018
+IEEE International Conference on Soft Robotics (RoboSoft), Livorno, Italy, 24–28 April 2018; IEEE: Piscataway, NJ, USA, 2018;
+pp. 66–70.
+78. Lenz, A.; Anderson, S.R.; Pipe, A.G.; Melhuish, C.; Dean, P .; Porrill, J. Cerebellar-inspired adaptive control of a robot eye actuated
+by pneumatic artiﬁcial muscles. IEEE T rans. Syst. Man Cybern. Part B 2009, 39, 1420–1433. [CrossRef] [PubMed]
+79. Cao, Y.; Huang, J.; Xiong, C. Single-layer Learning Based Predictive Control with Echo State Network for Pneumatic Muscle
+Actuators-driven Exoskeleton. IEEE T rans. Cogn. Dev. Syst. 2020, 13, 80–90. [CrossRef]
+80. Anh, H.P .H.; Son, N.N.; Van Kien, C. Adaptive neural compliant force-position control of serial PAM robot.J. Intell. Robot. Syst.
+2018, 89, 351–369. [CrossRef]
+
+===== PAGE 14 =====
+Actuators 2022, 11, 92 14 of 14
+81. Sekine, T.; Wang, Y.F.; Hong, J.; Takeda, Y.; Miura, R.; Watanabe, Y.; Abe, M.; Mori, Y.; Wang, Z.; Kumaki, D.; et al. Artiﬁcial
+Cutaneous Sensing of Object Slippage using Soft Robotics with Closed-Loop Feedback Process. Small Sci. 2021, 1, 2100002.
+[CrossRef]
+82. Robinson, R.M.; Kothera, C.S.; Sanner, R.M.; Wereley, N.M. Nonlinear control of robotic manipulators driven by pneumatic
+artiﬁcial muscles. IEEE/ASME T rans. Mechatron. 2015, 21, 55–68. [CrossRef]
+83. Causey, G. Guidelines for the design of robotic gripping systems. Assem. Autom. 2003, 23, 18–28. [CrossRef]
+84. Grzesiak, A.; Becker, R.; Verl, A. The bionic handling assistant: A success story of additive manufacturing. Assem. Autom. 2011,
+31, 329–334. [CrossRef]
+85. Li, Y.; Liu, Y.; Yamazaki, K.; Bai, M.; Chen, Y. Development of a Soft Robot Based Photodynamic Therapy for Pancreatic Cancer.
+IEEE/ASME T rans. Mechatron. 2021, 26, 2977–2985. [CrossRef]
+86. Liu, Q.; Shi, C.; Zhang, B.; Wang, C.; Duan, L.; Sun, T.; Zhang, X.; Li, W.; Wu, Z.; Fujie, M.G. Development of a novel paediatric
+surgical assist robot for tissue manipulation in a narrow workspace. Assem. Autom. 2017, 37, 335–348. [CrossRef]
+87. Mayer, A.; Müller, D.; Raisch, A.; Hildebrandt, A.; Sawodny, O. Demonstration-based Programming of Multi-Point Trajectories
+for Collaborative Continuum Robots. IF AC-PapersOnLine2019, 52, 513–518. [CrossRef]
+88. Müller, D.; Veil, C.; Seidel, M.; Sawodny, O. One-Shot kinesthetic programming by demonstration for soft collaborative robots.
+Mechatronics 2020, 70, 102418. [CrossRef]
+89. Driscoll, S.W.; Giori, N.J. Continuous passive motion (CPM): Theory and principles of clinical application. J. Rehabil. Res. Dev.
+2000, 37, 179–188.
+90. Yu, Q.; Shang, W.; Zhao, Z.; Cong, S.; Li, Z. Robotic Grasping of Unknown Objects Using Novel Multilevel Convolutional Neural
+Networks: From Parallel Gripper to Dexterous Hand. IEEE T rans. Autom. Sci. Eng. 2020, 18, 1730–1741. [CrossRef]
+91. Zhou, J.; Li, Z.; Li, X.; Wang, X.; Song, R. Human-Robot Cooperation Control Based on Trajectory Deformation Algorithm for a
+Lower Limb Rehabilitation Robot. IEEE/ASME T rans. Mechatron. 2021, 26, 3128–3138. [CrossRef]
+92. Heung, K.H.; Tang, Z.Q.; Ho, L.; Tung, M.; Li, Z.; Tong, R.K. Design of a 3D printed soft robotic hand for stroke rehabilitation and
+daily activities assistance. In Proceedings of the 2019 IEEE 16th International Conference on Rehabilitation Robotics (ICORR),
+Toronto, ON, Canada, 24–28 June 2019; pp. 65–70.
+93. Connolly, C. Pneumatic modules for automatic applications. Assem. Autom. 2009, 29, 321–325. [CrossRef]
+94. Wang, C.; Li, S. Research Status of the Soft Robot. Micronanoelectron. T echnol.2019, 56, 948–991.
+95. Su, H.; Yang, C.; Ferrigno, G.; De Momi, E. Improved Human–Robot Collaborative Control of Redundant Robot for Teleoperated
+Minimally Invasive Surgery. IEEE Robot. Autom. Lett. 2019, 4, 1447–1453. [CrossRef]
+96. Su, H.; Qi, W.; Hu, Y.; Karimi, H.R.; Ferrigno, G.; De Momi, E. An Incremental Learning Framework for Human-Like Redundancy
+Optimization of Anthropomorphic Manipulators. IEEE T rans. Ind. Inform. 2020, 18, 1864–1872. [CrossRef]
+97. Runciman, M.; Avery, J.; Darzi, A.; Mylonas, G. Open Loop Position Control of Soft Hydraulic Actuators for Minimally Invasive
+Surgery. Appl. Sci. 2021, 11, 7391. [CrossRef]
+98. Garcia, L.; Kerns, G.; O’Reilley, K.; Okesanjo, O.; Lozano, J.; Narendran, J.; Broeking, C.; Ma, X.; Thompson, H.; Njeuha, P .N.; et al.
+The Role of Soft Robotic Micromachines in the Future of Medical Devices and Personalized Medicine. Micromachines 2021, 13, 28.
+[CrossRef] [PubMed]
+99. Su, H.; Qi, W.; Chen, J.; Zhang, D. Fuzzy Approximation-based Task-Space Control of Robot Manipulators With Remote Center of
+Motion Constraint. IEEE T rans. Fuzzy Syst. 2022. [CrossRef]
+100. Qi, W.; Su, H. A Cybertwin based Multimodal Network for ECG Patterns Monitoring using Deep Learning. IEEE T rans. Ind.
+Inform. 2022. [CrossRef]
+101. Decroly, G.; Lambert, P .; Delchambre, A. A Soft Pneumatic Two-Degree-of-Freedom Actuator for Endoscopy.Front. Robot. AI
+2021, 8, 768236. [CrossRef]
+102. Trumi´ c, M.; Jovanovi´ c, K.; Fagiolini, A. Decoupled nonlinear adaptive control of position and stiffness for pneumatic soft robots.
+Int. J. Robot. Res. 2020, 40, 277–295. [CrossRef]
+103. Schmitt, F.; Piccin, O.; Barb é, L.; Bayle, B. Soft Robots Manufacturing: A Review. Front. Robot. AI 2018, 31, 84. [CrossRef]
+104. Chen, F.; Wang, M.Y. Design Optimization of Soft Robots: A Review of the State of the Art.IEEE Robot. Autom. Mag. 2020, 27,
+27–43. [CrossRef]
+105. Shih, B.; Shah, D.; Li, J.; Thuruthel, T.G.; Park, Y.L.; Iida, F.; Bao, Z.; Kramer-Bottiglio, R.; Tolley, M.T. Electronic skins and machine
+learning for intelligent soft robots. Sci. Robot. 2020, 5, 41. [CrossRef] [PubMed]

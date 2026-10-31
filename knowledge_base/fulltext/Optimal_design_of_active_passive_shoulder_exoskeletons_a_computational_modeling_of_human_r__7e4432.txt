@@ -1,0 +1,1449 @@
+===== PAGE 1 =====
+MultibodySystemDynamics(2022)57:73–106
+https://doi.org/10.1007/s11044-022-09855-8
+Optimaldesignofactive-passiveshoulderexoskeletons:
+acomputationalmodelingofhuman-robotinteraction
+AliNasr1 ·SydneyBell1 ·JohnMcPhee1
+Received:19May2022/Accepted:31October2022/Publishedonline:21November2022
+©TheAuthor(s),underexclusivelicencetoSpringerNatureB.V.2022
+Abstract
+Exoskeleton robots, which range from fully passive to fully active-assisted movements, have
+become an essential instrument for assisting industrial employees and stroke rehabilitation
+therapy. Designing the exoskeleton actuation is challenging and time-consuming due to
+closed kinematic loops in the 3D human-exoskeleton multibody model, complicated inter-
+actions, and interdependent selection of power transmission features. This research proposes
+a process for dynamic syntheses of passive and active assistive shoulder exoskeletons. First,
+a multibody model was developed using six components: an upper-body musculoskeletal
+model, an optimal controller, the exoskeleton’s rigid body, a passive mechanism, a powered
+actuator, and an assistance model. The desired motion was experimentally measured from
+six tasks: frontal reaching, left to right reaching, overhead reaching, sagittal-plane object
+handling, frontal-plane object handling, and over-head object handling. The system design
+was optimized by choosing features of the passive mechanism and exoskeleton motor such
+that the human joint active torque, power, muscle metabolic energy expenditure, and actua-
+tor electricity consumption were minimized. The dynamic synthesis processes were found to
+be successful, and the resultant optimized active-passive exoskeletons allow for the creation
+of lighter and smaller wearable robots that reduce the user’s muscular activation torque for
+the tasks being studied.
+Keywords Wearable robots · Exoskeletons · Active-passive · Closed kinematic chain ·
+Human-robot interaction · Assistive control
+1I n t r o d u c t i o n
+Work-related musculoskeletal diseases (MSDs) affecting the upper extremities, particularly
+the shoulders, are widespread among Canadian workers [1–5]. The shoulder’s complex de-
+sign makes it vulnerable to damage, overexertion, repetitive motion, and large anteversion
+angles are additional well-known exposures that contribute to work-related MSDs [4, 6, 7].
+Increased injury risk and MSD at the shoulder are signiﬁcantly linked to accumulative expo-
+sure to overhead postures and shoulder joint elevation exceeding more than 60 degrees [4, 8].
+Speciﬁcally, the subacromial space narrows as the arm is elevated, and when the shoulder
+/Letter A. Nasr
+a.nasr@uwaterloo.ca
+1 Department of Systems Design Engineering, University of Waterloo, Waterloo, ON, Canada
+
+===== PAGE 2 =====
+74 A.Nasretal.
+muscles fatigue, their capability to preserve the humeral head in the glenohumeral cavity de-
+creases. This further decreases the subacromial space and increases the risk of supraspinatus
+tendon tears or impingement [8]. Shoulder injury occurs as a result of persistent high mus-
+cular activation (which can lead to muscle fatigue and overuse injury) and the subsequent
+increased internal (joint) force/torque (which can cause acute or chronic joint pain and in-
+jury) [6–9]. From a ﬁnancial viewpoint, in one US state, the total medical and insurance
+cost of all shoulder MSDs claims was projected to be $457 M with more than 7 days of lost
+work over 5 years [10]. The requirements for upper extremities assistance are increasing in
+various sectors, including reducing worker effort stresses or supporting and rehabilitating
+patients with neuromuscular impairments [4, 11].
+Recently, the exoskeleton is one solution that has sparked attention in the scientiﬁc and
+industrial worlds [12–15]. Wearable exoskeletons help boost human performance, aiding hu-
+man motions to minimize the user’s effort, and decreasing fatigue. Exoskeletons, therefore,
+contribute to lowering the risk of work-related MSDs and can also be applied to patients
+recovering or developing motor skills [ 7, 9, 11–13]. The design of a functional exoskele-
+ton should be compact, lightweight, user-friendly, and have no intrusive inﬂuence on the
+user [16]. These requirements support the employment of optimization steps in system de-
+sign, conﬁguration, and manufacturing [15, 17, 18]. The exoskeleton design splits into three
+categories based on sources of assistance: fully passive, fully active, and active-passive.
+Passive exoskeletons are equipped with a mechanism to store potential energy from hu-
+man motion for future use [12, 19]. For example, upper limb passive exoskeletons are mostly
+meant to unload the weight of the arm and any lifted tool while the arm is elevated, de-
+creasing muscular strain [13]. The mechanism is assembled from a spring [18, 19], an elas-
+tic band [ 20], a counterweight [ 17, 21], or composed of a pneumatic cylinder for gravity
+compensation [22, 23]. The main advantages of entirely passive exoskeletons include being
+lightweight, portable, safe, affordable, high power-to-weight, less complex concerning sens-
+ing and control, and requiring less maintenance than other categories [ 12, 16, 19, 24, 25].
+Consequently, a signiﬁcant interest in studying, developing, commercializing, and utilizing
+passive industrial exoskeletons does exist [ 12, 13, 26]. On the other hand, passive devices
+are limited to providing a consistent torque proﬁle for gravity-concerned movements only
+[11, 12, 19, 27]. However, the user may exert even more effort with a passive exoskeleton
+than without for some problematic dynamic activities [28].
+On the contrary, active (powered) exoskeletons supply an assistive torque through a ﬂex-
+ible function of time instead of the constant function of joint angle [ 12, 19]. The assistive
+force/torque is achieved through a controllable component such as an electric motor, a hy-
+draulic cylinder, or a pneumatic artiﬁcial muscle [ 25, 29, 30]. This actuator controls via a
+sophisticated control algorithm that requires various types of sensors and energy sources
+[15, 22, 29–35]. Since the total torque source relies on an active component, the utilized
+actuator and the energy source should be powerful and, consequently, they are bulky, heavy,
+irremovable, expensive, and have a lower power-to-weight [26]. Increased device bulk and
+inertia resulting from heavier motors and battery packages would necessitate more effort
+from the human body, lowering motion efﬁciency through increased metabolic power use
+[36].
+To mitigate the issues of active and passive exoskeletons, some devices use a combination
+of active and passive power transmissions [ 17, 37–41]. Essentially, passive mechanisms
+contribute to lowering the size, weight, and required active torque, advancing the portability
+[11, 17, 42]. The motor primarily provides extra assistance and may be used in negative
+work harvesting like electric vehicles [43, 44]. Speciﬁcally, the operating time of an active
+exoskeleton robot can be increased by more than 20% thanks to an energy harvesting module
+
+===== PAGE 3 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 75
+[44]. Recently, this combination transmission system has been conceptually studied as semi-
+active, semi-passive, or quasi-passive on lower-limb [9, 22, 37, 38, 44–47], upper-limb [18,
+40, 42, 48, 49], and spinal [ 31] wearable robots. Using the combined systems (especially
+the rotational inertia) may decrease the angular velocity and acceleration of the user by
+more than 60% [ 49]. Controlling the active component of this combined system requires
+considering the interaction with the human [ 32], the motor control (activation) delay [ 17],
+and understanding the dynamics of both systems. We aim to evaluate a fully passive, fully
+active, and active-passive shoulder exoskeleton and compare them for the speciﬁc task.
+Designing the power transmission source for an exoskeleton requires a deep understand-
+ing and broad consideration of both human and robot systems via different criteria. In
+designing exoskeletons, several research studies employed multibody dynamic models of
+human limbs that are kinematically constrained to the exoskeletons’ structure [ 19, 50]. Re-
+garding the redundant actuation in these multibody human-exoskeleton models, various cost
+functions were optimized in the designing process [11, 13, 19]. These optimization variables
+are classiﬁed into (I) kinematic, (II) dynamic, and (III) biomechanics parameters.
+Examples of the kinematic variables in the optimization are the dimensions of the ex-
+oskeleton and the kinematic ﬁt to subjects via geometric parameters [ 51], the linkage di-
+mensions of the exoskeleton to maximize the force transmission to the wearer [ 52], or
+motion/task-based optimization [ 53, 54]. The dynamic parameter optimization for active
+exoskeletons is motor torques, or for passive exoskeletons, the characteristics of the spring
+within the passive mechanism [11]. In this scenario, the optimization goal was to reduce hu-
+man effort in the form of joint (cumulative and peak) torques [7, 19, 55, 56], powers [7, 57],
+joint reaction force [58], and muscle forces [7, 59]. An example of a biomechanics param-
+eter in optimization is muscle fatigue, which is reduced [ 9, 18, 60] or, speciﬁcally, muscle
+activity measured through electromyography [9, 37, 45, 47]. We aim to design the system by
+concerning human variables (e.g., joint torque, active torque, activation signal, and power)
+and robot properties (e.g., the power, the inertia, and the dimensions of the actuator).
+The model-based optimization utilizes a dynamic model expressed by nonlinear prob-
+lems using forward dynamics simulations of the multibody human-exoskeleton model [ 59]
+and an optimal controller as the human central nervous system (CNS) [ 61]. Note that the
+exoskeleton’s controller is introduced in Sect. 3.2.5. The forward and inverse dynamic sim-
+ulations utilize two equations classiﬁcations according to exoskeletons’ joints/axis conﬁgu-
+ration and requirements. The ﬁrst classiﬁcation is the ordinary differential equations (ODE)
+that are used for multibody models in which the exoskeleton joints/axis coincide with the hu-
+man joints [50]. The exoskeleton link can be grouped with human segmental bodies and sim-
+plify the multibody model [50]. The second classiﬁcation is the differential algebraic equa-
+tions (DAEs) that are used for the multibody system with misaligned human-exoskeleton
+respective joints (primarily for higher than 1-degree of freedom (DoF) joints, for example,
+3-DoF shoulder joints) [11, 19, 62, 63]. Using DAE instead of ODE can provide the oppor-
+tunity to measure and evaluate human-robot interaction forces/torques. Due to the formed
+closed-loop kinematic chains in the multibody human-exoskeleton model, the governing
+equations are DAEs within additional interaction dynamic and the kinematic constraints
+model than the motion equation [11, 19, 64, 65]. However, solving the DAEs is challenging,
+time-consuming, and not straightforward. We aim to introduce the framework for designing
+exoskeletons using DAEs.
+To the best of our knowledge, the literature has not supplied clear guidelines to design
+and optimize complex fully passive, fully active, and active-passive systems alongside using
+a complicated human-exoskeleton interaction model. First and foremost, this research aims
+to create dynamic analysis techniques that may be used to construct and customize an upper
+
+===== PAGE 4 =====
+76 A.Nasretal.
+Fig. 1 The essential components of the human-robot system. The human consists of the CNS (modeled
+using NMPC [ 61]), neural control (previously modeled by MuscleNET [ 66, 67]), muscle (modeled using
+the MTGs of human model), and skeletal system. The robot consists of mechanical and electrical hardware.
+The essential electrical components are wearable wireless surface electromyography (sEMG) sensors and the
+receiver (Delsys Inc, Boston, MA), controller, adaptor, BLDC motor, emergency stop, and power supply. The
+EVO (Ekso Bionics Holdings Inc, California, USA) upper limb exoskeleton is used as a wearable device with
+three levels of passive assistance
+limb exoskeleton for a speciﬁc worker or patient. The second objective is to decrease the
+user’s effort by choosing motor and passive element characteristics. For task-based design-
+ing and optimization, the data were recorded from participants doing functional activities.
+The list of the research’s contributions is as follows:
+i. Modeled the human-exoskeleton multibody system (using six components: the Maple-
+Sim Biomechanics upper-body dynamic model (consist of 20 DoF and 40 muscle
+torque generators (MTGs)), a nonlinear model predictive control (NMPC), the ex-
+oskeleton’s rigid body, a passive mechanism, a powered actuator (brushless direct cur-
+rent (BLDC) motor), and an assist-as-needed (AAN) model) and used DAEs simulation
+to study the interaction force/torque.
+ii. Proposed a guideline to design fully active, fully passive, and active-passive transmis-
+sion system components.
+iii. Optimized the actuation properties using multiple criteria such as the human joint vari-
+ables and signals as well as practical manufacturing criteria, including the power, iner-
+tia, and dimension of the actuator.
+iv. Proposed a model of integrating passive mechanisms with motors that leads to smaller
+and more lightweight motor selection (Fig. 1).
+First, the six recorded industrial tasks or motions were introduced in Sect. 2. Second, a
+multibody human-exoskeleton dynamic model was developed and discussed in Sect.3 using
+a couple of independent subcomponents models. Third, the design variable, targeted cost
+function, the procedure of actuator designing, and the model-based optimization method are
+introduced (Sect. 4). Finally, the results for different tasks, cost functions, and actuators are
+presented and discussed.
+
+===== PAGE 5 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 77
+2 Dataacquisitionandprocessing
+2.1 Tasks
+Occupational tasks are generally used for evaluating the efﬁcient design of industrial ex-
+oskeletons that reduce muscular demands [ 13]. For example, overhead work and carrying
+a heavy load can be a challenging risk to eliminate in speciﬁc industries, such as automo-
+tive production and hand assembly [13]. So far, a couple of industrial and daily living tasks
+are used for evaluating upper limb exoskeletons, such as (1) overhead raising, maintaining,
+operating, and moving [ 8, 41, 68–71], (2) lifting a load from the ground and transferring
+[72, 73], (3) general raising, reaching, and lowering arms [ 11, 60], (4) static holding in
+stooped posture [ 40, 72], (5) plugging needle into holes and groove [ 74], (6) surgery op-
+eration simulation [ 75], (7) daily living tasks (e.g., eating with a spoon, opening a door,
+zipping a coat, and combing hair) [ 11]. Six tasks were designed to simulate industrial and
+daily activities to guarantee that each joint had a wide range of amplitudes. As depicted in
+Fig. 2, tasks are categorized into two groups: arm moving and object handling. The tasks
+are frontal reaching, left to right reaching, overhead reaching, sagittal-plane object handling,
+frontal-plane object handling, and over-head object handling.
+2.2 Datarecording
+One volunteer (male, age: 29 years; mass: 76 kg; height: 1 .80 m; right-handed; 1 session
+workout per week), free of upper limb injury, provided informed consent and was recruited
+for this study. The experimental protocol followed the Declaration of Helsinki’s guidelines.
+The University of Waterloo’s Ofﬁce of Research Ethics approved the data collecting study
+(ORE #: 31194).
+An MVN Suit (Xsens Technologies, Netherlands) based on the inertial measurement
+unit (IMU) technology was used to quantify the angular human joint kinematics (without
+exoskeleton). The subject conducted tasks with 2 minutes of rest between tasks after a stan-
+dard calibration of the IMU system. The data were captured at a rate of 100 Hz.
+2.3 Kinematicprocess
+Similar to the kinematic process used [ 19, 76], the following steps were applied to ﬁlter
+the joint angles and estimate the joint angular velocity, acceleration, and the raising and
+lowering of the object. The processed kinematic data were used as the reference trajectory
+in Sect. 4.1.
+A 10 Hz low-pass ﬁlter was used to ignore the high-frequency noises. Then, the posi-
+tion data were re-sampled with a rate of 50 Hz using 1-D data cubic interpolation of the
+neighboring values. The velocity and acceleration of the joints were initially calculated us-
+ing the numerical ﬁrst and second derivatives of joint angles. Then, with a cut-off frequency
+of 20 and 30 Hz, two low-pass second-order Butterworth ﬁlters were used to ignore minor
+variations.
+The object’s position and velocity were used to distinguish the raising and lowering pro-
+cesses. The object was estimated at the resting targets when the absolute velocity of the
+object was less than 1 cm/s for more than 30 milliseconds.
+
+===== PAGE 6 =====
+78 A.Nasretal.
+Fig.2 Illustration of six
+industrial and daily living activity
+tasks for designing, optimizing,
+and evaluating the shoulder
+exoskeleton. The ﬁrst three
+motions are arm-reaching tasks,
+and the last three motions are
+object-handling tasks
+3 Multibodysystemmodel
+As shown in Fig.3, the multibody model consists of two sub-models of the human (Sect.3.1)
+and the exoskeleton (Sect. 3.2). The connection of these systems is described in more detail
+in Sect. 3.3. The multibody system was modeled using MapleSim v2021 (Maplesoft, Water-
+loo, ON, Canada), a multibody dynamic system modeling and simulation software package,
+and exported as symbolic optimized C code to MATLAB (R2021b. MathWorks, Natick,
+MA, USA) for use in the design and optimization process.
+3.1 Humanmodel
+The human body model and the CNS control loop are introduced in this section.
+
+===== PAGE 7 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 79
+Fig. 3 (a) Two views of 20-DoF MapleSim Biomechanics model of a human upper body and EVO upper
+limb exoskeleton. The essential human joints are the lumbar joint center (LJC) with a 3-DoF spherical joint
+(TFE, TRLLF, and TRLAR), SJC with a 3-DoF spherical joint (SFE, SAA, and SMLR), EFE, FPS, a 2-DoF
+wrist joint (WFE, and WRUD). (b) Schematic diagram of the human and exoskeleton closed kinematic loop
+models and their interaction with hinge (HG), elevation (E), and virtual spring (VS) joints. The human and
+exoskeleton systems are connected at the armrest (AR) and LJC
+3.1.1 Upper-bodydynamicmodel
+The MapleSim Biomechanics (scalable musculoskeletal (MSK)) model developed and val-
+idated using experimental dynamometer data for dynamic simulations of movement was
+used for the upper body. The MapleSim Biomechanics upper body model is comprised of
+8 body segments (torso, head, left/right upper arm, left/right forearm, and left/right hand)
+and has 20 DoF. The MapleSim Biomechanics model has two components of a skeletal
+dynamic and biomechanical joint torque model. The biomechanical joint torque model is
+developed with MTGs [ 77] that consists of 6 functions of (I) the passive torque, (II) peak
+joint strength, (III) active-torque-angle scaling, (IV) active-torque-angular-velocity scaling,
+and (V) excitation-to-activation signal. The MTG parameter values were identiﬁed for the
+simulated subject using a dynamometer device in isometric, isokinetic, and passive modes
+[32, 77]. The MapleSim Biomechanics model can be adjusted for various anthropometric
+measurements and body characteristics, including sex, age, body mass, height, dominant
+side, and physical activity. The adjustable MapleSim Biomechanics model allows for the
+evaluation of the exoskeleton on different subjects. There are 3 joints at torso (torso ﬂex-
+ion/extension (TFE), torso right/left lateral ﬂexion (TRLLF), and torso right/left axial rota-
+tion (TRLAR)), and 3 joints at neck (neck ﬂexion/extension (NFE), neck right/left lateral
+ﬂexion (NRLLF), and neck right/left axial rotation (NRLAR)). For each side of the body,
+there are 3 DoF at shoulder joint centre (SJC) (shoulder ﬂexion/extension (SFE), shoul-
+
+===== PAGE 8 =====
+80 A.Nasretal.
+der adduction/abduction (SAA), and shoulder medial/lateral rotation (SMLR)), elbow ﬂex-
+ion/extension (EFE), forearm pronation/supination (FPS), wrist ﬂexion/extension (WFE),
+and wrist radial/ulnar deviation (WRUD).
+The MapleSim Biomechanics dynamic model is presented as Equation (1). For the active-
+torque-driven model, Equation (3) is used instead of Equation (2) which is for the excitation-
+signal-driven model. Note that Equations (1)-(3) are only for the human body and the com-
+bined human-exoskeleton model is provided in Equations (18)-(20).
+[I2n×2n 0
+0 Mn×n (θn×1,β )
+][ ˙a2n×1
+˙ωn×1
+]
+=
+[ τu2a (a2n×1,u2n×1,t,β )2n×1
+Fn×1 (ωn×1,θn×1,β ) + Qn×1
+]
+(1)
+Q =
+[
+a+τ+ω (ω,β )τ+θ (θ,β )τ+0 (β) + a−τ−ω (ω,β )τ−θ (θ,β )τ−0 (β) + τp (θ,ω,β )] (2)
+Q =
+[
+τa + τp (θ,ω,β )
+]
+(3)
+where
+n the number of independent coordinates and speeds
+θ the column matrix of all joint angles
+ω the column matrix of all joint angular speed
+M the mass matrix
+F the segments’ Coriolis, centrifugal, and gravitational effects
+Q the applied joint torques, a column matrix containing τh (t) for all joints
+τu2a the excitation-to-activation signal ODE function
+τω the active torque-angular-velocity scaling function
+τθ the active torque-position scaling function
+τ0 the peak isometric joint strength
+τp the passive torque function due to viscous damping and nonlinear stiffness
+τa the vector containing the active torques at the joints
++ the positive direction of joint
+− the negative direction of the joint
+β the subject adjustment variables: sex, age, body mass, height, dominant side, and
+physical activity
+3.1.2 OptimalcontrollermodeloftheCNS
+The CNS is in charge of the motion of the human body [ 61, 78]. The CNS synchronizes
+the kinetics and kinematics regardless of complex MSK dynamics and unknown/uncertain
+disturbances and trajectories [78]. Human mobility studies suggest that the CNS coordinates
+body movements based on optimization [79].
+The CNS uses a complicated command to coordinate human motions, composed of two
+sectors: motion prediction and correction command [ 61]. To compute motion prediction
+(model-based feed-forward control), an internal model (IM) as a representation of the com-
+plicated system is used. Furthermore, the sensory organs calculate a correction instruction or
+feedback control to correct any errors caused by model uncertainty, external disruption, or a
+new environment. NMPC with a short time horizon is shown to be able to attain this multi-
+purpose control complexity (feed-forward and feedback control) [61]. Precisely, to simulate
+human dynamics, the NMPC uses an IM that is learned, identiﬁed, and tuned over time [80]
+to forecast optimal motion (feed-forward) and correct prediction errors (feedback) [ 61]. It
+uses a cost function to evaluate the ideal motion. Here, we construct this cost function with
+biomechanical variables such as joint angles and velocity errors, as well as model inputs
+
+===== PAGE 9 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 81
+and their derivative. This cost function is similar to Equation (4) for the active-torque-driven
+model. NMPC controller optimizes the cost functional (Equation ( 4)) under the impact of
+system dynamics (Sect. 3.3.2) and limitations (Equation (5)).
+JCNS =
+∫ t+tf
+t
+[
+WT1 (θ − θd)2 + WT2 (ω − ωd)2 + WT3 (τa)2 + WT4 (˙τa)2]dt (4)
+θmin (β) ≤ θ ≤ θmax (β)
+ωmin (β) ≤ ω ≤ ωmax (β)
+−Rτ−0 (β) ≤ τa ≤ Rτ+0 (β)
+˙τmin ≤ ˙τa ≤ ˙τmax
+(5)
+where
+W the vector of cost function weights
+θ the vector containing the joint angles
+ω the vector containing the joint instantaneous angular velocities
+τa the vector containing the active torques at the joints
+˙τa the vector containing the instantaneous active torque rates at the joints
+τ0 the peak isometric joint strength
+R the ratio of the maximum eccentric isokinetic torque over the maximum isometric
+torque
+tf the prediction horizon
+d the desire value or trajectory, recorded in Sect. 2.2 and processed in Sect. 2.3
+min the minimum variable
+max the maximum variable
++ the positive direction of joint
+− the negative direction of the joint
+β the subject adjustment variables: sex, age, body mass, height, dominant side, and
+physical activity
+The cost function weights were selected for long-term experience and robust trajectory
+tracking according to the study in [32]. The IM is the human model mentioned in Sect.3.1.1.
+In addition, the NMPC has full awareness of the interaction force/torque of the exoskeleton
+and the external force/torque of the manipulated object.
+3.2 Exoskeletonmodel
+Here, the rigid links, the joint conﬁguration, the passive torque, and the active torque of the
+exoskeleton model are described. The topology and kinematic structure of the exoskeleton
+are already shown on Fig. 3b and highlighted in the Fig. 4 for further consideration.
+3.2.1 Dimensionsandinertiaproperties
+We used an EVO (Ekso Bionics Holdings Inc, California, USA) upper limb exoskeleton
+as the wearable device with passive assistance. However, the described method can be ap-
+plied to any upper-limb exoskeleton. All robot linkages were reverse-engineered utilizing
+a mixture of physical measurements and reference photos available from the manufacturer
+to create computer-aided geometric models. A digital caliper, tape meter, and scale were
+used to measure the dimension of each link, the joint center locations, and the mass of the
+robot. The center mass and inertia matrix were calculated using the design software with the
+
+===== PAGE 10 =====
+82 A.Nasretal.
+Fig.4 An image of the actual active-passive shoulder exoskeleton. The important mechanical parts (e.g., belt,
+shafts, slices, link, and mechanism) and the electrical components (e.g., adaptor, motor, and sEMG sensor)
+are shown in the image
+assumption that the part has constant density. The joint attachment coordinates, the center
+of mass (COM), mass, and inertia matrix are provided in Table 1.
+3.2.2 Jointsconﬁguration
+The exoskeleton has 2 adjustment links and 7 joints that form a tower on each side. Here, the
+adjustment options and the joints of the exoskeleton are described. The exoskeleton-human
+attachment, interaction, and closed kinematic loop are described in Sect. 3.3.1.
+Each tower can be mounted on 2 different holes on the same belt as a ﬁrst adjustment
+link. These holes have different distances from the belt center in the Sagittal axis. The hole
+should be chosen based on the subject’s hip or torso span. The locations of the holes are
+provided in Table 1, with RH1 and RH2 indicating the right side. The second adjustment
+is a prismatic link in the transverse axis between Shaft 1 or Shaft 2 and Shaft 3. It should
+be adjusted to minimize the vertical distance of the human shoulder with the exoskeleton’s
+elevation joint. Shafts 1 and 2 are usually used for short and tall subjects, respectively. These
+two adjustments (hole selection and prismatic vertical adjustment) are not considered joints
+and should be ﬁxed for simulation and usage. The prismatic adjustment between Shaft 1 or
+Shaft 2 and Shaft 3 is relevant to the vertical distance of the SJC with the LJC. According
+to the anthropometric data reported in the literature [ 81], the adjustment is calculated from
+Equation (6).
+d = h [0.2289s + 0.2199(1 − s)] − l (6)
+where
+
+===== PAGE 11 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 83
+Table 1 The coordinates location, mass, COM, and inertia matrix of the mechanical system’s links (the right tower of the exoskeleton)
+#P a r t
+Name
+Coordinate Center of
+Mass (m)
+Mass
+(kg)
+Inertia Matrix (kgm2)
+Parent Child Ixx Iyy Izz Ixy Ixz Iyz
+P1 Belt LJC RH1: −0.063, 0.000, 0.135
+RH2: −0.067, 0.000, 0.100
+0.059, 0.000, 0.000 0.711 0.01 0.017 0.008 −4e-6 0 0
+P21 Shaft 1 H L1: 0.000, 0.145, 0.000 0.000, 0.072, 0.000 0.036 64e-6 3e-6 64e-6 0 0 0
+P22 Shaft 2 H L2: 0.000, 0.220, 0.000 0.000, 0.110, 0.000 0.052 210e-6 3e-6 210e-6 0 0 0
+P3 Shaft 3 L HG0: 0.000, 0.133, 0.000 0.000, 0.071, 0.000 0.031 50e-6 2e-6 50e-6 0 0 0
+P4-P8 Slice HG HG1: 0.000, 0.036, 0.057 0.000, 0.016, 0.030 0.075 50e-6 46e-6 9e-6 0 0 −1e-6
+P9 Link HG5 E: −0.018, 0.024, 0.080 −0.011, 0.022, 0.040 0.083 116e-6 118e-6 13e-6 1e-6 21e-6 −5e-6
+P10 Mechanism E AR: 0.126, −0.170, 0.000 0.049, −0.072, −0.020 0.850 0.005 0.001 0.006 0.002 433e-6 −0.001
+
+===== PAGE 12 =====
+84 A.Nasretal.
+d the adjustment distance in meters of Shaft 1 or Shaft 2 with Shaft 3
+h the height of the subject in meters
+s the sex parameter (for a male is 1 and for a female is 0)
+l the exoskeleton maximum vertical distance for Shaft 1 (0.4820 m) and Shaft 2
+(0.5570 m)
+The joints are connected serially from Shaft 3 to the mechanism segments. The ﬁrst
+5 revolute joints in the vertical direction, like hinges (HG), connect 5 Slices and Shaft 3
+together like an accordion. The vertical direction of the sixth revolute joint connects the last
+Slice in HG5R and the Link. The last exoskeleton joint is the revolute joint in the direction
+of the shoulder elevation (E) that connects the Link to the mechanism. The last joint has a
+limited range of motion (ROM). The assistive torque of this elevation joint is applied with a
+passive mechanism or actuator (controlled motor).
+The ﬁrst 6 revolute joints are in the vertical direction (in the transverse plane) and are
+mainly responsible for keeping the exoskeleton’s elevation joint at the desired location. The
+minimum number of required joints to provide this function is 3 revolute joints. These rev-
+olute joints can move the last joint (elevation joint) in the traverse and the frontal direction
+and pose as a desired orientation for the Link segment. If only 3 joints are used, the number
+of Slices is 3 (as opposed to 6), and they should be longer to cover the full horizontal SAA
+ROM. By increasing the number of these joints from 3 to 6 and increasing the number of
+Slice segments from 3 to 6, the dimension of these slices can be smaller. Using smaller slice
+segments helps in achieving a compact exoskeleton. However, increasing the number of the
+Slice segments and the connective joints leads to redundancy problems during simulation.
+Calculating the state of a redundant system requires extra calculation, relying on guessing
+the joint angles and depending on the initial joint angles.
+The ﬁrst 5 revolute joints in the EVO upper limb exoskeleton have a novel elastic rope
+that goes through holes on the slices. One end of the rope is connected to the last slice, and
+the other end is connected to the Shaft3. This elastic rope creates weak springs to keep the
+accordion-like system in its original location. In addition, the rope introduces a constraint
+to the 5 joints that inhibit the hinges from rotating in the undesired direction. The hinge’s
+rotational springs and constraints are modeled using Equation ( 7) (symbolically shown in
+Fig. 5a). Equation (7) was originally adopted from [82] to model the stiffness. The equation
+constrains the maximum range of rotation and is equipped with a rotational spring model
+of the elastic rope. The passive joint parameters of the hinge were assumed by the authors
+as listed in Table 2. These assumed parameters have no impact on the elevation mechanism
+and the assistive torque, which are the main focus of this research.
+THin ge =− K (ϕ − ϕ0) + k1e
+−k2
+(
+ϕ−ϕ−max) − k3ek4(ϕ−ϕ+max) − c ˙ϕ (7)
+where
+THin ge the passive torque of the hinge joints
+K the spring constant, in Nm/rad
+ϕ the joint angle in radian
+ϕ0 the unstretched angle of the rotational spring, in radian
+k the passive parameters of the constraint
+ϕ−max the maximum ROM for negative direction
+ϕ+max the maximum ROM for positive direction
+c the rotational linear damping coefﬁcient
+˙ϕ the joint’s instantaneous angular velocity
+
+===== PAGE 13 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 85
+Fig. 5 (a) Plot of the ﬁrst 5 revolute joints’ passive torques with rotational spring ( K) and maximum ROM
+(ϕmax ). (b) The normalized passive joint torque to the maximum of ﬁtted data, (c) the measured passive joint
+torque for spring system levels 1 to 3, and (d) a polar indication of joint torque. All the measurements were
+done with zero rotational shift adjustment for (b-d). (e) The relation of the motor torque ( Tm)a n da r m a t u r e
+current (ia ) with motor torque constant ( km). (f) The smooth curve of the human elevation torque using the
+dead zone torque (Tδ ) and the threshold torque (Tγ )
+Table 2 The hinge’s passive joint parameters for the right tower of the exoskeleton
+Joint K
+(Nm/rad)
+ϕ0
+(rad)
+k1
+(Nm)
+k2
+(1/rad)
+k3
+(Nm)
+k4
+(1/rad)
+ϕ−max
+(rad)
+ϕ+max
+(rad)
+c
+(Nms/rad)
+HG0 0.1 0 1 10 1 10 0 −π 0.001
+HG1 0.1 π 11 0 11 0 π/23 π/2 0.001
+HG2 0.1 −π 11 0 11 0 −π/2 −3π/2 0.001
+HG3 0.1 π 11 0 11 0 π/23 π/2 0.001
+HG4 0.1 −π 11 0 11 0 −π/2 −3π/2 0.001
+3.2.3 Passivemechanismmodel
+As mentioned in the introduction, the passive exoskeleton is primarily equipped with a
+spring mechanism that stores potential energy from human motion. The assistive joint torque
+proﬁle varies based on the task [ 19]. The EVO upper limb exoskeleton can aid in positive
+elevation direction (ﬂexion or vertical abduction) using a compressed spring and a cam
+mechanism (Fig. 6a). In addition, it can have different spring strengths and minor rotational
+shift adjustments for the torque proﬁle.
+We have simultaneously measured the assistance force relevant to the elevation angle
+using a digital gram scale positioned perpendicular to the armrest and a digital inclinome-
+ter. The torque is computed by the measured force and length between the scale and the
+rotation axis. Finally, the joint torque was ﬁtted with a 2-degree polynomial presented in
+
+===== PAGE 14 =====
+86 A.Nasretal.
+Fig.6 Views of the passive elevation joint mechanisms assembled using a compressed spring (a) or stretched
+spring (b). (a) Evo providing an assistive torque to the upper arm of a wearer via a compressed spring [ 83].
+(b) Our designed custom mechanism (adopted from Nasr et al. [19]) delivering passive torque via a stretched
+spring that wraps around a point PB
+Equation (8). The resultant torque-angle proﬁle is shown in Fig. 5b-d.
+TPassive = Tmax
+[
+p2 (ϕ + ϕ0)2 + p1 (ϕ + ϕ0) + p0] (8)
+where
+pi the polynomial coefﬁcients (p2 =− 0.4582 1/rad2, p1 = 1.9003 1/rad, and
+p0 =− 0.9704)
+Tmax the maximum passive joint torque, which is 4.578, 7.693, 9.798 Nm for the Level
+1, 2, 3 springs of EVO, respectively
+ϕ the exoskeleton’s elevation angle in radian
+ϕ0 the passive mechanism rotational shift (between −0.175 to 0.175 rad)
+We created the custom mechanism depicted in Fig.6b (previously presented in [22]). The
+assistive passive torque of the mechanism (at the elevation shaft) is given by Equation ( 9).
+In Equation (9), |PW − PB| and |PA − PW | are the length from the base point to the wrap-
+ping point and the wrapping point to the attachment point, respectively. Thus, the spring
+deﬂection is the absolute value of the base-wrap-attachment path minus the initial spring
+length (L0). In addition, the direction of the PA − PW vector deﬁnes the direction of the
+spring tensile force to the attachment point. Finally, the consequent torque is deﬁned as the
+cross-product of the position vector to the attachment point (from the rotation center) and
+the spring force. We assume the cylinder radius to be negligible; thus the wrapping point
+is the center of the cylinder in Fig. 6b. The length of the spring decreases as the angle of
+the elevation joint increases. Simultaneously, as the angle of the joint increases, so does the
+moment arm of the spring force. As shown in the custom mechanism (Fig. 6b), as the angle
+of the elevation joint increases, the moment arm increases while the spring length decreases.
+The delivered passive torque is produced by the combination of decreasing the force of the
+spring (due to shorter spring length) and increasing the moment arm of that force. Even
+though the spring is linear, the mechanism assembly is designed to produce a nonlinear
+torque-angle relationship (plotted in Fig. 11a).
+TPassive (ϕ) =
+⏐⏐⏐⏐PA × k [ PA − PW|PA − PW | (|PA − PW | + |PW − PB| − L0)]⏐⏐⏐⏐ (9)
+where
+
+===== PAGE 15 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 87
+k the spring stiffness proportional constant
+L0 the initial length of the spring (equilibrium position)
+PA the coordinates of the attachment point relative to the frame at the elevation shaft
+PW the coordinates of the wrapping point relative to the frame at the elevation shaft
+PB the coordinates of the base point relative to the frame at the elevation shaft
+3.2.4 Poweredactuatormodel
+Preliminary robotic exoskeletons and prostheses employed pneumatic and hydraulic actua-
+tors tethered to off-board bulky air compressors and ﬂuid pumps resource stations, respec-
+tively [14, 84]. However, research and industry have moved to electromagnetic actuators,
+particularly brushless and brushed direct current motors [ 14, 84]. Motors are most efﬁcient
+at high speeds and minimal torques, with rough torque densities of 15 Nm/kg and power
+densities of near 200 W/kg, and a 90% efﬁciency [ 85]. On the other hand, human muscle
+groups have torque and power densities of roughly 20 Nm/kg and 50 W/kg, respectively,
+with a concentric contraction efﬁciency of around 30% [ 85]. To increase the motor torque
+output to the robot’s joints, electric motors are combined with a high-ratio transmission
+(mostly harmonic gearing); this design allows for precision position control and causes the
+robotic actuator to have a high mechanical impedance (i.e., high inertia and mechanically
+stiff) [86]. However, utilizing actuators with high output impendence in wearable robots
+generally increases energy consumption and electric motor peak power requirements [ 86].
+Thus, it is evident that designing a wearable robot actuator requires considering the primary
+actuator dynamic, which was ignored in designing active-passive exoskeletons to the best of
+our knowledge.
+The following design requirements should be achieved to reduce system inefﬁciencies:
+low electric power consumption, low inertia and impedance, and high torque density motors
+with little gearing. To attain low mechanical impedance, high energy efﬁciency, and back-
+drivability, torque-dense motors with low ratio transmissions, also called direct-drive actua-
+tors, have been deployed in recent years [87]. Developments in high torque-density (torque
+per unit mass) BLDC motors by the drone industry have signiﬁcantly fueled the use of
+low transmission ratios in wearable robots. The design of BLDC motors increases delivered
+torque by rising motor torque-density instead of the transmission ratio, decreasing the im-
+pacts of high gearing (i.e., backlash, torque-dependent Coulomb friction, increased weight,
+and the actuator’s effective inertia and damping, which scale with the square of transmission
+ratio) [85, 86]. Thus, to overcome the resistance and back drive the actuator, signiﬁcant ex-
+ternal loads are required when the active component in an active-passive exoskeleton is off.
+The properties of high-gearing systems introduce dynamic stiffness in physical interactions
+between humans and active machines. Recently, following the mentioned actuator design
+concepts, the MIT Cheetah legged robot was built using pancake-style BLDC motors with
+encapsulated windings [88].
+The electromechanical characteristics of commercial BLDC motors were gathered in Ta-
+ble 3. The most critical motor speciﬁcations are effective inertia and nominal torque. In
+active-passive exoskeletons, when the actuator is turned off, and only the passive compo-
+nent is utilized, the actuator should have the lowest output inertia. Furthermore, the needed
+torque should always be smaller than the nominal torque. The achievable speed lowers as
+the required torque grows and the motor heats up.
+A motor’s torque-producing ability is usually expressed as Equation ( 10) and Fig. 5e.
+Here, we are not considering an electrical equation such as the motor-armature inductance.
+The gear ratio (N) generates a rise in torque at the load and consequently a decrease in the
+
+===== PAGE 16 =====
+88 A.Nasretal.
+Table 3 The electrotechnical speciﬁcation of BLDC motor with or without a gearbox from CubeMars Co. (Nanchang, China)
+# Motor Model Gear
+Ratio
+Nominal
+Torque (Nm)
+Rotor Inertia
+(kgm2)
+Viscous Damping
+Coefﬁcients (Nms/rad)
+Motor Weight
+(kg)
+Nominal Rotary
+Speed (rad/s)
+Nominal Input
+Current (A)
+Torque Constant
+(Nm/A)
+Input V oltage
+(v)
+1 AK80-64 64 48 564e-7 0.065 0.850 2.93 6.3 0.119 24-48
+2 AK10-9 V2.0 9 18 1002e-7 0.130 0.960 23.67 11.8 0.16 24-48
+3 AK10-9 V1.1 9 15 1002e-7 0.101 0.820 46.60 18.5 0.095 24-48
+4 AK80-9 9 9 607e-7 0.054 0.485 25.66 12.0 0.091 24-48
+5 AK80-6 6 6 607e-7 0.054 0.485 38.22 12.0 0.091 24-48
+6 AK70-10 10 8.3 414e-7 0.034 0.521 41.89 8.8 0.095 24-48
+7 AK60-6 V1.1 6 3 243e-7 0.021 0.368 23.04 4.5 0.113 24
+8 R100 KV90 1 3.7 2505e-7 0.221 0.731 397.94 35.0 0.106 48
+9 R80 KV110 1 1.3 758e-7 0.060 0.354 481.71 15.0 0.0868 48
+
+===== PAGE 17 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 89
+Table 4 The coordinates location, mass, COM, and inertia matrix of the actuator cover
+Part
+Name
+Parent
+Coordinate
+Center of Mass
+(m)
+Mass
+(kg)
+Inertia Matrix (kgm2)
+Ixx Iyy Izz Ixy Ixz Iyz
+Motor E −0.042, 0.000, 0.000 0.669 75e-5 51e-5 50e-5 0 −1e-5 0
+Housing E 0.015, −0.050, 0.000 0.144 32e-5 17e-5 25e-5 4e-5 0 0
+Arm HG5 −0.005, 0.024, 0.061 0.069 4e-5 4e-5 1e-5 0 1e-6 0
+load’s speed. Without considering the loaded dynamic, the net output torque can be deter-
+mined by considering the motor rotor inertias and the rotator viscous friction coefﬁcients as
+seen in Equation (11)[ 89].
+Tm = kmia (10)
+TOutput = NTm −
+(
+N2Im ¨ϕ + N2bm ˙ϕ) (11)
+where
+Tm the torque applied to the rotor
+km the motor torque constant
+ia the armature current
+TOutput the net output torque
+N the gear ratio
+Im the motor rotor inertias
+bm the rotator viscous friction coefﬁcients
+These pancake BLDC motors have average 10 cm diameter, 7 cm height, and 0 .669 kg
+mass. The covering and ﬁxture inertia properties are provided in Table 4 for an average
+motor dimension.
+3.2.5 Hierarchicalassistancemodel
+High, mid, and low-level controllers are used in advanced hierarchical control of robotic
+exoskeletons, prosthesis, assistive, and rehabilitation systems [ 30, 32]. Primary, the high-
+level controller is in charge of understanding the user’s motion intent for robotic prosthesis
+systems or the torque and force exerted by the user for wearable robotic systems [ 66, 67].
+Here we assume that the human active torque ( ˆτa ) is predicted accurately by the high-level
+controller. On the other hand, the low-level controller is in charge of directly commanding
+the robotic actuators considering the sensed robotic joint variable, following the desired
+torque (τd ) that is generated by the mid-level controller [30, 32, 33]. Here, we assumed the
+low-level controller has a one-to-one model and can apply the desired torque (τd ) accurately.
+Finally, the mid-level controller uses the high-level controller’s determined intended motion
+or force/torque and deﬁnes the low-level controller’s command [32]. The details of the mid-
+level controller is described in the following paragraph.
+Recently, the AAN-CTM technique, which boosts rather than replaces motor activity,
+has shown encouraging outcomes for the mid-level controller [ 32]. Here, we adopted the
+controller in [ 32] (Equations ( 12)-(17)), considered the full AAN approach, and designed
+it to provide the required assistance torque (Fig. 7). This unique approach ﬁnds the desired
+actuator torque by boosting the human active torque via the desired strength variable ( /Omega1)
+
+===== PAGE 18 =====
+90 A.Nasretal.
+Fig.7 Block diagram of the mid-level controller of the hierarchical AAN-computed-torque method (CTM)
+control architecture of active-passive exoskeleton robots. The mid-level controller deﬁnes the potential driv-
+ing torque using the human and exoskeleton model [32]
+and combining the robot’s powered actuator model in Equation ( 15). The comprehensive
+model was presented using Equations ( 12), (13). The hyperbolic Equation ( 13) (symbol-
+ically shown in Fig. 5f) eliminates the controller chattering effect in the presence of low
+human joint torque. In the simulation, the desired elevation torque ( TE ) was calculated us-
+ing the human shoulder joint torque and Equation (14). In practice, the elevation torque (ˆTE )
+is estimated from the high-level controller using human data, for example, with MuscleNet
+[66, 67] and a wireless sEMG sensor, as shown in Fig. 1. The maximum motor nominal
+torque limits the desired assistive output torque to mimic the practical actuation limit in
+Equation (16). The desired input current (ia ) calculated with Equation (17) should be driven
+by the hierarchical low-level actuator controller, which is primarily a servo controller.
+Td = /Omega1Qγ ˆTE + ˆQM (12)
+Qγ =
+⏐⏐⏐⏐⏐ 11 + e− 4Tγ −Tδ ( ˆTE− Tγ +Tδ2 ) − 11 + e 4Tγ −Tδ ( ˆTE+ Tγ +Tδ2 ) ⏐⏐⏐⏐⏐ (13)
+TE =
+⎛
+⎝GRUA
+⎡
+⎣
+τSAA
+τSMLR
+τSFE
+⎤
+⎦
+⎞
+⎠ •
+⎛
+⎝GRE
+⎡
+⎣
+1
+0
+0
+⎤
+⎦
+⎞
+⎠ (14)
+ˆQM = N2 ˆIm ¨ϕf + N2 ˆbm ˙ϕf (15)
+TActive = min (max (Td,−NTmax),NT max) (16)
+ia = 1N ˆkm TActive (17)
+where
+Td the desire assistive output torque
+/Omega1 the robot’s desired assistive strength variable, which is positive for assistive and
+negative for resistive (rehabilitation) control
+ˆTE the human predicted elevation torque by the high-level controller
+
+===== PAGE 19 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 91
+Qγ the smooth curve of the human elevation torque between the dead zone and the
+threshold torque
+ˆQM the identiﬁed wearable robot actuator model, the result of the rotor inertia and
+the viscous damping
+Tγ the positive threshold torque
+Tδ the positive dead zone torque
+GRUA the rotation matrix of the upper arm frame relevant to the global reference frame
+GRE the rotation matrix of the mechanism frame attached to the elevation joint
+relevant to the global reference frame
+τSAA the human SAA joint torque
+τSFE the human SFE joint torque
+τSMLR the human SMLR joint torque
+˙ϕf the actuator joint angular velocity that is calculated with the derivative of the
+joint angle
+¨ϕf the actuator joint angular acceleration that is calculated with the derivative of
+the joint angular velocity
+TActive the potential driving torque, which is saturated by the maximum motor torque
+Tmax the maximum nominal motor torque
+ˆkm the identiﬁed torque constant
+3.3 Closedkinematicsystem
+Here, the connection of the exoskeleton to the human, the combined model, and the require-
+ments of simulation are described.
+3.3.1 Exoskeleton-humaninteraction
+The belt of the exoskeleton fastens around the hip or connects to the LJC. The LJC is esti-
+mated as 26.4%, 0% and 12.6% (for male) of the Pelvis width on the X-, Y- and Z-axes, or
+28.9%, 0% and 17.2% (for female), respectively. The Z-axis is in the direction of the left-to-
+right anterior superior iliac spine (the most prominent point on the anterior superior spine of
+the right and left ilium). The X-Z plane is formed with the Z-axis and the midpoint between
+the postero-superior iliac spines (the prominent points on the right and the left ilium’s pos-
+terior superior spine). In total, the assistive torque reaction on the shoulder conveys to the
+exoskeleton belt and, consequently, to the hip. The belt of the exoskeleton and the LJC of
+the human are rigidly connected. For future studies, the connection can be modeled with a
+spring and damper [90].
+The exoskeleton’s armrest is attached to the human upper arm with a speciﬁc joint. The
+speciﬁc joint is a 1-DoF revolute joint, which allows for one rotational DoF about the com-
+mon axis. The common axis is the Y-direction of the upper arm (the line connecting the
+elbow joint center (EJC) to the SJC, pointing proximally). The connected 1-DoF revolute
+joint can easily rotate around the Y-axis, but has 5 constraints that prevent rotation in the X-
+and Z-direction and translation in all directions of the human upper arm coordinate system.
+The mentioned 5 constraints convey the interaction forces and torques to the human upper
+arm from the exoskeleton’s armrest. The interaction forces and torques result from the con-
+ﬁguration of the human-exoskeleton connections and the assistance torque by the passive
+mechanism and powered actuator.
+
+===== PAGE 20 =====
+92 A.Nasretal.
+3.3.2 Multibodymodel
+The stated two connections at the exoskeleton’s belt and armrest to the human hip and upper
+arm form the closed kinematic loop. The closed kinematic loop and the joint system con-
+ﬁguration cause some exoskeleton joints to be kinematically dependent on the human joints
+[19]. Since the generalized coordinates ( q) and generalized speeds ( p) are dependent, the
+multibody system dynamic equations can be derived with the constraint reactions occurring
+explicitly in Equation (18), which are DAEs model.
+Ml×l ˙pl×1 + Cl×mλm×1 = Fl×1 + Q′l×1 (18)
+/Phi1(ql×1,t) = 0 (19)
+/Psi1(pl×1, ql×1,t) = 0 (20)
+χ( ˙pl×1, pl×1, ql×1,t) = 0 (21)
+where
+M Mass matrix, a combination of the human model, the exoskeleton, and the mass
+matrixes of the assistive components
+C Coefﬁcient matrix of constraint reactions
+λ Reaction forces and torques in the cotree joints that enforce the kinematic constraint
+of human-exoskeletons connection
+F The right-hand side of dynamic equations
+Q′ The vector containing the applied wrench (torque/force) at the joints, which consists
+of the human joint torque (τ) and the robot joint torque (T )
+/Phi1 Position-level kinematic constraint equations
+/Psi1 Velocity-level kinematic constraint equations; if the generalized speeds are equal to
+the coordinate derivatives, then/Psi1 = ˙/Phi1
+χ Acceleration-level kinematic constraint equations
+q Generalized coordinates of the multibody system, which consists of the human joint
+angles (θ) and the robot joint states (ϕ)
+p Generalized speeds of the multibody system, which consists of the human joint
+angular velocities (ω) and the derivative of robot joint states (˙ϕ)
+l number of total joints
+m number of constraint reactions
+3.3.3 Multibodyanalysis
+The human-exoskeleton closed-loop system has 10 algebraic constraints (5 for each side).
+These 5 constraints are due to the human-exoskeleton interaction forces and torques de-
+scribed in Sect. 3.3.1. The human body model itself has 20-DoF (Sect.3.1.1). The exoskele-
+ton should have at least 10-DoF (5-DoF for each side) to avoid decreasing, resisting, or
+locking the human DoF. In total, the multibody system was modeled using 30 generalized
+coordinates coupled with 10 algebraic constraints. Speciﬁcally, there are 20 human joint
+angles (θ), 10 robot joint states (ϕ), and 10 reaction forces and torques (λ).
+3.3.4 Simulationrequirement
+The human upper limb with the shoulder exoskeleton forms a closed kinematic loop. In con-
+trast to an open-kinematic chain, a combined exoskeleton produces residual forces/torques
+
+===== PAGE 21 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 93
+if the exoskeleton DoF are inadequate to align with the motion axis of a human joint, or if
+there are any human-robot kinematic differences [ 91, 92]. A limited number of passive or
+self-adjusting joints are utilized to address this issue [93]. For example, the mentioned EVO
+exoskeleton has utilized 6 passive joint conﬁgurations (Sect. 3.2.2).
+Theoretically, the human joint angles are determined by the measured human joint trajec-
+tory (Sect. 2) or the CNS (Sect. 3.1.2). The exoskeleton joints angle, angular velocity, and
+angular acceleration should be deﬁned by the human kinematic using Equations ( 19)-(21).
+The initial conditions of the exoskeleton joints are ignored or guessed by the software at the
+start of the simulation.
+Simulating the redundant conﬁguration introduces hardships when calculating the initial
+joint angles in simulation software like MapleSim. Calculating the initial joint angles has
+no unique solution and has inﬁnite solutions. One solution is to apply a virtual prismatic
+joint with liner springs parallel to the system of the second and ﬁfth revolute Hinges joints
+(shown in Fig. 3b). Using the virtual prismatic joint increases the chance of choosing a
+realistic solution from inﬁnite options.
+As mentioned in Sect.3.2.2, there are 6 joints in the Y-direction. When the ﬁve Slices are
+aligned or fully extended, the closed kinematic chain experiences a singularity, introducing
+an impulsive force internally. Particularly, the required torques to move from that speciﬁc
+conﬁguration are inﬁnite. Using the mentioned elastic rope in practice or using the hyper-
+bolic function of Equation ( 7) in simulation, introduce a constraint. The constraint inhibits
+the singularity conﬁguration from happening.
+4 Designoptimization
+4.1 Overallmethod
+The exoskeleton actuator designing process is achieved through forward or inverse simula-
+tion of the multibody dynamic system (depicted in Fig.8 and Fig. 9). So far, the inverse sce-
+nario (Sect. 4.1.1) was used to ﬁnd the passive mechanism’s optimum design [19], which is
+not controlled by the system and is a function of joint angle, not time. The forward scenario
+(Sect. 4.1.2) is used to evaluate the optimum actuator parameters for motor control, which
+depends on the human intention prediction. Broadly, the active component is controlled as a
+function of time. The desired motion trajectory (generalized coordinates, speeds, and accel-
+eration), the human, and the exoskeleton information are necessary for both scenarios.
+4.1.1 Inversescenario
+The inverse scenario beneﬁts from computationally efﬁcient simulation [ 19]. However, in
+the inverse simulation, the impact of the human actuation torque is ignored in the active
+exoskeleton control. The inverse scenario is similar to forward simulation when high assis-
+tance strength is selected. As shown in Fig. 8, initial optimization is done with the reaction
+wrench variable having minimal human activation torque. This ﬁrst optimization loop is
+constructed from the human dynamic system without an actuator dynamic model to guess
+the optimum assistive exoskeleton torque. The second optimization loop is constructed to
+design the actuator parameter. The second loop produces the output torque similar to the
+optimum assistive torque from the ﬁrst optimization loop.
+Here, the inverse scenario was used to design the custom passive mechanism. Precisely,
+the ﬁrst loop optimized the passive torque-angle proﬁle and the second loop optimized the
+mechanism parameters outlined in Equation (9).
+
+===== PAGE 22 =====
+94 A.Nasretal.
+Fig.8 Schematic of designing, synthesizing, analyzing, and optimizing the inverse scenario
+Fig.9 Schematic of designing, synthesizing, analyzing, and optimizing the forward scenario
+4.1.2 Forwardscenario
+The forward scenario beneﬁts from a comprehensive and similar simulation to the human-
+robot interaction. However, the forward simulation is time-consuming. As shown in Fig. 9,
+the primary step is designing, synthesizing, analyzing, and optimizing the actuator model
+via the optimal controller, which acts as the CNS and contributes to the forward dynamic
+simulation of the human-robot model. The procedure starts with an optimal controller that
+follows the desired trajectory and commands the human (excitation or activation) signal or
+
+===== PAGE 23 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 95
+(active or joint) torque. Both the actuator command (deﬁned by the assistance model [ 32])
+and human input are injected into the forward dynamic simulation of the multibody system.
+The optimization loop evaluates the objective function and ﬁnally guesses and selects the
+actuator parameter.
+4.2 Designvariables
+A design variable is a numerical input that can be changed during design optimization. Op-
+timization of the actuator can be achieved by changing the properties of the passive mecha-
+nism and selecting the BLDC motor.
+As mentioned in Sect. 3.2.2 and modeled in Equation ( 8), there are two variables in
+the passive mechanism. First, the maximum passive joint torque ( Tmax ), which is 4 .578,
+7.693, 9.798 Nm for the Level 1, 2, 3 springs of EVO, respectively. The second variable
+is the passive mechanism rotational shift ( ϕ), which can be adjusted between −0.175 and
+0.175 rad.
+The addition of an actuator, although it introduces additional inertia (Table4) and viscous
+rotator friction to the system, can provide active torque with the required actuator control
+system. The active torque is modeled in Equation (11), and the maximum possible nominal
+torque is provided in Table 3 for 9 motors. The optimization design variable is the selection
+of the BLDC motor from Table 3.
+4.3 Designcostfunction
+Industrial wearable exoskeletons are designed to assist and improve human performance to
+reduce user effort, fatigue, and, therefore, the risk of work-related MSDs [7, 9, 11, 12]. The
+performance metric that aims to minimize the cost function is one or a combination of the
+following variables.
+The ﬁrst variable is the human joint applied torque ( Q) in Equation ( 1), which is the
+net torque applied to the skeletal system. This variable shows the required torque for the
+human motion without considering the active and passive components of the MTGs [77]i n
+Equation (2).
+The second variable is the human active torque ( τa ) in Equation ( 2) that only consider
+the passive torque that occurs when the muscles, tendons, and ligaments near the joints are
+strained [94]. In the MapleSim Biomechanics model, the human active torque is relevant to
+the active tension of the muscle.
+The third variable is the human joint power. Theoretically, the quantity of energy con-
+verted in one unit of time is called power. In rotational joints, power is the product of the
+joint active torque (τa ) and the angular velocity (ω).
+The fourth variable is the muscles metabolic energy expenditure (MMEE). We have used
+the MMEE model [95] as a critical performance measure of human motion with or without
+wearing of the exoskeletons. The MMEE model is a general joint-space numerical model
+of metabolic energy expenditure obtained by combining the laws of thermodynamics and
+multibody system dynamics principles [ 95]. The equations of the energy model for zero
+co-contraction MTGs are as follows:
+E =
+∫ tmax
+0
+[˙hi + pi]dt (22)
+p = τaω (23)
+
+===== PAGE 24 =====
+96 A.Nasretal.
+Table 5 The details of 5 conditions of human and exoskeleton systems optimization
+Symbol Condition Human Exoskeleton
+Inactive
+Design Variable
+Passive Active Tmax ϕ0 Motor
+H only human ✓
+IE human with inactive exoskeletons ✓✓
+FP human with fully passive exoskeletons ✓✓ ✓ ✓
+FA human with fully active exoskeletons ✓✓ ✓ ✓
+AP human with active-passive exoskeletons ✓✓ ✓ ✓ ✓ ✓
+˙h = ˙hM |ω|(max) |τa| + ˙hSL |τaω| (24)
+where
+p the mechanical power at the joint
+˙h the heat rate
+˙hM the dimensionless heat rate for activation and maintenance, determined to be
+0.054
+˙hSL the dimensionless shortening lengthening heat rate, 0.283 for positive power,
+and 1.423 for negative power
+ω(max) the maximum angular velocity over the entire motion
+In addition to the human-based design cost function, the electricity consumption of the
+actuator should be as low as possible. Precisely, the exoskeleton should provide the maxi-
+mum portion of assistance using the passive mechanism. The actuator should have the role
+of adjusting or providing extra assistance whenever needed. Consequently, the electrical
+consumption of the actuator should be one element of the design cost function.
+4.4 Designconditions
+For a fair comparison, ﬁve conditions were considered to study the effect of exoskeletons on
+the human body. The exoskeleton can be inactive (provide no active and passive torque), and
+the human should be able to carry its mass around. The EVO exoskeleton’s novel passive
+mechanism can be activated with a tiny leveler. The ﬁve conditions in Table5 are constructed
+by combining the sub-models in Sect. 3.
+5 Resultsanddiscussion
+The optimization checks the 966 possible simulations (6 Tasks (Sect. 2.1), 5 conditions
+(Sect. 4.4), 3 maximum passive torques, 5 passive mechanism rotational shifts (Sect.3.2.3),
+and 9 motors (Sect. 3.2.4)), and the optimum results are presented in the following.
+5.1 Humanperformanceanalysis
+According to the simulation results, only the shoulders (SFE and SAA) and the torso (TFE,
+TRLLF, and TRLAR) variables change in the conditions mentioned in Sect.4.4. This result
+is compatible with the fact that the shoulder exoskeleton directly provides an assistive torque
+for the shoulder joint and indirectly increases the torque of the torso joint. Thus, here, Fig.10
+
+===== PAGE 25 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 97
+Fig. 10 The average of absolute active torque for the right shoulder, left shoulder, and the torso (a-c). The
+reaction torque and the reaction force at the right armrest, left armrest, and the belt (d-i). The metabolic
+energy expenditure of the human wearing the exoskeleton is normalized by the human not wearing the ex-
+oskeleton for 6 tasks (j). H: human, IE: inactive exoskeleton, FP: fully-passive exoskeleton, FA: fully-active
+exoskeleton, AP: active-passive exoskeleton
+provides the results of the design cost function in Sect.4.3 for the torso joints, the right, and
+the left shoulder.
+The average of absolute active torque of the right shoulder joint (summation of SFE and
+SAA) for 5 conditions and 2 groups of tasks are shown in Fig. 10a. When the exoskeleton
+is inactive, the average absolute active torque increases by approximately 1 Nm compared
+to not wearing the exoskeleton. This is due to the inactive exoskeleton weighing 3 .461 kg,
+which the user should carry. By employing a passive exoskeleton with Tmax = 9.798 Nm
+and ϕ0 =− 0.175 rad, the average of absolute active torque of the shoulder joint decreased
+by 13% and 53% for heavy object handling and arm reaching tasks, respectively. Using
+motor #3 and motor #1 for arm reaching and heavy object handling tasks reduced the av-
+erage of absolute active torque by 79% and 49%, respectively. Using Tmax = 9.798 Nm,
+ϕ0 =− 0.175 rad, and motor #4 for arm reaching task as well as Tmax = 9.798 Nm,
+
+===== PAGE 26 =====
+98 A.Nasretal.
+ϕ0 =− 0.175 rad, and motor #1 for heavy object handling task, the average of absolute
+active torque drops by 80% and 57%, respectively.
+A c c o r d i n gt oF i g .10b, the left shoulder has the same trend as the right side. However,
+the average of absolute active torque amount is lower than the right shoulder (Fig.10a) since
+the left arm has not contributed to lifting a heavy object in the overhead work task.
+The average absolute active torque for the torso joint (Fig. 10c) has not changed consid-
+erably. Using an inactive exoskeleton can decrease the average absolute active torque since
+it adds weight to the subject’s back and helps in torso extension. If the subject bends with
+a larger angle, the exoskeleton’s added weight would increase the required torque for torso
+extension. Since in a fully active and active-passive exoskeleton, the motor, housing, and
+shaft are added to the system near the elevation mechanism of the exoskeleton, the torso’s
+torque increased by 1%.
+The reaction force and torque at the attachments of the exoskeleton to the human (belt,
+right, and left armrest) are shown in Fig. 10dt oF i g .10i. According to these results, the
+reaction increases by providing a more assistive torque proﬁle at the exoskeleton’s elevation
+joint. This value should be considered for study to improve human comfort.
+A c c o r d i n gt oF i g .10j, the fully active and active-passive exoskeleton can lead to a
+metabolic energy expenditure drop. The metabolic energy expenditure decreases more for
+free motion and less for heavy object manipulation. One of the reasons behind this is that
+the motors are weak or limited by the maximum motor torque as seen in Equation ( 16).
+The other reason is that the active assistance augments power with the strength variable
+according to Equation (12).
+5.2 Motorselection
+According to the optimization results, three motors from Table 3 are the design candidates.
+Motor #1, which can provide the highest torque of 48 Nm, is suitable for heavy object
+handling assistance with or without the passive mechanism. The drawback of motor #1 is
+the high gear ratio and rotator inertia, which is not suitable for back-driving the motor while
+the motor is off.
+Motor #3 is another suitable actuator that provides the highest assistance for the arm-
+reaching task without adding as much back-driving difﬁculty as motor #1. In the case of
+a passive mechanism within the active component, motor #3 can be replaced with motor
+#4, which has lower rotator inertia but the same gear ratio. The other positive point of mo-
+tor #4 over motor #3 is its lighter body which is included in the modeling, simulation, and
+optimization section. The motor weight can be lighter when a passive mechanism is incor-
+porated since a portion of the assistance torque is provided by the passive mechanism. It is
+unnecessary to use a heavy motor with the highest amount of torque.
+As shown in Fig. 1, the BLDC motor should connect to the computer using an adaptor.
+For safety, an emergency shutdown switch may be handed to the user and should be located
+between the motor and power supply.
+5.3 Exoskeletonactuationcomparison
+According to the optimization outcomes, the order of the highest to lowest assistance is
+provided by the following systems: active-passive, fully active, fully passive, and inactive
+exoskeletons. The fully active can provide the same assistance as the active-passive ex-
+oskeleton if a stronger motor was available, but it would reduce the back drivability of the
+wearable robots. Sometimes, a stronger motor is unavailable with the desired back driv-
+ability, and consequently, the wearable robot is weaker than expected, requiring additional
+
+===== PAGE 27 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 99
+assistance. This fact leads to the user requiring crutches with a lower-limb exoskeleton or a
+technician group carrying the lower-limb exoskeleton worn by the patient [50].
+The active-passive exoskeleton has advantages over a fully active exoskeleton from a
+weight perspective. The passive mechanism is 0.850 kg (Table1) and can provide 9.798 Nm
+(Sect. 3.2.3). Its torque-weight ratio (TWR) is, therefore, 11 .52 Nm/kg. At the same time,
+motor #3 can provide 15 Nm when its weight is only 0.820 kg and requires, for example, a
+2.4 kg battery to operate as used in the Technaid Exo-H3 exoskeleton. Consequently, motor
+#3 has a 4.65 Nm/kg battery TWR. Note that as the TWR increases, the portability and user
+comfort improve proportionally. Thus using the passive mechanism has advantages over the
+actuator, but it is impossible to provide the torque proﬁle required as a function of time
+within the passive mechanism [12, 19]. Using active and passive assistance is prescribed in
+this condition as it beneﬁts from a higher TWR of passive mechanism and ﬂexible torque
+proﬁle of actuator. This conclusion is similar to the literature results, which describe the
+contribution of the passive mechanisms to lowering the size, weight, and required active
+torque, advancing the portability [11, 17, 42].
+From an energy consumption viewpoint, a weaker motor lowers the energy required to
+drive motors in Table 3. Using the passive mechanism along with the motor in the active-
+passive exoskeleton helps reduce the required electrical energy. The lower required electrical
+energy leads to a more lightweight energy storage unit (battery) in the portable exoskeleton
+[16, 96]. Alternatively, using the same battery, the working duration of the active-passive
+exoskeleton would be higher than the fully active exoskeleton.
+To recap, the AAN control requires minimal motion from the human to estimate the
+contributed torque and the exoskeleton strengthens the human motion. Moreover, when the
+human motion is small, and the contributed torque is low according to the AAN, the ex-
+oskeleton’s motor should not activate and should not restrict the motion (i.e. low stiffness).
+In other words, there should be a direct drive with small inertia and stiffness without a large
+gear ratio. When the gear ratio is low, the produced torque from electrical motors is low.
+Thus, the fully active exoskeleton can produce limited torque because of the direct drive.
+However, the added passive mechanism has no inertia and stiffness that resists human mo-
+tion while providing torque in addition to the motor. Thus, the torque provided by passive
+mechanism works in harmony with the active motor torque.
+5.4 Custompassivemechanism
+The passive torque-angle proﬁle for a general stretched arm motion (without heavy ob-
+ject manipulation) is shown in Fig. 11a. To design this proﬁle, the ﬁrst loop of the inverse
+scenario (Sect. 4.1.1) was used. For the mentioned assistive torque-angle proﬁle, speciﬁc
+passive mechanism variables (Equation ( 10)) are necessary. Using the second loop of the
+inverse scenario (Sect. 4.1.1), the spring stiffness proportional constant (k) was determined
+to be 2000 N/m and the initial length of the spring ( L0)w a s0.25 m. The distance between
+the wrapping point and base point ( |PW − PB|)w a s0 .25 m. The attachment point is lo-
+cated from the elevation joint at the π rad direction of the gravity (vertical line). When
+the elevation angle is 0, the distance between the attachment point and the wrapping point
+(|PA − PW |)w a s0.06 m. The passive elevation joint mechanism at different angles is shown
+in Fig. 11b.
+5.5 Simulationexample
+As an example, a 10-second movement of an overhead heavy object (100 N weight) manipu-
+lation task was used with and without the active-passive exoskeleton condition, and the result
+
+===== PAGE 28 =====
+100 A.Nasretal.
+Fig.11 (a) The custom passive mechanism torque-angle proﬁle for the stretched arm motion designed by the
+ﬁrst loop of the inverse scenario. (b) The depiction of the custom mechanism posture changes (without the
+attachment link). The 1-6 postures in (b) are marked with relevant generated passive torque in (a)
+Fig. 12 The joint angle changes of the right SFE, SAA, and the exoskeleton’s elevation (a-c). The activa-
+tion torque of the right shoulder for the human-only condition (dashed) and the active-passive exoskeleton
+condition (solid) (d and e). The exoskeleton assistive torque of the passive mechanism and motor #4 (f). The
+excitation signal of the mentioned joint (g and h). The motor consumption current versus time is shown at (i)
+is shown in Fig. 12. The joint angle of the right SFE and SAA, as well as the exoskeleton
+elevation, is shown in Fig.12a-c. The relevant active torque decreased using the exoskeleton
+according to Fig. 12d-e. As shown in Fig. 12f, the passive torque of the exoskeleton is a
+function of joint angle [19], and the active or motor torque is a function of time. The motor
+torque provides extra assistance whenever needed, which was expected [19]. The excitation
+signal for positive and negative directions of the MTGs is shown in Fig.12g-h. The level of
+the excitation signal decreases when using the exoskeleton, i.e. less effort is required from
+
+===== PAGE 29 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 101
+the user. The motor’s current is displayed in Fig. 12i, which indicates that the motor is not
+overloaded according to the data on motor #4 in Table 3.
+6C o n c l u s i o n
+This research proposes a dynamic synthesis of passive and active assistive shoulder ex-
+oskeletons by incorporating a model with six components: the MapleSim Biomechanics
+upper-body dynamic model, an optimal controller, the exoskeleton rigid body, a passive
+mechanism, a powered actuator, and an assistance model. The six practical tasks for human
+motion used were frontal reaching, left-to-right reaching, overhead reaching, sagittal-plane
+object handling, frontal-plane object handling, and over-head object handling. The design
+optimization aimed to reduce the human-based and exoskeleton-based criteria. According
+to the results, the active-passive exoskeleton provided more assistance to the human than
+the fully active and fully passive exoskeleton, while the weight of the exoskeleton did in-
+crease compared to the fully active exoskeleton. Additionally, the optimization offered a
+back-drivable motor with lower inertia, gear ratio, and viscous damping coefﬁcients instead
+of a powerful motor that is not back-drivable. The active-passive exoskeleton would con-
+sume less electricity than the fully active exoskeleton, which helps design a lighter portable
+exoskeleton. In total, the optimized active-passive exoskeletons create lighter and smaller
+exoskeletons that lessen the user’s muscular activation torque for the tasks being studied.
+We expect future wearable exoskeletons to adopt components that incorporate passive
+and active assistance systems. Future studies should focus on the control design and pro-
+pose a practical algorithm to control such a complicated but efﬁcient actuation system as
+mentioned by relevant studies [32]. In addition, researchers may focus on energy harvesting
+by using the active motor to utilize positive power [96]. The last point to consider is safety
+and human comfort, which should be thoroughly examined before producing a commercial
+wearable exoskeleton.
+Acknowledgements This research is supported by funding from the Canada Research Chairs Program and
+the Natural Sciences and Engineering Research Council of Canada. The authors wish to thank Ekso Bionics
+Holdings Inc. for providing the Ekso EVO passive shoulder exoskeleton.
+Declarations
+CompetingInterests The authors declare no competing interests.
+References
+1. Fischer, S.L., Koltun, S., Lee, J.: A cross-sectional survey of musculoskeletal disorder hazard expo-
+sures and self-reported discomfort among on-shore wind turbine service technicians. Ergonomics 64(3),
+383–395 (2021). https://doi.org/10.1080/00140139.2020.1831079
+2. Khansa, I., Khansa, L., Westvik, T.S., Ahmad, J., Lista, F., Janis, J.E.: Reply: work-related musculoskele-
+tal injuries in plastic surgeons in the United States, Canada, and Norway. Plast. Reconstr. Surg. 141(1),
+165e–175e (2018). https://doi.org/10.1097/PRS.0000000000004956
+3. Nazari, G., MacDermid, J., Cramm, H.: Prevalence of musculoskeletal disorders among Canadian ﬁre-
+ﬁghters: a systematic review and meta-analysis. J. Mil. Veteran Fam. Health6(1), 83–97 (2020). https://
+doi.org/10.3138/jmvfh-2019-0024
+4. Van Rijn, R.M., Huisstede, B.M., Koes, B.W., Burdorf, A.: Associations between work-related factors
+and speciﬁc disorders of the shoulder - a systematic review of the literature. Scand. J. Work, Environ.
+Health 36(3), 189–201 (2010). https://doi.org/10.5271/sjweh.2895
+
+===== PAGE 30 =====
+102 A.Nasretal.
+5. Schopﬂocher, D., Taenzer, P., Jovey, R.: The prevalence of chronic pain in Canada. Pain Res. Manag.
+16(6), 445–450 (2011). https://doi.org/10.1155/2011/876306
+6. Linaker, C.H., Walker-Bone, K.: Shoulder disorders and occupation. Best Pract. Res. Clin. Rheumatol.
+29(3), 405–423 (2015). https://doi.org/10.1016/j.berh.2015.04.001
+7. Zhou, X., Zheng, L.: Model-based comparison of passive and active assistance designs in an occupational
+upper limb exoskeleton for overhead lifting. IISE Trans. Occup. Ergon. Hum. Factors9, 167–185 (2021).
+https://doi.org/10.1080/24725838.2021.1954565
+8. Grieve, J.R., Dickerson, C.R.: Overhead work: identiﬁcation of evidence-based exposure guidelines.
+Occup. Ergon. 8(1), 53–66 (2008). https://doi.org/10.3233/oer-2008-8105
+9. Wang, Z., Wu, X., Zhang, Y ., Chen, C., Liu, S., Liu, Y ., Peng, A., Ma, Y .: A semi-active exoskeleton
+based on EMGs reduces muscle fatigue when squatting. Front. Neurorobot. 15, 30 (2021). https://doi.
+org/10.3389/fnbot.2021.625479
+10. Dunning, K.K., Davis, K.G., Cook, C., Kotowski, S.E., Hamrick, C., Jewell, G., Lockey, J.: Costs by
+industry and diagnosis among musculoskeletal claims in a state workers compensation system: 1999-
+2004. Am. J. Ind. Med. 53(3), 276–284 (2010). https://doi.org/10.1002/ajim.20774
+11. Blanchet, L., Achiche, S., Docquier, Q., Fisette, P., Raison, M.: A procedure to optimize the geometric
+and dynamic designs of assistive upper limb exoskeletons. Multibody Syst. Dyn.51(2), 221–245 (2020).
+https://doi.org/10.1007/s11044-020-09766-6
+12. de Looze, M.P., Bosch, T., Krause, F., Stadler, K.S., O’Sullivan, L.W.: Exoskeletons for industrial appli-
+cation and their potential effects on physical work load. Ergonomics 59(5), 671–681 (2016). https://doi.
+org/10.1080/00140139.2015.1081988
+13. McFarland, T., Fischer, S.: Considerations for industrial use: a systematic review of the impact of active
+and passive upper limb exoskeletons on physical exposures. IISE Trans. Occup. Ergon. Hum. Factors
+7(3–4), 322–347 (2019). https://doi.org/10.1080/24725838.2019.1684399
+14. Veale, A.J., Xie, S.Q.: Towards compliant and wearable robotic orthoses: a review of current and emerg-
+ing actuator technologies. Med. Eng. Phys.38(4), 317–325 (2016). https://doi.org/10.1016/j.medengphy.
+2016.01.010
+15. Nguiadem, C., Raison, M., Achiche, S.: Motion planning of upper-limb exoskeleton robots: a review.
+Appl. Sci. 10(21), 1–21 (2020). https://doi.org/10.3390/app10217626
+16. Bougrinat, Y ., Achiche, S., Raison, M.: Design and development of a lightweight ankle exoskeleton for
+human walking augmentation. Mechatronics 64, 102297 (2019). https://doi.org/10.1016/j.mechatronics.
+2019.102297
+17. Miakovic, L., Dezman, M., Petric, T.: Modular quasi-passive mechanism for energy storage applications:
+towards lightweight high-performance exoskeleton. In: Proceedings of the 20th International Confer-
+ence on Advanced Robotics, IEEE, Ljubljana, Slovenia, pp. 588–593 (2022). https://doi.org/10.1109/
+icar53236.2021.9659353
+18. Winter, A., Mohajer, N., Nahavandi, D.: Semi-active assistive exoskeleton system for elbow joint. In:
+Proceedings of the IEEE International Conference on Systems, Man, and Cybernetics, IEEE, Melbourne,
+Australia, pp. 2347–2353 (2022). https://doi.org/10.1109/smc52423.2021.9658720
+19. Nasr, A., Ferguson, S., McPhee, J.: Model-based design and optimization of passive shoulder exoskele-
+tons. J. Comput. Nonlinear Dyn. 17(5), 051004 (2022). https://doi.org/10.1115/1.4053405
+20. Rahman, T., Sample, W., Seliktar, R., Scavina, M.T., Clark, A.L., Moran, K., Alexander, M.A.: Design
+and testing of a functional arm orthosis in patients with neuromuscular diseases. IEEE Trans. Neural
+Syst. Rehabil. Eng. 15(2), 244–251 (2007). https://doi.org/10.1109/TNSRE.2007.897026
+21. Pehlivan, A.U., Celik, O., O’Malley, M.K.: Mechanical design of a distal arm exoskeleton for stroke and
+spinal cord injury rehabilitation. In: Proceedings of the IEEE International Conference on Rehabilitation
+Robotics, IEEE, Zurich, Switzerland, pp. 1–5 (2011). https://doi.org/10.1109/ICORR.2011.5975428
+22. Di Natali, C., Sadeghi, A., Mondini, A., Bottenberg, E., Hartigan, B., De Eyto, A., O’Sullivan, L.W.,
+Rocon, E., Stadler, K.S., Mazzolai, B., Caldwell, D.G., Ortiz, J.: Pneumatic quasi-passive actuation for
+soft assistive lower limbs exoskeleton. Front. Neurorobot. 14, 31 (2020). https://doi.org/10.3389/fnbot.
+2020.00031
+23. Otten, A., V oort, C., Stienen, A.H., Aarts, R., Van Asseldonk, E., Van Der Kooij, H.: LIMPACT: a
+hydraulically powered self-aligning upper limb exoskeleton. IEEE/ASME Trans. Mechatron. 20(5),
+2285–2298 (2015). https://doi.org/10.1109/TMECH.2014.2375272
+24. Altenburger, R., Scherly, D., Stadler, K.S.: Design of a passive, iso-elastic upper limb exoskeleton for
+gravity compensation. Robomech J. 3(1), 1–7 (2016). https://doi.org/10.1186/s40648-016-0051-5
+25. de Vries, A.W., de Looze, M.P.: The effect of arm support exoskeletons in realistic work activities: a
+review study. J. Ergon.9(4), 1–9 (2019). https://doi.org/10.35248/2165-7556.19.9.255
+26. Bogue, R.: Exoskeletons – a review of industrial applications. Ind. Robot 45(5), 585–590 (2018). https://
+doi.org/10.1108/IR-05-2018-0109
+
+===== PAGE 31 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 103
+27. Shank, T., Eppes, M., Hossain, J., Gunn, M., Rahman, T.: Outcome measures with COPM of children
+using a Wilmington robotic exoskeleton. Open J. Occup. Ther. 5(1), 3 (2017). https://doi.org/10.15453/
+2168-6408.1262
+28. Luque, E.P., Högberg, D., Iriondo, A., Thorvald, P.: Evaluation of the use of exoskeletons in the
+range of motion of workers. PhD thesis, University of Skovde, Skovde (2019). https://doi.org/10.1080/
+10255840008908000
+29. Gopura, R.A., Bandara, D.S., Kiguchi, K., Mann, G.K.: Developments in hardware systems of active
+upper-limb exoskeleton robots: a review. Robot. Auton. Syst. 75, 203–220 (2016). https://doi.org/10.
+1016/j.robot.2015.10.001
+30. Nasr, A., Laschowski, B., McPhee, J.: Myoelectric control of robotic leg prostheses and exoskeletons:
+a review. In: Proceedings of the ASME International Design Engineering Technical Conferences and
+Computers and Information in Engineering Conference and Computers and Information in Engineer-
+ing Conference, ASME, Online, Virtual, vol. 85444, pp. 2021–69203 (2021). https://doi.org/10.1115/
+DETC2021-69203
+31. Jamsek, M., Petric, T., Jan, B.: Gaussian mixture models for control of quasi-passive spinal exoskeletons.
+Sensors 20(9), 2705 (2020). https://doi.org/10.3390/s20092705
+32. Nasr, A., Hashemi, A., McPhee, J.: Model-based mid-level regulation for assist-as-needed hierarchical
+control of wearable robots: a computational study of human-robot adaptation. Robotics11(1), 20 (2022).
+https://doi.org/10.3390/robotics11010020
+33. du Plessis, T., Djouani, K., Oosthuizen, C.: A review of active hand exoskeletons for rehabilitation and
+assistance. Robotics 10(1), 5351–5356 (2021). https://doi.org/10.3390/robotics10010040
+34. Sajadi, M.R., Nasr, A., Moosavian, S.A.A., Zohoor, H.: Mechanical design, fabrication, kinematics and
+dynamics modeling, multiple impedance control of a wrist rehabilitation robot. In: Proceedings of the
+International Conference on Robotics and Mechatronics, IEEE, Tehran, Iran, pp. 290–295 (2015).https://
+doi.org/10.1109/ICRoM.2015.7367799
+35. Gaudet, G., Raison, M., Achiche, S.: Current trends and challenges in pediatric access to sensorless and
+sensor-based upper limb exoskeletons. Sensors 21(10), 3561 (2021). https://doi.org/10.3390/s21103561
+36. Kashiri, N., Abate, A., Abram, S.J., Albu-Schaffer, A., Clary, P.J., Daley, M., Faraji, S., Furnemont, R.,
+Garabini, M., Geyer, H., Grabowski, A.M., Hurst, J., Malzahn, J., Mathijssen, G., Remy, D., Roozing, W.,
+Shahbazi, M., Simha, S.N., Song, J.B., Smit-Anseeuw, N., Stramigioli, S., Vanderborght, B., Yesilevskiy,
+Y ., Tsagarakis, N.G.: An overview on principles for energy efﬁcient robot locomotion. Front. Robot. AI
+5, 129 (2018). https://doi.org/10.3389/frobt.2018.00129
+37. Al-Hayali, N.K., Nacy, S.M., Chiad, J.S., Hussein, O.: Analysis and evaluation of a quasi-passive lower
+limb exoskeleton for gait rehabilitation. Al-Khwarizmi Eng. J. 17(4), 36–47 (2021). https://doi.org/10.
+22153/kej.2021.12.007
+38. Kh Al-Hayali, N., Chiad, J.S., Nacy, S.M., Hussein, O.: A review of passive and quasi-passive lower
+limb exoskeletons for gait rehabilitation. J. Mech. Eng. Res. Dev. 44(9), 436–447 (2021)
+39. Matthew, R.P., Mica, E.J., Meinhold, W., Loeza, J.A., Tomizuka, M., Bajcsy, R.: Introduction and ini-
+tial exploration of an active/passive exoskeleton framework for portable assistance. In: Proceedings
+of the IEEE International Conference on Intelligent Robots and Systems, IEEE, Hamburg, Germany,
+vol. 2015–Decem, pp. 5351–5356 (2015). https://doi.org/10.1109/IROS.2015.7354133
+40. Naito, J., Nakayama, A., Obinata, G., Hase, K.: Development of a wearable robot for assisting carpentry
+workers. Int. J. Adv. Robot. Syst. 4(4), 48 (2007). https://doi.org/10.5772/5667
+41. Otten, B.M., Weidner, R., Argubi-Wollesen, A.: Evaluation of a novel active exoskeleton for tasks at or
+above head level. IEEE Robot. Autom. Lett.3(3), 2408–2415 (2018). https://doi.org/10.1109/LRA.2018.
+2812905
+42. Smith, R.L., Lobo-Prat, J., Van Der Kooij, H., Stienen, A.H.: Design of a perfect balance system for ac-
+tive upper-extremity exoskeletons. In: Proceedings of the IEEE International Conference on Rehabilita-
+tion Robotics, IEEE, Seattle, W A, USA, pp. 1–6 (2013).https://doi.org/10.1109/ICORR.2013.6650376
+43. Laschowski, B., Razavian, R.S., McPhee, J.: Simulation of stand-to-sit biomechanics for robotic ex-
+oskeletons and prostheses with energy regeneration. IEEE Trans. Med. Robot. Bionics 3(2), 455–462
+(2021). https://doi.org/10.1109/TMRB.2021.3058323
+44. Ren, L., Cong, M., Zhang, W., Tan, Y .: Harvesting the negative work of an active exoskeleton robot to
+extend its operating duration. Energy Convers. Manag. 245, 114640 (2021). https://doi.org/10.1016/j.
+enconman.2021.114640
+45. Hassan, Z., Sadik, W.: Design quasi passive exoskeleton for below knee prosthesis. J. Eng. Appl. Sci.
+13(23), 8994–9001 (2018)
+46. Lambrecht, B.G., Kazerooni, H.: Design of a semi-active knee prosthesis. In: Proceedings of the IEEE
+International Conference on Robotics and Automation, IEEE, Kobe, Japan, pp. 639–645 (2009). https://
+doi.org/10.1109/ROBOT.2009.5152828
+
+===== PAGE 32 =====
+104 A.Nasretal.
+47. Pillai, M.V ., Van Engelhoven, L., Kazerooni, H.: Evaluation of a lower leg support exoskeleton on
+ﬂoor and below hip height panel work. Hum. Factors 62(3), 489–500 (2020). https://doi.org/10.1177/
+0018720820907752
+48. Bai, S., Islam, M.R., Hansen, K., Nørgaard, J., Chen, C.Y ., Yang, G.: A semi-active upper-body ex-
+oskeleton for motion assistance. Biosyst. Biorobot. 27, 301–305 (2022). https://doi.org/10.1007/978-3-
+030-69547-7_49
+49. Zahedi, A., Wang, Y ., Martinez-Hernandez, U., Zhang, D.: A wearable elbow exoskeleton for tremor sup-
+pression equipped with rotational semi-active actuator. Mech. Syst. Signal Process.157, 107674 (2021).
+https://doi.org/10.1016/j.ymssp.2021.107674
+50. Inkol, K.A., McPhee, J.: Assessing control of ﬁxed-support balance recovery in wearable lower-limb
+exoskeletons using multibody dynamic modelling. In: Proceedings of the IEEE RAS and EMBS Interna-
+tional Conference on Biomedical Robotics and Biomechatronics, IEEE, New York, NY , USA, pp. 54–60
+(2020). https://doi.org/10.1109/BioRob49111.2020.9224430
+51. Galinski, D., Sapin, J., Dehez, B.: Optimal design of an alignment-free two-DOF rehabilitation robot for
+the shoulder complex. In: Proceedings of the IEEE International Conference on Rehabilitation Robotics,
+IEEE, Seattle, Washington, USA, pp. 1–7 (2013). https://doi.org/10.1109/ICORR.2013.6650502
+52. Sarac, M., Solazzi, M., Sotgiu, E., Bergamasco, M., Frisoli, A.: Design and kinematic optimization of
+a novel underactuated robotic hand exoskeleton. Meccanica 52(3), 749–761 (2017). https://doi.org/10.
+1007/s11012-016-0530-z
+53. Manns, P., Sreenivasa, M., Millard, M., Mombaur, K.D.: Motion optimization and parameter identiﬁca-
+tion for a human and lower back exoskeleton model. IEEE Robot. Autom. Lett.2(3), 1564–1570 (2017).
+https://doi.org/10.1109/LRA.2017.2676355
+54. Shi, Y ., Peng, Q.: Improved benchmarking method using kinematics analysis in design of an upper limb
+exoskeleton rehabilitation device. In: Proceedings of the ASME International Design Engineering Tech-
+nical Conferences and Computers and Information in Engineering Conference, ASME, Quebec City,
+Quebec, Canada, vol. 4, p. V004T05A001. (2018). https://doi.org/10.1115/DETC2018-85465
+55. Hayashi, Y ., Dubey, R., Kiguchi, K.: Torque optimization for a 7DOF upper-limb power-assist exoskele-
+ton robot. In: Proceedings of the IEEE Workshop on Robotic Intelligence in Informationally Structured
+Space, IEEE, Paris, France, pp. 49–54 (2011). https://doi.org/10.1109/RIISS.2011.5945786
+56. Marinou, G.D., Mombaur, K.D.: Optimizing active spinal exoskeletons to minimize low back loads.
+Biosyst. Biorobot. 27, 455–460 (2022). https://doi.org/10.1007/978-3-030-69547-7_73
+57. Aoustin, Y ., Formalskii, A.M.: Walking of biped with passive exoskeleton: evaluation of energy con-
+sumption. Multibody Syst. Dyn. 43(1), 71–96 (2018). https://doi.org/10.1007/s11044-017-9602-7
+58. Harbauer, C.M., Fleischer, M., Bandmann, C.E., Bengler, K.: Optimizing force transfer in a soft ex-
+oskeleton using biomechanical modeling. In: Proceedings of the 21st Congress of the International Er-
+gonomics Association, Springer, Vancouver, BC, Canada, vol. 223, pp. 274–281 (2022). https://doi.org/
+10.1007/978-3-030-74614-8_33
+59. Zhou, L., Li, Y ., Bai, S.: A human-centered design optimization approach for robotic exoskeletons
+through biomechanical simulation. Robot. Auton. Syst. 91, 337–347 (2017). https://doi.org/10.1016/j.
+robot.2016.12.012
+60. Park, D., Cho, K.J.: Development and evaluation of a soft wearable weight support device for reducing
+muscle fatigue on shoulder. PLoS ONE 12(3), e0173730 (2017). https://doi.org/10.1371/journal.pone.
+0173730
+61. Mehrabi, N., Razavian, R.S., Ghannadi, B., McPhee, J.: Predictive simulation of reaching moving targets
+using nonlinear model predictive control. Front. Comput. Neurosci. 10, 143 (2017). https://doi.org/10.
+3389/fncom.2016.00143
+62. Mallat, R., Khalil, M., Venture, G., Bonnet, V ., Mohammed, S.: Human-exoskeleton joint misalignment:
+a systematic review. In: International Conference on Advances in Biomedical Engineering, ICABME,
+IEEE, Tripoli, Lebanon, vol. 2019–Octob, pp. 1–4 (2019).https://doi.org/10.1109/ICABME47164.2019.
+8940321
+63. Panero, E., Muscolo, G.G., Gastaldi, L., Pastorelli, S.: Multibody analysis of a 3D human model with
+trunk exoskeleton for industrial applications. Comput. Methods Appl. Sci. 53, 43–51 (2020). https://doi.
+org/10.1007/978-3-030-23132-3_6
+64. Cortes, C., De Los Reyes-Guzman, A., Scorza, D., Bertelsen, A., Carrasco, E., Gil-Agudo, A.,
+Ruiz-Salguero, O., Florez, J.: Inverse kinematics for upper limb compound movement estimation in
+exoskeleton-assisted rehabilitation. BioMed Res. Int. 2016, 1–14 (2016). https://doi.org/10.1155/2016/
+2581924
+65. Laitenberger, M., Raison, M., Périé, D., Begon, M.: Reﬁnement of the upper limb joint kinematics and
+dynamics using a subject-speciﬁc closed-loop forearm model. Multibody Syst. Dyn. 33(4), 413–438
+(2015). https://doi.org/10.1007/s11044-014-9421-z
+
+===== PAGE 33 =====
+Optimaldesignofactive-passiveshoulderexoskeletons... 105
+66. Nasr, A., Bell, S., He, J., Whittaker, R.L., Jiang, N., Dickerson, C.R., McPhee, J.: MuscleNET: mapping
+electromyography to kinematic and dynamic biomechanical variables. J. Neural Eng. 18(4), 0460d3
+(2021). https://doi.org/10.1088/1741-2552/ac1adc
+67. Nasr, A., McPhee, J.: Biarticular MuscleNET: a machine learning model of biarticular muscles. In: Pro-
+ceedings of the North American Congress on Biomechanics, Ottawa, Canada (2022)
+68. Alabdulkarim, S., Nussbaum, M.A.: Inﬂuences of different exoskeleton designs and tool mass on phys-
+ical demands and performance in a simulated overhead drilling task. Appl. Ergon. 74, 55–66 (2019).
+https://doi.org/10.1016/j.apergo.2018.08.004
+69. Grazi, L., Trigili, E., Proface, G., Giovacchini, F., Crea, S., Vitiello, N.: Design and experimental evalua-
+tion of a semi-passive upper-limb exoskeleton for workers with motorized tuning of assistance. IEEE
+Trans. Neural Syst. Rehabil. Eng. 28(10), 2276–2285 (2020). https://doi.org/10.1109/TNSRE.2020.
+3014408
+70. Kim, S., Nussbaum, M.A.: A follow-up study of the effects of an arm support exoskeleton on physi-
+cal demands and task performance during simulated overhead work. IISE Trans. Occup. Ergon. Hum.
+Factors 7(3–4), 163–174 (2019). https://doi.org/10.1080/24725838.2018.1551255
+71. Kim, S., Nussbaum, M.A., Mokhlespour Esfahani, M.I., Alemi, M.M., Jia, B., Rashedi, E.: Assessing
+the inﬂuence of a passive, upper extremity exoskeletal vest for tasks requiring arm elevation: Part II –
+“Unexpected” effects on shoulder motion, balance, and spine loading. Appl. Ergon.70, 323–330 (2018).
+https://doi.org/10.1016/j.apergo.2018.02.024
+72. Ackermann, M., van den Bogert, A.J.: Optimality principles for model-based prediction of human gait.
+J. Biomech. 43(6), 1055–1060 (2010). https://doi.org/10.1016/j.jbiomech.2009.12.012
+73. Theurel, J., Desbrosses, K., Roux, T., Savescu, A.: Physiological consequences of using an upper limb
+exoskeleton during manual handling tasks. Appl. Ergon. 67, 211–217 (2018). https://doi.org/10.1016/j.
+apergo.2017.10.008
+74. Liu, Z.H., Qiu, Y .X., Zhu, Z.H., Zhou, Y .W., Tang, Z.: Effects of memory foam on optimizing shoulder
+fatigue of wearable exoskeleton. J. Donghua Univ.33(4), 536–539 (2016)
+75. Liu, S., Hemming, D., Luo, R.B., Reynolds, J., Delong, J.C., Sandler, B.J., Jacobsen, G.R., Horgan, S.:
+Solving the surgeon ergonomic crisis with surgical exosuit. Surg. Endosc.32(1), 236–244 (2018). https://
+doi.org/10.1007/s00464-017-5667-x
+76. Nasr, A., Inkol, K.A., Bell, S., McPhee, J.: InverseMuscleNET: alternative machine learning solution to
+static optimization and inverse muscle modelling. Front. Comput. Neurosci. 15, 759489 (2021). https://
+doi.org/10.3389/fncom.2021.759489
+77. Inkol, K.A., Brown, C., McNally, W., Jansen, C., McPhee, J.: Muscle torque generators in multibody dy-
+namic simulations of optimal sports performance. Multibody Syst. Dyn. 50(4), 435–452 (2020). https://
+doi.org/10.1007/s11044-020-09747-9
+78. Ghannadi, B., Mehrabi, N., Razavian, R.S., McPhee, J.: Nonlinear model predictive control of an upper
+extremity rehabilitation robot using a two-dimensional human-robot interaction model. In: Proceedings
+of the IEEE International Conference on Intelligent Robots and Systems, IEEE, Vancouver, BC, Canada,
+vol. 2017–Septe, pp. 502–507 (2017). https://doi.org/10.1109/IROS.2017.8202200
+79. Mombaur, K.D., Clever, D.: Inverse optimal control as a tool to understand human movement. In:
+Mansard, N., Lasserre, J. (eds.) Geometric and Numerical Foundations of Movements, vol. 117,
+pp. 163–186. Springer, Berlin (2017). https://doi.org/10.1007/978-3-319-51547-2_8
+80. Reinkensmeyer, D.J., Wynne, J.H., Harkema, S.J.: A robotic tool for studying locomotor adaptation
+and rehabilitation. In: Proceedings of the Annual International Conference of the IEEE Engineering in
+Medicine and Biology, IEEE, Houston, TX, USA, vol. 3, pp. 2353–2354 (2002).https://doi.org/10.1109/
+iembs.2002.1053318
+81. Dumas, R., Chèze, L., Verriest, J.P.: Adjustments to McConville et al. and Young et al. body segment
+inertial parameters. J. Biomech. 40(3), 543–553 (2007). https://doi.org/10.1016/j.jbiomech.2006.02.013
+82. Yamaguchi, G.T.: Dynamic Modeling of Musculoskeletal Motion: A Vectorized Approach for Biome-
+chanical Analysis in Three Dimensions, 1st edn. Springer, Boston (2006). https://doi.org/10.1007/978-
+0-387-28750-8
+83. Angold, R., Lubin, J., Solano, M., Paretich, C., Mastaler, T.: Exoskeleton and Method of Providing an
+Assistive Torque to an Arm of a Wearer (2016)
+84. Gopura, R.A., Kiguchi, K., Bandara, D.S.: A brief review on upper extremity robotic exoskeleton sys-
+tems. In: Proceedings of the 6th International Conference on Industrial and Information Systems, IEEE,
+Kandy, Sri Lanka, pp. 346–351 (2011). https://doi.org/10.1109/ICIINFS.2011.6038092
+85. Hunter, I., Ballantyne, J., Hollerbach, J.M.: A comparative analysis of actuator technologies for robotics.
+Robot. Rev. 2, 299–342 (1991)
+86. García, P.L., Crispel, S., Saerens, E., Verstraten, T., Lefeber, D.: Compact gearboxes for modern robotics:
+a review. Front. Robot. AI 7, 103 (2020). https://doi.org/10.3389/frobt.2020.00103
+
+===== PAGE 34 =====
+106 A.Nasretal.
+87. Seok, S., Wang, A., Chuah, M.Y ., Hyun, D.J., Lee, J., Otten, D.M., Lang, J.H., Kim, S.: Design principles
+for energy-efﬁcient legged locomotion and implementation on the MIT Cheetah robot. IEEE/ASME
+Trans. Mechatron. 20(3), 1117–1129 (2015). https://doi.org/10.1109/TMECH.2014.2339013
+88. Wensing, P.M., Wang, A., Seok, S., Otten, D.M., Lang, J., Kim, S.: Proprioceptive actuator design in
+the MIT cheetah: impact mitigation and high-bandwidth physical interaction for dynamic legged robots.
+IEEE Trans. Robot. 33(3), 509–522 (2017). https://doi.org/10.1109/TRO.2016.2640183
+89. Hughes, A., Drury, B.: Electric Motors and Drives: Fundamentals, Types and Applications. Elsevier,
+Amsterdam (2019). https://doi.org/10.1016/B978-0-08-102615-1.09989-X
+90. Inkol, K.A., McPhee, J.: Towards compliant human-exoskeleton interactions within multibody dynam-
+ics simulations of assisted human motor control. In: ECCOMAS Thematic Conference on Multibody
+Dynamics, Budapest, Hungary (2021)
+91. Jarrasse, N., Morel, G.: Connecting a human limb to an exoskeleton. IEEE Trans. Robot. 28(3), 697–709
+(2012). https://doi.org/10.1109/TRO.2011.2178151
+92. Stienen, A.H., Hekman, E.E., van der Helm, F.C., van der Kooij, H.: Self-aligning exoskeleton axes
+through decoupling of joint rotations and translations. IEEE Trans. Robot.25(3), 628–633 (2009).https://
+doi.org/10.1109/TRO.2009.2019147
+93. Gull, M.A., Bai, S., Bak, T.: A review on design of upper limb exoskeletons. Robotics 9(1), 16 (2020).
+https://doi.org/10.3390/robotics9010016
+94. Anderson, D.E., Madigan, M.L., Nussbaum, M.A.: Maximum voluntary joint torque as a function of joint
+angle and angular velocity: model development and application to the lower limb. J. Biomech. 40(14),
+3105–3113 (2007). https://doi.org/10.1016/j.jbiomech.2007.03.022
+95. Kim, J.H., Roberts, D.: A joint-space numerical model of metabolic energy expenditure for human multi-
+body dynamic system. Int. J. Numer. Methods Biomed. Eng. 31(9), e02721 (2015). https://doi.org/10.
+1002/cnm.2721
+96. Laschowski, B., McPhee, J., Andrysek, J.: Lower-limb prostheses and exoskeletons with energy regen-
+eration: mechatronic design and optimization review. J. Mech. Robot. 11(4), 040801 (2019). https://doi.
+org/10.1115/1.4043460
+Publisher’sNote Springer Nature remains neutral with regard to jurisdictional claims in published maps and
+institutional afﬁliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under a pub-
+lishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted manuscript
+version of this article is solely governed by the terms of such publishing agreement and applicable law.

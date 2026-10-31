@@ -1,0 +1,652 @@
+===== PAGE 1 =====
+Journal of Biomechanics 164 (2024) 111989
+Available online 10 February 2024
+0021-9290/© 2024 Elsevier Ltd. All rights reserved.
+Is an ellipsoid surface suitable to model the scapulothoracic sliding plane? 
+Y. Blache a,*, F. Lefebvre a,b, I. Rogowski a, B. Michaud c, M. Begon c,d 
+a Univ Lyon, Universit´e Claude Bernard Lyon 1, Laboratoire Interuniversitaire de Biologie de la Motricit´e, EA 7424, F-69622 Villeurbanne, France 
+b TRINOMA, Villefort, France 
+c Laboratoire de simulation et mod´elisation du mouvement, Department of Kinesiology, University of Montreal, Montr´eal, QC, Canada 
+d Sainte-Justine Hospital Research Center, Montr´eal, QC, Canada 
+ARTICLE INFO 
+Keywords: 
+Scapula 
+Shoulder 
+Intracortical pins 
+Kinematics 
+ABSTRACT 
+Closed loop kinematic chain approaches are commonly used to assess scapular kinematics but with heteroge-
+neous ellipsoid calibration procedures. This study aimed to assess whether an ellipsoid surface can model the 
+scapulothoracic sliding plane and determine the optimal number of static poses to calibrate the ellipsoid pa-
+rameters. An intracortical pin with a rigid cluster of four reflective markers was inserted into the left scapular 
+spine of two healthy males (P1 and P2). They performed arm elevations, internal rotations, ball throwing, hockey 
+shooting, and eating movements. Ellipsoid radii and center location were functionally calibrated for each 
+participant and each movement, either based on all frames of a movement or based on a reduced number of 
+frames (from 3 to 200 equally position-distributed frames). Across both participants and all movements, ellipsoid 
+radii varied up to 10.2 cm, 3.9 cm, and 18.4 cm in the antero-posterior, medio-lateral, and cranio-caudal di-
+rections, respectively. When all frames of a movement were considered for calibration, the median scapula-to- 
+ellipsoid distance was, on average, 0.52 mm and 0.38 mm for P1 and P2, respectively. When only five frames 
+were considered for ellipsoid calibration, the scapula-to-ellipsoid median distance slightly increased with 0.57 
+mm and 0.47 mm for P1 and P2, respectively. To conclude, this study highlights that an ellipsoid surface may 
+effectively be appropriate to model the scapulothoracic sliding plane, especially when the calibration is func-
+tional, participant- and movement-specific. Furthermore, the number of poses required for the ellipsoid cali-
+bration can be reduced to five, minimizing the experimental cost. 
+1. Introduction 
+Scapular kinematics are regularly assessed in the fields of sports 
+science (Rogowski et al., 2015), orthopedics (Sella et al., 2022), reha-
+bilitation (Hybois et al., 2019) or ergonomics (Goubault et al., 2022). 
+Accurate tools based on medical imaging are continuously growing 
+(Lawrence et al., 2018; Nicholson et al., 2017; Yoshida et al., 2022); 
+nevertheless, their application exposes individuals to radiation, mea-
+surement volume remains limited, and is costly, restricting their appli-
+cation to a clinical environment. Marker-based stereo-photogrammetry 
+is the most common alternative with the use of individual markers 
+(Lefebvre et al., 2023) or clusters of markers located either on the 
+acromion (Warner et al., 2015) or the scapular spine (Hybois et al., 
+2019). These procedures may however be inaccurate because of soft 
+tissue artifacts (Blache et al., 2017; Yoshida et al., 2022). In this context, 
+marker-based procedures still demand improvement to accurately assess 
+scapular kinematics. 
+Several numerical procedures have been developed to enhance 
+scapular kinematics from markers. Among them, multibody kinematic 
+optimization, consisting of optimizing joint angles by minimizing the 
+distance between the coordinates of the experimental markers and the 
+virtual markers of the kinematic model, has demonstrated promising 
+outcomes (Begon et al., 2018). Nevertheless, using open-chain models 
+can lead to scapula penetration into the thorax or result in non- 
+physiological scapular winging (Maurel and Thalmann, 1999). To 
+overcome these issues, most current shoulder kinematic models include 
+a closed loop constraining the scapula to maintain contact with the 
+thorax, representing the physiological scapulothoracic sliding plane. 
+Closed-loop constraints can be implemented using a single or multiple 
+contact points-to-ellipsoid surface (Duprey et al., 2017). Nonetheless, 
+the calibration procedure for the ellipsoid remains heterogeneous. 
+The calibration of the ellipsoid consists of determining the radii and 
+the location of the ellipsoid center based on the individual’s anthro-
+pometry being evaluated. Several studies (Blana et al., 2008; Bolsterlee 
+* Corresponding author at: UFRSTAPS, Universit´e Lyon 1, 27-29 bd du 11 Novembre 1918, 69622 Villeurbanne Cedex, France. 
+E-mail address: Yoann.blache@univ-lyon1.fr (Y. Blache). 
+Contents lists available at ScienceDirect 
+Journal of Biomechanics 
+journal homepage: www.elsevier.com/locate/jbiomech 
+https://doi.org/10.1016/j.jbiomech.2024.111989 
+Accepted 6 February 2024 
+
+===== PAGE 2 =====
+Journal of Biomechanics 164 (2024) 111989
+2
+et al., 2014; Charlton and Johnson, 2006; Garner and Pandy, 1999; 
+Maurel and Thalmann, 1999; van der Helm, 1994) have employed a 
+geometrical approach by adjusting the ellipsoid parameters to fit the 
+shape of the thorax surface. This approach is convenient as it requires a 
+few key thorax dimensions, which can be easily obtained from skin- 
+marker coordinates recorded during a static pose. However, Sah and 
+Wang (2009) observed a scapula-to-ellipsoid distance of around 3 cm 
+when the ellipsoid is fitted to the thorax shape. In consequence, com-
+bined geometrical and functional approaches (Ingram et al., 2016; Pri-
+nold et al., 2011) or strictly functional methods (Blache et al., 2022; 
+Michaud et al., 2017; Naaim et al., 2017; Seth et al., 2016) have emerged 
+for calibrating the ellipsoid parameters. In latter case, the ellipsoid 
+surface is fitted to the functional scapulothoracic sliding plane, which is 
+usually obtained from additional large-amplitude movements or poses. 
+Although this calibration may be more time-consuming, it is believed to 
+preserve the bio-fidelity of the scapulothoracic joint. However, to our 
+knowledge, no study has quantified the deviation of the scapular tra-
+jectory from a functionally-determined ellipsoid surface, ensuring the 
+bio-fidelity of a functional calibration. Furthermore, the recommended 
+number of poses for ellipsoid calibration is still in debate. 
+The aim of this study was twofold: (1) to assess whether an ellipsoid 
+surface can model the scapulothoracic sliding plane and (2) to determine 
+the optimal number of static poses to calibrate the ellipsoid parameters. 
+2. Methods 
+2.1. Participants 
+Raw data presented by Dal Maso et al. (2014) were used in this 
+present study. Two participants (age: 44 and 27 years, Height: 177 and 
+165 cm, mass: 82 and 57 kg, for P1 and P2, respectively) volunteered to 
+participate and signed informed consent. The data collection was 
+approved by the Karolinska Institute (Sweden) and the University of 
+Montreal (Canada) ethics committees. None of the participants declared 
+any history of shoulder injury. 
+2.2. Instrumentation 
+An intracortical pin with a rigid cluster of four reflective markers was 
+inserted into the left scapular spine under local anesthesia that lasted 
+two hours (see Dal Maso et al. (2014) for more details). Four skin 
+markers were put on the thorax (7th cervical vertebra, 8th thoracic 
+vertebra, xiphoid process, and incisura jugularis), three on the left 
+scapula (acromion angle, trigonum spinae, and inferior angle), and two 
+on the wrist (ulnar and radial styloid) while the participant was standing 
+upright. Three-dimensional marker trajectories were measured using an 
+18-camera optoelectronic VICON™ system sampled at 300 Hz (T-40S 
+and T-20S; Oxford Metrics Ltd., Oxford, UK). 
+2.3. Procedure 
+First, the participants held a static anatomical rest position for a few 
+seconds. Then they were asked to perform functional movements, 
+including arm elevations in the sagittal (n = 2 and 11 repetitions for P1 
+and P2, respectively) and frontal planes (n = 2 and 11), humerothoracic 
+internal rotations with the arm abducted and the elbow flexed at 90◦ (n 
+= 6 and 4); two sports movements, namely, mimicking a ball throwing 
+(n = 4 and 4) and hockey shooting (n = 5 and 4); and one daily life 
+activity (i.e., eating; n = 3 and 2). The number of repetitions varied 
+according to the discomfort each participant felt due to intracortical pins 
+felt. All movements were performed at a preferred speed. 
+2.4. Ellipsoid calibration 
+First, the center of the scapula was defined as the centroid of the 
+three skin marker coordinates recorded during the static pose (acro-
+mion, trigonum spinae, and inferior angle). This barycenter was used to 
+define the scapula origin’s location relative to the reference system of 
+the marker cluster secured to the scapular pin. Then, for each repetition 
+of each movement and each participant, a participant- and movement- 
+specific ellipsoid was built as follows: the 3D coordinates of the ellip-
+soid center in the thorax coordinate system and its three radii ( E→) were 
+optimized using a trust-region nonlinear least-squares algorithm, such 
+that the 3D scapula-to-ellipsoid distance was minimized (Eq. (1). 
+min
+E→
+∑
+f
+D
+(
+E→, SCf̅̅→) (1) 
+subject to 
+⎧
+⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎨
+⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎩
+2
+3‖ XI̅→  T8̅→‖< Rx< 32‖ XI̅→  T8̅→‖
+0.25< Ry< 0.5
+0.2< Rz< 0.3
+  23Rxmax < Cx< 23Rxmax
+  23 Rymax < Cy< 23 Rymax
+  23Rzmax < Cz< 23 Rzmax 
+with D the 3D distances between the ellipsoid surface and the scapular 
+center (SCf
+̅→) at each frame (f); x, y, and z axes pointing anteriorly, up-
+wards, and laterally with respect to the thorax reference system 
+respectively; R for ellipsoid radii aligned with thorax reference system; C 
+for ellipsoid center coordinate expressed in the thorax reference system 
+with its origin defined as the midpoint between the 8th thoracic vertebra 
+and the xiphoid process; XI for xiphoid marker; T8 for 8th thoracic 
+vertebra marker. 
+To avoid local minima for the optimization solution, a multi-start 
+approach with 10 uniformly distributed pseudorandom initial guesses 
+was implemented. To assess the influence of the number of frames used 
+for ellipsoid calibration, the procedure was repeated with only 3 to 10, 
+15, 20, 50, 100, and 200 frames equally distributed from the move-
+ment’s first to last frames. To that end, wrist excursion was considered to 
+split each movement into equal displacement parts. Finally, the pro-
+cedure was also done by considering all the movements together, 
+keeping only the middle frame, the last frame, the first and the last 
+frame, or all the frames of each movement. 
+For each movement and each ellipsoid calibration, the scapula-to- 
+ellipsoid distance was computed at each movement frame. The me-
+dian and 95th percentiles (P95) values were reported. A scapula-to- 
+ellipsoid distance equal to zero meant that the scapula center trajec-
+tory followed the surface of an ellipsoid precisely. As the distance in-
+creases, the suitability of the ellipsoid surface as a model for the scapula 
+center trajectory decreases. 
+3. Results 
+Depending on the movement and the participant, ellipsoid radii 
+varied up to 4.1 cm, 6.0 cm, 16.3 cm in the antero-posterior, medio- 
+lateral, and cranio-caudal directions, respectively. The centers of the 
+ellipsoids were mostly located anteriorly and on the same side as the 
+investigated limb (Table 1). 
+When all frames of a movement were considered (up to 551 frames 
+and 889 frames for P1 and P2, respectively), scapula-to-ellipsoid dis-
+tance was always inferior to 4.1 mm. More precisely, the median 
+scapula-to-ellipsoid distance was, on average, 0.6 mm (P95: 1.5 mm), 
+Y. Blache et al. 
+
+===== PAGE 3 =====
+Journal of Biomechanics 164 (2024) 111989
+3
+0.4 mm (P95: 1.4 mm), for P1 and P2, respectively. Maximal values were 
+observed for ball throwing (P1, 4.1 mm) and sagittal plane elevation 
+(P2, 3.8 mm). When fewer poses were considered for ellipsoid calibra-
+tion, the scapula-to-ellipsoid median distance slightly increased but with 
+95th percentiles values always inferior to 5 mm except for ball throwing 
+(Fig. 1). More precisely, either for arm elevations, internal rotation or 
+eating task, considering only 3 poses barely altered scapula-to ellipsoid 
+distance with median values ranging from 0.3 mm to 1.1 mm (P95 
+ranging from 0.7 mm to 3.2 mm). For ball throwing and hockey shooting 
+tasks, with 3 poses scapula-to-ellipsoid median distances ranged from 
+0.8 mm to 1.3 mm (P95 ranging from 3.3 mm to 5.5 mm). When 
+considering all movements together, median scapula-to-ellipsoid dis-
+tances were greater than those observed when each movement was 
+taken individually, with maximal distances up to 10.4 mm and 11.4 mm 
+for P1 and P2, respectively (Table 2). 
+4. Discussion 
+The main findings of this study were that the trajectory of the scapula 
+center is very close to a participant- and movement-specific ellipsoid 
+surface. Furthermore, it was determined that a reduced set of static 
+poses could be suitable to calibrate ellipsoid parameters. 
+Ellipsoid parameters are usually calibrated specifically to the indi-
+vidual using either a geometrical (Bolsterlee et al., 2014) or a functional 
+(Michaud et al., 2017) approach. In comparison to a previous study, 
+which observed a scapula-to-ellipsoid distance of around 3 cm based on 
+the geometrical approach (Sah and Wang, 2009), the deviation of the 
+scapula center from the ellipsoid surface was approximately 50 times 
+smaller when a participant- and movement-specific functional ellipsoid 
+is built. Moreover, the observed variability in the values of the ellipsoid 
+parameter substantiated the participant-specific nature of the ellipsoid, 
+as previously highlighted by Michaud et al. (2017). These findings were 
+even true for similar movements (i.e., arm elevation in the sagittal or 
+frontal plane), reinforcing that the ellipsoid should be calibrated spe-
+cifically to the movement. Finally, when considering all movements 
+together for ellipsoid calibration, the median deviations to the ellipsoid 
+were the highest with maximal values near 10 mm indicating again the 
+necessity for a movement-specific calibration of ellipsoid parameters. As 
+a result, the scapulothoracic sliding plane may be modeled by an ellip-
+soid surface as long as the latter is customized to both the individual and 
+the movement involved. 
+The functional calibration of the ellipsoid requires additional poses 
+or movements performed by the participant. Nevertheless, the number 
+of poses varies across research groups, ranging from 5 to 55, or some-
+times remaining unknown (Blache et al., 2022; Michaud et al., 2017; 
+Naaim et al., 2017; Seth et al., 2016). When poses were evenly distrib-
+uted from the beginning to the end of the movement, reducing their 
+number had minimal influence on the scapula-to-ellipsoid distance, as 
+deviations less than 2.2 mm were observed between three poses and the 
+maximal number of poses used for ellipsoid calibration. In the case of 
+ellipsoid calibration with a skin marker-based approach, increasing the 
+number of static poses for ellipsoid calibration increases the time of 
+experimentation since the participant has to hold a static position for 
+few seconds while the examiner palpates the scapula for anatomical 
+landmark identification. Our findings seem to suggest that the cost (i.e., 
+experimentation time) -benefit (i.e., scapula-to-ellipsoid distance) bal-
+ance favors a reduced the number of poses. However, examiners should 
+be aware that the fewer poses are used, the more sensitive the ellipsoid 
+calibration is to inaccuracies in palpating scapular anatomical land-
+marks, suggesting that experienced examiner might be preferred for 
+ellipsoid calibration purpose (Goncalves et al., 2019; Lavaill et al., 
+2022). Consequently, a reduced number of evenly distributed poses for 
+functional ellipsoid calibration could be used to decrease the experi-
+mental cost without drastically affecting the accuracy of ellipsoid 
+parameters. 
+When modeling the scapulothoracic joint with a single point-to- 
+ellipsoid contact, a strict or soft constraint may be applied. The 
+former, defined either by an equality constraint (Naaim et al., 2017) or a 
+mobilizer (Seth et al., 2016), prohibits any deviations of the scapula 
+contact point from the ellipsoid surface. In contrast, the soft constraint, 
+usually defined in the cost function (Livet et al., 2023; Michaud et al., 
+2017) or through viscoelastic joints (Hu et al., 2020), allows slight de-
+viations of the scapula from the ellipsoid surface if it improves the 
+marker tracking cost. Considering that the scapula-to-ellipsoid distance 
+is typically in the millimeter range during 95 % of the movement and 
+remains smaller than the marker residuals obtained from standard 
+multibody kinematic optimization during the remaining 5 % of the 
+movement, a strict constraint would be appropriate if the functional 
+calibration is participant- and movement- specific. However, when 
+multiple movements are investigated, and a movement-nonspecific 
+ellipsoid is calibrated, a soft constraint would also be suitable to 
+manage the 5 % of the poses where the deviation from the ellipsoid 
+surface reaches 10 mm. Therefore, the procedure chosen to calibrate the 
+ellipsoid should be considered when implementing constraints on the 
+scapulothoracic joint. 
+This study presents some limitations warranting discussion. The first 
+Table 1 
+Mean ± SD ellipsoid parameters (radii Rx,y,z and center location Cx,y,z in meter) 
+for each participant (P1 and P2) and each movement, namely, arm elevation in 
+the frontal (Abd) and sagittal (Flex) planes, internal rotation (Rot), ball throwing 
+(Ball), hockey shooting (Hockey), eating (Eat), and all movements together 
+(All). X points anteriorly, Y upwardly and Z laterally with respect to the thorax 
+reference system. 
+Movement Rx Ry Rz Cx Cy Cz 
+P1 Abd 0.17 
+±
+0.02 
+0.31 
+±
+0.06 
+0.26 
+±
+0.05 
+0.13 
+± 0.05 
+0.15 ±
+0.04 
+  0.04 
+± 0.01 
+Flex 0.18 
+±
+0.00 
+0.30 
+±
+0.04 
+0.23 
+±
+0.03 
+0.02 
+± 0.04 
+  0.08 
+± 0.04 
+  0.06 
+± 0.00 
+Rot 0.17 
+±
+0.02 
+0.45 
+±
+0.04 
+0.26 
+±
+0.02 
+0.08 
+± 0.05 
+0.16 ±
+0.08 
+0.02 ±
+0.03 
+Ball 0.14 
+±
+0.03 
+0.38 
+±
+0.09 
+0.27 
+±
+0.04 
+0.09 
+± 0.05 
+0.17 ±
+0.08 
+0.00 ±
+0.03 
+Hockey 0.18 
+±
+0.02 
+0.36 
+±
+0.08 
+0.28 
+±
+0.03 
+0.02 
+± 0.05 
+0.03 ±
+0.24 
+0.00 ±
+0.03 
+Eat 0.18 
+±
+0.01 
+0.47 
+±
+0.04 
+0.27 
+±
+0.03 
+0.02 
+± 0.03 
+  0.19 
+± 0.04 
+0.00 ±
+0.02 
+All 0.16 
+±
+0.03 
+0.26 
+±
+0.02 
+0.29 
+±
+0.03 
+0.11 
+± 0.04 
+0.13 ±
+0.04 
+0.01 ±
+0.02 
+P2 Abd 0.14 
+±
+0.02 
+0.41 
+±
+0.07 
+0.26 
+±
+0.04 
+0.06 
+± 0.04 
+  0.12 
+± 0.12 
+0.06 ±
+0.04 
+Flex 0.12 
+±
+0.02 
+0.38 
+±
+0.08 
+0.28 
+±
+0.03 
+0.3 ±
+0.06 
+0.08 ±
+0.30 
+0.03 ±
+0.06 
+Rot 0.14 
+±
+0.02 
+0.43 
+±
+0.07 
+0.27 
+±
+0.03 
+0.12 
+± 0.04 
+0.02 ±
+0.15 
+0.12 ±
+0.04 
+Ball 0.15 
+±
+0.01 
+0.41 
+±
+0.08 
+0.27 
+±
+0.03 
+0.10 
+±
+0.003 
+0.02 ±
+0.09 
+0.10 ±
+0.03 
+Hockey 0.14 
+±
+0.02 
+0.34 
+±
+0.07 
+0.28 
+±
+0.03 
+0.03 
+± 0.05 
+  0.12 
+± 0.08 
+0.03 ±
+0.05 
+Eat 0.14 
+±
+0.01 
+0.40 
+±
+0.08 
+0.28 
+±
+0.03 
+0.02 
+± 0.04 
+  0.19 
+± 0.11 
+0.02 ±
+0.04 
+All 0.16 
+±
+0.03 
+0.26 
+±
+0.02 
+0.29 
+±
+0.03 
+0.11 
+± 0.04 
+0.13 ±
+0.04 
+0.11 ±
+0.04 
+Y. Blache et al. 
+
+===== PAGE 4 =====
+Journal of Biomechanics 164 (2024) 111989
+4
+Fig. 1. Violin plots representing the scapula-to-ellipsoid distance with respect to the number of poses used for ellipsoid calibration for each participant (P1 and P2). 
+White circles refer to the median distance while the vertical black solid line to the 95th percentile. 
+Y. Blache et al. 
+
+===== PAGE 5 =====
+Journal of Biomechanics 164 (2024) 111989
+5
+limitation was the small number of participants, limiting the inference of 
+our results to a larger population. Nevertheless, the invasive nature of 
+the protocol makes the investigation difficult on a large sample, but it 
+fosters the analysis of very accurate data. The second limitation was that 
+our findings may not be extended to patients suffering from abnormal 
+scapular kinematics. Further investigations should be conducted on such 
+pathological populations. The third limitation of our study was that we 
+did not explore the influence of ellipsoid calibration on the entire pro-
+cess of a multibody kinematic optimization for estimating scapular ki-
+nematics. Previous studies have indicated that the clavicle length has the 
+most significance influence on scapular kinematics estimation (Blache 
+et al., 2022; El Habachi et al., 2013). Nevertheless, ellipsoid parameters 
+also demonstrated noteworthy effects (Hybois et al., 2017), potentially 
+accounting for 11 % of variations in scapular kinematic estimates 
+(Blache et al., 2022). Consequently, further studies need to assess the 
+effect of ellipsoid calibration on scapular kinematics when employing a 
+multibody kinematics optimization approach. 
+To conclude, this study highlights that an ellipsoid surface may 
+effectively model the scapulothoracic sliding plane, especially when the 
+calibration is functional, participant- and movement-specific. Further-
+more, the number of poses required for the ellipsoid calibration can be 
+reduced, minimizing the experimental cost. 
+CRediT authorship contribution statement 
+Y. Blache: Conceptualization, Data Curation, Writing – original 
+draft. F. Lefebvre: Writing – review & editing. I. Rogowski: Writing – 
+review & editing. B. Michaud: Writing – review & editing. M. Begon: 
+Writing – review & editing. 
+Declaration of competing interest 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+References 
+Begon, M., Andersen, M.S., Dumas, R., 2018. Multibody kinematics optimization for the 
+estimation of upper and lower limb human joint kinematics: a systematized 
+methodological review. J. Biomech. Eng. 140, 030801. 
+Blache, Y., Dumas, R., Lundberg, A., Begon, M., 2017. Main component of soft tissue 
+artifact of the upper-limbs with respect to different functional, daily life and sports 
+movements. J. Biomech. 62, 39–46. 
+Blache, Y., Rogowski, I., Degot, M., Trama, R., Dumas, R., 2022. Uncertainty analysis and 
+sensitivity of scapulothoracic joint angles to kinematic model parameters. Med. Biol. 
+Eng. Compu. 60, 2065–2075. 
+Blana, D., Hincapie, J.G., Chadwick, E.K., Kirsch, R.F., 2008. A musculoskeletal model of 
+the upper extremity for use in the development of neuroprosthetic systems. 
+J. Biomech. 41, 1714–1721. 
+Bolsterlee, B., Veeger, H.E., van der Helm, F.C., 2014. Modelling clavicular and scapular 
+kinematics: from measurement to simulation. Med. Biol. Eng. Compu. 52, 283–291. 
+Charlton, I.W., Johnson, G.R., 2006. A model for the prediction of the forces at the 
+glenohumeral joint. Proc. Inst. Mech. Eng. [H] 220, 801–812. 
+Dal Maso, F., Raison, M., Lundberg, A., Arndt, A., Begon, M., 2014. Coupling between 3D 
+displacements and rotations at the glenohumeral joint during dynamic tasks in 
+healthy participants. Clin. Biomech. 29, 1048–1055. 
+Duprey, S., Naaim, A., Moissenet, F., Begon, M., Cheze, L., 2017. Kinematic models of the 
+upper limb joints for multibody kinematics optimisation: An overview. J. Biomech. 
+62, 87–94. 
+El Habachi, A., Duprey, S., Cheze, L., Dumas, R., 2013. Global sensitivity analysis of the 
+kinematics obtained with a multi-body optimisation using a parallel mechanism of 
+the shoulder. Comput. Methods Biomech. Biomed. Eng. 16 (Suppl. 1), 61–62. 
+Garner, B.A., Pandy, M.G., 1999. A Kinematic model of the upper limb based on the 
+visible human project (VHP) image dataset. Comput. Methods Biomech. Biomed. 
+Eng. 2, 107–124. 
+Goncalves, D.H.M., Politti, F., Bley, A.S., Garbelotti, S.A., Jr., Godoy, W., Lucareli, P.R. 
+G., 2019. Does the examiner’s experience matter in evaluation of the kinematics of 
+the upper limb? 84, 257-262. 
+Goubault, E., Martinez, R., Assila, N., Monga-Dubreuil, E., Dowling-Medley, J., Dal 
+Maso, F., Begon, M., 2022. Effect of expertise on shoulder and upper limb 
+kinematics, electromyography, and estimated muscle forces during a lifting task. 
+Hum. Factors 64, 800–819. 
+Hu, T., Kuhn, J., Haddadin, S., 2020. Forward and inverse dynamics modeling of human 
+shoulder-arm musculoskeletal system with scapulothoracic constraint. Comput. 
+Methods Biomech. Biomed. Eng. 23, 785–803. 
+Hybois, S., Lombart, A., Puchaud, P., Bascou, J., Lavaste, F., Pillet, H., Sauret, C., 2017. 
+Effects of ellipsoid parameters on scapula motion during manual wheelchair 
+propulsion based on multibody kinematics optimization. A preliminary study. 
+Comput. Methods Biomech. Biomed. Eng. 20, 107–108. 
+Hybois, S., Puchaud, P., Bourgain, M., Lombart, A., Bascou, J., Lavaste, F., Fode, P., 
+Pillet, H., Sauret, C., 2019. Comparison of shoulder kinematic chain models and their 
+influence on kinematics and kinetics in the study of manual wheelchair propulsion. 
+Med. Eng. Phys. 69, 153–160. 
+Ingram, D., Engelhardt, C., Farron, A., Terrier, A., Müllhaupt, P., 2016. Modelling of the 
+human shoulder as a parallel mechanism without constraints. Mech. Mach. Theory 
+100, 120–137. 
+Lavaill, M., Martelli, S., Kerr, G.K., Pivonka, P., 2022. Statistical quantification of the 
+effects of marker misplacement and soft-tissue artifact on shoulder kinematics and 
+kinetics. Life 12. 
+Lawrence, R.L., Ellingson, A.M., Ludewig, P.M., 2018. Validation of single-plane 
+fluoroscopy and 2D/3D shape-matching for quantifying shoulder complex 
+kinematics. Med. Eng. Phys. 52, 69–75. 
+Lefebvre, F., Rogowski, I., Long, N., Blache, Y., 2023. Influence of marker weights 
+optimization on scapular kinematics estimated with a multibody kinematic 
+optimization. 159, 111795. 
+Livet, C., Rouvier, T., Sauret, C., Pillet, H., Dumont, G., Pontonnier, C., 2023. A penalty 
+method for constrained multibody kinematics optimisation using a Levenberg- 
+Marquardt algorithm. 26, 864-875. 
+Maurel, W., Thalmann, D., 1999. A case study on human upper limb modelling for 
+dynamic simulation. Comput. Methods Biomech. Biomed. Eng. 2, 65–82. 
+Michaud, B., Duprey, S., Begon, M., 2017. Scapular kinematic reconstruction – segmental 
+optimization, multibody optimization with openloop or closed-loop chains: which 
+one should be preferred? Int. Biomech. 4, 86–94. 
+Naaim, A., Moissenet, F., Duprey, S., Begon, M., Cheze, L., 2017. Effect of various upper 
+limb multibody models on soft tissue artefact correction: a case study. J. Biomech. 6, 
+102–109. 
+Nicholson, K.F., Richardson, R.T., Miller, F., Richards, J.G., 2017. Determining 3D 
+scapular orientation with scapula models and biplane 2D images. Med. Eng. Phys. 
+41, 103–108. 
+Prinold, J.A., Shaheen, A.F., Bull, A.M., 2011. Skin-fixed scapula trackers: a comparison 
+of two dynamic methods across a range of calibration positions. J. Biomech. 44, 
+2004–2007. 
+Rogowski, I., Creveaux, T., Sevrez, V., Cheze, L., Dumas, R., 2015. How does the scapula 
+move during the tennis serve? Med. Sci. Sports Exerc. 47, 1444–1449. 
+Sah, S., Wang, X., 2009. Determination of geometric constraints between the ribcage and 
+scapula in the shoulder complex: a cadaver study. Comput. Methods Biomech. 
+Biomed. Eng. 12, 223–224. 
+Sella, G.D.V., da Silva, L.A., Almeida, G.X., Santana, D.S., Barela, A.M.F., Miyazaki, A.N., 
+2022. Evaluation of scapular dyskinesia in patients that underwent a Latarjet 
+procedure. Acta Ortop´edica Brasileira 30, e245237. 
+Seth, A., Matias, R., Veloso, A.P., Delp, S.L., 2016. A biomechanical model of the 
+scapulothoracic joint to accurately capture scapular kinematics during shoulder 
+movements. PLoS One 11, e0141028. 
+van der Helm, F.C., 1994. A finite element musculoskeletal model of the shoulder 
+mechanism. J. Biomech. 27, 551–569. 
+Warner, M.B., Chappell, P.H., Stokes, M.J., 2015. Measurement of dynamic scapular 
+kinematics using an acromion marker cluster to minimize skin movement artifact. 
+e51717. 
+Yoshida, Y., Matsumura, N., Yamada, Y., Yamada, M., Yokoyama, Y., Miyamoto, A., 
+Nakamura, M., Nagura, T., Jinzaki, M., 2022. Three-dimensional quantitative 
+evaluation of the scapular skin marker movements in the upright posture. Sensors 
+22. 
+Table 2 
+Median (95th percentile) scapula-to-ellipsoid distance for each participant (P1 
+and P2), when considering all movements together by keeping only the middle 
+frames (Mid Mvt), the last frames (End Mvt), the first and the last frames (Start 
++ End Mvt) or all frames (All) of each movement. 
+Mid Mvt (mm) End Mvt (mm) Start + End Mvt (mm) All (mm) 
+P1 2.0 (7.0) 3.0 (8.3) 2.9 (8.0) 2.2 (6.4) 
+P2 2.2 (4.4) 2.2 (4.7) 2.2 (4.6) 1.4 (3.9) 
+Y. Blache et al.

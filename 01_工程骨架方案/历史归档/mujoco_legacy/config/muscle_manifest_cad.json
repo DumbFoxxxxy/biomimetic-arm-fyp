@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "lattice_x_mm": 15.0,
+    "lattice_y_mm": 10.0,
+    "lattice_z_mm": 30.0,
+    "branch_diameter_mm": 2.0,
+    "young_pa": 800000.0,
+    "poisson": 0.45,
+    "damping": 0.12,
+    "transverse_nodes": 3,
+    "longitudinal_nodes": 7,
+    "mass_kg": 0.12
+  },
+  "muscles": [
+    {
+      "id": "supraspinatus",
+      "group": "rotator_cuff",
+      "required": true,
+      "enabled": true,
+      "shape_class": "straight_diamond",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.000664519154515375,
+        0.0014717553579819053,
+        -0.004614962230103856
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034091785530228264,
+        0.00023840665284437536,
+        0.013126472826229701
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 220.0
+    },
+    {
+      "id": "infraspinatus",
+      "group": "rotator_cuff",
+      "required": true,
+      "enabled": true,
+      "shape_class": "fan",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006709734926486704,
+        0.0014454040192198648,
+        -0.004661587850364413
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034069609537922363,
+        0.00023022828365738235,
+        0.013122980472998279
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 260.0
+    },
+    {
+      "id": "deltoid_anterior",
+      "group": "deltoid",
+      "required": true,
+      "enabled": true,
+      "shape_class": "fan",
+      "origin_body": "clavicle_axial_rotation",
+      "origin_local": [
+        -8.235678900842913e-05,
+        3.70088160630182e-05,
+        2.0956442119768327e-05
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034010115735832757,
+        0.00023129184843401164,
+        0.012994841978762224
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 420.0
+    },
+    {
+      "id": "deltoid_middle",
+      "group": "deltoid",
+      "required": true,
+      "enabled": true,
+      "shape_class": "wrap",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006198059405802212,
+        0.0014721977782665334,
+        -0.004589144934275737
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034010115735832757,
+        0.00023129184843401164,
+        0.012994841978762224
+      ],
+      "via": [
+        {
+          "body": "shoulder_abduction",
+          "local": [
+            0.003412985163428374,
+            0.00023392514654455,
+            0.013058956710979374
+          ]
+        }
+      ],
+      "cables": 1,
+      "max_force_n": 480.0
+    },
+    {
+      "id": "deltoid_posterior",
+      "group": "deltoid",
+      "required": true,
+      "enabled": true,
+      "shape_class": "fan",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006492904844791099,
+        0.0014831940605044595,
+        -0.004571889690202624
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034011961941342295,
+        0.00023137023714831173,
+        0.012996831895962032
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 360.0
+    },
+    {
+      "id": "elbow_flexors",
+      "group": "elbow",
+      "required": true,
+      "enabled": true,
+      "shape_class": "straight_diamond",
+      "origin_body": "shoulder_abduction",
+      "origin_local": [
+        0.003400226608921514,
+        0.0002418425048170576,
+        0.013009575188879808
+      ],
+      "insertion_body": "radius",
+      "insertion_local": [
+        -0.0006574057462648426,
+        -0.0013637762179034211,
+        -0.00030981025444134504
+      ],
+      "via": [],
+      "cables": 2,
+      "max_force_n": 650.0
+    },
+    {
+      "id": "triceps",
+      "group": "elbow",
+      "required": true,
+      "enabled": true,
+      "shape_class": "y_branch",
+      "origin_body": "shoulder_abduction",
+      "origin_local": [
+        0.003390344788753481,
+        0.0002115298702304358,
+        0.013006660773915655
+      ],
+      "insertion_body": "forearm_ulna",
+      "insertion_local": [
+        -0.006252442979443814,
+        -0.008879527050825203,
+        -0.003339018408606762
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 700.0
+    },
+    {
+      "id": "subscapularis",
+      "group": "rotator_cuff",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006659817110501649,
+        0.0015001155268141559,
+        -0.004665554341664802
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.003392826643304602,
+        0.00024101882448995582,
+        0.013123866754883466
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 300.0
+    },
+    {
+      "id": "teres_minor",
+      "group": "rotator_cuff",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0007013385511504851,
+        0.00145758612403543,
+        -0.004695389618727404
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0034067763332413107,
+        0.00023014989494309646,
+        0.0131209905557987
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 190.0
+    },
+    {
+      "id": "teres_major",
+      "group": "glenohumeral",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006995139660923827,
+        0.00144667698000832,
+        -0.0047351597264209885
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.003399814559691805,
+        0.00024373848957752388,
+        0.013113060624846412
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 250.0
+    },
+    {
+      "id": "pectoralis_major_clavicular",
+      "group": "glenohumeral",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "clavicle_axial_rotation",
+      "origin_local": [
+        -7.759183101063628e-05,
+        3.632375956253142e-05,
+        1.85427576186612e-05
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.003399409622960434,
+        0.00024557997134722596,
+        0.013109005384886132
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 360.0
+    },
+    {
+      "id": "pectoralis_major_sternal",
+      "group": "glenohumeral",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12657494564305158,
+        -0.2524515819127276,
+        -1.2936866185012257
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0033990403818585833,
+        0.0002454231939186542,
+        0.013105025550486744
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 420.0
+    },
+    {
+      "id": "latissimus_dorsi",
+      "group": "glenohumeral",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12657874542227968,
+        -0.25231840111389175,
+        -1.2938520676973533
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0033983018996548253,
+        0.0002451096390615106,
+        0.013097065881687967
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 440.0
+    },
+    {
+      "id": "coracobrachialis",
+      "group": "glenohumeral",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006825049126719307,
+        0.0014370543724400164,
+        -0.004624624222960165
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0033999435356914776,
+        0.00023165523704004443,
+        0.013004977423685204
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 220.0
+    },
+    {
+      "id": "serratus_anterior",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12655690969408545,
+        -0.2524433591153016,
+        -1.2936595613367885
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006998036020374059,
+        0.0014578899570986436,
+        -0.004670358605629645
+      ],
+      "via": [
+        {
+          "body": "torso",
+          "local": [
+            -0.12664047090262898,
+            -0.2523782584954577,
+            -1.2937539246438665
+          ]
+        }
+      ],
+      "cables": 1,
+      "max_force_n": 320.0
+    },
+    {
+      "id": "trapezius_upper",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12654679018398854,
+        -0.252239494873793,
+        -1.2936062981548562
+      ],
+      "insertion_body": "clavicle_axial_rotation",
+      "insertion_local": [
+        -8.64982345107137e-05,
+        3.9406867051422266e-05,
+        2.908649627761406e-05
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 280.0
+    },
+    {
+      "id": "trapezius_middle",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12655510368392817,
+        -0.25226233480029864,
+        -1.2936825164169459
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006393721898438685,
+        0.0014845232465736586,
+        -0.004559729891852385
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 300.0
+    },
+    {
+      "id": "trapezius_lower",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12657069149631495,
+        -0.25230515966249656,
+        -1.2938254256583641
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006733117521030749,
+        0.0014866873003695532,
+        -0.0046104095029875225
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 320.0
+    },
+    {
+      "id": "rhomboid_major",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12655926043389798,
+        -0.2522737547635514,
+        -1.2937206255479907
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006887731808362503,
+        0.0014722225623122682,
+        -0.004655428560890641
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 180.0
+    },
+    {
+      "id": "rhomboid_minor",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12655302530894327,
+        -0.2522566248186722,
+        -1.2936634618514236
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006942088010209489,
+        0.0014731522676160011,
+        -0.004630537002456777
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 150.0
+    },
+    {
+      "id": "levator_scapulae",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12654263343401875,
+        -0.2522280749105402,
+        -1.2935681890238113
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006995609181207385,
+        0.00147944713461321,
+        -0.0045857404680814395
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 170.0
+    },
+    {
+      "id": "pectoralis_minor",
+      "group": "scapulothoracic",
+      "required": false,
+      "enabled": false,
+      "shape_class": "fan",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12656707842704396,
+        -0.25245752001102967,
+        -1.293706689522646
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006824135842489625,
+        0.0014369578416993391,
+        -0.004629622456741572
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 210.0
+    },
+    {
+      "id": "anconeus",
+      "group": "elbow",
+      "required": false,
+      "enabled": false,
+      "shape_class": "straight_diamond",
+      "origin_body": "shoulder_abduction",
+      "origin_local": [
+        0.0033598230821575044,
+        0.00022483123104377966,
+        0.012843132491263759
+      ],
+      "insertion_body": "forearm_ulna",
+      "insertion_local": [
+        -0.006252442979443814,
+        -0.008879527050825203,
+        -0.003339018408606762
+      ],
+      "via": [],
+      "cables": 1,
+      "max_force_n": 180.0
+    }
+  ]
+}

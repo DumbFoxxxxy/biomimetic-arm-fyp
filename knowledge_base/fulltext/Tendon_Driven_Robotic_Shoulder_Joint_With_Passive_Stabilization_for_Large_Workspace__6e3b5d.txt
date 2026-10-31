@@ -1,0 +1,1053 @@
+===== PAGE 1 =====
+IEEE/ASME TRANSACTIONS ON MECHA TRONICS 1
+T endon-Driven Robotic Shoulder Joint With
+Passive Stabilization for Large Workspace
+Sudong Lee , Graduate Student Member, IEEE , Kieran Gilday , and Josie Hughes
+Abstract—The shoulder is important for humanoid
+robots since it has a signiﬁcant impact on the arm’s range
+of motion and its versatility. Therefore, research on the
+shoulder joint, which is known as the spherical joint or
+ball–socket joint, is ongoing to mimic its wide workspace
+and high control accuracy. In this article, we propose a
+shoulder joint with a unique tendon-routing method. This
+method combines straight actuation tendons, passive heli-
+cal tendons, and springs, preventing joint dislocation even
+in extreme conditions and ensuring controllability in all
+positions. We can also adjust dislocation characteristics
+by changing the number of tendons and tendon-routing
+method. The passive spring connections impose inherent
+compliance and improve stability in harsh situations. The
+tendons imitate human ligament and muscle in order to
+achieve structural and functional similarity to a human
+shoulder. The proposed joint has a ± 99.87◦ workspace
+with respect to roll and pitch rotation and withstands high
+impact with compliance. It has key advantages includ-
+ing the wide range of motion, diverse dislocation map,
+lightweight, and similarities with human shoulder motion
+and structure.
+Index Terms —Compliant joint/mechanism, mechanism
+design, shoulder joint, tendon/wire mechanism.
+I. I NTRODUCTION
+T
+HE shoulder joint is a highly mobile and versatile joint that
+plays a crucial role in a variety of motions and tasks[1], [2],
+[3]. Connecting the body and the arm, the shoulder is essential
+in determining the performance of the arm, including range
+of motion (RoM), payload of arm, and manipulation control
+accuracy [4]. In human activities, the shoulder joint is heavily
+involved in throwing, reaching overhead, and other dynamic
+movements which enable many everyday tasks, for example:
+reaching for objects, combing your hair, putting on clothes, or
+lifting items overhead [5], [6]. The biomechanics of the human
+shoulder joint, the glenohumeral joint, enables these capabilities.
+Received 17 November 2025; accepted 10 March 2026. Recom-
+mended by T echnical Editor H. Liu and Senior editor Y . J. Pan. This work
+was supported by the Personalized Health and Related T echnologies
+(PHRT) under Project #2022-389. (Corresponding authors: Sudong
+Lee; Josie Hughes.)
+The authors are with the CREA TE Lab, EPFL, 1015 Lau-
+sanne, Switzerland (e-mail: sudong.lee@epﬂ.ch; kieran.gilday@epﬂ.ch;
+josie.hughes@epﬂ.ch).
+This article has supplementary material provided by the au-
+thors and color versions of one or more ﬁgures available at
+https://doi.org/10.1109/TMECH.2026.3674717.
+Digital Object Identiﬁer 10.1109/TMECH.2026.3674717
+This includes the relative geometry, which is formed from a
+shallow socket and large humeral head [7]. Many ligaments and
+tendons are required to maintain contact and stability [8] whilst
+preserving the large RoM. The joint structures have a degree of
+elasticity and compliance, allowing for adaptation to different
+movements and positions while maintaining joint integrity [9].
+Achieving a lightweight, compliant and high RoM robotic
+shoulder joint is essential to implement robust arm motions and
+perform complex operating tasks, especially in applications such
+as humanoid and mobile robotics [10], [11], [12]. A lightweight
+joint is important for ease of modelling and control, in particular
+for dynamic control [13], [14]. The wide RoM requirement is
+directly related to the robot’s workspace as well as its versa-
+tility. Furthermore, the compliance of the joint, which could
+result from the mechanical properties (intrinsic compliance) or
+the control method (extrinsic compliance), has been shown to
+enhance safety during human–robot collaboration and resilience
+in harsh environments [15], [16], [17], [18], [19], [20].T h i s
+compliance is key for more complex physical interactions, such
+as human–robot interaction and manipulation in undeﬁned en-
+vironments [21], [22]. Developing bio-inspired spherical joints,
+opposed to combining two revolute joints, has been one direction
+of research for moving toward such compliant multidegree of
+freedom (DoF) shoulder joints with a simple a compact struc-
+ture [23], [24], [25], [26], [27]. However, the bio-inspired joints
+have not been able to achieve performance similar to that of the
+human shoulder [26], [28].
+A. Related Work
+V arious spherical joints, also known as ball–socket joints,
+have shown a large RoM, high compliance, high control accu-
+racy, whilst being lightweight[29]. One approach for wide RoM
+with compactness is to make the ball in a ball–socket joint act
+like a gear [25], [30]. A ball with special gear teeth intermeshes
+with another ball or a gear connected with a motor. This approach
+has reliable operation and high control accuracy due to the use
+of a gear mechanism, and has also shows an improved RoM over
+a conventional ball-socket joint. Abe et al. [25] minimized the
+socket size to maximize RoM, however the workspace in the
+pitch direction is still limited. Although Liang et al. [30] solved
+this issue using permanent magnets, the absence of compliance
+and a large number of parts remain a challenge. Other approaches
+include more human inspired shoulders [26], [27], [28], [31],
+[32]. These studies minimize the contact surface between a ball
+and socket and actuate using tendons. Similarly, the shoulder
+1083-4435 © 2026 IEEE. All rights reserved, including rights for text and data mining, and training of artiﬁcial intelligence and similar technologi es.
+Personal use is permitted, but republication/redistribution requires IEEE permission. See https://www.ieee.org/publications/rights/index. html
+for more information.
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+2 IEEE/ASME TRANSACTIONS ON MECHA TRONICS
+T ABLE I
+COMP ARISON OF MECHANISMS (SPECIFICA TION) FOR SHOULDER JOINTS
+joints based on soft robotics or bio-inspiration have been trying
+to fulﬁll all the conditions (wide RoM, high compliance, and
+high control accuracy). These conditions are implemented to
+structurally mimic the human shoulder, replicating the anchoring
+positions of the muscles as well as the control concept [27],
+[32], [33], [34]. In some cases, a large number of actuators may
+be required, potentially compromising the compactness of the
+control system and overall design.
+Joint compliance has been identiﬁed as an important area of
+research throughout robotics [26], [31], [37]. High compliance
+increases the robots’ adaptability to enable not only safety or
+protection but also reliable and dexterous operation in various
+environments. Compliant control is one option which does not
+require hardware adaption, but inherent compliance is the ul-
+timate goal to ensure its adaptability in the midst of rapidly
+changing surroundings [26], [38], [39]. To address this issue,
+soft actuation mechanisms offer one solution [26]. However,
+the intrinsic softness from materials reduces the control perfor-
+mance due to the nonlinear material properties (e.g., hysteresis).
+To solve this problem, machine learning approaches and other
+control methods with model predictive control or kalman ﬁlters
+can be used for control [40], [41], [42]. There are limitations
+in terms of the simplicity of the system model. Cable-driven
+actuation with series springs is another widely seen solution[27],
+[28], [36]. High compliance can be achieved whilst the linear
+spring properties allow for intuitive geometric modelling. Un-
+like soft materials, this does not increase the control difﬁculty.
+Y ang et al.[36] developed a shoulder joint analogous to that of
+the human body, in which tendons function similarly to human
+muscles or ligaments to control the glenohumeral joint with geo-
+metric analysis Furthermore, this actuation mechanism provides
+functional and structural similarities with human shoulder. In
+other words, this actuating mechanism opens the potential for a
+‘test model’ of a human shoulder. However, it is a challenge to
+realize high stabilization due to the difﬁculty wrapping relatively
+thin lines perfectly around the joint.
+In addition to various design and mechanical features, con-
+trol methods for shoulder joints represent a signiﬁcant area of
+research. The objective of this research is to control three DoFs
+Fig. 1. Concept and features of the proposed shoulder joint. The joint
+based on the human shoulder structure and function has three notable
+features: variable dislocation distribution with estimation by model, wide
+RoM with helical tendon-routing method, and high compliance with sta-
+bilization tendons connected to springs in series.
+rotation using single DoF motors. In particular, managing the
+inherent complexity of tendon-operated shoulder joint systems
+necessitates the implementation of advanced control techniques.
+Many studies have attempted to implement control using data-
+driven approaches, such as mapping and supervised machine
+learning [35], [43].
+B. Contributions of the Paper
+In this article, we propose a compliant shoulder joint with
+tendon actuation, as shown in Fig. 1. This joint aims to satisfy
+key requirements for human-like shoulder capabilities: three
+rotational DoFs, large workspace, compliance, robustness, and
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+LEE et al.: TENDON-DRIVEN ROBOTIC SHOULDER JOINT WITH P ASSIVE ST ABILIZA TION FOR LARGE WORKSP ACE 3
+T ABLE II
+COMP ARISON OF MECHANISMS (FEA TURES) FOR SHOULDER JOINTS
+dislocation, as shown in Tables I and II. This design leverages a
+novel combination of a helical and passive, compliant tendons to
+actuate the joint. The helical tendons run through helical grooves
+on the ball joint, stabilizing the ball at extreme angles, providing
+stable motion over a wider RoM by minimizing the socket’s
+enclosure of the ball. This tendon routing method maintains
+control even in extreme positions by preventing dislocation and
+always wrapping around the ball. By combining the helical
+routed tendons with passive and compliant ones, the design is
+also highly robust to static and dynamic loads. The design is
+also compact and modular, making it practical and usable. All
+joint functionalities are achieved using a minimal number of
+tendons (actuators), without the need for soft materials or addi-
+tional structures to provide compliance. By combining the joint
+structure with different control methods, including a geometric
+model and data-driven models, we can achieve position control
+of the joint under the load, or even impact.
+We have evaluated the weight (the humerus is 20.0 g) and
+the large RoM (± 99.87◦ workspace in roll and pitch rotation).
+We also demonstrate control accuracy of the joint’s orientation
+as having less than 7.58% normalized root-mean-square error
+(NRMSE) in x-,y-, and z-axes. To demonstrate the capabilities
+of the joint, we show several trajectories along with the joints
+resilience to high impact hammer strikes. These experiments
+conﬁrm the controllability and stability that emerges from the
+conditional compliance. Finally, the joint has different dislo-
+cation distributions depending on the number of tendons and
+the tendon-routing method. These results show the possibility
+that the joint could be utilized as a test model for a human
+shoulder joint. The test model is a useful concept because it
+can be another approach to wearable development that currently
+relies on simulations and clinical trials [44], [45], [46].
+The rest of this article is organized as follows. Section
+II describes the design and the tendon-routing method to
+implement key features. We also provide modeling for
+estimation of dislocation and rotation control based on
+geometry. Section III explains the fabrication and experimental
+setup. Section IV presents the results of characterization of
+the joint and demonstrates various motions, impact test results,
+and discusses the contribution of our proposed joint and future
+work, followed by concluding the work.
+II. M ETHODS
+In this section, we ﬁrst present the novel joint design, fo-
+cusing on the design features and the tendon-routing method.
+Fig. 2. Design and routing method. (a) General view of assembled
+joint. (b) T endon types and connecting information. (c) Detail view and
+information about humerus with three degrees of freedom. The informa-
+tion includes humerus dimensions and tendon-routing paths. (d) Applied
+forces on the humerus when two types of tendons (yaw and roll ·
+pitch rotation tendons) are pulled. (e) Detail view and information about
+scapula. The information includes scapula dimensions and anchoring
+hole positions of 8 tendons. Joint images. (f) Joint and system including
+motors and communicator. (g) Control accuracy experiment setup with
+markers and a weight (500 g).
+A geometric model is then presented for dislocation analysis
+and kinematic control. In addition, two other data-driven control
+models are presented and their merits discussed.
+A. Joint Design
+Our bio-inspired shoulder design [see Fig. 2(a)]i sab a l l –
+socket joint formed from the scapular bone and the humerus bone
+which is the upper bone in the arm. The head of the humerus
+forms the moving part (the ball) that rests on the socket part (the
+scapula). Passive and actively controlled tendons constrain the
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+4 IEEE/ASME TRANSACTIONS ON MECHA TRONICS
+humerus to the scapular whilst also enabling control of the kine-
+matics and the dislocation. We propose a novel “helical tendon
+routing,” which when combined with the active/passive tendons
+offers robustness, load capacity, and control performance.
+The muscles that actuate the glenohumeral joint are realized
+through tendons connected to motors, and the ligaments that
+prevent shoulder dislocation are represented by helical tendons
+connected to springs. Although the exact geometry of the hu-
+man shoulder is not perfectly replicated, we achieve structural
+similarity by mimicking the functional roles of each component.
+Building upon these similarities, it is possible to simulate various
+scenarios of the human shoulder, such as dislocation, through
+the variation of helical tendons that mimic the role of ligaments.
+The use of helical tendon routing and the number of tendons can
+both be adjusted to modify the joint’s stability and dislocation
+characteristics. The speciﬁc design of the scapular and humerus
+is now discussed.
+1) Scapula: In order to enlarge the workspace of the joint,
+we minimize the socket area in contact with the ball. Enclosing
+the ball in the socket ensures stability and strength of the joint,
+though mechanically restricts rotation at extreme angles. The
+scapula has a concave socket with a depth of 5.5 mm for humerus
+alignment. It contains ﬁxation points for springs and motors, as
+well as anchoring holes for routing tendons.
+2) Humerus: The humerus is designed based on a sphere
+with a diameter of 40 mm. To increase the stability of this joint,
+we propose a helical tendon routing. The helical tendon-routing
+method keeps the humerus wrapped in tendons, improving RoM
+and impact resilience. In this design, the humerus has helical
+grooves and bolt ﬁxation points for tendon paths and anchoring,
+respectively. In the case of a helical tendon, the pattern is carved
+inward from the humerus’s surface, allowing the stabilization
+tendons to be embedded within the ball. The shallow angle of
+the helical pattern ensures that the yaw and roll · pitch rotation
+tendons intersect at nearly vertical angles. Consequently, these
+factors indicate that the pattern has a minimal inﬂuence on the
+movement of other tendons. The pitch per groove is 18.66 mm,
+and with three grooves, the apparent pitch is 6.22 mm. This pitch
+provides enough turns for the tendon to wrap securely around
+the humerus. In addition, the depth of each groove is 3.43 mm,
+which prevents the tendon from coming out of the groove.
+As illustrated in Fig. 2(b) and (c), three types of tendons
+(stabilization, yaw rotation, and roll · pitch rotation) are an-
+chored to the humerus. Three stabilization tendons pass through
+the helical grooves before being connected via springs to the
+scapular. These tendons, which provide compliance and stability
+to the joint, allow the use of passive springs in the design to
+reduce the number of required actuators and the control effort,
+with minimal drawbacks. By applying a pretension in these
+springs, the restoring force aligns the humerus when displaced
+by other tendons or external forces, and also controls dislocation.
+The restoring force direction is affected by the direction of the
+tendon at the point where it separates from the humerus. This is
+because the force exerted by the tendon when it wraps around the
+ball can be considered an internal force within the system that
+contains the tendons. The helical grooves increase the contact
+area between the tendon and the humerus, and allow the tendon
+to stably wrap around the humerus at any angle of rotation,
+preventing the humerus from sliding out of the scapula. This
+avoids dislocation at extreme rotation angles and helps to widen
+the workspace.
+In addition to the stabilizing tendons, there are a further ﬁve
+tendons which enable control of the joint conﬁguration. Two
+yaw tendons are directly linked to two individual motors, and
+generate yaw rotation when we consider the applied force’s
+direction by pulling tendons, as shown in Fig. 2(d).T h et h r e e
+roll · pitch tendons are connected to three motors, respectively,
+as same with yaw tendon. Since these tendons apply vertical
+forces to the center axis as shown in Fig. 2(d), the change of the
+tendons determines the roll and pitch rotation angles.
+3) Humerus Without Grooves: To establish the advantages
+of the helical routing, we compare this to a humerus where
+the stabilizing tendons connect to the humerus without the
+helical groove. The geometry of the joint is the same, except
+the humerus has a smooth surface.
+4) T endon Routing: The anchoring holes for tendon routing
+are arranged according to a circle with a diameter of 41 mm,
+as illustrated in Fig. 2(e).F i g .2(b) and (e) shows the selected
+routing method of tendons (stabilization, yaw rotation, and roll
+· pitch rotation tendons). The three roll · pitch rotation tendons
+pass through each of three holes spaced 120 ◦ apart, as shown
+in the red dots of Fig. 2(e). The three stabilization tendons pass
+through the same hole as roll· pitch rotation tendons. The pulling
+forces by the pretensioned springs (stabilization tendons) are
+applied at the same positions respectively as roll · pitch rotation
+tendons connected to the motor. The initial pretension applied
+to the spring is 13.5 N This helps to return the joint to initial
+position and reduces the accumulation of position error when
+the actuation tendons are slackened [Details on Appendix A of
+the Supplementary Material)]. The yaw rotation tendons pass
+through each of two holes with a 180 ◦ spacing.
+5) Theoretical Workspace: The workspace of the joint is
+determined by the dimensions of the scapula and humerus.
+The roll and pitch workspace is ± 99.87◦. The roll and pitch
+workspace can be expanded by optimizing the humerus and
+scapula dimensions. The derivation of the workspace is provided
+in Appendix B of the Supplementary Material.
+B. Model of Dislocation
+We estimate the presence or absence of dislocation according
+to tendon-routing methods or rotation angles. Dislocation is
+deﬁned as when the center of the humerus is not aligned with
+the center of the virtual circle created by the concave of the
+scapula, which is equivalent to the humerus moving out from
+the scapula. In other words, the direction of the net force by
+tendons must be toward the inside of the socket (scapula) surface
+where the ball contacts because there must be a reactionary force
+from the scapula. The tendon forces connected to springs can
+be estimated by calculating the change of spring displacement
+with a geometric model. However, the tendon forces connected
+to motors are not determined by geometrical constraints. To
+estimate the dislocation with only geometric conditions, there
+are two criteria. The ﬁrst condition entails conﬁrming that the
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+LEE et al.: TENDON-DRIVEN ROBOTIC SHOULDER JOINT WITH P ASSIVE ST ABILIZA TION FOR LARGE WORKSP ACE 5
+Fig. 3. (a) and (b) Feature points and lines of joints (a) with or
+(b) without helical tendon routing. These points and lines deﬁne poly-
+hedrons. (c) Criteria for predicting stability and dislocation. (i) Stable
+and (ii) dislocation condition of a joint without helical tendon routing.
+(iii) Stable condition of a joint with helical tendon routing. This routing
+method enlarges a stable area in the workspace.
+net force is directed toward the inner surface of the socket
+(scapula). The second is to check whether the net moment
+exerted by tendons can be zero since the ball maintains its own
+position.
+We simplify two criteria to one criteria with the assumption
+that the motors provide enough forces required to maintain the
+intended and steady position due to the use of position-controlled
+motors. The criteria for dislocation is to conﬁrm if the rotation
+center of the humerus is located within the polyhedron described
+by the tendons, as shown in Fig. 3. The direction of the net
+force exerted by tendons cannot deviate from the polyhedron.
+When considering the rotation center of the ball as a reference,
+if the center is outside the polyhedron, moments acts in only one
+direction. This is because motors and springs can only apply a
+pulling force. Therefore, the net moment cannot be zero and the
+ball rotates, causing dislocation. However, the center inside the
+polyhedron means the net moment can be zero.
+Fig. 3 shows the polyhedron deﬁned by the tendons in the
+cases of without [see Fig. 3(a)] and with [see Fig. 3(b)] helical
+tendons (stabilization tendons). Polyhedrons are drawn with
+lines that are connected between tendon’s anchoring points.
+These lines also include intrinsic connection within the humerus
+and the scapula. In the case of using helical tendons [see
+Fig. 3(b)], the points where the tendons separate from the
+humerus are considered the anchoring points because tendon
+forces at the wrapped part act as internal forces. The added
+anchoring points by the helical tendons ensures that the center
+of rotation is inside the polyhedron even at extreme positions, as
+s h o w ni nF i g .3(c). While yaw rotation may alter the stabilization
+conditions, the symmetry of the design ensures that equivalent
+conditions appear at different roll and pitch orientations. As a
+Fig. 4. Conﬁguration of a roll · pitch rotation tendon when it contacts
+the humerus. The total tendon length ( L) is divided into three sections
+(l1, l2, and l3).
+result, our analysis inherently captures all possible conﬁgura-
+tions, including those affected by yaw rotation. By determining
+how the anchoring positions shift under yaw rotation, the corre-
+sponding stabilization status can be directly inferred.
+C. Fabrication
+We fabricated the scapula and humerus as single-piece parts
+by using a 3-D printer (Original Prusa i3 MK3, Prusa Research)
+with polylactic acid ﬁlament. Particularly, complex shapes, such
+as grooves, of the humerus are well-suited for production using
+3-D printers. The scapula had room to stretch springs connected
+to the stabilization tendons even at extreme position. The springs
+installed with pretension do not exceed their elastic limit and
+do not lose tensile force. The tendons (Zeus Line - φ0.6 mm,
+Black-Cat) were anchored to bolts of the humerus, scapula, or
+3-D printed pulleys for motors. The ﬁve motors (XL430-W250-
+T, Robotis) were assembled by ﬁxing them to the underside of
+the scapula. The tendon can withstand up to 59 kg and the stall
+torque of this motor is 1.4 N ·m.
+D. Control
+In this section, we propose a geometric control model and
+data-driven control models. The geometric control model as-
+sumes that the change in length of the tendons (roll · pitch and
+yaw tendons) determines the orientation of the joint. Therefore,
+the required length changes can be derived by a geometric
+approach for a given orientation. In order to explore other
+approaches, we provide two other data-driven models which
+exploit surface ﬁtting and a machine learning method.
+1) Geometric Model: The necessary tendon length changes
+for the desired humerus movement are determined using
+a geometric model. The tendon lengths are determined by
+whether it makes contact with the humerus. When the tendon
+touches the humerus, as shown in Fig. 4, the total tendon length
+(Lj ) is given as follows:
+Lj = l1,j +l2,j +l3,j , where
+l1,j = ‖ ⃗ptn,j − ⃗pa1,j‖
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+6 IEEE/ASME TRANSACTIONS ON MECHA TRONICS
+l2,j = Radius· cos−1
+( ⃗ptn,j · ⃗ptm,j
+Radius2
+)
+, and
+l3,j = ‖ ⃗ptm,j − ⃗ph,j‖. (1)
+Conversely, when there is no contact, the total tendon length (Lk )
+is expressed as (S11) of the Supplementary Material. Detailed in-
+formation about the geometric model is provided in Appendix C
+of the Supplementary Material, including the calculation process
+and formula derivation. In the model, the control inputs are the
+direction vector, which determines the roll and pitch rotations,
+and the yaw angle, while the output corresponds to the tendon
+lengths. The motor is then actuated to achieve the required
+tendon lengths, ensuring proper joint positioning.
+2) Surface Fitting Model: As the geometric model does not
+include error factors, such as friction, between the humerus and
+scapula, data-driven models could improve the control accuracy.
+We apply a data-driven control approach that maps two compo-
+nents of the direction vector ( x and y values, as the inputs)
+with the three roll · pitch tendon lengths (the outputs). The
+ﬁfth-order polynomial surface ﬁtting method is used to generate
+three models for three roll · pitch tendon lengths, this offers
+a tradeoff between complexity to capture the complex surface,
+yet avoiding overﬁtting. Each model has 21 coefﬁcients for the
+ﬁfth-order polynomial equation (details on Appendix E of the
+Supplementary Material), outputting the corresponding tendon
+length using the two inputs. The data is collected in 721 different
+reference directions using the geometric model. The ground truth
+data are collected by motion capture system. The ﬁtting results
+are shown in Fig. S4(a)–(c) of the Supplementary Material.
+3) Machine Learning Model: We evaluate a second
+data-driven control approach based on machine learning.
+Comprehensive information on machine learning layers and
+parameters can be found in Appendix F of the Supplementary
+Material. This method maps three components of the direction
+vector (x, y, and z values, as the inputs) with three roll · pitch
+tendon lengths (the outputs), as same with the surface ﬁtting
+method. However, we generate only one deep neural network
+model outputting tendon lengths simultaneously. The data is
+also the same as used in the surface ﬁtting model. The results
+are shown in Fig. S4(d)–(f) of the Supplementary Material. (The
+comparison of the three models can be found in Appendix G of
+the of the Supplementary Material.)
+III. E XPERIMENT ALRESUL TS
+In this section, we characterize the developed shoulder joint in
+terms of four metrics: workspace, control of dislocation, control
+accuracy, and torque. We demonstrate the trajectory-following
+performance leveraging the best control model, and also demon-
+strate the compliance in vertical and horizontal impact situations.
+The experimental setup is presented in Appendix H of the
+Supplementary Material.
+A. Characterization
+1) Workspace: Fig. 5(a) shows the extreme position of the
+joint, which conﬁrms that the joint can rotate to the theoretical
+geometric limit (detail information is provided in Appendix B
+of the Supplementary material). According to the geometric
+Fig. 5. Workspace of joint. (a) Maximum RoM. (b) Results of yaw
+rotation experiments.
+constraints, the maximum rotation angle in roll and pitch is ±
+99.87◦ which is similar to the experimental result ( −105◦ to
+102◦).
+To check the yaw rotation performance, we perform a yaw
+rotation of the shoulder joint by pulling the two yaw rotation
+tendons. In this case, the motors pull the same length in situations
+of various orientations [see Fig. 5(b)-(ii)] and the reference
+orientation is tracked by the motion capture system. Fig. 5(b)
+illustrates the rotation results which involves the decoupled roll,
+pitch, and yaw rotation angle. The yaw rotation occur as a dom-
+inant component considering the average value of yaw is about
+39.01◦ (yellow line). This results from the yaw rotation tendons
+have a vertical component [see Fig. 5(c)], which induces the roll
+and pitch rotation. However, the rotation is limited considering
+the average values of roll and pitch are 4.89◦ (blue line) and 3.39◦
+(orange line), respectively. In summary, as shown in Fig.5(b)-(i)
+and (b)-(iii), the rotation only by the yaw rotation tendons is
+not a pure yaw but the combination of the three components
+(roll, pitch, and yaw). Although the yaw motion is not fully
+decoupled from other rotation components (roll and pitch), the
+joint motion is dominated by yaw rotation. While humans can
+move yaw motion independently, which means the kinematic
+characteristics do not perfectly match with the proposed joint,
+the fact that yaw can generate signiﬁcant movement means the
+joint can still be considered similar with the glenohumeral joint.
+2) Dislocation: The dislocation characteristics are validated
+with respect to the analytic model introduced in Section II-B.
+The results are presented in Fig. 6. Speciﬁcally the stable and
+dislocation region is given for the helical and nonhelical humerus
+joint for different number of stabilization tendons. This is given
+in the X-Y plane. In the case of the joint without helical
+tendon routing, since the roll · pitch tendon can wrap around
+the joint, whether dislocation occurs depends on the number of
+tendons. As shown in Fig. 6(a), the presence of dislocation is
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+LEE et al.: TENDON-DRIVEN ROBOTIC SHOULDER JOINT WITH P ASSIVE ST ABILIZA TION FOR LARGE WORKSP ACE 7
+Fig. 6. (a) Dislocation distributions without stabilization tendons. (i),
+(ii), and (iii)Distribution maps of 3, 6, 16 roll · pitch tendons, respectively .
+(b) Stable area ratio according to the number of roll · pitch tendons
+and without stabilization tendons. (c) Dislocation distributions with sta-
+bilization tendons and three roll · pitch tendons. (i) and (ii) Distribution
+maps of 1 and 3 stabilization tendons, respectively . A direction vector
+means a unit vector in the direction of the humerus’s center axis shown
+in Fig. 2(d).
+estimated according to the joint orientation or the number of
+uniformly distributed roll · pitch tendons. When we compare
+this estimation with the test results as shown in Fig. 6(a)-(i) and
+(a)-(ii), it is veriﬁed that the model matches well with real results.
+Therefore, the following part analyzes detail characteristic of the
+dislocation using the model.
+First, we consider the joint without helical stabilizing tendons.
+The stable region is saturated even as the number of tendon
+increase. When comparing Fig. 6(a)-(ii) and (a)-(iii), the stable
+region is similar and does not expand. This result is evident in
+Fig. 6(b). When roll· pitch tendons are only used, the stable area
+ratio saturates at less than 100% [see Fig. 6(b)]. By adding the
+helically routed tendon, this enlarges the operation area to the full
+theoretical geometrically allowed workspace (The workspace is
+provided in Appendix B of the Supplementary Material). As
+depicted in Fig. 6(c)-(i), the addition of a single stabilization
+tendon already covers a substantial area. Furthermore, with the
+addition of three stabilization tendons, complete coverage of the
+entire workspace can be achieved [see Fig. 6(c)-(ii)].
+In summary, the helical routing method can be used to achieve
+full coverage of a geometrically determined workspace without
+adding a large number of tendons and without dislocations.
+This is because the addition of the three helical tendons ensure
+that the center of rotation is always inside the polyhedron [see
+Fig. 3(c)-(iii)]. In addition, we can create various dislocation
+area shapes by varying the number of tendons and how they
+are routed. The number of tendons, the use of helical routing
+methods, and the routing positions can all serve as parameters
+for designing a dislocation map.
+Fig. 7. (a) and (b) Results of control accuracy experiment depending
+on mapping methods: (i) geometric modeling, (ii) surface ﬁtting, and
+(iii) machine learning. (a) Control accuracy map with average positions
+(green dots) of each command and NRMSEs (various colors). (b) Con-
+trol accuracy according to orientations. (c) Results of control accuracy
+experiment with the weight [500 g, Fig. 2(g)]. (i) Control accuracy map
+with average positions (green dots) of each command and NRMSEs
+(various colors). (ii) control accuracy according to orientations. (iii) Ac-
+curacy comparison table between with and without the weight.
+3) Control Accuracy: The control accuracy is characterized
+for the three different methods: the geometric (analytical) model,
+surface ﬁtting model, and machine learning model, as described
+in Section II-B. To evaluate the accuracy of these methods a
+target position is demanded, and the ground truth is measured via
+the motion capture system. These experiments are performed for
+721 different reference directions. The results shown in Fig.7(a)
+are analyzed for accuracy on x-, y-, and z-axes in terms of
+NRMSEs (see Table S1 of the Supplementary Material). The
+analysis entails evaluating accuracy for angles from the center
+axis, as plotted in Fig. 7(b). [In Fig. 7(a), a direction vector is
+a unit vector about the direction of the humerus’s center axis
+depicted in Fig. 2(d).]
+Table S1 of the Supplementary Material shows that all three
+models can achieve a control accuracy of generally less than
+12% NRMSE across the workspace. The exception is the edge
+area of the analytical model. The error decreases slightly as the
+angle from the center line increases and then starts to increase
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+8 IEEE/ASME TRANSACTIONS ON MECHA TRONICS
+Fig. 8. T orque according to orientations. Results on one 60 ◦ section
+because the same geometry repeats every 60 ◦. The center line is the
+humerus’s center axis depicted in Fig. 2(d).
+Fig. 9. Results of trajectory following experiments with the offset cor-
+rection. Control accuracy map with average positions (green dots) of
+each command and NRMSEs (various colors): (a) circles, (b) ellipses,
+and (c) three leaves.
+[see Fig. 7(b)]. Since the maximum tension among springs is
+minimal near the center line, low motor torques to position the
+joint cause the relatively high errors. The maximum error occurs
+as the angle from the center line is around 90 ◦. In terms of the
+axis, the percentage error of z-axis is larger than those of x- and
+y-axes (see Table S1 of the Supplementary Material). This is
+because the available range of x- andy-axes are larger than that
+of z-axis.
+Each model has different control accuracy performance. The
+data-driven approaches have a lower NRMSEs compared the
+analytical model, but still have errors in the extreme orientations.
+The machine learning approach has the least variation along the
+axes and at extreme angles. However, the surface ﬁtting model
+shows better performance in the “mid-range” where there is
+most operation, thus we choose to use this over the machine
+learning model.
+To investigate the impact of weight on the control accuracy,
+another experiment with a weight (500 g) is conducted using
+the surface ﬁtting model in an environment shown in Fig. 2(g).
+The results indicate that, while there are localized increases in
+error near the center, the overall accuracy is not signiﬁcantly
+compromised, as illustrated in Fig.7(c)–(i). In terms of accuracy
+according to the angle, the error along the z-axis increases near
+90◦; however, aside from that, the accuracy does not substan-
+tially deteriorate [see Fig. 7(c)-(ii)]. As shown in Fig. 7(c)-(iii),
+the addition of the weight suppresses vibrations after movement,
+increasing the accuracy along the x- and y-axes. However, the
+accuracy of the z-axis is adversely affected due to the inﬂuence
+of gravity. In summary, the joint experiences a decrease in accu-
+racy only in the direction of gravity when weight is added, but its
+performance does not signiﬁcantly deteriorate otherwise. This
+indicates that the proposed joint mechanism is robust to weight.
+T ABLE III
+CONTROL ACCURACY OF TRAJECTORY FOLLOWING
+4) T orque: The maximum torques without the change of the
+tendon length are measured in various orientation (the measuring
+method is described in Section III). The measurement is shown
+in Fig. 8 and Table S2 of the Supplementary Material. The
+torque remains approximately constant over the workspace of
+the shoulder joint. At the extreme rotation angle, the increased
+restoring force of spring can take a larger portion of the motor’s
+maximum torque. However, there is no clear sign that the torque
+reduces towards the edge of the workspace (extreme rotation
+angle). This is because the spring is not stiff enough to affect the
+maximum torque. The average torque is about 4.20 N ·m. This
+can be improved by using motors with higher maximum torque.
+Moreover, the joint can support 4 kg weights in a stationary state.
+B. Demonstration
+In this section, we perform two experiments: trajectory fol-
+lowing and compliance performance. To evaluate the trajectory
+following performance, the motor commands for three different
+demand trajectories are determined, and the accuracy is deter-
+mined via the motion capture system.
+1) T rajectory Following: We test three types of trajectories:
+circles, ellipses, and three leaves (with the angular velocity of
+0.094 rad/s). The surface ﬁtting model is selected as a controller
+since it shows best performance in the “mid-range” where there
+is most operation. The observed initial position is not always
+centered on the direction vector map (0, 0). This is an initializa-
+tion problem resulting from inaccuracies in motor calibration.
+We try to minimize this effect and match the center by adding
+offset values about each shape (correction). Fig. 9,F i g .S 7o f
+the Supplementary Material, and Table III show the corrected
+control accuracy results which are illustrated with the same
+method of of Section IV -B-3. In general, we see that the joint
+follows given trajectories in the whole workspace and the model
+can control positions even in the complex shape of three leaves
+[see Fig. 9(c)]. Without the correction (ﬁgures are shown in Ap-
+pendix I of the Supplementary Material), the NRMSEs increases
+when compared the results of Section IV -B-3, since the shapes
+are skewed to one side due to an offset (initialization problem).
+Fig. 10-(i) shows overlaid images to depict the trajectory and
+the overall movement, followed by images in speciﬁc positions
+[see Fig. 10-(ii) and (iii)]. As shown in Fig. 9, the joint follows
+the paths smoothly, even at extreme angles. The joint also suc-
+cessfully moved three leaves at the angular velocity of 1.58 rad/s.
+(The video is given in the Supplemental Material).
+2) Compliance: The joint has high compliance thanks to the
+stabilization tendons and springs. In this section, we discuss con-
+ditions for compliance, and verify the compliance by applying
+an impact to the joint vertically and horizontally. To emphasize
+the effectiveness of the stabilization tendon, we also compare
+the results for different numbers of tendons.
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 9 =====
+LEE et al.: TENDON-DRIVEN ROBOTIC SHOULDER JOINT WITH P ASSIVE ST ABILIZA TION FOR LARGE WORKSP ACE 9
+Fig. 10. T rajectory following demonstration to show control perfor-
+mance with various path shapes: (a) circle, (b) ellipse, and (c) three
+leaves. (i) Overlayed image to show trajectory . (ii) and (iii) T wo sample
+moment images. The sampling rate of the motion capture system is
+120 Hz.
+Fig. 11. High impact demonstration to show compliance depending on
+the number of the stabilization tendons: (a) three and (b) zero. (i) Start
+state. (ii) Vertical impact. (iii) Horizontal impact. (iv) End state.
+In demonstration, the initial orientation of the joint is horizon-
+tal to the ground, as shown in Fig. 11-(i) and Fig. S9-(i) of the
+Supplementary Material. In the cases of the few or no stabiliza-
+tion tendon [e.g., Figs. S9(b) and 11(b) of the Supplementary
+Material], the joint cannot maintain the horizontal orientation.
+From the start state comparison, we see the important role of
+“stabilizing” in any orientation including extreme rotation. The
+importance of the stabilization tendon is also veriﬁed in other sit-
+uations. When the high vertical impact is applied to the humerus
+as shown in Figs. 11-(ii) and S9-(ii) of the Supplementary Ma-
+terial, the more stabilization tendons there are, the less the joint
+deviates from the socket. When the three tendons are connected
+to the humerus as we proposed [see Fig.11(a)–(ii)], the humerus
+is not separated from the scapula and withstands free fall impact
+(from about 30 cm height) of a 2.0 kg mass. The average peak
+displacement of 11.65 mm and an average recovery time from
+peak displacement of 313 ms. The displacement is limited, and
+the recovery time is short relative to the timescale of motion
+control. In the cases of the few or no stabilization tendons, the roll
+· pitch and yaw tendons make the humerus return to its original
+position after impact, but there is larger separation at the moment
+of impact. The stabilization tendons prevent misalignment even
+when high forces are applied. Furthermore, the springs at the
+one end of the stabilization tendons absorb shocks and help the
+humerus return to original position with restoring forces.
+In the cases that the horizontal impact is applied to the
+humerus [see Figs. 11-(iii) and S9-(iii) of the Supplementary
+Material], the more stabilization tendons present, the less the
+joint deviates from the socket. However, the deviations are less
+than those of the vertical impact because of the concave shape of
+the scapula. The concave shape also helps with alignment. When
+we observe the ﬁnal states, the humerus returns the original
+position with all four tendon conﬁgurations [see Figs. 11-(iv)
+and S9-(iv) of the Supplementary Material]. In the cases of the
+few or no stabilization tendons, the humerus comes close to
+dislocation, but the elasticity of the roll · pitch and yaw tendons
+allowed it to return to its original position. In summary, the
+combination of tendon routing and transmission methods, the
+use of springs, and the shape of the socket enables a spherical
+joint that is impact resistant and highly compliant. Even when
+subjected to external impacts during movement, the joint effec-
+tively absorbs the shocks through compliance and follows the
+predeﬁned path without any issues. (This can be see in Video
+3 of the Supplementary Material.) Since the actuation tendons
+and elastic stabilization tendons are arranged in parallel, high
+compliance is not always guaranteed and exhibits directional
+dependence. The detailed analysis is provided in Appendix J of
+the Supplementary Material.
+IV . DISCUSSION AND CONCLUSION
+In this article, we proposed the shoulder joint with helical
+tendon routing that enables three DoFs and a wide RoM without
+dislocation, using simple structure and parts. Tendons as a
+force transmission method does not degrade the compactness
+of the joint. These advantages may extend the three DoF joints
+to versatile usages without increasing the design and control
+complexity. We developed and evaluated three different models
+for controlling joint actuation. The wide RoM, control accuracy,
+and compliance were veriﬁed in demonstrations. Especially,
+tendon-driven force transmission allows high design ﬂexibility,
+such as placing motors at a distance from the joint. For practical
+applications, it is important to reduce the weight of components
+located far from the center of mass (CoM) to get low inertia,
+which enables agile motion and reduces the torque required for
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 10 =====
+10 IEEE/ASME TRANSACTIONS ON MECHA TRONICS
+control. Moreover, by enclosing the tendons in PTFE tubes,
+the motors can be positioned with minimal interference with
+the tendons from surrounding components or the complexity of
+the tendon path. In other words, in order to enhance dynamic
+performance, the motors can also be placed close to the CoM.
+The ﬁrst contribution of this research lies in a tendon-routing
+method. The helical routed tendons wrap around the humerus
+stabilizing the ball, preventing dislocation and maintaining
+controllable states even in extreme orientations. This minimizes
+the socket’s enclosure of the ball for the wide RoM and allows
+the joint to operate using a minimal number of actuators.
+Since the helical tendon routing method utilizes only threads
+and springs, it can be readily applied to other joints where
+high stability is required, without signiﬁcantly increasing
+weight, volume, or structural complexity. Moreover, it ensures
+excellent compliance. This design feature can be widely applied
+compactly to other joints by adding spiral grooves. Another
+feature is control of the dislocation map in the workspace. We
+are able to vary dislocation distribution by changing the routing
+method depending on the number of stabilization, yaw, and
+actuation tendons, as well as the anchoring locations.
+Another contribution is durability and directional compliance.
+The stabilization tendons connected with springs act as a shock
+absorber. In addition, the tendon force transmission separating
+the humerus from the motor prevents the motor from being
+impacted when high external forces in a speciﬁc directional
+range are applied to the humerus. The lightweight of the joint is
+one advantage in terms of robot dynamics. All parts fabricated
+by 3-D printing are lightweight, for example, the humerus is only
+20.0 g. The tendon does not signiﬁcantly increase the weight of
+the joint. This reduces the burden on the motor, making it easier
+to control and improving agility.
+The shoulder joint demonstrates promise, but there exists
+room for improvement. The control performance can be im-
+proved with more advanced approaches or improved hardware.
+The control accuracy of a surface ﬁtting method can be increased
+by using nonlinear ﬁtting method or adding nonlinear term to the
+current polynomial equation (in Appendix E of the Supplemen-
+tary Material). When using the machine learning method, the
+results can be enhanced by changing networks or parameters.
+Other machine learning approaches, such as long short-term
+memory networks or reinforcement learning, can be applied to
+further enhance the control. In addition, we can also improve
+results with model-based learning by using the proposed control
+model. Since control errors also come from friction and hystere-
+sis, we can improve performance by lubrication or feedback
+control. For example, embedding sensors, such as IMUs or
+Hall-effect sensors on the scapula (with corresponding magnet
+attached to the humerus), could be embedded to estimate joint
+positions. These sensor signals would enable the implementation
+of feedback control, improving control accuracy.
+The maximum torque is low comparing the human shoulder.
+Since the joint uses tendons as the force transmission mecha-
+nism, the joint can be positioned remotely from the motor. This
+allows for ﬂexible motor positioning, reducing constraints on the
+use of larger motors. Because the joint torque is inﬂuenced by
+the motor torque, changing the motor can increase the amount
+of torque that can be generated. In this case, large force can be
+transmitted without any issues by employing metal-based ten-
+dons (e.g., Bowden cable) or multiple tendons twisted in parallel.
+The shoulder joint can be used for various applications. Our
+joint has the same number of DoFs and achieves functionality
+through tendon-driven actuation similar to that of a human
+shoulder. The tendons of the proposed joint correspond to the
+ligaments and muscles respectively. Leveraging these functional
+and structural similarities, a shoulder using this joint can act as
+a test bed for wearables. In this case, the possibility to run a
+number of experiments relatively quickly allows the developer
+to modify design and to tune parameters in a fast feedback loop,
+for example: the variable dislocation distribution may help to
+explore shoulder support wearables.
+REFERENCES
+[1] D. B. Lucas, “Biomechanics of the shoulder joint,” Arch. Surg., vol. 107,
+no. 3, pp. 425–432, 1973.
+[2] H. V eeger and F. van der Helm, “Shoulder function: The perfect com-
+promise between mobility and stability,” J. Biomech. , vol. 40, no. 10,
+pp. 2119–2129, 2007.
+[3] M. F. Shah, S. Hussain, R. Goecke, and P . K. Jamwal, “Mechanism design
+and control of shoulder rehabilitation robots: A review,”IEEE Trans. Med.
+Robot. Bionics, vol. 5, no. 4, pp. 780–792, Nov. 2023.
+[4] V . T. Inman, J. B. d. M. Saunders, and L. C. Abbott, “Observations of the
+function of the shoulder joint,” Clin. Orthopaedics Related Res., vol. 330,
+pp. 3–12, 1996.
+[5] C. E. Boettcher, I. Cathers, and K. A. Ginn, “The role of shoulder muscles
+is task speciﬁc,” J. Sci. Med. Sport , vol. 13, no. 6, pp. 651–656, 2010.
+[6] A. M. Oosterwijk, M. K. Nieuwenhuis, C. P . van der Schans, and L.
+J. Mouton, “Shoulder and elbow range of motion for the performance
+of activities of daily living: A systematic review,” Physiotherapy Theory
+Pract., vol. 34, no. 7, pp. 505–528, 2018.
+[7] J. Lenarcic and M. Stanisic, “A humanoid shoulder complex and the
+humeral pointing kinematics,”IEEE Trans. Robot. Automat., vol. 19, no. 3,
+pp. 499–506, Jun. 2003.
+[8] J. E. Labriola, T. Q. Lee, R. E. Debski, and P . J. McMahon, “Stability
+and instability of the glenohumeral joint: The role of shoulder muscles,”
+J. Shoulder Elbow Surg., vol. 14, no. 1, pp. S32–S38, 2005.
+[9] J. Y ang, X. Feng, J. H. Kim, and S. Rajulu, “Review of biomechanical
+models for human shoulder complex,” Int. J. Hum. Factors Model. Simul.,
+vol. 1, no. 3, pp. 271–293, 2010.
+[10] K. Kaneko et al., “Humanoid robot HRP-5p: An electrically actuated
+humanoid robot with high-power and wide-range joints,” IEEE Robot.
+Autom. Lett., vol. 4, no. 2, pp. 1431–1438, Apr. 2019.
+[11] C. Klas and T. Asfour, “A compact, lightweight and singularity-free wrist
+joint mechanism for humanoid robots,” in Proc. 2022 IEEE/RSJ Int. Conf.
+Intell. Robots Syst., 2022, pp. 457–464.
+[12] S. Alfayad, F. B. Ouezdou, F. Namoun, and G. Cheng, “Lightweight
+high performance integrated actuator for humanoid robotic applications:
+Modeling, design & realization,” in Proc. 2009 IEEE Int. Conf. Robot.
+Automat., 2009, pp. 562–567.
+[13] G. Bledt, M. J. Powell, B. Katz, J. Di Carlo, P . M. Wensing, and S. Kim,
+“MIT Cheetah 3: Design and control of a robust, dynamic quadruped
+robot,” in Proc. 2018 IEEE/RSJ Int. Conf. Intell. Robots Syst. , 2018,
+pp. 2245–2252.
+[14] S. Mori, K. Tanaka, S. Nishikawa, R. Niiyama, and Y . Kuniyoshi, “High-
+speed and lightweight humanoid robot arm for a skillful badminton robot,”
+IEEE Robot. Autom. Lett. , vol. 3, no. 3, pp. 1727–1734, Jul. 2018.
+[15] F. Russell, Y . Takeda, P . Kormushev, R. V aidyanathan, and P . Ellison,
+“Stiffness modulation in a humanoid robotic leg and knee,” IEEE Robot.
+Autom. Lett., vol. 6, no. 2, pp. 2563–2570, Apr. 2021.
+[16] N. Paine et al., “Actuator control for the NASA-JSC V alkyrie humanoid
+robot: A decoupled dynamics approach for torque control of series elastic
+robots,” J. Field Robot., vol. 32, no. 3, pp. 378–396, 2015.
+[17] Q. Li, F. Meng, Z. Y u, X. Chen, and Q. Huang, “Dynamic torso compliance
+control for standing and walking balance of position-controlled humanoid
+robots,” IEEE/ASME Trans. Mechatron. , vol. 26, no. 2, pp. 679–688,
+Apr. 2021.
+[18] Y .-J. Kim, “Anthropomorphic low-inertia high-stiffness manipulator
+for high-speed safe interaction,” IEEE Trans. Robot. , vol. 33, no. 6,
+pp. 1358–1374, Dec. 2017.
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 11 =====
+LEE et al.: TENDON-DRIVEN ROBOTIC SHOULDER JOINT WITH P ASSIVE ST ABILIZA TION FOR LARGE WORKSP ACE 11
+[19] A. Calanca, R. Muradore, and P . Fiorini, “A review of algorithms for
+compliant control of stiff and ﬁxed-compliance robots,” IEEE/ASME
+Trans. Mechatron., vol. 21, no. 2, pp. 613–624, Apr. 2016.
+[20] T. George Thuruthel, Y . Ansari, E. Falotico, and C. Laschi, “Control
+strategies for soft robotic manipulators: A survey,” Soft Robot ,v o l .5 ,
+no. 2, pp. 149–163, 2018.
+[21] Y . She, S. Song, H.-J. Su, and J. Wang, “A comparative study on the effect
+of mechanical compliance for a safe physical human–robot interaction,”
+J. Mech. Des., vol. 142, no. 6, 2020, Art. no. 063305.
+[22] A. Edsinger and C. C. Kemp, “Human-robot interaction for cooperative
+manipulation: Handing objects to one another,” in Proc. 16th IEEE Int.
+Symp. Robot Hum. Interactive Commun ., 2007, pp. 1167–1172.
+[23] S. Mghames, M. G. Catalano, A. Bicchi, and G. Grioli, “A spherical active
+joint for humanoids and humans,” IEEE Robot. Autom. Lett., vol. 4, no. 2,
+pp. 838–845, Apr. 2019.
+[24] M. Folgheraiter, S. Y essirkepov, and A. Y essaly, “An actuated spherical
+joint for humanoid robotics applications,” in Proc. 2019 IEEE Int. Conf.
+Cybern. Intell. Syst. / IEEE Conf. Robot. Automat. Mechatron. , 2019,
+pp. 571–576.
+[25] K. Abe, K. Tadakuma, and R. Tadakuma, “Abenics: Active ball joint
+mechanism with three-DoF based on spherical gear meshings,” IEEE
+Trans. Robot., vol. 37, no. 5, pp. 1806–1825, Oct. 2021.
+[26] Z. Lin, Q. Shao, X.-J. Liu, and H. Zhao, “An anthropomorphic muscu-
+loskeletal system with soft joint and multiﬁlament pneumatic artiﬁcial
+muscles,” Adv. Intell. Syst., vol. 4, no. 10, 2022, Art. no. 2200126.
+[27] C. Richter et al., “Musculoskeletal robots: Scalability in neural control,”
+IEEE Robot. Autom. Mag. , vol. 23, no. 4, pp. 128–137, Dec. 2016.
+[28] P .-A. Mouthuy et al., “Humanoid robots to mechanically stress human
+cells grown in soft bioreactors,” Commun. Eng., vol. 1, no. 1, 2022, Art.
+no. 2.
+[29] L.-T. Schreiber and C. Gosselin, “Passively driven redundant spherical
+joint with very large range of motion,” J. Mech. Robot., vol. 9, no. 3, 2017,
+Art. no. 031014.
+[30] G. Liang, L. Zong, and T. L. Lam, “DISG: Driving-integrated spherical
+gear enables singularity-free full-range joint motion,”IEEE Trans. Robot.,
+vol. 39, no. 6, pp. 4464–4481, Dec. 2023.
+[31] S. Lessard et al., “A bio-inspired tensegrity manipulator with multi-DoF,
+structurally compliant joints,” in Proc. 2016 IEEE/RSJ Int. Conf. Intell.
+Robots Syst., 2016, pp. 5515–5520.
+[32] G. Martius, R. Hostettler, A. Knoll, and R. Der, “Compliant control for
+soft robots: Emergent behavior of a tendon driven anthropomorphic arm,”
+in Proc. 2016 IEEE/RSJ Int. Conf. Intell. Robots Syst., 2016, pp. 767–773.
+[33] K. Kawaharazuka, M. Kawamura, S. Makino, Y . Asano, K. Okada, and M.
+Inaba, “Antagonist inhibition control in redundant tendon-driven structures
+based on human reciprocal innervation for wide range limb motion of
+musculoskeletal humanoids,” IEEE Robot. Autom. Lett. , vol. 2, no. 4,
+pp. 2119–2126, Oct. 2017.
+[34] S. Ikemoto, F. Kannou, and K. Hosoda, “Humanlike shoulder complex
+for musculoskeletal robot arms,” in Proc. 2012 IEEE/RSJ Int. Conf. Intell.
+Robots Syst., 2012, pp. 4892–4897.
+[35] J. M. Friesen, J. L. Dean, T. Bewley, and V . Sunspiral, “A tensegrity-
+inspired compliant 3-DoF compliant joint,” in Proc. 2018 IEEE Int. Conf.
+Robot. Automat., 2018, pp. 3301–3306.
+[36] H. Y ang, G. Wei, and L. Ren, “Development and characteristics of a highly
+biomimetic robotic shoulder inspired by musculoskeletal mechanical in-
+telligence,” IEEE Trans. Robot., vol. 40, pp. 2672–2691, 2024.
+[37] Y . Nakanishi et al., “Development of musculoskeletal humanoid Kenzoh
+with mechanical compliance changeable tendons by nonlinear spring unit,”
+in Proc. 2011 IEEE Int. Conf. Robot. Biomimetics , 2011, pp. 2384–2389.
+[38] N. Lin et al., “IMU-based active safe control of a variable stiffness
+soft actuator,” IEEE Robot. Autom. Lett. , vol. 4, no. 2, pp. 1247–1254,
+Apr. 2019.
+[39] Z. Wang, P . Polygerinos, J. T. B. Overvelde, K. C. Galloway, K. Bertoldi,
+and C. J. Walsh, “Interaction forces of soft ﬁber reinforced bending
+actuators,” IEEE/ASME Trans. Mechatron. , vol. 22, no. 2, pp. 717–727,
+Apr. 2017.
+[40] C. M. Best, M. T. Gillespie, P . Hyatt, L. Rupert, V . Sherrod, and M.
+D. Killpack, “A new soft robot control method: Using model predictive
+control for a pneumatically actuated humanoid,” IEEE Robot. Autom.
+Mag., vol. 23, no. 3, pp. 75–84, Sep. 2016.
+[41] W. D. Null et al., “Automatically-tuned model predictive control for an un-
+derwater soft robot,” IEEE Robot. Autom. Lett., vol. 9, no. 1, pp. 571–578,
+Jan. 2024.
+[42] M. S. Xavier, A. J. Fleming, and Y . K. Y ong, “Nonlinear estimation and
+control of bending soft pneumatic actuators using feedback linearization
+and ukf,” IEEE/ASME Trans. Mechatron., vol. 27, no. 4, pp. 1919–1927,
+Aug. 2022.
+[43] K. Kawaharazuka, S. Makino, M. Kawamura, Y . Asano, K. Okada, and
+M. Inaba, “Online learning of joint-muscle mapping using vision in
+tendon-driven musculoskeletal humanoids,” IEEE Robot. Autom. Lett. ,
+vol. 3, no. 2, pp. 772–779, Apr. 2018.
+[44] M. Rossini et al., “Design and evaluation of a passive cable-driven occu-
+pational shoulder exoskeleton,” IEEE Trans. Med. Robot. Bionics ,v o l .3 ,
+no. 4, pp. 1020–1031, Nov. 2021.
+[45] H. Wang, V . Caggiano, G. Durandau, M. Sartori, and V . Kumar, “MyoSim:
+Fast and physiologically realistic MuJoCo models for musculoskeletal and
+exoskeletal studies,” inProc. 2022 IEEE Int. Conf. Robot. Automat., 2022,
+pp. 8104–8111.
+[46] R. J. V arghese, B. P . L. Lo, and G.-Z. Y ang, “Design and prototyping of
+a bio-inspired kinematic sensing suit for the shoulder joint: Precursor to
+a multi-DoF shoulder exosuit,” IEEE Robot. Autom. Lett. , vol. 5, no. 2,
+pp. 540–547, Apr. 2020.
+[47] T. Hoang, A. Kharchenko, S. Trendel, and R. Hostettler, “Ball-and-socket
+joint pose estimation using magnetic ﬁeld,” 2022, arXiv:2210.03984.
+[48] H. Song, Y .-S. Kim, J. Y oon, S.-H. Y un, J. Seo, and Y .-J. Kim, “De-
+velopment of low-inertia high-stiffness manipulator lims2 for high-speed
+manipulation of foldable objects,”IEEE/RSJ Int. Conf. Intell. Robots Syst.,
+2018, pp. 4145–4151.
+[49] C.J. Barnes, S. J. V an Steyn, and R. A. Fischer, “The effects of age, sex,
+and shoulder dominance on range of motion of the shoulder,” J. Shoulder
+Elbow Surgery, vol. 10, no. 3, pp. 242–246, 2001.
+[50] P . OSullivan, M. Menolotto, B. OFlynn, and D. S. Komaris, “Estimation of
+maximum shoulder and elbow joint torques based on demographics and
+anthropometrics,” in Proc. 44th Annu. Int. Conf. IEEE Eng. Med. Biol.
+Soc., 2022, pp. 4346 4349.
+[51] N. Palastanga and R. Soames, “Anatomy and Human Movement: Structure
+and Function,”, 6th ed. London, UK: Churchill Livingstone, 2012.
+Sudong Lee (Graduate Student Member, IEEE)
+received the B.S. degree in mechanical engi-
+neering from Korea University , Seoul, South Ko-
+rea, in 2019, and the M.S. degree in mechani-
+cal engineering from Seoul National University ,
+Seoul, in 2021. He is currently working toward
+the Ph.D. degree in robotics, control, and in-
+telligent systems with the CREA TE Lab, EPFL,
+Lausanne, Switzerland.
+From 2021 to 2023, he was a Researcher with
+the Soft Robotics Research Center, Seoul Na-
+tional University . He is currently a Doctoral Assistant with the CREA TE
+Lab, EPFL.
+Kieran Gilday received the B.Eng. and M.Eng.
+degrees in electrical in information engineering
+and Ph.D. degree in robotics with the Univer-
+sity of Cambridge, Cambridge, UK, in 2018 and
+2023, respectively .
+He joining the Bio-inspired Robotics Lab
+(BIRL). He is currently working is working as
+a postdoctoral researcher in the CREA TE Lab,
+EPFL, Lausanne, Switzerland.
+Josie Hughes received the M.Eng. degree in
+information and control and the Ph.D. degree
+from the University of Cambridge, Cambridge,
+U.K., in 2014 and 2018, respectively . During
+her studies, she joined the Bio-inspired Robotics
+Laboratory (BIRL).
+Following this, she worked as a Postdoctoral
+Associate with the CSAIL, MIT , MA, USA, in
+the Distributed Robotics Lab. She is currently
+an Assistant Professor with EPFL, Lausanne,
+Switzerland, where she established the CRE-
+A TE Lab in 2021. Her research interests include developing novel design
+paradigms for designing robot structures that exploit their physicality
+and interactions with the environment, development of robotic hands,
+soft manipulators, and locomoting robots, and automation systems for
+applications focused on sustainability and science.
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:01:16 UTC from IEEE Xplore. Restrictions apply.

@@ -1,0 +1,775 @@
+{
+  "scope": "geometry-derived engineering candidates, not clinical landmarks or installed joints",
+  "coordinate_system": "raw BodyParts3D mm, no old frames or offsets",
+  "source_hashes": {
+    "FJ3362": "9a111cac8351e79dd1315aea90108fe56f78e4bf0159473e6ad727ba91b60e6d",
+    "FJ3384": "1641b04e55f9d75bdd6f1f4f07ea596e5dea0a8cb6b348bff47281b8a0bc6e5d",
+    "FJ3368": "85f5445a11ecb029b027db0b9b34933982836d442b19ff531d1ca35a3bc3a237",
+    "FJ3391": "0aad73148e036c980ab24dfa675fcc1f109e5c60d82c12f3696420cf93cb4a98",
+    "FJ3349": "0f824e639b13ea02959734a0d9bd8d7ca67d0b51f531a138d769e1d3b22e0c98",
+    "FJ3290": "e94f731d044131260947146ab79fa7c4712865e1aac36a1410003358b96e0692"
+  },
+  "SC": {
+    "centre_source_mm": [
+      -11.384984118525308,
+      -130.54010854012165,
+      1317.0222425955965
+    ],
+    "clavicle_medial_end_mean_mm": [
+      -11.110998695652176,
+      -129.39421739130435,
+      1317.4
+    ],
+    "manubrium_nearest_surface_mm": [
+      -11.65896954139844,
+      -131.68599968893895,
+      1316.6444851911929
+    ],
+    "sample_end_gap_mm": 2.474538497147741,
+    "method": "midpoint between clavicle medial4% vertex-band centroid and manubrium surface"
+  },
+  "AC": {
+    "centre_source_mm": [
+      -145.7250955648401,
+      -70.82332310584692,
+      1349.9116008821043
+    ],
+    "clavicle_lateral_end_mean_mm": [
+      -144.24986956521738,
+      -71.14330434782609,
+      1351.5582608695654
+    ],
+    "scapula_nearest_surface_mm": [
+      -147.20032156446283,
+      -70.50334186386777,
+      1348.264940894643
+    ],
+    "sample_end_gap_mm": 4.467737171986402,
+    "method": "midpoint between lateral4% clavicle-band centroid and scapula surface"
+  },
+  "GH": {
+    "centre_source_mm": [
+      -162.36764876508894,
+      -76.02966788682818,
+      1315.5998062770147
+    ],
+    "radius_mm": 21.481666638898986,
+    "radial_rms_mm": 1.322836726452322,
+    "selection": "proximal36mm and medial38mm humerus bands",
+    "selection_sensitivity": [
+      {
+        "z_band_mm": 32,
+        "medial_x_band_mm": 34,
+        "centre_source_mm": [
+          -162.32446800695806,
+          -76.11983868222481,
+          1315.6579126266029
+        ],
+        "radius_mm": 21.397474999706297,
+        "radial_rms_mm": 1.2674697034177695,
+        "centre_shift_from_selected_mm": 0.11563605872596806
+      },
+      {
+        "z_band_mm": 36,
+        "medial_x_band_mm": 38,
+        "centre_source_mm": [
+          -162.36764876508894,
+          -76.02966788682818,
+          1315.5998062770147
+        ],
+        "radius_mm": 21.481666638898986,
+        "radial_rms_mm": 1.322836726452322,
+        "centre_shift_from_selected_mm": 0.0
+      },
+      {
+        "z_band_mm": 40,
+        "medial_x_band_mm": 42,
+        "centre_source_mm": [
+          -162.89040640233674,
+          -76.00106415534479,
+          1315.4689125159757
+        ],
+        "radius_mm": 21.8006469942531,
+        "radial_rms_mm": 1.5079910132671548,
+        "centre_shift_from_selected_mm": 0.5396544240850917
+      }
+    ]
+  },
+  "elbow": {
+    "initial_centre_source_mm": [
+      -209.51565735567954,
+      -69.24123109869646,
+      1043.2159404096842
+    ],
+    "initial_axis_source": [
+      -0.9957935988949829,
+      0.06557712503945803,
+      0.06399022637354877
+    ],
+    "centre_source_mm": [
+      -209.86904634828838,
+      -72.12742580930231,
+      1044.5232075118065
+    ],
+    "axis_source": [
+      -0.9911648473318528,
+      0.10967071338784527,
+      0.07459611275814704
+    ],
+    "centre_adjustment_mm": 3.1880951936724693,
+    "axis_adjustment_deg": 2.612156434159002,
+    "initial_overlap_samples_mm3": [
+      0,
+      0,
+      0,
+      0.00017513648399850035,
+      1.3037186367487914,
+      6.623496263035671,
+      14.584418706548044,
+      23.78323021280426,
+      32.468266289173094,
+      40.15660158270104,
+      46.795115790394135,
+      53.74612475613734,
+      71.48400095065998,
+      186.48567014391733,
+      621.6454243144319
+    ],
+    "calibration_overlap_samples_mm3": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_bone_sweep": [
+      {
+        "angle_deg": 0,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 1,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 2,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 3,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 4,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 5,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 6,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 7,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 8,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 9,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 10,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 11,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 12,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 13,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 14,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 15,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 16,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 17,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 18,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 19,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 20,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 21,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 22,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 23,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 24,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 25,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 26,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 27,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 28,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 29,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 30,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 31,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 32,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 33,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 34,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 35,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 36,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 37,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 38,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 39,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 40,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 41,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 42,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 43,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 44,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 45,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 46,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 47,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 48,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 49,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 50,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 51,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 52,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 53,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 54,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 55,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 56,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 57,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 58,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 59,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 60,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 61,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 62,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 63,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 64,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 65,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 66,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 67,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 68,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 69,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 70,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 71,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 72,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 73,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 74,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 75,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 76,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 77,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 78,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 79,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 80,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 81,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 82,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 83,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 84,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 85,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 86,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 87,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 88,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 89,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 90,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 91,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 92,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 93,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 94,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 95,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 96,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 97,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 98,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 99,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 100,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 101,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 102,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 103,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 104,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 105,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 106,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 107,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 108,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 109,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 110,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 111,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 112,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 113,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 114,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 115,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 116,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 117,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 118,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 119,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 120,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 121,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 122,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 123,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 124,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 125,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 126,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 127,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 128,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 129,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 130,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 131,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 132,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 133,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 134,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 135,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 136,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 137,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 138,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 139,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 140,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 141,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 142,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 143,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 144,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 145,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 146,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 147,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 148,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 149,
+        "overlap_mm3": 0
+      },
+      {
+        "angle_deg": 150,
+        "overlap_mm3": 0
+      }
+    ],
+    "checked_until_deg": 150,
+    "first_colliding_integer_sample_deg": null,
+    "volume_threshold_mm3": 0.001,
+    "forearm_assumption": "ulna/radius held in source mutual pose for this elbow-only fit; this does not decide final pronation/supination design"
+  },
+  "proposed_constraint_candidate": "SC spherical3 + AC spherical3 + GH spherical3 + elbow hinge1. Need physical retention/support and muscle controllability checks; not frozen.",
+  "not_verified": [
+    "clinical landmark accuracy",
+    "SC/AC/GH motion collisions",
+    "hardware interference and retention",
+    "motor/tendon controllability",
+    "TPU deformation and force"
+  ],
+  "frozen": false
+}

@@ -1,0 +1,148 @@
+<mujoco model="V2_S1_bone_geometry_baseline">
+  <compiler angle="degree" autolimits="true" meshdir="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\V2-S1" />
+  <option timestep="0.0005" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <global azimuth="45" elevation="-16" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" />
+  </visual>
+  <asset>
+    <mesh name="thorax" file="assets/thorax_geom.stl" scale="1 1 1" />
+    <mesh name="clavicle" file="assets/clavicle_visual.stl" scale="1 1 1" />
+    <mesh name="scapula" file="assets/scapula_mesh.stl" scale="1 1 1" />
+    <mesh name="humerus" file="assets/humerus_shaft.stl" scale="1 1 1" />
+    <mesh name="ulna" file="assets/ulna_shaft.stl" scale="1 1 1" />
+    <material name="thorax_mat" rgba="0.45 0.55 0.65 0.55" />
+    <material name="scapula_mat" rgba="0.30 0.72 0.52 1" />
+    <material name="humerus_mat" rgba="0.85 0.72 0.30 1" />
+    <material name="ulna_mat" rgba="0.35 0.58 0.88 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.18 1" />
+    <material name="v2_band_mat" rgba="0.10 0.75 0.78 0.42" />
+    <material name="v2_pad_mat" rgba="0.95 0.48 0.12 0.75" />
+    <material name="v2_guide_mat" rgba="0.94 0.26 0.16 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_geom" type="mesh" mesh="thorax" material="thorax_mat" contype="0" conaffinity="0" pos="0 0 0" />
+      <body name="clavicle_elevation" pos="0.040000000 0.106000000 0.235000000">
+        <joint name="sc_elevation" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-10.000000000 55.000000000" damping="0.4" armature="0.005" />
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+        <body name="clavicle_protraction" pos="0 0 0">
+          <joint name="sc_protraction" type="hinge" axis="0 0 1" range="-25.000000000 25.000000000" damping="0.4" armature="0.005" />
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+          <body name="clavicle_body" pos="0 0 0">
+            <geom name="clavicle_visual" type="mesh" mesh="clavicle" pos="0 0 0" material="scapula_mat" contype="0" conaffinity="0" density="1100.0" />
+            <body name="scapula" pos="0.116860000 -0.094030000 -0.001760000">
+              <joint name="ac_ext" type="hinge" axis="0.000176312 0.000152999 0.000972371" range="-35.000000000 35.000000000" damping="0.5" armature="0.01" />
+              <geom name="scapula_mesh" type="mesh" mesh="scapula" pos="0 0 0" material="scapula_mat" contype="0" conaffinity="0" density="1100.0" />
+              <body name="gh_flex" pos="0.002200000 -0.019270000 -0.045700000">
+                <joint name="gh_flex" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="-120.000000000 120.000000000" damping="0.5" armature="0.008" />
+                <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                <body name="gh_abd" pos="0 0 0">
+                  <joint name="gh_abd" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-120.000000000 120.000000000" damping="0.5" armature="0.008" />
+                  <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                  <body name="gh_rot" pos="0 0 0">
+                    <joint name="gh_rot" type="hinge" axis="0.000087156 -0.000000000 -0.000996195" range="-110.000000000 110.000000000" damping="0.5" armature="0.008" />
+                    <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                    <body name="humerus" pos="0 0 0">
+                      <geom name="humerus_shaft" type="mesh" mesh="humerus" material="humerus_mat" contype="0" conaffinity="0" density="1100.0" pos="0 0 0" />
+                      <body name="ulna" pos="0.025280000 0.000000000 -0.288890000">
+                        <joint name="elbow" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="0.000000000 145.000000000" damping="0.2" armature="0.005" />
+                        <geom name="ulna_shaft" type="mesh" mesh="ulna" material="ulna_mat" contype="0" conaffinity="0" density="1100.0" pos="0 0 0" />
+                        <site name="B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.0035" rgba="0 0 0 0" group="3" />
+                        <site name="B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.0035" rgba="0 0 0 0" group="3" />
+                        <site name="V2_B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.003000" rgba="0 0 0 0" group="3" />
+                        <site name="V2_B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="E01_B" pos="0.044397913 0.01838808 -0.16978253" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E01_Broot" pos="0.029672075 0.012265183 -0.17107089" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E02_B" pos="-0.022071326 -0.014547511 -0.09629606" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E02_Broot" pos="-0.006572629 -0.010812307 -0.094940096" size=".002" rgba="0.9 0.4 0.1 1" /></body>
+                      <site name="A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="G_E01" pos="0.023972664 0.020000000 -0.273947080" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="G_E02" pos="0.023972664 -0.020000000 -0.273947080" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G03" pos="0.028887839 0.000000000 -0.158083816" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G04" pos="-0.000998002 0.000000000 -0.160698488" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_P01" pos="0.008532161 0.014005924 -0.054463624" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_P02" pos="0.005713510 0.014444823 -0.079805720" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="V2_A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_pass_E01_1" pos="0.023972664 0.020000000 -0.273947080" size="0.002000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_pass_E02_1" pos="0.023972664 -0.020000000 -0.273947080" size="0.002000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G03" pos="0.028887839 -0.000000000 -0.158083816" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G04" pos="-0.000998002 -0.000000000 -0.160698488" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_P01" pos="0.008532161 0.014005924 -0.054463624" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_P02" pos="0.005713510 0.014444823 -0.079805720" size="0.003000" rgba="0 0 0 0" group="3" />
+                    <site name="E01_A" pos="0.041161235 0.019938711 -0.091573685" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E01_C" pos="0.03315212120792911 0.027538936700900647 -0.23006283885027995" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E01_Groot" pos="0.030766113 0.012469331 -0.24256994" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E01_Aroot" pos="0.022754243 0.012284612 -0.093185365" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="E01_guide" type="sphere" size=".008" pos="0.03176793 0.028852463 -0.2539975" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="E02_A" pos="0.0015755582 -0.041227587 -0.20133297" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E02_C" pos="0.01631668667810453 -0.04149221351749621 -0.2433645522371861" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E02_Groot" pos="0.032989338 -0.013890356 -0.28910562" size=".002" rgba="0.9 0.4 0.1 1" /><site name="E02_Aroot" pos="0.007382252 -0.013841012 -0.20082498" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="E02_guide" type="sphere" size=".008" pos="0.033167355 -0.041794714 -0.2914111" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G01_A" pos="0.060080905 -0.0068841954 -0.19340916" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G01_C" pos="0.026138951431556708 0.022293142449964547 -0.05016097331641277" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G01_Groot" pos="0.003841205 0.005322512 -0.014658448" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G01_Aroot" pos="0.03218745 -0.0068835793 -0.19584951" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G01_guide" type="sphere" size=".008" pos="0.017444799 0.029766852 -0.013468278" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G02_A" pos="0.058798734 -0.01946146 -0.20179488" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G02_C" pos="0.014528861079701976 -0.028624582982837987 -0.055967552743948656" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G02_Groot" pos="0.0010622236 -0.0074521815 -0.005145937" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G02_Aroot" pos="0.032568745 -0.009936687 -0.20408972" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G02_guide" type="sphere" size=".008" pos="0.0036925531 -0.030867519 -0.02027218" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G03_A" pos="0.061007824 -0.034254167 -0.10648558" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G03_C" pos="0.04997019662589618 0.0028884509358514804 -0.04835408311678436" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G03_Groot" pos="0.005598102 0.0035335599 -0.014504741" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G03_Aroot" pos="0.023633821 -0.011264829 -0.10975279" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G03_guide" type="sphere" size=".008" pos="0.04292308 0.026602644 -0.011239263" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G04_A" pos="0.020941773 -0.041847616 -0.10730746" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G04_C" pos="0.010461638596161142 -0.036598887604233465 -0.08618265065090353" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G04_Groot" pos="-0.0028810243 -0.0020351184 -0.01212129" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G04_Aroot" pos="0.018753305 -0.013933927 -0.107499026" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G04_guide" type="sphere" size=".008" pos="-0.025307244 -0.018684892 -0.014083341" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G05_B" pos="0.0076744026 -0.027169932 -0.011197794" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G05_Broot" pos="0.0020818976 -0.0038357365 -0.0116870785" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G06_B" pos="-0.00043551577 -0.021909269 -0.10917781" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G06_Broot" pos="0.0001897464 -0.013933927 -0.10912314" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P01_B" pos="-0.008775574 0.009512776 -0.012636989" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P01_Broot" pos="-0.0027931137 0.004227303 -0.012113587" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P02_B" pos="0.0324666 0.035687335 -0.08968908" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P02_Broot" pos="0.019974282 0.015224007 -0.090781994" size=".002" rgba="0.9 0.4 0.1 1" /></body>
+                  </body>
+                </body>
+              </body>
+              <site name="A_G01" pos="0.003252249 0.008119902 -0.001867527" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G01" pos="0.002200000 -0.003270000 -0.045700000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G02" pos="-0.035494000 -0.054642000 0.017605000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G02" pos="0.002200000 -0.035270000 -0.045700000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G03" pos="0.007285143 0.006323097 0.005911441" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G03" pos="0.018139115 -0.019270000 -0.044305508" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G04" pos="-0.036429978 -0.066040958 -0.080710111" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G04" pos="-0.013739115 -0.019270000 -0.047094492" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G05" pos="-0.048499000 -0.076517000 -0.083035000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G05" pos="0.018700001 -0.007956292 -0.104485627" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G06" pos="-0.105755177 -0.126211937 -0.120377099" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G06" pos="0.018700001 -0.030583708 -0.104485627" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S01" pos="-0.014109203 -0.046665424 -0.128942586" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S02" pos="-0.084100000 -0.094180000 0.035210000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S03" pos="-0.088124000 -0.110912000 -0.023140000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S04" pos="-0.029962803 -0.060430104 -0.010776614" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S05" pos="-0.041890221 -0.070781964 -0.033723851" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S06" pos="-0.046238040 -0.074555510 -0.040569055" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G01" pos="0.003252249 0.008119902 -0.001867527" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G01" pos="0.000597371 -0.006829754 -0.045285069" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G02" pos="-0.035494000 -0.054642000 0.017605000" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G02" pos="0.005212850 -0.033436755 -0.044479004" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G03" pos="0.007285143 0.006323097 0.005911441" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G03" pos="0.018996941 -0.022805990 -0.043339340" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G04" pos="-0.036429978 -0.066040958 -0.080710111" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G04" pos="-0.014384885 -0.021056116 -0.050732013" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G05" pos="-0.048499000 -0.076517000 -0.083035000" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G05" pos="0.009973033 -0.011755323 -0.102636401" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G06" pos="-0.105755177 -0.126211937 -0.120377099" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G06" pos="0.008660413 -0.033827139 -0.104283802" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S01" pos="-0.085878512 -0.095722795 0.040292876" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S02" pos="-0.036832490 -0.053150704 -0.001494278" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S03" pos="-0.094721226 -0.103392827 -0.106591934" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S04" pos="-0.020608098 -0.039063003 -0.153098781" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S05" pos="-0.041890221 -0.070781964 -0.033723851" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S06" pos="-0.046238040 -0.074555510 -0.040569055" size="0.003000" rgba="0 0 0 0" group="3" />
+            <site name="G01_B" pos="0.022827256 -0.033248316 -0.009535201" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G01_Broot" pos="0.006882519 -0.015330177 -0.010375314" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G02_B" pos="0.01808689 -0.037568245 -0.0059994464" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G02_Broot" pos="0.0004769801 -0.021332784 -0.0075162896" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G03_B" pos="0.013740272 -0.03091477 -0.010011583" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G03_Broot" pos="0.0019168772 -0.020219117 -0.011357067" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G04_B" pos="-0.019449355 -0.065772325 -0.0583895" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G04_Broot" pos="-0.024846261 -0.059873406 -0.058665395" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G05_A" pos="-0.053033084 -0.12150159 -0.054452077" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G05_C" pos="-0.031496491829764175 -0.10325155309958804 -0.052618789404646926" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G05_Groot" pos="-7.862902e-05 -0.04011634 -0.048862837" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G05_Aroot" pos="-0.07138704 -0.10035608 -0.054451287" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G05_guide" type="sphere" size=".008" pos="0.02004264 -0.059577487 -0.04823157" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="G06_A" pos="-0.053033084 -0.12150159 -0.054452077" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G06_C" pos="-0.038893267678703096 -0.10721627562299757 -0.05036042083769062" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G06_Groot" pos="-0.012883769 -0.0424611 -0.0323806" size=".002" rgba="0.9 0.4 0.1 1" /><site name="G06_Aroot" pos="-0.07138704 -0.10035608 -0.054451287" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="G06_guide" type="sphere" size=".008" pos="0.01069782 -0.05711493 -0.036010202" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S01_B" pos="-0.008361609 -0.077372625 -0.029780665" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S01_Broot" pos="-0.024679804 -0.0597739 -0.029744437" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S02_B" pos="0.0046968367 -0.05826358 -0.04122323" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S02_Broot" pos="-0.016125102 -0.046429686 -0.03967217" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S03_B" pos="-0.018828701 -0.0652941 -0.06472595" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S03_Broot" pos="-0.02421076 -0.059375323 -0.064687535" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S04_B" pos="0.01248862 -0.050791793 -0.05640712" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S04_Broot" pos="0.0005025346 -0.04032537 -0.05807678" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S05_B" pos="0.003324089 -0.061441794 -0.05461396" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S05_Broot" pos="-0.017196653 -0.049310315 -0.05739359" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S06_B" pos="-0.004308077 -0.07252834 -0.044088073" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S06_Broot" pos="-0.023125617 -0.057632163 -0.04402376" size=".002" rgba="0.9 0.4 0.1 1" /></body>
+            <site name="A_P01" pos="0.050000000 -0.015300000 -0.001000000" size="0.0035" rgba="0 0 0 0" group="3" />
+            <site name="V2_A_P01" pos="0.050000000 -0.015300000 -0.001000000" size="0.003000" rgba="0 0 0 0" group="3" />
+          </body>
+        </body>
+      </body>
+      <site name="A_S01" pos="0.055000000 -0.097481867 0.255000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S02" pos="0.120000000 -0.029296666 0.160000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S03" pos="0.120000000 -0.029296666 0.210000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S04" pos="0.055000000 -0.097481867 0.210000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="G_P01" pos="0.120000000 0.060000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_P02" pos="0.025000000 0.107000000 0.200000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="G_P02" pos="0.120000000 0.080000000 0.200000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S01" pos="0.060214299 -0.103546533 0.117802693" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S02" pos="0.085525528 -0.080738635 0.173593542" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S03" pos="0.074229896 -0.091392287 0.260546006" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S04" pos="0.077121850 -0.088741387 0.235768752" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_side_P01" pos="0.121577822 0.058651964 0.223021315" size="0.001500" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_P02" pos="0.025000000 0.107000000 0.200000000" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_side_P02" pos="0.121676402 0.080845828 0.202028953" size="0.001500" rgba="0 0 0 0" group="3" />
+    <site name="S01_A" pos="0.13742487 -0.0010355328 -0.044000003" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S01_C" pos="0.11791551729586175 -0.005438409495442431 -0.044" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S01_Groot" pos="-0.06872835 -0.047560304 -1.2495686e-09" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S01_Aroot" pos="0.13742493 -0.0010355683 -9.556501e-10" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S01_guide" type="sphere" size=".008" pos="-0.068728335 -0.047560263 -0.044000003" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S02_A" pos="0.11838033 -0.08301982 0.09333335" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S02_C" pos="0.10779036432985943 -0.0902237621928064 0.10869420155413663" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S02_Groot" pos="0.04711318 -0.09966043 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S02_Aroot" pos="0.0980518 -0.06376494 0.09333335" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S02_guide" type="sphere" size=".008" pos="0.054035205 -0.12679133 0.18666668" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S03_A" pos="0.1585029 -0.05847942 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S03_C" pos="0.14655922928470672 -0.06903813272460181 0.17458932398484053" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S03_Groot" pos="0.053045828 -0.09808992 0.09333334" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S03_Aroot" pos="0.122031294 -0.033865966 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S03_guide" type="sphere" size=".008" pos="0.066202626 -0.1400768 0.09333334" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S04_A" pos="0.085339285 -0.10129418 0.09333334" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S04_C" pos="0.06976276701398437 -0.10414205858085046 0.10555061149031852" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S04_Groot" pos="-0.030080792 -0.10337275 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S04_Aroot" pos="0.07326916 -0.08534701 0.09333334" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S04_guide" type="sphere" size=".008" pos="-0.0336568 -0.123050466 0.18666668" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S05_A" pos="0.14335354 -0.079048425 0.09333334" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S05_C" pos="0.09748951793389467 0.07560321742117328 0.22831826610735195" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S05_Groot" pos="0.048856996 0.09302159 0.23647833" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S05_Aroot" pos="0.10902913 -0.051519625 0.09333334" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S05_guide" type="sphere" size=".008" pos="0.092256315 0.093249395 0.24372043" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="S06_A" pos="0.13625664 0.0068210736 0.3" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S06_C" pos="0.12031826656804706 0.018902828561029105 0.3" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S06_Groot" pos="0.060089998 0.06455768 0.28" size=".002" rgba="0.9 0.4 0.1 1" /><site name="S06_Aroot" pos="0.13625664 0.0068210736 0.28" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="S06_guide" type="sphere" size=".008" pos="0.060089998 0.06455768 0.3" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="P01_A" pos="0.1522963 0.03828727 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P01_C" pos="0.14208600866611606 0.04942380716431707 0.19977115878969273" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P01_Groot" pos="0.08392608 0.084808 0.26193216" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P01_Aroot" pos="0.13360189 0.031179618 0.18666668" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="P01_guide" type="sphere" size=".008" pos="0.093592204 0.10231686 0.262011" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /><site name="P02_A" pos="0.045767248 0.13705076 0.13876063" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P02_C" pos="0.06107889517046044 0.12007010251911078 0.20919944460442128" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P02_Groot" pos="0.06600819 0.07973008 0.24110337" size=".002" rgba="0.9 0.4 0.1 1" /><site name="P02_Aroot" pos="0.038839925 0.10172358 0.13881902" size=".002" rgba="0.9 0.4 0.1 1" /><geom name="P02_guide" type="sphere" size=".008" pos="0.06604103 0.1145671 0.23202695" rgba=".7 .7 .75 1" contype="0" conaffinity="0" density="0" /></body>
+    <site name="A_S05" pos="0.160000000 0.030000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+    <site name="A_S06" pos="0.180000000 -0.070000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+    <site name="V2_A_S05" pos="0.160000000 0.030000000 0.220000000" size="0.003000" rgba="0 0 0 0" group="3" />
+    <site name="V2_A_S06" pos="0.180000000 -0.070000000 0.220000000" size="0.003000" rgba="0 0 0 0" group="3" />
+  </worldbody>
+<tendon><spatial name="E01_passive" width=".0005" rgba=".85 .3 .1 1"><site site="E01_C" /><geom geom="E01_guide" /><site site="E01_B" /></spatial><spatial name="E02_passive" width=".0005" rgba=".85 .3 .1 1"><site site="E02_C" /><geom geom="E02_guide" /><site site="E02_B" /></spatial><spatial name="G01_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G01_C" /><geom geom="G01_guide" /><site site="G01_B" /></spatial><spatial name="G02_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G02_C" /><geom geom="G02_guide" /><site site="G02_B" /></spatial><spatial name="G03_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G03_C" /><geom geom="G03_guide" /><site site="G03_B" /></spatial><spatial name="G04_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G04_C" /><geom geom="G04_guide" /><site site="G04_B" /></spatial><spatial name="G05_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G05_C" /><geom geom="G05_guide" /><site site="G05_B" /></spatial><spatial name="G06_passive" width=".0005" rgba=".85 .3 .1 1"><site site="G06_C" /><geom geom="G06_guide" /><site site="G06_B" /></spatial><spatial name="S01_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S01_C" /><geom geom="S01_guide" /><site site="S01_B" /></spatial><spatial name="S02_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S02_C" /><geom geom="S02_guide" /><site site="S02_B" /></spatial><spatial name="S03_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S03_C" /><geom geom="S03_guide" /><site site="S03_B" /></spatial><spatial name="S04_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S04_C" /><geom geom="S04_guide" /><site site="S04_B" /></spatial><spatial name="S05_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S05_C" /><geom geom="S05_guide" /><site site="S05_B" /></spatial><spatial name="S06_passive" width=".0005" rgba=".85 .3 .1 1"><site site="S06_C" /><geom geom="S06_guide" /><site site="S06_B" /></spatial><spatial name="P01_passive" width=".0005" rgba=".85 .3 .1 1"><site site="P01_C" /><geom geom="P01_guide" /><site site="P01_B" /></spatial><spatial name="P02_passive" width=".0005" rgba=".85 .3 .1 1"><site site="P02_C" /><geom geom="P02_guide" /><site site="P02_B" /></spatial></tendon></mujoco>

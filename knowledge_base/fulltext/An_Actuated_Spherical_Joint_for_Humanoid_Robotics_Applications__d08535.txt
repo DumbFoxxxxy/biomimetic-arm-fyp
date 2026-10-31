@@ -1,0 +1,534 @@
+===== PAGE 1 =====
+An Actuated Spherical Joint for Humanoid Robotics
+Applications
+Michele Folgheraiter *, Sharafatdin Y essirkepov, Alikhan Y essaly
+* Department of Robotics and Mechatronics, School of Engineering and Digital Sciences, Nazarbayev University
+Nur-Sultan, Kazakhstan
+michele.folgheraiter@nu.edu, shyessirkepov@gmail.com, alikhan.yessaly@nu.edu.kz
+Abstract—A newly developed actuated spherical joint is intro-
+duced for application in the ﬁeld of humanoid robotics. The mech-
+anism consists of a parallel structure with four limbs in a 3PSS-1S
+kinematic conﬁguration. This, allows to perform rotations with
+respect to any arbitrary axis passing through the center of the
+joint, effectively implementing a spherical motion. By having the
+actuation system located on the ﬁxed platform allows maximizing
+the payload and reducing the energy consumption. The solution of
+the inverse kinematics is provided together with simulation results
+conducted in V-REP . It is shown how parameters like the moving
+base diameter and the links length inﬂuence the workspace of
+the mechanism. A ﬁrst prototype is presented together with
+preliminary results showing a rotation range of ±45 ° about
+the pitch and roll axes and 120° about the yaw axis.
+Index Terms—Actuated Spherical Joint, 3PSS-1S Parallel Ma-
+nipulator, Humanoid Robotics.
+I. I NTRODUCTION
+Humanoid robotics aims at developing anthropomorphic
+robots able to move and manipulate objects in a similar way
+humans can do. Thanks to their morphology and kinematic
+architecture, this new class of machines will extend the ca-
+pabilities of classical manipulators and mobile robots to the
+household and the public environments, i.e. enhancing the life
+quality for human beings during the course of this century [1].
+Most of the humanoid robots currently developed by re-
+search centers and companies integrate articulated limbs based
+on sequences of rotational joints. This is due to different
+reasons: wide availability in the market of different type of
+rotational servomotors, well understood kinematic architecture
+(DK modeling, IK solutions, workspace analysis, singular
+conﬁguration, etc.), straight forward mechanical design and
+control.
+However, if compared with parallel one, open kinematics
+chains have also disadvantages. The backlash of the differ-
+ent joints sum up reducing the overall robot precision and
+repeatability. To reduce the mechanical complexity, in most
+of the robots, the actuator that move the correspondent joint
+is displaced in its proximity. This has the effect to increase
+the load of the joints that are located at the beginning of the
+kinematic chain, effectively reducing the overall end-effector
+payload and increasing its energy consumption.
+In order to partially solve these problems, a possibility is
+to substitute the sequences of three revolute joints having
+orthogonal axes with a single actuated spherical joints. As it is
+shown in Fig 1 we can think to upgrade the revolute pitch-roll-
+yaw joints of the shoulders and the hips with spherical joints.
+To notice that even though the two kinematic architectures
+have the same DOFs, they are not equivalent. While the second
+one allows to rotate about any arbitrary axis passing through
+the center of the spherical joint, in the ﬁrst one, when the
+pitch-axis aligns with the yaw-axis, one DOF is lost and some
+rotations are not possible.
+Fig. 1. Kinematic comparison between: a) humanoid robot with only revolute
+(r) joints and b) humanoid robot with spherical (s) joints. In b), the sequences
+of three revolute joins with orthogonal axes are substituted with a single
+spherical joint.
+To implement an actuated spherical joint different solutions
+were developed. In [2], [3] the shoulder of an anthropomorphic
+artiﬁcial arm is moved by ﬁve McKibben artiﬁcial muscles.
+Three are used in a parallel conﬁguration to perform the
+orientation of the upper arm, and the other two to rotate
+it about its current direction. A similar concept is the one
+introduced in the humanoid torsos presented in [4] and [5],
+where the spherical joints are actuated by tendons attached
+to pulleys rotated by servomotors. This has the advantage to
+exploit precise and widely available actuators in order to move
+truly anthropomorphic kinematic architectures.
+In [6] and [7] the parallel spherical manipulator has three
+limbs with a RRR kinematic structure. The moving platform is
+actuated thanks to three rotational servomotors which output
+shaft is connected to the ﬁrst joint of each limb. The ﬁrst
+and second link of each limb are connected with joints which
+rotational axes form an angle of 90°. Also the actuators’ bodies
+form an angle of about 45° with respect the ﬁxed platform.
+In [8] the actuation of the spherical joint is realized by
+571978-1-7281-3458-1/19/$31.00 c©2019 IEEE
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+three lateral limbs with a PSS structure and a central one that
+constrains the moving platform to have a spherical motion.
+Another very interesting parallel kinematic structure is the
+spherical wrist designed for medical applications presented in
+[9]. The 3PSS-1S parallel mechanism includes three lateral
+limbs and a central one, however in comparison with [8]
+the prismatic joints are displaced orthogonally to the ﬁxed
+platform. The non actuated S-joints are realized by connecting
+an universal joint and a rotational joint in series, effectively
+approximating the motion of a spherical joint.
+A different humanoid robotic shoulder concept is introduced
+in [10] that consists of two subsystems, a parallel mechanism
+resembling the human girdle articulation and a serial one
+representing the glenohumeral joint. Interesting is the ﬁrst
+kinematic structure that is formed by three lateral limbs with
+a SPS architecture and a central one with a PS architecture.
+While the lateral legs have the usual function to orientate the
+moving platform, the central one has the role to ﬁx the position
+of the center of rotation. Thus, allowing a forth translational
+DOF. Another combination of parallel and serial kinematic
+chain to implement a spherical joint is presented in [11]. In
+this case, the parallel mechanism includes only two limbs one
+with one link and a RR architecture and the other with two
+links and a RRR architecture. This allows the moving platform
+to have two rotational DOFs. In order to add the third rotation,
+and therefore reproduce a spherical motion, a serial kinematic
+chain is connected to the moving platform where its rotational
+joint has the axis of rotation orthogonal to the platform.
+In this paper we introduce an actuated spherical joint
+speciﬁcally designed for humanoid robotics applications. The
+3PSS-S kinematic structure includes three lateral limbs having
+each two links and a central limb that constrains the moving
+platform to a spherical motion. The three prismatic joints that
+actuate the mechanism are implemented with lead screws.
+These, are connected to rotational motors displaced orthog-
+onally to the ﬁxed platform in order to decrease the moving
+platform inertia and increase its payload.
+The rest of this document is organized as follow: next
+section introduces the geometry of the spherical joint and
+proposes a solution for its inverse kinematics, Section III
+presents the results of the simulations conducted in V -REP ,
+Section IV introduces the developed prototype, ﬁnally last
+section brings the conclusions and points to possible future
+developments.
+II. S PHERICAL JOINT KINEMA TICS
+The parallel kinematic architecture of the spherical joint,
+see Fig. 2, consists of three lateral limbs having a Prismatic-
+Spherical-Spherical (PSS) structure and a central limb which
+includes only a spherical joint. Thus, we can label the mech-
+anism as a 3PSS-1S parallel manipulator. More speciﬁcally,
+each later limb starts with an actuated prismatic joint that
+connects the ﬁxed base to the ﬁrst link. The second link is
+connected to the ﬁrst one and to the base through non actuated
+spherical joints. The central leg connects the ﬁxed base and the
+moving base by a spherical joint and constrains it to perform
+only spherical motions.
+We can calculate the mobility of the mechanism by using the
+Gr¨ubler criterion [12], [13] as in Eq. 1, where λ represents the
+degree of freedom of the space where the mechanism operates,
+n the number of links present in the mechanism including the
+ﬁxed and the moving base, j the number of binary joints, ∑i fi
+the total number of Degrees of Freedoms (DOFs) of the joints
+present in the mechanism and fp the number of passive DOFs.
+F = λ(n−j − 1) +
+∑
+i
+fi −fp =
+=6 ∗ (8− 10− 1) + 24 − 3=3
+(1)
+As we expected, the overall mobility of the moving platform
+is three, therefore when the three prismatic joints are set to a
+certain position the platform will assume a deﬁned orientation.
+When controlling a robotic arm it is necessary to solve its In-
+verse Kinematics (IK), thus to ﬁnd the possible joints positions
+that bring the end-effector to a particular pose (position and
+orientation). In our case, when a target orientation is deﬁned,
+we have to ﬁnd the positions of the actuated prismatic joints,
+i.e. di with i =1 , 2, 3, that bring the moving platform to this
+orientation.
+Fig. 2. Kinematic architecture of the spherical joint.
+Different conventions exist to deﬁne the orientation of a
+body with respect to a reference frame. Let us consider a right-
+handed ﬁxed frame {A} (see Fig. 2) with origin in the center
+of the spherical joint located on the central limb, having the z-
+axis orthogonal to the ﬁxed base and the x-axis with direction
+and sense coincident with that one of the vector A1A2. A right-
+handed moving frame {B}, rigidly connected to the moving
+platform, with origin coincident with the origin of the ﬁxed
+frame, the z-axis orthogonal to the moving platform and the
+x-axis having direction and sense coincident with that one of
+the vector B1B2.
+The orientation of frame {B} with respect frame {A} can
+be described by a sequence of three rotations about the axis
+X,Y,Z (pitch-roll-yaw) of the angles γ,β,α respectively. The
+resulting compound rotation matrix ABR is
+572 IEEE Conference on Cybernetics and Intelligent Systems (CIS) and Robotics, Automation and Mechatronics (RAM).
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+A
+BR =
+⎡
+⎣
+cαcβ cαsβsγ −sαcγ cαsβcγ +sαsγ
+sαcβ sαsβsγ +cαcγ sαsβcγ −cαsγ
+−sβ cβsγ cβcγ
+⎤
+⎦. (2)
+In Fig. 2 the coordinates of the point Bi with respect
+the moving frame are represented by the vector B bi =
+[biu,b iv,b iw]T . When the target orientation is deﬁned by the
+matrix ABR(γ,β,α ) we can calculate the coordinate of B bi
+with respect the ﬁxed frame {A} as
+Abi =AB RB bi. (3)
+In order to solve the inverse kinematic problem for the
+spherical joint we need to obtain the position of the actuated
+prismatic joint, i.e. di for i =1 , 2, 3, when the orientation
+of the moving platform is deﬁned, and therefore when the
+angles (α,β,γ ) are known. If we consider the point Ci, which
+coordinates are represented by the vector Aci, we notice that
+this should lay on a straight line passing by the point Ai and
+orthogonal to the plane A1A2A2. Thus, we can obtain Aci as
+Aci = Aai +[ 0, 0,d i]T, (4)
+where the coordinates of the vector Aai are ﬁxed and can
+be measured from the mechanism design. In order to solve Eq.
+4 for di we need to know Aci. We observe that the point Bi
+can only move on the surface of a sphere with center Ci and
+radius Li therefore we can introduce the following equation
+||Abi − Aci|| = Li. (5)
+If we square both left and right side of Eq.5 and introduce
+the coordinates of the two vectors we obtain
+(bix −cix)2 +(biy −ciy )2 +(biz −ciz )2 = L2i. (6)
+We can also notice from Fig.2 that the x and y components
+of the vectors Aai and Aci are equal, thus cix = aix and
+ciy = aiy , therefore we can solve Eq.6 for the unknown ciz
+as
+ciz = biz ±
+√
+L2i − (bix −aix)2 +(biy −aiy )2. (7)
+In the two solutions of Eq. 7 we do not consider the one with
+sign + due to the fact that this may be not physically possible
+due to the collision of the second link of the limb and the
+moving platform or due to the range limit of the prismatic
+joints. Considering now only the component along the z-axis
+of Eq. 4 and substituting ciz from Eq.7 we can solve for di as
+di = ciz −aiz fori =1 , 2, 3. (8)
+To notice that, even though the solution in Eq.8 appears
+simple in the form, its expression as function of the orientation
+of the moving platform is more complex (for more details see
+the Appendix).
+III. M ECHANISM SIMULA TION
+Before developing the ﬁnal prototype of the spherical joint
+we conducted a series of simulations in V -REP software.
+This, with the goal to ﬁnd out how some of the mechanism’s
+parameters, such as the links’ length and the ﬁxed and moving
+platforms dimensions, inﬂuence its range of motion. Figure 3
+shows the model of the spherical joint where: (1) represents
+the ﬁxed base. (6) is the moving platform that is connected to
+the central limb (8) through the spherical joint (7). (4), (9) and
+(10) are the three lateral limbs each having a prismatic joint (2)
+and a proximal (3) and distal (5) spherical joints respectively.
+Fig. 3. V -REP model of the spherical joint.
+In order to simulate a parallel structure in V -REP it is
+necessary to carefully deﬁne the relationships between the
+different objects present in the scene, i.e. joints and links.
+The hierarchy tree of our model, see Fig. 4, starts from the
+ﬁxed base which position is ﬁxed with respect to the absolute
+reference frame of V -REP . The prismatic joint of the ﬁrst limb
+P1 is a child of the ﬁxed platform and it is the parent of the
+ﬁrst link L11, which in turns is the parent of the proximal
+spherical joint S11. The second link L12 is a child of S11
+and it is the parent of the distal spherical joint S12. Finally,
+the moving platform is a child of S12 and the parent for the
+objects that compose the central leg and the other two limbs.
+If we consider the ﬁrst and second limb, see Fig. 4, they form
+a closed kinematic chain that starts and ends in the ﬁxed base.
+In a similar way, we have also a closed chain if we consider
+the ﬁrst limb and the central leg or the ﬁrst limb and the third
+leg, etc.
+To understand the range of motion of the moving platform,
+in V -REP we deﬁned a script that allows to control the
+prismatic joints in position within a deﬁned range. How it
+is possible to see in Fig. 5 the moving platform rotates
+about different direction according to how we move the three
+actuated prismatic joints. In general, by moving one or two
+prismatic joints at the time we can actuate compound rotations
+about the pitch-roll axes (see Fig. 5.a, 5.b and 5.c), while by
+moving the three prismatic joints at the same time, speed and
+IEEE Conference on Cybernetics and Intelligent Systems (CIS) and Robotics, Automation and Mechatronics (RAM). 573
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+  
+
+
+
+ 
+
+  
+ 
+
+
+ 
+
+ 
+
+  
+Fig. 4. Hierarchy tree of the V -REP model.
+direction, we can rotate the moving platform about the yaw-
+axis, see Fig. 5.d.
+Fig. 5. Motion of the spherical joint a) Rotation about the x-y axes due to the
+ﬁrst prismatic joint motion. b) Rotation about the x-y axes due to the ﬁrst and
+second prismatic joints motion. c) Rotation about the x-y axes due to the third
+prismatic joint motion. d) Rotation about the z-axis due to the simultaneous
+motion of all the prismatic joints in the same direction.
+We ﬁxed the distances between the vertical axes of the three
+prismatic joints ( ||AiAj||) to 80 mm, and considered three
+possible dimensions for the moving platform, i.e diameter (in
+Fig. 2 represented as the distance 2||OBi||) of 80 mm, 60 mm
+and 45 mm. Performing a repetitive motion of all the three
+prismatic joints in the same direction we observed how this
+parameter inﬂuences the rotation about the yaw-axis. As it is
+possible to see in the plot of Fig.6 the smaller is the radius of
+the moving platform the higher is the range of rotation about
+the yaw-axis. More in details, for a platform of 45 mm we
+have a maximum rotation of 120°.
+Fig. 6. Rotation range about the z-axis (yaw) with different moving platform
+dimensions.
+The maximum rotation about the yaw-axis is also inﬂuenced
+by the length of the second link of the limb. For a moving
+platform of 60 mm in diameter the range of rotation increases
+also with the link length, see Fig. 7.
+Fig. 7. Rotation range about the z-axis (yaw) with two different link
+dimensions.
+Finally, we tested if the link length inﬂuences also the range
+of rotation about the pitch and roll axes. In this case we moved
+one prismatic joint at the time. As it is possible to evince from
+Fig. 8 and Fig. 9, changing the length of the link from 60 mm
+to 90 mm increases the rotations about these two axes of only
+15%.
+Fig. 8. Rotation range about the x-axis (pitch) with two different link
+dimensions.
+574 IEEE Conference on Cybernetics and Intelligent Systems (CIS) and Robotics, Automation and Mechatronics (RAM).
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Fig. 9. Rotation range about the y-axis (roll) with two different link
+dimensions.
+IV . P ROTOTYPE DESIGN AND TESTING
+A prototype of the spherical joint was designed in Solid-
+Works. As it is possible to see from Fig. 10 the CAD design
+includes a circular moving platform at the top that is connected
+by four spherical bearings to the proximal links of the four
+legs. The prismatic joints are realized with lead screws con-
+nected to the output shaft of the motors. Furthermore, to avoid
+the rotation of the proximal spherical bearing with respect the
+direction of the lead screw, a linear rail is introduced in the
+design of each linear joint.
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+ 
+Fig. 10. CAD model of the spherical joint including the actuation system.
+A ﬁrst prototype of the joint was realized by assembling 3D
+printed plastic parts and customized metal parts. In particular,
+the lead screws and the links were built in stainless steel, while
+all the other parts, like the ﬁxed and moving platforms, in PLA
+material. For the non actuated spherical joints of the limbs
+we used spherical ball bearings that allow rotations about the
+pitch and roll axes of ±60° and unlimited rotation about the
+yaw-axis. As actuation for the prismatic joints we used 12
+V brushed DC motors equipped with magnetic encoder and
+gearbox. Each motor is controlled in velocity by a dedicated
+A Tmega328 microcontroller and a Pololu TB6612FNG motor
+driver. Table I shows the main characteristics of the prototype.
+Despite the angular velocity of the joint is currently limited to
+30°/s, we estimate that by using brush-less DC motors having
+lower gear ratio it will be possible to reach up to 120 °/s. It is
+also worth to notice here that, although the actual dimension
+of the prototype makes it not suitable to be directly integrated
+in a humanoid robot, by using metal or carbon ﬁber parts will
+be possible to scale the mechanism to half of its actual size.
+TABLE I
+SPHERICAL JOINT CHARACTERISTICS
+Quantity Value Units
+Total Weight 1.5 kg
+Second Link Length Li 95 mm
+Central Limb Length 117 mm
+Prismatic Joint Range 65 mm
+Diameter Fixed Platform 150 mm
+Diameter Moving Platform 70 mm
+Payload 5 kg
+Rotation Range P/Y/R ±45/120/±45 °
+Angular Speed (Brushed DC motors) 30 °/s
+We performed several test runs, aiming at achieving the lin-
+ear joints range limits and measure the corresponded maximum
+rotations about the yaw, pitch and roll axes, see Fig.11. The
+commands to the motor controller were sent through the serial
+port in a string format, i.e. (Motor id, Direction of Rotation,
+Duration of rotation). From our experiments, the rotation about
+the yaw-axis is limited to 120°, while the angular range with
+respect the pitch and roll axes are both of ±45 °.
+If the maximum rotations about the pitch and roll axes are
+comparable with the one obtained by simulating the mecha-
+nism in V -REP , the rotation about the yaw-axis is smaller. One
+reason for this is that the spherical joints used in V -REP do not
+have limitation, while the one used in the real prototype are
+limited in their range of motion. Furthermore, the way they
+are oriented with respect to the moving and ﬁxed platforms
+also inﬂuences their effective range of rotation. Thus, causing
+a collision with the link depending on the current platform
+pose.
+V. C ONCLUSION
+In this paper we presented a new design for an actuated
+spherical joint for humanoid robotics application. The 3PSS-1S
+kinematic architecture of the mechanism includes three lateral
+limbs integrating an actuated prismatic joint, and a central
+limb that constrains the moving platform to a spherical motion.
+A solution for the IK is introduced that allows to obtain the
+prismatic joint position for a given orientation of the moving
+platform.
+Simulations conducted in V -REP showed how different
+parameters of the mechanism inﬂuence the range of rotation
+about the x-y-z axes. In particular the diameter of the moving
+platform and the length of the second link effect heavily the
+yaw-axis rotation.
+IEEE Conference on Cybernetics and Intelligent Systems (CIS) and Robotics, Automation and Mechatronics (RAM). 575
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+ 
+
+
+Fig. 11. Testing the spherical joint prototype: a) home position b) positive
+rotation about pitch-axis c) positive rotation about the roll-axis d) negative
+rotation about the the roll-axis.
+A ﬁrst prototype of the actuated spherical joint was realized
+using a combination of plastic and metal materials. The ﬁnal
+mechanism has a weights of 1.5 kg including the three motors
+and can rotate of ±45 ° with respect the pitch and roll
+axes and 120° with respect the yaw-axis. This represents an
+improvement if compared to the joint presented in [8] where
+the range of motion is limited to 20° for the roll and pitch
+axes and 30° for the yaw axis. With respect to the spherical
+joints introduced in [6] and [7] our solution allows to align
+the bodies of the three motors, reducing this way the footprint
+of the mechanism.
+As a future work, it remains to complete the kinematic
+analysis of the spherical joint. In particular, it will be necessary
+to solve its direct and differential kinematics and to ﬁnd the
+singular conﬁgurations. For example, when the second link of
+the limb reaches a pose which projection on the x-y plane is
+laying on a line that passes through the center of the central
+leg’s spherical joint, the mechanism is locked and can not
+rotate about the yaw-axis.
+Finally, the dimensions of the current prototype are still too
+big to allow its integration in a humanoid robot. By using a
+CNC machine we can think to realize all the needed parts in
+metal. This way, we can scale the entire design and reduce its
+weight and footprint.
+ACKNOWLEDGMENT
+This work was supported by Nazarbayev University under
+the Faculty Development Competitive Research Grants Pro-
+gram award #090118FD5343.
+APPENDIX
+If we substitute the x and y components of Eq. 3 in Eq.7 and
+then we substitute the result in Eq.8 we obtain the expression
+of the prismatic joint position as a function of the angles
+γ,β,α :
+di = −aiz−biusβ+bivsγcβ +biwcβcγ−
+√
+L2i − (e1i)2 − (e2i)2
+(9)
+where
+e1i = −aix +biucαcβ +biv (−sαcγ +sβsγcα )+
++biw(sαsγ +sβcαcγ )
+e2i = −aiy +biusαcβ +biv (sαsβsγ +cαcγ)+
++biw(sαcβcγ −sγcα).
+(10)
+REFERENCES
+[1] T. Asfour, K. Y okoi, C. S. G. Lee, and J. Kuffner, “Humanoid robotics
+[tc spotlight],” IEEE Robotics Automation Magazine , vol. 19, no. 1, pp.
+108–118, March 2012.
+[2] M. Folgheraiter and G. Gini, “Maximumone: An anthropomorphic
+arm with bio-inspired control system,” in Proceedings of International
+Workshop Neurobotics: bioinspired computation for Robotics , Ulm (Ger-
+many), September 20 2004.
+[3] ——, Biomimetic Neural Learning for Intelligent Robots, Chapter Title:
+MaximumOne: An Anthropomorphic Arm with Bio-inspired Control
+System, G. P . M. E. Stefan Wermter, Ed. Springer, Heidelberg, July
+2005, iSBN: 3-540-27440-5.
+[4] M. Jntsch, C. Schmaler, S. Wittmeier, K. Dalamagkidis, and A. Knoll,
+“A scalable joint-space controller for musculoskeletal robots with spher-
+ical joints,” in 2011 IEEE International Conference on Robotics and
+Biomimetics, Dec 2011, pp. 2211–2216.
+[5] M. Jntsch, S. Wittmeier, K. Dalamagkidis, A. Panos, F. V olkart, and
+A. Knoll, “Anthro b - a printed anthropomimetic robot,” in 2013 13th
+IEEE-RAS International Conference on Humanoid Robots (Humanoids) ,
+Oct 2013, pp. 342–347.
+[6] A. Shintemirov, A. Niyetkaliyev, and M. Rubagotti, “Numerical optimal
+control of a spherical parallel manipulator based on unique kinematic
+solutions,” IEEE/ASME Transactions on Mechatronics , vol. 21, no. 1,
+pp. 98–109, Feb 2016.
+[7] BingY an Cui and Zhenlin Jin, “Accuracy analysis of a novel humanoid
+robot shoulder joint,” in 2009 ASME/IFToMM International Conference
+on Reconﬁgurable Mechanisms and Robots , June 2009, pp. 423–427.
+[8] F. Patane and P . Cappa, “A 3-dof parallel robot with spherical motion
+for the rehabilitation and evaluation of balance performance,” IEEE
+Transactions on Neural Systems and Rehabilitation Engineering , vol. 19,
+no. 2, pp. 157–166, April 2011.
+[9] L. J. Puglisi, R. J. Saltaren, G. R. Portols, H. Moreno, P . F.
+Crdenas, and C. Garcia, “Design and kinematic analysis of 3pss-
+1s wrist for needle insertion guidance,” Robotics and Autonomous
+Systems, vol. 61, no. 5, pp. 417 – 427, 2013. [Online]. Available:
+http://www.sciencedirect.com/science/article/pii/S0921889013000225
+[10] J. Lenarcic and M. Stanisic, “A humanoid shoulder complex and the
+humeral pointing kinematics,” IEEE Transactions on Robotics and
+Automation, vol. 19, no. 3, pp. 499–506, June 2003.
+[11] S. Mghames, M. G. Catalano, A. Bicchi, and G. Grioli, “A spherical
+active joint for humanoids and humans,” IEEE Robotics and Automation
+Letters, vol. 4, no. 2, pp. 838–845, April 2019.
+[12] M. Gruebler, Getriebelehre. Springer-V erlang, 1917, Berlin.
+[13] T. Lung-Wen, “Robot analysis: the mechanics of serial and parallel
+manipulators,” John Wiley and Sons , 1999.
+576 IEEE Conference on Cybernetics and Intelligent Systems (CIS) and Robotics, Automation and Mechatronics (RAM).
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 07:22:10 UTC from IEEE Xplore. Restrictions apply.

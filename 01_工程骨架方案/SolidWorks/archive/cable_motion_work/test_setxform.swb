@@ -1,0 +1,77 @@
+Dim swApp As Object
+Dim reportPath As String
+
+Sub main()
+    Dim root As String
+    Dim asmPath As String
+    Dim errs As Long
+    Dim warns As Long
+    Dim asm As Object
+    Dim comps As Variant
+    Dim c As Object
+    Dim ok As Boolean
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\test_setxform.txt"
+    ResetFile reportPath
+    asmPath = root & "\assembly_zero.SLDASM"
+    Set asm = swApp.OpenDoc6(asmPath, 2, 1, "", errs, warns)
+    If asm Is Nothing Then
+        WriteLine reportPath, "ERROR|open|" & errs & "|" & warns
+        swApp.ExitApp
+        Exit Sub
+    End If
+    comps = asm.GetComponents(False)
+    Set c = comps(0)
+    WriteLine reportPath, "before|" & SafeStr(c.Name2) & "|" & TransformText(c)
+    ok = c.SetXform(Array(1#, 0#, 0#, 0#, 1#, 0#, 0#, 0#, 1#, 0#, 0#, 0#))
+    WriteLine reportPath, "set12|" & CStr(ok)
+    WriteLine reportPath, "after|" & SafeStr(c.Name2) & "|" & TransformText(c)
+    swApp.CloseDoc asm.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Function TransformText(c As Object) As String
+    Dim xf As Object
+    Dim vals As Variant
+    Dim j As Long
+    Dim s As String
+    s = ""
+    On Error Resume Next
+    Set xf = c.Transform2
+    If Not xf Is Nothing Then vals = xf.ArrayData
+    On Error GoTo 0
+    If IsArray(vals) Then
+        For j = LBound(vals) To UBound(vals)
+            s = s & "|" & CStr(vals(j))
+        Next j
+    Else
+        s = "|NODATA"
+    End If
+    TransformText = s
+End Function
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function

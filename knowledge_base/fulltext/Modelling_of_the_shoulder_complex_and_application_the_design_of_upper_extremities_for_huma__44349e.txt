@@ -1,0 +1,1089 @@
+===== PAGE 1 =====
+Modelling of the Shoulder Complex and Application to 
+the Design of Upper Extremities for Humanoid Robots 
+ 
+Bertrand Tondu 
+ 
+LESIA, Département de Génie Electrique, Institut National de Sciences Appliquées, 
+ Campus Universitaire de Rangueil, 31077 Toulouse France 
+bertrand-tondu@insa-toulouse.fr 
+ 
+ 
+Abstract. The classic industrial robot-arm does not need a 
+shoulder in the anatom ical sense : it is m erely placed on a 
+rotating trunk. The recent development of humanoid robots in 
+which two arms must move laterally to a frame-trunk raises 
+the question of integrating anthropomorphic shoulders. A 
+rigorous analy sis of the m obility of the so-called human 
+shoulder complex is necessary in the design of robot 
+shoulders. A kinematic model of the shoulder complex is 
+discussed and its m obility derived. The consideration of a 
+simple clavicle-based equivalent kinematic model has lead to 
+highlight a serial nine d.o.f. anthropomorphic robot structure. 
+By considering a fundamental kinematic model of a robot-
+arm including a clavicle-like li nk, it is shown how the elbow 
+singularity can be limited to a restrictive zone of the 
+reachable volume. 
+Index Terms - Robot Shoulder, Shoulder Kinematic 
+modelling, Robot elbow singularity. 
+ 
+I. INTRODUCTION 
+ 
+The devel opment of hum anoid robot s has renewed an 
+interest i n ant hropomorphic st ructures whi ch had been 
+neglected until now by Industrial Robotics. This is especially 
+true for t he shoul der com plex whi ch appears t o be t he most 
+mobile joint of t he hum an body . So-cal led ant hropomorphic 
+industrial robots are essentially arms rotating around a cent ral 
+axis whose range largely c ontributes to the m achine’s 
+mobility. The “shoulder” m otion is reduced to an elevation of 
+the arm on these robots, completed by an axial arm rotation in 
+the case of 7R redundant arm s. The humanoid robot which 
+necessitates the lateral in tegration o f two arm s to its b ust 
+cannot use this central m obility typical of industrial robot-
+arms. C onsequently i t must i ncrease t he rol e of the shoulder 
+which generally becomes a t hree d.o.f. spherical joint linking 
+the arm directly to the bust, but at a distance from the hum an 
+shoulder complexity. As well emphasized by Rosheim [1] the 
+design of robot shoul ders i s a l ess expl ored fi eld. It appears 
+especially important in th is n ew research field to tak e 
+advantage of B iomechanics anal yses of hum an shoulder 
+functioning in t he desi gn of hy per-anthropomorphic robot -
+arms. The development of artificial m uscle actuators such as 
+McKibben pneumatic muscles and t heir use i n R obotics 
+should favour t he emergence of such robot structures [2]-[5]. 
+We are of the opinion that available kinematic analyses of the 
+shoulder girdle is questionable. Consequently, the conclusions 
+of th is m odelling are essen tial in the design of roboticized 
+shoulders. Our article is divided into four sections. In the first 
+section, we deal with the schematization of jointed body links. 
+An extension of the historical Demspter’s notation, seemed to 
+us t o be i ndispensable i n cl arifying t he kinematic diagrams, 
+and to extend them to multiple joints. In the second section, 
+we apply this notation t o t he ki nematic m odelling of t he 
+shoulder girdle. In t he t hird sect ion an eval uation of t he 
+mobility of the shoulder com plex based on our kinematic 
+analysis of the shoulder girdle is given. In the fourth section, 
+we co nsider th e p ossibility o f d efining an o pen ch ain 
+kinematic model equi valent t o t he hum an shoul der com plex, 
+leading us t o em phasize a 9 d.o.f. ki nematic model of the 
+human upper ext remity. In t he fi nal section, we analyse the 
+interest of a robot-arm including a cl avicular link to limit the 
+influence of the well-known “elbow singularity”. 
+ 
+II. KINEMATIC REPRESENTATION OF JOINTED BODY 
+LINKS 
+ 
+Joint Physiology makes a di stinction between three kinds 
+of joi nts : di arthroses (al so known as sy novial joi nts) which 
+are m obile, am phyarthroses which are sem i-mobile and 
+synarthroses which are not mobile. Only diarthroses are really 
+concerned in the analysis of hum an m otion. They are 
+generally classified according to the geom etrical shapes of 
+their joint surfaces into the following categories : 
+- ball-and-socket joints , with spherical-like surfaces, giving 
+three rotation motion possibilities to the joint; 
+- flat joints , whose surfaces are flat i.e. less curved to be 
+considered ideally as a flat su rface; generally speaking the flat 
+joint allows t wo t ranslations ont o a pl ane and one rot ation 
+motion perpendicular to this plane; 
+- condyl or ellipsoidal joints, whose surfaces are ellipsoidal, 
+allowing fl exion-extension a nd abduct ion-adduction m otions 
+but making the ball-and-socket spinning motion impossible; 
+ 1
+Proceedings of 2005 5th IEEE-RAS International Conference on Humanoid Robots
+0-7803-9320-1/05/$20.00 ©2005 IEEE 313
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+- saddle-shaped joints, the surfaces of which are reciprocally 
+concave-convex al lowing fl exion-extension and abduction-
+adduction motions as in condyl joints; 
+- hinge joints , whose cylindrical-like surfaces are apposed 
+generating a rotation motion in the way a pulley does; 
+- trochoid or pivot joints, where the surfaces are also 
+cylindrical-like so as t o generat e a rot ation m otion around a 
+pivot. 
+Due to the specificity of articular joint surfaces, this 
+taxonomy of phy siological joi nts is ori ginal compared t o the 
+classical classification of m echanical joints. It is subsequently 
+possible to suggest an equi valence between physiological and 
+fundamental joints as given in Table 1. 
+ 
+TABLE I. 
+GENERAL CORRESPONDENCE BETWEEN JOINT 
+PHYSIOLOGY AND CLASSIC MECHANISMS THEORY 
+ 
+Such a m echanical interpretation of phy siological joints is 
+essential for t he correct m odelling of t he phy siological 
+kinematic chains under st udy. However, t he com plex 
+geometry of articular surfaces and, especially, the im portant 
+role of ligaments in physiological joint functioning, limits this 
+correspondence. This is the case in some flat joints, which can 
+behave l ike spheri cal joi nts such as the shoulder 
+acromioclavicular j oint, o r o f so me th eoretically two d.o.f. 
+condyl joi nts or saddl e-shaped ones, whi ch can be equated 
+with three d.o.f. spherical joints if a spinning motion occurs, as 
+will appear for the shoulder st ernoclavicular joint. This 
+specificity of each anatom ic joint complicates the mechanical 
+interpretation but does not prevent i t, si nce i t can be 
+considered that each anatom ical joint can be ideally 
+represented by one of the classic m echanical pairs. 
+Furthermore, and t o a cert ain ext ent, t he convexi ty of 
+corresponding articular surfaces can be taken into account in a 
+joint mechanical interpretati on: the convex surface being the 
+male part of the joint and the concave surface its fem ale part. 
+This is, however, not so si mple in the case of saddle-shaped 
+joints and of some ambiguous fl at joi nts. Thi s i s one reason 
+why th e k inematic m odelling o f the clavicle inside the 
+shoulder girdle is a compound problem. 
+The m odelling of phy siological joi nts ranks wi th t he 
+kinematic modelling of skeletal bones. In t he 1950s, W . 
+Demspter introduced the notion of body link defined as “a line 
+of constant length that spans the pin axes” (page 560) [6]. This 
+simplified representation leads to modelling the skeletal limbs 
+as ki nematic chai ns of ri gid l inks by analogy with the 
+kinematic m odelling of machines. More accurately, W . 
+Dempster m odels t he bones i n t he form of simple links 
+containing only t wo joi nts. For exam ple he m odels t he 
+humerus as the straight-line segment joining the glenohumeral 
+joint and the elbow joint as illustrated in Figure 1.a. This bone 
+modelling leads to the schematization of t he human skeleton 
+as an arborescence of sim ple kinematic chains [6], [7]. Due to 
+its high power of synthesis Dempster’s notation is still to day 
+broadly used (see, for exam ple, Engin and Tüner’s ext ensive 
+paper about shoulder biomechanism) [8] , [9] . However t his 
+method can be criticized for being limited to simple links only, 
+thus ignoring the possibility of links with m ore than two 
+joints. The scapul a is typically a bone containing three joints. 
+Dempster models it as th e straig ht-line lin king th e 
+acromioclavicular joi nt and t he gl enohumeral joi nt as Figure 
+1.a illustrates. By so doing Dem pster ignores the existence of 
+the ‘false’ scapulahumeral joint wh ich h as to b e tak en in to 
+account in m odelling the shoulder girdle. This is the reason 
+why t his st udy suggest s, i n t he spi rit of t he machine and 
+mechanisms theory, [10] the extension of t he Dempster body 
+link notation from a simple link-type model to a complex link-
+type model represent ing the bone by the polygon joining the 
+joint cen ters. Fo llowing th is ap proach th e scap ula is th en 
+modelled i n the form of a t riangle whose nodes are its three 
+joint centers linking th e scap ula resp ectively to th e clav icle, 
+the humerus and the thorax as illustrated in Figure 1.b. 
+synovial jointcorresponding
+mechanical joint
+and symbol used
+flat joint
+ condyl or
+ellipsoidal joint
+saddle-shaped
+ joint
+trochoid or
+pivot joint hinge joint
+varietyd.o.f
+33 2 2 11
+ ball-and-socket
+ joint
+planar joint universal joint revolute jointspherical joint
+or
+ 
+ 
+ (a) (b) 
+Fig. 1. Modelling of bones in the form of body links, (a) Dempster’s historical 
+examples, [7] (b) Proposed extension of Dempster’s notation to a complex 
+link type-model, applied to scapula modelling. 
+ 2
+314
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Furthermore it is easy to combine this notation with a 
+joint symbolism not consi dered by Dem pster but i ntroduced 
+by his successors (Tüner and Engi n for exam ple) [9] . 
+Subsequently th e co nsidered Dem spter n otation will b e 
+combined with th e n otation o f classic m echanical joints as 
+shown in Tab le 1 to illu strate o ur k inematic an alysis o f the 
+shoulder complex. 
+ 
+III. THE SHOULDER COMPLEX AS A COMPLEX KINEMATIC CHAIN 
+ 
+Traditionally t he shoul der com plex i s defined as a four 
+main j oint system a comprising the sternoclavicular, the 
+acromioclavicular, the ‘fals e’ scapulothoracic and the 
+scapulohumeral joints, as illustrated in Figure 2. The first three 
+constitute the shoulder girdle while the fourth links the arm to 
+the shoulder. 
+ 
+costovertebral joint acromioclavicular joint
+clavicle glenohumeral
+suprahumeral joint
+humerus
+scapula
+Scapulothoracic joint 
+manubrium
+first rib
+sternocostal joint
+sternoclavicular joint 
+ 
+ 
+Fig. 2. Anatomical structure of the shoulder complex (from the original 
+illustration by Dempster [7] ). 
+ 
+clavicular link
+scapular
+ link
+humeral
+ link
+The speci ficity of t he rol e of t he shoul der gi rdle is to 
+increase th e m obility o f th e h umerus, moving in its 
+glenohumeral l ink. The scapul ohumeral joi nt i s obviously a 
+ball-and-socket joi nt whi ch can be modelled by a spherical 
+joint. The modelling of the three joints of the shoulder girdle is 
+more debat able. In part icular t he m odelling of the two 
+clavicular joints is a delicate question. The acrom ioclavicular 
+or scapuloclavicular is oft en cat egorized as a flat joint [7], 
+[12], [13] but is also likened to a ball-and-socket joint [8], [14] 
+which lead s to m odelling it b y a spherical joint. The light 
+convexity of t he joi nt associ ated t o t he role of powerful 
+ligaments surroundi ng i t, seem s t o expl ain t his choi ce of 
+kinematic m odel. C onversely, t he st ernoclavicular joi nt is 
+defined as a sad dle-shaped j oint wh ich th eoretically h as two 
+d.o.f. but all studies of shoul der phy siology underl ine t he 
+existence of a cl avicle axi al rot ation whi ch pl ays a non- 
+negligible role in upper extremity elevation, as R. Caillet 
+emphasizes in his classic work, Shoulder Pain (page 42) [11] . 
+The clavicle ax ial ro tation-subsequently clearly appears as a 
+d.o.f.. Consequently, as V. Zatsiorsky emphasizes in his recent 
+major t ext on t he ki nematics of human motion, 
+“kinematically, the sternoclavicular j oint fu nctions as a b all-
+and-socket joint with three DOF (page 348)” [15] in spite of 
+its two d.o.f. saddle-shaped joint nature. 
+(a) 
+(b) 
+torso
+(frame) clavicular link
+hum
+eral link
+scapular linksterno-clavicular joint clavi-scapular joint
+gleno-
+humeral joint
+Fig. 3. Kinematic modelling of the shoulder complex as an open kinematic 
+chain, (a) definition of complex shoulder body links according to Demspter’s 
+notation, (b) the corresponding Engin & Tüner’s kinematic model. 
+ 
+Such an open chain modelling is deceptive because it leads to 
+believing that the shoulder complex has nine d.o.f. To the best 
+of our knowledge Dvir and Berne [16] were the first to suggest 
+a diagrammatical represent ation of t he shoul der com plex 
+which interprets the shoul der gi rdle as a cl osed ki nematic 
+chain as Figure 4 reproduces. However no ki nematic 
+modelling was deduced by these authors. 
+Thus, the t aking i nto account of al l cl avicular joi nt d.o.f. 
+leads to the modelling of the three true joints of t he shoulder 
+complex in the form of three spherical-type joints, as effected 
+in the classical works of Dem spter [7] and St eindler [14] . 
+Accordingly, Tüner and Engi n [9] represent ed t he shoulder 
+complex by an open kinematic chain with three links and three 
+spherical joints, as Figure 3 illustrates. 
+This is th e in terpretation o f th e ‘false’ scap ulathoracic 
+articulation as a kinematic joint wh ich allo ws th e k inematic 
+modelling of t he shoul der gi rdle. The scapul athoracic 
+articulation gives the shoulder the possibility of gliding over 
+the back of t he t horax wi th possi ble rot ation around a 
+perpendicular axis (the so-called ‘tilting’ movement). It can, as 
+a consequence, be modelled by a three d.o.f. planar joint. If the 
+ 
+ 
+a Some classical tr eatises m odel the shoulder complex with 7 joints [11] as 
+illustrated in Figure 2 but, conversely , the suprahum eral joint “ is not an 
+anatomical but a phy siological joint” [12] and, on the other hand, the 
+sternocostal and costovertebral joints have very low mobility. 
+ 3
+315
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+thorax, represented by a curved line, is considered as the 
+mechanism fram e, t he ki nematic di agram of the shoulder 
+complex given in Figure 5 results (note that the humerus head 
+and the cl avicle ends have been chosen as m ale part s of 
+corresponding spheri cal joi nts). Thi s diagram clarifies Tüner 
+and Engin’s by cl osing t he shoul der gi rdle ki nematic chai n, 
+and Dvir and B erne’s by introducing the corresponding joint 
+models. 
+ 
+Fig. 4. Non-conventional closed chain diagrammatical representation of the 
+shoulder (reprinted from [16] ). 
+ 
+Fig. 5. Proposition of a conventional kinematic diagram of the shoulder girdle 
+(the left shoulder has been represented to be in accordance with previous 
+figures). 
+ 
+IV. ESTIMATE OF THE MOBILITY OF THE SHOULDER 
+COMPLEX 
+ 
+As Lenarci c and St anisic cl early show [17] , t he Grübler-
+Kutzbach fo rmula v ery relev antly ap plies to the estimate of 
+the num ber of freedom of t he shoul der gi rdle. However, as 
+Tsai em phasizes, [18] the Grübler-Kutzbach criterion m ust 
+take i nto account t he possi ble presence of passive d.o.f. 
+corresponding not ably t o joi nt redundanci es. In particular a 
+binary l ink wi th t wo spheri cal joints introduces one passive 
+d.o.f. correspondi ng t o t he rot ation around an axi s passing 
+through the center of t he spherical joints. This is the case of 
+the clavicular link. In point of fact, according to Inm an, 
+Saunders and Abbot t, [19] the axi al cl avicular rot ation pl ays 
+an anatomical role essential for arm elevation, because it helps 
+draw out the ligam ents closing the acrom ioclavicular joint. 
+Thus, within the framework of a ki nematic model which does 
+not take into account any ligamentary movements, it appears 
+as one passive d.o.f. Taking this passive d.o.f into account, the 
+application of t he Grübl er-Kutzbach form ula leads to the 
+following result – (Tsai’s notations are used) – : 
+d.o.f. 2 1 33 )133(6 
+ )1(6 
+girdle 
+1
+=−×+−−=⇒
+−+−−= ∑
+=
+shoulder
+j
+i
+pi
+F
+ffjnF
+ (1) 
+where n, t he num ber of t he m echanism l inks, i s equal to 3 
+(torso, clavicular link, scapular link), j, the number of joints, is 
+equal to 3 (t wo spherical joints and one planar joint), all , 
+the number of joint i d.o.f., are equal to 3 and ,the number 
+of passive d.o.f. i s equal to 1. Not e that we finally obtain the 
+same final result as that given by Lenarcic and St avisic [17], 
+but the present approach seems better in that it emphasizes the 
+specific rol e of t he cl avicle within the shoulder girdle. 
+Consequently the shoulder complex has a 5 d.o.f. mobility. 
+if
+pf
+ 
+V. DETERMINATION OF AN EQUIVALENT KINEMATIC MODEL 
+ 
+Because the Robotics specialist is not interested in a true 
+replica of t he shoul der gi rdle, whi ch woul d be t oo cost ly i n 
+actuators, he/she is led to a search for an equi valent kinematic 
+structure. Such a structure e ssentially aim s at replacing the 
+closed chai n of t he shoul der gi rdle by an open chai n of t he 
+same mobility. The search for a rigorously equivalent model is 
+a part icularly di fficult probl em. W e suggest a si mplified 
+approach which aims at highlighting an “equivalent clavicle”. 
+Let S b e th e cen ter o f th e stern o-clavicular joint to which a 
+fixed reference frame can be associated. Let G be the center of 
+the gleno-humeral joint. Since t he shoul der gi rdle has a t wo 
+d.o.f m obility, it is clear that the position of G in space is 
+defined by two i ndependent coordinates. Two joi nt variables 
+ and modelling th e m obility o f th e stern oclavicular 
+joint can be chosen as i ndependent general ized coordinates. 
+An equi valent m odel resul ts com posed of two aligned links, 
+the first one being joined to the sternum by a universal joint of 
+variables and , the second one bei ng joined to the first 
+by a prismatic joint dependent on and , as illustrated in 
+Figure 6. From a biomechanical point of view, this model very 
+imperfectly expresses t he ori entation of t he gl enohumeral 
+socket. However, i t seems to us rel evant from a robot ic point 
+of view because, while being in accordance with the shoulder 
+girdle mobility analysis, it expresses the fundam ental 
+kinematic part of the shoul der girdle : to position the 
+glenohumeral joint in space. The suggested model differs from 
+the first Len arcic an d Stav isic’ m odel [20] which also 
+considers a variable l ength cl avicle-based equi valent m odel, 
+but joi ns i t t o t he st ernum by a three d.o.f. ball-and-socket 
+joint, in contradiction with the shoulder griddle m obility 
+result. The present m odel al so di ffers from the second 
+Lenarcic and Stavisic’ model [17] which considers the rotation 
+center of the scapula as an in termediate elem ent; th is m ore 
+1θ 2θ
+1θ 2θ
+1θ 2θ
+torso
+(frame)
+clavicular link
+humeral
+ link
+scapular link
+scapulo-
+thoracic joint
+acromio-
+clavicular joint
+sterno-
+clavicular joint
+gleno-
+humeral joint
+spine
+sternum
+ 4
+316
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+complete scapula-centered model seem s to us, however, 
+difficult t o prove i n a ri gorous m anner due to shoulder 
+movement com plexity, and m ore com plex t o put into work 
+than our one. 
+ wrist flexion-extension
+ (palmar flexion and dorsiflexion)
+HAND
+ RADIAL-ULNAR
+ LINK
+CLAVICULAR LINK
+HUM
+ERAL LINK
+clavicular
+flexion-extension
+clavicular
+abduction-adduction
+humeral
+abduction-adduction
+humeral
+flexion-extension
+humeral
+ext.-int. rotation
+elbow
+flexion-extension
+wrist abduction-adduction
+(radial and ulnar deviation)
+pronation-
+supination
+S
+one dependent
+coordinate
+prismatic joint
+θ,1 θ2
+G
+ 
+Fig. 6. Equivalent kinematic model of the shoulder girdle in the form of an 
+“equivalent clavicle”. 
+It is, h owever, im portant to n ote th at su ch m odels with 
+passive d.o.f. – t he d.o.f. of t he joint dependent upon the 
+universal joint motion – appear i nadequate for use i n practice. 
+It could thus be decided to abandon a seri al mechanism of the 
+shoulder girdle in favour of a parallel mechanism as expressed 
+by the recent ‘Cybernetic s Shoulder’ notion [21]. 
+Nevertheless, an altern ative conclusion coul d consi st of 
+emphasizing the interest for Humanoid Robotics of a shoulder 
+girdle ki nematic m odel reduced t o a si mple l ink – i.e. an 
+equivalent clavicle of constant length – joined to the thorax by 
+a universal joint. Associ ated to a trad itional 7 R 
+anthropomorphic robot model, a seri al archi tecture of t he 
+human arm results in 4 links : clavicle, arm, forearm, hand – 
+and 9 joi nts whose defi nition can be put in correspondence 
+with joint physiology as Figure 7 illustrates. 
+ 
+Fig. 7. Kinematic model of the human upper extremity as an open kinematic 
+chain with 4 links (clavicle or clavicular link, arm or humeral link, forearm or 
+radial-ulnar link, hand) and 9 d.o.f. 
+An anthropomorphic robot-arm whose fi rst segm ent i s a 
+clavicle-like link can offer two advantages. Firstly, it gives the 
+whole robot a serial st ructure, whereas a shoul der robot 
+parallel structure leads to a mixed parallel-serial structure for 
+an anthropomorphic robot-arm. Secondly, we consider that the 
+additive clav icle-like lin k o ffers n ew p ossibilities o f m otion 
+for an anthropomorphic robot-arm. In part icular, it can sol ve 
+the difficult problem of elbow singularity [26] in some manner 
+analogous t o hum an behavi our. El bow singularity which 
+occurs when the arm and for earm are aligned is a lim ited 
+handicap for an industrial robot which essentially works in the 
+middle area of i ts worki ng vol ume, but the handicap can be 
+more severe for a hum anoid robot whose t wo arms combine 
+their motions in a m anipulation task : if th e arm s are fu lly 
+stretched, t he motion consi sting of pul ling an object towards 
+the body appears impossible without the help of a clavicle-like 
+segment, as illustrated in Figure 8. 
+This structure is not new. It has already been considered in 
+some earlier Robotics [22] or Biomechanics studies [23]. It is, 
+for exam ple, used i n t he 103 d.o.f. SANTOS di gital human 
+modelling environment of t he Iowa university Virtual Soldier 
+Research programme [24]. The ri gorous demonstration of t he 
+shoulder girdle mobility confirms its value. Furtherm ore, it is 
+useful to recall the importance g iven to th e clav icle b y E.A. 
+Codman in his fundamental essay on the shoulder [25] : 
+“We are proud that our brai ns are m ore devel oped t han 
+those of ani mals; we m ight also boast of our clavicles. It 
+seems to m e that the clavicle is one of m an’s greatest 
+skeletal inheritances, for he de pends to a great extent than 
+most animals except the apes and m onkeys, on t he use of 
+his hands and arm s. The cl avicle holds the shoulder away 
+from the body and t herefore perm its us t o use our arm s 
+with power and skill in abduction, and adduction to a 
+degree which few animals except t he m onkeys can 
+approach” (pages 7 and 8). 
+ 
+VI. KINEMATIC MODEL OF A ROBOT-ARM WITH A 
+CLAVICLE-LIKE LINK 
+ 
+To analyse the new m otion possibilities of a robot-arm 
+with a clav icle-like lin k we d efine the kinematic model 
+associating a two d.o.f. clav icular link as considered 
+ 5
+317
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+TABLE II. previously wi th t he fundam ental non-redundant three d.o.f. 
+arm-forearm model. Figure 9 present s the corresponding five 
+d.o.f. corresponding robot whom end-point is wrist point W. 
+DENAVIT-HARTENBERG PARAMETERS OF THE CLAVICLE-ARM-
+FOREARM 5 DOF ANTHROPOMORPHIC ROBOT ARM 
+link ai αi di θi 
+0 +π/2 0 θ1 clavicle 
+c 0 0 θ2 
+0 -π/2 0 θ3-π/2 arm 
+A 0 0 θ4 
+forearm B 0 0 θ5 
+S
+G
+W
+E
+G
+Ai matrices are the following (C is for Cosine and S for Sine) : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ −
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+−=
+1000
+0100
+0
+0
+ 
+1000
+0010
+00
+00
+222
+222
+211
+11
+1
+cSCS
+cCSC
+ACS
+SC
+A 
+ 
+Figure 9. Role of the clavicles in two-arm manipulation tasks : if the arms are 
+fully stretched, the motion consisting of pulling the box towards the body is 
+impossible without the aid of clavicular segments. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ −
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+−
+−=
+1000
+0100
+0
+0
+ 
+1000
+0010
+00
+00
+444
+444
+433
+33
+3
+ASCS
+ACSC
+ASC
+CS
+A 
+.
+X3
+ARM
+FOREARM
+Y0
+Z0
+X0
+Clavicular
+flexion-extensionθ1
+clavicle
+θ2
+θ3 Z2
+X2θ4
+θ5
+X5
+X4
+Z5
+Z4
+Clavicular
+abduction-adduction
+Humeral
+abduction-adduction
+Humeral
+flexion-extension
+Elbow
+flexion-extension
+ Clavicular
+ segment length
+A
+B
+W
+E
+G
+S
+c
+X1
+Z3
+ 
+1000
+0100
+0
+0
+555
+555
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+ −
+= BSCS
+BCSC
+A 
+The fol lowing expressi ons of wri st poi nt W with respect to 
+frame R0 = ( O0 , X0 , Y0 , Z0) results : 
+
+
+
+++−=
+++++=
+++−+=
+245423
+214541454231
+214541454231
+)(
+)()(
+)()(
+cSBCACCW
+CcSBSASCBCACSSW
+CcCBSASSBCACSCW
+z
+y
+x
+ (2) 
+Furthermore, the Jacobian matrix of t he robot with respect to 
+frame R3 = ( O3 , X3 , Y3 , Z3) is as follows : 
+
+
+
+
+
+
+
+
+
+
+
+
++−
++
+−−−−
+=
+00
+00
+0
+33
+45223
+45323
+3
+bcSbaC
+BCbcCbS
+BSacCaS
+J
+ 
+with a . (3) 454454 and BCACbBSAS +=+=
+The research for robot singularitie s can start from the analysis 
+of the determinants of the square submatrices of order 3 of the 
+matrix 3J. Co nsider a m atrix J of order m by n with m<n. 
+Matrix J is singular if and only if rank(J)<m. It is obvious that 
+this is equivalent to saying that all square subdet erminants of 
+order m are equal to zero. If the J columns are noted (J1,…Jn), 
+this condition can be written as follows :
+ 
+Fig. 9. Kinematic chain associating the two d.o.f. clavicle chain model with 
+the 3 d.o.f. arm model (link frames are defined in accordance with R.Paul’s 
+notation). 
+{ } {}
+ 0),...,det(
+ ,...,1 ,..., 
+ singular is ] ... [
+1
+1
+21 =
+≠∈∀⇔=
+mii
+kjmn JJ iimiiJJJJ (4) Table 2 gives t he correspondi ng Denavi t-Hartenberg parameters’ Table in accordance with R.Paul’s notation. The latter’s was preferred t o C raig’s not ation for t wo reasons: 
+firstly, each line of the D.-H. table can be associated to a robot 
+link; secondly, the final fram e can be placed at the end of the 
+last link. 
+There are determinants concerned by this theorem. In our 
+case, n=3 and m =5; t he 10 determinants of order 3 from 
+matrix J have the following expressions : 
+mnC
+ 6
+318
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+ 
+5543
+53542
+453532
+32432
+523541
+45'2523531
+2431
+45'35223521
+2233421
+2233321
+ ),,det(
+)( ),,det(
+ ),,det(
+ ),,det(
+ ),,det(
+)( ),,det(
+ ),,det(
+))(( ),,det(
+)( ),,det(
+)( ),,det(
+ABbSJJJ
+ScSbABJJJ
+CBbcCJJJ
+cCbJJJ
+SABaCJJJ
+ScCSASBbJJJ
+abcCJJJ
+ScSAScCbSBJJJ
+cCbSacSJJJ
+cCbSbcCJJJ
+=
++=
+=
+=
+−=
++−=
+−=
+++−=
++−=
++=
+ (5) 
+clavicular
+ segment
+W
+S
+1
+2
+3
+4
+5 E
+G
+Arm
+Forearm
++ θ2_lim
+− θ2_lim− θ1_lim
++ θ1_lim
+ Frontal plane
+Physically, each one of these s quare subm atrices of order m 
+can be interpreted as a non-redundant “sub-robot” of the robot 
+under consideration. Their com bination i nsures t he non-
+singularity of t he robot as l ong as one sub-robot is not 
+singular. 
+Fig. 10. Clavicle-Elbow singularity delimiting a bound surface depending on 
+the clavicular link joint limits. 
+singularity
+free zone
+frontal plane waist
+− θ1_lim
++ θ1_lim
+ elbow-clavicle
+bound singularity
+145
+GEW S
+In the case of our fi ve d.o.f. ant hropomorphic robot , assume 
+that th e m otions o f th e clav icular lin k are b oth lim ited in 
+accordance with human physiology, as follows : 
+
+ +<<− +<<− adduction)-abductionsegment r (clavicula extension)-flexionsegment r (clavicula lim_22lim_2 lim_11lim_1 θθθ θθθ
+lim_1θ lim_2θwhere and are significantly less than 90° (these 
+values are typically estim ated at 35° [13]). Under this 
+assumption, the analysis of t he subdeterminants of order 3 of 
+the Jacobian matrix, not det ailed here, l eads t o showi ng t hat 
+the robot becomes singular when : 
+ (6) 0 )sin( )sin( )cos( 543 === θθθ
+If i t i s assum ed t hat t he shoul der abduction-adduction is 
+limited to a sub-range of ] -90°,+180°], whi ch i s bot h i n 
+accordance with hum an physiology and the necessity to take 
+into account the mechanical limit imposed by body presence, 
+the following singularities are obtained: 
+, , 
+and 
+. These singularities can be 
+gathered t ogether under t he t erm clavicle-elbow singularity. 
+Figure 1 0 illu strates th e m ost manifest of them 
+( ) correspondi ng t o a al ignment of t he 
+clavicle, arm and forearm . If the variation of the two 
+clavicular link θ
+{} 0,90 5431 ==°+== θθθs
+,180,90 5433 °=°+== θθθs
+{ °=°+== ,180,90 5434 θθθs
+°==°+= 0 ,90 543 θθθ
+{ °==°+== 180,0,90 5432 θθθs
+{}
+}°180
+}
+0=
+=
+1 and θ2 joint variables are taken into account, 
+a Cartesian singular bound area resul ts, cent ered on a 
+horizontal line of t he frontal plane (Figure 10). It also results 
+in a non-si ngular zone part icularly useful for C artesian 
+motions perform ed i n front of t he robot. In the case of 
+humanoid robots, the combination of these two, right and left, 
+singularity-free zones gives th e robot the possibility of 
+manipulation tasks including full extension arm movements. 
+Fig. 11. Lateral working zone of the robot with the presence of a bound 
+singularity and singularity free frontal zone. 
+The following simulation was programmed to illustrate the 
+change as a function of time of the clavicular link joints during 
+a straig ht lin e m otion, startin g fro m a fu ll arm extension 
+configuration. The robot was parametrized with A = B = 0.5 m 
+and c = 0.2 m. Initially robot-arm wrist point W was located, 
+with respect to fixed fram e R0 at poi nt 
+TBABAcDepart ]2/)( ,2/)( ,[ +−+++= and m oved t o point 
+TddcArrival ]2/ ,2/ ,[ −++=
+1θ 2θ
+ - with d = 0.2 m - close to the 
+waist. The trajectory was gene rated according to a point-to-
+point trapezoidal velocity profile of crui se speed equal to 0.5 
+m/s and of constant acceleration/deceleration of 1 m /s2. 
+Initially and are of zero val ue. A cont rol procedure was 
+carried out using a numerical com putation of t he pseudo-
+inverse of the robot with an additional criterion for keeping the 
+clavicle j oint an gles with in th eir im posed lim its, eq ual to 
++/−35°. The resulting joi nt t rajectories (Fi gure 12) cl early 
+show the role of the two clavicular link joints making possible 
+the initial elbow, flexion while the desired straight motion is 
+carried out. 
+ 7
+319
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+Time (s)
+ Clavicular link
+ joint positions (deg)
+0 0.5 1 1.5 2 2.5 3 3.5 4 4.5
+-30
+-20
+-10
+0
+10
+20
+30
+θ1
+θ2 clavicle
+abduction/adduction
+ clavicle
+flexion/extension
+Time (s)
+ Arm and Forearm
+joint positions (deg)
+0 0.5 1 1.5 2 2.5 3 3.5 4 4.5
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+θ3
+θ5
+elbow flexion
+θ4
+0 0.5 1 1.5
+-1.5
+-1
+-0.5
+0
+Y-position (m)
+Z-position (m)
+Depart
+Arrival
+Fig. 12. Straight line motion simulation of the wrist point from a location with a complete elbow extension, and corresponding change of the joint positions. 
+ 
+VI. CONCLUSION 
+ 
+The mechanical interpretation of the different joints of the 
+shoulder complex leads to a m odelling of the shoulder girdle 
+in the form of a closed kinematic chain whose mobility can be 
+determined th anks to th e Gr übler-Kutzbach form ula. The 
+proof that the number of d.o.f. of t he shoulder griddle is equal 
+to two has a double consequence : 
+i. It rigorously establishes that the number of d.o.f. of t he 
+human arm, hand excepted, is equal to nine, 
+ii. It l eads t o approachi ng t he shoulder girdle by a 
+kinematic m odel reduced t o one l ink joi ned to the 
+sternum by a universal joint – an equivalent clavicle. As a 
+consequence, a four-l ink m odel of t he hum an arm – 
+clavicle-arm-forearm-hand – em erges, whose appl ication 
+to robot-arms design offers a bi omimetic solution to the 
+elbow bound limit singularity problem. Humanoid robots 
+including clavicle-like l inks coul d t hus i mprove t heir 
+ability to make their arms function together. 
+ 
+REFERENCES 
+ 
+[1] M.E. Rosheim, Robot Evolution. The Development of Anthrobotics , John 
+Wiley & Sons, New York, 1994. 
+[2] B. Hannaford, J.M. Winters, C.P. Chou and P. Marbot, “The Anthroform 
+Biorobotic Ar m: A Sy stem for the Study of Spinal Cir cuits,” Ann. 
+Biomed. Eng. , Vol. 23, 1995, pp. 399-408. 
+[3] G. J.M. T uijhof and J.L.Herder, “Design, Actuation and Contr ol of an 
+Anthropomorphic Robot Ar m,” Mechanism and Machine Theory , Vo l. 
+35, 2000, pp. 945-962. 
+[4] N.G. Tsagarakis and D.G. Caldwell, “Development and Control of a ‘Soft-
+Actuated’ E xoskeleton for use in Phy siotherapy and Training,” 
+Autonomous R obots, Special Issue on Rehabilitation Robotics, Vol. 15, 
+N°1, 2003, pp. 21-33. 
+[5] B. Tondu, A. Daidié, S. Ippolito and J. Guiochet, “ A Seven-degrees-of-
+freedom Robot-arm Driven by Pneum atic Ar tificial M uscles for 
+Humanoid Robos,” The International Journal of R obotics Research, Vol. 
+24, N° 4, 2005, pp. 257-274. 
+[6] W.T. Dempster, “The Anthropometry of Body Action,” Annals of the New 
+York Academy of Sciences, Vol. 63, 1951, pp. 559-585. 
+[7] W .T. Dem pster, “M echanisms of Shoulder Movement,” Archives of 
+Physical Medicine and Rehabilitation, 1965, pp. 49-70. 
+[8] A.E. Engin and S. T. Tüner, “Three-dimensional Kinematic Modelling of 
+the Hum an Shoulder Com plex – Par t 1 : Phy sical M odel and 
+Determination of Joint Sinus Cones,” Journal of B iomechanical 
+Engineering, Vol. 111, 1989, pp. 107-112. 
+[9] S.T. Tüner and A. E. Engin, “Three-dimensional Kinematic Modelling of 
+the Human Shoulder Complex – Part 2 : M athematical M odelling and 
+Solution via Optim ization,” Journal of B iomechanical Engineering, Vol. 
+111, 1989, pp. 113-121. 
+[10] D.H. Myszka, Machines & Mechanisms, 2nd edition., Prentice Hall, 2002. 
+[11] R. Caillet, Shoulder P ain, 3 rd edition., F.A. Davis Company, 
+Philadelphia, 1991. 
+[12] I .A. Kapandji, Physiology of the Joints , T.1 , Upper limb , 5 th edition., 
+Churchill Livingston, 1982. 
+[13] C.J. Della Valle, A.S. Rokito, M.G. Birdzell, J.D. Zuckerm an, 
+Biomechanics of the Shoulder , Chap. 12 in Basic Biomechanics of the 
+Musculoskeletal System, M. Nordin and V.H. Frankel editors, 3 rd edition., 
+Lippincott Williams & Wilkins, 2001, pp. 318-339. 
+[14] A. Steindler , M echanics of Shoulder -Arm Complex, in Kinesiology of 
+the Human Body under Normal and Pathological Conditions , Ch arles 
+C.Thomas Publisher, Springfield, 1955. 
+[15] V. M. Z atsiorsky, Kinematics of Human Motion , Hum an Kinetics, 
+Champaign, IL, 1998. 
+[16] Z. Dvir and N. Berne, “The shoulder Complex in Elevation of the Arm : a 
+Mechanism Approach,” Journal of B iomechanisms, Vol. 11, 1978, pp. 
+219-225. 
+[17] J. L enarcic and M . Stanisic, “A Humanoid Shoulder Com plex and the 
+Humeral Pointing Kinem atics,” IEEE Trans. on Robotics and 
+Automation, Vol. 19, N° 3, 2003, pp. 499-506.b 
+[18] L.-W. Tsai, Robot Analysis – The Mechanics of Serial and P arallel 
+Manipulators, John Wiley & Sons, New-York, 1999. 
+[19] V. T. I nman, J. B. Saunder s and L .C. Abbott, “Obser vation on the 
+Function of the Shoulder Joint,” Journal of Bone and Joint Surgery , Vol. 
+26A, 1944, pp. 1-30. 
+[20] J. Lenarcic, M.M. Stanisic and V. Parenti-Castelli, “Kinematic Design of 
+a Humanoid Robotic Shoulder Complex,” in IEEE Int. Conf. on Robotics 
+and Automation (IEEE Press, Detroit), 2000, pp. 27-32. 
+[21] M. Okada, Y. Nakam ura and S. -I. Hoshino, “Developm ent of the 
+Cybernetic Shoulder –A Three DOF M echanism that I mitates Biological 
+Shoulder-Motion,” in IEEE/RSJ Int. Conf. on Int. Robots and Systems 
+(IEEE Press, Detroit), 1999, pp. 543-548. 
+[22] S.C. Jacobsen, “Control Systems for Artificial Arm s,” in IEEE Conf. on 
+Syst. Man & Cybernetics (IEEE Press, Detroit), 1973, pp. 298-303. 
+[23] J. Lenarcic and A. Um ek, “ Simple Model of Hum an Arm Reachable 
+Workspace,” IEEE Transaction on Systems, man and Cybernetics, Vol. 6, 
+1994, pp. 1239-1246. 
+[24] S. Beck, K. Abdel-Malek and J. Arora, Virtual Soldier Research Program 
+– The University of Iowa, web site : www.digital-humans.org, 2004. 
+[25] E.A. Codman, The Shoulder, Originally published : T. Todd Co., Boston, 
+1934. (Robert E. Kreiger Publishing Company, Malabar, Florida, 1984). 
+[26] Hollerbach, “Optimum Kinematic Design for a Seven Degree of Freedom 
+Manipulator,” in Robotics Research : The Second I nternational 
+Symposium, H. Hanafusa and H. I noue ( eds), M IT Pr ess, Cam bridge, 
+1985, pp. 215-222. 
+ 8
+ 
+b Please note that the figur es of the or iginal paper were mixed up and that 
+their placing was cor rected in an addendum published in the 2003 august 
+journal issue. 
+320
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 11:50:06 UTC from IEEE Xplore. Restrictions apply.

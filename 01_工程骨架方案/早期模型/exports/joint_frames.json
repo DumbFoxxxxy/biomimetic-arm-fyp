@@ -1,0 +1,207 @@
+{
+  "units": "meters",
+  "source": "D:\\XJTLU\\PSP\\model\\exports\\part_frames.txt",
+  "frames": {
+    "SC_J": {
+      "origin_m": [
+        0.0449999960174535,
+        0.299999934198918,
+        -0.106507118037789
+      ],
+      "axes": [
+        {
+          "name": "abduction_adduction",
+          "direction": [
+            0.0,
+            3.2622071044956e-15,
+            1.0
+          ]
+        },
+        {
+          "name": "elevation_depression",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "axial_rotation",
+          "direction": [
+            0.0,
+            1.0,
+            -3.2622071044956e-15
+          ]
+        }
+      ],
+      "range_deg": [
+        [
+          -30,
+          40
+        ],
+        [
+          -20,
+          40
+        ],
+        [
+          -30,
+          30
+        ]
+      ]
+    },
+    "ACST_J": {
+      "origin_m": [
+        0.1726794879417645,
+        0.29999993419891824,
+        -0.02732058409277379
+      ],
+      "axes": [
+        {
+          "name": "upward_rotation",
+          "direction": [
+            -0.8660254037844417,
+            1.631103552247783e-15,
+            0.4999999999999949
+          ]
+        },
+        {
+          "name": "posterior_tilt",
+          "direction": [
+            -3.4158679198689347e-31,
+            1.0,
+            -3.2622071044956e-15
+          ]
+        },
+        {
+          "name": "external_rotation",
+          "direction": [
+            -0.4999999999999949,
+            -2.8251542248992765e-15,
+            -0.8660254037844417
+          ]
+        }
+      ],
+      "range_deg": [
+        [
+          -20,
+          50
+        ],
+        [
+          -15,
+          35
+        ],
+        [
+          -20,
+          30
+        ]
+      ]
+    },
+    "GH_J": {
+      "origin_m": [
+        0.19549580903605018,
+        0.25811281275573034,
+        0.00630717829645167
+      ],
+      "axes": [
+        {
+          "name": "rotation",
+          "direction": [
+            2.06506183224678e-15,
+            1.0,
+            -3.262207104495587e-15
+          ]
+        },
+        {
+          "name": "flexion",
+          "direction": [
+            -1.0,
+            2.0650618322467596e-15,
+            -6.313397072220055e-15
+          ]
+        },
+        {
+          "name": "abduction",
+          "direction": [
+            -6.313397072220048e-15,
+            3.2622071044956e-15,
+            1.0
+          ]
+        }
+      ],
+      "range_deg": [
+        [
+          -90,
+          90
+        ],
+        [
+          -45,
+          180
+        ],
+        [
+          -45,
+          180
+        ]
+      ]
+    },
+    "ELBOW_J": {
+      "origin_m": [
+        0.19549580903604963,
+        -0.005887187244269676,
+        0.006307178296452531
+      ],
+      "axes": [
+        {
+          "name": "flexion_extension",
+          "direction": [
+            5.697281258966133e-15,
+            -3.262207104495599e-15,
+            -1.0
+          ]
+        }
+      ],
+      "range_deg": [
+        [
+          0,
+          145
+        ]
+      ]
+    }
+  },
+  "layout": {
+    "mode": "paired_frames",
+    "joints": [
+      {
+        "joint": "SC_J",
+        "parent": "thorax",
+        "child": "clavicle",
+        "mode": "paired_frames",
+        "parent_frame": "SC_J",
+        "child_frame": "SC_J"
+      },
+      {
+        "joint": "ACST_J",
+        "parent": "clavicle",
+        "child": "scapula",
+        "mode": "paired_frames",
+        "parent_frame": "ACST_J",
+        "child_frame": "ACST_J"
+      },
+      {
+        "joint": "GH_J",
+        "parent": "scapula",
+        "child": "humerus",
+        "mode": "paired_frames",
+        "parent_frame": "GH_J",
+        "child_frame": "GH_J"
+      },
+      {
+        "joint": "ELBOW_J",
+        "parent": "humerus",
+        "child": "ulna",
+        "mode": "paired_frames",
+        "parent_frame": "ELBOW_J",
+        "child_frame": "ELBOW_J"
+      }
+    ]
+  }
+}

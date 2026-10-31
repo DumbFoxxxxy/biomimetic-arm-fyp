@@ -1,0 +1,2765 @@
+{
+  "scope": "actual swivel-cap port endpoints, numerical free-centreline path,0.6mmsteel and rigidly posed source-manufactured short-guide pieces. These are hypothetical TPU-guide poses, NOT lattice deformation, equilibrium, friction ordrive proof; no actual model guides are fixed to virtual supports",
+  "quick": true,
+  "critical_flexor_only": true,
+  "regularizer": "0.05mm^-1 squared-distance to smooth rest/cap interpolation; numerical shape regularizer, not calibrated TPU elasticity or external anchors",
+  "normal_bow_initial_guess_mm": 12,
+  "metal_aware": true,
+  "constrained_metal_parts": [
+    "paired_bone_frame",
+    "FJ1486_keeper",
+    "FJ1486_keeper_bolt",
+    "FJ1486_keeper_front_washer",
+    "FJ1486_keeper_back_washer",
+    "FJ1486_keeper_nut",
+    "FJ1477_keeper",
+    "FJ1477_keeper_bolt",
+    "FJ1477_keeper_front_washer",
+    "FJ1477_keeper_back_washer",
+    "FJ1477_keeper_nut"
+  ],
+  "source_sha256": {
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\assembly.json": "787b60be8be3a7ae60efdfa40d1b9dd1ae5720ccbdd627e8265c7d6875e52b92",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\conditional_motion.json": "5f66a14af2349912509c1a32deae26aa37ed2ff929e5ed0bcdb94d68e9331390",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\TPU_muscle.obj": "736d2725c2455035b4ecde66c26e7755b8a09d96a3a8c7b485f817e4a202d523",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_rigid_cap.obj": "918ee45ff216517c6c52df5575e12de034ea417a52ec5d45d0e4407792c1e48c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_washer_left.obj": "9555c78cb5e7fb710c94cae3642c00db410725026b9b1f0cbe3654a948c65dfe",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_left.obj": "1faa098cdc9acb944ac790225c8c7d7ed185fc2d92b50fb4b8ffd93140c5bfd1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_washer_right.obj": "428fe5e2f2f8cec036eeac8012164282b8062a18939f8e8e3bd06c9e29cff1a8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_right.obj": "15b78a8f9378605427d5920288a6643b94b4a2fc2203d26569afd284abe2a9e1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_bolt_left.obj": "1e60a01f0fe89dbd6d6216d8aed87726b17b495aeef84219956bbe95f3768d07",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_head_washer_left.obj": "08374a72d8d4a3a54e72f43f959e5e6d6e883e58496f7baebf0b8795ab448840",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_washer_left.obj": "a933dec23f7921af0c02efaa387a1a9806f514ff9d7b85bc23678c32d95f615e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_left.obj": "73c589ba68753e31f27ac775d9026d875dc5b275530e63d22d46fa3cb207365f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_bolt_right.obj": "97d57162118564ad2bf2e5728621404b1736d79cdb0e54961ef78298fe3aab71",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_head_washer_right.obj": "e37852df3fee0f686710275518d581759183cfb9fb1317e5ff5a4b35d9a0da2c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_washer_right.obj": "7f6f5ad903c0267d8055d8edb1bdcf05f5bfa114b38813bd4739d3a56a417566",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_right.obj": "4f900f1290716ecd1c11548c3fde159f838ed38cb283c96e0c61b00e3769dd32",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\active_wire_crimp_barrel.obj": "6e52f2505a8dcab0698bd4c4f9c0a5890402e0fa3c9967f6836a1a2dd9121967",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\TPU_muscle.obj": "7d17158da76946fd8d20804d0655fccf896507e1e7b11199bb2a40911c1f98e1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_rigid_cap.obj": "8e601af51c4b1f77e0491fb3af17cfc14f1c87c138141ac550e43b15db05fd65",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_washer_left.obj": "66a5b3f6b0edf4c0ca42821bd8897ecc9e96b302c76ce14a6c3c025cde042e24",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_left.obj": "3c275a3ee882b79a83ab554331001c5459393170f8aee96d5da88cba78aadf25",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_washer_right.obj": "4d26067da0be389af635d43e48521b451c7792204e6176fd44a8795033a0f9ca",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_right.obj": "572dfe84434b2ea0081e38cd66d018ce5059f501821965ea3663828597d5500d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_bolt_left.obj": "4da96a589910e9dc68a2e78df3ce38456ab7e3824a53759d8108ac8007b7659e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_head_washer_left.obj": "17fac4525e4ff9321be8453e9f35298c293c58156fa1c8bee735d2a98226cab8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_washer_left.obj": "8846fde77a6306b2b29de2fcbe5e112a02cb36418f1f22e90be20e4f17d62c68",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_left.obj": "2d3e99ba778a434daf19bb80ded65da507116ce1049779d2dc435630afd62ec5",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_bolt_right.obj": "a0acd89a43ec641cce4896730346a9fa15c6f53730b49b7fcdd21b5343afc135",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_head_washer_right.obj": "b0319e272fbd92db329693871e81a91fd26b3a0c3a6fef9974d409fa99753523",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_washer_right.obj": "1fc7551a4d14b9ff258d948effd97bd615bafb782a994dc593069597f0d51e3c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_right.obj": "de2c3a2d1c8704cf96a6ac11d5b2789895f3d19358e97a3cab1f0b120af16a1d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\active_wire_crimp_barrel.obj": "e845e310ae6fa6d7f934048348ad329ec4fac402307952d5d0ebf155c7f83868",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\humerus_M2_mounts.obj": "261340687b4618147c5e43f8df91c22f99532117993a0e9c3daa155eba5fb733",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_bolt_left.obj": "d442c791c02c50ef7897c104058435708899914b59f9f42bb010b2ad6daab9cd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_head_washer_left.obj": "f3e4738a520a0ada19b1b55d007933cb2bc1836d5d4bbde48cdf347b11c0e55f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_bolt_right.obj": "dddb5e40fbb4569ab425638f2acd6a4818b340104ec0acc46587cde86a5e1794",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_head_washer_right.obj": "5eaaed51e19daab337c6e3d18a1c87a008df692e26fe6d8c1494f418400a8d54",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_bolt_left.obj": "7fe948866e4f991be59f28826f6a0c7f091739fb845b67cfa6c04ee95232e3a3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_head_washer_left.obj": "511cf4aefc21cb79ac2e1c42052d83c828465783cf29062f798ac16b585b1542",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_bolt_right.obj": "6c5b1fe1d50baff77be7a7eeda7fa42e45987b0867c998ab41610e267dba5ebb",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_head_washer_right.obj": "6fd0ca715359ae4f14abd37452d2aaca6ebb1161b0a2431ce9576b11cd27c056",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_adapter.obj": "340c25e7919fea3c05e7d89a68ba5659e9426f73b3d9cfe77f1dfa644bd7e45d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_adapter.obj": "05248aabed2c8446a4642db385fb6f3a3d05e1af25e8fbe01952be38733331af",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_bolt.obj": "66da948912b46fa679a1ad521b8a0984e6f69d94da9e9d80dd07294ab00936c6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_front_washer.obj": "dbe8eb5fa3ace3e66eb20227e55268a7f43da14db485ccdc0ecc31083fc543b2",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_back_washer.obj": "09b7ee67b848ed74374ba16e3406c35277778d937f2f597170e3da87a0b12378",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_nut.obj": "5b0fbfdbe020fbca7bf93549a30085bd893c72e75d1836f43c798dcd26db00ca",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_bolt.obj": "2536507cd8b15058325c624c1ee98c099ce83a3d296b170c50a93fb34fda3989",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_front_washer.obj": "476ce7e483014a79297015716b0070778f970c8474bd68a7f3968e062cb0693c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_back_washer.obj": "bf17a72180361adb7273ae4c5b28e43b106912e593e81260bcbe8a5dd008e0db",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_nut.obj": "5bf24ac28e9cb2c7e9f2069959bf4d0bdc85526704496f4dc257af0ac07ffd59",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_bolt.obj": "6ee326efd1a444b69b59507a9756116fe650de0959677d1dadf7733636ec3de8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_front_washer.obj": "842b08ddc78f9d67f9e1c05f0e85d7f3e2fffbe10e3ca5c0b3b1a9d001980483",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_back_washer.obj": "5ff04786d7c07a0da8dba3ecbc771599a6e7121e024931e68931c870777c71dd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_nut.obj": "0856bc5f088691e5cf0b60471a3d3512bc6c1c21bd13466eef82329f9a6b2111",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_bolt.obj": "0ecf9dbd07e9f17fb2ef54040685bbd1bb3c2b219d5848da5fb2ac7c7b45016b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_front_washer.obj": "d5ecb07d78c28b0f3a6a157446efd08102f70f93f6eeb9d5e4257c15158ddeb9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_back_washer.obj": "005824af0041081759211404be08994ce63efb210987384eb56c1b4ab12c06fa",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_nut.obj": "930e4fe7b51ca03c840928597efb53d368239864226547effbf8f3c4c175e1f9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\clavicle_SC_AC_balls.obj": "cadfafa89ee0a0829f9e4dea052cf587f1b66c3f4870d24494dd5dc533c0bd9c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\manubrium_socket_base.obj": "2131074f10ddebd53f7cbee60d6aa6a78840502deec22ef61323dcd073c2c15f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_cap_left.obj": "58b3ee5a4fd93f1b0c0b1eb888884b21f0719e2fb357e8ae68426ee499282908",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_cap_right.obj": "1aa71d06cc96fe4da7f80c69b6fa3c824afb113b097da5aae0d3f209d5c441dc",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bolt_left.obj": "476d0c4d2274dc5d0891b475b67aad2eb903e3f620d50367eccea99af503a446",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_nut_left.obj": "26d102bf5dcd4f4cd602d623457cd0635d34c65e5d2c1bd5ef773f1efd01e595",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_top_washer_left.obj": "fac782efa2daf72f9270b4dccc01290e6bc923d10ae6aebabe4c4b9e906962c4",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bottom_washer_left.obj": "fad89ddc4e69c02e1c06946dac19a79501574f101de029d7c1026bf91e756ab0",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bolt_right.obj": "2c3ab3a986d4fecd07969aec431149022e1432442c3e3bd510cda4015eaf2852",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_nut_right.obj": "acf11421f9d4c8e40cea936c51911f72d4bacbe19deb4c2fab0195e33b8b11de",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_top_washer_right.obj": "be08ab46cf4bcc67267a074dac49a74f7082d8eb5ea5c1b46f2d82a3c1fed421",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bottom_washer_right.obj": "7baa53cf550e5426b7eac0f4f0111d11dc129f5bcba320d961cec1f7cc3af559",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\scapula_AC_GH_sockets.obj": "e4928a46f3ddc12b24e07b8758f13cc870699c989c4b5fe9b4264bcb17208d95",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_cap_left.obj": "e33588e8eccf9e8402231c3e7a086ef1148e1d1df5a70be6883dc414b5761f15",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_cap_right.obj": "292d77c56a3a84f6d9c0a9fec82206d25616abef4e2a38034869d48a63431359",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bolt_left.obj": "1715f02289beaf3f30772ff50be971b9611e39cc4b6b9acb566a66bbff7f5d83",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_nut_left.obj": "ed3449657430affebe653f696a463ac82d59cd2fa36f2c975d3e793b6b25b657",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_top_washer_left.obj": "9d99dfcc325263b5b91df4054b60e5b61832d7d0b0606a86d9a63038ff549a6d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bottom_washer_left.obj": "9a2be02b8b30e481251f1ee47dd0abdf1175128b400bdff31e754a1ab743bb78",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bolt_right.obj": "eede60caa96e5933bad0dea7dcc89ab845d234e0d64567ffbf911e22f4b7b1df",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_nut_right.obj": "260128650271f6216cd7790938c266bd5d8d4035d24d54d6908b75f17f4e3bae",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_top_washer_right.obj": "ad851c9bf6cdec72d7846bd6e50e5a3852322c57b27f272ebe134dbebf121757",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bottom_washer_right.obj": "574e3dabf038c90cdf13adfdfd06ad2d30107641edbb2ffed9cd3433a5be3ad9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_cap_0.obj": "6fc15bf0a0ca3efb3426d695b2d0436108c13cfed11a0a9df289b616e8888e33",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_cap_1.obj": "8fd33dd413c0dbfef2824899946e6b7fd732e436aefd061df3472b0964df3e5c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bolt_0.obj": "8adb148ed5fdb8db54f942556241c1d870aefaa80d0fb772a6ebdd27ba14843f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_nut_0.obj": "4f4e284e4bb8a14b7a89010de260a43dd58f908f03afacbb5dfafc432b0d3ebd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_top_washer_0.obj": "66ae1450eb71c201d8b1dc27de8bed686eff0306a3bec71e2d84743f5307256a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bottom_washer_0.obj": "fc49675d229aa40be28bfbaf0d968c5280976a9e3dbdf21f3eeea77a01626595",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bolt_1.obj": "7ebcb6a025f11766f2b6066b37c3fd3fb1ef47df5eb38f556e0dcceadbb27886",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_nut_1.obj": "f78954490355035853086ebe944c9baf7ee7c108676adb28c7d8e85f7a33f5d2",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_top_washer_1.obj": "323470b1d45de3fe12b78f133e0add21d8579e034bcd7f78cbdc7259921b0f18",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bottom_washer_1.obj": "632a185cc57512b9e5bbb2ad16771f50d2aaf2b75b57b3b4eec5cfaf896b13f8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\direct_forearm_seated.obj": "b6f1a289ea6bdd2273735f63ff2e37126bf47005e9deec755d902d8a870964f6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_bearing_bush.obj": "d73ae21702ac35e2e99bae5c034ec86e76ed38d66b4fd0adbde3832dac6ce91e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_spacer_left.obj": "1a08e14b7d530b0509257520036b2ed8dd10bc1857ff5f217eca682b915867b8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_spacer_right.obj": "78fddc215d5288e4b0bd721fd2ede81ac6b5f70bfc1856dc59fc9f3424e6527d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_shoulder_pin.obj": "7fe14e71e970030b2a9734ef19cab65acbb4b5214e474feadd6e7eb6e2865b5a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_washer_left.obj": "c085e2a7574023c2b7cbee28331e1388cb5672cd1ccba1d93d57042f22bec4d5",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_washer_right.obj": "63e6934cc09d0ae88f40a7827742f7d141b7a308b700a531e8ec373b74d68eed",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_retaining_nut.obj": "4e39a49623ad93fc509618ad12ca3ea01d74bb05b8f4407e73455c54ea040819",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_0_bolt.obj": "643cf0ae6fe039d777e6c377bc5d788fd224cb502ac65ed4b057716d580ff2f3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_0_front_washer.obj": "4dc058dec8031d086b91c9aab8ba129ec1c3115dbaee220b904176c4930bca97",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_0_back_washer.obj": "091563d9a68a1de0f84b5f02c2a16bc12c854e53b698a35742008606825d5e4b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_0_nut.obj": "71daeed899431e4bb2c0db6c7548ff081f7fda4b268bec75b6bfe3f8b3d79d7d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_1_bolt.obj": "1c3d69596d5e3554cfa8bc765b30d859f4cba17d4ff00a148ded31dd6a9cc8a8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_1_front_washer.obj": "777572c30786734b9e7948f9091325969606dbd9062fd175fa5ab16333d94e81",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_1_back_washer.obj": "fbc3f0d972360c3321339b9ccf8f968e7a48ce8ffc271a64efdffcc849b62257",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_1_nut.obj": "fe8999f59cfe850a762df5e8747466e7e82c08935e1047a01fff99b4c7e8eafb",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\flexor_cap_rotor.obj": "5756c8c4811cbb706082c8711c0152a3e1abb02aecdc6ddf9435cb9fefe3b7a3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_pin_-1.obj": "cd39df03fd732b1e22cf6cfea224d129e1957b8f5a8276904ae2c38bb20289d3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_pin_1.obj": "effd5771e65d01f86925ce9e6422d71375fb62ccc0c5706d55915385656441e0",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\washer_-1.obj": "9600cfa5cfa8128faa26b39d9e5f352abbb41d63988eb1cb9d212b22b27c311d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\washer_1.obj": "40dc6bc27777c90fbdd7a8a7cf8bbb3b4971a2565e09e254be4ac7768d62430f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\extensor_cap_rotor.obj": "e9b50475c3661e644842ba91409f42d47c081c5406bba777681259dfe092cab1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_pin_-1.obj": "07981190ab547795112f720783e9e99179c3a39cb4c9506a6e70a76b4ef1b55b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_pin_1.obj": "15c8923c2447f03d06af89bec1bcbdba3b2551d73957d381737efdede14f1561",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\washer_-1.obj": "f799feb58122da1044501dd0d268b0586dbec6e232a7564dac2f07667553c391",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\washer_1.obj": "25bbe7f64d4b9288f660f4badf0b91a7f1b00512c31ccaa89d1cb27897694d04",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\paired_bone_frame.obj": "b4e1a679a84b05fa34809ca4586bac7bfbd63d42f6659668af066e539ce6ae8b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper.obj": "2705f06f13a1db580240da32e4c7d5b2cb11745daaa686c51075c122a029c25a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_bolt.obj": "af09c4bf2422d22e390d5dae306e7f1934de5e2b5e732221617c39d1d42855e6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_front_washer.obj": "aa3a4e0c2e6d3f5a93d2e4a44237f9ce209a9b092c605f58aff1e19a02e7c04a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_back_washer.obj": "2d6ab31ff3e0de88dc493d305ff338d0a52096ce630b691db261cb9cf5386e7b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_nut.obj": "dbc852fe251b895c593a75311eba54566f6deaab5f8a1eb88ecfacbd26a8f023",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper.obj": "33f36f5795a1316715109d3cc24effb493b104ad4bea3b066e21cf0d262618a9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_bolt.obj": "d54859bba3832315cf4ed1a48f2f613ecf50dd9abf47e6495bb87987c2d4938a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_front_washer.obj": "0c1c6a93dcdc4338a92da9b8676dc169bea12feed83b411b67dac9c6cc3e20ab",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_back_washer.obj": "3e8207ddf1734779201d5769e5251b0ec1c5858a2560eac886d25dc26fd3473b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_nut.obj": "2e9f75e1dc60b27e3127a0e3e48a6604f9b27e573b5e57724d49c9264387df2c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\design.json": "902a9344b0fdc0a45558a458110e0a81e291cc2530fdf42699c77d70ecbfb626",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\design.json": "b340a90043bf8f674a4459af62d55249324ea8568bc4e45e6879d29acbdd1b6d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\screen.json": "39e1d07a6f90a1e012057a68579113bf3c2efcbee561fc7a87516f777e8ba63a"
+  },
+  "guide_sources": [
+    {
+      "muscle": "FJ1486",
+      "tube_count": 19,
+      "extraction": "actual manufactured TPU intersect actual nominal guide-cylinder region, not replacement cylinders",
+      "source_neutral_wire_max_guide_overlap_mm3": 0.0,
+      "extract_volumes_mm3": [
+        30.89928148185553,
+        31.09805025660274,
+        31.042821388557662,
+        31.049130075785833,
+        30.92666069283713,
+        30.76994813788041,
+        30.719994897665206,
+        30.72602067127257,
+        30.739017323002667,
+        30.742868742814128,
+        30.751614429922384,
+        30.7697925912124,
+        30.781332099112543,
+        30.808438955328434,
+        30.82585616220482,
+        30.864326835940297,
+        30.89274668749939,
+        30.97099284246374,
+        30.669972415583736
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "muscle": "FJ1486",
+      "elbow_deg": 120,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully",
+      "centreline_display_mm": [
+        [
+          -48.131123651573326,
+          -27.624633647732054,
+          110.9911891004906
+        ],
+        [
+          -48.64887886096006,
+          -27.58210003258129,
+          108.03651137953099
+        ],
+        [
+          -50.205482302896634,
+          -27.11441599051751,
+          98.54097088154852
+        ],
+        [
+          -51.72690775514035,
+          -26.342254508325148,
+          88.49802644926518
+        ],
+        [
+          -53.187899396662345,
+          -25.554804476593002,
+          79.59346879353956
+        ],
+        [
+          -54.57583564073229,
+          -24.877717799270762,
+          71.87781285913151
+        ],
+        [
+          -55.929295083563794,
+          -24.432518315685865,
+          65.18326941727362
+        ],
+        [
+          -57.31027303857272,
+          -24.30766237057846,
+          59.37870945671211
+        ],
+        [
+          -58.776610880938186,
+          -24.43209747515436,
+          54.315181320338326
+        ],
+        [
+          -60.24659798396605,
+          -24.704319756265946,
+          49.83774152556124
+        ],
+        [
+          -61.48602526442457,
+          -25.16122442994283,
+          45.80252348140819
+        ],
+        [
+          -62.47352228035375,
+          -25.796760603300637,
+          42.000902176879364
+        ],
+        [
+          -63.20818770620001,
+          -26.621219843448202,
+          38.19108804806917
+        ],
+        [
+          -63.77079429628275,
+          -27.437032305222033,
+          34.17528223605463
+        ],
+        [
+          -64.22064945159138,
+          -28.32029597962974,
+          29.70008502564935
+        ],
+        [
+          -64.58691992661464,
+          -29.22665249126766,
+          24.588529973742368
+        ],
+        [
+          -64.77469648446875,
+          -30.048685230044967,
+          18.71364155294534
+        ],
+        [
+          -64.72382675694962,
+          -30.745371908596727,
+          11.94829861131925
+        ],
+        [
+          -64.4674073886692,
+          -31.246925332624425,
+          4.143445307795474
+        ],
+        [
+          -63.99824563662715,
+          -31.432977032207976,
+          -4.91459772197597
+        ],
+        [
+          -63.56967011596627,
+          -31.50558040910487,
+          -15.14587646237247
+        ],
+        [
+          -63.481083419340465,
+          -31.737576236294466,
+          -24.71236768879865
+        ],
+        [
+          -63.56475774183354,
+          -31.852836840601967,
+          -27.158224103400713
+        ]
+      ],
+      "geometric_wire_length_mm": 140.5623293864683,
+      "bone_corridor_intersections": [],
+      "steel_rigid_intersections": [],
+      "guide_checks": [
+        {
+          "guide": 0,
+          "pose_affine_mm": [
+            [
+              0.9994660276894534,
+              -0.0018874944236190498,
+              0.03262049753553339,
+              -2.8770283390107068
+            ],
+            [
+              0.0019193406194620186,
+              0.9999977115718129,
+              -0.0009449776313047454,
+              0.49831998156439283
+            ],
+            [
+              -0.03261863924585782,
+              0.0010070828853625527,
+              0.9994673632279398,
+              -0.08430404788799706
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.7115573382181224,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 1,
+          "pose_affine_mm": [
+            [
+              0.9975958954110461,
+              -0.009878216159399987,
+              0.06859191136381541,
+              -6.773591349092662
+            ],
+            [
+              0.008374604219843209,
+              0.999719046194304,
+              0.02217418951196145,
+              -1.519249491567841
+            ],
+            [
+              -0.06879168164243644,
+              -0.021546450330844888,
+              0.9973983431984166,
+              -2.443531026077906
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 0.9492572411295626,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 2,
+          "pose_affine_mm": [
+            [
+              0.9963256080477617,
+              -0.011584048602634702,
+              0.08485925150641754,
+              -7.905975339997376
+            ],
+            [
+              0.009957413705169022,
+              0.9997589646531733,
+              0.019566872716888103,
+              -1.218423756335806
+            ],
+            [
+              -0.08506546103185325,
+              -0.018649997683286318,
+              0.9962008055235909,
+              -2.168793102138622
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 0.8781798249211753,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 3,
+          "pose_affine_mm": [
+            [
+              0.9911776097424907,
+              -0.019252969786600252,
+              0.1311345457900366,
+              -11.318271821758437
+            ],
+            [
+              0.014570661070119608,
+              0.9992247698907671,
+              0.03657260002684055,
+              -2.3959376040069493
+            ],
+            [
+              -0.13173701750511377,
+              -0.03433922525538125,
+              0.9906897475131746,
+              -2.449311034914558
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.722100913086082,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 4,
+          "pose_affine_mm": [
+            [
+              0.9841437178607625,
+              -0.02159500296724275,
+              0.1760533965649076,
+              -13.89847173993239
+            ],
+            [
+              0.013635904844039478,
+              0.9988348022153442,
+              0.046293627882449166,
+              -3.3194032249049776
+            ],
+            [
+              -0.17684797056873497,
+              -0.04315893569446715,
+              0.9832914631864963,
+              -1.4105984612698848
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.1953999724540387,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 5,
+          "pose_affine_mm": [
+            [
+              0.9789408438118304,
+              -0.020920306526660045,
+              0.20306936029793318,
+              -14.699042148897284
+            ],
+            [
+              0.009012179384073407,
+              0.9981942179359543,
+              0.05938925746275771,
+              -4.285233524806959
+            ],
+            [
+              -0.20394510275986158,
+              -0.05630847231153607,
+              0.9773616275495014,
+              1.1747430061629913
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.7639120701496105,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 6,
+          "pose_affine_mm": [
+            [
+              0.9802414269579959,
+              -0.03491776535980917,
+              0.1946984708148201,
+              -13.34957678054252
+            ],
+            [
+              0.013870877915926793,
+              0.9940070086909192,
+              0.10843276912065043,
+              -5.946057758045814
+            ],
+            [
+              -0.1973178745608048,
+              -0.10358965361274329,
+              0.9748511886658385,
+              5.182304688623809
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.812707543095145,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 7,
+          "pose_affine_mm": [
+            [
+              0.9790141441783037,
+              -0.04809048886904728,
+              0.19803689146004988,
+              -12.014833949948041
+            ],
+            [
+              0.0162312505359641,
+              0.9870716240022753,
+              0.15945581079267543,
+              -7.40668717597428
+            ],
+            [
+              -0.20314490395986384,
+              -0.15289510773679707,
+              0.9671376499885065,
+              9.024634255199217
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.0740007722165217,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 8,
+          "pose_affine_mm": [
+            [
+              0.9799122232525224,
+              -0.04834776753854811,
+              0.19348004572652266,
+              -10.367145200978705
+            ],
+            [
+              0.008703404645170967,
+              0.9796119355280511,
+              0.20071050425567583,
+              -8.217689522006935
+            ],
+            [
+              -0.19923926688251292,
+              -0.19499474132659006,
+              0.9603544998525778,
+              14.075349089769034
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.909435249972395,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 9,
+          "pose_affine_mm": [
+            [
+              0.9861580080225506,
+              -0.033774608777495,
+              0.16233194083396507,
+              -7.780908804975482
+            ],
+            [
+              -0.001427324150789281,
+              0.9772685454891531,
+              0.21200036024328706,
+              -8.219205290501648
+            ],
+            [
+              -0.16580212893314533,
+              -0.2092975532571799,
+              0.9636929948078872,
+              21.458459978297928
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.551243608908419,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 10,
+          "pose_affine_mm": [
+            [
+              0.9928723366494705,
+              -0.02939709295800503,
+              0.11550036381691195,
+              -6.209088736571502
+            ],
+            [
+              0.0008486616214366458,
+              0.9708224575391802,
+              0.2397979059771774,
+              -6.710671928822844
+            ],
+            [
+              -0.11917970838054989,
+              -0.23799068650517677,
+              0.9639277100732824,
+              29.394418593117265
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.9448214762502163,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 11,
+          "pose_affine_mm": [
+            [
+              0.998219411548626,
+              -0.02762790358690547,
+              0.05286497281667227,
+              -5.500636665179243
+            ],
+            [
+              0.01286582160991414,
+              0.9651308495024189,
+              0.26145155186581165,
+              -5.106649481718108
+            ],
+            [
+              -0.05824497439107265,
+              -0.26030586294229335,
+              0.9637678043367351,
+              38.30325703164912
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.2079802782318625,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 12,
+          "pose_affine_mm": [
+            [
+              0.9997445136935109,
+              -0.01994033481438748,
+              -0.01064379571465559,
+              -5.927688828056986
+            ],
+            [
+              0.021822132528988385,
+              0.9742084387481956,
+              0.22459232489933892,
+              -3.996868205630488
+            ],
+            [
+              0.005890829450294846,
+              -0.2247672149564813,
+              0.9743946824614215,
+              48.22714771769789
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.942141873592856,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 13,
+          "pose_affine_mm": [
+            [
+              0.9977726570868254,
+              -0.01403824745156303,
+              -0.06521236369267,
+              -7.018405188260658
+            ],
+            [
+              0.02703712470654396,
+              0.9788117767920325,
+              0.20296920825787146,
+              -3.3193136753197017
+            ],
+            [
+              0.060981297604258716,
+              -0.20428028103983287,
+              0.9770111811646721,
+              56.63312192710244
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.0488081507462685,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 14,
+          "pose_affine_mm": [
+            [
+              0.99595996810416,
+              -0.004879202222428417,
+              -0.08966568641143254,
+              -7.715224374886901
+            ],
+            [
+              0.02099555236240138,
+              0.9834991847196379,
+              0.1796901233702215,
+              -3.984635265438559
+            ],
+            [
+              0.08730938503367418,
+              -0.18084675015460028,
+              0.9796282581895855,
+              62.77818005053875
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.0616912635093634,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 15,
+          "pose_affine_mm": [
+            [
+              0.9931338536963197,
+              0.0010960444652854898,
+              -0.11697840539530005,
+              -9.174496215281515
+            ],
+            [
+              0.015026464787573494,
+              0.9904773289825474,
+              0.13685344762769516,
+              -5.978361940416615
+            ],
+            [
+              0.11601445598840199,
+              -0.13767156372369935,
+              0.9836600970577115,
+              68.68037652054433
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.636269720804592,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 16,
+          "pose_affine_mm": [
+            [
+              0.9922382855880364,
+              0.008068772737838629,
+              -0.12408899838349716,
+              -9.435818550101153
+            ],
+            [
+              0.00782977760054291,
+              0.9918586169476112,
+              0.12710302344750876,
+              -6.632575415700021
+            ],
+            [
+              0.12410430772555997,
+              -0.127088075338629,
+              0.9840969169297721,
+              71.55124013801104
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.723988163855667,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 17,
+          "pose_affine_mm": [
+            [
+              0.9939178173006016,
+              0.012582711565916931,
+              -0.10940314356569829,
+              -8.370997918862777
+            ],
+            [
+              0.0026849318444862437,
+              0.9903868718899119,
+              0.138299078554796,
+              -6.294131050552696
+            ],
+            [
+              0.11009161454624196,
+              -0.13775165827591374,
+              0.9843293742690186,
+              71.53210299957998
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 0.9549194344886794,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 18,
+          "pose_affine_mm": [
+            [
+              0.9893803702211545,
+              0.006275769024865659,
+              -0.14521397227607888,
+              -11.721807199489845
+            ],
+            [
+              0.006397401546752255,
+              0.9962190452261734,
+              0.08664114024007967,
+              -10.20921424931516
+            ],
+            [
+              0.14520866459857304,
+              -0.086650035497962,
+              0.9855994191727697,
+              74.46015393946006
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.11068171043221,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        }
+      ],
+      "actual_TPU_body_deformation_verified": false,
+      "actual_friction_or_drive_verified": false
+    },
+    {
+      "muscle": "FJ1486",
+      "elbow_deg": 132,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully",
+      "centreline_display_mm": [
+        [
+          -48.131123651573326,
+          -27.624633647732054,
+          110.9911891004906
+        ],
+        [
+          -48.64887886096006,
+          -27.58210003258129,
+          108.03651137953099
+        ],
+        [
+          -50.23975893403806,
+          -27.124602219866603,
+          98.55862055032637
+        ],
+        [
+          -51.819409897270134,
+          -26.367932776975916,
+          88.57091482379913
+        ],
+        [
+          -53.36276641605841,
+          -25.594737436909544,
+          79.77568122988325
+        ],
+        [
+          -54.85387876815441,
+          -24.919183928590783,
+          72.2343560086675
+        ],
+        [
+          -56.321866173935,
+          -24.44684578391483,
+          65.78104457919909
+        ],
+        [
+          -57.813939357294686,
+          -24.249132142499892,
+          60.2754868953181
+        ],
+        [
+          -59.372708443273496,
+          -24.243903703755347,
+          55.5504730040396
+        ],
+        [
+          -60.90462479062371,
+          -24.326091405460758,
+          51.439945347655666
+        ],
+        [
+          -62.16678290536018,
+          -24.52813307986783,
+          47.815837176519594
+        ],
+        [
+          -63.14003451954808,
+          -24.839049955134815,
+          44.475827977105205
+        ],
+        [
+          -63.83639430306951,
+          -25.264206687312967,
+          41.17023708706586
+        ],
+        [
+          -64.34388236489423,
+          -25.635978812095583,
+          37.6571126553259
+        ],
+        [
+          -64.7174506841279,
+          -26.034403813181342,
+          33.66515484801769
+        ],
+        [
+          -64.9901101095968,
+          -26.45594052752907,
+          29.00018919528999
+        ],
+        [
+          -65.10017934254795,
+          -26.894287748068596,
+          23.45012547330886
+        ],
+        [
+          -65.05708109420154,
+          -27.52708822884644,
+          16.55961579943827
+        ],
+        [
+          -65.01234931667952,
+          -28.569511074103573,
+          7.617076635256678
+        ],
+        [
+          -64.77518113561953,
+          -28.78788803398874,
+          -3.110992146397458
+        ],
+        [
+          -63.3195640501915,
+          -26.63258912043973,
+          -11.211101862919898
+        ],
+        [
+          -62.39561413797659,
+          -25.175059494228606,
+          -19.37251931687794
+        ],
+        [
+          -62.41456699645281,
+          -25.173639723071005,
+          -21.822445596055644
+        ]
+      ],
+      "geometric_wire_length_mm": 135.70104923383693,
+      "bone_corridor_intersections": [],
+      "steel_rigid_intersections": [
+        {
+          "part": "FJ1486_keeper",
+          "volume_mm3": 0.00846338601313253,
+          "nominal_uncrimped_stop": false
+        }
+      ],
+      "guide_checks": [
+        {
+          "guide": 0,
+          "pose_affine_mm": [
+            [
+              0.999283995967152,
+              -0.0023519382390535387,
+              0.03776193573482099,
+              -3.432249886840559
+            ],
+            [
+              0.0023498287351193057,
+              0.9999972341239957,
+              0.00010024606900780911,
+              0.408447677706377
+            ],
+            [
+              -0.03776206706255207,
+              -1.1440210734711439e-05,
+              0.9992867587235833,
+              -0.33717742672013173
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.6451314931716259,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 1,
+          "pose_affine_mm": [
+            [
+              0.9969489557888734,
+              -0.010985851817766729,
+              0.07727930260628023,
+              -7.684873721740622
+            ],
+            [
+              0.00923104127539221,
+              0.9996922004964005,
+              0.023028072946658904,
+              -1.5760401547578589
+            ],
+            [
+              -0.07750849907234021,
+              -0.0222444448459095,
+              0.9967435062467427,
+              -2.7792569701532415
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.1720645330237927,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 2,
+          "pose_affine_mm": [
+            [
+              0.9950201087470557,
+              -0.01313067003750397,
+              0.09880571184584155,
+              -9.264044460272615
+            ],
+            [
+              0.011303001678135853,
+              0.9997549309381035,
+              0.01903471087282158,
+              -1.147019971769847
+            ],
+            [
+              -0.09903143613045978,
+              -0.017823118955840735,
+              0.9949246760879059,
+              -2.5978058624048117
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.229373106198813,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 3,
+          "pose_affine_mm": [
+            [
+              0.9882421506824722,
+              -0.021354124493551247,
+              0.15139832555743707,
+              -13.163211108599207
+            ],
+            [
+              0.016596258952267257,
+              0.9993300079157394,
+              0.03262053751729769,
+              -2.0621690095102387
+            ],
+            [
+              -0.15199347289693424,
+              -0.029724344336621654,
+              0.9879344348439764,
+              -2.869663282919504
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.87787525494334,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 4,
+          "pose_affine_mm": [
+            [
+              0.9789028506641387,
+              -0.0231565835047463,
+              0.20300980666463062,
+              -16.146382484229044
+            ],
+            [
+              0.016119243212928715,
+              0.9992127305654243,
+              0.03625036653927064,
+              -2.6188231383713862
+            ],
+            [
+              -0.20368941788876868,
+              -0.032213222694675116,
+              0.9785054569718853,
+              -1.7212880952265692
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.1457402105263945,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 5,
+          "pose_affine_mm": [
+            [
+              0.9714870371805321,
+              -0.020449153084203586,
+              0.23620916309138024,
+              -17.151954197703304
+            ],
+            [
+              0.011287996909732092,
+              0.9991330477094458,
+              0.04007161215374594,
+              -3.1745582715204463
+            ],
+            [
+              -0.23682381154765103,
+              -0.036262723463264146,
+              0.9708756342452258,
+              1.0574012758752787
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.643361384262271,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 6,
+          "pose_affine_mm": [
+            [
+              0.9720690789747838,
+              -0.03241376035442382,
+              0.23244580839585333,
+              -15.73459501744393
+            ],
+            [
+              0.014954751343000105,
+              0.9969587358477036,
+              0.07648290285559269,
+              -4.450549590315298
+            ],
+            [
+              -0.23421797777579928,
+              -0.07087049567087121,
+              0.9695974998575339,
+              5.317746149301726
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.458677866689307,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 7,
+          "pose_affine_mm": [
+            [
+              0.9706133262550556,
+              -0.043381157162773326,
+              0.2367020196350586,
+              -14.092905563189298
+            ],
+            [
+              0.016975423496743452,
+              0.9935095596322444,
+              0.11247484125994552,
+              -5.575680464281788
+            ],
+            [
+              -0.2400450080572456,
+              -0.10515146276948549,
+              0.9650500318554652,
+              9.627197144663768
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.3011752642180023,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 8,
+          "pose_affine_mm": [
+            [
+              0.9727297909357617,
+              -0.04183525506929063,
+              0.2281371632578883,
+              -11.917200248548191
+            ],
+            [
+              0.010208255859313894,
+              0.9903677164667859,
+              0.13808539999824188,
+              -6.205217200327958
+            ],
+            [
+              -0.23171651934719667,
+              -0.1319908997380163,
+              0.9637872467759515,
+              15.472567931089053
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.615846237101832,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 9,
+          "pose_affine_mm": [
+            [
+              0.981881280931433,
+              -0.025493739424932608,
+              0.1877743843195384,
+              -8.712969301973153
+            ],
+            [
+              -0.00014358064492276182,
+              0.9908086505979029,
+              0.13527082939407503,
+              -6.370295775527605
+            ],
+            [
+              -0.18949704362086095,
+              -0.13284685600531232,
+              0.9728528065994655,
+              24.010148367603282
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.792690237949121,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 10,
+          "pose_affine_mm": [
+            [
+              0.9914522327717962,
+              -0.021597813334958,
+              0.1286701386918042,
+              -6.727249242005932
+            ],
+            [
+              0.0017716509247644,
+              0.9883410612211998,
+              0.15224587993490418,
+              -5.206516611754285
+            ],
+            [
+              -0.1304581595179872,
+              -0.15071655902156467,
+              0.979931215673773,
+              33.492788660862516
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.842255453165956,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 11,
+          "pose_affine_mm": [
+            [
+              0.9983672152232929,
+              -0.019100713500993502,
+              0.053833691226225236,
+              -5.8917416206011595
+            ],
+            [
+              0.009731437648178064,
+              0.9855331278568803,
+              0.1692032890281213,
+              -4.2928641259664
+            ],
+            [
+              -0.05628678964541518,
+              -0.1684031372640881,
+              0.9841098417712455,
+              43.89539296443717
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.87489417349463,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 12,
+          "pose_affine_mm": [
+            [
+              0.9997576277791543,
+              -0.010867273417175152,
+              -0.019146489648872275,
+              -6.451720185665515
+            ],
+            [
+              0.013382062839463991,
+              0.9905438290637447,
+              0.13654245895653033,
+              -3.92408389241848
+            ],
+            [
+              0.01748159293538926,
+              -0.13676558438514963,
+              0.9904491752918118,
+              54.859230704517216
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.0590567467087766,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 13,
+          "pose_affine_mm": [
+            [
+              0.9970149957909511,
+              -0.0065553124948403195,
+              -0.07692935750456414,
+              -7.716862518107547
+            ],
+            [
+              0.01671045076953651,
+              0.9910933206622641,
+              0.13211657948087263,
+              -3.2728890705809377
+            ],
+            [
+              0.0753781069213664,
+              -0.13300773517634917,
+              0.9882444451552508,
+              63.561745911245644
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.2920699411105243,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 14,
+          "pose_affine_mm": [
+            [
+              0.9954939601389265,
+              -0.0021348561391805456,
+              -0.0948009373170022,
+              -8.24097291557289
+            ],
+            [
+              0.015920170590647077,
+              0.9893186439236661,
+              0.14489709780876556,
+              -2.5266358549367496
+            ],
+            [
+              0.09347900029034262,
+              -0.14575343280452532,
+              0.9848947219527653,
+              68.7276010731844
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.6592842932764613,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 15,
+          "pose_affine_mm": [
+            [
+              0.9947149613158881,
+              -0.0016400306736036804,
+              -0.10266185286522307,
+              -8.70101349229688
+            ],
+            [
+              0.017819216922209467,
+              0.9874569205658539,
+              0.15687990800252324,
+              -1.5819512877156434
+            ],
+            [
+              0.1011168692286817,
+              -0.1578801454458114,
+              0.9822673966041015,
+              71.95370468846453
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.4036127803317946,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 16,
+          "pose_affine_mm": [
+            [
+              0.9953881730480488,
+              0.0029017253137192224,
+              -0.09588516541296303,
+              -8.099420101377163
+            ],
+            [
+              0.011807208151953043,
+              0.9882363848250709,
+              0.15247766244119423,
+              -2.173591979834402
+            ],
+            [
+              0.09519965751894287,
+              -0.15290659795469272,
+              0.983644548355857,
+              72.75022287513379
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 5.569372230318385,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 17,
+          "pose_affine_mm": [
+            [
+              0.9869842511685469,
+              0.020170615421326667,
+              -0.1595469655580687,
+              -13.118209722030372
+            ],
+            [
+              -0.019170764831464123,
+              0.9997857693362919,
+              0.007803666344462537,
+              -14.380364095819722
+            ],
+            [
+              0.15967019045845504,
+              -0.004643458427071109,
+              0.9871594950020979,
+              78.7085096578837
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 18.135813157303666,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 18,
+          "pose_affine_mm": [
+            [
+              0.965915460161397,
+              0.016994989490057816,
+              -0.2582992337453392,
+              -22.18065573376824
+            ],
+            [
+              -0.05450641172500152,
+              0.9888238653591872,
+              -0.13876748313989318,
+              -27.98896694711102
+            ],
+            [
+              0.25305409481385827,
+              0.14811662171528467,
+              0.9560465948213978,
+              86.13738167285962
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 5.876596464440363,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        }
+      ],
+      "actual_TPU_body_deformation_verified": false,
+      "actual_friction_or_drive_verified": false
+    },
+    {
+      "muscle": "FJ1486",
+      "elbow_deg": 140,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully",
+      "centreline_display_mm": [
+        [
+          -48.131123651573326,
+          -27.624633647732054,
+          110.9911891004906
+        ],
+        [
+          -48.64887886096006,
+          -27.58210003258129,
+          108.03651137953099
+        ],
+        [
+          -50.25992084762415,
+          -27.138046512640788,
+          98.56576480967146
+        ],
+        [
+          -51.87409426487901,
+          -26.402630092746943,
+          88.60158155963639
+        ],
+        [
+          -53.46638580994435,
+          -25.653045329296283,
+          79.85406954595645
+        ],
+        [
+          -55.01845711554074,
+          -24.993579342727543,
+          72.39020012153628
+        ],
+        [
+          -56.55364491758987,
+          -24.516489650554256,
+          66.04494878631668
+        ],
+        [
+          -58.110753024213835,
+          -24.279446582837902,
+          60.67342130484511
+        ],
+        [
+          -59.72387091212988,
+          -24.190474669106155,
+          56.10015862049076
+        ],
+        [
+          -61.291968568820494,
+          -24.140212121817154,
+          52.154985558292054
+        ],
+        [
+          -62.56412917536442,
+          -24.16084085040565,
+          48.72164945917131
+        ],
+        [
+          -63.520759818651484,
+          -24.24114813785809,
+          45.60691585787177
+        ],
+        [
+          -64.18208602085564,
+          -24.38137724435877,
+          42.5594770612584
+        ],
+        [
+          -64.64363650666827,
+          -24.417952625180806,
+          39.292099947892225
+        ],
+        [
+          -64.95056206730503,
+          -24.41140642515409,
+          35.51074142194406
+        ],
+        [
+          -65.12086932980806,
+          -24.339570243342745,
+          31.006047154536407
+        ],
+        [
+          -65.07184276996912,
+          -24.14680499414035,
+          25.624754736026098
+        ],
+        [
+          -64.77124202594777,
+          -23.8710102110805,
+          19.199902507471432
+        ],
+        [
+          -64.30986437896986,
+          -23.569032619418667,
+          11.509690000847547
+        ],
+        [
+          -63.69503803462946,
+          -23.138148069417014,
+          2.3794365497873375
+        ],
+        [
+          -62.44657331295643,
+          -21.44891202092275,
+          -7.37550850933105
+        ],
+        [
+          -61.670390481931506,
+          -20.25529742986704,
+          -16.64610310845535
+        ],
+        [
+          -61.648740670339926,
+          -20.157653753309145,
+          -19.09406082828761
+        ]
+      ],
+      "geometric_wire_length_mm": 132.69828424375183,
+      "bone_corridor_intersections": [],
+      "steel_rigid_intersections": [],
+      "guide_checks": [
+        {
+          "guide": 0,
+          "pose_affine_mm": [
+            [
+              0.9991668737732309,
+              -0.0027711860617778347,
+              0.040717058857924066,
+              -3.7566418582566925
+            ],
+            [
+              0.0027025731895135704,
+              0.9999948341306557,
+              0.0017400603891923484,
+              0.25362487224465013
+            ],
+            [
+              -0.04072167055001509,
+              -0.0016285698676206783,
+              0.9991692015408614,
+              -0.5126484767857278
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.5860787795940043,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 1,
+          "pose_affine_mm": [
+            [
+              0.9965407764753862,
+              -0.011827376520104666,
+              0.08225930942140176,
+              -8.216274625727927
+            ],
+            [
+              0.00979229086965446,
+              0.9996369976507914,
+              0.025099481413679733,
+              -1.7637536047306028
+            ],
+            [
+              -0.08252631011597648,
+              -0.024207149612526655,
+              0.9962948469435533,
+              -3.0186654372417223
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.2883610868214521,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 2,
+          "pose_affine_mm": [
+            [
+              0.9941817035655378,
+              -0.014291777549861905,
+              0.10676368947348214,
+              -10.054756702485655
+            ],
+            [
+              0.012139443527082322,
+              0.9997103172003118,
+              0.02078257910136671,
+              -1.2975192395303452
+            ],
+            [
+              -0.10702978186643958,
+              -0.019365608116376012,
+              0.9940672004527185,
+              -2.9107680981755237
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.4307457362190252,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 3,
+          "pose_affine_mm": [
+            [
+              0.9863825518268152,
+              -0.022781065613615446,
+              0.1628818114496778,
+              -14.231853246949022
+            ],
+            [
+              0.01773218228602231,
+              0.9993181801042987,
+              0.032384326832707935,
+              -2.060792787266859
+            ],
+            [
+              -0.16350850486441224,
+              -0.029055084968736856,
+              0.9861139745863375,
+              -3.185648271517735
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.999901086829545,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 4,
+          "pose_affine_mm": [
+            [
+              0.9756195849391338,
+              -0.02403335229079588,
+              0.21814862699741802,
+              -17.438286423539765
+            ],
+            [
+              0.017578609636136562,
+              0.9993497362750313,
+              0.03148169452690828,
+              -2.335024706181777
+            ],
+            [
+              -0.2187633835139063,
+              -0.026879408190876086,
+              0.9754076478318466,
+              -1.9629060659614908
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.1030320072364246,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 5,
+          "pose_affine_mm": [
+            [
+              0.9668528509526784,
+              -0.019552909280692476,
+              0.2545844621011641,
+              -18.542323405611725
+            ],
+            [
+              0.012982623266986876,
+              0.9995385168454837,
+              0.02746279001555313,
+              -2.5115187540353077
+            ],
+            [
+              -0.2550039531022716,
+              -0.02324730266056438,
+              0.9666605127040324,
+              0.9673658250896651
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.5400175809347503,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 6,
+          "pose_affine_mm": [
+            [
+              0.9670106464170853,
+              -0.028996264639955728,
+              0.2530802764992569,
+              -17.051043351919418
+            ],
+            [
+              0.016242267720860327,
+              0.9984972228016019,
+              0.052340087855983,
+              -3.39886842730262
+            ],
+            [
+              -0.2542176202691202,
+              -0.046502824585370875,
+              0.9660284099602287,
+              5.443199023702462
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.2777352007214033,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 7,
+          "pose_affine_mm": [
+            [
+              0.9655816627056396,
+              -0.036879817523571085,
+              0.25747219598636323,
+              -15.188639066109374
+            ],
+            [
+              0.01848399642317653,
+              0.9971234188844955,
+              0.07350666220365802,
+              -4.171309942901463
+            ],
+            [
+              -0.25944246861845915,
+              -0.06621756996087057,
+              0.9634857751444164,
+              10.119918836430173
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.676807718012395,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 8,
+          "pose_affine_mm": [
+            [
+              0.9686932001212535,
+              -0.032923441574159065,
+              0.2460681430696744,
+              -12.669851735171278
+            ],
+            [
+              0.012959211129958991,
+              0.9965219895995164,
+              0.08231635980478036,
+              -4.599309096860562
+            ],
+            [
+              -0.24792245337148056,
+              -0.07655044898322835,
+              0.9657507369268387,
+              16.554205930488948
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.434747733742439,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 9,
+          "pose_affine_mm": [
+            [
+              0.9798147281252311,
+              -0.015303461066974465,
+              0.19932110432227465,
+              -9.095146046748681
+            ],
+            [
+              0.002781062248599288,
+              0.9980125360091842,
+              0.06295429819548747,
+              -4.94326357718203
+            ],
+            [
+              -0.19988837945625784,
+              -0.06112922417214648,
+              0.9779099415132575,
+              25.917107121924612
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.9645146385685575,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 10,
+          "pose_affine_mm": [
+            [
+              0.991228665149355,
+              -0.01225185436618687,
+              0.13158885002468002,
+              -6.892870173774035
+            ],
+            [
+              0.0035956401909159,
+              0.9978250704849657,
+              0.06581945064561763,
+              -4.280018293778195
+            ],
+            [
+              -0.13210906387468446,
+              -0.06476898004649427,
+              0.9891168659293459,
+              36.51053408945005
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.627809274722572,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 11,
+          "pose_affine_mm": [
+            [
+              0.9988313398483464,
+              -0.009596727444188023,
+              0.047369371529705065,
+              -6.068534224514934
+            ],
+            [
+              0.006122835989113156,
+              0.997317258726712,
+              0.07294378880540212,
+              -4.304046831834182
+            ],
+            [
+              -0.04794231342152447,
+              -0.07256850741333085,
+              0.9962104929760546,
+              47.980346588187714
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.478250023797844,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 12,
+          "pose_affine_mm": [
+            [
+              0.9993919196151877,
+              -0.0011311264612965592,
+              -0.03484984305271313,
+              -6.88706022695402
+            ],
+            [
+              0.002323874710282039,
+              0.9994121741317983,
+              0.03420388579508263,
+              -5.132754950316318
+            ],
+            [
+              0.034790668493161994,
+              -0.03426407375197378,
+              0.9988070797885437,
+              59.79888256687893
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.6056131235998996,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 13,
+          "pose_affine_mm": [
+            [
+              0.99488158234595,
+              0.0034659347912056305,
+              -0.10098823894316486,
+              -8.584828045459233
+            ],
+            [
+              -0.00109078390145253,
+              0.9997217160523308,
+              0.02356481792552396,
+              -5.632749946923525
+            ],
+            [
+              0.10104180965966009,
+              -0.023334047000164244,
+              0.9946085033576252,
+              69.2932627421661
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.9174723977148895,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 14,
+          "pose_affine_mm": [
+            [
+              0.9916503891986022,
+              0.007103193551013453,
+              -0.12875966077789056,
+              -9.738527835148538
+            ],
+            [
+              -0.0042659324639393245,
+              0.9997422731216125,
+              0.022297738760784124,
+              -6.072949878726909
+            ],
+            [
+              0.1288848611066238,
+              -0.02156228130342212,
+              0.9914251159833092,
+              75.50823527396113
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.1926131394739423,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 15,
+          "pose_affine_mm": [
+            [
+              0.9887270301014862,
+              0.007924097849901193,
+              -0.1495194590010281,
+              -11.095883702909845
+            ],
+            [
+              -0.005845270629255748,
+              0.9998801238510698,
+              0.014337738274915647,
+              -6.698940208442018
+            ],
+            [
+              0.1496151488251296,
+              -0.013302127680728833,
+              0.9886548238091999,
+              80.36964577166853
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 0.7828425948517461,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 16,
+          "pose_affine_mm": [
+            [
+              0.9893750943054433,
+              0.012034775522694942,
+              -0.14488646225998236,
+              -10.697171952288237
+            ],
+            [
+              -0.005879495558115297,
+              0.9990647763890503,
+              0.04283694796176354,
+              -4.981252639814365
+            ],
+            [
+              0.14526649407236708,
+              -0.04152995011813857,
+              0.988520565766392,
+              81.92507498164767
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 0.6155135740541137,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 17,
+          "pose_affine_mm": [
+            [
+              0.9872226041223614,
+              0.020140668809002067,
+              -0.15806923600052294,
+              -11.915975726663774
+            ],
+            [
+              -0.01761767942881723,
+              0.9996943122347375,
+              0.017346453731477394,
+              -7.9397734342018484
+            ],
+            [
+              0.1583702853486296,
+              -0.0143399980976619,
+              0.9872756540972498,
+              83.9783852691765
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 7.8354433971067206,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 18,
+          "pose_affine_mm": [
+            [
+              0.9749237237318237,
+              0.016577338588611677,
+              -0.22192098762891507,
+              -17.726882269190163
+            ],
+            [
+              -0.03381112061342151,
+              0.9966786051185857,
+              -0.07408485824873173,
+              -16.018527587110214
+            ],
+            [
+              0.2199557706170475,
+              0.07973048315536874,
+              0.9722461154605206,
+              88.23639944591686
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.4751430349911976,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        }
+      ],
+      "actual_TPU_body_deformation_verified": false,
+      "actual_friction_or_drive_verified": false
+    },
+    {
+      "muscle": "FJ1486",
+      "elbow_deg": 150,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully",
+      "centreline_display_mm": [
+        [
+          -48.131123651573326,
+          -27.624633647732054,
+          110.9911891004906
+        ],
+        [
+          -48.64887886096006,
+          -27.58210003258129,
+          108.03651137953099
+        ],
+        [
+          -50.27950164629234,
+          -27.160618321736724,
+          98.56887715972258
+        ],
+        [
+          -51.92754152389386,
+          -26.460814753440346,
+          88.6164041231222
+        ],
+        [
+          -53.56825495817148,
+          -25.752365471713407,
+          79.89423263599299
+        ],
+        [
+          -55.18078181115825,
+          -25.125510627955247,
+          72.47454328267867
+        ],
+        [
+          -56.78234384068764,
+          -24.65356340705339,
+          66.19442739239686
+        ],
+        [
+          -58.403268306484,
+          -24.375166519734528,
+          60.90700196597757
+        ],
+        [
+          -60.069067064282244,
+          -24.18416910267325,
+          56.434148009130524
+        ],
+        [
+          -61.67126586630435,
+          -23.96458581212245,
+          52.60494408241529
+        ],
+        [
+          -62.950074248447756,
+          -23.752869411376995,
+          49.314753022474626
+        ],
+        [
+          -63.885153286864366,
+          -23.544439728679624,
+          46.38011140719625
+        ],
+        [
+          -64.5049720674433,
+          -23.337078273957257,
+          43.54946522127825
+        ],
+        [
+          -64.91491667875613,
+          -22.95681313253448,
+          40.486172462725065
+        ],
+        [
+          -65.14790273651101,
+          -22.4425126853083,
+          36.89558861595672
+        ],
+        [
+          -65.20993882139119,
+          -21.767029927071324,
+          32.56705092159792
+        ],
+        [
+          -65.0063498964051,
+          -20.872554079304155,
+          27.354156684468677
+        ],
+        [
+          -64.47966446133249,
+          -19.77136693894263,
+          21.135725225738348
+        ],
+        [
+          -63.67139009782982,
+          -18.441339976986097,
+          13.775879004978513
+        ],
+        [
+          -62.58528388527249,
+          -16.774221664852806,
+          5.087801804539069
+        ],
+        [
+          -61.48773515991922,
+          -15.003048139672355,
+          -4.857961065775265
+        ],
+        [
+          -60.785308292182215,
+          -13.65823584232319,
+          -14.272304883175678
+        ],
+        [
+          -60.71909217953843,
+          -13.425064319069886,
+          -16.710284880462396
+        ]
+      ],
+      "geometric_wire_length_mm": 131.09137306018314,
+      "bone_corridor_intersections": [],
+      "steel_rigid_intersections": [],
+      "guide_checks": [
+        {
+          "guide": 0,
+          "pose_affine_mm": [
+            [
+              0.9990483129865235,
+              -0.003363109835769936,
+              0.04348744429159004,
+              -4.06733122827324
+            ],
+            [
+              0.003165490795924687,
+              0.9999843528614358,
+              0.0046123421725243405,
+              -0.02459234079973527
+            ],
+            [
+              -0.04350227565084975,
+              -0.004470293561733722,
+              0.9990433266323686,
+              -0.7158749253805468
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.5022639889730347,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 1,
+          "pose_affine_mm": [
+            [
+              0.9961350323912377,
+              -0.012880098939554822,
+              0.08688555860564647,
+              -8.721072547377844
+            ],
+            [
+              0.010392729399386152,
+              0.999524803279734,
+              0.029019972505848538,
+              -2.135445966240905
+            ],
+            [
+              -0.08721805099025708,
+              -0.028004833152803266,
+              0.9957955316738194,
+              -3.3010946567805775
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.3824169655230618,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 2,
+          "pose_affine_mm": [
+            [
+              0.9933473886213195,
+              -0.015728243102586265,
+              0.11407711377884361,
+              -10.800763537502647
+            ],
+            [
+              0.012966715508909423,
+              0.9996056164296303,
+              0.024909353489201595,
+              -1.674524337015665
+            ],
+            [
+              -0.11442390400662045,
+              -0.023264435760296003,
+              0.9931595723853438,
+              -3.286166419359148
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.6104000452957976,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 3,
+          "pose_affine_mm": [
+            [
+              0.9845736706860402,
+              -0.02438863789454492,
+              0.17326246371752235,
+              -15.225877672239896
+            ],
+            [
+              0.018694973733915116,
+              0.9992326557987831,
+              0.03441798283454721,
+              -2.2803094735126166
+            ],
+            [
+              -0.17396891949111254,
+              -0.030647902488746766,
+              0.9842741087340128,
+              -3.570647453649457
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.1131657400097215,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 4,
+          "pose_affine_mm": [
+            [
+              0.9725179400441138,
+              -0.024787734953869885,
+              0.23150469647117353,
+              -18.61278266576668
+            ],
+            [
+              0.01890742196147143,
+              0.9994406314989319,
+              0.027585023179017943,
+              -2.1764894704068993
+            ],
+            [
+              -0.23205897027937608,
+              -0.022449772935884817,
+              0.9724426163059715,
+              -2.2523601565123528
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.017939738913256,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 5,
+          "pose_affine_mm": [
+            [
+              0.962610121286253,
+              -0.01780717353512645,
+              0.27030475202621823,
+              -19.763439958753608
+            ],
+            [
+              0.01497476605812999,
+              0.9998092669433364,
+              0.012537388712681872,
+              -1.791921257792044
+            ],
+            [
+              -0.2704764514311176,
+              -0.00802086684333414,
+              0.9626931779732897,
+              0.8963607088576424
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.43069192268522,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 6,
+          "pose_affine_mm": [
+            [
+              0.9625258059385832,
+              -0.023017482788047987,
+              0.27021152526933906,
+              -18.14445018694571
+            ],
+            [
+              0.018101904251173022,
+              0.9996224670551365,
+              0.0206698916563129,
+              -2.0933067063290345
+            ],
+            [
+              -0.27058528039189805,
+              -0.015003960967166777,
+              0.9625790810060925,
+              5.7024128134698415
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.3923987744484942,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 7,
+          "pose_affine_mm": [
+            [
+              0.9613683034213929,
+              -0.025638201587956988,
+              0.2740687282343755,
+              -16.0177868454197
+            ],
+            [
+              0.021033241067390372,
+              0.9995841164788464,
+              0.019728072724045018,
+              -2.3410615567646147
+            ],
+            [
+              -0.27446053987208024,
+              -0.013201390174502295,
+              0.9615077406607744,
+              10.898782285318276
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.517901180194495,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 8,
+          "pose_affine_mm": [
+            [
+              0.9656591779942967,
+              -0.017825941567240027,
+              0.2591998992334307,
+              -13.146303065539797
+            ],
+            [
+              0.017678003316803425,
+              0.9998395209062949,
+              0.0029018326281471923,
+              -2.4928581196528974
+            ],
+            [
+              -0.2592100309673805,
+              0.001779955367990053,
+              0.965819336938735,
+              18.09884097699373
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.5858022436876054,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 9,
+          "pose_affine_mm": [
+            [
+              0.9786910503117312,
+              0.0008833671131836581,
+              0.20533642565863391,
+              -9.249454200359772
+            ],
+            [
+              0.007874069588662904,
+              0.999093790776761,
+              -0.041828175425596754,
+              -3.1798420099706632
+            ],
+            [
+              -0.2051872975304106,
+              0.042553694244624025,
+              0.9777971957611158,
+              28.422720279647383
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 5.314489454971031,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 10,
+          "pose_affine_mm": [
+            [
+              0.9916707464554726,
+              0.0016178689609392116,
+              0.1287886374043568,
+              -6.924434554951979
+            ],
+            [
+              0.006082962452177701,
+              0.9982170042176833,
+              -0.05937853196634944,
+              -3.444956572909472
+            ],
+            [
+              -0.12865507449086905,
+              0.059667369564097725,
+              0.9898927602609537,
+              40.159216098711646
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 5.538893480950524,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 11,
+          "pose_affine_mm": [
+            [
+              0.999361413495157,
+              0.0026958842539631643,
+              0.035630007368102415,
+              -6.228433009702648
+            ],
+            [
+              -0.00041878670734048565,
+              0.9979649768554495,
+              -0.06376307385623609,
+              -4.974627886758537
+            ],
+            [
+              -0.035729397345261135,
+              0.06370743424429598,
+              0.9973288188894138,
+              52.470958303926786
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.034134241207955,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 12,
+          "pose_affine_mm": [
+            [
+              0.9984627473494483,
+              0.00938714046268274,
+              -0.05462621851570437,
+              -7.398712749091921
+            ],
+            [
+              -0.015048579354214423,
+              0.9944455883740975,
+              -0.10417059096844405,
+              -7.446737834013803
+            ],
+            [
+              0.053344938043000195,
+              0.10483250143552253,
+              0.9930581373857019,
+              64.7004126818494
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.9524707268833277,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 13,
+          "pose_affine_mm": [
+            [
+              0.991839600499644,
+              0.012143582656647944,
+              -0.1269123330530476,
+              -9.551096150954308
+            ],
+            [
+              -0.026323523315699607,
+              0.9935098090474787,
+              -0.11065862572203929,
+              -9.092566189763343
+            ],
+            [
+              0.1247448556091767,
+              0.11309638688615882,
+              0.9857220339793272,
+              74.44343052539094
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.1377135742869466,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 14,
+          "pose_affine_mm": [
+            [
+              0.9868644040006089,
+              0.01216920524311056,
+              -0.16109177061623667,
+              -11.259650225040616
+            ],
+            [
+              -0.02996203632699293,
+              0.9936460886696139,
+              -0.10848837196086053,
+              -10.066913898818747
+            ],
+            [
+              0.15874799052480357,
+              0.11188995001933427,
+              0.9809585692520393,
+              80.93896820521184
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.5811509605926424,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 15,
+          "pose_affine_mm": [
+            [
+              0.9815422191483673,
+              0.01060509949262886,
+              -0.1909513128890447,
+              -13.388960075974914
+            ],
+            [
+              -0.033772864572536955,
+              0.9923811235327592,
+              -0.11848670505345098,
+              -11.459433532799196
+            ],
+            [
+              0.18823991512924004,
+              0.1227486762478922,
+              0.9744221348222374,
+              86.23805436033737
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.4149723571275181,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 16,
+          "pose_affine_mm": [
+            [
+              0.9806001690534492,
+              0.015168078510637452,
+              -0.19543090299807261,
+              -13.727779477331595
+            ],
+            [
+              -0.03431818149125517,
+              0.9948875327218848,
+              -0.0949792590710943,
+              -10.350072279030277
+            ],
+            [
+              0.1929911160428899,
+              0.09984351069977414,
+              0.9761074236474508,
+              88.73133204897334
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.0336576497331615,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 17,
+          "pose_affine_mm": [
+            [
+              0.984068665312249,
+              0.020702580942433196,
+              -0.1765793450347212,
+              -12.343457489169921
+            ],
+            [
+              -0.03086458519689934,
+              0.9980093198961509,
+              -0.05499795251685051,
+              -7.701092790036801
+            ],
+            [
+              0.17508923248216166,
+              0.05957180996700036,
+              0.982748675972684,
+              88.53771210981695
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.1022328904646137,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 18,
+          "pose_affine_mm": [
+            [
+              0.9777721509321633,
+              0.016305127226275563,
+              -0.20903531684293364,
+              -15.52346160070136
+            ],
+            [
+              -0.03446340130805065,
+              0.9959098623602294,
+              -0.08352137465289318,
+              -10.40504679470646
+            ],
+            [
+              0.20681850698564413,
+              0.08886894215508397,
+              0.9743348583974942,
+              90.20581081813842
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.783171120594517,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        }
+      ],
+      "actual_TPU_body_deformation_verified": false,
+      "actual_friction_or_drive_verified": false
+    }
+  ],
+  "frozen": false
+}

@@ -1,0 +1,148 @@
+<mujoco model="v2_skeleton_review_candidate_NOT_FROZEN">
+  <compiler angle="degree" autolimits="true" meshdir="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2" />
+  <option timestep="0.0005" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <global azimuth="45" elevation="-16" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" />
+  </visual>
+  <asset>
+    <mesh name="thorax" file="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\thorax_geom_review_local.stl" scale="1 1 1" />
+    <mesh name="clavicle" file="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\clavicle_visual_review_local.stl" scale="1 1 1" />
+    <mesh name="scapula" file="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\scapula_mesh_review_local.stl" scale="1 1 1" />
+    <mesh name="humerus" file="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\humerus_shaft_review_local.stl" scale="1 1 1" />
+    <mesh name="ulna" file="D:\XJTLU\PSP\mujoco_arm\exports\skeleton_from_v2\ulna_shaft_review_local.stl" scale="1 1 1" />
+    <material name="thorax_mat" rgba="0.45 0.55 0.65 0.55" />
+    <material name="scapula_mat" rgba="0.30 0.72 0.52 1" />
+    <material name="humerus_mat" rgba="0.85 0.72 0.30 1" />
+    <material name="ulna_mat" rgba="0.35 0.58 0.88 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.18 1" />
+    <material name="v2_band_mat" rgba="0.10 0.75 0.78 0.42" />
+    <material name="v2_pad_mat" rgba="0.95 0.48 0.12 0.75" />
+    <material name="v2_guide_mat" rgba="0.94 0.26 0.16 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_geom" type="mesh" mesh="thorax" material="thorax_mat" contype="0" conaffinity="0" pos="0 0 0" />
+      <body name="clavicle_elevation" pos="0.040000000 0.106000000 0.235000000">
+        <joint name="sc_elevation" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-10.000000000 55.000000000" damping="0.4" armature="0.005" />
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+        <body name="clavicle_protraction" pos="0 0 0">
+          <joint name="sc_protraction" type="hinge" axis="0 0 1" range="-25.000000000 25.000000000" damping="0.4" armature="0.005" />
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+          <body name="clavicle_body" pos="0 0 0">
+            <geom name="clavicle_visual" type="mesh" mesh="clavicle" pos="0 0 0" material="scapula_mat" contype="0" conaffinity="0" density="1100.0" />
+            <body name="scapula" pos="0.116860000 -0.094030000 -0.001760000">
+              <joint name="ac_ext" type="hinge" axis="0.000176312 0.000152999 0.000972371" range="-35.000000000 35.000000000" damping="0.5" armature="0.01" />
+              <geom name="scapula_mesh" type="mesh" mesh="scapula" pos="0 0 0" material="scapula_mat" contype="0" conaffinity="0" density="1100.0" />
+              <body name="gh_flex" pos="0.002200000 -0.019270000 -0.045700000">
+                <joint name="gh_flex" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="-120.000000000 120.000000000" damping="0.5" armature="0.008" />
+                <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                <body name="gh_abd" pos="0 0 0">
+                  <joint name="gh_abd" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-120.000000000 120.000000000" damping="0.5" armature="0.008" />
+                  <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                  <body name="gh_rot" pos="0 0 0">
+                    <joint name="gh_rot" type="hinge" axis="0.000087156 -0.000000000 -0.000996195" range="-110.000000000 110.000000000" damping="0.5" armature="0.008" />
+                    <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                    <body name="humerus" pos="0 0 0">
+                      <geom name="humerus_shaft" type="mesh" mesh="humerus" material="humerus_mat" contype="0" conaffinity="0" density="1100.0" pos="0 0 0" />
+                      <body name="ulna" pos="0.025280000 0.000000000 -0.288890000">
+                        <joint name="elbow" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="0.000000000 145.000000000" damping="0.2" armature="0.005" />
+                        <geom name="ulna_shaft" type="mesh" mesh="ulna" material="ulna_mat" contype="0" conaffinity="0" density="1100.0" pos="0 0 0" />
+                        <site name="B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.0035" rgba="0 0 0 0" group="3" />
+                        <site name="B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.0035" rgba="0 0 0 0" group="3" />
+                        <site name="V2_B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.003000" rgba="0 0 0 0" group="3" />
+                        <site name="V2_B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.003000" rgba="0 0 0 0" group="3" />
+                      </body>
+                      <site name="A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="G_E01" pos="0.023972664 0.020000000 -0.273947080" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="G_E02" pos="0.023972664 -0.020000000 -0.273947080" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G03" pos="0.028887839 0.000000000 -0.158083816" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G04" pos="-0.000998002 0.000000000 -0.160698488" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_P01" pos="0.008532161 0.014005924 -0.054463624" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="B_P02" pos="0.005713510 0.014444823 -0.079805720" size="0.0035" rgba="0 0 0 0" group="3" />
+                      <site name="V2_A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_pass_E01_1" pos="0.023972664 0.020000000 -0.273947080" size="0.002000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_pass_E02_1" pos="0.023972664 -0.020000000 -0.273947080" size="0.002000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G03" pos="0.028887839 -0.000000000 -0.158083816" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G04" pos="-0.000998002 -0.000000000 -0.160698488" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_P01" pos="0.008532161 0.014005924 -0.054463624" size="0.003000" rgba="0 0 0 0" group="3" />
+                      <site name="V2_B_P02" pos="0.005713510 0.014444823 -0.079805720" size="0.003000" rgba="0 0 0 0" group="3" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+              <site name="A_G01" pos="0.003252249 0.008119902 -0.001867527" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G01" pos="0.002200000 -0.003270000 -0.045700000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G02" pos="-0.035494000 -0.054642000 0.017605000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G02" pos="0.002200000 -0.035270000 -0.045700000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G03" pos="0.007285143 0.006323097 0.005911441" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G03" pos="0.018139115 -0.019270000 -0.044305508" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G04" pos="-0.036429978 -0.066040958 -0.080710111" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G04" pos="-0.013739115 -0.019270000 -0.047094492" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G05" pos="-0.048499000 -0.076517000 -0.083035000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G05" pos="0.018700001 -0.007956292 -0.104485627" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="A_G06" pos="-0.105755177 -0.126211937 -0.120377099" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="G_G06" pos="0.018700001 -0.030583708 -0.104485627" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S01" pos="-0.014109203 -0.046665424 -0.128942586" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S02" pos="-0.084100000 -0.094180000 0.035210000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S03" pos="-0.088124000 -0.110912000 -0.023140000" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S04" pos="-0.029962803 -0.060430104 -0.010776614" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S05" pos="-0.041890221 -0.070781964 -0.033723851" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="B_S06" pos="-0.046238040 -0.074555510 -0.040569055" size="0.0035" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G01" pos="0.003252249 0.008119902 -0.001867527" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G01" pos="0.000597371 -0.006829754 -0.045285069" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G02" pos="-0.035494000 -0.054642000 0.017605000" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G02" pos="0.005212850 -0.033436755 -0.044479004" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G03" pos="0.007285143 0.006323097 0.005911441" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G03" pos="0.018996941 -0.022805990 -0.043339340" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G04" pos="-0.036429978 -0.066040958 -0.080710111" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G04" pos="-0.014384885 -0.021056116 -0.050732013" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G05" pos="-0.048499000 -0.076517000 -0.083035000" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G05" pos="0.009973033 -0.011755323 -0.102636401" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_A_G06" pos="-0.105755177 -0.126211937 -0.120377099" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_side_G06" pos="0.008660413 -0.033827139 -0.104283802" size="0.001500" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S01" pos="-0.085878512 -0.095722795 0.040292876" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S02" pos="-0.036832490 -0.053150704 -0.001494278" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S03" pos="-0.094721226 -0.103392827 -0.106591934" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S04" pos="-0.020608098 -0.039063003 -0.153098781" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S05" pos="-0.041890221 -0.070781964 -0.033723851" size="0.003000" rgba="0 0 0 0" group="3" />
+              <site name="V2_B_S06" pos="-0.046238040 -0.074555510 -0.040569055" size="0.003000" rgba="0 0 0 0" group="3" />
+            </body>
+            <site name="A_P01" pos="0.050000000 -0.015300000 -0.001000000" size="0.0035" rgba="0 0 0 0" group="3" />
+            <site name="V2_A_P01" pos="0.050000000 -0.015300000 -0.001000000" size="0.003000" rgba="0 0 0 0" group="3" />
+          </body>
+        </body>
+      </body>
+      <site name="A_S01" pos="0.055000000 -0.097481867 0.255000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S02" pos="0.120000000 -0.029296666 0.160000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S03" pos="0.120000000 -0.029296666 0.210000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_S04" pos="0.055000000 -0.097481867 0.210000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="G_P01" pos="0.120000000 0.060000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="A_P02" pos="0.025000000 0.107000000 0.200000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="G_P02" pos="0.120000000 0.080000000 0.200000000" size="0.0035" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S01" pos="0.060214299 -0.103546533 0.117802693" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S02" pos="0.085525528 -0.080738635 0.173593542" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S03" pos="0.074229896 -0.091392287 0.260546006" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_S04" pos="0.077121850 -0.088741387 0.235768752" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_side_P01" pos="0.121577822 0.058651964 0.223021315" size="0.001500" rgba="0 0 0 0" group="3" />
+      <site name="V2_A_P02" pos="0.025000000 0.107000000 0.200000000" size="0.003000" rgba="0 0 0 0" group="3" />
+      <site name="V2_side_P02" pos="0.121676402 0.080845828 0.202028953" size="0.001500" rgba="0 0 0 0" group="3" />
+    </body>
+    <site name="A_S05" pos="0.160000000 0.030000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+    <site name="A_S06" pos="0.180000000 -0.070000000 0.220000000" size="0.0035" rgba="0 0 0 0" group="3" />
+    <site name="V2_A_S05" pos="0.160000000 0.030000000 0.220000000" size="0.003000" rgba="0 0 0 0" group="3" />
+    <site name="V2_A_S06" pos="0.180000000 -0.070000000 0.220000000" size="0.003000" rgba="0 0 0 0" group="3" />
+  </worldbody>
+</mujoco>

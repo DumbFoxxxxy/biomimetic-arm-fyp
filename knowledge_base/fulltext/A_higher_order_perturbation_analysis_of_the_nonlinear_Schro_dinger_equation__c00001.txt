@@ -1,0 +1,589 @@
+===== PAGE 1 =====
+Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 
+Contents lists available at ScienceDirect 
+Commun Nonlinear Sci Numer Simulat 
+journal homepage: www.elsevier.com/locate/cnsns 
+Research paper 
+A higher-order perturbation analysis of the nonlinear 
+Schrödinger equation 
+J. Bonetti a , c , S.M. Hernandez a , P.I. Fierens b , c , ∗, D.F. Grosz a , c 
+a Grupo de Comunicaciones Ópticas, Instituto Balseiro, Argentina 
+b Instituto Tecnológico de Buenos Aires, Argentina 
+c Consejo Nacional de Investigaciones Cientíﬁcas y Técnicas (CONICET), Argentina 
+a r t i c l e i n f o 
+Article history: 
+Received 18 October 2018 
+Revised 10 December 2018 
+Accepted 18 December 2018 
+Available online 20 December 2018 
+Keywords: 
+Optical ﬁbers 
+Noise 
+Modulation instability 
+a b s t r a c t 
+A well-known and thoroughly studied phenomenon in nonlinear wave propagation is that 
+of modulation instability (MI). MI is usually approached as a perturbation to a pump, and 
+its analysis is based on preserving only terms which are linear on the perturbation, dis- 
+carding those of higher order. In this sense, the linear MI analysis is relevant to the un- 
+derstanding of the onset of many other nonlinear phenomena, such as supercontinuum 
+generation, but it has limitations as it can only be applied to the propagation of the per- 
+turbation over short distances. 
+In this work, we propose approximations to the propagation of a perturbation, con- 
+sisting of additive white noise, that go beyond the linear modulation instability analysis, 
+and show them to be in excellent agreement with numerical simulations and experimental 
+measurements. 
+©2 0 1 8 Elsevier B.V. All rights reserved. 
+1. Introduction 
+Pulse propagation in single-mode lossless nonlinear ﬁbers is modeled by the Nonlinear Schrödinger Equation (NLSE) [1] 
+∂A 
+∂z 
+− i ˆ βA = i ˆ γ A | A | 2 . (1) 
+A ( z, T ) is the pulse envelope, z is the direction of propagation and T is the time referred to a co-moving frame with group 
+velocity v g = β−1 1 (i.e., T = t − zβ1 ). Linear dispersion is modeled by the operator ˆ β, while ˆ γ is related to the third-order 
+susceptibility: 
+ˆ β = 
+∑ 
+k ≥2 
+i k βk 
+k ! 
+∂ k 
+∂T k , ˆ γ = 
+∑ 
+k ≥0 
+i k γk 
+k ! 
+∂ k 
+∂T k . (2) 
+We must note that, for the sake of simplicity, we have omitted the contribution of the stimulated Raman response of the 
+medium. Furthermore, we have not included any noise source such as spontaneous Raman emission. 
+Analytical solutions of Eq. (1) are known in a variety of simpliﬁed cases. For instance, solitonic solutions can be found 
+by means of the inverse-scattering method originally proposed by Zakharov and Shabat [2] (see also, e.g., [3] ), but only 
+∗ Corresponding author at: Mathematics and Physics, Av. Eduardo Madero 399, Ciudad Autónoma de Buenos Aires C1106ACD, Argentina. 
+E-mail address: pﬁerens@itba.edu.ar (P.I. Fierens). 
+https://doi.org/10.1016/j.cnsns.2018.12.010 
+1007-5704/© 2018 Elsevier B.V. All rights reserved. 
+
+===== PAGE 2 =====
+J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 153 
+under some simpliﬁcations such as no higher-order dispersion ( βk = 0 for k ≥3). An important family of periodic solutions, 
+known as Akhmediev breathers [4] , has attracted attention in relation to supercontinuum generation and rogue waves [5,6] . 
+Although Akhmediev breathers were originally found for low-dispersion cases, Eq. (1) has been found to be integrable in 
+more complex cases (see, for example, [7–11] and references therein). However, the number of exactly integrable variations 
+of the NLSE is still very limited. 
+Although exact solutions of simpliﬁed versions of Eq. (1) provide important insight into many features of the propagation 
+of pulses in nonlinear ﬁbers, they do not provide a precise description in general. For this reason, the NLSE is usually studied 
+by means of simulations based on eﬃcient algorithms such as split-step Fourier (SSF) [1] or a fourth-order Runge-Kutta in 
+the interaction picture (RK4IP) [12] . 
+In this work, we put forth a perturbation analysis of the Eq. (1) when a continuous-wave (CW) laser pumps the non- 
+linear ﬁber. The CW pump is always accompanied by technical and quantum noise and we focus on the noise propagation 
+along the ﬁber. Our goal is not to propose an eﬃcient methodology that can substitute numerical simulations of the non- 
+linear Schrödinger equation, but to introduce approximate expressions that can provide a more intuitive and comprehensive 
+understanding of the main processes involved in higher-order modulation instability. 
+One possibility is to study noise propagation as a perturbation to the CW. The ﬁrst-order perturbation or linear stabil- 
+ity analysis is related to the study of the modulation instability (MI) phenomenon [4,5,13–23,23–29] (see also Chapter 5 
+of Ref. [1] and references therein.) Exact solutions of MI accounting for a full model of the NLSE, including the Raman re- 
+sponse and the dependence of the nonlinear parameter with frequency, have been developed [30,31] . The particular case 
+of the propagation of additive noise has been dealt with in the literature (see, e.g., [32,33] ). Note, however, that the wave 
+propagation analysis of a noisy CW pump in a MI setting has several limitations. The continuous-wave pump is assumed 
+undepleted and, hence, the results are only valid over short propagation distances. Furthermore, as it is a ﬁrst-order pertur- 
+bation analysis, it disregards the ’cascading effect’ of four-wave mixing, in the sense that perturbations to the pump can as 
+well act as pumps themselves once they have attained enough power. One alternative to incorporate such cascading effect 
+is to solve the NLSE through Picard’s iterations. Resulting expressions are, nevertheless, not easily tractable and even their 
+numerical evaluation may turn out to be an expensive computational effort as compared to pure numerical solutions ob- 
+tained from the usual SSF or RK4IP algorithms. For this reason, we put forth several simpliﬁcations that allow an analysis 
+of higher-order perturbations. The validity of these simpliﬁcations is tested through numerical simulation and experimental 
+measurements. 
+We must note that there are alternative approaches which are related to ideas presented in this work. In particular, many 
+tools have been developed for the statistical analysis of optical wave turbulence (see, e.g., [34–38] ). 
+The remaining of this paper is organized as follows. In Section 2 we develop a higher-order perturbation analysis of 
+the nonlinear Schrödinger equation and motivate the simpliﬁcations that allow tractability. We validate our approach with 
+experimental results and numerical simulations in Section 3 . Finally, we present some conclusions and lines of future work 
+in Section 4 . 
+2. Perturbation analysis 
+Let us again consider the nonlinear Schrödinger equation. It is useful to normalize the propagation distance as ζ = γ0 P 0 z. 
+We study the propagation of a small perturbation a ( ζ , T ) to the stationary solution of Eq. (1) , i.e., we consider A (ζ, T ) = √ 
+P 0 [ 1 + a (ζ, T ) ] e iζ. Fourier transformation (with respect to time T ) leads to the following coupled differential equations 
+i∂ ζ ˜ a (ζ, /Omega1) + B (/Omega1) ˜ a (ζ, /Omega1) + ˜ γ (/Omega1) ˜ a (ζ, −/Omega1) = −γ (/Omega1) ˜ N ( ˜ a (ζ, /Omega1)) , (3) 
+−i∂ ζ ˜ a (ζ, −/Omega1) + B (−/Omega1) ˜ a (ζ, −/Omega1) + ˜ γ (−/Omega1) ˜ a (ζ, /Omega1) = −γ (−/Omega1) ˜ N ( ˜ a (ζ, −/Omega1)) , (4) 
+where ˜ a (ζ, /Omega1) is the Fourier transform of a ( ζ , T ), B (/Omega1) = ˜ β(/Omega1) + 2 ˜ γ (/Omega1) −1 , 
+˜ β(/Omega1) = 1 
+γ0 P 0 
+M ∑ 
+m =2 
+(−1) m 
+m ! 
+βm /Omega1m , ˜ γ (/Omega1) = 1 γ0 
+N ∑ 
+n =0 
+(−1) n 
+n ! 
+γn /Omega1n , (5) 
+˜ N ( ˜ a ) = ˜ a (ζ, /Omega1) ∗ ˜ a (ζ, −/Omega1) + ˜ a (ζ, /Omega1) ∗ [˜ a (ζ, /Omega1) + ˜ a (ζ, −/Omega1) ] + ˜ a (ζ, /Omega1) ∗ ˜ a (ζ, /Omega1) ∗ ˜ a (ζ, −/Omega1) . (6) 
+2.1. Linear stability analysis 
+Analysis of modulation instability (MI) proceeds by neglecting the nonlinear terms in Eqs. (3) –(4) . Let us assume that 
+˜ a (0 , /Omega1) is a noisy perturbation such that 
+⟨
+˜ a (0 , /Omega1) 
+⟩
+= 0 , 
+⟨
+˜ a (0 , μ) ˜ a (0 , ν) 
+⟩
+= sδμ−ν, 
+⟨
+˜ a (0 , μ) ˜ a (0 , ν) 
+⟩
+= 0 , (7) 
+
+===== PAGE 3 =====
+154 J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 
+for some positive constant s . It can be shown that the ﬁrst-order MI approximation is given by (see [33] ) 
+⟨| ˜ a (ζ, /Omega1) | 2 ⟩ ≈ s · M 2 (/Omega1) + G 2 1 (/Omega1) + ˜ γ2 (/Omega1) 
+4 G 2 1 (/Omega1) · e 2 G 1 (/Omega1) ζ , (8) 
+where 
+M(/Omega1) = ˜ βe (/Omega1) + 2 ˜ γe (/Omega1) −1 , (9) 
+/Gamma11 (/Omega1) = 
+√ 
+˜ γ (/Omega1) ˜ γ (−/Omega1) − M 2 (/Omega1) , (10) 
+G 1 (/Omega1) = 
+{
+/Gamma11 (/Omega1) if /Gamma11 (/Omega1) ∈ R , 
+0 otherwise, 
+(11) 
+and ˜ βe and ˜ γe contain even terms of ˜ β and ˜ γ, respectively. 
+Eq. (8) describes how white noise with mean spectral density s is ampliﬁed by an MI gain G 1 ( /Omega1). Modulation instability 
+analysis, however, suffers from several shortcomings. Since higher-order nonlinear interactions are neglected, expressions so 
+far cannot capture the cascading effect of four-wave mixing. 
+2.2. Perturbation ansatz 
+Eq. (8) motivates a perturbative approximation to the solution of the form 
+˜ a (ζ, /Omega1) ≈
+∞ ∑ 
+n =1 
+s 
+n 
+2 /Delta1n (/Omega1) e iφn (ζ, /Omega1) e G n (/Omega1) ζ , (12) 
+where the following random-phase assumption is satisﬁed 
+⟨
+e iφn (x,μ) e −iφm (y,ν) ⟩ = δn,m δ(x − y ) δ(μ − ν) , (13) 
+Note that, to a ﬁrst order, Eq. (12) agrees with Eq. (8) with G 1 given by Eq. (11) and, for G 1 ( /Omega1) ⁄ = 0, 
+⟨| /Delta11 (/Omega1) | 2 ⟩ = M 2 (/Omega1) + G 2 1 (/Omega1) + ˜ γ2 (/Omega1) 4 G 2 1 (/Omega1) . (14) 
+If we also assume that /Delta1n are independent of φm for all n, m, /Delta1n is independent of /Delta1m for m ⁄ = n , and G n is deterministic 
+and real, the mean squared value of the perturbation must evolve as 
+⟨| ˜ a (ζ, /Omega1) | 2 ⟩ ≈ ∞ ∑ 
+n =1 
+s n ⟨| /Delta1n (/Omega1) | 2 ⟩e 2 G n (/Omega1) ζ . (15) 
+In order to ﬁnd expressions for ⟨ | /Delta1n ( /Omega1)| 2 ⟩ and G n ( /Omega1), we substitute Eq. (12) in Eqs. (3) –(4) and use Eq. (15) . However, 
+to make calculations tractable and ﬁnal expressions simpler, we propose several simplifying hypotheses which are detailed 
+in Appendix A . Although the true extent of their effect can only be comprehended in the context of the detailed calculations 
+presented in the appendix, some of these simpliﬁcations are easy to understand: 
+1. We assume that the functions G n ( /Omega1) are even. This assumption is motivated by the fact that G 1 ( /Omega1) (the MI gain) is even. 
+2. We also assume that ⟨ | /Delta1n ( /Omega1)| 2 ⟩ are even functions. Again, this simpliﬁcation is motivated by the modulation instability 
+case: as it can be shown, from Eq. (14) , ⟨ | /Delta11 ( /Omega1)| 2 ⟩ is even. 
+3. We neglect the interaction of higher-order MI terms: we only keep the interaction of n ⟩ 1 terms in Eq. (12) with the 
+modulation instability ( n = 1 ) term. 
+4. We also neglect three-fold interactions of terms in Eq. (12) . 
+5. Substitution of Eq. (12) in Eq. (6) leads to a number of convolution integrals. We consider that the weight of the corre- 
+sponding integrands is maximized when the exponents (G 1 (u ) + G n −1 (u − v )) and G 1 (u ) + G n −1 (v − u )) are maximized. 
+This approximation is very important to obtain simple expressions for G n , as it is explained in Appendix A . 
+6. Finally, we repeatedly use Eq. (13) , we use the fact that 
+⟨∂ ζ φn (ζ, /Omega1) ⟩ = 0 and neglect higher-order moments of ∂ ζ φn ( ζ, 
+±/Omega1). 
+After some lengthy manipulations, we arrive at the following expressions: 
+G n (/Omega1) = max u G 1 (u ) + G n −1 (u − /Omega1) , (16) 
+⟨| /Delta1n (/Omega1) | 2 ⟩ = αn −1 ˜ γ2 (/Omega1) · [| B (−/Omega1) − iG n (/Omega1) | 2 + ˜ γ2 (−/Omega1) ]| ( B (/Omega1) + iG n (/Omega1) ) ( B (/Omega1) − iG n (/Omega1) ) − ˜ γ (/Omega1) ˜ γ (−/Omega1) | 2 . (17) 
+
+===== PAGE 4 =====
+J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 155 
+Fig. 1. G 1 , G 2 and G 3 . The cascading four-wave mixing process is readily observed. 
+The positive constant α in Eq. (17) is related to the MI gain bandwidth. 
+Although Eq. (15) correctly describes the evolution of the perturbation, it is not accurate at ζ = 0 . Indeed, as it can be 
+readily calculated, 
+⟨| ˜ a (0 , /Omega1) | 2 ⟩ ≈ ∞ ∑ 
+n =1 
+s n ⟨| /Delta1n (/Omega1) | 2 ⟩. (18) 
+This equation does not lead to the known value 
+⟨| ˜ a (0 , /Omega1) | 2 ⟩ = s . Eq. (15) can be made accurate even at ζ = 0 , that is, for 
+the initial random pertubation, by making a minor correction to Eq. (12) : 
+⟨| ˜ a (ζ, /Omega1) | 2 ⟩ ≈ s + ∞ ∑ 
+n =1 
+s n ⟨| /Delta1n (/Omega1) | 2 ⟩(e 2 G n (/Omega1) ζ −1 ). (19) 
+2.3. Discussion 
+Eq. (16) is a result of the cascading effect of four-wave mixing. Fig. 1 shows an example of G i for i = 1 , 2 , 3 that helps 
+understand the cascading effect when perturbations attain enough power and themselves act as new pumps. The result- 
+ing higher-order MI sidebands have already been discussed in the literature. Erkintalo et al. [22] , for example, describe 
+how an Akhmediev-breather evolves and splits into subpulses using the Darboux transformation and demonstrate a good 
+agreement with experimental results. While Ref. [22] develops higher-order solutions by iteratively applying the Darboux 
+transformation, Zakharov et al. [29] present a class of multisolitonic solutions which may be used to describe MI devel- 
+opment. Kimmoun et al. [39] study a similar higher-order cascading process in surface gravity waves in deep-water and 
+Armaroli et al. [40] also analyze the second-order sidebands in the case of the Dysthe equation. 
+For the sake of simplicity, we have omitted the inﬂuence of stimulated Raman scattering. However, simple modiﬁca- 
+tions to the formulas presented here allow to incorporate in straightforward fashion the molecular Raman response of the 
+medium. 
+It must be noted that the proposed approximation assumes that the CW pump acts as an unlimited source of optical 
+power. As a matter of fact, Eq. (19) predicts a continuous growth of the perturbation. Since the power of the perturbation 
+cannot exceed that of the pump at the input end of the optical ﬁber, the proposed analytical model does not apply to 
+an arbitrary long propagated distance ζ, a shortcoming also present in the linear modulation instability analysis. However, 
+ﬁrst-order MI analysis does not account for higher-order nonlinear interactions, such as the cascading four-wave mixing and, 
+thus, it fails to give an accurate description of the evolution of the perturbation for even shorter propagation lengths. We 
+verify this assertion in the next Section. 
+3. Experimental and numerical results 
+In order to test our approach we performed measurements on a 770 m-long, dispersion-stabilized Highly-Nonlinear Fiber 
+(HNLF) [41] . A CW 30-dBm pump laser at 1590.4 nm was launched at the input end of the ﬁber. Fig. 2 presents a comparison 
+between the observed power spectral density (measured with 0.1-nm resolution) and the proposed analytical approxima- 
+tion. The latter was obtained by using Eqs. (16) , (17) and (19) (adding up to n = 4 ) with γ0 = 8 . 7 W −1 Km −1 , γk = 0 for 
+
+===== PAGE 5 =====
+156 J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 
+Fig. 2. First-order (dashed line) and fourth-order (dotted line) analytical approximations vs. experimental results (solid line). A CW 30-dBm pump laser at 
+1590.4 nm was launched at the input end of the 770-m long dispersion-stabilized HNLF. 
+Fig. 3. Analytical approximations (dashed lines) vs. simulation results (solid lines). Numerical results correspond to the average of 100 noise realizations. 
+Results correspond to distances 5 L NL , 6 L NL , 7 L NL , 8 L NL . 
+k ⟩ 0, β2 = −3 . 9198 ps 2 /km, β3 = −0 . 1267 ps 3 /km, β4 = 1 . 7594 ×10 −4 ps 4 /km and βk = 0 for k ⟩ 4. As it is readily observed, 
+experimental and analytical results are in excellent agreement. Fig. 2 also shows the ﬁrst-order perturbative solution, that 
+is, the solution predicted by the classical modulation instability analysis. MI cannot account for much of the detail observed 
+as it only predicts two gain sidebands. 
+In order to further explore the validity of the approximations, we performed computer simulations using the algorithm 
+in [42] . Fig. 3 shows results for the average of 100 realizations. The distance is normalized to the so-called nonlinear length 
+L NL = (γ0 P 0 ) −1 , where P 0 is the input power, giving a parameter-independent distance metric. It is observed that the ac- 
+curacy of the approximation decreases with the propagation distance, although reasonable good results are obtained even 
+after 7 L NL ( ≈800 m). 
+As it can be seen in the bottom-right panel of Fig. 3 , analytical expressions fail to adequately represent the simulated 
+behavior at 8 L NL . In particular, a limitation of the analytical model becomes apparent; namely, the analytical spectral density 
+has a higher power than that from simulations. As discussed, the analytical model assumes an unlimited pump power source 
+
+===== PAGE 6 =====
+J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 157 
+Fig. 4. Total signal power for the analytical approximation (dashed line) vs. simulation (solid line). The crossing at nearly 7 L NL (cf. Fig. 3 ) marks the 
+maximum propagated distance at which the analytical approximation remains valid. 
+that enables continuous growth of the perturbation, as shown in Fig. 4 and in accordance with Eq. (19) . However, since 
+total power (pump plus perturbation) must remain constant, we can expect the analytical model to be valid as long as 
+the calculated power of the perturbation remains lower than that of the input pump. As shown in Fig. 4 , this condition is 
+satisﬁed up to ∼ 7 L NL , entirely consistent with results in Fig. 3 . 
+4. Conclusions 
+Modulation instability in nonlinear wave propagation is either approached by means of a linear perturbation analysis to 
+a continuous-wave pump, or by the numerical solution of the Nonlinear Schrödinger equation. While the former approach 
+gives some insight into the initial stages of propagation, it fails at providing an accurate picture over long propagated dis- 
+tances; the latter can provide accurate results over longer distances, but hides the underlying physics. 
+In this work, we put forth a perturbation analysis that goes beyond the linear modulation instability, offering both a 
+more precise analytical description and meaningful physical insights that capture higher-order cascading four-wave mixing 
+effects. We showed this analysis to be accurate by comparing its predictions to actual experimental results. Furthermore, we 
+successfully validated the approximations made with numerical simulations for propagated distances up to nearly 7 L NL . 
+The mathematical derivation presented is complex and involves a number of simplifying assumptions but leads to simple 
+and tractable formulas. It is a matter of future work to look for a shorter path and less restrictive simpliﬁcations. 
+In this paper, we do not deal with the nonlinear stage of modulation instability, that is, when the energy of the MI 
+sidebands is comparable to that of the pump. There is also the question of the effect of the particular statistics of the initial 
+perturbation on this stage. These problems are a subject of future research. We study the case of an homogeneous, un- 
+doped, single-core and single-mode optical ﬁber. A more complex setting can be found in, e.g., dual-core [43] and resonant 
+[44] optical ﬁbers. 
+Finally, we believe our results to be of value when tackling the study of the early stages of supercontinuum generation, 
+and to contribute tools for the better understanding of nonlinear processes such as rogue-wave formation. 
+Acknowledgments 
+We gratefully acknowledge S. Radic for hosting J. B.’s research stay at the Photonic Systems Group, UCSD, and E. Temprana 
+for assistance with experiments. We also acknowledge ﬁnancial support from project PIP 2015, CONICET grant 1122015 , 
+010 0 0 01 CO , Argentina. 
+Appendix A. Mathematical derivation 
+In order to ﬁnd expressions for ⟨ | /Delta1n ( /Omega1)| 2 ⟩ and G n ( /Omega1), we substitute Eq. (12) in Eqs. (3) –(4) and use Eq. (15) . How- 
+ever, to make the calculations tractable and the ﬁnal expressions simpler, we resort to several simpliﬁcations which were 
+summarized in Section 2.2 . 
+
+===== PAGE 7 =====
+158 J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 
+Assuming that the series can be derived term by term, substitution of Eq. (12) into Eqs. (3) –(4) 
+∞ ∑ 
+n =1 
+s 
+n 
+2 e G n (/Omega1) ζ · B ·
+[ /Delta1n (/Omega1) e iφn (ζ, /Omega1) 
+/Delta1∗n (−/Omega1) e −iφn (ζ, −/Omega1) 
+]
+= −
+[ ˜ γ (/Omega1) ˜ N ( ˜ a (ζ, /Omega1) ) 
+˜ γ (−/Omega1) ˜ N ( ˜ a (ζ, −/Omega1) ) 
+]
+, (A.1) 
+where 
+B = 
+[
+B (/Omega1) + iG n (/Omega1) − ∂ ζ φn (ζ, /Omega1) ˜ γ (/Omega1) 
+˜ γ (−/Omega1) B (−/Omega1) − iG n (/Omega1) + ∂ ζ φn (ζ, −/Omega1) 
+]
+. (A.2) 
+In the derivation of Eqs. (A .1) –(A .2) we have made use of the assumption that that the functions G n ( /Omega1) are even (simplifying 
+assumption #1 in Section 2.2 ). 
+Using Eqs. (6) and (12) , 
+˜ N ( ˜ a (x, μ) ) = 
+∞ ∑ 
+n =1 
+s 
+n 
+2 
+{ 
+n −1 ∑ 
+m =1 
+∫ + ∞ 
+−∞ 
+2/Delta1m (u ) /Delta1n −m (u − μ) e (G m (u )+ G n −m (u −μ)) x e i (φm (x,u ) −φn −m (x,u −μ)) du 
++ 
+∫ + ∞ 
+−∞ 
+/Delta1m (u )/Delta1n −m (μ − u ) e (G m (u )+ G n −m (μ−u )) x e i (φm (x,u )+ φn −m (x,μ−u )) du 
++ 
+n −m −1 ∑ 
+k =1 
+∫ + ∞ 
+−∞ 
+∫ + ∞ 
+−∞ 
+/Delta1m (u )/Delta1k (v ) /Delta1n −m −k (u + v − μ) 
+× e (G m (u )+ G k (u )+ G n −m −k (u + v −μ)) x e i (φm (x,u )+ φk (x, v ) −φn −m −k (x,u + v −μ)) d ud v }. (A.3) 
+In order to make these equations tractable, we resort to the approximations 3–5 spelled out in Section 2.2 . First, ap- 
+proximation #3 implies that we keep only the ﬁrst term in the sum, that is, m = 1 . Second, aproximation #4 means 
+that we neglect the terms with double integrals as higher-order perturbations. Finally approximation #5 is, perhaps, the 
+most relevant: we consider that the weight of the integrands is maximized when the exponents (G 1 (u ) + G n −1 (u − μ)) and 
+(G 1 (u ) + G n −1 (μ − u )) are maximized. Since we have already assumed that the G n are even, 
+max 
+u 
+(G 1 (u ) + G n −1 (u − μ)) = max u (G 1 (u ) + G n −1 (μ − u )) 
+= max 
+u 
+(G 1 (u ) + G n −1 (μ + u )) 
+= max 
+u 
+(G 1 (u ) + G n −1 (−μ − u )) . (A.4) 
+With all these simpliﬁcations, we obtain 
+˜ N ( ˜ a (x, μ) ) ≈
+∞ ∑ 
+n =1 
+s 
+n 
+2 · e max u (G 1 (u )+ G n −1 (u −μ)) x · { I 1 (x, μ) + I 2 (x, μ) } , (A.5) 
+where 
+I 1 (ζ, /Omega1) = 
+∫ + ∞ 
+−∞ 
+2/Delta11 (u ) /Delta1n −1 (u − /Omega1) e i (φ1 (ζ,u ) −φn −1 (ζ,u −/Omega1)) du, (A.6) 
+I 2 (ζ, /Omega1) = 
+∫ + ∞ 
+−∞ 
+/Delta11 (u )/Delta1n −1 (/Omega1 − u ) e i (φ1 (ζ,u )+ φn −1 (ζ, /Omega1−u )) du. (A.7) 
+Using Eqs. (A .4) –(A .7) in Eq. (A.1) , we get 
+∞ ∑ 
+n =1 
+s 
+n 
+2 · e G n (/Omega1) ζ · B ·
+[
+/Delta1n (/Omega1) e iφn (ζ, /Omega1) 
+/Delta1∗n (−/Omega1) e −iφn (ζ, −/Omega1) 
+]
+= 
+∞ ∑ 
+n =1 
+s 
+n 
+2 · e max u (G 1 (u )+ G n −1 (u −/Omega1)) ζ ·
+[ −˜ γ (/Omega1) ( I 1 (ζ, /Omega1) + I 2 (ζ, /Omega1) ) 
+−˜ γ (−/Omega1) 
+(
+I 1 (ζ, −/Omega1) + I 2 (ζ, −/Omega1) 
+)
+]
+. 
+This equation leads to 
+G n (/Omega1) = max u G 1 (u ) + G n −1 (u − /Omega1) , (A.8) 
+
+===== PAGE 8 =====
+J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 159 
+with G n ( /Omega1) an even function, and 
+[ /Delta1n (/Omega1) e iφn (ζ, /Omega1) 
+/Delta1∗n (−/Omega1) e −iφn (ζ, −/Omega1) 
+]
+= −B −1 
+[ ˜ γ (/Omega1) ( I 1 (ζ, /Omega1) + I 2 (ζ, /Omega1) ) 
+˜ γ (−/Omega1) 
+(
+I 1 (ζ, −/Omega1) + I 2 (ζ, −/Omega1) 
+)
+]
+. (A.9) 
+What remains is to take the mean squared value of /Delta1n ( /Omega1) which can be found from Eq. (A.9) . In the process, a useful 
+simpliﬁcation is to assume that ⟨ | /Delta1n ( /Omega1)| 2 ⟩ are even functions (as it can be shown, from Eq. (14) , that ⟨ | /Delta11 ( /Omega1)| 2 ⟩ is even). 
+We also neglect higher-order moments of ∂ ζ φn ( ζ, ±/Omega1) and use Eq. (13) (see simplifying assumption #6 in Section 2.2 ). 
+From Eq. (A.2) , 
+−iJ(/Omega1)/Delta1n (/Omega1) e iφn (ζ, /Omega1) = 
+(
+−B (−/Omega1) + iG n (/Omega1) + 
+∂φn (ζ, /Omega1) 
+∂ζ
+)
+˜ γ ( /Omega1) ( I 1 ( ζ, /Omega1) + I 2 (ζ, /Omega1) ) 
+− ˜ γ (/Omega1) ˜ γ (−/Omega1) 
+(
+I 1 (ζ, −/Omega1) + I 2 (ζ, −/Omega1) 
+)
+, (A.10) 
+where J(/Omega1) = det ( B ) . Multiplying this expression by its conjugate, 
+| J(/Omega1) | 2 | /Delta1n (/Omega1) | 2 = ˜ γ2 (/Omega1) ·[(
+−B (−/Omega1) + iG n (/Omega1) + 
+∂φn (ζ, −/Omega1) 
+∂ζ
+)
+( I 1 (ζ, /Omega1) + I 2 (ζ, /Omega1) ) − ˜ γ (−/Omega1) 
+(
+I 1 (ζ, −/Omega1) + I 2 (ζ, −/Omega1) 
+)]
+·
+[(
+−B (−/Omega1) − iG n (/Omega1) + 
+∂φn (ζ, −/Omega1) 
+∂ζ
+)(
+I 1 (ζ, /Omega1) + I 2 (ζ, /Omega1) 
+)
+− ˜ γ (−/Omega1) ( I 1 (ζ, −/Omega1) + I 2 (ζ, −/Omega1) ) 
+]
+. (A.11) 
+Eq. (13) and Eqs. (A .5) –(A .7) lead to 
+⟨
+I 1 (ζ, /Omega1) I 2 (ζ, /Omega1) 
+⟩
+= 
+⟨
+I 1 (ζ, /Omega1) I 2 (ζ, −/Omega1) 
+⟩
+= 0 , (A.12) 
+⟨
+I 1 (ζ, /Omega1) I 1 (ζ, /Omega1) 
+⟩
+= 
+⟨
+I 2 (ζ, /Omega1) I 2 (ζ, −/Omega1) 
+⟩
+= 0 , (A.13) 
+⟨| I 1 (ζ, /Omega1) | 2 ⟩ = ∫ + ∞ 
+−∞ 
+4 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du, (A.14) 
+⟨| I 1 (ζ, −/Omega1) | 2 ⟩ = ∫ + ∞ 
+−∞ 
+4 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u + /Omega1) | 2 ⟩du, (A.15) 
+⟨| I 2 (ζ, /Omega1) | 2 ⟩ = ∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (/Omega1 − u ) | 2 ⟩du, (A.16) 
+⟨| I 2 (ζ, −/Omega1) | 2 ⟩ = ∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (−/Omega1 − u ) | 2 ⟩du. (A.17) 
+Using simpliﬁcation #2 in Section 2.2 (i.e, assume that ⟨ | /Delta1n ( /Omega1)| 2 ⟩ are even functions), we may write 
+⟨| I 1 (ζ, /Omega1) | 2 ⟩ + ⟨| I 2 (ζ, /Omega1) | 2 ⟩ = ⟨| I 1 (ζ, −/Omega1) | 2 ⟩ + ⟨| I 2 (ζ, −/Omega1) | 2 ⟩ = 5 ∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du. (A.18) 
+Finally, using approximation #6 in Section 2.2 , 
+⟨| J(/Omega1) | 2 | /Delta1n (/Omega1) | 2 ⟩ = ˜ γ2 (/Omega1) · [| B (−/Omega1) − iG n (/Omega1) | 2 + ˜ γ2 (−/Omega1) ] · 5 ∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du. (A.19) 
+Although we may incur in an error, we approximate ⟨ | J ( /Omega1)| 2 | /Delta1n ( /Omega1)| 2 ⟩ ≈ ⟨ | J ( /Omega1)| 2 ⟩ ⟨ | /Delta1n ( /Omega1)| 2 ⟩ . Using the fact that ⟨∂ ζ φn (ζ, /Omega1) ⟩ = 0 and neglecting higher-order moments of ∂ ζ φn ( ζ, ±/Omega1) (i.e., simplifying assumption #6 in Section 2.2 ), 
+we obtain 
+⟨| J(/Omega1) | 2 ⟩ = | ( B (/Omega1) + iG n (/Omega1) ) ( B (/Omega1) − iG n (/Omega1) ) − ˜ γ (/Omega1) ˜ γ (−/Omega1) | 2 . (A.20) 
+Introducing Eq. (A.20) in Eq. (A.19) , 
+⟨| /Delta1n (/Omega1) | 2 ⟩ ≈ ˜ γ2 (/Omega1) · [| B (−/Omega1) − iG n (/Omega1) | 2 + ˜ γ2 (−/Omega1) ]| ( B (/Omega1) + iG n (/Omega1) ) ( B (/Omega1) − iG n (/Omega1) ) − ˜ γ (/Omega1) ˜ γ (−/Omega1) | 2 · 5 ∫ + ∞ −∞ ⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du. (A.21) 
+
+===== PAGE 9 =====
+160 J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 
+By the way we deﬁned /Delta11 (see Eq. (14) ), the integral is actually a deﬁnite integral. Since the integrands are nonnegative, by 
+the mean-value theorem we may write 
+∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du = ⟨| /Delta1n −1 (c(/Omega1)) | 2 ⟩ ∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩du. (A.22) 
+This equation motivates our last simpliﬁcation. Let us deﬁne 
+/Lambda1n = 5 
+∫ + ∞ 
+−∞ 
+⟨| /Delta11 (u ) | 2 ⟩⟨| /Delta1n −1 (u − /Omega1) | 2 ⟩du. (A.23) 
+We assume that 
+/Lambda1n ≈ α/Lambda1n −1 for n > 1 , /Lambda11 = 1 . (A.24) 
+Using this approximation, we have 
+⟨| /Delta1n (/Omega1) | 2 ⟩ ≈ αn −1 · ˜ γ2 (/Omega1) · [| B (−/Omega1) − iG n (/Omega1) | 2 + ˜ γ2 (−/Omega1) ]| ( B (/Omega1) + iG n (/Omega1) ) ( B (/Omega1) − iG n (/Omega1) ) − ˜ γ (/Omega1) ˜ γ (−/Omega1) | 2 . (A.25) 
+In practice, α may help compensate some of the approximations in the derivation of Eq. (A.25) and needs to be estimated 
+for each particular scenario. 
+References 
+[1] Agrawal G . Nonlinear ﬁber optics. Optics and Photonics. 5th ed. Academic Press; 2012 . 
+[2] Zakharov VE . Collapse of langmuir waves. Soviet Phys JETP 1972;35:908–14 . 
+[3] Ablowitz MA , Clarkson PA . Solitons, nonlinear evolution equations and inverse scattering. Cambridge University Press; 1991. ISBN 978-0521387309 . 
+[4] Akhmediev N , Korneev V . Modulation instability and periodic solutions of the nonlinear Schrödinger equation. Theor Math Phys 1986;69(2):1089–93 . 
+[5] Dudley JM, Genty G, Dias F, Kibler B, Akhmediev N. Modulation instability, Akhmediev breathers and continuous wave supercontinuum generation. 
+Opt Express 2009;17(24):21497–508. doi: 10.1364/OE.17.021497 . 
+[6] Akhmediev N, Soto-Crespo JM, Ankiewicz A. How to excite a rogue wave. Phys Rev A 2009;80:043818. doi: 10.1103/PhysRevA.80.043818 . 
+[7] Akhmediev N, Ankiewicz A, Taki M. Waves that appear from nowhere and disappear without a trace. Phys Lett A 2009;373(6):675–8. doi: 10.1016/j. 
+physleta.2008.12.036 . 
+[8] Ankiewicz A, Soto-Crespo JM, Chowdhury MA, Akhmediev N. Rogue waves in optical ﬁbers in presence of third-order dispersion, self-steepening, and 
+self-frequency shift. J Opt Soc Am B 2013;30(1):87–94. doi: 10.1364/JOSAB.30.0 0 0 087 . 
+[9] Ankiewicz A, Akhmediev N. Higher-order integrable evolution equation and its soliton solutions. Phys Lett A 2014;378(4):358–61. doi: 10.1016/j. 
+physleta.2013.11.031 . 
+[10] Ankiewicz A, Wang Y, Wabnitz S, Akhmediev N. Extended nonlinear Schrödinger equation with higher-order odd and even terms and its rogue wave 
+solutions. Phys Rev E 2014;89:012907. doi: 10.1103/PhysRevE.89.012907 . 
+[11] Ankiewicz A, Kedziora DJ, Chowdury A, Bandelow U, Akhmediev N. Inﬁnite hierarchy of nonlinear Schrödinger equations and their solutions. Phys Rev 
+E 2016;93:012206. doi: 10.1103/PhysRevE.93.012206 . 
+[12] Hult J. A fourth-order runge-kutta in the interaction picture method for simulating supercontinuum generation in optical ﬁbers. J Lightwave Technol 
+2007;25(12):3770–5. doi: 10.1109/JLT.2007.909373 . 
+[13] Benjamin TB, Feir JE. The disintegration of wave trains on deep water part 1. theory. J Fluid Mech 1967;27:417–30. doi: 10.1017/S0 0221120670 0 045X . 
+[14] Hasegawa A. Observation of self-trapping instability of a plasma cyclotron wave in a computer experiment. Phys Rev Lett 1970;24:1165–8. doi: 10.1103/ 
+PhysRevLett.24.1165 . 
+[15] Zakharov V , Shabat A . Exact theory of two-dimensional self-focusing and one-dimensional self-modulation of waves in nonlinear media. Soviet Phys 
+JETP 1972;34:62–9 . 
+[16] Hasegawa A, Brinkman W. Tunable coherent IR and FIR sources utilizing modulational instability. IEEE J Quantum Electron 1980;16(7):694–7. doi: 10. 
+1109/JQE.1980.1070554 . 
+[17] Janssen PAEM. Modulational instability and the fermi-pasta-ulam recurrence. Phys Fluids 1981;24(1):23–6. doi: 10.1063/1.863242 . 
+[18] Anderson D, Lisak M. Modulational instability of coherent optical-ﬁber transmission signals. Opt Lett 1984;9(10):468–70. doi: 10.1364/OL.9.0 0 0468 . 
+[19] Shukla PK, Rasmussen JJ. Modulational instability of short pulses in long optical ﬁbers. Opt Lett 1986;11(3):171–3. doi: 10.1364/OL.11.0 0 0171 . 
+[20] Tai K, Hasegawa A, Tomita A. Observation of modulational instability in optical ﬁbers. Phys Rev Lett 1986;56:135–8. doi: 10.1103/PhysRevLett.56.135 . 
+[21] Potasek MJ. Modulation instability in an extended nonlinear Schrödinger equation. Opt Lett 1987;12(11):921–3. doi: 10.1364/OL.12.0 0 0921 . 
+[22] Erkintalo M, Hammani K, Kibler B, Finot C, Akhmediev N, Dudley JM, et al. Higher-order modulation instability in nonlinear ﬁber optics. Phys Rev Lett 
+2011;107:253901. doi: 10.1103/PhysRevLett.107.253901 . 
+[23] Solli D , Herink G , Jalali B , Ropers C . Fluctuations and correlations in modulation instability. Nat Photonics 2012;6(7):463–8 . 
+[24] Grosz D, Mazzali C, Celaschi S, Paradisi A, Fragnito H. Modulation instability induced resonant four-wave mixing in WDM systems. IEEE Photonics 
+Technol Lett 1999;11(3):379–81. doi: 10.1109/6 8.74 8242 . 
+[25] Grosz D, Boggio JC, Fragnito H. Modulation instability effects on three-channel optically multiplexed communication systems. Opt Commun 
+1999;171(1–3):53–60. doi: 10.1016/S0030-4018(99)00494-0 . 
+[26] Hammani K, Wetzel B, Kibler B, Fatome J, Finot C, Millot G, et al. Spectral dynamics of modulation instability described using Akhmediev breather 
+theory. Opt Lett 2011;36(11):2140–2. doi: 10.1364/OL.36.002140 . 
+[27] Sørensen ST, Larsen C, Møller U, Moselund PM, Thomsen CL, Bang O. Inﬂuence of pump power and modulation instability gain spectrum on seeded 
+supercontinuum and rogue wave generation. J Opt Soc Am B 2012;29(10):2875–85. doi: 10.1364/JOSAB.29.002875 . 
+[28] Soto-Crespo JM, Ankiewicz A, Devine N, Akhmediev N. Modulation instability, cherenkov radiation, and fermi-pasta-ulam recurrence. J Opt Soc Am B 
+2012;29(8):1930–6. doi: 10.1364/JOSAB.29.001930 . 
+[29] Zakharov VE, Gelash AA. Nonlinear stage of modulation instability. Phys Rev Lett 2013;111:054101. doi: 10.1103/PhysRevLett.111.054101 . 
+[30] Béjot P, Kibler B, Hertz E, Lavorel B, Faucher O. General approach to spatiotemporal modulational instability processes. Phys Rev A 2011;83:013830. 
+doi: 10.1103/PhysRevA.83.013830 . 
+[31] Hernandez SM, Fierens PI, Bonetti J, Sánchez AD, Grosz DF. A geometrical view of scalar modulation instability in optical ﬁbers. IEEE Photonics J 
+2017;9(5):1–8. doi: 10.1109/JPHOT.2017.2754984 . 
+[32] Fierens P, Hernandez S, Bonetti J, Grosz D. On the spectral dynamics of noise-seeded modulation instability in optical ﬁbers. In: In V, Longhini P, 
+Palacios A, editors. Proceedings of the 4th international conference on applications in nonlinear dynamics (ICAND 2016). Springer; 2016. p. 265–76. 
+ISBN 978-3-319-52620-1. doi: 10.1007/978- 3- 319- 52621- 8 _ 23 . 
+
+===== PAGE 10 =====
+J. Bonetti, S.M. Hernandez and P.I. Fierens et al. / Commun Nonlinear Sci Numer Simulat 72 (2019) 152–161 161 
+[33] Bonetti J, Hernandez SM, Fierens PI, Grosz DF. Analytical study of coherence in seeded modulation instability. Phys Rev A 2016;94:033826. doi: 10. 
+1103/PhysRevA.94.033826 . 
+[34] Zakharov V, Dias F, Pushkarev A. One-dimensional wave turbulence. Phys Rep 2004;398(1):1–65. doi: 10.1016/j.physrep.2004.04.002 . 
+[35] Picozzi A, Pitois S, Millot G. Spectral incoherent solitons: a localized soliton behavior in the frequency domain. Phys Rev Lett 2008;101:093901. doi: 10. 
+1103/PhysRevLett.101.093901 . 
+[36] Picozzi A , Rica S . Condensation of classical optical waves beyond the cubic nonlinear Schrödinger equation. Opt Commun 2012;285(24):5440–8 . 
+[37] Picozzi A, Garnier J, Hansson T, Suret P, Randoux S, Millot G, et al. Optical wave turbulence: towards a uniﬁed nonequilibrium thermodynamic formu- 
+lation of statistical nonlinear optics. Phys Rep 2014;542(1):1–132. doi: 10.1016/j.physrep.2014.03.002 . 
+[38] Soto-Crespo JM, Devine N, Akhmediev N. Integrable turbulence and rogue waves: breathers or solitons? Phys Rev Lett 2016;116:103901. doi: 10.1103/ 
+PhysRevLett.116.103901 . 
+[39] Kimmoun O, Hsu HC, Kibler B, Chabchoub A. Nonconservative higher-order hydrodynamic modulation instability. Phys Rev E 2017;96(2):022219. doi: 10. 
+1103/physreve.96.022219 . 
+[40] Armaroli A, Brunetti M, Kasparian J. Recurrence in the high-order nonlinear Schrödinger equation: a low-dimensional analysis. Phys Rev E 
+2017;96:012222. doi: 10.1103/PhysRevE.96.012222 . 
+[41] Kuo BP-P, Fini JM, Grüner-Nielsen L, Radic S. Dispersion-stabilized highly-nonlinear ﬁber for wideband parametric mixer synthesis. Opt Express 
+2012;20(17):18611–19. doi: 10.1364/OE.20.018611 . 
+[42] Travers JC , Frosz MH , Dudley JM . Nonlinear ﬁbre optics overview. In: Dudley JM, Taylor JR, editors. Supercontinuum generation in optical ﬁbers. 
+Cambridge University Press; 2010. p. 32–51 . 
+[43] Ganapathy R, Malomed BA, Porsezian K. Modulational instability and generation of pulse trains in asymmetric dual-core nonlinear optical ﬁbers. Phys 
+Lett A 2006;354(5–6):366–72. doi: 10.1016/j.physleta.20 06.02.0 02 . 
+[44] Kalithasan B, Porsezian K, Dinda PT, Malomed BA. Modulational instability and generation of self-induced transparency solitons in resonant optical 
+ﬁbers. J Opt A 2009;11(4):045205. doi: 10.1088/1464-4258/11/4/045205 .

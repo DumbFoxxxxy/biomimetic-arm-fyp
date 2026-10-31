@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="right_arm_reference_skeleton">
+  <compiler angle="degree" coordinate="local" autolimits="true" meshdir="D:/XJTLU/PSP/mujoco_arm/assets_cad" />
+  <option timestep="0.002" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.25 0.25 0.25" />
+    <rgba haze="0.15 0.2 0.25 1" />
+    <global azimuth="135" elevation="-18" />
+  </visual>
+  <default>
+    <default class="visual_mesh">
+      <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.82 0.80 0.72 1" />
+    </default>
+    <default class="arm_joint">
+      <joint type="hinge" limited="true" damping="0.25" armature="0.02" />
+    </default>
+    <default class="position_actuator">
+      <position kp="35" kv="2.5" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="clavicle" file="clavicle.stl" scale="0.001 0.001 0.001" />
+    <mesh name="scapula" file="scapula.stl" scale="0.001 0.001 0.001" />
+    <mesh name="humerus" file="humerus.stl" scale="0.001 0.001 0.001" />
+    <mesh name="radius" file="radius.stl" scale="0.001 0.001 0.001" />
+    <mesh name="ulna" file="ulna.stl" scale="0.001 0.001 0.001" />
+    <material name="clavicle_mat" rgba="0.78 0.76 0.68 1" />
+    <material name="scapula_mat" rgba="0.72 0.75 0.69 1" />
+    <material name="humerus_mat" rgba="0.82 0.80 0.72 1" />
+    <material name="radius_mat" rgba="0.76 0.73 0.66 1" />
+    <material name="ulna_mat" rgba="0.70 0.72 0.67 1" />
+    <material name="torso_mat" rgba="0.48 0.52 0.55 1" />
+    <material name="rib_mat" rgba="0.68 0.70 0.65 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.10 1" />
+  </asset>
+  <worldbody>
+    <light name="key_light" pos="-0.35 -0.45 1.80" dir="0.35 0.25 -1" directional="true" diffuse="0.9 0.9 0.9" specular="0.2 0.2 0.2" />
+    <geom name="floor" type="plane" size="2 2 0.1" pos="0 0 0" material="torso_mat" contype="0" conaffinity="0" group="0" />
+    <body name="torso" pos="0.274432 0.018062 1.322786">
+      <geom name="torso_visual" type="capsule" fromto="-0.126557944 -0.252403082 -1.29362953 -0.126577689 -0.252457327 -1.29381055" size="0.035" material="torso_mat" contype="0" conaffinity="0" />
+      <geom name="sternum" type="capsule" fromto="-0.126590201 -0.252494389 -1.29377709 -0.126550565 -0.252440601 -1.2935981" size="0.012" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="thoracic_spine" type="capsule" fromto="-0.126576927 -0.25232229 -1.29388259 -0.126544712 -0.252233785 -1.29358724" size="0.018" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_1_r" type="capsule" fromto="-0.126549708 -0.252413793 -1.29359573 -0.126633639 -0.25232615 -1.29364958" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_2_r" type="capsule" fromto="-0.126553309 -0.252428576 -1.29362765 -0.12664889 -0.252325825 -1.29370049" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_3_r" type="capsule" fromto="-0.12655691 -0.252443359 -1.29365956 -0.126661084 -0.25233515 -1.29374885" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_4_r" type="capsule" fromto="-0.126561066 -0.252454779 -1.29369767 -0.126661855 -0.252338507 -1.29379499" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_5_r" type="capsule" fromto="-0.126565779 -0.252462836 -1.29374197 -0.126656658 -0.252342002 -1.29384175" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_6_r" type="capsule" fromto="-0.126570009 -0.252464675 -1.29378295 -0.12664295 -0.252349042 -1.29388312" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_1_l" type="capsule" fromto="-0.126569599 -0.252413337 -1.2935937 -0.126534183 -0.252328431 -1.29365974" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_2_l" type="capsule" fromto="-0.1265732 -0.25242812 -1.29362561 -0.126534515 -0.252328448 -1.29371218" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_3_l" type="capsule" fromto="-0.126576801 -0.252442903 -1.29365753 -0.126534775 -0.252338047 -1.29376176" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_4_l" type="capsule" fromto="-0.126580958 -0.252454323 -1.29369564 -0.126539524 -0.252341313 -1.2938075" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_5_l" type="capsule" fromto="-0.12658567 -0.25246238 -1.29373994 -0.126549246 -0.252344466 -1.29385272" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_6_l" type="capsule" fromto="-0.1265899 -0.252464219 -1.29378091 -0.126563385 -0.252350867 -1.29389125" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <site name="sternoclavicular_ref" pos="0 0 0" size="0.008" material="joint_mat" />
+      <body name="clavicle_protraction" pos="0 0 0">
+        <joint name="clavicle_protraction" class="arm_joint" axis="0 0 1" range="-30 40" />
+        <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+        <body name="clavicle_elevation" pos="0 0 0">
+          <joint name="clavicle_elevation" class="arm_joint" axis="0 1 0" range="-20 40" />
+          <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+          <body name="clavicle_axial_rotation" pos="0 0 0">
+            <joint name="clavicle_axial_rotation" class="arm_joint" axis="1 0 0" range="-30 30" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+            <geom name="clavicle_visual" class="visual_mesh" mesh="clavicle" material="clavicle_mat" pos="-0.274432 -0.018062 -1.322786" mass="0.15" />
+            <body name="scapula_upward_rotation" pos="-0.127262 0.063428 0.021594">
+              <joint name="scapula_upward_rotation" class="arm_joint" axis="0 1 0" range="-20 50" />
+              <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+              <body name="scapula_posterior_tilt" pos="0 0 0">
+                <joint name="scapula_posterior_tilt" class="arm_joint" axis="1 0 0" range="-15 35" />
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                <body name="scapula_external_rotation" pos="0 0 0">
+                  <joint name="scapula_external_rotation" class="arm_joint" axis="0 0 1" range="-20 30" />
+                  <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                  <site name="acromioclavicular_ref" pos="0 0 0" size="0.008" material="joint_mat" />
+                  <geom name="scapula_visual" class="visual_mesh" mesh="scapula" material="scapula_mat" pos="-0.14717 -0.08149 -1.34438" mass="0.15" />
+                  <body name="shoulder_rotation" pos="-0.010042 0.001835 -0.037822">
+                    <joint name="shoulder_rotation" class="arm_joint" axis="0 0 1" range="-90 90" />
+                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                    <body name="shoulder_flexion" pos="0 0 0">
+                      <joint name="shoulder_flexion" class="arm_joint" axis="1 0 0" range="-45 180" />
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                      <body name="shoulder_abduction" pos="0 0 0">
+                        <joint name="shoulder_abduction" class="arm_joint" axis="0 1 0" range="-45 180" />
+                        <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                        <geom name="humerus_visual" class="visual_mesh" mesh="humerus" material="humerus_mat" pos="-0.137128 -0.083325 -1.306558" mass="1.8" />
+                        <site name="elbow_ref" pos="-0.062297 0.005349 -0.263322" size="0.008" material="joint_mat" />
+                        <body name="forearm_ulna" pos="-0.062297 0.005349 -0.263322">
+                          <joint name="elbow_flexion" class="arm_joint" axis="1 0 0" range="0 145" />
+                          <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                          <geom name="ulna_visual" class="visual_mesh" mesh="ulna" material="ulna_mat" pos="-0.074831 -0.088674 -1.043236" mass="0.45" />
+                          <site name="wrist_ref" pos="-0.048191 -0.055064 -0.236146" size="0.008" material="joint_mat" />
+                          <site name="radiocapitellar_contact_ref" pos="-0.020912 -0.009818 -0.007294" size="0.006" rgba="0.10 0.35 0.95 1" />
+                          <site name="distal_ulnar_head_ref" pos="-0.029211 -0.052444 -0.235406" size="0.006" rgba="0.10 0.35 0.95 1" />
+                          <geom name="pronation_axis_visual" type="capsule" fromto="-0.020912 -0.009818 -0.007294 -0.029211 -0.052444 -0.235406" size="0.0015" rgba="0.05 0.35 0.95 0.85" contype="0" conaffinity="0" group="2" />
+                          <body name="radius" pos="-0.020912 -0.009818 -0.007294">
+                            <joint name="forearm_pronation" class="arm_joint" axis="-0.0357393839 -0.183567536 -0.982357194" range="-90 90" />
+                            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                            <geom name="radius_visual" class="visual_mesh" mesh="radius" material="radius_mat" pos="-0.053919 -0.078856 -1.035942" mass="0.35" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <camera name="arm_view" mode="targetbodycom" target="forearm_ulna" pos="-0.12 -0.55 1.28" xyaxes="1 0 0 0 0.716 0.698" />
+  </worldbody>
+  <actuator>
+    <position name="clavicle_protraction_act" class="position_actuator" joint="clavicle_protraction" ctrlrange="-30 40" />
+    <position name="clavicle_elevation_act" class="position_actuator" joint="clavicle_elevation" ctrlrange="-20 40" />
+    <position name="clavicle_axial_rotation_act" class="position_actuator" joint="clavicle_axial_rotation" ctrlrange="-30 30" />
+    <position name="scapula_upward_rotation_act" class="position_actuator" joint="scapula_upward_rotation" ctrlrange="-20 50" />
+    <position name="scapula_posterior_tilt_act" class="position_actuator" joint="scapula_posterior_tilt" ctrlrange="-15 35" />
+    <position name="scapula_external_rotation_act" class="position_actuator" joint="scapula_external_rotation" ctrlrange="-20 30" />
+    <position name="shoulder_rotation_act" class="position_actuator" joint="shoulder_rotation" ctrlrange="-90 90" />
+    <position name="shoulder_flexion_act" class="position_actuator" joint="shoulder_flexion" ctrlrange="-45 180" />
+    <position name="shoulder_abduction_act" class="position_actuator" joint="shoulder_abduction" ctrlrange="-45 180" />
+    <position name="elbow_flexion_act" class="position_actuator" joint="elbow_flexion" ctrlrange="0 145" />
+    <position name="forearm_pronation_act" class="position_actuator" joint="forearm_pronation" ctrlrange="-90 90" />
+  </actuator>
+</mujoco>

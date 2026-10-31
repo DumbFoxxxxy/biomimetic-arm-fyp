@@ -1,0 +1,1269 @@
+===== PAGE 1 =====
+Received: 15 February 2021 Revised: 15 September 2021 Accepted: 25 October 2021
+DOI:10.1002/nme.6869
+RESEARCH ARTICLE
+Material modeling for parametric, anisotropic finite strain
+hyperelasticity based on machine learning with application
+in optimization of metamaterials
+Mauricio Fernández1,2 Felix Fritzen3 Oliver Weeger1
+1Cyber-PhysicalSimulation,Technical
+UniversityofDarmstadt,Darmstadt,
+Germany
+2MultiscaleandData-DrivenMaterial
+Modeling,ACCESSe.V.,Aachen,
+Germany
+3DataAnalyticsinEngineering,
+UniversityofStuttgart,Stuttgart,Germany
+Correspondence
+MauricioFernández,Cyber-Physical
+Simulation,TechnicalUniversityof
+Darmstadt,Darmstadt,Germany.
+Email:
+m.fernandez@access-technology.de
+Funding information
+DeutscheForschungsgemeinschaft,
+Grant/AwardNumbers:390740016/
+EXC-2075,406068690/FR2702/8
+Abstract
+Mechanical metamaterials such as open- and closed-cell lattice structures,
+foams, composites, and so forth can often be parametrized in terms of their
+microstructural properties, for example, relative densities, aspect ratios, mate-
+rial,shape,ortopologicalparameters.Tomodeltheeffectiveconstitutivebehav-
+ior and facilitate efficient multiscale simulation, design, and optimization of
+such parametric metamaterials in the finite deformation regime, a machine
+learning-based constitutive model is presented in this work. The approach is
+demonstratedinapplicationtoelasticbeamlatticeswithcubicanisotropy,which
+exhibit highly nonlinear effective behaviors due to microstructural instabili-
+tiesandtopologyvariations.Basedonmicrostructuresimulations,therelevant
+materialandtopologyparametersofselectedcubiclatticecellsaredetermined
+andtrainingdatawithhomogenizedstress-deformationresponsesisgenerated
+for varying parameters. Then, a parametric, hyperelastic, anisotropic constitu-
+tive model is formulated as an artificial neural network, extending a recent
+work of the author extending a recent work of the author, Comput Mech.,
+2021;67(2):653-677. The machine learning model is calibrated with the simu-
+lation data of the parametric unit cell. The authors offer public access to the
+simulation data through the GitHub repository https://github.com/CPShub/
+sim-data.Forthecalibrationofthemodel,adedicatedsampleweightingstrat-
+egy is developed to equally consider compliant and stiff cells and deformation
+scenariosintheobjectivefunction.Itisdemonstratedthatthismachinelearn-
+ing model is able to represent and predict the effective constitutive behavior
+of parametric lattices well across several orders of magnitude. Furthermore,
+the usability of the approach is showcased by two examples for material and
+topologyoptimizationoftheparametriclatticecell.
+KEYWORDS
+anisotropicfinitestrainhyperelasticity,artificialneuralnetworks,machinelearning,materialand
+topologyoptimization,parametriclatticemetamaterials
+This is an open access article under the terms of the Creative Commons Attribution-NonCommercial License, which permits use, distribution and reproduction in any
+medium,providedtheoriginalworkisproperlycitedandisnotusedforcommercialpurposes.
+©2021TheAuthors. International Journal for Numerical Methods in Engineering publishedbyJohnWiley&SonsLtd.
+Int J Numer Methods Eng.2022;123:577–609. wileyonlinelibrary.com/journal/nme 577
+
+===== PAGE 2 =====
+578 FERNÁNDEZetal.
+1 INTRODUCTION
+Metamaterialsoffer todayawidespectrumoftunablemechanical,thermal,optical,acoustic,and electromagneticproper-
+ties,see,forexample,References1,2.Thus,typically,familiesofparametricmetamaterialsaredevelopedandinvestigated
+in order to tailor their specific functionality controlled by material, geometric, or topological design parameters of the
+unitcell,see,forexample,References3,4.Inclusionofparameter-dependencein linearelasticeffectiveconstitutivemod-
+elsformetamaterials,foams,composites,andsoforthhasalreadybeengreatlyexploitedformultiscalesimulationand
+optimization approaches, compare References 5-9. However, in recent years, also soft, compliant, flexible mechanical
+metamaterialswithmulti-functionalcapabilitieshavebeendeveloped,see,forexample,References10-15.Toenableeffi-
+cient simulations of macroscopic structures and to optimize mechanical properties related to the underlying unit cells
+ofthosemetamaterials,nonlinearmaterialmodelsarerequired,whichshouldconsiderthespecificmaterialsymmetries
+andparametricdependenciesofthemicrostructures.However,nonlinearandanisotropicconstitutivemodelingatfinite
+deformationsis,ingeneral,muchmorechallengingandrepresentationofparameter-dependenceislessexploredinthis
+context.
+Inparticular,open-cellfoams,thatis,truss-orbeam-basedlatticemetamaterials,exhibithighlynonlineareffective
+mechanical behavior due to microstructural instabilities (strut buckling) and tension- or bending-dominated unit cell
+topologies, see, for example, Reference 16. In this context of nonlinear metamaterials with instabilities, the material
+responseis,strictlyspeaking,notuniqueduetothedependencyonthemanifestinginstability.Still,formanyapplications,
+pragmatic approaches based on path-independent, that is, state-dependent material models show excellent agreement
+withexperimentsandsimulations.Forinstance,a parametrichyperelasticconstitutivemodelforhoneycomb-likeand
+re-entrant 2D lattices was developed in Reference 17 and a nonlinear micropolar continuum model with an incre-
+mentalrepresentationoftheconstitutivebehaviorwasproposedinReference18.InReferences19,20,alsogeneralized
+state-dependentcontinuumformulationswereemployedformultiscalemodelingof2Dand3Dbeamlatticessubjectto
+finitedeformations,however,inaconcurrent,FE 2 settingwithoutanexplicitrepresentationoftheeffectiveconstitutive
+relationshipbetweenmacro-andmicroscales.Thus,forefficientmultiscalesimulationandoptimization,compareRef-
+erence 21, it is of great importance to develop generic material models that can represent the constitutive behavior of
+nonlinear,anisotropicmetamaterialsandincludetheirparametricdependencies.Anattempttohighlynonlinearstruc-
+turaloptimizationinthepresenceofnonlinearpath-dependentmicrostructuredmaterialswasproposedinReference22
+usingGPU-acceleratedreducedordermodels(ROM)toboosttheefficiencyofthenonlinearmicroscaleproblem.
+Inrecentyears,awide variety ofhighly flexible material modelsbasedonmoderndata-driven and machinelearn-
+ing methods have pushed forward the boundaries of constitutive modeling. In the field of isotropic and anisotropic
+hyperelasticity,novelapproacheshavebeendevelopedbyfittingeitherstrainenergydensitiesorstressesobtainedfrom
+microstructuralsimulationsandinterpolatingorapproximatingresponsesurfaces.Forinstance,Reference23introduced
+aneuralnetworkapproachfortheapproximationofnonlinearhyperelasticbehavioratsmalldeformations.InReference
+24apolynomialansatzwasdevelopedfortheidentificationoftheconstitutivemanifold,butalsoonlyatsmalldeforma-
+tions.UsingROMtogeneratelargescaledatasetsallowedtoidentifyrapidfeedforwardneuralnetworksinReference25,
+whereanadaptiveswitchbetweenthemorerobustROMandthecomputationallymoreefficientANNallowedtheresult-
+ingsurrogatemodeltoextrapolatealsooutsideofthetrainingrange.Anapproachforfinitehyperelasticitywasdeveloped
+inReference26throughamodel-freeansatz,butshowcasedonlyforone-andtwo-dimensionalproblemswithisotropic
+behavior. Material anisotropy was considered in Reference 27 for cubic Nickel through machine learning approaches
+basedondataaugmentationandgroupinvariants,butwithoutillustrationoftheactualnonlinearmaterialbehavior.A
+neural network model accounting for the isotropy of the material has been introduced in Reference 28: any data sam-
+plefromthetrainingisaugmentedbyaddingfivepermutationsoftheprincipalstressandstraincomponentsinorder
+toobtainadatabasethataccountsfortheisotropy,butnoconceptregardinganextensiontowardsanisotropywasgiven.
+InReference29anapproachforthecorrectionoffinitehyperelasticmodelswaspresentedandthenshowcasedininter-
+estingbiomechanicalapplicationsinReference30,butagainlimitedtoisotropicmaterialbehavior.Moleculardynamics
+simulationsofpolymershavebeenusedinReference31inordertogeneratedataandtrainafeed-forwardneuralnetwork
+(FFNN)asaconstitutivemodelinthecontextofisotropicfinitehyperelasticity.Startingfromasmallstrainhighlynonlin-
+earmodel,theradialnumericallyexplicitpotentialsweresuggestedinReference32asanextensionoftheNEXPproposed
+first in Reference 33 which employs a tensor decomposition into amplitude and direction followed by kernel interpo-
+lation. The method was later refined, compare References 34,35, and combined with ROM for the creation of efficient
+surrogate models for finite strain hyperelasticity in two- and three-scale simulations. In Reference 36, microstructural
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 3 =====
+FERNÁNDEZetal. 579
+simulationshavebeenconductedtogeneratedataforthecalibrationofaFFNNidentifyingtheconstitutivebehaviorof
+nonlinear elastic structures at finite strains, but without consideration of material symmetries. Incorporation of struc-
+turalinformationcanbeenabledthrough,forexample,geometriclearningasinReference37,wherepolycrystalswere
+represented by graphs and processed through graph convolution networks extracting relevant features for subsequent
+networkspredictingthehyperelasticmaterialbehavior.ArecentapproachdevelopedinReference38demonstrateshow
+machine learning models for anisotropic finite hyperelasticity can be constructed at minimal intrusion. The approach
+showsgoodflexibilityandaccurate predictionsforlattice structureswithpronouncednonlinearbehaviorduetobeam
+buckling.Inthecontextofadata-drivendesignoptimizationandmanufacturingprocessfornonlinearmetamaterials, 39
+demonstrated parametrized constitutive formulations based on radial basis functions. Recently, Reference 40 included
+patterninformationintoaneuralnetwork-based,nonlinearelastoplasticmodelinordertocharacterizeanddesign2D
+network-likecellularmetamaterials.
+The present work extends the machine learning approach of Reference 38. Hereby, it is assumed that a solely
+state-dependentmaterialmodelisabletocapturethemainconstitutiveresponseoflatticemetamaterialsshowinginsta-
+bilities.Thepresentapproachdevelopsananisotropichyperelasticmaterialmodelwithparametricdependencyforthe
+representationandoptimizationofmetamaterialswithrespecttothecellmaterialandtopology.Forthisaim,paramet-
+ricunitcellsoftheconsideredanisotropicbeamlatticemetamaterialsaresimulatedwithperiodicboundaryconditions
+usingafinitestrainframework,exhibitinghighlynonlinearbehaviorsduetoinstabilities.Hereby,thecelltopologyand
+the material properties of the elastic beams are varied in order to identify the quantities and properties relevant for a
+potentialconstitutivemodel.Then,themachinelearningapproachofReference38isextendedbyincludingtheparamet-
+ricdependencyintheartificialneuralnetwork(ANN)formulation.Thiselegantandflexible,non-intrusiveextensionis
+consideredasakeypropertyoftheapproachtakenhere,sincematerialand,especially,topologicaldependencyofmate-
+rialbehaviorisnon-trivialinitsincorporationinconstitutivemodels.Forthetrainingofthemodel,auniversalsample
+weightingstrategyisdevelopedsuchthatthecalibratedmachinelearningmodelapproximatesequallywellthematerial
+responseforstiffandcompliantstructuresandindependentlyoftheloadingscenario.Theauthorsofferopenaccesstothe
+calibrationdatathroughtheGitHubrepositoryhttps://github.com/CPShub/sim-data.Finally,thecalibratedparametric
+materialmodelisusedfortheoptimizationofunitcellmaterialandtopologyintwoexamples,showcasingitspotential
+applicationsforprescribeddeformationandstressdata,eveninthecaseofincompletedata.Insummary,thenoveltiesof
+thepresentworkare:
+• thesimulation-basedinvestigationofparametriclatticeunitcellssubjecttolargedeformationsandinstabilities,and
+theanalysisoftheinfluenceofmaterialandtopologyparametersintensionandcompressionregimes,
+• theformulationofagenerallyapplicablemodelforanisotropichyperelasticitybyextendingtheworkofReference38
+inanon-intrusiveformforarbitrary-dimensionalparametricdependency,
+• the design of a sample weighting strategy for calibration data in order to obtain a uniform model prediction quality
+acrosstopologyvariationandcorrespondingmagnitudeofmaterialresponse,and
+• theapplicabilityofthecalibratedmodelfortheoptimizationoftopologyandmaterialforprescribedmaterialbehavior
+withcompleteandincompletedata.
+The outline of the manuscript is as follows: In Section 2 the microstructural modeling of the lattice cells and their
+behavior with respect to topology and material parameters is outlined. In Section 3 the parametric hyperelastic mate-
+rial model based on ANNs is formulated, its training using a dedicated sample weighting strategy is described and its
+prediction quality for various loading cases is demonstrated. The application of the calibrated model for microstruc-
+turaloptimizationwithrespecttocellmaterialandtopologyisillustratedinSection4throughtwoexamples.Thearticle
+concludesinSection5withasummaryandremarks.
+1.1 Notation
+A direct tensor notation is preferred throughout this work. Scalars (zeroth-order tensors) are denoted by italic charac-
+ters,forexample, a, b, W.First-ordertensorsarerepresentedbylowercaseLatincharacters,forexample, a, b,atwhat
+an orthonormal basis{e1, e2, e3} of the three-dimensional physical space is used for the representation of all tensors.
+Second-ordertensorsaredenotedbyuppercaseLatincharacters,forexample, A, B.Thetensorproductisdenotedas ⊗.
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 4 =====
+580 FERNÁNDEZetal.
+FIGURE 1 Simplecubic(SC),body-centeredcubic(BCC),andface-centeredcubic(FCC)basiclatticeRUCsandexampleofa
+parametricunitcell(pRUC)withtopologyparametervector t =(0.7,0.5,0.3)
+The composition of two second-order tensors is denoted asAB = ∑3i,j,k=1AikBkjei ⊗ ej. The transpose of a second-order
+tensor is denoted byAT. The Frobenius norm of a second-order tensor is denoted as||A||=( ∑3i,j=1A2ij)1∕2. Vectors not
+connected to the physical basis are simply denoted as underlined characters, for example,a, b. The notation of phys-
+ical quantities is leaned on standard continuum mechanics, that is,W is used for the elastic energy density,F for the
+deformationgradient,and PforthefirstPiola–Kirchhoffstresstensor.
+2 MICROSTRUCURAL MODELING AND SIMULATION
+2.1 Parametric beam-lattice metamaterials
+The presentinvestigationconsidersbeam-latticeswithperiodicmicrostructureasarepresentativeofcompliant,elasti-
+callydeformablemetamaterials.Therepeatedunitcell(RUC)ofthisclassofmetamaterialsiscomposedofbeamsandis
+takenintoaccountfortheidentificationoftheeffectivematerialbehavior.EachbeamintheRUCisassumedtobecom-
+pliantwithelasticmaterialbehaviorunderlargedeformations,meaningthattheeffectivematerialbehavioroftheRUC
+is hyperelastic, that is, an effective elastic energy densityW exists. Here, only metamaterials with cubic symmetry are
+consideredand,withoutlossofgenerality,theRUCsarechosenascubicwithanedgelengthof L =10mm.Thebeams
+have circularcross-sectionswithamaximumradiusof r =0.5mm,thatis,amaximumaspectratioof a =2r∕L =0.1,
+whichjustifiestheuseofbeamtheoriesformicrostructuralmodeling.
+In the present work, a parametric RUC (pRUC) is considered in the sense that material and topology/morphology
+influencesaretakenintoconsideration.Intermsofmaterial,allbeamsintheRUCareassumedtohavethesameisotropic
+materialproperties,thatis,Young’smodulus EandPoisson’sratio 𝜈,whichwillbeconsideredintheeffectivematerial
+law.Intermsoftopology,threetypesoflatticestructuresareconsidered:simplecubic(SC),body-centeredcubic(BCC),
+andface-centeredcubic(FCC)cells,seeFigure1A–C.
+The topology and morphology of a parametric RUC is represented by the parameter vectort =( t1, t2, t3)∈  =
+[0,1]3 ⧵[0,0.2)3. The exclusion of a combination of very small topology parameters from is owing to aspects
+such as manufacturability and too soft overall response. The union of these three basic lattice types is formed
+with each component of t ∈  scaling the beam radius of the respective basic RUC (starting from 0.5 mm), t1
+representing the SC, t2 the BCC, and t3 the FCC cell contribution to the pRUC. As an example, considert =
+(0.7,0.5,0.3), as depicted in Figure 1D. In this illustrated pRUC, the radii of the beams in the SC, BCC, and FCC
+cells are 0.35 mm (=0.7 ⋅0.5 mm, orange), 0.25 mm (=0.5 ⋅0.5 mm, yellow), and 0.15 mm (=0.3 ⋅0.5 mm, green),
+respectively.
+In conclusion, the pRUC focused on within this work is hyperelastic, subjected to finite deformations and it can
+be influenced by a total of 5 scalar parameters:E,𝜈, and t =( t1, t2, t3)∈ . These parameters will be addressed by the
+parametervector pasfollows
+p =( E,𝜈, t1, t2, t2). (1)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 5 =====
+FERNÁNDEZetal. 581
+Theeffectivebehaviorofsuchamicrostructureisrepresentedbyaneffectivepotential(referringtotheeffectiveelastic
+energydensity)as
+W = W(F, p) , (2)
+where F denotes the effective deformation gradient of the pRUC andp describes the parametric dependency. Conse-
+quently,theeffectivestressesaregivenintermsofthecorrespondingfirstPiola–Kirchhoffstressas
+P(F, p)= 𝜕W𝜕F (F, p) . (3)
+2.2 Numerical homogenization of beam-lattices
+FortheevaluationoftheeffectivebehaviorofapRUC,microstructuralsimulationswithperiodicdisplacementfluctuation
+boundaryconditionsaretobeconductedinordertonumericallyquantify,thatis,homogenize,therelationbetween F,
+W,and Pforselectedparameters p.
+For this purpose, the beam-lattices are mechanically modeled as geometrically exact, shear-deformable 3D beams
+and numerically simulated using an isogeometric collocation method, see Reference 41 for details. This beam model
+isgeometricallynonlinearand,thus,itconsiderslargedeformationsandrotationsofthecross-sections,butemploysa
+linearelastic,isotropicconstitutivemodelwithparameters E,𝜈,whichlimitstheusetomoderatestrains.Furthermore,
+a rigid coupling of the beams is enforced at joints. For lattices with moderate aspect ratios, joint stiffening or weaken-
+ingapproachesmaybenecessarytoachieveagoodagreementofthemodelandphysicalexperimentswith(additively
+manufactured) lattice structures, see References 16,42. However, such approaches are not covered in this work, since
+thenumericalmethodspresentedarenottiedtoanyspecificmaterialsandmanufacturingtechnologies,andonlyaspect
+ratios a ≤0.1areconsidered.
+Forthehomogenizationofthemetamaterial,effectivedeformationgradients FareprescribedonthepRUCintheform
+ofperiodicdisplacementboundaryconditions.Thus,fortwobeamcenterlineend-pointsorjointnodes x1, x2 locatedon
+oppositeboundariesofthepRUC,periodiccenterlinedisplacements u1, u2 andconsistentcross-sectionrotations R1, R2
+areconstrainedby
+u2 − u1 = F(x2 − x1), R2 = R1. (4)
+From the computed deformed configuration for prescribedF, the potential energyW(F) can be directly evaluated
+fromthebeammodel.Furthermore,theeffectivefirstPiola–Kirchhoffstresstensor P(F)iscomputedinacolumn-wise
+fashionas
+Pei =
+3∑
+j=1
+Pjiej = 1L2 fi, i =1,2,3, (5)
+where fi isthesumofallinternalforcesofthebeamsatthe xi-directionboundaryofthepRUCand Listheedgelength
+of the cuboidal pRUC (L =10 mm in this work), compare Reference 19. Due to periodic rotations, bending moments
+vanishanddonotcontributetotheenergyandstresses.Itwouldalsobepossibletohomogenizetheresultingeffective
+stresstangenttensors C = dP∕dFfromthebeammodel, 19 however,thisisnotpursuedhereforvariousreasons,seealso
+Section3.3.2.
+Inthefinitedeformationregime,microstructureswithslenderstruts,suchasthebeam-latticesconsideredhere,can
+besubjecttomechanicalinstabilitiesintheformofbucklingandsnappingofthestruts.Innumericalsimulations,these
+instabilitiesoccurintheformofdivergingincrementalnonlinearsolutionprocessesonceacriticalloadlevelisreached.
+Since,inpractice,theonsetofbucklingisimpactedby—forexample,manufacturing-related—imperfections,nonlinear
+post-bucklinganalysesareoftenperformedusingperturbationapproaches,see,forexample,References43-45.Thatis,
+firstalinearbucklinganalysisiscarriedoutandthensomeoftheeigenmodesareprescribedasperturbationsonthebeam
+centerlinesforthenonlinearanalysis,seeforinstance. 16 However,thisapproachrequiresalotofmanualinterference,
+suchasselectingspecificeigenmodesandchoosingsuitablescalingfactors.Here,weuseasimplestochasticapproach
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 6 =====
+582 FERNÁNDEZetal.
+basedonrandomgeometricperturbationsofthecenterline.Forthispurpose,theinitiallystraightcenterlinesofthebeams
+arerepresentedasB-Splinecurvesofdegree4andtheir5controlpointsarerandomlyperturbedwithinthecross-section
+plane.Theamplitudeoftheperturbationischosenasnormallydistributedwithameanof0andavarianceof0 .01L,and
+thedirectionoftheperturbationisassumedtobeuniformlydistributedinthecross-sectionplane.Inprinciple,forgiven t
+andbasedontheresultsofmultiplerandominstances,thecorrespondingaveragevaluesoftheeffectivepotential W and
+effectivestresses Pcouldbecomputed.However,asitwillbedemonstratedinSection2.3,thesimplelatticeperturbation
+approachyieldsnegligibledeviationsandsufficientaccuracyandreliabilityforthecharacterizationoftheeffectivecell
+behavioralreadyusingasinglerandominstance.
+2.3 Influence of perturbations and lattice parameters
+In order to simulate the effective behaviors of the pRUC also in the post-buckling regime, the stochastic perturbation
+approach is employed. Since simulating a large number of random instances for each given pRUC (see Section 3.3.1)
+to average theW and Pwould be computationally very expensive, the question arises, how much variation is actually
+encountered by different random instances of the same cell compared to the variation between different values of the
+topologicalparameters t ∈ .
+Toinvestigatethisinaclearandsimpleexample, t1 =0(SCcell)and t2 =1(BCCcell)arekeptconstantandonly t3 ∈
+{0.8,0.9,1.0}(FCCcell)isvaried.Thecellsforthecorrespondingparameter t ∈{ (0.0,1.0,0.8),(0.0,1.0,0.9),(0.0,1.0,1.0)}
+areillustratedinFigure2fromlefttoright.
+Thevaluesfor F, W,and PfortheselectedcellsaredepictedinFigure3.Theplotrangeforthepotentialandstress
+values is kept constant over the rows in Figure 3 in order to visualize the impact oft3 on W ∈[0,250]J∕m3 and Pij ∈
+[−400,1200]Pa.Foreach ttenrandominstancesweresimulated,thematerialparametersofthebeamsbeing E =1M P a
+and 𝜈 =0.45. The boundary conditions are implemented such that all off-diagonal deformation components are set to
+zero butF12. The deformation componentsF11 and F12 are prescribed through linear functions, (see, blue and orange
+linesinFigure3), F22 and F33 arefree,and P33 = P22 =0isimposed.TheresultsaredisplayedinFigure3over F11.This
+simulationcaseisinterestingfromthepointofviewthatstructuralinstabilitiesaretriggeredinbothtensile( F11 >1)and
+compressive( F11 <1)regimes,asitcanbeseenbytheabruptchangeofstresstangents,inparticularforthe P12 and P21
+stresscomponents.Fromthispointon,potentialandstressvalueswillbeaddressedandillustratedinallfiguresinJoule
+percubicmeter(J ∕m3)andPascal(Pa),respectively.Onlyvaluesfor Ewillbeaddressedinmegapascal(MPa)duetotheir
+standardorderofmagnitudesforvariousmaterialsrelevantinadditivemanufacturingofsoft,flexiblemetamaterials.
+In the first column of Figure 3 all nine components ofFfor all ten instances of eacht are depicted and colored as
+indicatedbythelegend.Thesecondandthirdcolumnsshowthecorrespondingpotentialvalues W andallninecompo-
+nentsof P,respectively.Thefirstrowshowstheteninstancesfor t =(0.0,1.0,0.8),thesecondonefor t =(0.0,1.0,0.9),
+andthethirdonefor t =(0.0,1.0,1.0).Theseresultsshowthatthespecificrandominstancesonlyexhibitminorquantita-
+tivedifferencesandinallcasescloselyreflectthehighlynonlinearqualitativeeffectivebehavior.Further,thequantitative
+influence(intermsofenergyandstressamplitudes)andthequalitativeinfluence(intermsofbucklingpointsandstress
+paths)ofthetopologyparametersontheconstitutivebehaviorisclearlyvisibleinFigure3,eventhoughonly t3 isslightly
+FIGURE 2 Consideredcellsfor: t =(0.0,1.0,0.8)(left), t =(0.0,1.0,0.9)(middle),and t =(0.0,1.0,1.0)(right)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 7 =====
+FERNÁNDEZetal. 583
+varied. For instance, fort3 =0.8 (top row in Figure 3) the potential and stress values are much lower than fort3 =1.0
+(bottomrowinFigure3),visibleduetothecommonplotrangesofallrows.Further,for t3 =1.0thequalitativebehavior
+of P11 clearlychangessinceinthecompressionregime( F11 <1)itcrossesthepathofthe P12 in allteninstances.Thisis
+notthecasefor t3 =0.8,where P11 staysabovethe P12 pathinallteninstances.Thissimpleexamplealreadyindicates
+thatchangesin tdonotonlyaffectthemagnitudeofcorresponding3-dimensionalstressesattheonsetofthestructure
+instability,butalsotheirqualitativebehavior.
+Furthermore,theseresultssuggestthatthevariationbetweenrandominstancesmaybeconsiderednegligibleinprac-
+tical situations. This observation is in agreement with the findings of Reference 16, where buckling eigenmodes were
+appliedforpost-bucklinganalysis.There,aminorinfluenceoftheperturbationfactorscouldbeobserved,too,andthe
+results were validated against experiments with PolyJet 3D printed lattices, which showed a very reproducible behav-
+ior. Thus, instead of computing and averaging several instances, or training a constitutive model on all instances for a
+single t, we only use a single randomly perturbed instance for quantifying the effective behavior of each pRUC. This
+greatly reduces the computational effort and the amount of calibration data for the material models to be developed
+inSection3.
+For further illustration of the influence of the topology parameterst,i nF i g u r e4 ,ar e l a t i v e l ys o f ts t r u c t u r ew i t h
+t =(0.125,0.345,0.255)(top)andastiffonewith t =(0.995,0.885,0.975)(bottom)areconsidered.Itcanbeclearlyseen
+thatthetopologyparametersdrasticallyaffecttheeffectivebehaviorofthepRUCintermsoftheabsolutemagnitudesand
+qualitativeproperties,inparticularwithrespecttothestressvalues.Betweenthestiffandthesoftillustratedcells,roughly
+afactorof ≈4000∕80 =50betweenthemaximumabsolute P11 stressvaluesisencountered.If,forinstance,themaximum
+absolutestressvalueincompression( F11 <1)ofthecompliantstructure(toprowinFigure4)andthemaximumstress
+FIGURE 3 Effectivebehaviorofteninstancesforthreetopologyparameters:firstrow t =(0.0,1.0,0.8),secondrow t =(0.0,1.0,0.9),
+andthirdrow t =(0.0,1.0,1.0).Thefirstcolumnillustratesallninecomponentsof Fofallteninstances,thesecondandthirdcolumns
+represent W (inJ∕m3)andallninecomponentsof P(inPa),accordingly
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 8 =====
+584 FERNÁNDEZetal.
+FIGURE 4 Effectivebehaviorofasingleinstancefortwotopologyparameters:firstrowcompliantcellbehaviorwith
+t =(0.125,0.345,0.255),andsecondrowstiffcellbehaviorwith t =(0.995,0.885,0.975).Thefirstcolumnillustratesall9componentsof F,
+thesecondandthirdcolumnsrepresent W (inJ∕m3)andall9componentsof P(inPa),accordingly
+FIGURE 5 Componentsof F,effectivepotential W (inJ∕m3)andcomponentsof P(inPa)forasingleinstancewith t =(0.8,0.6,0.0),
+E =106 Pa =1M P aa n d𝜈 =0.45
+valueintension( F11 >1)ofthestiffstructure(bottomrowinFigure4)arecompared,thenarelativedeviationoversev-
+eralordersofmagnitudeisimmediatelyobvious.Theselargechangesinthequalitativeandquantitativestressresponse
+dependonthetopologyparametersandtheloadingcaseofthecell.Capturingtheseeffectsinacompactsubstitutemodel
+fortheparametricmetamaterialsisconsideredthemostchallengingtaskinthepresentwork.
+2.4 Influence of material parameters
+Inadditiontothetopologyparameters t ∈ ,alsotheisotropicmaterialparametersofthebeams E,𝜈 influencetheeffec-
+tivebehaviorofthepRUC.Toinvestigatetheirqualitativeinfluence,afixedtopology t =(0.8,0.6,0.0)andvariablelinear
+elasticmaterialparametersforthebeamsareconsidered: E ∈[0.1,10]MPaand 𝜈 ∈( −1,0.5].Theboundaryconditions
+stated in Section 2.3 are implemented. All nine components ofF and P of a specific random instance forE =1M P a
+and 𝜈 =0.45 are depicted in Figure 5. Again, it can be seen that instabilities may occur in both tension (F11 >1) and
+compression( F11 <1).
+First, we are interested in the influence of the Young’s modulusE.F o rE ∈{0.1,1,10}MPa and fixed𝜈 =0.45, the
+effectivebehaviorofthepRUCissimulatedusingfourrandominstancesper E-value.InFigure6,thepotential W and
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 9 =====
+FERNÁNDEZetal. 585
+FIGURE 6 Variation ofE:Effectivepotential W (inJ∕m3)andstresscomponents P11 and P12 normalizedby Efor t =(0.8,0.6,0.0),
+𝜈 =0.45and E ∈{0.1,1,10}MPa(fourinstancesper E-value)
+FIGURE 7 Variation of𝜈:Effectivepotential W (inJ∕m3)andstresscomponents P11 and P12 (inPa)for t =(0.8,0.6,0.0), E =1M P a
+and𝜈 ∈{ −0.9,0.0,0.4,0.49}(fourinstancesper 𝜈value)
+the stress componentsP11 and P12, all normalized byE, are depicted for all twelve simulations, that is, four instances
+foreachofthethree E-values.Itcanbeclearlyseen,that—ignoringthenegligibleinfluenceoftherandominstances—a
+mastercurveexists.ThismeansthattheconstitutivebehaviorofthepRUCislinearin E.Thisisexpected,sincethelinear
+elasticconstitutivemodelofthebeamsislinearin EandallbeamsinthepRUChavethesame Eand,therefore,rescaling
+Esimplyrescalesthepotentialandstressvalues.Moreover,thishintsataninstabilitybehaviorofthepRUCdominated
+bygeometricandnotconstitutiveeffects.Notethat,sofar,theseobservationsarelimitedtothepresentloadcaseandto
+𝜈 =0.45.
+Now,theinfluenceof 𝜈 istobeexamined.Withfixed E =1 MPaandvarying 𝜈 ∈{ −0.9,0.0,0.4,0.49},theeffective
+behaviorofthepRUCissimulatedforfourrandominstancesper 𝜈-value.TheresultsareillustratedinFigure7,showing
+16simulationsineachplot,thatis,fourinstancesforeachofthefour 𝜈-values.Itcanbeseenthatfor 𝜈 ≥0almostall
+curvescanbedescribedbyonemastercurve.For 𝜈 =−0.9,thebeamshaveadominantbendingbehaviorduetolargeshear
+modulusvalues G = E∕(2(1+𝜈)) =5E.Thisseemstoaffectapartoftheeffectivebehaviorinbuckling,comparetheblue
+curvesfor P12 inFigure7.However,engineeringbasematerialssuchaspolymersandmetalshavepositivePoisson’sratios,
+whileauxeticmaterialsaretypicallyalsometamaterialsandthusimpracticalforuseasconstituentsofamicrostructure.
+Basedontheobservationsinthissection,itcanbeconcludedthatasinglepairofchosen E0 >0and 𝜈0 >0suffices
+forpracticalcases,since Eenterslinearlyintheconstitutivebehaviorandformaterialswith 𝜈 ≥0thedeviationsappear
+tobenegligible.Materialmodelscalibratedonsimulationdatabasedonchosen E0 and𝜈0 canthenberescaledfornew E
+andmaybeofpragmaticuseformaterialswithdifferent 𝜈.
+3 CONSTITUTIVE MODELING FOR PARAMETRIC METAMATERIALS
+HavingintroducedthepRUCsofcubicbeam-latticesasaspecificexampleforaparametricmetamaterialalongwiththeir
+numericalmodelingatfinitedeformations,aparametricanisotropichyperelasticconstitutivemodelistobeformulated
+suchthatitcanrepresenttheirhighlynonlineareffectivebehavior.
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 10 =====
+586 FERNÁNDEZetal.
+3.1 Basic theory of anisotropic hyperelasticity
+Thepotentialofananisotropichyperelasticmaterialunderfinitedeformationswithparametricdependencyisaddressed
+bythefunction W(F, p)asdefinedin(2),where F ∈Inv+and p ∈P ⊂ Rdp denotethedeformationgradientandtheparam-
+etervector,respectively.ThesetofinvertibletensorswithpositivedeterminantisdenotedbyInv +,whilePrepresentsthe
+setofadmissibleparameters,whichwillbespecifiedlateron.Thedimensionoftheparametervariableisaddressedby dp.
+Inordertofulfilltheprincipleofobjectivity,see,forexample,Reference46,thepotential W isexpressedthrougha
+function ̂W intermsoftherightCauchy-Greentensor C = FT Fandtheparameters paccordingto:
+W(F, p)= ̂W(C, p) . (6)
+ThematerialsymmetrygroupisdescribedbythecollectionGofsymmetrytransformations Qi (i =1,2,…)
+G ={ Q1,…} ⊂SO(3), (7)
+formingasubgroupofthemanifoldofproperrotationsSO (3)andfulfilling,see,forexample,Reference47,
+W(F, p)= W(FQ, p)∀ Q ∈G, F ∈Inv+, p ∈P . (8)
+For instance, the material symmetry of a cubic hyperelastic material is then described by the Schönflies octa-
+hedral group Oh with 24 rotations, see, for example, Reference 48. Note that the symmetry transformationsQ ∈
+G do not affect the parameter vectorp of the present work: the material parameters are invariant under symme-
+try transformations andt comprises topological parameters which, by definition, are invariant with respect to affine
+transformations.
+ThesecondPiola–Kirchhoffstresstensor Sisrelatedto Pandto ̂W compare(6)asfollows
+P = FS , S =2𝜕 ̂W𝜕C . (9)
+Theaboverelationisgainedfromapplicationofthechainruletothehyperelasticrelation(3).Thematerialsymmetry
+conditionsforthefirstPiola–Kirchhoffstressare,see,forexample,Reference49,
+P(F, p)= P(FQ, p)QT ∀Q ∈G, F ∈Inv+, p ∈P . (10)
+Notethat(10)isautomaticallyinducedby W fulfilling(8)andthatthepresentedframeworkisapplicabletoextended
+parameterdependencyaslongasthematerialsymmetrytransformationsdonotaffecttheconsidered p.
+3.2 Parametric material modeling based on machine learning
+To formulate a parametric anisotropic hyperelastic constitutive model, the present work extends one of the machine
+learning (ML) approaches recently introduced in Reference 38. More specifically, the ML potential approach with
+group symmetrization is considered in this work due to its excellent properties in fitting the constitutive behavior of
+beam-lattices with highly nonlinear behaviors triggered by instabilities induced by buckling on the level of the struts.
+ThisMLpotentialapproachisnowextendedtoincludeaparametricdependency p,namelyonthematerialparameter E
+andthetopologicalparameters t.
+Following,38 we first consider a ML core model ̃WML(C, p), which depends on a total of 6 + dp scalar
+inputs (six degrees of freedom of C and dp parameters in p). The ML core model ̃WML can be, in principle,
+any twice continuously differentiable function with respect toC. We then perform a group symmetrization as
+follows
+̂WML(C, p)= 1#(G) ∑Q∈G ̃WML(QT CQ, p) . (11)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 11 =====
+FERNÁNDEZetal. 587
+ThepotentialoftheparametricML-potentialapproachisthendefinedthrough
+WML(F, p)= ̂WML(C, p) . (12)
+Thegroupsymmetrization(11),originallyintroducedinReference38intermsof F,ensuresthatthefinalpotential
+(12) fulfills all material symmetry group conditions (8) by construction, that is, independent of any further paramet-
+ric extension of the core model̃WML. This approach offers a non-intrusive and highly flexible ansatz for any given
+(finite-dimensional)anisotropygroupG.Furthermore,theincorporationoftheparametricdependencythroughexten-
+sion of the approach of Reference 38 is as straight-forward as humanly possible through a simple increase of number
+ofinputsintheunderlyingmachinelearningapproach.Thesimplicityofthisapproachmakesitnotonlynon-intrusive
+buthighlyadaptabletoevenhigher-dimensionalparametricdependencies,aslongasthesearenotaffectedbysymmetry
+transformations.
+Compared to alternative approaches relying on the usage of structural tensors and invariants of groups, see, for
+example,Reference27,thepresentapproachdoesnotrequirethesearchanddefinitionofaspecificsetofinvariants.For
+instance,ifcubicmaterialsareofinterest,invariantsinvolving at leaststructuraltensorsofsecond-andfourth-orderare
+necessary.Sincethevastmajorityofmaterialsymmetrygroupsinmaterialscienceareverywellstudied,thecollection
+G is most probably available for a high number of practical cases, such that the approach of the present work is easily
+implementable.
+AsinReference38,thepresentapproachconsidersANNsfortheMLcoremodel ̃WML.Sincetheconstitutivebehavior
+ofthepRUCunderinvestigationissolelystate-dependentandnotpath-dependent,itsufficestouseFFNNsforthecore
+model.BasedontheexaminationsofthepRUCintheprevioussection,thepresentworkconsidersadimensionlessscaling
+parameter Es ∈(0,∞),thatis,theYoung’smodulusofthebeammaterial E = Es ⋅ E0 forayettobechosenreference E0,
+andthetopologyparameters t.Theparametervector pisfromthispointonre-definedas
+p =( Es, t1, t2, t3)∈ P =(0,∞)×  (13)
+with  =[0,1]3 ⧵[0,0.2)3 and dp =4.Theconstantreferenceparameter 𝜈0 =0.45isexcludedfrom pforsimplicity.The
+coremodelforthepresentworkisnowformulatedbasedonaFFNNtakinginGreen’sstraintensor E =( C− I)∕2and
+thetranslatedtopologyparameter 𝜏 = t−(0.5,0.5,0.5)asfollows
+̃WML(C, p)= EsE0 FFNN(E,𝜏) . (14)
+We consider the usage ofE and 𝜏 in order to provide input features around the origin for better calibration of the
+networks.Thedimensionlessparameterdependencywith Es isexplicitlyusedinordertorescaletheoutputoftheFFNN
+based on the observation of the previous section that the constitutive behavior is linear in Young’s modulusE.M o r e
+explicitly,thefinalmodel(12)canbecalibratedwithdatabasedonareferenceYoung’smodulus,forexample, E0 =5M P a ,
+andlateronevaluatedforadifferentelasticmodulus,forexample, E =7.5M P a= EsE0,bysimplyusingtheappropriate
+dimensionless Es forrescaling,forexample, Es =1.5inthecurrentexample.Theparameterdependency p =( Es, t1, t2, t3)
+thenprovidestheabilityofthefinalmodel(12)tobeofuseforcellmaterialandtopologicalvariations.
+ForthepRUCconsideredexplicitlyinthiswork,thematerialsymmetrygroupGisthegroupforcubicobjects.Thus,
+the cubic group with 24 rotation matrices is used. However, it should be emphasized that the non-intrusive approach
+(12)couldbeusedfor anygivenG,forexample,forafinitesubgroupoftransverselyisotropicmaterialsinthecontextof
+pseudo-unidirectionalfiber-reinforcedhyperelasticmaterials.
+TheFFNNsconsideredinthisworkarecomposedof nH hiddenlayersandahomogeneousnumber nNH ofneuronsin
+eachhiddenlayer.Thenetworkarchitectureisshortlydenotedas [nH, nNH].Forinstance, [3,128]referstoaFFNN
+with3hiddenlayersand128neuronsperhiddenlayer.Thelayersaresupposedtobefullyconnectedthroughout.Inall
+hiddenlayers,thesoftplusfunction
+s(x)= log(1+exp(x)) (15)
+isusedasactivationfunctioninordertoensure(infinite)differentiabilityofthemodel.Intheoutputlayerofthemodel,
+a single neuron and the identity activation function Id(x)= x are used in order to get a scalar output out of the linear
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 12 =====
+588 FERNÁNDEZetal.
+combination of the functions of the last hidden layer. After fixing the architecture of the core model, the weights and
+biasesofalllayersmustbecalibrated.Thecollectionofallweightsandbiasesisreferredtoas 𝜔 ∈ Rn𝜔.Thetotalnumber
+ofcalibrationparameters n𝜔 inthemodel(12)isgivenby
+n𝜔 =
+nH+1∑
+l=1
+(nl−1 +1)nl with n0 =9 , nl = nNH (l =1,…, nH) , nnH+1 =1 , (16)
+where n0 =9denotesthenumberofnetworkinputs(sixdegreesoffreedomof Eandthreeshiftedtopologyparameters 𝜏)
+and nnH+1 =1 the scalar output in the output layer. For instance, the network[3,128] has n𝜔 =34,433 calibration
+parameters.Asmentionedabove,theincorporationoftheparametricdependencythroughasimpleincreaseofthesize
+oftheinputintheunderlyingFFNNisstraight-forwardinthepresentapproach.Thisnon-intrusivepropertyisconsid-
+eredamajoradvantagecomparedtoanalyticalmechanicalmodels,forwhichtheincorporationofcomplextopological
+dependenciesisfarfromtrivial.
+Finally, it should be noted that the present approach based on a core FFNN with the softplus activation func-
+tion is differentiable not only with respect toF, but also with respect top. Implementations of this approach
+with modern ML libraries, for example, TensorFlow 2.4, can take advantage of automatic differentiation rou-
+tines in order to obtain the corresponding gradients. This makes the computation of the stresses, stress tan-
+gents, and topological sensitivities trivial and computationally highly efficient on GPU-based systems, especially
+for a large number of inputs. In contrast to real experiments and structures simulations, where the extrac-
+tion of gradient-based quantities as, for example, the effective stress tangentC = dP∕dF = d2W∕dF2 is technically
+involved (if possible at all), the presented differentiable FFNN-model offers clear computational advantages once
+calibrated.
+3.3 Training approach
+3.3.1 Datagenerationstrategy
+For the calibration of the parametric ML-potential modelWML (12), or the training of the underlying FFNN model
+̃WML (14), respectively, data involving variations of the inputs, that is,F and t, and the corresponding system
+response, that is,W (and P), are required. The dependency onE and Es is trivial such that only calibration data
+for E0 =1 MPa will be generated andEs =1 will be fixed during model calibration, if not otherwise explicitly
+stated.
+For the generation of calibration data involvingF, W,a n dP, the present work relies on the homogenization of
+thepRUCsasdescribedinSection2.2.Inthefollowing,eightexperimentallymotivatedmechanicalscenariospartially
+prescribing some deformation and some stress components are considered. Hereby, a simulation process parameter
+𝜆 ∈[ −1,1]is introduced such that all deformation and stress components depend at least implicitly on𝜆. This depen-
+dencyisexplicitlygivenforthecomponentswithprescribedlineardependencyon 𝜆,whileomittedfortherest.Theeight
+experimentallymotivatedscenariosaredefinedasfollows:
+Scenario 1 - uniaxial stress state:
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+0 F22 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej , P22 = P33 =0 . (17)
+Scenario 2 - biaxial deformation with ratio of 1 (axis 1 vs. 2)
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+01 +0.3𝜆 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej , P33 =0 . (18)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 13 =====
+FERNÁNDEZetal. 589
+Scenario 3 - planar deformation
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+01 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej , P33 =0 . (19)
+Scenario 4 - volumetric deformation
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+01 +0.3𝜆 0
+00 1 +0.3𝜆
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej . (20)
+Scenario 5 - simple shear deformation
+F =
+⎛
+⎜
+⎜
+⎜⎝
+10 .3𝜆 0
+010
+001
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej . (21)
+Scenario 6 - biaxial deformation with ratio of 2 (axis 1 vs. 2)
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+01 +0.15𝜆 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej, P33 =0. (22)
+Scenario 7 - biaxial deformation with ratio of 3 (axis 1 vs. 2)
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 00
+01 +0.1𝜆 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej, P33 =0. (23)
+Scenario 8 - combined uniaxial and shear deformation
+F =
+⎛
+⎜
+⎜
+⎜⎝
+1+0.3𝜆 0.24𝜆 0
+0 F22 0
+00 F33
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej, P22 = P33 =0. (24)
+These eight scenarios have also been considered in Reference 38 and provide mechanical scenarios mostly repro-
+ducible in experiments. The last mechanical scenario with prescribed paths forF11 and F12 was already applied in the
+previousSections2.3and2.4,sinceitshowsthatbeambucklingandstructuralinstabilities—reflectedbyabruptchanges
+ofstressgradients—canbepresentinbothcompression andtensionscenarios,compareFigure4.Foragiventopology t,
+eachofthemechanicalscenariosissimulatedfor 𝜆 ∈[0,1](tension)and 𝜆 ∈[ −1,0](compression)separately.Thisyields,
+strictlyspeaking,eighttensionandeightcompressioncases,respectively.Thesewillbereferredtoasthe16simulation
+cases
+C = {scenario1intension (𝜆 ∈[0,1]), scenario1incompression (𝜆 ∈[ −1,0]),
+scenario2intension (𝜆 ∈[0,1]), scenario2incompression (𝜆 ∈[ −1,0]),
+scenario3intension (𝜆 ∈[0,1]), scenario3incompression (𝜆 ∈[ −1,0]),
+scenario4intension (𝜆 ∈[0,1]), scenario4incompression (𝜆 ∈[ −1,0]),
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 14 =====
+590 FERNÁNDEZetal.
+scenario5intension (𝜆 ∈[0,1]), scenario5incompression (𝜆 ∈[ −1,0]),
+scenario6intension (𝜆 ∈[0,1]), scenario6incompression (𝜆 ∈[ −1,0]),
+scenario7intension (𝜆 ∈[0,1]), scenario7incompression (𝜆 ∈[ −1,0]),
+scenario8intension (𝜆 ∈[0,1]), scenario8incompression (𝜆 ∈[ −1,0])}. (25)
+Foreverytopology tandeachofthe #(C)= 16cases c ∈C,afixednumberof #(S)= 151simulationsteps(indexedby
+s ∈S)withcorresponding F, Wand Parerecorded.Thus,forasingle t,16 ⋅151 =2416datapointsarecomputedandthe
+valuesofthestrainenergydensityandthestressesarecollectedforthetrainingoftheMLmodel.
+Samplingofthetopologyparameters t ∈  isconductedbasedonLatinhypercubesampling(LHS).Inthiswork,100
+samplingpointsintheinterioroftheadmissibledomain  areconsideredwithLHS.InadditiontotheseLHSsamples,
+theedgesandfacetsofthestar-shapeddomainarediscretizedmanually,leadingtoanadditional158pointscomprising
+alsothesevenadmissiblecornersofthedomain .Therebyitisguaranteedthatalladmissibleparametervectorscanbe
+obtained by convex combinations of training samples. The set T⊂  refers to these#(T)= 258 topologiest.I ts h a l lb e
+notedthatthesolidvolumefractionrangesfrom0.0942%upto14.5%,thatis,theratiobetweenthevolumefractionof
+theseextremalpRUCislargerthan150,whichillustratesthevarietyofthedesignspaceconsidered.Finally,thecalibration
+dataset
+DC ={ (F, t, W, P)∶( F, t, W, P)[t,c,s], t ∈T, c ∈C, s ∈S} (26)
+containsthen #(DC)=# (T) ⋅#(C) ⋅#(S)= 258 ⋅16 ⋅151 =623,328datapointswithvaryingvaluesfortheinputs Fand t
+andcorrespondingoutputs W and P.
+To confirm the accuracy of the machine learned model and its generalization capabilities for non-training queries,
+additionalvalidationdataisneeded.Inordertonotgrowthenumberofrequiredsamplestoomuch,20topologyparameter
+vectorsmaximizingthenearestneighbordistancetothesetTarechosen.Asimilarapproachwasusedsuccessfullyfor
+ROMinthepast. 50 Thenumberofonly20validationsamples(eachundergoing16loadingcasesat151steps)isjustifiedby
+thepreviousnon-parametricwork, 38 whereitwasshownthatthecoreofthehyperelasticmodelgeneralizeswellforlattice
+metamaterialsandisverywellabletoimprovewithgrowingdatasets.Thesetofthe20validationtopologyparameters
+isreferredtoasV ⊂  andtheresultingvalidationdatasetD V contains#(DV)=# (V) ⋅#(C) ⋅#(S)= 20 ⋅16 ⋅151 =48,320
+datapointsfortheinputs Fand tandthecorrespondingoutputs W and P.
+These calibration and validation datasets are made openly accessible by the authors through the GitHub
+repository https://github.com/CPShub/sim-data. The locations of all points from both datasets are visualized in
+Figure8.
+3.3.2 Objectivefunctionandsampleweighting
+Astandardobjectivefunctionforthecalibrationofsurrogatemodelsisthemeansquarederror(MSE).Intermsofthe
+potentialandstressdata,wethushereconsiderthefollowingtwoweightederrormeasures
+FIGURE 8 Sampledtopologies:boundarypointsinblue(left),innerpointsinblackfromLHS(middle),andvalidationtopologiesin
+red(right)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 15 =====
+FERNÁNDEZetal. 591
+wMSEW = 1#(T)#(C)#(S) ∑t∈T ∑c∈C∑s∈S wW[t,c,s](W[t,c,s] − WML[t,c,s])2 (27)
+wMSEP = 1#(T)#(C)#(S) ∑t∈T ∑c∈C∑s∈S wP[t,c,s]19 3∑i1=1 3∑i2=1((P[t,c,s])i1i2 −( PML[t,c,s])i1i2)2, (28)
+wheretheindex [t, c, s]denotesthecorrespondencetothetopology t,case candsimulationstep s,forexample, WML[t,c,s] =
+WML(F[t,c,s],(1, t1, t2, t3)). The weightswW[t,c,s] for the potential errorwMSEW and wP[t,c,s] for the stress errorwMSEP can
+be used to balance large differences in the output data and enhance the prediction quality of calibrated models. This
+isparticularlyimportantinthepresentwork,sincethepotentialandstressvaluesofdifferentstructurescanvaryover
+severalordersofmagnitude,dependingmainlyon t(whichgovernsthesolidmaterialcontentinsideofthepRUC)andon
+theappliedloadcase c.Consider,forinstance,Figure4again,illustratingtheuniaxial-shearscenariofortension( F11 >1)
+andcompression( F11 <1)fortwosubstantiallydifferenttopologies.Notonlythemaximumtensionvaluesofthestresses
+differforthesetwotopologiesbyafactorofaround50,butalsothemagnitudesoftensionandcompressioncasesvary
+significantly.Thisposesseriouschallengesforanymaterialmodelrequiredtoyieldaccuratepredictions,forexample,for
+stiffstructures(highvaluesforthecomponentsof t)inthetensioncase,aswellasforcompliantstructures(lowvalues
+in t)inthecompressioncase,foranyofthe8scenarios.Akeydriverforthepronounceddependencyofthestrainenergy
+andthestresseson tisduetothevolumefractionofthesolid:Thecross-sectionsscalewith t2i andthelengthofthestruts
+isconstant.
+Inordertobetterquantifytheconstitutivebehaviorforafixedtopology tandloadingcase c,wedefinethefollowing
+l2-normsforthesimulationsequencesofthepotentialandstressvalues
+||W[t,c]||l2 =
+√∑
+s∈S
+W2[t,c,s] (29)
+||P[t,c]||l2 =
+√√√√∑
+s∈S
+3∑
+i1=1
+3∑
+i2=1
+(P[t,c,s])2i1i2. (30)
+Evaluationofthe #(T)#(C)= 1712 l2-normsforalltopologiesandcasesinthecalibrationdatasetD C isillustratedby
+their corresponding cumulative distribution functions in Figure 9 over a logarithmic scale. As shown in Figure 9, the
+l2-normsofthepotentialandstressespossesawiderangeoverfiveordersofmagnitude,dependingontheconsidered t
+and c.ThismakesitveryclearthataproperweightingstrategyisrequiredintheformulationsoftheMSEsin(27)and
+(28).Consequently,thepresentworkintroducesthefollowingweights,whichareformulatedusingthe l2-normsforfixed
+topology tandloadingcase c,andarethusindependentofthestep s:
+wW[t,c,s] =
+(
+1
+#(S) ||W[t,c]||2l2
+)−1
+(31)
+wP[t,c,s] =
+(
+1
+9#(S) ||P[t,c]||2l2
+)−1
+. (32)
+Insertingthisparticularchoiceofweightsinto(27)and(28),respectively,yieldstheweightedMSEsasrelativeerrors
+wMSEW = 𝜖W = 1#(T)#(C) ∑t∈T ∑c∈C𝜖W[t,c],𝜖 W[t,c] =
+(
+||(W − WML)[t,c]||l2
+||W[t,c]||l2
+)2
+, (33)
+wMSEP = 𝜖P = 1#(T)#(C) ∑t∈T ∑c∈C𝜖P[t,c],𝜖 P[t,c] =
+(
+||(P− PML)[t,c]||l2
+||P[t,c]||l2
+)2
+, (34)
+usingthesquarednormovertheloadpathdefinedby(29),(30).Theserelativeerrormeasuresallowthequantification
+ofrelativemodeldeviationsfromtheexpectedbehaviorbasedonthemostinfluentialchangesfortheproblemathand,
+thatis,topologyandloadingcase.Naturally,valuesfarbelowunityfor 𝜖W ∈[0,∞)and𝜖P ∈[0,∞)areexpectedforhigh
+qualitymodels.Inordertoconsidertheerrorsofboththepotentialandstressdata,thepresentworkuses
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 16 =====
+592 FERNÁNDEZetal.
+FIGURE 9 Cumulativedistributionfunctionsofthe l2-norms ||W[t,c]||l2 (left)and ||P[t,c]||l2 (right)
+𝜖 = 12 (𝜖W +𝜖P) = 1#(T)#(C) ∑t∈T ∑c∈C𝜖[t,c],𝜖 [t,c] = 12(𝜖W[t,c] +𝜖P[t,c]) (35)
+asobjectivefunctionforthecalibrationofthefollowingMLmodels.
+Above,the wMSEsandtotalerror 𝜖 areformulatedforthetrainingdatasetD C,thatis,for t ∈T,buttheycaninthe
+samefashionalsobeformulatedforthevalidationdatasetD V,thatis,for t ∈V.
+Besides potential and stress values, also thewMSE of the stress tangent tensorC(F)= d2W∕dF2 c o u l db ea d d e dt o
+theobjectivefunction 𝜖from(35),whichmightfurtherimproveaccuracyorregularityofthecalibratedmodels,compare
+Reference 37. However, this approach is not pursued here, because (i) the homogenization ofCfrom the beam model
+is rather elaborate,19 (ii) for other applications,C might not be available from the microstructural simulations and is
+generally not available for experimental characterization data, and (iii) it would increase the computational effort for
+evaluating𝜖tremendously,since d2WML∕dF2 wouldhavetobeevaluatedforeachparameter [t, c, s]ineachiterationof
+theoptimization,includingthesymmetrizationresultingfrom(11).
+3.4 Results
+Themachinelearning-basedparametricconstitutivemodelsintroducedabovehavebeenimplementedinPython3.8.5
+withTensorFlow2.4onaWindowssystemwithaGeForceRTX2080TigraphicscardforGPUacceleration.Thegradient
+oftheMLmodelsisobtainedinTensorFlow2.4throughautomaticdifferentiation.
+An architecture sweep is performed with the calibration dataset DC and the validation dataset DV. Different
+network architectures[nH, nNH] with nH ∈{3,4} and nNH ∈{8,16,32,64,128} are tested. Each architecture is ini-
+tialized three times and trained for a maximum of 3000 epochs with a batch size of 214 =16,384. Early stopping
+is used such that the model calibration is stopped if no improvement is achieved with respect to𝜖 for the valida-
+tion dataset DV in a patience window of 500 epochs. The results for the objective function𝜖 for the architecture
+sweep are tabulated in Table 1. The prediction qualities in terms of𝜖 for DV of the trained networks are shown
+in the middle column of Table 1 and range from 16% to 23% for[3,8] down to 4.7%–5% for [4,128].T h e
+analogous results for DC in the right column are slightly better than for DV, demonstrating that overfitting has
+been avoided and that the networks are able to generalize well. Of course, overfitting is mainly avoided through
+the early stopping of the trained networks and the use of training batches is also helping in avoiding pronounced
+overfitting.
+For instance, the evolution of the objective𝜖 for the largest and best performing model instance with[4,128] is
+illustratedinFigure10.Amaximumof3000epochsisallowedduringtraining,butsince 𝜖forD V ismonitoredanddoes
+notcontinuetoimproveoverthepatiencewindowof500epochs,thetrainingisstoppedandthebestperformingstateof
+thenetworkwithrespecttoD V isrestored,yielding 𝜖 =0.0466forD V and𝜖 =0.0367forD C.Thisbestperforminginstance
+of [4,128]ischosenfortherestofthesectionforanindepthexamination.Thechosenmodelisreferredtofromnow
+onsimplyas .Naturally,asvisibleinTable1,smallernetworksachievecomparablequality.Thepresentworksimply
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 17 =====
+FERNÁNDEZetal. 593
+TABLE 1 Rangeofobjectivefunction 𝜖fornetwork
+architecturesininitialsweep
+Architecture 𝝐 (validation) 𝝐 (calibration)
+[3,8] 0.1564…0.2345 0.1368…0.1561
+[3,16] 0.0615…0.0742 0.0542…0.0690
+[3,32] 0.0558…0.0641 0.0442…0.0561
+[3,64] 0.0493…0.0528 0.0328…0.0505
+[3,128] 0.0467…0.0565 0.0336…0.0619
+[4,8] 0.1030…0.1343 0.0969…0.1050
+[4,16] 0.0576…0.0729 0.0528…0.0594
+[4,32] 0.0497…0.0531 0.0381…0.0506
+[4,64] 0.0475…0.0542 0.0316…0.0460
+[4,128] 0.0466…0.0505 0.0308…0.0367
+FIGURE 1 0 Developmentof 𝜖forthebestperforminginstanceof [4,128]yielding𝜖 =0.0466forthevalidationdatasetand
+𝜖 =0.0367forthecalibrationdataset
+choosesthebestperforminginstance with [4,128],sinceaqualitysaturationwithrespectto 𝜖forD V seemsvisible
+inTable1andinternaltestswith [3,256]didnotshowanymajorimprovementwithrespecttothevalidationdata.
+Asafirstevaluationofthechosenmodel with𝜖 =0.0367forD C and𝜖 =0.0466forD V,weconsiderthecumulative
+distributionfunction(cdf)of 𝜖[t,c],compare(35).ItisevaluationforD C andD V isillustratedinFigure11inblueandred,
+respectively, and the vertical lines correspond to𝜖 accordingly. Obviously, the model shows a better performance with
+respecttoD C withasmalleraverage( 𝜖)andhigherinitialgradient,comparedtoD V.Nevertheless,thesecdfsshowan
+acceptableaccordance.Hereby,itshouldbenotedagain(i)thatthemodelisrequiredtoyieldgoodresultsover5ordersof
+magnitudefor Wand P,compareFigure9,and(ii)thatD V wasspecificallydesignedinordertomaximizethedistanceto
+DC inordertoobtainachallengingvalidationset.Basedontheseconsiderations,themodelisbelievedtogeneralizewell.
+Thechosenmodel isnowevaluatedforselectedtopologiesofthecalibrationdatasetandsimulationcases.Wecon-
+siderthetopologies t1 =(0.125,0.345,0.255)and t2 =(0.995,0.885,0.975)inordertoevaluateacompliant( t1)andastiff
+cell( t2).Further,inordertomakecleartheadvantagesofthenewlyproposedweights(31)and(32),speciallyforcompli-
+antstructures,anadditionalinstanceof [4,128]istrainedwithuniformweightsequalto1withtheanalogousobjective
+function (wMSEW + wMSEP)∕2.Thismodelisreferredtofromnowonas u.Foreachtopology, t1 and t2,weevaluate
+for and u the simulation cases 1, 2, 7, 8, 15, and 16, corresponding to the tension and compression scenarios for
+thescenarios1(uniaxial),4(volumetric),and8(uniaxial-shear).Theevaluationofthesixselectedcasesforthecompli-
+antcell t1 =(0.125,0.345,0.255)isillustratedinFigure12,whiletheanalogousevaluationfor t2 =(0.995,0.885,0.975)is
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 18 =====
+594 FERNÁNDEZetal.
+FIGURE 1 1 Cumulativedistributionfunctionsoftheerror 𝜖(truncatedupto 𝜖 =0.5)ofthechosenmodel :calibrationdatasetD C
+(blue)andvalidationdatasetD V (red);theverticallinesmarkthecorrespondingaverages,thatis, 𝜖 =0.0367forD C and𝜖 =0.0466forD V
+displayedinFigure13,with ontheleftcolumnsand u ontherightcolumns,respectively.Thedottedlinesdenote
+thesimulationdata,whilethecontinuouslinescorrespondtotheevaluationsof and u.F orthesakeofacompact
+illustration,onlythestressvalues P11∕12∕21∕22∕33 areshown.Amoredetailedgraphicalillustrationof and u showing
+allstressandpotentialvaluesisprovidedinAppendixA.
+Wefirstconsiderthemodel ,compareleftcolumnsinFigures12and13.Theevaluationofthecompliantcellwith
+t1 =(0.125,0.345,0.255)depictedinFigure12showsthat achievesnotonlyqualitativelybutalsoquantitativelyvery
+goodresultsoverawiderangeofcases.Here,itisimportanttonotethatthemodelisexpectedtodelivergoodresultsfor
+acompliantcellyieldingverylowvaluesintermsofmagnitudeforthepotentialaswellasforthestresses.Forinstance,
+considertheuniaxialcompressionandtensioncases,illustratedinthefirstandsecondrowsofFigure12.Incompression,
+theselectedcellyieldsamaximumabsolutevalueofthestressofaroundmax s∈S |Pij| ≈4 Pa.Now,considertheuniaxial
+tensioncaseinthesecondrow,withmax s∈S |Pij| ≈40 Pa.Thetrainedmodelyieldsqualitativelysatisfactoryresultsfor
+thesecasesaswellasfortheuniaxial-shearcompressionandtensioncases(cf.lasttworows).Forthevolumetriccase,
+comparethirdandfourthrow,themodelachievesagoodagreementwiththebucklingstressoftheperturbedcell,with
+maxs∈S |Pij| ≈4 Pa,andagoodagreementwiththestressesinvolumetrictension,withmax s∈S |Pij| ≈1000 Pa.Basedon
+theseresults,alreadyforthecompliantcell t1 onecanobservethat yieldsgoodresultsoverseveralorderofmagnitudes.
+For immediate comparison, the additional modelu trained with uniform weights is displayed in the right column
+of Figure 12. It can be clearly observed that thatu does not achieve the prediction quality of, especially for the
+compressioncasesandforsoftstructures(i.e.,smallvaluesin t).Thisisanimplicationoftheuniformweights,whichin
+(wMSEW + wMSEP)∕2cannotamplifytheerrorswithvaluesinsmallordersofmagnitude,asfortheuniaxial,volumetric
+anduniaxial-tensioncompressioncases.
+The analogous evaluation for the stiff cell witht2 =(0.995,0.885,0.975) depicted in Figure 13 further shows not
+only the good agreement between the model prediction and the calibration data, but also that the model indeed is
+able to perform well over several orders of magnitude in the output. For instance, consider again the uniaxial com-
+pression and tension cases for the compliant and stiff structures in the first and second rows of Figures 12 and 13,
+respectively. The stress values of these two topologies have a difference of roughly two orders of magnitude. The cali-
+brated modelis able to achieve a good performance in most cases, showing its flexibility and accuracy over several
+orders of magnitude in the output space. Only in the volumetric tension case it is clearly visible thatdoes not per-
+formaccuratelyforhigherloadamplitudes.Theadditionalmodel u showsagoodperformanceforthisstifftopology.
+Butthisisimmediatelyclear,sincethestressvaluesforthestifftopology t2 areordersofmagnitudelargerthanforthe
+complianttopology t1.Thesevaluesinducelargeerrorsin (wMSEW + wMSEP)∕2,whichthendominatethecalibration
+of u.
+In summary, it is concluded (i) that the proposed hyperelastic parametric model can generalize well over sev-
+eral order of magnitude for the highly nonlinear buckling behavior of the parametric cells and (ii) that the newly
+proposed weights (31) and (32) transforming the standard weighted MSE to the relative error𝜖 incorporating func-
+tion (W) and gradient (P) information enhances the prediction quality over the entire range of weak and stiff
+structures.
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 19 =====
+FERNÁNDEZetal. 595
+FIGURE 1 2 Evaluationoftrainedmodelswitharchitecture [4,128]for t1 =(0.125,0.345,0.255):modeltrainedwithnewlyproposed
+wMSEwithnon-uniformweights(leftcolumn)andmodeltrainedwithcommonlyuseduniformweights(rightcolumn)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 20 =====
+596 FERNÁNDEZetal.
+FIGURE 1 3 Evaluationoftrainedmodelswitharchitecture [4,128]for t2 =(0.995,0.885,0.975):modeltrainedwithnewlyproposed
+wMSEwithnon-uniformweights(leftcolumn)andmodeltrainedwithcommonlyuseduniformweights(rightcolumn)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 21 =====
+FERNÁNDEZetal. 597
+4 PARAMETRIC MICROSTRUCTURE OPTIMIZATION
+Aparametriceffectiveconstitutivemodelforafamilyofmicrostructurescanbeusedtoselectaspecificmicrostructure
+thatexhibitsadesiredconstitutivebehavior,thatis,solvetheinverseproblemofidentifyingasuitableparameterset p.
+Thiscanbedonebyoptimizingfor p,wherepracticalapplicationswouldtypicallyrequireconstraints,forexample,the
+rangeofYoung’smodulusofavailablematerialsormanufacturingrelatedconstraintsregardingminimalandmaximal
+radius parameterst.Here,wedemonstratehowthecalibratedmodel WML(F, p)(forwhichweusethebestperforming
+instance  of [4,128] from the previous section, compare Figures 12 and 13) can be used to solve such optimiza-
+tionproblemsandidentifytheparametervector p =( Es, t1, t2, t3)ofabeam-latticepRUCthatbestapproximatesagiven
+effectivebehavior.
+4.1 Optimization based on given deformation, energy, and stress
+For this first example, we consider the behavior of the pRUC fort =(0.535,0.065,0.885) in the uniaxial-shear
+scenario, which is contained in the calibration dataset D C, but amplified with Es =3 as the desired objec-
+tive, for which we want to identify a pRUC that exhibits this uniaxial-shear behavior. The original data and
+model predictions for Es =1 are displayed in Figure 14, while the amplified objective behavior is illustrated in
+Figure15.
+Thecalibratedmodelisnowusedtosearchfortheoptimalparametervector pformaterialandlatticetopologybased
+onthegivendata {(F1, W1, P1),…,(Fn, Wn, Pn)},inthisexamplecorrespondingtothedatadisplayedinFigure15with
+n =2 ⋅#(S)= 302,thatis,forallsimulationstepsoftheuniaxial-shearscenario,thatis,concatenatingitscompression
+andtensioncases.Forthatweconsidertheerrorfunction
+e(p)= 1n
+n∑
+i=1
+1
+(J∕m3)2(Wi − WML(Fi, p))2 + 19P a2 ||Pi − PML(Fi, p)||2 (36)
+FIGURE 1 4 Simulateddataandmodelpredictionfor p =(1.000,0.535,0.065,0.885)intheuniaxial-shearcase
+FIGURE 1 5 Objectivedatafor por =(3.000,0.535,0.065,0.885)intheuniaxial-shearcase
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 22 =====
+598 FERNÁNDEZetal.
+asapragmaticchoice.Alternatively,weightsasforthe wMSEcouldbeconsidered,butarenotthefocusofthisexample.
+Fromapracticalperspective,notallmaterialsmaybeavailableforproduction,suchthatlimitationson Es canbeimposed.
+Therefore,weconsiderthecompactset P =[ E−s , E+s ]×  ⊂P,compare(13),andtheoptimizationproblem
+min
+p∈P
+e(p). (37)
+Forthecurrentexampleweset E−s =0.1and E+s =10.
+Depending on the optimization algorithm used, algorithms settings and, most importantly, the behavior of the
+material model, several different acceptable solutions may be found. For instance, in the current example the trivial
+solutionis por =(3.000,0.535,0.065,0.885)∈ P,whicharetheparametersusedtogeneratetheobjectivedata.However,
+also other reasonable solution parameters corresponding to local minima of the error functione(p) may be encoun-
+tered. For the present example, the initial guess is set top0 =(1.0,0.5,0.5,0.5)∈ P and the derivative-free Powell
+algorithm as implemented in the SciPy package, see Reference 51, in Python 3.8.5 is used. It returns the deviating
+solution
+p∗ =(3.796,0.520,0.506,0.739). (38)
+Theevaluationofthemodelfortheoptimizedparameters p∗ isdisplayedinFigure16andagoodagreementofthe
+optimizedbehaviorfor p∗ withthedesiredbehaviorgivenbythedatafor por canbeobserved.
+4.2 Optimization based on incomplete data
+In some situations information obtained through experimental measurements may be limited, such that, for example,
+only certain components of the effective deformation and stresses may be accessible and one may have to work with
+incomplete data. The most basic example for this kind of scenario is the uniaxial stress experiment with explicit mea-
+surementofonlythe F11 and P11 components.Theevaluationofmaterialmodelssolelybasedon F11 isonlypossibleif
+assumptionsaremadefortheremainingdeformationcomponents,especiallyfor F22 and F33 intheuniaxialcaseforcubic
+materials.Here,forexample,incompressibilitymaybeoneoption,whichmayormaynotberealistic,dependingonthe
+actualmaterial.
+Ifmaterialand/ortopologyparametersaretobeoptimizedbasedona desiredmaterialbehaviorsolelydictatedby F11
+and P11 in a uniaxial tension case, then parametric material models as the one introduced in this work, compare (12),
+may be used as follows. Given a set ofn values Duni ={ ( (F1)11,(P1)11),…,(Fn)11,(Pn)11)}, corresponding to a uniaxial
+case,themodel(12)requiresthecomplete Fand pforitsevaluation,atwhat pisthelateroptimizationvariable.Forthe
+pRUCofthiswork,incompressibilityisofcourseoutofquestion,sincethepRUCcanbecompressedandshowshighly
+nonlinearbehavior,forexample,inthevolumetriccompressioncase.Butsincesimulationdataisavailable,wecanuse
+thisdataasaresourceforasecondMLmodel.ForthecubicpRUC,fortheuniaxialstressstatethedeformationgradient
+Funi isassumedtoberepresentedas
+FIGURE 1 6 Objectivedatafor por =(3.000,0.535,0.065,0.885)andevaluatedmodelforoptimized p∗ =(3.796,0.520,0.506,0.739)in
+theuniaxial-shearcase
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 23 =====
+FERNÁNDEZetal. 599
+Funi =
+⎛
+⎜
+⎜
+⎜⎝
+F11 00
+0 𝜑(F11, p) 0
+00 𝜑(F11, p)
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej, (39)
+wherethefunction 𝜑(F11, p)representstheparametricdependencyof F22 and F33 on F11 (and p).
+Here,onepointrequiresashortdiscussion.ThedeformationbehaviorofthehyperelasticpRUCofthisworkhasbeen
+found to be trivially linear inE. This implies that for any boundary conditions implicitly defining components of the
+deformationgradient,asintheuniaxialstressstate,theimplicitdependencyofthedeformationontheparametersofthe
+pRUCcanbereducedto t,excluding Es and,strictlyspeaking,neglectingtheminordependencyon 𝜈 ≥0asdiscussedin
+Section2.4.Theargumentissimple,sinceif Fwouldimplicitlydependon Es,thenthematerialbehaviorwould notbe
+linearin E,whichleadstoacontradiction.Therefore,theimplicitparametricdependencyofthedeformationisreduced
+to t,notonlyfortheuniaxialstresscase,butforanycase.ThisimpliesthatthedifferentdeformationsofthepRUCcanbe
+characterizedbasedonasinglematerial(withreference E0)andthedeformationofanyothermaterial(withadifferent
+E = EsE0)isimmediatelyobtainable.Basedonthisreasoning,wecondensetheparametricdependencyfortheuniaxial
+caseto
+Funi(F11,𝜙(F11, t)) =
+⎛
+⎜
+⎜
+⎜⎝
+F11 00
+0 𝜙(F11, t) 0
+00 𝜙(F11, t)
+⎞
+⎟
+⎟
+⎟⎠
+ei ⊗ ej, (40)
+fromthispointon.
+This new function𝜙(F11, t) is, of course, difficult to grasp due to the complex behavior depending ont. But since
+simulationdataisavailable,wesetupasecondMLmodelforitas 𝜙ML(F11, t),whichistrainedwithdataextractedfrom
+thedatasetD C usedforthecalibrationof WML(F, p).TheobjectivefunctionMSE 𝜙 forthecalibrationof 𝜙ML isdefinedas
+MSE𝜙22 = 1#(T) ∑t∈T12 ∑c∈{1,2} 1#(S) ∑s∈S((F[t,c,s])22 −𝜙ML((F[t,c,s])11, t))2 (41)
+MSE𝜙33 = 1#(T) ∑t∈T12 ∑c∈{1,2} 1#(S) ∑s∈S((F[t,c,s])33 −𝜙ML((F[t,c,s])11, t))2 (42)
+MSE𝜙 = 12(MSE𝜙22 +MSE𝜙33), (43)
+where c ∈{1,2}referstotheuniaxialtensionandcompressioncases.Thefunction 𝜙ML itselfisformulatedas
+𝜙ML(F11, t)=( 1+( F11 −1)FFNN(F11 −1,𝜏))2 (44)
+withaFFNN,withthesoftplusactivationfunction,taking F11 −1and 𝜏 = t−(0.5,0.5,0.5)asinput.Theformulation(44)
+ensures𝜙ML(1, t)= 1forall t,𝜙ML(F11, t) ≥0forall F11 and t,anddifferentiabilitywithrespectto F11 and t.Anidentical
+architecturesweepasforthematerialmodelhasbeenconducted,thatis,amaximumof3000epochsisallowedwith500
+epochspatienceandtheobjectivefunctionismonitoredforD V.Thearchitecture [4,128]yieldedthebestresultsandis
+usedfromthispointon.
+Now, based on the calibrated𝜙ML, for given set ofn values Duni ={ ( (F1)11,(P1)11),…,(Fn)11,(Pn)11)},t h em a t e r i a l
+andtopologycanbeoptimizedbasedonasimplecompositionoftheMLmodels.The F11 valuescanbeinsertedinto 𝜙ML
+toobtainpredictionsoftheunknown F22 and F33,forgiven t.Then,thesevaluescanbeusedtobuildthedeformation
+gradient Funi,whichisthenevaluatedwithgiven pinthe WMLmodelinordertogetthestress PML.The (PML)11component
+canthenbecomparedtothedesiredstressvalue (P)11.Thus,weformulatetheobjectivefunctionas
+e𝜙(p)= 1
+nPa2
+n∑
+i=1
+[
+(Pi)11 −
+(
+PML(Funii (t), p))11]2, Funii (t)= Funi ((Fi)11,𝜙ML((Fi)11, t)), (45)
+andthecorrespondingoptimizationproblemas
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 24 =====
+600 FERNÁNDEZetal.
+min
+p∈P
+e𝜙(p). (46)
+Inthefollowing,weconsideragaintheparametersofthepreviousoptimizationexample,namely por =(3.000,0.535,
+0.065,0.885)with the topologyt =(0.535,0.065,0.885)∈ T and material amplificationEs =3, but now for the uniaxial
+case.ThesimulateddataisdisplayedinFigure17.
+Fortheoptimizationproblemofthisexample,wesolelyconsiderthe F11 and P11 values.Butitisstillofinterest,ifthe
+MLmodelsprovidegoodpredictionsofthe F22∕33 and P11 values.Evaluationofthegiven F11 and t =(0.535,0.065,0.885)
+withthecalibrated 𝜙ML modelyieldstheblackcurvedisplayedintheleftplotofFigure18.Thepredictionfollowsclosely
+the data forF22 and F33, which deviate only slightly from one another due to the introduced cell perturbations. The
+correspondingdatafor P11 isillustratedinFigure18ontherightplotbythebluedottedline.Theblacklinedepictsthe
+composition of𝜙ML and WML, which agrees sufficiently well with the evaluation ofWML based on the originalFdata
+(blueline).
+Basedontheseobservations,itcanbeconcludedthattheoptimizationproblem(46)willhave,fromapracticalpoint
+ofview,achancetofindatleastoneacceptablesolution,beingtheoriginal por.
+Itshouldbenotedthatduetotheusageofthesoftplusfunction,whichisinfinitelydifferentiable,inbothMLmodels
+WML and𝜙ML,theerrorfunction e𝜙(p)isdifferentiablein p,asinthepreviousoptimizationexample.Thus,incontrastto
+thepreviousoptimizationexample,wenowuseagradient-basedoptimizationalgorithmwithconstraintsfortheproblem
+(46).ThisiseasilyachievableinPython3.8.5withseveralalgorithmsfromthepackageSciPy,seeReference51.Here,we
+usetheTrustRegionalgorithmwithJacobianinformation.TheJacobianof e𝜙(p)iseasilyobtainedbasedontheautomatic
+differentiationroutinesofTensorFlow2.4.Startingfrom p0 =(1.0,0.5,0.5,0.5),theoptimizationyieldsthesolution
+FIGURE 1 7 Objectivedatafor por =(3.000,0.535,0.065,0.885)intheuniaxialcase
+FIGURE 1 8 Evaluationofdatacorrespondingto por =(3.000,0.535,0.065,0.885).Left:datafor F22 (purple,dotted), F33 (olive,dotted)
+andpredictionofcalibrated 𝜙ML (black).Right:datafor P11 (blue,dotted),predictionsbasedonthefull Fwith WML andcorresponding PML
+(blue)andpredictionsbasedon F11 and𝜙ML evaluatedthenwith WML andcorresponding PML (black)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 25 =====
+FERNÁNDEZetal. 601
+p∗ =(1.299,0.979,0.429,0.587). (47)
+Evaluationofthemodelcompositionfortheoptimizedparameters p∗ isdepictedinFigure19inred.Itcanbeobserved,
+thatfor p∗ thepredictedbehaviorof F22 and F33 (redline)deviatessignificantlyfromthebehaviorfor por (dottedlines),
+comparetheleftplotinFigure19.Nevertheless,itstillyieldsastressbehaviorveryclosetothedesiredone,compareright
+plotinFigure19.ThepRUCcorrespondingto p∗ wasnotcontainedinthecalibrationdatasetD C andhasbeensimulated
+forverifyingtheresults.Thecorrespondingnewdataisillustratedbythedashed-dottedlinesinFigure19.Itcanbeseen
+that𝜙ML predictsqualitativelywellthe F22 and F33 behaviorforthecellcorrespondingto p∗,compareleftplot.Thetrend
+ofthe P11 stressfor p∗ isfairlyclosetotheonefor por,comparerightplot.Evaluationofthe WML modelwiththe Fvalues
+collectedfromthenewsimulationyieldstheorangecurveshownintherightplotofFigure19.Itcanbeseenthatthe
+compositionofthemodels(redcurve)andtheevaluationof WML basedontheexactdeformation(orangecurve)arevery
+closetheeachother.Further,allstresscomponentbasedontheMLmodelcompositionandtheoptimizedparameters p∗
+aredepictedinFigure20,correspondingtotheredcurvesofFigure19.Here,itshouldbenotedthatmodelevaluation
+throughthecompositionof 𝜙ML and WML yieldsauniaxialstressstate,toareasonabledegree,eventhoughneither P22 =0
+FIGURE 1 9 Evaluationofdataandmodelscorrespondingto por and p∗:Left:datafor F22 for por (purple,dotted), F33 for por (olive,
+dotted),predictionofcalibrated 𝜙ML for p∗ (red),datafor F22 for p∗ (purple,dashed-dotted)anddatafor F33 for p∗ (olive,dashed-dotted);
+Right:datafor P11 for por (blue,dotted),predictionsfor p∗ basedon F11 and𝜙ML evaluatedthenwith WML andcorresponding PML (red),data
+for P11 for p∗ (blue,dashed-dotted)andpredictionsfor p∗ basedonthefull Fwith WML andcorresponding PML (orange)
+FIGURE 2 0 Evaluationofallstresscomponents:objectivedata(dottedlines),modelevaluation(continuouslines)basedonthe
+calibrated𝜙ML andtheoptimizedparameters p∗,correspondingtotheredlinesinFigure19
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 26 =====
+602 FERNÁNDEZetal.
+nor P33 =0wereimposedintheobjectivefunction(45).Thisisduetothereasonableapproximationofthecorresponding
+uniaxialpathinthedeformationspace,seeFigure19.
+Dependingonpragmatictolerancesonthedesired (F11, P11)behavior,theobtainedsolution p∗ mayofferanaccept-
+able compromise obtained through the calibrated ML models. Of course, further improvements could be achieved, for
+example,byaccumulationofmoretrainingdatafortheMLmodelsoraweightingofcrucialpointsofthedesired (F11, P11)
+behavior.Thismaybeimportantforsomeapplications,sinceinthepresentexamplethebehaviorinthevicinityofthe
+undeformed state contributes smaller error values in the objective function (45), compared to values for large tension.
+Thepresentapproachsimplyshowcasesthat,inprinciple,thecalibratedmaterialmodel WML canbeusedincombination
+withfurtherMLmodelsforoptimizationproblemswithincompletedata.
+5 CONCLUSIONS
+Thepresentworkpresentsananisotropic,hyperelasticconstitutivemodelingapproachforparametricnonlinearmeta-
+materialsanddemonstratesitsapplicationtobeamlatticemicrostructuresandtheiroptimization.Forthispurpose,the
+machinelearning-basedmethodofReference38isextendedbyincludingtheparametricdependenciesintotheFFNN
+formulationinastraight-forwardandnon-intrusivefashion.
+In view of the computational performance the most relevant statements are (i) that the evaluation of the machine
+learnedmodelhasanexplicitlyandaprioriknowncomputationalcost,(ii)arbitraryloadstatesintheadmissiblerange
+candirectlybeevaluatedwithoutrunningasimulationinvolvingsmallloadincrementsand(iii)thecomputationalcostis
+independentoftheresolutionofthediscretepRUCmodeland,generally,distinctlylower.Wearenotprovidingspeed-up
+informationasthelatterwoulddependheavilyonsoftware,hardwareandsoforth.
+As an example of a parametric metamaterial, a highly nonlinear cubic beam-lattice microstructure is investigated,
+for which topology and morphology are controlled using three parameters. The influence of material parameters due
+to modeling assumptions is examined and the dominance of the lattice parameters has been shown. Based on these
+observations,theparametricanisotropichyperelasticmaterialmodelisformulatedasaFFNN.Themodelistrainedon
+a fairly sparse and pragmatic data generation strategy with corresponding sample weighting connecting the weighted
+MSE with a sensible relative error measure depending on the cell topology and loading case. The objective function
+𝜖 incorporates potential and stress information and forces the model to yield good predictions for stiff and compliant
+structuresintensionandcompressionloadingcases.Thecompletecalibrationdatasetismadeopenlyaccessiblebythe
+authorsthroughtheGitHubrepositoryhttps://github.com/CPShub/sim-data.
+The calibrated model is then showcased in two optimization problems, in which the material and the topology of
+the parametric metamaterial are tailored for a desired nonlinear behavior. The first example concerns the identifica-
+tionoptimalcellparametersbasedonfullyprescribeddeformation,energyandstressdata.Here,itisdemonstratedthat
+the calibrated model works well with standard, gradient-free optimization algorithms. In the second example, incom-
+pletedataisprescribedfortheuniaxialbehaviorintermsof (F11, P11).Forthisscenario,anauxiliarymachinelearning
+modelistrainedforpredictingthedeformationbehaviorforuniaxialdeformationandthencoupledwiththefullmodel.
+Here, a gradient-based optimization algorithm is used, which demonstrates the versatility of the proposed material
+modeling approach, since not only the stresses can be obtained from the neural network-based strain energy density
+W through automatic differentiation (P = 𝜕W∕𝜕F), but also the gradients with respect to the lattice parameters (e.g.,
+𝜕P∕𝜕p = 𝜕2W∕𝜕F𝜕p).
+In principle, the constitutive modeling approach introduced in this work can be applied to any kind of nonlinear
+elastic (meta-) material with a known class of material symmetry, for which parametric dependency is of interest, for
+example, fiber-reinforced composites, multi-material microstructures, open- and closed-cell foams, bio-materials, tex-
+tiles,andsoforth.Itfacilitatestheinvestigationofmicro-macrotopologyoptimization,inwhichaneffectiveconstitutive
+model can be used on the macro level. In this way, topology optimization algorithms can make use of the present
+work and optimize not only the macroscopic material distribution, but a also a micro-parameter field, corresponding
+to p. This would enable future macroscopic parts with varying, highly dedicated material and topology at the micro
+level.
+As pointed out in Section 1, the present approach assumes that the material behavior is well approximated by a
+state-dependenthyperelasticmodel.TheinvestigationcarriedoutinSection2.3andtheevaluationofthecalibratedmod-
+elssupporttheassumptionforthestructuresandrangeofmaterialparameterstakenintoconsideration.Nevertheless,
+otherstructuresandawiderrangeofmaterialparametersandperturbationsmayshowhigherdiscrepanciesandviolate
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 27 =====
+FERNÁNDEZetal. 603
+manyhomogenizationassumptions.Futureworkcouldconcentrateonadedicatedinvestigationoftheseaspects,while
+pragmaticapproachescouldconsiderthepresentworkasastartingpointforparametricstructuresinthemeantime.
+ACKNOWLEDGMENTS
+Mauricio Fernández and Oliver Weeger would like to acknowledge the support from the Department of Mechanical
+Engineering at TU Darmstadt. The contributions by Felix Fritzen are funded by Deutsche Forschungsgemeinschaft
+(DFG,GermanResearchFoundation)withinthescopeoftheHeisenbergprogram—projectnumber406068690,Grant
+FR2702/8—andunderGermany’sExcellenceStrategy—EXC2075—390740016.FelixFritzenacknowledgesthesupport
+by the Stuttgart Center for Simulation Science(SimTech). Further, the authors thank the unknown reviewers for their
+commentsandsuggestions,whichhelpedtoimprovethequalityoftheapproachtaken.
+AUTHOR CONTRIBUTIONS
+Mauricio Fernándezand Oliver Weegerdesignedtheresearchscope. Mauricio Fernándezand Oliver Weegercar-
+riedoutthecellsimulations. Mauricio Fernández, Oliver Weeger,and Felix Fritzendevelopedthemachinelearning
+modelandtrainingapproach. Mauricio Fernándezimplemented,trainedandevaluatedtheparametricmaterialmodel,
+designedandcarriedouttheoptimizationexamples,andcreatedtherepositoryfortheopenlyaccessiblecalibrationdata.
+Mauricio Fernández, Felix Fritzen,and Oliver Weegerwroteandproof-readthemanuscript.
+DATA A V AILABILITY STATEMENT
+ThedatathatsupportthefindingsofthisstudyareavailableattheGitHubrepositoryhttps://github.com/CPShub/sim-
+dataundertheCC-BY-4.0license.
+ORCID
+Mauricio Fernández https://orcid.org/0000-0003-1840-1243
+Felix Fritzen https://orcid.org/0000-0003-4926-0068
+Oliver Weeger https://orcid.org/0000-0002-1771-8129
+REFERENCES
+1. WegenerM.Metamaterialsbeyondoptics. Science.2013;342(6161):939-940.doi: 10.1126/science.1246545
+2. JiaZ,LiuF,JiangX,WangL.Engineeringlatticemetamaterialsforextremeproperty,programmability,andmultifunctionality. Journal
+of Applied Physics.2020;127:(15):150901.doi: 10.1063/5.0004724
+3. Coulais C, Teomy E, de Reus K, Shokef Y, van Hecke M. Combinatorial design of textured mechanical metamaterials.Nature.
+2016;535(7613):529-532.doi:10.1038/nature18960
+4. Qu J, Kadic M, Naber A, Wegener M. Micro-structured two-component 3D metamaterials with negative thermal-expansion coefficient
+frompositiveconstituents. Sci Rep.2017;7(1):40643.doi: 10.1038/srep40643
+5. SchumacherC,BickelB,RysJ,MarschnerS,DaraioC,GrossM.Microstructurestocontrolelasticityin3Dprinting. ACM Trans Graph
+(TOG).2015;34(4):136.
+6. BoddetiN,DingZ,KaijimaS,MauteK,DunnML.Simultaneousdigitaldesignandadditivemanufactureofstructuresandmaterials. Sci
+Rep.2018;8(1):15560.doi: 10.1038/s41598-018-33454-3
+7. Watts S, Arrighi W, Kudo J, Tortorelli DA, White DA. Simple, accurate surrogate models of the elastic response of three-dimensional
+open truss micro-architectures with applications to multiscale topology design. Structural and Multidisciplinary Optimization .
+2019;60:(5):1887-1920.doi:10.1007/s00158-019-02297-5
+8. Kumar S, Tan S, Zheng L, Kochmann DM. Inverse-designed spinodoid metamaterials. Npj Comput Mater . 2020;6(1):1-10.
+doi:10.1038/s41524-020-0341-6
+9. AndersenMN,WangF,SigmundO.Onthecompetitionforultimatelystiffandstrongarchitectedmaterials. Mater Des.2021;198:109356.
+doi:10.1016/j.matdes.2020.109356
+10. Clausen A, Wang G, Jensen JS, Sigmund O, Lewis JA. Topology optimized architectures with programmable Poisson’s ratio over large
+deformations. Adv Mater.2015;27(37):5523-5527.
+11. Bertoldi K, Vitelli V, Christensen J, van Hecke M. Flexible mechanical metamaterials. Nature Rev Mater . 2017;2(11):1-11.
+doi:10.1038/natrevmats.2017.66
+12. Bodaghi M, Liao WH. 4D printed tunable mechanical metamaterials with shape memory operations. Smart Mater Struct .
+2019;28(4):045019.doi:10.1088/1361-665X/ab0b6b
+13. SoyarslanC,BlümerV,BargmannS.Tunableauxeticityandelastomechanicalsymmetryinaclassofverylowdensitycore-shellcubic
+crystals. Acta Mater.2019;177:280-292.doi: 10.1016/j.actamat.2019.07.015
+14. LiX,YangZ,LuZ.Design3Dmetamaterialswithcompression-induced-twistingcharacteristicsusingshear–compressioncouplingeffects.
+Extreme Mech Lett.2019;29:100471.doi: 10.1016/j.eml.2019.100471
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 28 =====
+604 FERNÁNDEZetal.
+15. Liu J, Yan D, Zhang Y. Mechanics of unusual soft network materials with rotatable structural nodes.J Mech Phys Solids 2021;
+146(September2020):104210.doi: 10.1016/j.jmps.2020.104210
+16. Jamshidian M, Boddeti N, Rosen D, Weeger O. Multiscale modelling of soft lattice metamaterials: micromechanical non-
+linear buckling analysis, experimental verification, and macroscale constitutive behaviour. Int J Mech Sci . 2020;188:105956.
+doi:10.1016/j.ijmecsci.2020.105956
+17. PalRK,RuzzeneM,RimoliJJ.Acontinuummodelfornonlinearlatticesunderlargedeformations. Int J Solids Struct.2016;96:300-319.
+doi:10.1016/j.ijsolstr.2016.05.020
+18. ElNadyK,GodaI,GanghofferJF.Computationoftheeffectivenonlinearmechanicalresponseoflatticematerialsconsideringgeometrical
+nonlinearities. Comput Mech.2016;58(6):957-979.doi: 10.1007/s00466-016-1326-7
+19. Glaesener RN, Lestringant C, Telgen B, Kochmann DM. Continuum models for stretching- and bending-dominated periodic trusses
+undergoingfinitedeformations. Int J Solids Struct.2019;171:117-134.doi: 10.1016/j.ijsolstr.2019.04.022
+20. Glaesener RN, Träff EA, Telgen B, Canonica RM, Kochmann DM. Continuum representation of nonlinear three-dimensional periodic
+trussnetworksbyon-the-flyhomogenization. Int J Solids Struct.2020;206:101-113.
+21. Xia L, Breitkopf P. Recent advances on topology optimization of multiscale nonlinear structures.Arch Comput Methods Eng .
+2017;24(2):227-249.doi:10.1007/s11831-016-9170-7
+22. FritzenF,XiaL,LeuschnerM,BreitkopfP.Topologyoptimizationofmultiscaleelastoviscoplasticstructures. Int J Numer Methods Eng.
+2016;106(6):430-453.doi:10.1002/nme.5122
+23. LeBA,YvonnetJ,HeQC.Computationalhomogenizationofnonlinearelasticmaterialsusingneuralnetworks. Int J Numer Methods Eng.
+2015;104(12):1061-1084.
+24. IbañezR,BorzacchielloD,AguadoJV,etal.Data-drivennon-linearelasticity:constitutivemanifoldconstructionandproblemdiscretiza-
+tion. Comput Mech.2017;60:(5):813-826.
+25. FritzenF,FernándezM,LarssonF.On-the-flyadaptivityfornonlineartwoscalesimulationsusingartificialneuralnetworksandreduced
+ordermodeling. Front Mater.2019;6(75):1-18.doi: 10.3389/fmats.2019.00075
+26. NguyenLTK,KeipMA.Adata-drivenapproachtononlinearelasticity. Comput Struct.2018;194:97-115.
+27. Ling J, Jones R, Templeton J. Machine learning strategies for systems with invariance properties.J Comput Phys . 2016;318:22-35.
+doi:10.1016/j.jcp.2016.05.003
+28. Yang H, Guo X, Tang S, Liu WK. Derivation of heterogeneous material laws via data-driven principal component expansions.Comput
+Mech.2019;64(2):365-279.doi: 10.1007/s00466-019-01728-w
+29. González D, Chinesta F, Cueto E. Learning corrections for hyperelastic models from data. Front Mater . 2019;6.
+doi:10.3389/fmats.2019.00014
+30. GonzálezD,García-GonzálezA,ChinestaF,CuetoE.Adata-drivenlearningmethodforconstitutivemodeling:applicationtovascular
+hyperelasticsofttissues. Materials (Basel).2020;13(10):1-17.doi: 10.3390/ma13102319
+31. ChungI,ImS,ChoM.Aneuralnetworkconstitutivemodelforhyperelasticitybasedonmoleculardynamicssimulations. Int J Numer
+Methods Eng.2021;122(1):5-24.doi: 10.1002/nme.6459
+32. Fritzen F, Kunc O. Two-stage data-driven homogenization for nonlinear solids using a reduced order model.Eur J Mech A / Solids .
+2018;69:201-220.doi:10.1016/j.euromechsol.2017.11.007
+33. Yvonnet J, Gonzalez D, He QC. Numerically explicit potentials for the homogenization of nonlinear elastic heterogeneous materials.
+Comput Methods Appl Mech Eng.2009;198(33-36):2723-2737.doi: 10.1016/j.cma.2009.03.017
+34. Kunc O, Fritzen F. Generation of energy-minimizing point sets on spheres and their application in mesh-free interpolation and
+differentiation. Adv Comput Math.2019;45(5-6):3012-3065.doi: 10.1007/s10444-019-09726-5
+35. Kunc O, Fritzen F. Many-scale finite strain computational homogenization via concentric interpolation.Int J Numer Methods Eng .
+2020;121(21):4689-4716.doi:10.1002/nme.6454
+36. Minh Nguyen-Thanh V, Trong Khiem Nguyen L, Rabczuk T, Zhuang X. A surrogate model for computational homogenization
+of elastostatics at finite strain using high-dimensional model representation-based neural network.Int J Numer Methods Eng .
+2020;121(21):4811-4842.doi:10.1002/nme.6493
+37. VlassisN,MaR,SunW.geometricdeeplearningforcomputationalmechanicspartI:anisotropichyperelasticity. Comput Methods Appl
+Mech Eng.2020;371:113299.doi: 10.1016/j.cma.2020.113299
+38. FernándezM,JamshidianM,BöhlkeT,KerstingK,WeegerO.Anisotropichyperelasticconstitutivemodelsforfinitedeformationscom-
+bining material theory and data-driven approaches with application to cubic lattice metamaterials.Comput Mech. 2021;67:(2):653-677.
+doi:10.1007/s00466-020-01954-7
+39. Bickel B, Bächer M, Otaduy MA, et al. Design and fabrication of materials with desired deformation behavior.Trans Graph (TOG).
+2010;29:63.
+40. Ma C, Zhang Z, Luce B, et al. Accelerated design and characterization of non-uniform cellular materials via a machine-learning based
+framework. Npj Comput Mater.2020;6(1):1-8.doi: 10.1038/s41524-020-0309-6
+41. WeegerO,YeungSK,DunnM.IsogeometriccollocationmethodsforCosseratrodsandrodstructures. Comput Methods Appl Mech Eng.
+2017;316:100-122.doi:10.1016/j.cma.2016.05.009
+42. WeegerO,BoddetiN,YeungSK,KaijimaS,DunnM.Digitaldesignandnonlinearsimulationforadditivemanufacturingofsoftlattice
+structures. Addit Manuf.2019;25:39-49.doi: 10.1016/j.addma.2018.11.003
+43. Riks E. An incremental approach to the solution of snapping and buckling problems.Int J Solids Struct . 1979;15(7):529-551.
+doi:10.1016/0020-7683(79)90081-7
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 29 =====
+FERNÁNDEZetal. 605
+44. Potier-Ferry M. Foundations of elastic postbuckling theory. In: Arbocz J, Potier-Ferry M, Singer J, Tvergaard V, eds.Buckling and
+Post-Buckling: Four Lectures in Experimental, Numerical and Theoretical Solid Mechanics Based on Talks Given at the CISM-Meeting Held
+in Udine, Italy, September 29–October 3, 1985Lecture Notes in Physics.Springer;1987:1-82.
+45. CasciaroR,GarceaG,AttanasioG,GiordanoF.Perturbationapproachtoelasticpost-bucklinganalysis. Comput Struct.1998;66(5):585-595.
+doi:10.1016/S0045-7949(97)00112-0
+46. TruesdellC,NollW,AntmanSS. The Non-Linear Field Theories of Mechanics.3rded.Springer;2004.
+47. ŠilhavýM. The Mechanics and Thermodynamics of Continuous Media.Springer;1997.
+48. CottonFA. Chemical Applications of Group Theory.3rd.ed.Wiley;1990.
+49. Coleman BD, Noll W. Material symmetry and thermostatic inequalities in finite elastic deformations.Arch Ration Mech Anal .
+1964;15(2):87-111.doi:10.1007/BF00249520
+50. LeuschnerM,FritzenF.Reducedorderhomogenizationforviscoplasticcompositematerialsincludingdissipativeimperfectinterfaces.
+Mech Mater.2017;104:121-138.doi: 10.1016/j.mechmat.2016.10.008
+51. Virtanen P, Gommers R, Oliphant TE, et al. SciPy 1.0: fundamental algorithms for scientific computing in Python.Nature Methods.
+2020;17(3):261-272.doi:10.1038/s41592-019-0686-2
+How to cite this article: FernándezM, FritzenF, WeegerO.Materialmodelingforparametric,anisotropic
+finitestrainhyperelasticitybasedonmachinelearningwithapplicationinoptimizationofmetamaterials. Int J
+Numer Methods Eng.2022;123(2):577-609.doi:10.1002/nme.6869
+APPENDIX A. DETAILED EV ALUATION OF BEST PERFORMING MODELS
+The chosen model instance with [4,128] and calibrated with the newly proposed weights (31) and (32) illus-
+trated in the left columns of Figures 12 and 13 is shown with further details in Figures A1 and A2. The left columns
+show the components of the deformation gradient, the middle columns correspond to the potential values and the
+right columns illustrate the stresses. The analogous evaluation for the modelu with uniform weights is shown in
+FiguresA3andA4.
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 30 =====
+606 FERNÁNDEZetal.
+FIGURE A 1 Evaluationoftrainedmodel basedonnetwork [4,128]and𝜖for t1 =(0.125,0.345,0.255)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 31 =====
+FERNÁNDEZetal. 607
+FIGURE A 2 Evaluationoftrainedmodel basedonnetwork [4,128]and𝜖for t2 =(0.995,0.885,0.975)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 32 =====
+608 FERNÁNDEZetal.
+FIGURE A 3 Evaluationoftrainedmodel u basedonnetwork [4,128]and(wMSEW + wMSEP)∕2withuniformweightsfor
+t1 =(0.125,0.345,0.255)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 33 =====
+FERNÁNDEZetal. 609
+FIGURE A 4 Evaluationoftrainedmodel u basedonnetwork [4,128]and(wMSEW + wMSEP)∕2withuniformweightsfor
+t2 =(0.995,0.885,0.975)
+ 10970207, 2022, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/nme.6869, Wiley Online Library on [19/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

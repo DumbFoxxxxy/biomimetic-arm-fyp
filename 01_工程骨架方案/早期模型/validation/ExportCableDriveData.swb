@@ -1,0 +1,447 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo FatalError
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+
+    Dim assemblyPath As String
+    Dim exportRoot As String
+    Dim localStlDir As String
+    Dim componentsPath As String
+    Dim framesPath As String
+    Dim partFramesPath As String
+
+    assemblyPath = "D:\XJTLU\PSP\model\biomimetic_structure.SLDASM"
+    exportRoot = "D:\XJTLU\PSP\model\exports"
+    localStlDir = exportRoot & "\bones_local"
+    componentsPath = exportRoot & "\component_transforms.txt"
+    framesPath = exportRoot & "\joint_frames.txt"
+    partFramesPath = exportRoot & "\part_frames.txt"
+
+    EnsureFolder exportRoot
+    EnsureFolder localStlDir
+    ClearFolder localStlDir
+    ResetFile componentsPath
+    ResetFile framesPath
+    ResetFile partFramesPath
+
+    WriteLine componentsPath, _
+        "name|path|suppressed|fixed|xform0|xform1|xform2|xform3|xform4|xform5|xform6|xform7|xform8|xform9|xform10|xform11|xform12|xform13|xform14|xform15"
+    WriteLine framesPath, "name|v0|v1|v2|v3|v4|v5|v6|v7|v8|v9|v10|v11|v12|v13|v14|v15"
+    WriteLine partFramesPath, "name|component|v0|v1|v2|v3|v4|v5|v6|v7|v8|v9|v10|v11|v12|v13|v14|v15"
+
+    Dim swAssembly As Object
+    Set swAssembly = swApp.GetOpenDocumentByName(assemblyPath)
+    If swAssembly Is Nothing Then
+        Dim errors As Long
+        Dim warnings As Long
+        Set swAssembly = swApp.OpenDoc6(assemblyPath, 2, 0, "", errors, warnings)
+    End If
+
+    If swAssembly Is Nothing Then
+        WriteLine framesPath, "ERROR|could_not_open_assembly"
+        Exit Sub
+    End If
+
+    ExportComponents swAssembly, localStlDir, componentsPath
+    ExportJointFrames swAssembly, framesPath
+    ExportPartJointFrames swAssembly, partFramesPath
+    ExportAllPartCoordinateSystems swAssembly, partFramesPath
+    ExportPartBoxes swAssembly, exportRoot
+    ExportPartProbe swAssembly, exportRoot
+    Exit Sub
+
+FatalError:
+    WriteLine framesPath, "ERROR|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub ExportPartJointFrames(swAssembly As Object, framesPath As String)
+    Dim components As Variant
+    Dim component As Object
+    Dim part As Object
+    Dim names As Variant
+    Dim name As String
+    Dim xform As Object
+    Dim values As Variant
+    Dim line As String
+    Dim i As Long
+    Dim j As Long
+
+    On Error GoTo PartFrameError
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        Exit Sub
+    End If
+
+    names = Array("SC_J", "ACST_J", "GH_J", "ELBOW_J")
+    For i = LBound(components) To UBound(components)
+        Set component = components(i)
+        Set part = Nothing
+        On Error Resume Next
+        Set part = component.GetModelDoc2()
+        On Error GoTo PartFrameError
+        If part Is Nothing Then
+            ' Skip components without a model document.
+        Else
+            For j = LBound(names) To UBound(names)
+                name = names(j)
+                Set xform = Nothing
+                values = Empty
+                On Error Resume Next
+                Set xform = part.Extension.GetCoordinateSystemTransformByName(name)
+                If Not xform Is Nothing Then
+                    values = xform.ArrayData
+                End If
+                On Error GoTo PartFrameError
+
+                If Not xform Is Nothing And IsArray(values) Then
+                    line = name & "|" & component.Name2
+                    Dim k As Long
+                    For k = LBound(values) To UBound(values)
+                        line = line & "|" & CStr(values(k))
+                    Next k
+                    WriteLine framesPath, line
+                End If
+            Next j
+        End If
+    Next i
+    Exit Sub
+
+PartFrameError:
+    WriteLine framesPath, "ERROR|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub ExportPartProbe(swAssembly As Object, outputDir As String)
+    Dim path As String
+    Dim components As Variant
+    Dim component As Object
+    Dim part As Object
+    Dim bodies As Variant
+    Dim mp As Object
+    Dim com As Variant
+    Dim componentName As String
+    Dim bodyCount As String
+    Dim line As String
+    Dim i As Long
+
+    path = outputDir & "\part_probe.txt"
+    ResetFile path
+    WriteLine path, "component|bodies|comx|comy|comz|volume|mass"
+
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        Exit Sub
+    End If
+
+    For i = LBound(components) To UBound(components)
+        Set component = components(i)
+        componentName = ""
+        componentName = component.Name2
+        Set part = Nothing
+        Set part = component.GetModelDoc2()
+        bodyCount = "n/a"
+        bodies = Empty
+        bodies = part.GetBodies2(0, False)
+        If IsArray(bodies) Then
+            bodyCount = CStr(UBound(bodies) - LBound(bodies) + 1)
+        End If
+        Set mp = Nothing
+        Set mp = part.Extension.CreateMassProperty()
+        line = componentName & "|" & bodyCount
+        If Not mp Is Nothing Then
+            com = Empty
+            com = mp.CenterOfMass
+            If IsArray(com) Then
+                line = line & "|" & CStr(com(0)) & "|" & CStr(com(1)) & _
+                    "|" & CStr(com(2))
+            Else
+                line = line & "|?|?|?"
+            End If
+            line = line & "|" & CStr(mp.Volume) & "|" & CStr(mp.Mass)
+        Else
+            line = line & "|?|?|?|?|?"
+        End If
+        WriteLine path, line
+    Next i
+End Sub
+
+Sub ExportPartBoxes(swAssembly As Object, outputDir As String)
+    Dim path As String
+    Dim components As Variant
+    Dim component As Object
+    Dim box As Variant
+    Dim i As Long
+    Dim k As Long
+    Dim componentName As String
+
+    path = outputDir & "\part_boxes.txt"
+    ResetFile path
+    WriteLine path, "component|minx|miny|minz|maxx|maxy|maxz"
+
+    On Error Resume Next
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        Exit Sub
+    End If
+
+    For i = LBound(components) To UBound(components)
+        Set component = components(i)
+        componentName = ""
+        componentName = component.Name2
+        box = Empty
+        box = component.GetBox(True, True)
+        If IsArray(box) Then
+            If UBound(box) - LBound(box) >= 5 Then
+                WriteLine path, componentName & "|" & CStr(box(0)) & "|" & _
+                    CStr(box(1)) & "|" & CStr(box(2)) & "|" & _
+                    CStr(box(3)) & "|" & CStr(box(4)) & "|" & CStr(box(5))
+            Else
+                WriteLine path, "diag|" & componentName & "|shortbox"
+            End If
+        Else
+            WriteLine path, "diag|" & componentName & "|nobox"
+        End If
+    Next i
+End Sub
+
+Sub ExportAllPartCoordinateSystems(swAssembly As Object, framesPath As String)
+    Dim components As Variant
+    Dim component As Object
+    Dim part As Object
+    Dim feature As Object
+    Dim nextFeature As Object
+    Dim xform As Object
+    Dim values As Variant
+    Dim line As String
+    Dim i As Long
+    Dim j As Long
+    Dim guard As Long
+
+    On Error Resume Next
+    components = swAssembly.GetComponents(False)
+    On Error GoTo 0
+    If IsEmpty(components) Then
+        Exit Sub
+    End If
+
+    For i = LBound(components) To UBound(components)
+        Set component = components(i)
+        Set part = Nothing
+        On Error Resume Next
+        Set part = component.GetModelDoc2()
+        On Error GoTo 0
+        If Not part Is Nothing Then
+            Set feature = Nothing
+            On Error Resume Next
+            Set feature = part.FirstFeature()
+            On Error GoTo 0
+            guard = 0
+            Do While Not feature Is Nothing
+                guard = guard + 1
+                If guard > 5000 Then
+                    Exit Do
+                End If
+
+                values = Empty
+                Set xform = Nothing
+                On Error Resume Next
+                Set xform = part.Extension.GetCoordinateSystemTransformByName( _
+                    feature.Name)
+                If Not xform Is Nothing Then
+                    values = xform.ArrayData
+                End If
+                On Error GoTo 0
+
+                If IsArray(values) Then
+                    line = feature.Name & "|" & component.Name2
+                    For j = LBound(values) To UBound(values)
+                        line = line & "|" & CStr(values(j))
+                    Next j
+                    WriteLine framesPath, line
+                End If
+
+                Set nextFeature = Nothing
+                On Error Resume Next
+                Set nextFeature = feature.GetNextFeature()
+                On Error GoTo 0
+                Set feature = nextFeature
+            Loop
+        End If
+    Next i
+End Sub
+
+Sub ExportComponents(swAssembly As Object, outputDir As String, componentsPath As String)
+    Dim components As Variant
+    Dim component As Object
+    Dim componentName As String
+    Dim componentPath As String
+    Dim baseName As String
+    Dim suppressed As Boolean
+    Dim fixed As Boolean
+    Dim xform As Object
+    Dim values As Variant
+    Dim line As String
+    Dim i As Long
+    Dim j As Long
+
+    On Error GoTo ComponentError
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        WriteLine componentsPath, "ERROR|no_components"
+        Exit Sub
+    End If
+
+    For i = 0 To UBound(components)
+        Set component = components(i)
+        componentName = ""
+        componentPath = ""
+        suppressed = False
+        fixed = False
+        line = ""
+
+        On Error Resume Next
+        componentName = component.Name2
+        componentPath = component.GetPathName()
+        suppressed = component.IsSuppressed()
+        fixed = component.IsFixed()
+        Set xform = component.Transform2
+        If xform Is Nothing Then
+            Set xform = component.GetXform()
+        End If
+        values = xform.ArrayData
+        On Error GoTo ComponentError
+
+        line = componentName & "|" & componentPath & "|" & CStr(suppressed) & _
+            "|" & CStr(fixed)
+        If IsArray(values) Then
+            For j = LBound(values) To UBound(values)
+                line = line & "|" & CStr(values(j))
+            Next j
+        End If
+        WriteLine componentsPath, line
+
+        baseName = LCase(GetBaseName(componentPath))
+        If IsCableBone(baseName) And Not suppressed Then
+            ExportComponentStl component, outputDir & "\" & baseName & ".stl", _
+                swAssembly.GetTitle()
+        End If
+    Next i
+    Exit Sub
+
+ComponentError:
+    WriteLine componentsPath, "ERROR|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub ExportComponentStl(component As Object, outputPath As String, assemblyTitle As String)
+    Dim part As Object
+    Dim errors As Long
+    Dim warnings As Long
+    Dim ok As Boolean
+    Dim activateErrors As Long
+
+    On Error Resume Next
+    Set part = component.GetModelDoc2()
+    If part Is Nothing Then
+        Exit Sub
+    End If
+    swApp.ActivateDoc3 part.GetTitle(), False, 0, activateErrors
+    ok = part.SaveAs3(outputPath, 0, 3)
+    swApp.ActivateDoc3 assemblyTitle, False, 0, activateErrors
+    On Error GoTo 0
+End Sub
+
+Sub ExportJointFrames(swAssembly As Object, framesPath As String)
+    Dim names As Variant
+    Dim name As String
+    Dim xform As Object
+    Dim values As Variant
+    Dim line As String
+    Dim i As Long
+    Dim j As Long
+
+    names = Array("SC_J", "ACST_J", "GH_J", "ELBOW_J")
+    For i = LBound(names) To UBound(names)
+        name = names(i)
+        Set xform = Nothing
+        values = Empty
+        On Error Resume Next
+        Set xform = swAssembly.Extension.GetCoordinateSystemTransformByName(name)
+        If Not xform Is Nothing Then
+            values = xform.ArrayData
+        End If
+        On Error GoTo 0
+
+        If xform Is Nothing Or Not IsArray(values) Then
+            WriteLine framesPath, name & "|MISSING"
+        Else
+            line = name
+            For j = LBound(values) To UBound(values)
+                line = line & "|" & CStr(values(j))
+            Next j
+            WriteLine framesPath, line
+        End If
+    Next i
+End Sub
+
+Function GetBaseName(path As String) As String
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim stem As String
+    stem = fso.GetBaseName(path)
+    Dim dash As Long
+    dash = InStrRev(stem, "-")
+    If dash > 0 Then
+        stem = Left(stem, dash - 1)
+    End If
+    GetBaseName = stem
+End Function
+
+Function IsCableBone(name As String) As Boolean
+    IsCableBone = (name = "thorax" Or name = "clavicle" Or _
+        name = "scapula" Or name = "humerus" Or name = "ulna")
+End Function
+
+Sub EnsureFolder(folderPath As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(folderPath) Then
+        fso.CreateFolder folderPath
+    End If
+End Sub
+
+Sub ClearFolder(folderPath As String)
+    Dim fso As Object
+    Dim folder As Object
+    Dim file As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(folderPath) Then
+        Exit Sub
+    End If
+    Set folder = fso.GetFolder(folderPath)
+    For Each file In folder.Files
+        If UCase(Right(file.Name, 4)) = ".STL" Then
+            On Error Resume Next
+            file.Delete True
+            On Error GoTo 0
+        End If
+    Next file
+End Sub
+
+Sub ResetFile(filePath As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 2, True, -1)
+    ts.Close
+End Sub
+
+Sub WriteLine(filePath As String, message As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 8, True, -1)
+    ts.WriteLine message
+    ts.Close
+End Sub

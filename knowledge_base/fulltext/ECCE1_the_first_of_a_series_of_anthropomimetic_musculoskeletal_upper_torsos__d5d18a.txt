@@ -1,0 +1,548 @@
+===== PAGE 1 =====
+ECCE1: t he ﬁrst of a series of anthropomimetic musculoskeletal upper
+torsos
+Hugo Gravato Marques, Michael J¨antsch, Steffen Wittmeier, Owen Holland, Cristiano Alessandro,
+Alan Diamond, Max Lungarella a nd Rob Knight
+Abstract— The human b ody was not designed b y engineers
+and the way in which it is built poses enormous control
+problems. Its complexity challenges the ability o f classical
+control theory to explain hu man movement as well as the
+development of human motor skills. It is our working hypothesis
+that the engineering paradigm for building robots places severe
+limitations on the kinds of interactions s uch robots can engage
+in, on the knowledge they can acquire of t heir e nvironment,
+and therefore on the nature of t heir c ognitive e ngagement
+with the e nvironment. This paper describes the design of an
+anthropomimetic humanoid upp er torso, ECCE1, built in the
+context of t he ECCEROBOT project. The goal of t he project
+is to use this platform to test hypotheses about human motion
+as well as to compare its performance with that of humans,
+whether at t he mechanical, behavioural or c ognitive level.
+I. INTRODU CTION
+Standard humanoid robots mimic the human form, but the
+mechanisms used in such robots are very different from those
+in humans [1]. Typically these robots are designed according
+to the same engineering techniques that are used in industrial
+robots, as is shown by the characteristics of their bodies: they
+are heavy and stiff, and u se precise a nd po werful motors to
+control j oints with easily identiﬁable a xes of r otation. This
+contrasts heavily with the human body , which is relatively
+light and compliant, and has a noisy and redundant actuation
+system controlling some c omplex joints (e.g. the shoulder).
+One important constraint t hat separates the human body
+from that of an industrial robot i s the e nvironment t hat
+each h as to cope with. Whereas the e nvironment of the
+industrial robot can b e tailored to facilitate its interactions
+and achieve its mission, the human body h as to cope with
+an extremely dyn amic e nvironment which is often ho stile,
+partially unkno wn and unp redictable [2].
+It i s not only to interact with hu man environments that a
+robots body h as to conform to certain p rinciples; it i s also to
+interact with humans themselves. The stiff actuation principle
+This work was s upported in p art by the European Commission FP7
+Cognitive Systems and Robotics project ECCEROBOT, contract no. 231864.
+H. G. Marques, C. Alessandro and M. Lungarella a re with
+the Institut f¨ur I nformatik, University o f Z¨urich, Switzerland
+hgmarques@ifi.uzh.ch, alessandro@ifi.uzh.ch,
+lunga@ifi.uzh.ch
+M. J¨antsch, S. Wittmeier are with the Institut
+f¨ur I nformatik VI Technische Universit¨at M¨unchen,
+Germany michael.jaentsch@in.tum.de,
+wittmeis@in.tum.de
+R. Knight i s with the RobotStudio company, France
+rob.knight@therobotstudio.com
+O. Holland and A. Diamond is with the University
+of Sussex, UK o.e.holland@sussex.ac.uk,
+a.diamond@sussex.ac.uk
+of most humanoids poses a major threat t o hu mans due to
+the large amounts of inertia produced. Although advances in
+robot control have shown that it i s possible to bu ild safer
+robots using standard actuation methods with computation-
+ally controlled compliance, this has the weakness that it i s
+not i ntrinsic to the robots body.
+Probably the best known conventional humanoid robot
+is Honda’s ASIMO [3]. Although the e ngineering b ehind
+ASIMO is of the highest quality, when looking at ASIMO
+interacting with its environment it i s clear that the movement
+patterns are often qu ite different from those of humans. For
+example, when the robot walks, its torso is kept straight and
+stiff, unlike the human torso which ﬂexes and swings like
+a pendulum to facilitate bipedal l ocomotion in an up right
+posture. If pushed while walking, ASIMO compensates
+with stifﬂy controlled p recise movements, quite different i n
+character from the largely passive compensatory ﬂexing o f a
+human o r animal.
+Our working hypo thesis is that t he e ngineering p aradigm
+for building robots places s evere limitations on the kinds of
+interactions s uch robots can engage in, on the knowledge
+they can acquire of their environment, and therefore on the
+nature of their cognitive e ngagement with the e nvironment.
+The reasoning b ehind the c omplex p latform described h ere
+is that an anthropomimetic (truly hu man-like) r obot body
+will facilitate human-like e nvironmental i nteractions, and
+will also require the use of control systems s imilar to those
+used by the brain, which in turn will mediate the knowledge
+acquired from the e nvironment, and h ence the forms of the
+cognitive e ngagement with the e nvironment.
+This paper describes ECCE1 (see Fig. 1), the ﬁrst an-
+thropomimetic robot chassis produced in the c ontext of
+the ECCEROBOT project. The ﬁrst section introduces the
+motivations of the project. The second section identiﬁes a
+set of f our design p rinciples present i n the human body
+that are usually no t considered in the design o f classical
+humanoids. The third section o ffers a short description o f
+three robots which are built according to (at l east some)
+of these principles. The fourth section b rieﬂy d escribes
+ECCEOS, the physics-based simulator being bu ilt for the
+project. Finally, the last section identiﬁes the improvements
+that will be made in future iterations of the robot prototype.
+II . MOTIVATION
+ECCEROBOT (Embodied Cognition in a Compliantly
+Engineered Robot) is a three-year project funded by the
+7th Framework Programme of the EU that aims to bu ild
+
+===== PAGE 2 =====
+Fig. 1: ECCE1 – the ﬁrst prototype of the ECCEROBOT
+series of anthropomimetic robots.
+and control an anthropomimetic robot, and to investigate the
+extent t o which it displays human-like c ognitive features.
+Instead o f just possessing a human-like e xternal shell, the
+body o f an anthropomimetic robot is closely modeled on the
+inner structures and mechanisms of the human body – bon es,
+joints, muscles, and tendons – and thus has the potential for
+human-like ac tion and interaction in the world.
+The main go als of the project are the following:
+• to d esign and bu ild an anthropomimetic torso mounted
+on a powered mobile platform;
+• to d evelop methods of characterising such robots in
+terms of the information ﬂows emerging from their
+human-like intrinsic dynamics and sensory-motor cou-
+pling;
+• to investigate ways of controlling the robot during
+movement, interaction, and mobile manipulation, and
+to combine successful control strategies in a single
+architecture deploying them appropriately according to
+circumstances and tasks;
+• to exploit t he a nthropomimetic nature of the robot i n
+order to achieve some human-like c ognitive c haracter-
+istics through sensory-motor control; and
+• to evaluate the functional and cognitive a bilities of the
+robot, both absolutely and in comparison with a state
+of the a rt conventional robot.
+III . ANTHROPOMIMET IC DESIGN PRINCIPLE S
+The major role of the ECCEROBOT platform is to enable
+the study and testing o f hypotheses about human function-
+alities at t he mechanical, behavioural and cognitive level.
+This distinguishes the ECCEROBOT project from almost all
+other r esearch p rojects on hu manoid robots, and motivates
+the requirement for a humanoid robot that mimics as closely
+as possible the mechanical structures of the human body .
+There a re obvious difﬁculties in achieving this requirement,
+especially since much current technology cannot yet perform
+at t he level of its biological counterparts. For example, the
+power to weight ratio o f current actuators is s till far below
+that of human muscle.
+Even though we face obvious technological challenges, we
+believe that we have developed a ﬁrst robot prototype which
+displays a complexity comparable to that of the human body.
+In [1], Owen Holland and Rob Knight outlined what t hey
+referred to as the a nthropomimetic principle, calling for a
+robot which imitates not j ust t he human form, but also the
+biological structures and functions that enable a nd constrain
+perception and action. In the following subsections we put
+forward four mechanical design p rinciples of the human
+musculoskeletal system which are followed in ou r r obot,
+and which we think are e ssential i f one wants to explore
+hypotheses about human motion g eneration: t endon-driven
+redundant actuation, multiple joint actuators, compliance and
+complex joints.
+A. Tendon-Driven Redundant Actuation
+In todays humanoid robots the ac tuators are usually po si-
+tioned at the joints to control particular axes of rotation, with
+each axis of r otation b eing controlled by on e motor. This
+principle ca n b e seen in well-known robots s uch as ASIMO
+[3]. The human body , on the other hand, exploits tendon-
+based techniques to move its limbs. Instead o f placing the
+actuators directly on a joints axis of r otation, it uses con-
+tractile muscles attached to bones via elastic tendons. During
+muscle c ontraction a force is exerted on the a nchor points
+of the muscle which, if sufﬁciently high, causes a movement
+of the relevant li mb-parts. Muscles are a symmetric, in that
+they can on ly pu ll, not push. Typically this entails having
+a redundantly actuated body , i.e. a body in which there a re
+more ac tuators than there a re degrees of fr eedom (DoF).
+B. Multi-articular Joint Actuators
+In addition to muscles providing straightforward actuation
+at a single joint, the human body h as muscles which p ass
+across two o r more joints, and can therefore move the
+relevant li mb-parts at more than on e joint [4]. For example,
+the biceps is attached to the scapula a nd to the radius,
+forming a parallel muscle. Although its primary role is the
+supination and ﬂexion o f the forearm, it also h as an effect
+on the shoulder, and so an anthropomimetic robot should
+include this s tructure in o rder to capture fully the c haracter
+of the possible movements.
+C. Compliance
+In order to enable precise control, humanoid robotic actua-
+tors are typically stiff. The muscles and tendons in the human
+body, on the other hand, are e lastic, providing two p ractical
+advantages: the compliant structure and actuation shields the
+mechanisms from imposed shock loads, and the c ompliance
+and low mass allow safe interaction with the e nvironment
+such as grasping a fragile object (cf. [5]). The e lastic nature
+of muscle systems is typically represented (for example, in
+the popular Hill muscle model) as an arrangement of lightly
+damped springs.
+
+===== PAGE 3 =====
+D. Complex joints
+The joints of humanoid robots usually h ave c learly iden-
+tiﬁable a xes of r otation. From the c lassical control point of
+view this allows their motion to b e dealt with in a tractable
+mathematical framework. However, the human body h as
+joints which do no t match this description. For example, the
+shoulder is an extremely complex structure which includes
+the c lavicle, the scapula, and the humerus. Although it i s
+connected to the sternum via the c lavicle, the scapula does
+not have c learly d eﬁned axes of r otation as it i s held in
+place mainly by ligaments and muscles. This arrangement
+produces a wide range of motions (rotations and translations)
+that are not easy to classify. The spine is another complex
+structure ce ntral t o ou r embodiment which also po ses enor-
+mous challenges from the perspectives of both the design
+and the c ontrol.
+IV. STATE OF THE ART
+There a re a small number of humanoid p latforms which
+comply with at l east some of the a nthropomimetic design
+principles identiﬁed, and it will be useful t o d iscuss three
+examples: the iCub, Kojiro and the ZAR5. The iCub platform
+is designed to represent a 3 year old child. The robot is about
+1m height, weights about 22Kg, and h as 53 DoF [6]. It i s
+driven both by conventionally actuated joints, and by tendon-
+driven muscles (in the hands, shoulders, waist and ankles)
+each consisting o f a brushless motor in series with a ca ble.
+The types of joints actuated v ia the tendons are c lassically
+engineered 1 DoF, 2 DoF and 3 DoF joints; for example,
+both the shoulder and the spine have been simpliﬁed into
+3DoF joints [7]. The cables used are inelastic, but the tendon-
+driven structure gives the robot some incidental compliance.
+Finally, although the robot uses tendons, it is not redundantly
+actuated.
+In its s tructure, the Kojiro robot, as well as its prede-
+cessor, Kotaro, is close to the system that i s the target of
+the ECCEROBOT project. However, the a im of the Kojiro
+project is quite different, as it is directed towards identifying
+and investigating the beneﬁts of this technology for practical
+robotic a pplications rather than serving as a tool t o investi-
+gate humanoid motor and cognitive development [8]. Kojiro
+is redundantly actuated by analogues of human muscles; a
+brushless motor is placed in series with a cable and an elastic
+component which g ives the system intrinsic c ompliance.
+The robot i ncludes s ome c omplex joints. The spine c on-
+sists of r igid d isks s tacked on top o f each o ther with
+spherical j oints in b etween. The shoulder blade is also a
+complex structure inspired by the human body, and includes
+a spherical t horax, a scapula a nd a c lavicle [9]. However,
+there is no mention o f multi-articular actuation in any o f the
+publications we have studied.
+Like the two o ther robots, ZAR5 (Zwei-Armiger Roboter)
+is also d esigned according to b iological principles: not only
+its s hape, proportions, and radii of action, but also its joints
+and musculo-tendon-skeletal structure were inspired by its
+anthropological counterparts [10]. The actuation scheme uses
+pneumatic c ontractile e lements (or ﬂuidic muscles), which
+Fig. 2: The ac tuation p rinciple of the ECCE1 (see details in
+the text).
+have a high po wer-to-weight ratio and d isplay no stick-slip
+behavior. Although the Dyneema tendons are inelastic, the
+use of air-driven actuation technology g ives intrinsic c om-
+pliance to the robot. Muscle pairs arranged in antagonistic
+conﬁgurations drive a ll t he joints apart from the ﬁngers.
+Unlike Kojiro, this robot does not have c omplex joints.
+V. ECCE1 – AN ANTHROPOMIMET IC ROBOT
+ECCE1, the ﬁrst platform developed within the ECCER-
+OBOT project, aims to capture the dynamics, the geometry,
+and the degrees of fr eedom of the human upp er body. It i s a
+reworked v ersion o f CRONOS, the ﬁnal prototype from the
+CRONOS project [1],[2] during which the a nthropomimetic
+principle was ﬁrst articulated. The most outstanding feature
+of the design is the way in which the ac tive a nd p assive
+compliance a nd the many d egrees of fr eedom combine to
+produce a robot i n which every movement, whether active
+or passive, is a whole body movement, and on e with a
+recognisably hu man character.
+A. Musculoskeletal Structure
+The skeleton o f ECCE1 consists of a set of r igid limb
+structures modeled on the c orresponding hu man bon es,
+which are c onnected by the a ppropriate joints, or simpliﬁca-
+tions of them [1]. It consists of an upp er torso bu ilt on top
+of a spine-like structure. For both h istorical and functional
+reasons, the two shoulders of the robot are structurally
+different. The left shoulder has an anatomically correct joint
+structure with a scapula ca rrying a ball-and-socket j oint
+for the humerus, and a c lavicle jointed to the sternum;
+the right shoulder is a c lassically engineered joint of three
+orthogonal 1 DoF joints ﬁxed to the trunk. This arrangement
+allows the comparison of the anthropomimetic shoulder with
+the rationalised v ersion. On top o f the torso sits a rather
+elongated articulated n eck (similar in structure to the spine)
+which supports the head.
+The material used for most of the skeleton is an engineer-
+ing g rade thermoplastic, a ca prolactone which can b e ea sily
+hand moulded into the desired shape when h eated to around
+60C. (We have not yet observed any softening of this material
+
+===== PAGE 4 =====
+Fig. 3: The ﬂexible spine.
+as a result of motor heating when the robot is actuated, but it
+is a possible hazard.) Each limb provides points for attaching
+the ac tuators (or muscles), which consist of high-torque DC
+motors in series with on e or more strands of marine grade
+shock cord (sleeved n atural rubber). The motors, which are
+controlled by the e lectronic c ontrol units described in (H),
+pull on the shock cord v ia Dyneema kite line wound round
+the gearbox ou tput shaft; t he other end o f the shock cord is
+attached to the ac tuated limb structure a s s hown in Fig. 2.
+Motor position is derived from potentiometers mounted on
+the output shaft.
+The muscle locations and attachment points are designed
+to match those of human muscles, and so many o f the
+arrangements are a ntagonistic. However, the e lasticity o f
+shock cord is linear, except at t he e xtremes, and so the joint
+compliance under co-contraction is ﬁxed rather than variable.
+The functional consequences of this limitation are unknown,
+and will be e stablished by experiment.
+B. Flexible Spine and Neck
+The torso is held v ertically by means of a c hain o f f our
+vertebrae-like e lements s eparated by compliant disks; t his
+allows the robot to bend both in the sagittal and in the coronal
+planes (see Fig. 3). Movements are produced by two agonist-
+antagonist groups of muscles placed on all four sides of the
+spinal structure. An additional actuator is mounted in the
+front (at the a bdominal level) to assist i n h andling the heavy
+static load. Other non-actuated p assive e lastic c omponents
+are used to stabilize the e ntire torso.
+The neck is similar to the spine, with three rather elongated
+vertebral elements allowing b ending in the sagittal and
+coronal planes. An additional 2 DoF joint is used to rotate the
+head around its longitudinal and lateral axes. The neck-head
+kinematic c hain is held together by several l ongitudinally
+arranged shock cord segments, and the whole c omplex is
+moved by four elastically coupled actuators.
+C. Head and Eye
+Unlike most human b eings, ECCE1 is a c yclops – it has
+only one eye – but future examples will be binocular. ECCE1
+is currently equipped with a single ca mera with a 90 ◦ ﬁeld
+of view mounted in an eyeball-like structure (see Fig. 4).
+Like the human eye, the e yeball of ECCE1 can p an, tilt
+and rotate a round the a xis perpendicular to the image plane.
+Fig. 4: The single e ye.
+(a)
+ (b)
+Fig. 5: Detail of the scapula of ECCE1. As can b e seen in
+b), at t he back the scapula ca n b e slightly d etached from the
+torso.
+The camera is actuated by three orthogonally arranged servos
+each of which controls the desired angle of orientation in the
+relevant dimension.
+D. Shoulder Joint
+The right shoulder conforms to a c lassical structure c on-
+sisting o f three orthogonal hinge joints, and is actuated by
+ﬁve a rtiﬁcial muscles, one of which, the biceps, is a bi-
+articular muscle which also ﬂexes the lower arm about t he
+elbow. The left shoulder replicates the structure of the human
+shoulder ( see Fig. 5). A ball-and-socket j oint between the
+humerus and the scapula a llows the rotation o f the humerus
+about three orthogonal axes. The scapula is connected to the
+clavicle using ligaments; t he c lavicle, in turn, is connected
+to the torso at t he sternum by means of a non-actuated b all
+joint. The scapula is held in place by muscles, and by elastic
+and inelastic ligaments. Five ac tuators are used to move the
+scapula, and the ball-and-socket j oint it carries is actuated
+by four artiﬁcial muscles including the biceps, which is a
+bi-articular muscle a s in the right arm.
+E. Elbow Joint and Rotators
+The elbows consist of 1 DoF hinge joints allowing for the
+ﬂexion and extension o f the lower arm. They are ac tuated
+by three a rtiﬁcial muscles (including the biceps mentioned
+in the previous s ection). A stifﬂy actuated conventional
+
+===== PAGE 5 =====
+(a)
+ (b)
+Fig. 6: Detail of the hand: a) hand op ened, b) hand h alf-
+closed.
+arrangement controls the rotation o f the forearms around
+their longitudinal axes.
+F. Wrist
+Each wrist comprises a 2 DoF joint actuated by two
+agonist-antagonist pairs of actuators. This mechanism is able
+to p roduce radial and u lnar deviation (movements towards
+the thumb and the little ﬁnger) as well as ﬂexion and
+extension (tilting towards the palm and the back of the hand).
+The ﬂexor muscle a lso controls the c losing motion o f the
+hand.
+G. Hand and Fingers
+At present only one artiﬁcial muscle is used to actuate each
+hand, with all t he ﬁngers being connected to the muscle so
+that as the muscle c ontracts, the grip closes (see Fig. 6). The
+opening of the grip is achieved by a passive elastic structure.
+H. ECUs – Electronic Control Units
+Typically, robot control is done using a centralized control
+scheme where a ll t he sensor values are fetched by a ce ntral
+controller and n ew actuation v alues are ca lculated. This is
+possible when the number of DoFs are limited. As ECCE1
+has 43 actuators, each with several sensors, such an approach
+is infeasible due to the c omplexity o f the wiring and the
+computational ti ming, and a distributed approach is neces-
+sary. We have therefore developed electronic c ontrol units
+(ECUs) f or sensor-actuator control. Each o f these ECUs has
+enough p rocessing po wer to h andle two actuators and their
+associated sensors, and can run d edicated control algorithms
+(e.g. force, position and impedance c ontrol) as well as
+preprocessing o f sensor data. The c ontrol programs running
+on each o f the distributed control units are c ontrolled from
+a ce ntral controller by sending asynchronous commands via
+a CANbus s ystem.
+To reduce ca bling and avoid running vu lnerable a nalog
+sensor signals along the robot’s limbs, the ECUs are designed
+to be placed in strategic locations around the robot torso, and
+so size a nd weight were c ritical design factors.
+Fig. 7: ECCEOS.
+The ECUs have a powerful STMicroelectronics STM32F
+microcontroller, incorporating a 72 MHz ARM Cortex-M3
+processor, several Analog-to-Digital converters and an in-
+tegrated CAN interface, as well as power electronics for
+two motors. The motors are c ontrolled by PWM, using
+two full H-bridges, with current feedback b eing g iven by
+an integrated Hall-effect unit i n the motor loop. The PWB
+measures 6 cm by 7 .8 cm.
+To be able to handle the complexity of a distributed system
+with 43 nod es, each nod e can b e parameterized dyn amically
+at run-time, while the ﬁrmware image is the same for all
+nodes. Parameters that can b e c hanged dyn amically include
+the c ontrol parameters of the different control l oops as well
+as general control parameters. Only a unique identiﬁer and
+bootloader need to be stored in ﬂash, and the software image
+can b e c hanged easily v ia the CANbus at system startup.
+VI. ECCEOS – A G ENERAL TENDON DRIVEN
+PHY SICS-BASED SIMULATOR
+In the ECCEROBOT project we a re a lso d eveloping a
+generic, highly customizable, physics-based simulator, EC-
+CEOS, capable of utilizing CAD robot models (see Fig.7).
+The simulator fr amework u ses a CORBA-based p latform
+which is highly modular and h as a programming-language-
+independent communication p rotocol for easy interfacing
+with existing software c omponents. The design is generic,
+and so is applicable to a wide range of other robotic systems
+in addition to the ECCE series.
+ECCEOS makes use of (1) a physics engine for computing
+the dynamics of the simulated bod ies, performing collision
+detection and solving constraint equations, (2) a graphics
+engine for r endering the simulated scene a nd (3) a user in-
+terface enabling ﬂexible user interaction with the simulation.
+The physics engine is the Bullet Physics Library2, an op en-
+source rigid- and soft-body simulator.
+The graphics engine is Coin3D, an OpenGL-based clone
+of the SGI Open Inventor 3D graphics API ( also op en-
+
+===== PAGE 6 =====
+Fig. 8: ECCEROBOT Design Study (EDS).
+source). It i s cross-platform compatible (using Qt) and
+provides a variety o f pre-deﬁned v iewers for basic user
+interaction with the simulated scene. The graphical user
+interface, which we use to v isualize a nd to interact with the
+physical model, is Qtapplication. Integration is easy since
+Coin3D already includes a Qt render widget.
+Physics based simulation models are often h ard-coded in
+some high-level programming language using the application
+programming interface (API) of the physics engine. Our
+approach in the ECCEOS, however, is more ﬂexible, in that
+ECCEOS will allow CAD models to b e loaded into the
+simulator at runtime, the only requirement being that t he
+entire simulation model (the graphical as well as the physical
+data) must be stored in a ﬁle acc ording to the Collaborative
+Design Activity (COLLADA) speciﬁcations.
+COLLADA [11] is already supported by most CAD tools
+available, and so a physical and a graphical model of the
+robot can be obtained directly from CAD data. Since ECCE1
+was hand-moulded, no CAD data a re a vailable from the
+production p rocess, but ongoing work involves obtaining
+a CAD model from the 3D laser scanning o f individual
+skeleton components. Muscle related p arameters s uch as
+spring and d amping constants, as well as the a nchor points
+themselves, will need to b e a dded manually to the CAD-
+derived COLLADA ﬁle. Until t hen, a hand-coded Blender
+model can b e used.
+VII . FUTURE WORK
+In this paper we have identiﬁed four principles for de-
+signing a robot which closely mimics the mechanics of the
+human body. We have described ECCE1, the ﬁrst upper-torso
+prototype of the ECCEROBOT series, which includes all
+these principles in its design. Although ECCE1 lacks force
+sensors and joint positional sensors, which are e ssential for
+controlling dyn amic behaviours, we have a lready learned a
+great deal about t he intrinsic c haracteristics of the structure
+and its constituent mechanisms. The major problem with
+ECCE1 is friction, both at t he joints, and in p laces where
+tendons make c ontact with p arts of the body. A test rig
+revealed that t he use of Teﬂon on all j oint and rubbing
+surfaces, combined with h igher quality and more powerful
+motors, produced acceptably smooth movements even when
+under load; a c omplete full-scale structural prototype, the
+ECCEROBOT Design Study (EDS), has conﬁrmed that these
+techniques will deliver the same beneﬁts on a functional
+robot (see Fig. 8).
+The next robot i n the series, ECCE2, is s cheduled for
+completion by the e nd o f 2010. It i s designed to include
+the tension and po sition sensing n ecessary for controlling
+dynamic movements, and will be the ﬁrst robot in the series
+to p rovide experimental performance data. Theoretical work
+within the project [12] has indicated that the stable positional
+control of compliant antagonistic ac tuators of the type used
+here may b e possible, and it will be important to assess any
+practical li mitations. ECCE2 will also include a binocular
+vision system and a more ca pable hand.
+REFERENCES
+[1] O. Holland and R. Knight, The a nthropomimetic principle, in Pro-
+ceedings of the AISB06 Symposium on Biologically Inspired Robotics
+edited by J. Burn and M. Wilson, 2006.
+[2] O. Holland, R. Knight, and R. Newcombe, A robot-based approach
+to machine c onsciousness, in Artiﬁcial Consciousness, edited by A.
+Chella, Imprint Academic, 2007.
+[3] Honda Motor Co. ASIMO year 2000 model, available a t
+http://world.honda.com/ASIMO/technology/spec.html, 2000.
+[4] B. Prilutsky, Coordination o f two-and on e-joint muscles: Functional
+consequences and implications for motor control, Motor Control,
+4:144, 2000.
+[5] G. A. Pratt, M. M. Williamson, P. Dillworth, J. Pratt, K. Ull, and A.
+Wright, Stiffness isnt everything, in Proceedings of ISER, pp. 253262,
+1995.
+[6] G. Metta, G. Sandini, D. Vernon, L. Natale, and F. Nori. The iCub
+humanoid robot: an open platform for research in embodied cognition,
+in PerMIS: Performance Metrics for I ntelligent Systems Workshop,
+Washington DC, USA, 2008.
+[7] W. M. Hinojosa, N. G. Tsagarakis, G. Metta, F. Becchi, G. Sandini, and
+D. Caldwell, Performance a ssessment of a 3 d .o.f. differential based
+waist j oint for the iCub b aby hu manoid robot, in RO-MAN 06: The
+15th IEEE International Symposium on Robot and Human Interactive
+Communication, pp. 195201, Hatﬁeld, United Kingdom, 2006.
+[8] I . Mizuuchi, Y. Nakanishi, Y. Sodeyama, Y. Namiki, T. Nishino,
+N. Muramatsu, J. Urata, K. Hongo, T. Yoshikai, and M. Inaba
+An advanced musculoskeletal humanoid Kojiro, in Proceedings of
+International Conference on Humanoid Robots (Humanoids07), 2007.
+[9] Y. Sodeyama, T. Nishino, Y. Namiki, Y. Nakanishi, I. Mizuuchi, and
+M. Inaba, The designs and motions of a shoulder structure with a
+spherical t horax, scapulas and collarbones for humanoid Kojiro, In
+2008 IEEE/RSJ International Conference on Intelligent Robots and
+Systems, Nice, France, 2008.
+[10] I . Boblan, R. Bannasch, A. Schulz, and H. Schwenk, A human-like
+robot t orso ZAR5 with ﬂuidic muscles: Toward a c ommon p latform
+for embodied AI, in 50 Years of Artiﬁcial Intelligence, edited by M.
+Lungarella, F. Iida, J. Bongard, and R. Pfeifer, Springer-Verlag, 2007.
+[11] COLLADA digital asset schema release 1.5.0, available a t
+www.khronos.org/collada/
+[12] V. Potkonjak, B. Svetozarevic, K. Jovanovic, O. Holland, Control of
+compliant anthropomimetic robot j oint, ICNAAM 2010 - 8th Interna-
+tional Conference of Numerical Analysis and Applied Mathematics,
+Rhodes, Greece, 2010

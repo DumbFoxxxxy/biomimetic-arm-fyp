@@ -1,0 +1,186 @@
+{
+  "scope": "E1 real clevis/shoulder-pin candidate; not fitted, load-tested or driven",
+  "centre_source_mm": [
+    -209.86904634828838,
+    -72.12742580930231,
+    1044.5232075118065
+  ],
+  "axis_source": [
+    -0.9911648473318528,
+    0.10967071338784527,
+    0.07459611275814704
+  ],
+  "fork_half_gap_mm": 34.0,
+  "ear_width_mm": 6.0,
+  "hub_width_mm": 16,
+  "hub_outer_radius_mm": 8,
+  "hub_recess_radial_clearance_mm": 0.35,
+  "bush_outer_radius_mm": 4,
+  "bush_inner_radius_mm": 3.15,
+  "pin_radius_mm": 3,
+  "nominal_axial_hub_to_spacer_gap_mm": 0.2,
+  "custom_pin_shank_length_mm": 89.6,
+  "fastener": "6mm shoulder pin envelope, nominal M6 nut; thread not modeled",
+  "humerus_rails_display_mm": [
+    [
+      [
+        -32.89721493114289,
+        -6.198525491989098,
+        -54.24804148176408
+      ],
+      [
+        -29.984577288940237,
+        -6.328037543520107,
+        -15.357171491575734
+      ],
+      [
+        -69.91881314520835,
+        9.53347543791667,
+        -12.313572423958332
+      ]
+    ],
+    [
+      [
+        -106.24341363369999,
+        1.917107298711452,
+        -48.7279291376612
+      ],
+      [
+        -103.33077599149735,
+        1.7875952471804424,
+        -9.83705914747285
+      ],
+      [
+        -69.91881314520835,
+        9.53347543791667,
+        -12.313572423958332
+      ]
+    ]
+  ],
+  "forearm_bridges_display_mm": [
+    [
+      [
+        -75.63365464914287,
+        4.908169821714285,
+        -98.69418657085717
+      ],
+      [
+        -92.6140976305,
+        -9.2645456395,
+        -92.75460446
+      ]
+    ],
+    [
+      [
+        -87.11348509954544,
+        -24.397290326818176,
+        -208.88343015181817
+      ],
+      [
+        -111.8261569125,
+        -23.065526987142857,
+        -203.4290772710715
+      ]
+    ]
+  ],
+  "components": {
+    "humerus_GH_elbow_fork": 1,
+    "forearm_elbow_hub": 1,
+    "elbow_bearing_bush": 1,
+    "elbow_spacer_left": 1,
+    "elbow_spacer_right": 1,
+    "elbow_shoulder_pin": 1,
+    "elbow_washer_left": 1,
+    "elbow_washer_right": 1,
+    "elbow_retaining_nut": 1
+  },
+  "part_owners": {
+    "humerus_GH_elbow_fork": "GH",
+    "forearm_elbow_hub": "elbow",
+    "elbow_bearing_bush": "elbow",
+    "elbow_spacer_left": "GH",
+    "elbow_spacer_right": "GH",
+    "elbow_shoulder_pin": "GH",
+    "elbow_washer_left": "GH",
+    "elbow_washer_right": "GH",
+    "elbow_retaining_nut": "GH"
+  },
+  "bone_aliases": {
+    "humerus_GH_elbow_fork": "FJ3368",
+    "forearm_elbow_hub": "FJ3391"
+  },
+  "replaced_source_geoms": [
+    "FJ3368",
+    "FJ3391",
+    "FJ3349"
+  ],
+  "removed_geoms": [
+    "FJ3349"
+  ],
+  "forearm_policy": "Ulna and radius are geometrically joined by two actual 6mm diameter bridges and represented by FJ3391. No pronation/supination in this first assembly. FJ3349 is NOT deleted material: its entire source solid is present inside forearm_elbow_hub except recorded bore cuts.",
+  "neutral_overlaps": [
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "forearm_elbow_hub"
+      ],
+      "volume_mm3": 8.417633646200699
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_spacer_left"
+      ],
+      "volume_mm3": 712.3136570019939
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_spacer_right"
+      ],
+      "volume_mm3": 1194.1009800252125
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_shoulder_pin"
+      ],
+      "volume_mm3": 0.26008755169667064
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_washer_left"
+      ],
+      "volume_mm3": 3.7635622541573612
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_washer_right"
+      ],
+      "volume_mm3": 3.7635390994798974
+    },
+    {
+      "parts": [
+        "humerus_GH_elbow_fork",
+        "elbow_retaining_nut"
+      ],
+      "volume_mm3": 0.2655333624949458
+    }
+  ],
+  "geometry_delta": {
+    "humerus_removed_mm3": 4274.672857759676,
+    "humerus_added_mm3": 8149.5775508650095,
+    "forearm_removed_mm3": 0.0058056271222019186,
+    "forearm_added_mm3": 3151.1387229376596
+  },
+  "surface_simplification_tolerance_mm": 0.01,
+  "frozen": false,
+  "pending": [
+    "whole-arm solid motion",
+    "actual axial retention and hardware assembly",
+    "muscle attachment and tendon clearance",
+    "manufacturing tolerance, strength and loads"
+  ]
+}

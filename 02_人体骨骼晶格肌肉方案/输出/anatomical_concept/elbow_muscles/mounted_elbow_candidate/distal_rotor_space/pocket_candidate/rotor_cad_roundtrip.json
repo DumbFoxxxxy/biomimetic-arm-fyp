@@ -1,0 +1,54 @@
+{
+  "scope": "two standalone candidate rigid CAD parts; no assembly, tendon or drive validation",
+  "parts": [
+    {
+      "part": "humerus_rotor_pocket",
+      "shell_count": 1,
+      "input_volume_mm3": 121177.52076239117,
+      "input_vertex_count": 3177,
+      "valid": true,
+      "relative_volume_error": 1.8865758830460836e-13,
+      "bbox_error_mm": 2.5863755581667647e-11,
+      "pass": true
+    },
+    {
+      "part": "forearm_with_rotor",
+      "construction": "native BRep Boolean union of separately verified source forearm and rotor; microscopic final union mesh was not sewn",
+      "valid": true,
+      "input_volume_mm3": 81944.76229305017,
+      "input_vertex_count": 1281,
+      "relative_volume_error": 5.110705131859703e-08,
+      "bbox_error_mm": 4.250390702509321e-06,
+      "sampled_mesh_vertex_to_STEP_surface_max_mm": 1.3715854595483037e-05,
+      "surface_sample_count": 512,
+      "surface_check_scope": "512 deterministic vertex samples; not exhaustive surface equivalence proof",
+      "source_STEP_sha256": {
+        "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\cad\\forearm_elbow_hub.step": "8da2df7f4e27da453d3b578bc4484cb5cf4930470fe64133d18af478f005da84",
+        "mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\distal_rotor_space\\pocket_candidate\\rotor_addition\\cad\\rotor_addition.step": "e774b0b8db9fb6f4096cad46f3f0fa9780191dc999f0a5e2757877b2ac9e061b"
+      },
+      "STEP_sha256": "c01a54df78cfdf7c3d49cf744cd42e4893409277e7a37b2d49151f1f64abdd2e",
+      "pass": true,
+      "worst_surface_sample": {
+        "vertex_index": 130,
+        "point_mm": [
+          -116.80400085449219,
+          -41.10300064086914,
+          -290.9330139160156
+        ],
+        "nearest_STEP_point_mm": [
+          -116.8040024917198,
+          -41.10300061161048,
+          -290.93300029825895
+        ],
+        "local_to_elbow_in_rotor_frame_mm": [
+          -43.900925122906756,
+          237.9603771392708,
+          24.68167907795262
+        ]
+      }
+    }
+  ],
+  "cad_input_sha256": "5f803a7add170e42f4081ace1b5d3ec1dd2e4151973ac03b45837244b65f4234",
+  "pass": true,
+  "frozen": false
+}

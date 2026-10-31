@@ -1,0 +1,1384 @@
+{
+  "frozen": true,
+  "mesh_cache": "reverse_refined_local_meshes.npz",
+  "mesh_cache_sha256": "42a1bcbd626d43b0cb9d523bcedc889c6f7e4186155b6b7f68490a3fb7051d01",
+  "native_cad_roundtrip_verified": false,
+  "original_joint_centers_preserved": true,
+  "collision_volume_tolerance_mm3": 0.001,
+  "max_joint_sampling_step_deg": 1,
+  "first_collision_boundary_resolution_deg": 0.1,
+  "continuous_collision_proof": false,
+  "scope": "bone meshes; prescribed paths; no joint-pair exclusions; ideal kinematic joints; no force or TPU verification",
+  "actions": [
+    {
+      "action": "K1",
+      "target": 145,
+      "floor": 116,
+      "actual_range_deg": 145.0,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 8.537736462515939e-07,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 146,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666791978745306
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4883796137221809
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4883796137221809
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        145.0
+      ]
+    },
+    {
+      "action": "K2",
+      "target": 120,
+      "floor": 96,
+      "actual_range_deg": 113.6875,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 113.68749997056406,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": false,
+      "first_collision": {
+        "dense_index": 114,
+        "q_first_blocked_deg": [
+          0.0,
+          0.0,
+          0.0,
+          113.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pairs": [
+          {
+            "bones": [
+              "clavicle_visual",
+              "humerus_shaft"
+            ],
+            "volume_mm3": 0.007228818905473073
+          }
+        ]
+      },
+      "accepted_forward_poses": 115,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.04219219393660922
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.9831013447954751
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.49527169815439426
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 0.04219219393660922,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4952716981543405
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        113.6875,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "K3",
+      "target": 120,
+      "floor": 96,
+      "actual_range_deg": 120.0,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 119.99999999999999,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 121,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.7999997129987049
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4952716981543534
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.7999997129987049,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.49527169815432975
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        120.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "K4",
+      "target": 70,
+      "floor": 56,
+      "actual_range_deg": 70.0,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 0.0012041344562361746,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 71,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.86093223213556
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.49527169815436395
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.86093223213556,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4952716981543263
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        70.0,
+        0.0
+      ]
+    },
+    {
+      "action": "K5",
+      "target": 90,
+      "floor": 72,
+      "actual_range_deg": 90.0,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 0.0014844607342561864,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 91,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666604573675577
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.49527169815441835
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666563296860829,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.49527169815432276
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -90.0,
+        0.0
+      ]
+    },
+    {
+      "action": "K6",
+      "target": 50,
+      "floor": 36,
+      "actual_range_deg": 18.999999999989512,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 26.333503911339513,
+        "scapula_up_twist_deg": 18.999999999989512,
+        "contact_marker_slide_mm": 24.66285949147388
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 41,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 0.2989509449446478
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.5246002221407673
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666791978745254
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4952716981545037
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 0.2989509449446478,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978744832,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4952716981543542
+      },
+      "q_last_clear_deg": [
+        27.292241314090123,
+        5.804697325083124,
+        5.222171899815248,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "K7",
+      "target": 170,
+      "floor": 132,
+      "actual_range_deg": 146.01552539204627,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 146.01552539204627,
+        "scapula_up_twist_deg": 18.999999999989512,
+        "contact_marker_slide_mm": 24.66285949147388
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 161,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 0.2989509449446478
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.5246002221407673
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.7999997129987378
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.495271698154416
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 0.2989509449446478,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.7999997129986716,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.49527169815432975
+      },
+      "q_last_clear_deg": [
+        27.292241314090123,
+        5.804697325083124,
+        5.222171899815248,
+        0.0,
+        120.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "SLIDE_FWD",
+      "target": 15.0,
+      "floor": null,
+      "actual_range_deg": null,
+      "actual_slide_mm": 14.999999999999975,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 0.4447406543135299,
+        "scapula_up_twist_deg": -0.00014413565237129792,
+        "contact_marker_slide_mm": 14.999999999999975
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 7,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.5174994419394356
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.866679197874534
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4952716981544089
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.495271698154408
+      },
+      "q_last_clear_deg": [
+        0.0,
+        5.103419087527369,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "SLIDE_BACK",
+      "target": -15.0,
+      "floor": null,
+      "actual_range_deg": null,
+      "actual_slide_mm": -3.2930224413316322,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 0.10124333214737881,
+        "scapula_up_twist_deg": 3.278109970468744e-05,
+        "contact_marker_slide_mm": -3.2930224413316322
+      },
+      "path_endpoint_clear": false,
+      "first_collision": {
+        "dense_index": 2,
+        "q_first_blocked_deg": [
+          0.0,
+          -1.1755739865781702,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pairs": [
+          {
+            "bones": [
+              "thorax_geom",
+              "scapula_mesh"
+            ],
+            "volume_mm3": 0.9497614084504101
+          }
+        ]
+      },
+      "accepted_forward_poses": 3,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 0.21918896262940982
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.0017802970823408996
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.5214536260554031
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666791978745315
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4952716981544058
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 0.21918896262940982,
+        "thorax_geom/scapula_mesh": 0.0017802970823408996,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4952716981544058
+      },
+      "q_last_clear_deg": [
+        0.0,
+        -1.1614104445712043,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "SCAP_EXT",
+      "target": 20.0,
+      "floor": null,
+      "actual_range_deg": 20.0,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 6.012675144041586,
+        "scapula_up_twist_deg": 8.639108517132078e-06,
+        "contact_marker_slide_mm": 12.943188225755634
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 21,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.49848610954164874
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666791978745302
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.495271698154416
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.49848610954164874,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745058,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.49527169815435723
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "SCAP_INT",
+      "target": 20.0,
+      "floor": null,
+      "actual_range_deg": 2.625,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 0.7927575240244883,
+        "scapula_up_twist_deg": -1.1225425520171226e-06,
+        "contact_marker_slide_mm": -0.5796750794718504
+      },
+      "path_endpoint_clear": false,
+      "first_collision": {
+        "dense_index": 3,
+        "q_first_blocked_deg": [
+          0.0,
+          0.0,
+          -2.6875,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pairs": [
+          {
+            "bones": [
+              "thorax_geom",
+              "scapula_mesh"
+            ],
+            "volume_mm3": 0.05303106844437676
+          }
+        ]
+      },
+      "accepted_forward_poses": 4,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.13727492076219383
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.5210696677471162
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.8666791978745498
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.49527169815447536
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 0.13727492076219383,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.5210525961793434,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.49527169815441036
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        -2.625,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "action": "PECTORAL",
+      "target": 20.0,
+      "floor": null,
+      "actual_range_deg": null,
+      "actual_slide_mm": null,
+      "endpoint_metrics": {
+        "upper_arm_world_deg": 26.17052308031191,
+        "scapula_up_twist_deg": 0.0,
+        "contact_marker_slide_mm": 0.0
+      },
+      "path_endpoint_clear": true,
+      "first_collision": null,
+      "accepted_forward_poses": 26,
+      "reverse_collision_count": 0,
+      "end_pair_gaps": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "gap_mm_capped_at_2": 1.4209112194825664
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 1.3744577547642345
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "thorax_geom",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "scapula_mesh"
+          ],
+          "gap_mm_capped_at_2": 0.521453626055403
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "clavicle_visual",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "humerus_shaft"
+          ],
+          "gap_mm_capped_at_2": 1.4498459314600403
+        },
+        {
+          "bones": [
+            "scapula_mesh",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 2.0
+        },
+        {
+          "bones": [
+            "humerus_shaft",
+            "ulna_shaft"
+          ],
+          "gap_mm_capped_at_2": 0.4952716981544003
+        }
+      ],
+      "minimum_sampled_pair_gaps_mm_capped_at_2": {
+        "thorax_geom/clavicle_visual": 1.4209112194825664,
+        "thorax_geom/scapula_mesh": 1.3744577547642345,
+        "thorax_geom/humerus_shaft": 2,
+        "thorax_geom/ulna_shaft": 2,
+        "clavicle_visual/scapula_mesh": 0.521453626055403,
+        "clavicle_visual/humerus_shaft": 2,
+        "clavicle_visual/ulna_shaft": 2,
+        "scapula_mesh/humerus_shaft": 0.8666791978745306,
+        "scapula_mesh/ulna_shaft": 2,
+        "humerus_shaft/ulna_shaft": 0.4952716981543581
+      },
+      "q_last_clear_deg": [
+        0.0,
+        0.0,
+        0.0,
+        25.0,
+        8.0,
+        -20.0,
+        0.0
+      ]
+    }
+  ],
+  "editable_STEP_roundtrip_verified": true,
+  "native_solidworks_feature_tree_updated": false
+}

@@ -1,0 +1,62 @@
+{
+  "scope": "M8 real 2-axis receiving-terminal manufacturing geometry, local mm; no installed upstream route or strength/crimp proof",
+  "muscle": "FJ1477",
+  "parts": [
+    "yaw_sleeve",
+    "rotor_yoke",
+    "pitch_crimp_blank",
+    "pitch_sleeve",
+    "pitch_M2x12",
+    "pitch_front_washer",
+    "pitch_back_washer",
+    "pitch_nut",
+    "yaw_M3",
+    "yaw_front_washer",
+    "yaw_base_washer",
+    "yaw_back_washer",
+    "yaw_nut"
+  ],
+  "standoff_mm": 11,
+  "yaw_axis": [
+    0,
+    0,
+    1
+  ],
+  "yaw_centre": [
+    0,
+    0,
+    16.5
+  ],
+  "pitch_axis_at_zero_yaw": [
+    0,
+    1,
+    0
+  ],
+  "pitch_centre_at_zero_yaw": [
+    8,
+    0,
+    16.5
+  ],
+  "wire_outlet_at_zero_pose": [
+    17.8,
+    0,
+    16.5
+  ],
+  "wire_bore_radius_mm": 0.45,
+  "wire_radius_mm": 0.3,
+  "yaw_radial_clearance_mm": 0.15,
+  "yaw_axial_clearance_each_mm": 0.2,
+  "pitch_radial_clearance_mm": 0.15,
+  "pitch_axial_clearance_each_mm": 0.4,
+  "neutral_interferences": [],
+  "force_path": "wire crimp blank -> pitch shoulder sleeve/M2 pin -> rotor yoke -> yaw shoulder sleeve/M3 pin -> lever eyelet -> ulna mounting bolts",
+  "not_verified": [
+    "crimp grip",
+    "nominal fastener/thread/supplier selection",
+    "materials",
+    "preload/friction/wear",
+    "full upstream routing",
+    "muscle deformation and arm drive"
+  ],
+  "frozen": false
+}

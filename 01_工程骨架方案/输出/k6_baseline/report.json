@@ -1,0 +1,937 @@
+{
+  "model": "D:\\XJTLU\\PSP\\mujoco_arm\\engineering\\k6_baseline.xml",
+  "route": {
+    "A_mm": [
+      95.9110688432302,
+      256.6037798118978,
+      71.62245404968209
+    ],
+    "G_mm": [
+      105.3254666040744,
+      230.0,
+      68.88708211846085
+    ],
+    "B_mm": [
+      108.0296135930598,
+      108.78745235135455,
+      53.876217899572254
+    ],
+    "B_local_uvw_mm": [
+      -84.6900484794592,
+      81.2299900219974,
+      1.7264058085868346
+    ],
+    "guide_axis_design": [
+      0.06278146375188341,
+      0.12403725087922418,
+      -0.990289476973019
+    ],
+    "guide_side_design": [
+      -0.9947242119243485,
+      -0.07288423754216475,
+      -0.07219162090839379
+    ],
+    "guide_radius_mm": 8.0,
+    "sidesite_sign": 1.0,
+    "input": {
+      "A": {
+        "x_mm": 89.40667753175855,
+        "y_mm": 256.6037798118978,
+        "outward_offset_mm": 8.989553047449407
+      },
+      "G": {
+        "x_mm": 95.0,
+        "y_mm": 230.0,
+        "outward_offset_mm": 14.0
+      },
+      "B": {
+        "u_mm": -84.6900484794592,
+        "v_mm": 81.2299900219974,
+        "w_mm": 1.7264058085868346
+      }
+    }
+  },
+  "neutral_length_mm": 149.3835258101267,
+  "zero_contact_gap_mm": 0.3482647028455972,
+  "target_up_deg": 36.0,
+  "target_pose": null,
+  "contraction_percent": null,
+  "effective_moment_arm_mm": null,
+  "min_contact_gap_mm": 0.03508216178795465,
+  "max_pad_penetration_mm": 0.0,
+  "max_free_separation_mm": 26.302814020419362,
+  "min_visual_clearance_mm": -14.85048298727287,
+  "max_visual_penetration_mm": 14.85048298727287,
+  "min_cable_clearance_mm": 6.062269370943227,
+  "max_cable_penetration_mm": 0.0,
+  "max_pose_jump_deg": 0.7924931594877052,
+  "max_length_jump_mm": 0.9718043671606154,
+  "samples": [
+    {
+      "pull_mm": 0.0,
+      "joints_deg": {
+        "sc_elevation": 0.0,
+        "sc_protraction": 0.0,
+        "ac_ext": 0.0,
+        "gh_flex": 0.0
+      },
+      "up_deg": 0.0,
+      "gh_mm": [
+        159.06,
+        187.54,
+        7.300000000000004
+      ],
+      "cable_length_mm": 149.3835258101267,
+      "contact_gap_mm": 0.3482647028455972,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.257896151449982,
+      "cable_clearance_mm": 6.062269370943227
+    },
+    {
+      "pull_mm": 1.0,
+      "joints_deg": {
+        "sc_elevation": 0.9378609503406783,
+        "sc_protraction": -0.17753884776973833,
+        "ac_ext": 0.17729742750568991,
+        "gh_flex": -4.117810696704937e-06
+      },
+      "up_deg": 0.7083228255830123,
+      "gh_mm": [
+        159.50585473532337,
+        189.47842221591188,
+        7.636881257904866
+      ],
+      "cable_length_mm": 148.4117214429661,
+      "contact_gap_mm": 0.03508216178795465,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.6484348429713123,
+      "cable_clearance_mm": 7.518431797359199
+    },
+    {
+      "pull_mm": 2.0,
+      "joints_deg": {
+        "sc_elevation": 1.910367867376094,
+        "sc_protraction": -0.29380647543324856,
+        "ac_ext": 0.4527842105559049,
+        "gh_flex": -1.4483413250816896e-05
+      },
+      "up_deg": 1.4412947324960776,
+      "gh_mm": [
+        160.0875630857484,
+        191.4895507996971,
+        7.828553344377931
+      ],
+      "cable_length_mm": 147.4416244529477,
+      "contact_gap_mm": 0.04908863362061311,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.4691828275818466,
+      "cable_clearance_mm": 7.771896642448041
+    },
+    {
+      "pull_mm": 3.0,
+      "joints_deg": {
+        "sc_elevation": 2.886863147739213,
+        "sc_protraction": -0.40840214126775615,
+        "ac_ext": 0.730331290459228,
+        "gh_flex": -3.792565540147608e-06
+      },
+      "up_deg": 2.175640905706099,
+      "gh_mm": [
+        160.64158802934685,
+        193.51574421589908,
+        8.015882520937796
+      ],
+      "cable_length_mm": 146.47274831748433,
+      "contact_gap_mm": 0.0680555931814979,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.311286992280259,
+      "cable_clearance_mm": 7.771591339302745
+    },
+    {
+      "pull_mm": 4.0,
+      "joints_deg": {
+        "sc_elevation": 3.8674217440636824,
+        "sc_protraction": -0.521922589476786,
+        "ac_ext": 1.0097549786490416,
+        "gh_flex": -1.3723280604551207e-05
+      },
+      "up_deg": 2.9113540648904377,
+      "gh_mm": [
+        161.1662848524405,
+        195.55679788758113,
+        8.200143755039933
+      ],
+      "cable_length_mm": 145.50522572437546,
+      "contact_gap_mm": 0.09031489970999473,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -2.9116180252832663e-05,
+      "visual_clearance_mm": -3.175370230949966,
+      "cable_clearance_mm": 7.772666140132799
+    },
+    {
+      "pull_mm": 5.0,
+      "joints_deg": {
+        "sc_elevation": 4.852649504709634,
+        "sc_protraction": -0.6346170208799957,
+        "ac_ext": 1.2922071467486063,
+        "gh_flex": -1.6855119822427097e-05
+      },
+      "up_deg": 3.648798358638815,
+      "gh_mm": [
+        161.6613106938274,
+        197.6135355931648,
+        8.38164811551467
+      ],
+      "cable_length_mm": 144.53896468191888,
+      "contact_gap_mm": 0.11813942247772502,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -4.897846198883768e-05,
+      "visual_clearance_mm": -3.0613582688558267,
+      "cable_clearance_mm": 7.772255969819469
+    },
+    {
+      "pull_mm": 6.0,
+      "joints_deg": {
+        "sc_elevation": 5.842627859698348,
+        "sc_protraction": -0.7468686963374875,
+        "ac_ext": 1.5779160083113226,
+        "gh_flex": -1.9864961810971675e-05
+      },
+      "up_deg": 4.3879564522044605,
+      "gh_mm": [
+        162.12545603523907,
+        199.685665485614,
+        8.561143820338769
+      ],
+      "cable_length_mm": 143.57427991571262,
+      "contact_gap_mm": 1.1548080258040159,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -7.583971584632435e-05,
+      "visual_clearance_mm": -2.9696480631371287,
+      "cable_clearance_mm": 7.767986786449626
+    },
+    {
+      "pull_mm": 7.0,
+      "joints_deg": {
+        "sc_elevation": 6.837760695315404,
+        "sc_protraction": -0.8580604972553675,
+        "ac_ext": 1.868749268613065,
+        "gh_flex": -3.8467827816635406e-05
+      },
+      "up_deg": 5.1289527317472166,
+      "gh_mm": [
+        162.56001940884914,
+        201.77369441279635,
+        8.73702038322943
+      ],
+      "cable_length_mm": 142.6117754172371,
+      "contact_gap_mm": 1.059981115867913,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -2.8994178943729025,
+      "cable_clearance_mm": 7.763117439490259
+    },
+    {
+      "pull_mm": 8.0,
+      "joints_deg": {
+        "sc_elevation": 7.838413323973193,
+        "sc_protraction": -0.9701400909815882,
+        "ac_ext": 2.1631720070001226,
+        "gh_flex": -1.9931909953905208e-05
+      },
+      "up_deg": 5.87209365841798,
+      "gh_mm": [
+        162.960415471561,
+        203.87757972319702,
+        8.913552741324962
+      ],
+      "cable_length_mm": 141.65077784836512,
+      "contact_gap_mm": 0.9592941226293306,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -2.8527233885155283,
+      "cable_clearance_mm": 7.757874737783595
+    },
+    {
+      "pull_mm": 9.0,
+      "joints_deg": {
+        "sc_elevation": 8.842790989572594,
+        "sc_protraction": -1.0853012502999542,
+        "ac_ext": 2.465604623773672,
+        "gh_flex": -2.706797258184269e-05
+      },
+      "up_deg": 6.615881858569878,
+      "gh_mm": [
+        163.3216777893147,
+        205.99204945173688,
+        9.094411092523648
+      ],
+      "cable_length_mm": 140.6931936719432,
+      "contact_gap_mm": 0.8586553013250295,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -2.8299561310046784,
+      "cable_clearance_mm": 7.752890424498673
+    },
+    {
+      "pull_mm": 10.0,
+      "joints_deg": {
+        "sc_elevation": 9.850462078182563,
+        "sc_protraction": -1.207417496781691,
+        "ac_ext": 2.7776935414188006,
+        "gh_flex": -1.464439078444428e-05
+      },
+      "up_deg": 7.36005572441727,
+      "gh_mm": [
+        163.63586863752724,
+        208.1139690364683,
+        9.287172780057917
+      ],
+      "cable_length_mm": 139.73864653385107,
+      "contact_gap_mm": 0.7554461902684011,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -2.833381691933482,
+      "cable_clearance_mm": 7.748922250578801
+    },
+    {
+      "pull_mm": 11.0,
+      "joints_deg": {
+        "sc_elevation": 10.86370213900876,
+        "sc_protraction": -1.3316863395812502,
+        "ac_ext": 3.0995436142530735,
+        "gh_flex": -3.6605095483963156e-05
+      },
+      "up_deg": 8.105927772712072,
+      "gh_mm": [
+        163.91320025748936,
+        210.2488428350855,
+        9.481922139338797
+      ],
+      "cable_length_mm": 138.7876310215823,
+      "contact_gap_mm": 0.6563000450900631,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -2.859781814251562,
+      "cable_clearance_mm": 7.745081073757547
+    },
+    {
+      "pull_mm": 12.0,
+      "joints_deg": {
+        "sc_elevation": 11.883268945065625,
+        "sc_protraction": -1.4604608066997276,
+        "ac_ext": 3.427396382041622,
+        "gh_flex": -4.089209312274771e-05
+      },
+      "up_deg": 8.854331582155183,
+      "gh_mm": [
+        164.14796673467617,
+        212.39670938744996,
+        9.68411085483956
+      ],
+      "cable_length_mm": 137.83873582710663,
+      "contact_gap_mm": 0.5500364872223145,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.0003484588854230113,
+      "visual_clearance_mm": -2.912205096996047,
+      "cable_clearance_mm": 7.741576993304079
+    },
+    {
+      "pull_mm": 13.0,
+      "joints_deg": {
+        "sc_elevation": 12.90824929154136,
+        "sc_protraction": -1.5913366696568787,
+        "ac_ext": 3.767360140375376,
+        "gh_flex": -1.5760101619072435e-05
+      },
+      "up_deg": 9.603917807856526,
+      "gh_mm": [
+        164.34523333720358,
+        214.55553615094476,
+        9.8876488756664
+      ],
+      "cable_length_mm": 136.8953258920026,
+      "contact_gap_mm": 0.45249741487123174,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.00041549223591585597,
+      "visual_clearance_mm": -2.987204461859278,
+      "cable_clearance_mm": 7.73830248019101
+    },
+    {
+      "pull_mm": 14.0,
+      "joints_deg": {
+        "sc_elevation": 13.942340178094973,
+        "sc_protraction": -1.722485643121706,
+        "ac_ext": 4.115757987675115,
+        "gh_flex": -5.262853160827023e-05
+      },
+      "up_deg": 10.357348118277315,
+      "gh_mm": [
+        164.50848258200574,
+        216.73357943946263,
+        10.089457465372119
+      ],
+      "cable_length_mm": 135.95525142472397,
+      "contact_gap_mm": 0.357483904649996,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.085268491444026,
+      "cable_clearance_mm": 7.734614752807602
+    },
+    {
+      "pull_mm": 15.0,
+      "joints_deg": {
+        "sc_elevation": 14.987971442669545,
+        "sc_protraction": -1.8592320683838408,
+        "ac_ext": 4.446467121199673,
+        "gh_flex": -8.974659331204186e-06
+      },
+      "up_deg": 11.11888089161878,
+      "gh_mm": [
+        164.6215953061881,
+        218.93307992936377,
+        10.30521406121793
+      ],
+      "cable_length_mm": 135.0112753783141,
+      "contact_gap_mm": 0.20616224567095287,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.0001194110849827624,
+      "visual_clearance_mm": -3.2189565217329346,
+      "cable_clearance_mm": 7.73021533223374
+    },
+    {
+      "pull_mm": 16.0,
+      "joints_deg": {
+        "sc_elevation": 16.036667576304993,
+        "sc_protraction": -2.001539606551623,
+        "ac_ext": 4.781605029192947,
+        "gh_flex": -5.4264582874575036e-05
+      },
+      "up_deg": 11.880682104442274,
+      "gh_mm": [
+        164.68604299753665,
+        221.13396630918092,
+        10.530657452352328
+      ],
+      "cable_length_mm": 134.07463106743128,
+      "contact_gap_mm": 0.3458681876836067,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.3803717511065656,
+      "cable_clearance_mm": 7.726437163660989
+    },
+    {
+      "pull_mm": 17.0,
+      "joints_deg": {
+        "sc_elevation": 17.09144194816274,
+        "sc_protraction": -2.1496286823068096,
+        "ac_ext": 5.1217088881799295,
+        "gh_flex": -3.9017069419790326e-05
+      },
+      "up_deg": 12.644965520753965,
+      "gh_mm": [
+        164.70199423630112,
+        223.3413821398085,
+        10.76605595247205
+      ],
+      "cable_length_mm": 133.14336431571144,
+      "contact_gap_mm": 0.44096188892001464,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.0002287594426801686,
+      "visual_clearance_mm": -3.5699387789886146,
+      "cable_clearance_mm": 7.723238905235291
+    },
+    {
+      "pull_mm": 18.0,
+      "joints_deg": {
+        "sc_elevation": 18.15275660847691,
+        "sc_protraction": -2.3034022772262133,
+        "ac_ext": 5.468276116483729,
+        "gh_flex": -5.642621841107396e-05
+      },
+      "up_deg": 13.411911546453556,
+      "gh_mm": [
+        164.66958399258908,
+        225.55507738886683,
+        11.010847111647657
+      ],
+      "cable_length_mm": 132.21815495182085,
+      "contact_gap_mm": 0.27175981881964617,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -3.7872570645263863,
+      "cable_clearance_mm": 7.720666717934989
+    },
+    {
+      "pull_mm": 19.0,
+      "joints_deg": {
+        "sc_elevation": 19.220566855367654,
+        "sc_protraction": -2.465336673133158,
+        "ac_ext": 5.821645643512326,
+        "gh_flex": -1.3764098483272224e-05
+      },
+      "up_deg": 14.181728297825027,
+      "gh_mm": [
+        164.5836296109985,
+        227.77197089255878,
+        11.269859548167396
+      ],
+      "cable_length_mm": 131.2987551425134,
+      "contact_gap_mm": 0.4160494607481269,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -6.507906354233443e-05,
+      "visual_clearance_mm": -4.033880449364119,
+      "cable_clearance_mm": 7.719215840107154
+    },
+    {
+      "pull_mm": 20.0,
+      "joints_deg": {
+        "sc_elevation": 20.295544748127003,
+        "sc_protraction": -2.6345365911165928,
+        "ac_ext": 6.182188551010485,
+        "gh_flex": -3.7028800898807125e-05
+      },
+      "up_deg": 14.954766901646368,
+      "gh_mm": [
+        164.44563070458182,
+        229.99254133157677,
+        11.541097496612505
+      ],
+      "cable_length_mm": 130.38593599608083,
+      "contact_gap_mm": 0.24352182300447112,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.0005623349689515148,
+      "visual_clearance_mm": -4.59565540547041,
+      "cable_clearance_mm": 7.7187341346298695
+    },
+    {
+      "pull_mm": 21.0,
+      "joints_deg": {
+        "sc_elevation": 21.37675694011531,
+        "sc_protraction": -2.811446785882788,
+        "ac_ext": 6.5501570071490915,
+        "gh_flex": -3.619060527575346e-05
+      },
+      "up_deg": 15.730362572465284,
+      "gh_mm": [
+        164.2543263284603,
+        232.21288293776763,
+        11.825280391115339
+      ],
+      "cable_length_mm": 129.4811738800056,
+      "contact_gap_mm": 14.48608288515544,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -2.618691216941995e-06,
+      "visual_clearance_mm": -5.401626864765003,
+      "cable_clearance_mm": 7.719382502788676
+    },
+    {
+      "pull_mm": 22.0,
+      "joints_deg": {
+        "sc_elevation": 22.465517836336392,
+        "sc_protraction": -2.9972723932860452,
+        "ac_ext": 6.9255138344431,
+        "gh_flex": -1.9430202724727225e-05
+      },
+      "up_deg": 16.509654600773587,
+      "gh_mm": [
+        164.00717625462548,
+        234.433272239999,
+        12.124685157419822
+      ],
+      "cable_length_mm": 128.5836767366986,
+      "contact_gap_mm": 15.139593449284575,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.001086452028634219,
+      "visual_clearance_mm": -6.244718926335096,
+      "cable_clearance_mm": 7.7213572443026806
+    },
+    {
+      "pull_mm": 23.0,
+      "joints_deg": {
+        "sc_elevation": 23.560175989249096,
+        "sc_protraction": -3.192116873304961,
+        "ac_ext": 7.309982157129101,
+        "gh_flex": -3.5537090140415296e-05
+      },
+      "up_deg": 17.291246134236957,
+      "gh_mm": [
+        163.70406156106336,
+        236.64828353171407,
+        12.439021937915577
+      ],
+      "cable_length_mm": 127.69592094628035,
+      "contact_gap_mm": 15.789113805358966,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -7.664555083978456e-05,
+      "visual_clearance_mm": -5.308895591214252,
+      "cable_clearance_mm": 7.724855735113579
+    },
+    {
+      "pull_mm": 24.0,
+      "joints_deg": {
+        "sc_elevation": 24.66155885839848,
+        "sc_protraction": -3.3968331269455896,
+        "ac_ext": 7.70283562424768,
+        "gh_flex": -3.1292631814566876e-05
+      },
+      "up_deg": 18.075972356153983,
+      "gh_mm": [
+        163.34310225965265,
+        238.85714539150808,
+        12.769946486459999
+      ],
+      "cable_length_mm": 126.81757010797637,
+      "contact_gap_mm": 16.43158522441604,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.0003092843557306801,
+      "visual_clearance_mm": -5.700207381064331,
+      "cable_clearance_mm": 7.730006269802516
+    },
+    {
+      "pull_mm": 25.0,
+      "joints_deg": {
+        "sc_elevation": 25.768795858390416,
+        "sc_protraction": -3.611721972089468,
+        "ac_ext": 8.105358159452335,
+        "gh_flex": -9.552090042875379e-06
+      },
+      "up_deg": 18.86309145171428,
+      "gh_mm": [
+        162.92400303002125,
+        241.05580132523446,
+        13.117602671624935
+      ],
+      "cable_length_mm": 125.95027762843198,
+      "contact_gap_mm": 17.069144684025616,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -6.445515367044732,
+      "cable_clearance_mm": 7.736993565282603
+    },
+    {
+      "pull_mm": 26.0,
+      "joints_deg": {
+        "sc_elevation": 26.881718302236163,
+        "sc_protraction": -3.837449812632808,
+        "ac_ext": 8.517294082248174,
+        "gh_flex": -2.9308470815719905e-05
+      },
+      "up_deg": 19.652646799874944,
+      "gh_mm": [
+        162.4455874543175,
+        243.24128038534005,
+        13.483132539232269
+      ],
+      "cable_length_mm": 125.09463425926349,
+      "contact_gap_mm": 17.70006711005317,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -3.019781549817857e-06,
+      "visual_clearance_mm": -7.0649385522840955,
+      "cable_clearance_mm": 7.745978759609898
+    },
+    {
+      "pull_mm": 27.0,
+      "joints_deg": {
+        "sc_elevation": 27.99902873074649,
+        "sc_protraction": -4.074416515315383,
+        "ac_ext": 8.940009954930003,
+        "gh_flex": -2.3028631585085467e-05
+      },
+      "up_deg": 20.44358903129397,
+      "gh_mm": [
+        161.90782103081654,
+        245.4084003277424,
+        13.86680679470919
+      ],
+      "cable_length_mm": 124.2524963378751,
+      "contact_gap_mm": 18.326521035623728,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.00048180355950266755,
+      "visual_clearance_mm": -7.042721334583007,
+      "cable_clearance_mm": 7.757190700773037
+    },
+    {
+      "pull_mm": 28.0,
+      "joints_deg": {
+        "sc_elevation": 29.12022479667607,
+        "sc_protraction": -4.322945768341181,
+        "ac_ext": 9.374432887943,
+        "gh_flex": -2.7389869968097373e-05
+      },
+      "up_deg": 21.23548618173298,
+      "gh_mm": [
+        161.3108272367785,
+        247.55371684764367,
+        14.268803955105787
+      ],
+      "cable_length_mm": 123.42505119845906,
+      "contact_gap_mm": 18.950013896263897,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -3.3612753051835004e-06,
+      "visual_clearance_mm": -7.543633084335852,
+      "cable_clearance_mm": 7.7707869383515344
+    },
+    {
+      "pull_mm": 29.0,
+      "joints_deg": {
+        "sc_elevation": 30.24450966211862,
+        "sc_protraction": -4.583542210757542,
+        "ac_ext": 9.8199314342663,
+        "gh_flex": -2.8384937542802573e-05
+      },
+      "up_deg": 22.027979341220686,
+      "gh_mm": [
+        160.65433059356786,
+        249.67288905537205,
+        14.689934406862395
+      ],
+      "cable_length_mm": 122.61318293946427,
+      "contact_gap_mm": 19.568416553556062,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.00015235045743890174,
+      "visual_clearance_mm": -8.0698320899142,
+      "cable_clearance_mm": 7.7869111396950075
+    },
+    {
+      "pull_mm": 30.0,
+      "joints_deg": {
+        "sc_elevation": 31.37023552007172,
+        "sc_protraction": -4.85722962949545,
+        "ac_ext": 10.277903128051955,
+        "gh_flex": -2.7794237874008782e-05
+      },
+      "up_deg": 22.819883883120006,
+      "gh_mm": [
+        159.9379787896008,
+        251.7592557593998,
+        15.131583047064481
+      ],
+      "cable_length_mm": 121.81838532595212,
+      "contact_gap_mm": 20.182970804895263,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.00011676008607576852,
+      "visual_clearance_mm": -8.619742995185163,
+      "cable_clearance_mm": 7.805931816523298
+    },
+    {
+      "pull_mm": 31.0,
+      "joints_deg": {
+        "sc_elevation": 32.49669934432299,
+        "sc_protraction": -5.143217617316633,
+        "ac_ext": 10.748059521442988,
+        "gh_flex": 6.688055220756293e-05
+      },
+      "up_deg": 23.610618119373733,
+      "gh_mm": [
+        159.1643973333163,
+        253.81006070021732,
+        15.591908631608032
+      ],
+      "cable_length_mm": 121.0421263168589,
+      "contact_gap_mm": 20.794753490198218,
+      "mujoco_contact_count": 0,
+      "mujoco_min_contact_mm": 0.0,
+      "visual_clearance_mm": -9.191553286729743,
+      "cable_clearance_mm": 7.8277379130854
+    },
+    {
+      "pull_mm": 32.0,
+      "joints_deg": {
+        "sc_elevation": 33.62049259761456,
+        "sc_protraction": -5.442564164920288,
+        "ac_ext": 11.231876653327232,
+        "gh_flex": -3.492398704221575e-05
+      },
+      "up_deg": 24.39771706713841,
+      "gh_mm": [
+        158.33437192849675,
+        255.81504210252675,
+        16.072279930345648
+      ],
+      "cable_length_mm": 120.28673078399453,
+      "contact_gap_mm": 21.405025153478277,
+      "mujoco_contact_count": 1,
+      "mujoco_min_contact_mm": -0.00045141117564284974,
+      "visual_clearance_mm": -9.782439128629221,
+      "cable_clearance_mm": 7.852785352275703
+    },
+    {
+      "pull_mm": 33.0,
+      "joints_deg": {
+        "sc_elevation": 34.741183974614614,
+        "sc_protraction": -5.755245763961901,
+        "ac_ext": 11.728507636901451,
+        "gh_flex": -4.24292040962348e-05
+      },
+      "up_deg": 25.18107128460695,
+      "gh_mm": [
+        157.44956264441797,
+        257.77132104691555,
+        16.572397741033992
+      ],
+      "cable_length_mm": 119.55256034377135,
+      "contact_gap_mm": 22.012496505852596,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.0009696410612010549,
+      "visual_clearance_mm": -10.390986060332182,
+      "cable_clearance_mm": 7.881073185433991
+    },
+    {
+      "pull_mm": 34.0,
+      "joints_deg": {
+        "sc_elevation": 35.855611466501124,
+        "sc_protraction": -6.080648608245346,
+        "ac_ext": 12.239404092341783,
+        "gh_flex": -3.575233446015924e-05
+      },
+      "up_deg": 25.95803485120274,
+      "gh_mm": [
+        156.51437700930146,
+        259.6713990215908,
+        17.090361825529435
+      ],
+      "cable_length_mm": 118.84242848090429,
+      "contact_gap_mm": 22.62142275790262,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.0009822253890516726,
+      "visual_clearance_mm": -11.013208234358785,
+      "cable_clearance_mm": 7.912692952813302
+    },
+    {
+      "pull_mm": 35.0,
+      "joints_deg": {
+        "sc_elevation": 36.961720119370185,
+        "sc_protraction": -6.419041958118151,
+        "ac_ext": 12.76388681827278,
+        "gh_flex": -5.115732892732075e-05
+      },
+      "up_deg": 26.72737132201226,
+      "gh_mm": [
+        155.53120109016518,
+        261.50911538339733,
+        17.62636938550525
+      ],
+      "cable_length_mm": 118.1571181405736,
+      "contact_gap_mm": 23.23027182893196,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.00023127539066584296,
+      "visual_clearance_mm": -11.646658667416943,
+      "cable_clearance_mm": 7.947773510966613
+    },
+    {
+      "pull_mm": 36.0,
+      "joints_deg": {
+        "sc_elevation": 38.05615077875993,
+        "sc_protraction": -6.7699909303845365,
+        "ac_ext": 13.302728697477736,
+        "gh_flex": -5.861113332201244e-05
+      },
+      "up_deg": 27.486461765775363,
+      "gh_mm": [
+        154.50483991287993,
+        263.2768928338278,
+        18.178971013510246
+      ],
+      "cable_length_mm": 117.4987277891966,
+      "contact_gap_mm": 23.84161712442227,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -2.0941684359277596e-05,
+      "visual_clearance_mm": -12.287213143869963,
+      "cable_clearance_mm": 7.986409599066349
+    },
+    {
+      "pull_mm": 37.0,
+      "joints_deg": {
+        "sc_elevation": 39.13639819681134,
+        "sc_protraction": -7.133861283318785,
+        "ac_ext": 13.854358413460314,
+        "gh_flex": -7.407697087222102e-05
+      },
+      "up_deg": 28.23400303434582,
+      "gh_mm": [
+        153.43825293071595,
+        264.9679887673693,
+        18.748682018156124
+      ],
+      "cable_length_mm": 116.86738344631532,
+      "contact_gap_mm": 24.45203573046433,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.00013868128741949606,
+      "visual_clearance_mm": -12.932206446757618,
+      "cable_clearance_mm": 8.02872392911496
+    },
+    {
+      "pull_mm": 38.0,
+      "joints_deg": {
+        "sc_elevation": 40.19946657726343,
+        "sc_protraction": -7.508725986031489,
+        "ac_ext": 14.419821777091126,
+        "gh_flex": -9.140116041745435e-05
+      },
+      "up_deg": 28.967204858260484,
+      "gh_mm": [
+        152.33927796391123,
+        266.5783178307139,
+        19.33120204144048
+      ],
+      "cable_length_mm": 116.26553125308546,
+      "contact_gap_mm": 25.067164219555593,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.00028885327830541555,
+      "visual_clearance_mm": -13.576721893812248,
+      "cable_clearance_mm": 8.074476598858098
+    },
+    {
+      "pull_mm": 39.0,
+      "joints_deg": {
+        "sc_elevation": 41.242333728409726,
+        "sc_protraction": -7.894369601960824,
+        "ac_ext": 14.996947829795591,
+        "gh_flex": -0.0001120744727655397
+      },
+      "up_deg": 29.684403405124606,
+      "gh_mm": [
+        151.21250742220374,
+        268.101660885521,
+        19.926110265475547
+      ],
+      "cable_length_mm": 115.69320600697102,
+      "contact_gap_mm": 25.683301353488503,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.0005332199788468141,
+      "visual_clearance_mm": -14.217594496033257,
+      "cable_clearance_mm": 8.123657007626946
+    },
+    {
+      "pull_mm": 40.0,
+      "joints_deg": {
+        "sc_elevation": 42.26192461124019,
+        "sc_protraction": -8.289513955493888,
+        "ac_ext": 15.58573377932018,
+        "gh_flex": -0.00013179009170311508
+      },
+      "up_deg": 30.383148277575994,
+      "gh_mm": [
+        150.06492218231088,
+        269.5337790497708,
+        20.53060134559633
+      ],
+      "cable_length_mm": 115.15157632373719,
+      "contact_gap_mm": 26.302814020419362,
+      "mujoco_contact_count": 2,
+      "mujoco_min_contact_mm": -0.001017245705595051,
+      "visual_clearance_mm": -14.85048298727287,
+      "cable_clearance_mm": 8.176107792387086
+    }
+  ],
+  "failures": [
+    "target 36.0 deg not reached within 40.0 mm",
+    "visual penetration 14.850 mm exceeds limit"
+  ],
+  "pass": false
+}

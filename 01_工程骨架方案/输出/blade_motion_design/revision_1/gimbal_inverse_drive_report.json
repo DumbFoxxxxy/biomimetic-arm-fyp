@@ -1,0 +1,150 @@
+{
+  "scope": "No gravity/no payload; 16 true spatial tendons; initialized once; inverse-dynamics and tendon-velocity feedforward",
+  "scalar_dofs": 9,
+  "actuators": 16,
+  "one_way_duration_s": 12.0,
+  "pass": true,
+  "geometry_gate_pass": false,
+  "actions": [
+    {
+      "action": "SCAP_UP_ROT",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.12497727113663047,
+      "maximum_humeral_orientation_error_deg": 0.011807542290108846,
+      "maximum_elbow_error_deg": 0.002488518038382765,
+      "maximum_feedforward_tension_N": 7.231129683163013,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_DOWN_ROT",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.009979643879263573,
+      "maximum_humeral_orientation_error_deg": 0.0010293338286833996,
+      "maximum_elbow_error_deg": 7.740581651866389e-05,
+      "maximum_feedforward_tension_N": 9.185044901012398,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_PROTRACT",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.0012101338356340515,
+      "maximum_humeral_orientation_error_deg": 0.00014216558196062835,
+      "maximum_elbow_error_deg": 2.5119723027259332e-05,
+      "maximum_feedforward_tension_N": 13.765529082406681,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_RETRACT",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.0011239812355205115,
+      "maximum_humeral_orientation_error_deg": 9.092845744218748e-05,
+      "maximum_elbow_error_deg": 2.5619099176932203e-05,
+      "maximum_feedforward_tension_N": 7.375440349423283,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_ELEVATE",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.0031319782717059213,
+      "maximum_humeral_orientation_error_deg": 0.0003094587941168813,
+      "maximum_elbow_error_deg": 4.800609259642562e-05,
+      "maximum_feedforward_tension_N": 15.89571834711056,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_DEPRESS",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.003379848213273579,
+      "maximum_humeral_orientation_error_deg": 0.0003485340838610915,
+      "maximum_elbow_error_deg": 5.454755609049833e-05,
+      "maximum_feedforward_tension_N": 7.524177982671203,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_FLEX",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.05508163858379868,
+      "maximum_humeral_orientation_error_deg": 0.00593003168045155,
+      "maximum_elbow_error_deg": 0.0020489230771064573,
+      "maximum_feedforward_tension_N": 7.93625387312834,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_EXT",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.01871511644594152,
+      "maximum_humeral_orientation_error_deg": 0.0019522933164683922,
+      "maximum_elbow_error_deg": 0.00042050011155257873,
+      "maximum_feedforward_tension_N": 7.538867580596537,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_ABD",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.05631295172910896,
+      "maximum_humeral_orientation_error_deg": 0.0061171982882186615,
+      "maximum_elbow_error_deg": 0.00020776975319662297,
+      "maximum_feedforward_tension_N": 8.03226765195559,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_INT",
+      "pass": true,
+      "maximum_wrist_error_mm": 3.186451389813269e-05,
+      "maximum_humeral_orientation_error_deg": 0.002043284436912415,
+      "maximum_elbow_error_deg": 1.659474583403256e-07,
+      "maximum_feedforward_tension_N": 7.354951677710986,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_EXT_ROT",
+      "pass": true,
+      "maximum_wrist_error_mm": 3.6644287227890307e-05,
+      "maximum_humeral_orientation_error_deg": 0.002626831523110419,
+      "maximum_elbow_error_deg": 7.743771529293606e-07,
+      "maximum_feedforward_tension_N": 7.355311335603793,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "ELBOW",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.019094803078045154,
+      "maximum_humeral_orientation_error_deg": 0.0002483072410686529,
+      "maximum_elbow_error_deg": 0.018148774255419435,
+      "maximum_feedforward_tension_N": 7.5313053288515786,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "CROSS_BODY",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.023952898320120583,
+      "maximum_humeral_orientation_error_deg": 0.0023180129681378567,
+      "maximum_elbow_error_deg": 0.011265350090334313,
+      "maximum_feedforward_tension_N": 13.765529082406717,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "RAISE_170",
+      "pass": true,
+      "maximum_wrist_error_mm": 0.07106290144917315,
+      "maximum_humeral_orientation_error_deg": 0.007716662907406797,
+      "maximum_elbow_error_deg": 0.0004049757510150148,
+      "maximum_feedforward_tension_N": 7.783267907141091,
+      "finite": true,
+      "positive_push": false
+    }
+  ]
+}

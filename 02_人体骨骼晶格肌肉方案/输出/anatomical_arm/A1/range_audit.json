@@ -1,0 +1,366 @@
+{
+  "status": "bone-only audit; candidate not frozen",
+  "overlap_volume_reporting_threshold_mm3": 0.001,
+  "angular_step_max_deg": 1,
+  "boundary_resolution_deg": 0.1,
+  "gap_search_cap_mm": 5,
+  "all_adjacent_bone_pairs_checked": true,
+  "legal_contacts": [],
+  "radius_ulna_neutral_gap_mm_capped_5": 1.4118368636974756,
+  "same_rigid_body_pair": "radius-ulna neutral gap checked separately; no relative motion",
+  "unsupported_actions": [
+    "independent scapular internal/external rotation absent in AC1 chain",
+    "translational scapular slide not an independent coordinate; needs linkage IK"
+  ],
+  "neutral": {
+    "hits": [],
+    "minimum_bone_gap_mm_capped_5": 0.2459265976589442,
+    "humerus_elevation_deg": 8.537736462515939e-07,
+    "scapular_frontal_rotation_deg": 0.0,
+    "neutral_C_to_moving_B_distance_mm": [
+      89.35843670469595,
+      88.74158996599529
+    ]
+  },
+  "actions": [
+    {
+      "action": "K1",
+      "target": 145,
+      "floor": 116,
+      "commanded_joint_endpoint_deg": {
+        "elbow": 145
+      },
+      "actual_continuous_sampled_prefix": 145.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.0,
+      "actual_humerus_angle_deg": 8.537736462515939e-07,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 146,
+      "return_samples": 146,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K2",
+      "target": 120,
+      "floor": 96,
+      "commanded_joint_endpoint_deg": {
+        "gh_flex": 120
+      },
+      "actual_continuous_sampled_prefix": 120.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.2459265976589135,
+      "actual_humerus_angle_deg": 117.27403972871055,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 121,
+      "return_samples": 121,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K3",
+      "target": 120,
+      "floor": 96,
+      "commanded_joint_endpoint_deg": {
+        "gh_abd": 120
+      },
+      "actual_continuous_sampled_prefix": 118.75,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [
+        {
+          "pair": [
+            "scapula",
+            "humerus"
+          ],
+          "volume_mm3": 0.0015247363981889654
+        }
+      ],
+      "minimum_bone_gap_mm_capped_5": 0.17063905884110306,
+      "actual_humerus_angle_deg": 118.7232840001278,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 121,
+      "return_samples": 121,
+      "return_colliding_samples": 2,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K4",
+      "target": 70,
+      "floor": 56,
+      "commanded_joint_endpoint_deg": {
+        "gh_rot": 70
+      },
+      "actual_continuous_sampled_prefix": 70.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.2459265976589078,
+      "actual_humerus_angle_deg": 8.537736462515939e-07,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 71,
+      "return_samples": 71,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K5",
+      "target": 90,
+      "floor": 72,
+      "commanded_joint_endpoint_deg": {
+        "gh_rot": -90
+      },
+      "actual_continuous_sampled_prefix": 90.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765886854,
+      "actual_humerus_angle_deg": 8.537736462515939e-07,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 91,
+      "return_samples": 91,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K6",
+      "target": 50,
+      "floor": 36,
+      "commanded_joint_endpoint_deg": {
+        "ac_up": 50
+      },
+      "actual_continuous_sampled_prefix": 50.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765891156,
+      "actual_humerus_angle_deg": 49.992623752767884,
+      "scapular_frontal_rotation_deg": 50.00000000000001,
+      "forward_samples": 51,
+      "return_samples": 51,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "K7",
+      "target": 170,
+      "floor": 132,
+      "commanded_joint_endpoint_deg": {
+        "ac_up": 50,
+        "gh_abd": 120
+      },
+      "actual_continuous_sampled_prefix": 168.07669475068687,
+      "metric": "actual humerus direction from zero",
+      "first_limit": [
+        {
+          "pair": [
+            "scapula",
+            "humerus"
+          ],
+          "volume_mm3": 0.001524736398192094
+        }
+      ],
+      "minimum_bone_gap_mm_capped_5": 0.17063905884108085,
+      "actual_humerus_angle_deg": 168.07669475068687,
+      "scapular_frontal_rotation_deg": 49.47916666666667,
+      "forward_samples": 121,
+      "return_samples": 121,
+      "return_colliding_samples": 2,
+      "bone_floor_pass": true,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "SCAP_PROTRACT",
+      "target": 20,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "sc_protract": 20
+      },
+      "actual_continuous_sampled_prefix": 20.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765893865,
+      "actual_humerus_angle_deg": 3.336768622324337,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 21,
+      "return_samples": 21,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "SCAP_RETRACT",
+      "target": 20,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "sc_protract": -20
+      },
+      "actual_continuous_sampled_prefix": 20.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.2459265976589269,
+      "actual_humerus_angle_deg": 3.336768622324337,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 21,
+      "return_samples": 21,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "SCAP_COMBINED_UP",
+      "target": 50,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "sc_elev": 20,
+        "ac_up": 30
+      },
+      "actual_continuous_sampled_prefix": 50.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765891517,
+      "actual_humerus_angle_deg": 49.99262375276786,
+      "scapular_frontal_rotation_deg": 49.99999999999999,
+      "forward_samples": 31,
+      "return_samples": 31,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "V2_SLIDE_FWD_COORDINATE",
+      "target": 5,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "sc_protract": 5
+      },
+      "actual_continuous_sampled_prefix": 5.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765893884,
+      "actual_humerus_angle_deg": 0.838065419353257,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 6,
+      "return_samples": 6,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "V2_SLIDE_BACK_COORDINATE",
+      "target": 5,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "sc_protract": -5
+      },
+      "actual_continuous_sampled_prefix": 5.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.2459265976589339,
+      "actual_humerus_angle_deg": 0.838065419353257,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 6,
+      "return_samples": 6,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    },
+    {
+      "action": "PECTORAL",
+      "target": 25,
+      "floor": null,
+      "commanded_joint_endpoint_deg": {
+        "gh_flex": 25,
+        "gh_abd": 8,
+        "gh_rot": -20
+      },
+      "actual_continuous_sampled_prefix": 25.0,
+      "metric": "prescribed coordinate/path parameter, not total anatomical ROM",
+      "first_limit": [],
+      "minimum_bone_gap_mm_capped_5": 0.24592659765890845,
+      "actual_humerus_angle_deg": 25.518292678215875,
+      "scapular_frontal_rotation_deg": 0.0,
+      "forward_samples": 26,
+      "return_samples": 26,
+      "return_colliding_samples": 0,
+      "bone_floor_pass": null,
+      "hardware_pass": false,
+      "actuation_pass": null
+    }
+  ],
+  "hardware_neutral_overlaps": [
+    {
+      "hardware": "SC_pin",
+      "bone": "clavicle",
+      "overlap_mm3": 220.78754266785512,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "AC_pin",
+      "bone": "clavicle",
+      "overlap_mm3": 149.5105426595082,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "elbow_pin",
+      "bone": "humerus",
+      "overlap_mm3": 1208.2761086708251,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "GH_ball_reference",
+      "bone": "humerus",
+      "overlap_mm3": 4024.3236663202388,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "elbow_bearing_reference",
+      "bone": "humerus",
+      "overlap_mm3": 3335.5254580594824,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "AC_bearing_reference",
+      "bone": "clavicle",
+      "overlap_mm3": 515.0142572513155,
+      "classification": "unresolved; pocket/support connection not designed"
+    },
+    {
+      "hardware": "AC_bearing_reference",
+      "bone": "scapula",
+      "overlap_mm3": 212.77349823561718,
+      "classification": "unresolved; pocket/support connection not designed"
+    }
+  ],
+  "muscle_neutral": [
+    {
+      "id": "elbow_flexor",
+      "closed": "Error.NoError",
+      "material_components": 1,
+      "bone_overlaps": []
+    },
+    {
+      "id": "elbow_extensor",
+      "closed": "Error.NoError",
+      "material_components": 1,
+      "bone_overlaps": []
+    }
+  ],
+  "acceptance": "No assembly or drive PASS while hardware attachment/clearance unresolved."
+}

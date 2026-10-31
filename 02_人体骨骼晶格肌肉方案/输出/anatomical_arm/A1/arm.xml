@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="A1_anatomical_candidate">
+  <compiler angle="degree" meshdir="assets" />
+  <option gravity="0 0 0" />
+  <visual />
+  <asset>
+    <mesh name="clavicle" file="clavicle.stl" scale=".001 .001 .001" />
+    <mesh name="scapula" file="scapula.stl" scale=".001 .001 .001" />
+    <mesh name="humerus" file="humerus.stl" scale=".001 .001 .001" />
+    <mesh name="ulna" file="ulna.stl" scale=".001 .001 .001" />
+    <mesh name="radius" file="radius.stl" scale=".001 .001 .001" />
+    <mesh name="SC_pin" file="SC_pin.stl" scale=".001 .001 .001" />
+    <mesh name="AC_pin" file="AC_pin.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_pin" file="elbow_pin.stl" scale=".001 .001 .001" />
+    <mesh name="GH_ball_reference" file="GH_ball_reference.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_bearing_reference" file="elbow_bearing_reference.stl" scale=".001 .001 .001" />
+    <mesh name="AC_bearing_reference" file="AC_bearing_reference.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_flexor" file="elbow_flexor.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_extensor" file="elbow_extensor.stl" scale=".001 .001 .001" />
+    <mesh name="anterior_deltoid_VOLUME_ONLY" file="anterior_deltoid_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="posterior_deltoid_VOLUME_ONLY" file="posterior_deltoid_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="cuff_internal_VOLUME_ONLY" file="cuff_internal_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="cuff_external_VOLUME_ONLY" file="cuff_external_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="scapular_up_VOLUME_ONLY" file="scapular_up_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="scapular_down_VOLUME_ONLY" file="scapular_down_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="scapular_protract_VOLUME_ONLY" file="scapular_protract_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+    <mesh name="scapular_retract_VOLUME_ONLY" file="scapular_retract_VOLUME_ONLY.stl" scale=".001 .001 .001" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 1" dir="0 1 -1" />
+    <body name="frame" pos="0.0 0.0 0.0">
+      <geom name="frame_mount" type="box" pos="-.04 0 -.03" size=".015 .035 .055" rgba=".3 .4 .5 1" contype="0" conaffinity="0" />
+      <body name="clavicle" pos="0.0 0.0 0.0">
+        <joint name="sc_elev" axis="0 -1 0" range="-30 60" damping="1" />
+        <joint name="sc_protract" axis="0 0 1" range="-30 30" damping="1" />
+        <body name="scapula" pos="0.13313888085406758 -0.0582509129151054 0.034158266813858744">
+          <joint name="ac_up" axis="0 -1 0" range="-20 60" damping="1" />
+          <body name="humerus" pos="0.01805595260566747 0.004871806098003376 -0.035991068726691534">
+            <joint name="gh_flex" axis="1 0 0" range="-40 120" damping="1" />
+            <joint name="gh_abd" axis="0 -1 0" range="-20 120" damping="1" />
+            <joint name="gh_rot" axis="0.1668394799904371 -0.01661530862285453 -0.9858440644624725" range="-90 70" damping="1" />
+            <body name="forearm" pos="0.046032503553544414 -0.004584312138042073 -0.27200318775394516">
+              <joint name="elbow" axis="0.9962145702539679 -0.03241310818623332 0.08065928608293885" range="0 145" damping="1" />
+              <geom name="ulna" type="mesh" mesh="ulna" pos="-0.1972273370132795 0.0579634189551441 0.27383598966677797" rgba=".88 .86 .78 1" group="0" contype="0" conaffinity="0" mass=".1" />
+              <geom name="radius" type="mesh" mesh="radius" pos="-0.1972273370132795 0.0579634189551441 0.27383598966677797" rgba=".88 .86 .78 1" group="0" contype="0" conaffinity="0" mass=".1" />
+              <geom name="elbow_bearing_reference" type="mesh" mesh="elbow_bearing_reference" pos="-0.1972273370132795 0.0579634189551441 0.27383598966677797" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+              <site name="elbow_flexor_B" pos="0.007507776599569666 0.014252311111971543 -0.04436298290081123" size=".003" rgba="1 .7 .1 1" />
+              <site name="elbow_extensor_B" pos="0.007507776599569666 -0.015747688888028456 -0.04436298290081123" size=".003" rgba="1 .7 .1 1" />
+            </body>
+            <geom name="humerus" type="mesh" mesh="humerus" pos="-0.15119483345973506 0.05337910681710203 0.0018328019128327924" rgba=".88 .86 .78 1" group="0" contype="0" conaffinity="0" mass=".1" />
+            <geom name="elbow_pin" type="mesh" mesh="elbow_pin" pos="-0.15119483345973506 0.05337910681710203 0.0018328019128327924" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+            <geom name="GH_ball_reference" type="mesh" mesh="GH_ball_reference" pos="-0.15119483345973506 0.05337910681710203 0.0018328019128327924" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+            <geom name="elbow_flexor" type="mesh" mesh="elbow_flexor" pos="-0.15119483345973506 0.05337910681710203 0.0018328019128327924" rgba=".8 .08 .07 1" group="1" contype="0" conaffinity="0" mass=".01" />
+            <site name="elbow_flexor_A" pos="0.007507776599569666 0.03325231111197154 -0.04436298290081126" size=".003" rgba="1 .7 .1 1" />
+            <site name="elbow_flexor_C" pos="0.03902524539394605 0.030113530824117815 -0.2305977370465213" size=".003" rgba="1 .7 .1 1" />
+            <geom name="elbow_extensor" type="mesh" mesh="elbow_extensor" pos="-0.15119483345973506 0.05337910681710203 0.0018328019128327924" rgba=".8 .08 .07 1" group="1" contype="0" conaffinity="0" mass=".01" />
+            <site name="elbow_extensor_A" pos="0.007507776599569666 -0.03474768888802846 -0.04436298290081126" size=".003" rgba="1 .7 .1 1" />
+            <site name="elbow_extensor_C" pos="0.03902524539394605 -0.03788646917588218 -0.2305977370465213" size=".003" rgba="1 .7 .1 1" />
+          </body>
+          <geom name="scapula" type="mesh" mesh="scapula" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".88 .86 .78 1" group="0" contype="0" conaffinity="0" mass=".1" />
+          <geom name="AC_bearing_reference" type="mesh" mesh="AC_bearing_reference" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+          <geom name="anterior_deltoid_VOLUME_ONLY" type="mesh" mesh="anterior_deltoid_VOLUME_ONLY" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+          <geom name="posterior_deltoid_VOLUME_ONLY" type="mesh" mesh="posterior_deltoid_VOLUME_ONLY" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+          <geom name="cuff_internal_VOLUME_ONLY" type="mesh" mesh="cuff_internal_VOLUME_ONLY" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+          <geom name="cuff_external_VOLUME_ONLY" type="mesh" mesh="cuff_external_VOLUME_ONLY" pos="-0.13313888085406758 0.0582509129151054 -0.034158266813858744" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+        </body>
+        <geom name="clavicle" type="mesh" mesh="clavicle" pos="-0.0 -0.0 -0.0" rgba=".88 .86 .78 1" group="0" contype="0" conaffinity="0" mass=".1" />
+        <geom name="AC_pin" type="mesh" mesh="AC_pin" pos="-0.0 -0.0 -0.0" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+      </body>
+      <geom name="SC_pin" type="mesh" mesh="SC_pin" pos="-0.0 -0.0 -0.0" rgba=".25 .5 .65 .85" group="3" contype="0" conaffinity="0" mass=".01" />
+      <geom name="scapular_up_VOLUME_ONLY" type="mesh" mesh="scapular_up_VOLUME_ONLY" pos="-0.0 -0.0 -0.0" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+      <geom name="scapular_down_VOLUME_ONLY" type="mesh" mesh="scapular_down_VOLUME_ONLY" pos="-0.0 -0.0 -0.0" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+      <geom name="scapular_protract_VOLUME_ONLY" type="mesh" mesh="scapular_protract_VOLUME_ONLY" pos="-0.0 -0.0 -0.0" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+      <geom name="scapular_retract_VOLUME_ONLY" type="mesh" mesh="scapular_retract_VOLUME_ONLY" pos="-0.0 -0.0 -0.0" rgba=".7 .3 .15 .35" group="2" contype="0" conaffinity="0" mass=".001" />
+    </body>
+  </worldbody>
+  <tendon>
+    <spatial name="elbow_flexor_tendon_reference" width=".0005" rgba=".12 .12 .12 1">
+      <site site="elbow_flexor_C" />
+      <site site="elbow_flexor_B" />
+    </spatial>
+    <spatial name="elbow_extensor_tendon_reference" width=".0005" rgba=".12 .12 .12 1">
+      <site site="elbow_extensor_C" />
+      <site site="elbow_extensor_B" />
+    </spatial>
+  </tendon>
+</mujoco>

@@ -1,0 +1,400 @@
+===== PAGE 1 =====
+A Shoulder Structure of Muscle-Driven Humanoid with 
+Shoulder Blades 
+Yoshinao Sodeyama Ikuo Mizuuchi 
+Tomoaki Yoshikai Yuto Nakanishi Masayuki Inaba 
+Dept. of Mechano-Infomatics, 
+The University of Tokyo, 
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656 , Japan 
+{sodeyama, ikuo, yoshikai, nakanish, inaba} @jsk.t.u-tokyo.ac.jp 
+Abstract – We are trying to create an innovative humanoid 
+which has increased flexibility by imitating the st ructure of a 
+human shoulder, especially the shoulder blade. We d esigned a 
+flexible shoulder structure for a muscle-driven hum anoid robot 
+which has the following merits, 1) wide range of mo vement and 
+flexible shoulder like humans, 2) having the should er structure 
+built on to the outside of the chest, allowing spac e for a lot of 
+parts inside the chest. We developed a prototype hu manoid robot 
+named “Blade” which has a musculo-skeletal humanoid torso 
+with the shoulder blade, driven by motor-actuated t endons. This 
+paper describes the advantages of the structure of the shoulder 
+blade, the development of a humanoid with the shoul der blade, 
+and some experiments showing its range of movement using the 
+prototype humanoid robot we presented. 
+I. I NTRODUCTION
+In the future, it will be commonplace in daily life for 
+humanoid robots to assist humans directly. At that time, 
+humanoids must not be dangerous to humans. It will be of the 
+utmost necessity that the humanoid robot has a flex ible and a 
+safe body structure [1]. The flexibility of the arms will be 
+especially important, because these parts will come in direct 
+contact with a human body. Therefore, flexibility w ill be one 
+of the keys to the next stage of humanoid research. 
+From this point of view, we have developed a whole-
+body tendon-driven humanoid named “Kenta” and “Kenj i” 
+(Fig.1). They have a flexible spine structure, redundant DOFs 
+driven by many actuators over 100. We have conducte d 
+studies on flexibility of motion using the spine an d the whole 
+body [2]-[6]. The shoulder design of Kenta and Kenji is a 
+tendon driven structure, which uses two ball-and-so cket joints 
+connected in series. It satisfies a range of moveme nt required, 
+and it is flexible. Due to a lack of power in the c hest and a 
+lack of space to add extra motors and boards, the h umanoid 
+cannot raise its arms because of its heavy forearms. 
+Most of the previous humanoid shoulder structure can 
+not move with the flexibility of a human shoulder s tructure, 
+because they have 3 DOFs structures which are fixed to the 
+outside of the body [7]. There are few studies on shoulder 
+structure, which take account into wide range of mo vement 
+and flexibility[8]. However, we have never had an example of 
+a humanoid, which has a flexible shoulder structure with a 
+spine. The structure of the spine is also important for the 
+flexibility. 
+Fig.1ʳ Muscle-Driven Humanoid “Kenta” (upper photo) 
+”Kenji” (lower photo), improved version 
+ So, the aim of this research is to develop a flexi ble 
+shoulder structure which can be used by a tendon-dr iven 
+humanoid with a spine. We decided that a shoulder s tructure 
+with a bladebone was best suited for a tendon-drive n 
+humanoid. So we tried to design parts which properl y act as 
+the shoulder blade. This is because it has many adv antages 
+which are clearly explained in the next chapter. 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+II. A DVANTAGES OF HAVING SHOULDER BLADES
+A. A wide range of movement 
+Human shoulder structure has two joints and is a 
+complex structure of scapula-humerus and scapula-ch est, 
+constructed by bladebone, collerbone, breastbone an d 
+humerus[9][10]. The acromioclavicular joint ( Scapula-
+humerus joint) structure is a ball-and-socket joint built by the 
+head of humerus and the glenoid cavity of scapula, the 
+sternoclavicular joint ( scapula-chest joint) structure is a crank 
+mechanism working by the function of the collerbone . From a 
+top view, bladebones are rotated around the chest. The center 
+of rotation is equal to the center of the body. From a back view, 
+when the upper arm rotates over 70 degrees, the bla de bone 
+starts rotation. Then it can be put into practice i n a wide range 
+of movement that the scapula-humerus structure shif ts on the 
+chest by moving the shoulder blade (Fig.2).
+ 
+Fig.2 Photos of the skeleton: back view (left), top view (right) 
+B. Flexibility by muscles
+The shoulder structure with shoulder blade has flex ibility 
+because shoulders are connected to the chest almost only by 
+muscles except for collarbone-chest joints. It is l ike the 
+shoulder blade is floating in muscles on the chest. When you 
+slip and fall to the ground, you will protect yours elf 
+automatically by using your arms. If upper arms are directly 
+connected with the rib bone, the damage of falling down is 
+directly carried to the chest, heart, lung and some important 
+organs from arms. The flexibility of the shoulder a lso has the 
+role of impact absorption. It will be also useful f or humanoid 
+robotics. 
+C. Location of the shoulder structure 
+Humans have to protect their internal organs, espec ially 
+the heart. Ribs are staffed around the heart to pro tect it, and 
+shoulders are also formed on the outer surface of t he costa to 
+guard from danger. In imitating this structure, we can develop 
+a leading design of humanoids. The humanoid we want to 
+develop has flexible spine and shoulder blades. It needs 
+enough space in the chest, so the volume of the che st is 
+important. Shoulders are located outside the chest, so the 
+space inside the chest is large. It means we can de sign a torso 
+which contains a lot of motors, boards, and sensors for strong 
+shoulder, spine, and neck. 
+D. The possibility of muscles to work together 
+The main muscles supporting the upper torso are 
+concentrated in the shoulder blades. They permit pe rformance 
+of flexible movement with many muscles working in u nison. 
+From the above, it is useful for Muscle-skeletal hu manoids to 
+model the human shoulder blade. This structure suit s to 
+tendon-driven humanoids. 
+It is a good example for humanoid robots. We expect that 
+humanoids will have the flexibility and wide movabl e 
+shoulder range by imitating of human shoulder. It c an place 
+the axis of rotation of the shoulder structure in t he center of 
+human body near the spine, and place the shoulder structure 
+on the outside of the chest. From that arrangement, it can 
+make for a larger capacity inside the chest, and can contain the 
+important parts such as motors, boards and sensors and protect 
+them. 
+III. T HE DEVELOPMENT OF AN EXPERIMENTAL HUMANOID
+ROBOT WITH SHOULDER BLADES
+A. Skeletal structures made by art clay 
+We made a prototyped humanoid to test for the flexi ble 
+motion of shoulder blades. The flame constituents o f the 
+prototype humanoid model, such as shoulder blade, 
+collarbone, chest, head and vertebras, are made by art clay 
+(Fig.3,4). The chest is made as a block that can support the 
+bladebones and the head, and contains 10 DC motors and 
+motor driver  boards. Many muscles connected with the 
+shoulder blade are distributed over the arms, back, and neck. 
+We designed the head and vertebra to seem to have a 
+cooperative action when the muscles are used from the neck to 
+the collarbone and bladebones just like humans. Wit h using 
+natural rubber as muscles, we connect each part, and fix the 
+shoulder blade to it and make it possible to move w ide range 
+of motion.
+Fig.3ʳ Prototype humanoid”Blade” 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Fig.4ʳ Constituents of art-clay partsforprototype humanoid 
+Fig.5ʳ Move up and down(left), Adduct and abdust,(center), Rotate(right) 
+ Check motions of a shoulder blade 
+B. A structure between a shoulder blade and a chest 
+When a shoulder blade moves on the surface of a che st, 
+these parts cause friction between the shoulder bla de and the 
+costa. For example of human, muscles between a shou lder 
+blade and a chest lower the friction. We generate t he effect of 
+the anterior serratus muscle (a muscle between a should er 
+blade and a chest) that is made of a neoprene, a material of a 
+chloroprene rubber laminated surface of a jersey cl oth. The 
+surface of the cloth is so smooth that it lowers th e friction 
+between the rigid parts. Additionally the material has high 
+elasticity, so it is expected that the cloth contri butes to the 
+flexible motion of the shoulders. Then the shoulder blade can 
+move up and down, adduct and abduct, and rotate on the chest 
+(Fig.5). 
+C. A trial piece of the arm modeled with rapid pro totyping of 
+stereolithography 
+We developed a new arm design in consideration of 
+safety, which is one of the concepts of this resear ch. We also 
+expect that it will create a softer impression to u s when we 
+have physical interaction between a robot and a hum an. The 
+constituents of the arm are collerbone, bladebone, upperarm, 
+forearm, and hand. The degree of freedom of each jo int and a 
+completion drawing of the arm are shown in figure 6 . There 
+are 24 DOFs in the left arm. We designed them using 3D-
+CAD software. These parts are modeled by Rapid-prototyping 
+Fig.7 The design of arm parts by 3D-CAD
+Fig.6 A design of arm parts by 3D-CAD 
+of a stereolithography [11][12]. The material of the model is 
+made of epoxy type resin, one of its characteristic s is strength 
+for tension and bending which is similar to a epoxy type resin 
+named TSR820. 
+The shoulder blade (Fig.7 left lower) has two boll-joints 
+which construct a shoulder joint (scapla-humerus jo int) and 
+the sternoclavicular joint (scapla-collerbone joint). We tried to 
+follow the design and the function of the shoulder blade of a 
+human as much as possible. We made a structure whic h can 
+connect the actuators correspond to the anterior se rratus 
+muscle, the deltoid muscle, and the cowl muscle, th e levator 
+scapulae muscle. It has the configuration that is e qual to the 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Fig.7 Modeling with rapid prototyping: 
+The constituents of the left arm (left upper), An arm (right upper), 
+A bladebone (left lower), Touching a back posture like a human(right lower) 
+scapular spine, the acrominon, the medial border, t he lateral 
+border for the efficiency of moment. The motors and boards 
+that work for the role of deltoid and greater pecto ral muscle 
+which move the upper arm are contained in the chest . The 
+parts of an upper arm and a forearm are very thin. The 
+structures are almost 3mm thickness to make it ligh t, and it 
+can contain the motors and boards. If it needs more tendon 
+power, we can attach the floating units of motors o utside of 
+the skeletal flame. The upper part of the upper arm has 
+projections which connects the actuators correspond ing to the 
+deltoid muscle, and the greater pectoral muscle. Th e elbow 
+joint has 1 DOF and it can be driven by two motors. The wrist 
+joint is a boll-and-socket joint (3DOFs) and it nee ds 4 motors. 
+The forearm can contain the 8 motors for the wrist joint and 
+for fingers (4 motors,1.5W). The wrist is ball-and-socket joint, 
+so it has 3 DOFs. The fingers have 11 DOFs, and each finger 
+is driven by each motor. It can do the pose of ‘pap er, stone 
+and scissors’. The prototyped humanoid model is ind icated in 
+figure 8 installed with the collarbone, bladebone, upper arm, 
+and forearm.
+ Fig.8ʳ Humanoid “Blade” with the parts of rapid-prototyping 
+IV. EXPERIMENTS OF THE RANGE OF MOVEMENT FOR THE 
+DEVELOPED SHOULDER USING A P OSITION SENSOR 
+A. Test of the movable range using a position sensor 
+We tested the movable range of the prototyped human oid 
+Blade by using a three dimensional position and ori entation 
+sensor called three space FASTRAK by Polhemus, whic h is 
+magnetic sensor of position and posture. The two se nsors are 
+put on the point of a bladebone-upperarm boll-and-s ocket 
+joint and the center point of outside of the uppera rm. The 
+direction of Y, Z axis and the place of 0 degree of auto-
+abduction are the condition of figure 10 left. The transition of 
+the place of the sensor on the Y, Z axis when the a rm rotates 
+on Y-Z plane is indicated in the figure 11. When th e shoulder 
+blade is fixed on the point B1, the upper arm can m ove from 
+point A1 to A2 (Arm1, Max rotation degree 70[deg]). When 
+the shoulder blade is used for rotation, the should er blade can 
+rotate from point B1 to B2 and the upper arm can m ove from 
+point A1 to A3. (Arm2, Max rotation degree 110[deg] ) The 
+blade bone moves and makes the center of the rotati on of the 
+upper arm rotate from a point B1 to B2. From the ex periment, 
+we notice that a range of movement of the upper arm is 
+expanded from 70 to 110 degrees. 
+ 
+Fig.9 Experiments of the range of movement 
+ First position and coordinate axis (left) 
+Max degree of rotation in Y-Z plane (right). 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+ 
+Fig.10 Change of the range of movement by using a bladebone 
+B. Actuating a shoulder blade with muscles 
+It is a challenge actuating a shoulder blade using some 
+motors and steal wires, because the blade bone is n ot 
+stabilized on a chest by itself. It is just like fl oating on the 
+chest. The shoulder blade of human is surrounded an d 
+stabilized with several muscles all over. But we ca n not 
+increase the number of actuators like a human. So, we have to 
+find useful layouts of muscles to control the shoul der blade. 
+The motions of a shoulder blade are vertical moveme nt, 
+adduction and abduction, and rotation. The layout w e choose 
+must be able to perform these motions. In the proto type 
+humanoid we can change the muscle layout easily, so we can 
+test some layouts repeatedly to find the best way. Bladebone 
+moves on the surface of the chest so we have to con sider the 
+power on the surface of Fig.12. 
+Fig.12 shows two kinds of diagram which present mus cle 
+layouts. The left one is simplified version of huma n muscles 
+involving a shoulder blade. The upper two muscles a re 
+connected to the top of the neck, and the lower two muscles 
+are connected to the bottom of the chest. This huma n like 
+layout can perform flexible raising arm motion. Howe ver, this 
+layout always needs a rigid neck structure to suppo rt shoulder 
+blades. The human neck structure has a variable flexibility and 
+it can control their stiffness. It must have flexib ility and 
+stiffness at the same time, so it is difficult to g enerate the 
+effect for a humanoid. 
+The right one on Fig.12 is the layout that does not have 
+muscles connected to the neck. The upper two points of the 
+bladebone is actuated to the bottom, and lower two point of 
+the bladebone is pulled from the topside of the che st. It also 
+can perform flexible motions. When the actuator A a nd B are 
+pulled by motors, the bladebone is lifted up. When the 
+actuator C and D are pulled the other way by motors , it comes 
+down. If the actuator A and C are pulled by motors, it moves 
+Fig. 12 Flexible motion of raising an arm 
+Fig.13 Muscle positions of a shoulder blade 
+to adduction. Also, when the actuator B and D are p ulled by 
+motors, it moves to abduction. If the actuator A an d D, or B 
+and C are pulled by motors, it can rotate on the su rface of the 
+chest. In this position (the right one) it is easie r to stabilize the 
+shoulder blade on the chest than left one, because the 
+bladebone is in the more efficient tension balance. 
+The lengths of muscles are changed by pulling motor s. 
+They are calculated using the rotary encoders of ea ch motor. 
+The posture of the shoulder blade can be controlled using this 
+mode. It can make a motion like Fig.11 which is th e motion 
+of raising an arm using the shoulder blade. 
+A B
+C D 
+A
+B
+C D
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+C. Reaching motion based on vision sensors 
+The shoulder structure with bladebone has redundant 
+DOFs and it is connected to a chest of almost only muscles, so 
+it is difficult to solve the kinematics of the norm al link 
+structure. Consequently, one of the solutions of th is problem 
+is to use vision sensors. If we want to catch something, we just 
+look at it and reach our arm to it. Humans do not m ove with 
+correct joint angles of each joint. Humanoid which has a body 
+like a human can reach to a ball based on vision se nsors. We 
+can control a length of each muscle by using feedba ck of the 
+difference between the ball and the hand. Two CCD c olor 
+cameras are installed in the head. Using the two ca meras, it 
+can identify the difference between colors and calc ulate the 
+depth by binocular stereo vision. Fig.13 shows the humanoid 
+reaching to red ball motion by using vision sensors . A blue 
+film is put toward a robots hand, so the robot can identify the 
+position of the hand. The robot looks at the red ba ll and the 
+blue hand and calculates the difference of each positions in the 
+space by binocular stereo vision. The arm is actuat ed to 
+reduce the difference between red ball and blue han d. Finally 
+the robot can reach to the ball. 
+IV. S UMMARY AND DISCUSSION
+ʳ  Heading toward a next stage, we have built a flexib le 
+shoulder humanoid. The human body structure suggest ed the 
+novel design for muscle-skeletal humanoid with shou lder 
+blades. In this paper, we proposed a step of compos ition of an 
+unprecedented flexible shoulder humanoid by found t he most 
+suitable position of muscles for the robot, designe d the parts 
+of the shoulder blade, and developed the actuator using a cloth 
+material. So it has a wide range of movement and ma kes a 
+motion that is very similar to humans. Moreover, by using the 
+shoulder blade, we showed that it could make space in the 
+chest, and design the position of muscles to make m oments as 
+useful as possible. We also introduced a way to gen erate the 
+flexible motion of the shoulder blade. One difficul ty in this 
+experiment was to get enough power for the shoulder. In those 
+experiments, if we did not find an effective muscle layout, we 
+could not achieve the desired motions. The more wei ghted the 
+arm, the harder to lift it up. However we want to in stall touch 
+sensors in the hands in the next step, so we should design a 
+chest which can contain 20W motors actuating the arms. 
+Hereafter, the next aim of our research is to devel op a 
+whole body humanoid robot which has a flexible spin e and 
+shoulder blades. We want to develop the parts of the chest that 
+have joints at the spine, and try to achieve the mo tion which is 
+created by cooperation of the arm, shoulder, and sp ine. By 
+mounting touch sensors, we want to perform physical 
+interaction with humans. We also want to develop a system to 
+use these complex body structures with complete con trol. Our 
+ultimate goal is to allow free interaction between humans and 
+humanoids by perfecting the flexibility of the body. 
+Fig.13 Reaching to a ball motion by using vision sensors 
+ ACKNOWLEDGMENT 
+ This research has been supported by NEDO (New Ener gy 
+and Industrial Technology Development Organization) , the 
+Project for the Practical Application of Next-Gener ation 
+Robots. 
+REFERENCES 
+[1] M.Inaba, I.Mizuuchi, R.Tajima, T.Yoshikai, D.Sat o, K.Nagashima, and 
+H.Inoue. “Building Spined Muscle-Tendon Humanoid, i n Robotics 
+Research”. The Tenth International Symposium, pp. 1 13-130, Springer 
+Verlag, 2003. 
+[2] I.Mizuuchi, H.Waita, Y.Nakanishi, T.Yoshikai, M. Inaba and 
+H.Inoue.”Design and Implementation of Reinforceable Muscle 
+Humanoid”, In proceedings of the 2004 IEEE/RSJ Inte rnaional 
+Conference on Intelligent Robots and Systems. Pp.82 8-833. 
+Sendai,Japan.2004 
+[3] I.Mizuuchi, S.Yoshida, M.Inaba, and H.Inoue. “The development and 
+control of a flexible-spine for a human-form robot” . In Advanced 
+Robotics ,Vol.17, No.2, pp.179-196, 2003 
+[4] I.Mizuuchi, T.Yoshikai, D.Sato, S.Yoshida, M.Ina ba, and 
+H.Inoue. ”Behavior Developing Environment for the L arge-DOF Muscle-
+Driven Humanoid Equipped with Numerous Sensors”. In proceedings of 
+the 2003 IEEE International Conference on Robotics & Automation, 
+pp.1940-1945, Taipei, Taiwan,2003. 
+[5] I.Mizuuchi, R.Tajima, T.Yoshikai, D.Sato, K.Nazashima, M.Inaba, 
+Y.Kuniyoshi, and H.Inoue. “The Designand Control of the Flexible Spine 
+of a FullyTendon-Driven Humanoid Kenta”. InProceedi ngs of the 2002 
+IEEE/RSJ International Conference on Intelligent Ro bots and Systems, 
+p.2527-2532, October 2002. 
+[6] I.Mizuuchi, M.Inaba, and H.Inoue. “A Flexible Spine Human-Form 
+Robot-Development and Control of the Postrue of the Spine“. In 
+Proceedings of the 2001 IEEE/RSJ International Conf erence on 
+Intelligent Robots and Systems, pp.2099-2104, 2001. 
+[7] Y. Nakamura, M. Okada and S. Hoshino. “Developme nt of the Torso 
+RobotʊDesign of the New Shoulder Mechanism ‘Cybernetic sh oulder”. 
+Preprints of 6th International Symposium of Experim ental Robotics, 
+pp.452-461, 1999. 
+[8] K.Hirai, M.Hirose, Y.Haikawa and T.Takenaka: “The Development of 
+Honda Humanoid Robot”, Proceedings of the 1998 IEEE International 
+Conference on Robotics and Automation, pp.1321-1326. 1998. 
+[9] I.A.Kapandji, “The Physiology of the Joints Vol .1: Upper Limb”. 
+Churchill Livingstone. 1980. 
+[10]Tortora Grabowski. “PRINCIPLES OF ANATOMY & PHY SIOLOGY 
+VOLUME 2 SUPPROT AND MOVEMENT”. Biological Sciemces 
+Textbooks.inc. 2003. 
+[11]Ashley S., 1995, “Rapid Prototyping is Coming o f Age. Mechanical 
+Engineering”, Vol.117, No.7, pp63-68. 
+[12]J. Won, K.DeLaurentis. and C Mavroidis. “Rapid Prototyping of Robotics 
+Systems”. In proceedings of the 2000 IEEE Internati onal Conference on 
+Robotics & Automation. pp.3077-3082. San Francisco, California, 2000 
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 02,2026 at 06:59:31 UTC from IEEE Xplore. Restrictions apply.

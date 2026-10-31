@@ -1,0 +1,1137 @@
+===== PAGE 1 =====
+IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017 921
+Kinematically-Constrained Redundant
+Cable-Driven Parallel Robots: Modeling,
+Redundancy Analysis, and
+Stiffness Optimization
+Hamed Jamshidifar, Amir Khajepour, Baris Fidan , Senior Member, IEEE, and Mitchell Rushton
+Abstract—This paper develops a general model for
+kinematically-constrained redundant cable-driven parallel
+robots (CDPRs), and studies stiffness improving effects
+and redundancy resolution of such robots aiming stiffness
+optimization to minimize their undesired perturbations un-
+der external disturbances in a desired direction. In the de-
+veloped model, assuming an axially ﬂexible model for the
+cables, motion equation is derived. Considering the role
+of constrained cables in restriction of CDPR’s rotational
+degrees of freedom, the vibration equation of the moving
+platform is separated from the equation of motion. The re-
+sulted vibration equation is a linear dynamic system with a
+stiffness matrix formed by the cables’ tension and the con-
+strained cables’ axial stiffness. Based on that, the substan-
+tial effects of constrained cables and the potential effects of
+cables’ tension on the stiffness improvement of CDPRs are
+shown. Accordingly, the cables’ tension redundancy prob-
+lem is formulated. Redundancy resolution is studied con-
+sidering the directional stiffness of the moving platform as
+the objective function to maximize. This objective function
+is derived as a linear function of cables’ redundant tensions
+and the corresponding redundancy problem solved by us-
+ing a time-efﬁcient method of linear programming. The de-
+veloped model and the proposed redundancy resolution ap-
+proach are experimentally tested on an actual warehousing
+robot to maximize its translational stiffness. Comparison
+of theoretical and experimental results demonstrates the
+validity of the proposed optimization approach and the ef-
+fectiveness of kinematically-constrained actuation method.
+Index Terms—Flexible structures, mechanical cables, op-
+timization methods, redundancy, robots.
+I. I NTRODUCTION
+A
+cable-driven parallel robot (CDPR) is made of a rigid
+moving platform that, via ﬂexible cables, is connected
+Manuscript received May 18, 2016; revised August 19, 2016 and Octo-
+ber 20, 2016; accepted December 6, 2016. Date of publication Decem-
+ber 13, 2016; date of current version April 14, 2017. Recommended
+by T echnical Editor Jeha Ryu. This work was supported by the Natural
+Sciences and Engineering Research Council of Canada.
+The authors are with the Department of Mechanical and Mechatronics
+Engineering, University of Waterloo, Waterloo, ON N2L 3G1 Canada
+(e-mail: hjamshid@uwaterloo.ca; a.khajepour@uwaterloo.ca; ﬁdan@
+uwaterloo.ca; mmrushto@uwaterloo.ca).
+Color versions of one or more of the ﬁgures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identiﬁer 10.1109/TMECH.2016.2639053
+to a ﬁxed frame. In a CDPR, each cable is pulled by a land-
+ﬁxed winch to hold or manipulate the moving platform over
+a desired workspace. Large workspaces, low moving inertia,
+high accelerations, and fast motions are the most signiﬁcant
+advantages of the CDPRs. Nevertheless, CDPRs suffer from
+low stiffness and the need for keeping tension in the cables.
+Among different types of CDPRs, redundant CDPRs are dis-
+tinguished by having more actuators than the moving platform’s
+degrees of freedom (DOFs). Redundancy of actuators not only
+provides a larger workspace for the CDPRs, but also can im-
+prove their stiffness.
+In addition to the actuation redundancy, a CDPR can beneﬁt
+from kinematic constraints in its actuation. In kinematically-
+constrained actuation method, one or more actuators, named
+constrained actuators, are connected to several cables and held
+under position control to provide the nonstretched length of
+their cables. Simultaneously, the rest of cables provide big
+enough tensions to make the tension of constrained cables.
+Compared to the common type of actuation, kinematically-
+constrained CDPRs beneﬁt from a signiﬁcantly higher level of
+stiffness.
+In the majority of CDPRs, ranging from the fast load con-
+veyance (FALCON) [1] to the recent CDPRs [2], [3] there is
+no kinematic constraint in the cables’ actuation. In recent years,
+kinematically-constrained CDPRs have attracted more atten-
+tion. A design approach is provided by Behzadipour and Khaje-
+pour for a kinematically-constrained CDPR to restrict the rota-
+tional DOFs of a ﬂat moving platform [4]. Bosscher et al. have
+proposed the conceptual design of a suspended kinematically-
+constrained CDPR as a search and rescue robotic system [5]. In
+their CDPR design, the rotational DOFs of a moving platform
+are constrained to provide a pure translational motion over a
+three-dimensional (3-D) workspace. Torres-Mendez and Kha-
+jepour have introduced a kinematically-constrained CDPR for
+warehousing applications [6]. Adaptive control problem of a
+simpliﬁed version of the introduced CDPR is studied in [7].
+Saber has demonstrated the effects of kinematic constraints on
+improvement of CDPRs’ workspace [8]. A similar actuation
+technique, named cable differentials, is proposed by Khakpour
+et al. to improve the workspace and kinetostatic properties of
+CDPRs [9]. In this method, by using multiple idle pulleys,
+1083-4435 © 2016 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+922 IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017
+mounted on the moving and the ﬁxed platforms of a CDPR,
+multiple connection points are made for each individual cable.
+In addition to design, geometry optimization and workspace
+analysis of CDPRs, the problem of CDPRs’ actuation redun-
+dancy has been studied by a number of researchers. In recent
+decades, various optimization objective functions and resolution
+techniques have been proposed and studied. According to the
+desired characteristic of the CDPRs, different objective func-
+tions of cables’ tensions such as 1-norm, /221e-norm, and p-norm
+(1 < p < /221e) [10], [11], have been proposed. Shiang et al.
+have considered the summation of cables’ tensions as the op-
+timization objective function, and they have proposed use of
+linear programming (LP) for redundancy resolution [12]. Pott
+et al. have focused on Euclidian norm of cables’ tensions as
+the optimization objective function and have studied different
+methods for its minimization [13]. A few studies have focused
+on stiffness related objective functions. Y u et al. have studied
+the idea of holding a predetermined stiffness for the moving
+platform [14]. In another study, the same group has developed
+an algorithm to control a lower bound of the robot stiffness via
+holding the smallest eigenvalue of the stiffness matrix bigger
+than a predeﬁned value [15].
+Beside the proposed optimization objective functions, ﬁnd-
+ing a time efﬁcient redundancy resolution technique has re-
+ceived a great deal of interest by different researchers. LP [16],
+quadratic programming [17], Dykstra’s projection technique as
+an iterative approach [18], an analytic-iterative method based on
+Karush–Kuhn–Tucker theorem [19], and improved closed-form
+technique [20] are among the proposed redundancy resolution
+approaches.
+In spite of the numerous studies on different CDPRs based on
+the best knowledge of the authors, the effect of kinematically-
+constrained actuation on stiffness improvement and disturbance
+rejection of the CDPRs within their motion is not studied so
+far. Previous studies, including [21], [22], have considered both
+the axial stiffness and tension of all cables in formulation of
+CDPR’s stiffness matrix. Such consideration is valid only for
+the static conditions, where all cables can be considered ﬁxed
+at their connection points with the ground.
+In addition, a small number of studies have focused on stiff-
+ness related objective functions; whereas the CDPRs suffer from
+their low stiffness in different applications. To the best of our
+knowledge no one has considered the magnitude of directional
+stiffness of moving platform as an objective function. Maximiz-
+ing the moving platform stiffness in a desired direction provides
+the maximum resistance to external disturbances in that direc-
+tion. This approach can be utilized to maximize the moving
+platform stiffness in its softest direction to minimize the moving
+platform perturbations under external disturbances. In addition,
+this approach can be utilized for stiffness maximization in the
+most interactive direction.
+Accordingly, by the goal of demonstrating the effects of
+kinematically-constrained actuation on stiffness improvement
+and also maximizing the moving platform rotational or
+translational stiffness in a desired direction, both problems of
+vibration modeling and actuation redundancy of kinematically-
+constrained redundant CDPRs are addressed in this paper.
+Fig. 1. Layout of a redundant planar CDPR with kinematic constraints.
+For the purpose of redundancy resolution, the magnitude of
+directional stiffness of moving platform is formulated as a
+linear objective function of cable tensions and is maximized
+by using LP , allowing real-time implementation. The proposed
+actuation method and stiffness optimization approach are
+experimentally evaluated on an actual planar warehousing
+CDPR.
+The rest of this paper is organized as follows: Section II pro-
+vides a general ﬂexible model for kinematically-constrained
+CDPRs and formulates the actuation redundancy problem.
+Section III formulates the cables’ tension redundancy problem
+and Section IV develops the redundancy resolution approach
+to maximize the directional stiffness of the moving platform.
+In Section V, the proposed approach is used for modeling and
+stiffness maximization of a planar CDPR. Section VI presents
+the experimental tests for validating the proposed approach.
+Concluding remarks are provided in Section VII.
+II. K INEMA TICALL Y-CONSTRAINED CABLE-DRIVEN ROBOTS
+In this section, with the help of an illustrative example, we
+review the kinematic constraints in actuation of CDPRs. Fur-
+thermore, we derive the motion and vibration equations of a
+general kinematically-constrained redundant CDPR.
+A. Kinematic Constraints in a CDPR
+In order to move the platform of a common redundant CDPR,
+such as the planar CDPR of Fig. 1 with four cables of 1–4, three
+DOFs of x, y, θ, and a desired translational motion, each cable
+force is controlled by an individual actuator to provide a desired
+tension. In such conditions, the moving platform stiffness within
+the motion is only formed by the cables’ tension.
+By adding two cables of 5 and 6, driven by actuators of 1 and
+2, we can add a kinematic constraint to the moving platform
+to restrict the undesirable DOF of θ. To move the platform by
+using 6 cables, consider top actuators under position control to
+provide the nonstretched length of top cables. Simultaneously,
+to make the desired tension of top cables, the desired tension
+of bottom cables are provided by their actuators. In such
+conditions, the platform stiffness within the motion is formed
+by not only the cables’ tension, but also the axial stiffness of
+constrained cables which can be considerably high to resist
+θ. Accordingly, a general ﬂexible kinematically-constrained
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+JAMSHIDIFAR et al.: KINEMATICALLY-CONSTRAINED REDUNDANT CDPR: MODELING, REDUNDANCY ANALYSIS AND STIFFNESS OPTIMIZATION 923
+Fig. 2. General layout of kinematically-constrained CDPRs.
+Fig. 3. General model of kinematically-constrained CDPRs.
+CDPR is represented in the following and its dynamics,
+actuation redundancy, and stiffness optimization are studied.
+B. General Model of Kinematically-Constrained CDPRs
+In the structure of the general kinematically-constrained
+CDPR, the nonconstrained cables are replaced with their ten-
+sions and each constrained cable is considered as a massless
+linear spring with small damping effects and ignorable slack-
+ness. It is assumed that all cables of each constrained actuator
+have an equal initial (nonstretched) length and also all actua-
+tors are perfect in providing the initial length or tension of their
+connected cables.
+Figs. 2 and 3 show the general layout and model of a 3-D
+kinematically-constrained redundant CDPR with n = n′ + n′′
+actuators and m = m1 + ... + mn′ + n′′ cables, where n′ and
+n′′ denote the number of constrained and non-constrained ac-
+tuators. In this conﬁguration, initial and total lengths of cable j
+driven by actuator i, are denoted by loi and lji . The unit and an-
+chor vectors (with respect the moving platform center of mass)
+for the same cable are designated by uji and rji . The tension
+vector of each cable is along uji and has magnitude τji .T h e
+number of constrained cables of the ith actuator is designated
+by mi and the vectors of external force and moment applied on
+the moving platform center of mass are denoted byFe and Me .
+Assuming a known position and orientation for the moving
+platform, the magnitudes of the cable tensions isτji = kji (lji −
+loi ), in which kji = aE/lji denotes the stiffness of each cable
+where E and a are Y oung’s modulus of elasticity and the cable
+cross section area.
+To review the geometrical properties of kinematically-
+constrained actuation, consider the nominal conditions of the
+moving platform where we have no perturbation in the position
+or orientation of the moving platform. In such conditions, the
+total length of all cables of each constrained actuator needs to be
+equal. Accordingly, the connection points of constrained cables
+need to be selected such that this condition holds all over the
+workspace. In addition, the spool system of each constrained
+actuator needs to provide equal lengths for its connected cables.
+Applying large enough tensions, via nonconstrained cables,
+holds all the constrained cables under tension to act as a strong
+spring, which, by proper selection of the cables’ connection
+points, can highly improve the moving platform rotational
+stiffness.
+C. Vibration Equation of Kinematically-Constrained
+CDPRs
+The Newton–Euler equation of motion for the moving plat-
+form illustrated in Fig. 3 is given as
+JT η ×m τm ×1 =
+[
+Mm 0
+0I cm
+]
+η ×η
+[¨P
+¨Θ
+]
+η ×1
++
+[
+0
+( ˙Θ)×Icm ( ˙Θ)
+]
+η ×1
+−
+[
+Fe
+Me
+]
+η ×1
+(1)
+where Mm and Icm are the moving platform mass and iner-
+tia matrices, P =[ x, y, z]T and Θ =[ θx,θ y ,θ z ]T denote the
+vectors of translational and angular coordinates, η denotes the
+moving platform’s DOF. J and τ are the Jacobian matrix and
+tension vector given as
+JT (X)η ×m =
+[
+u11 ··· umn ′ n ′ u1n ′ +1 ... u1n
+r11 × u11 ··· rmn ′ n ′ × umn ′ n ′ r1n ′ +1 × u1n ′ +1 ...r1n × u1n
+]
+(2)
+and
+τm ×1 (X)=
+[
+τ11 ...τ mn ′ n ′ τ1n ′+1 ...τ 1n
+]T
+(3)
+where X = [P, Θ]T is the vector of platform coordinates, which
+can be written asX = ¯X + Xδ where ¯X =[ ¯P, ¯Θ]T andXδ =
+[Pδ , Θδ ]T denote the desired trajectory and its perturbation.
+Let us assume that the constrained cables of the CDPR can
+restrict the platform rotational DOFs such that ¯X =[ ¯P, 0]T
+can be considered as the desired translational trajectory and
+the second-order terms of ( ˙Θδ ) × Icm ( ˙Θδ ) can be ignored.
+Accordingly, (1) can be written as
+[
+Mm 0
+0 Icm
+][¨¯P + ¨Pδ
+¨Θδ
+]
+−
+[
+Fe
+Me
+]
+= JT ( ¯X + Xδ )τ ( ¯X + Xδ ).
+(4)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+924 IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017
+Considering a negligible value for the second and higher
+order terms of coordinates’ perturbations, one can approximate
+JT and τ with their ﬁrst-order expansions that gives
+[
+Mm 0
+0 Icm
+][ ¨¯P
+0
+]
++
+[
+Mm 0
+0 Icm
+][ ¨Pδ
+¨Θδ
+]
+−
+[
+Fe
+Me
+]
+= JT ( ¯X)τ ( ¯X)+
+(∂JT
+∂X τ + ∂τ∂XJT
+)
+Xδ (5)
+where τ ( ¯X) and JT (¯X) are named nominal tension vector and
+nominal Jacobian matrix and denoted by ¯τ and ¯J. Behzadipour
+and Khajepour have shown, in [23], that
+(∂JT
+∂X τ + ∂τ∂XJT
+)
+= −K( ¯X, ¯τ ) (6)
+where K denote the stiffness matrix of the moving platform. It
+is also shown that
+K( ¯X, ¯τ )= Kk ( ¯X)+ K¯τ ( ¯X, ¯τ ) (7)
+where
+Kk =
+m∑
+i=1
+ki
+[
+uiuTi uiuTi [ri ×]T
+[ri ×]uiuTi [ri ×]uiuTi [ri ×]T
+]
+(8)
+is the moving platform stiffness resulted from inherent stiffness
+of the cables and
+K¯τ =
+m∑
+i=1
+¯τi
+li
+[
+I − uiuTi (I − uiuTi )[ri ×]T
+[ri ×](I − uiuTi )[ ri ×](I − uiuTi )[ri ×]T
+]
++
+n∑
+i=1
+¯τi
+[ 00
+0 −[ui ×][ri ×]
+]
+(9)
+is formed by the tension of cables. In these equations
+[ri ×]=
+⎡
+⎢⎣
+0 −rzi ryi
+rzi 0 −rxi
+−ryi rxi 0
+⎤
+⎥⎦
+3×3
+,ri =
+⎡
+⎢⎣
+rxi
+ryi
+rzi
+⎤
+⎥⎦ (10)
+and [ui ×] and ui have similar equations.
+Equations (8) and (9) are provided for the static equilibrium
+conditions where each cable is ﬁxed at its connection point
+with the ground holding its desired tension. Accordingly, the
+axial stiffness and tension of all cables have been involved in
+calculation of Kk and K¯τ . However, within the motion of the
+moving platform, involvement of all cables inKk and K¯τ is not
+valid. In the common type of actuation, K¯τ is the only part of
+K. On the other hand, in kinematically-constrained actuation,
+Kk is made by the axial stiffness of the constrained cables and
+is added to K¯τ to form K. Accordingly,Kk and K¯τ for CDPR
+of Fig. 3 are obtained as
+Kk =
+n ′∑
+i=1
+mi∑
+j =1
+kji
+⎡
+⎣
+uji uTji uji uTji [rji×]T
+[rji×]uji uTji [rji×]uji uTji [rji ×]T
+⎤
+⎦
+6×6
+(11)
+and
+Kτ =
+n∑
+i=1
+mi∑
+j =1
+¯τji
+lji
+×
+[ I − uji uTji (I − uji uTji )[rji ×]T
+[rji ×](I − uji uTji )[ rji ×](I − uji uTji )[rji ×]T
+]
+6×6
++
+n∑
+i=1
+mi∑
+j =1
+¯τji
+[
+00
+0 −[uji ×][rji ×]
+]
+6×6
+. (12)
+Considering the obtained K for (6) and replacing in (5) gives
+[
+Mm 0
+0 Icm
+][ ¨Pδ
+¨Θδ
+]
++ K
+[
+Pδ
+Θδ
+]
++
+[
+Mm 0
+0 Icm
+][ ¨¯P
+0
+]
+=
+[
+Fe
+Me
+]
++ ¯JT ¯τ (13)
+where by considering the nominal equation of motion
+[
+Mm 0
+0 Icm
+][ ¨¯P
+0
+]
+= ¯JT ¯τ (14)
+results in
+[
+Mm 0
+0 Icm
+][ ¨Pδ
+¨Θδ
+]
++ K( ¯X, ¯τ )
+[
+Pδ
+Θδ
+]
+=
+[
+Fe
+Me
+]
+(15)
+as the vibration equation of the moving platform near its desired
+trajectory ¯X. It can be shown that the cables’ damping effect
+can be added by the damping term C( ¯X, ¯τ )[ ˙PTδ ˙ΘTδ ]T to the
+left hand side of (15), where C denotes the damping matrix of
+the moving platform. Regarding the small effects of the damp-
+ing term on the natural frequency of the moving platform, this
+term is considered negligible in vibration anlysis of the moving
+platform.
+According to (7) and (15), arrangement of constrained ca-
+bles and the magnitude of tensions can be used to improve
+the stiffness and reduce undesired vibrations of the CDPR. Ac-
+cordingly, tension redundancy and stiffness optimization of the
+moving platform are studied in the sequel.
+III. T ENSIONS REDUNDANCY FORMULA TION
+Based on (14), the redundant solution of ¯τ can be found,
+which is used in formulation of K(¯X, ¯τ ). If the left hand side
+of (14) is deﬁned as the CDPR total wrench and is represented
+by w, this equation can be rewritten in brief as
+wη ×1 = ¯JTη ×m ¯τm ×1. (16)
+For a determined motion or position of the moving platform,
+¯J and w are the known parts of (16). In case of m >η ,w e
+have m−η degrees of redundancy in the solution of ¯τ . Since
+there are n actuators that provide n independent actuation inputs,
+the degree of redundancy needs to be reduced ton−η. Regarding
+the nominal conditions of the moving platform, we can assume
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+JAMSHIDIFAR et al.: KINEMATICALLY-CONSTRAINED REDUNDANT CDPR: MODELING, REDUNDANCY ANALYSIS AND STIFFNESS OPTIMIZATION 925
+equal nominal tensions for all constrained cables of each ac-
+tuator. Accordingly, replacing the identical tension of actuator
+i cables by ¯τi simpliﬁes (16) to the following equation with
+desired redundancy degree n−η:
+w′η ×1 = ¯J′Tη ×m ¯τ ′m ×1 (17)
+where w′ = w, eq. (18) shown at the bottom of the page, and
+¯τ ′n ×1 =[ ¯τ1 ... ¯τn ′ ¯τ1n ′ +1 ... ¯τ1n ]T . (19)
+It is worth mentioning that providing equal initial (non-
+stretched) lengths and consequently equal tensions, for all cables
+of each actuator using a real spool system may be challenging.
+Accordingly, the effect evaluation of probable uneven tension
+distribution in the CDPRs’ spool systems needs an experimental
+investigation in different analysis.
+In real applications, for avoiding the cables’ slackness and
+also considering the actuators’ maximum torque, there is a min-
+imum and maximum bound on the tension’s magnitude of each
+cable. Denoting the minimum and maximum acceptable tension
+values for cables of actuator i by τimin and τimax , the allowable
+tension range of the cables can be written as
+0 ≤ τi min ≤ ¯τi ≤ τi max ,i ∈{ 1,..., n } . (20)
+Regarding the dimension of¯J′ in (17), in case of n >η , τ ′ has
+a solution with the limitations of (20). This solution in general
+form can be written as
+¯τ ′n ×1 = ¯J′Tn ×η + w′η ×1 + Hn ×(n −η )α(n −η )×1 (21)
+where ¯J′T + is the pseudo inverse of ¯J′T , α =[ α1 α2 ...
+αn −η ]T is the vector of arbitrary variables, H =[ h1 h2 ...
+hn −η ], where h1 to hn −η denote the basis unit vectors of null
+space of ¯J′T . Using (21), the cables’ tension limitation (20) can
+be written as
+¯τ min − ¯J′T +w′ ≤ Hα ≤ ¯τ max − ¯J′T +w′ (22)
+where τ min =[ τ1min τ2min ... τ n min ]T and τ max =[ τ1max
+τ2max ...τ n max ]T are the vectors of cables’ minimum and max-
+imum allowable tensions.
+IV . REDUNDANCY RESOLUTION
+In this paper, it is aimed to ﬁnd the optimum α in polytope
+(22), which maximizes the stiffness of the moving platform in
+a desired direction. To ﬁnd the desired direction, two different
+scenarios are considered. In the ﬁrst scenario, we consider that
+the moving platform interaction with its environment or a tool
+mounted on it, makes a disturbing force Fe or moment Me in
+a known direction. In such a case, the corresponding objective
+function is derived based on the translational or rotational part of
+K in direction ofFe orMe and then is maximized. Accordingly,
+we can expect to have the minimum translational or rotational
+deviation under disturbingFe or Me in their applied directions.
+In the second scenario, in absence of any knowledge about the
+disturbing force or moment, we have ﬁrst considered the coupled
+structural stiffness matrix Kk to deﬁne the softest direction of
+the stiffness matrix. Next, the corresponding objective function
+of softest direction is deﬁned and maximized.
+A. Maximization of Directional Stiffness
+Regarding the nominal conditions for the stiffness matrix in
+(15), in addition to replacing τji s by τi , kji , and lji can also be
+replaced by their nominal values of ki and li in (11) and (12).
+Accordingly, the translational and rotational stiffness matrices
+of the moving platform are given as
+Ktrans 3 ×3 =
+n ′∑
+i=1
+mi∑
+j =1
+kiuji uTji +
+n∑
+i=1
+mi∑
+j =1
+τi
+li
+(I − uji uTji )
+(23)
+and
+Krot 3 ×3 =
+n ′∑
+i=1
+mi∑
+j =1
+ki [rji ×]uji uTji [rji ×]T
++
+n∑
+i=1
+mi∑
+j =1
+τi
+li
+([rji ×](I − uji uTji )[rji ×]T
+−li [uji ×][rji ×]). (24)
+According to (21), τi s and, hence, the entries of translational
+and rotational stiffness matrices in (23) and (24) can be written
+as linear combinations of αi s and can be used to develop an
+objective function.
+To derive the translational stiffness objective function, con-
+sider the moving platform in a desired position and let β =
+[βx βy βz ]T be the unit vector of desirable stiffness direction.
+The translational stiffness of the moving platform in direction
+of β is given as
+Kβtrans = δFβδpβ (25)
+where δF β denotes the magnitude of small force variation in
+direction of β for having a small translational displacement of
+δP β in the same direction. Based on the translational stiffness
+matrix deﬁnition, denoting the vector of required external force
+for having the translational deviation of δp by δF,w eh a v e
+δF = Ktrans δp. (26)
+Accordingly, the required force vector for having δpβ dis-
+placement in β direction is obtained as
+δFβ = Ktrans βδpβ. (27)
+By projecting δFβ in β direction, δF β is obtained as
+δFβ = βT δFβ. (28)
+¯J′Tη ×n =
+[ ∑m 1
+j =1 uj 1 ... ∑mn ′j =1 ujn ′ u1n ′ +1 ... u1n
+∑m 1
+j =1 (ri1 × ui1 )...∑mn ′j =1 (rin ′ × uin ′ )r1n ′ +1 × u1n ′ +1 ...r1n × u1n
+]
+(18)
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+926 IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017
+Substituting (27) in (28), gives
+δFβ = βT Ktrans βδpβ. (29)
+Therefore, based on (25), we have
+Kβtrans = βT Ktrans β. (30)
+Having Ktrans as a linear function of αi s, Kβtrans is also a
+linear combination of αi s. Accordingly, the optimization prob-
+lem of maximizing the translational stiffness in direction β is
+formulated as ﬁnding
+K∗βtrans = maxα Kβtrans (α). (31)
+Similar to the translational stiffness, maximizing the rota-
+tional stiffness of the moving platform can be formulated as
+ﬁnding
+K∗βrot = maxα Kβrot (α) (32)
+where Kβrot = βT Krot β.
+B. Stiffness Maximization in the Softest Direction
+To deﬁne the softest direction of a CDPR, we have assumed
+that the moving platform stiffness matrix K is made only by the
+structural part Kk . In such conditions, a disturbing wrench of
+[Fe, Me ]T = δDβ β makes the perturbationδXββ, whereβ =
+[βx βy βz βθx βθy βθz ]T is a unit vector. The softest direction
+of the moving platform is deﬁned as the vector β for which
+δXβ/δDβ has its maximum value. Noting Kk as a positive
+deﬁnite symmetric matrix [23], it can be shown that β = eλmin
+whereeλmin is the eigenvector ofKk minimum eigenvalueλmin .
+Accordingly, the maximum value of δXβ/δDβ is obtained as
+1/λmin . Noting the total stiffness matrix K = Kk + K¯τ ,i n
+order to minimize δXβ/δDβ in β direction, maximization of
+the objective function
+Kβ = βT Kβ,β = eλ min (33)
+is formulated as
+K∗β = maxα Kβ (α). (34)
+Utilizing the linearity of the obtained objective functions,
+LP can be used as the redundancy resolution technique for the
+developed cost functions. As an example, this algorithm for the
+translational stiffness can be written as
+maximizeKβtrans (α)
+over α ∈ Rn −η
+subject to τ min − A′+w′ ≤ Hα ≤ τ max − A′+w′. (35)
+Solving (35) gives α∗ as the optimized vector of α. Substi-
+tuting α∗ in (21), provides the optimum τ ′, which is used in
+actuators’ input calculation. In addition, based on the optimized
+τ ′, the stiffness matrix K can be obtained and used in vibration
+(15). Accordingly, the free vibration of the moving platform in
+all of its six DOFs can be modeled for different initial position
+and velocity conditions.
+It should be noted that the provided approach for maximizing
+the stiffness assumes that the CDPR is in a stable conﬁguration.
+Fig. 4. Prototype of planar warehousing CDPR.
+Fig. 5. Warehousing CDPR conﬁguration.
+T ABLE I
+WAREHOUSING ROBOT DIMENSIONS (IN METERS)
+Dimension V alue Dimension V alue Dimension V alue
+b1 3 v1 0.105 b5 0.08
+b2 0.2050 v2 0.059 c1 0.065
+b3 0.3650 v3 0.046 v5 0.05
+b4 0.3450 v4 0.5 c2 0.095
+The necessary and sufﬁcient geometrical conditions for stability
+of a CDPR are discussed in [23].
+V. A PPLICA TION ON A WAREHOUSING CDPR
+In this section, the developed approach is used for stiffness
+maximization of a planar warehousing robot over its workspace.
+Fig. 4 illustrates the prototype of studied CDPR that has been
+fabricated based on an optimized design reported in [6].
+A. CDPR Conﬁguration and Speciﬁcations
+The cables’ conﬁguration of the warehousing robot is shown
+in Fig. 5 and its dimensions are presented in Table I.A s Fig. 5
+shows, this robot uses 12 cables to provide a planar translational
+motion for the moving platform inX–Y plane, where eight cables
+(two bunches of four cables) are driven by the top actuators and
+four cables (two bunches of two cables) are driven by the bottom
+actuators.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+JAMSHIDIFAR et al.: KINEMATICALLY-CONSTRAINED REDUNDANT CDPR: MODELING, REDUNDANCY ANALYSIS AND STIFFNESS OPTIMIZATION 927
+Fig. 6. Conﬁguration of (a) the forces sensors, IMU, and payload on
+the CDPR moving platform and (b) the Krypton RODYM measurement
+system camera.
+T ABLE II
+WAREHOUSING ROBOT MOVING PLA TFORM AND CABLES PROPERTIES
+Parameter Description V alue
+a Cross section area of the cables 2 mm 2
+E Cables’ young modulus of
+elasticity
+55 GPa
+KS Bottom springs’ stiffness 753 N/m
+τtmax , τbmax , τmi n Top and bottom cables’ maximum
+and cables’ minimum tension
+400, 150, 40 N
+m mp , m pl Moving platform and payload
+mass
+8.8, 5.7 kg
+Ixx , Iyy , Izz Platform inertia entries 0.04, 0.16, 0.14 kg m 2
+Ixxpl ,I yypl , Izz pl Platform & payload inertia entries 0.07, 0.18, 0.19 kg m 2
+In Fig. 5, the coordinate system of xyz is attached to the mov-
+ing platform center of mass where the ﬁxed coordinate system
+of XYZ is attached to the geometric center of ﬁxed frame. The
+moving platform and ﬁxed frame, with respect to x–y, y–z and
+X–Y, Y–Z planes, are symmetric. Assuming equal lengths for
+all cables of each actuator, the illustrated conﬁguration con-
+strains four undesired DOFs of the moving platform. Denoting
+its translational and angular coordinates in XYZ byP =[ xyz ]T
+andΘ =[ θx θy θz ]T , z,θx ,θy , andθz are the coordinates of con-
+strained DOFs. In such conditions, the length of top cables can
+be controlled to provide the planar translational motion where
+the tension control of bottom cables can be used for stiffness
+maximization.
+The warehousing robot moving platform can carry an extra
+mass, illustrated in Fig. 6, as payload. In addition, to provide a
+force feedback on the bottom cables, each one of these cables
+is connected to a linear spring that, via a force sensor, is con-
+nected to the moving platform. Table II represents the cables’
+mechanical properties, mass and inertia of the moving platform,
+the stiffness of bottom springs, and the limitation of cables’
+tensions.
+B. Inverse Kinematics
+Before deriving the warehousing robot redundancy problem
+for obtaining the actuators’ input, the kinematic equations of
+the warehousing CDPR need to be derived. These equations
+provide the total length and unit vector of each cable that are
+necessary for the development of A′. Assume in the illustrated
+conﬁguration of Fig. 5 , vector P =[xy 0]T denotes the posi-
+tion of o′ in XYZ. Denoting each cable anchor and connecting
+position vector by rji and Bji in XYZ, we have Bji = P + rji .
+Denoting the position vector of the cable other ﬁxed end by
+Cji , (Cji − Bji ) is obtained as the cable vector where its Eu-
+clidean norm lji = ‖Cji − Bji ‖gives its length. Accordingly,
+the cable unit vector is obtained as uji =( Cji − Bji )/lji .R e -
+garding the robot’s dimensions in Table I, rji and Cji are avail-
+able for all cables; consequently, the length and unit vector of
+each cable can be obtained for any desired P.
+C. Dynamics and Actuation Redundancy
+Based on the provided conﬁguration in Fig. 5 and (17), for
+a known static position of the moving platform, the tensions
+equation can be written as
+A′3×4τ ′4×1 = w′3×1 (36)
+where A′ is obtained from (18),τ ′ =[ τ1 τ2 τ3 τ4 ]T is the vector
+of cables’ tension, w′ =[ 0 mmp g0 ]T is the external wrench, g
+is the magnitude of gravity acceleration, and mmp denotes the
+moving platform mass. Regarding the dimension of A′ in (36),
+we have one degree of redundancy in solution of τ ′, which
+shows its redundant variable is denoted by α1 . Satisfying the
+allowable tension of cables, provides the feasible domain of α1
+as [α1min ,α 1max ].
+Regarding the layout of the warehousing robot with a long
+projection of cables’ length on the X- and Y-axes in front of a
+short projection on Z-axis, we can expect a considerable ﬂexibil-
+ity in this direction. Thus, Z-direction is selected as the direction
+of stiffness maximization to ﬁnd the optimum value of α1 .A c -
+cordingly, the optimization problem for ﬁnding optimum α1 is
+written as
+maximizeKZ trans (α1 )
+over α1m i n ≤ α1 ≤ α1 max (37)
+where KZ trans (α1 )= βT Ktrans β and β = [ 001 ]T . Equation
+(37) provides α∗1 as the optimum value of α1 .H a v i n gα∗1 ,t h e
+initial length of top cables and the tension of bottom cables
+are achieved for every desired point. In addition, the stiffness
+matrix of the moving platform is obtained and used in vibration
+equation.
+VI. E XPERIMENTS
+A. Experimental Procedure
+To validate the above results, two experiments are designed
+and implemented. The ﬁrst experiment evaluates the effect of
+optimized tensions on the moving platform stiffness. The sec-
+ond experiment demonstrates the effectiveness of kinematically-
+constrained actuation in vibration reduction and disturbance
+rejection of CDPRs.
+In the ﬁrst experiment, the moving platform is positioned in
+a desired position using top cables and by applying the optimal
+and nonoptimal tension to the bottom cables, the stiffness of the
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+928 IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017
+T ABLE III
+TOTAL LENGTH OF TOP CABLES (IN METERS)
+Pi P0 P1 P2 P3 P4
+l1 1.4702 1.1935 1.0309 1.8162 1.9132
+l4 1.4702 1.9132 1.8162 1.0309 1.1935
+T ABLE IV
+OPTIMAL AND NON-OPTIMAL TENSIONS (IN NEWTONS)
+Pi P0 pl P1 pl P2 pl P3 pl P4 pl
+α * 1 160 175 20 25 549 613 480 525 53 50
+τ 1 121 144 64 78 238 268 234 268 62 80
+τ 2 150 150 150 150 150 150 127 116 135 124
+τ 3 150 150 135 124 127 116 150 150 150 150
+τ 4 121 144 62 80 234 26 238 268 64 78
+α 1mid 109 124 17 21 413 494 356 416 37 34
+τ 1 90 113 52 65 180 217 179 220 52 70
+τ 2 95 95 109 109 105 110 83 78 93 82
+τ 3 95 95 93 82 83 78 105 110 109 109
+τ 4 90 113 52 70 179 220 180 217 52 65
+α 1min 59 74 14 17 276 375 231 307 21 18
+τ 1 58 81 40 53 122 165 124 172 43 60
+τ 2 40 40 67 67 59 71 40 40 51 40
+τ 3 40 40 51 40 40 40 59 71 67 67
+τ 4 58 81 43 60 124 172 122 166 40 53
+platform in the optimized direction is studied and compared.
+In any desired position, using a Krypton RODYM 6D position
+measurement system with 0.2 mm precision and four force sen-
+sors with 1 N precision shown in Fig. 6 , the moving platform
+position and bottom cables’ tensions are measured. To compare
+the effect of optimized α∗1 on maximization of the robot stiff-
+ness, two other nonoptimal values of α1 in the feasible range
+of [α1min ,α 1max ] are used for the bottom cable tensions. Ex-
+periments are conducted for two payloads (zero and 5.7 kg) in
+ﬁve different poses, including the center and four corners of a
+rectangle with a width of 0.8 m and a height of 0.4 m. Accord-
+ingly, P0 = [ 000 ]T , P1 =[ 0.4 − 0.20 ]T , P2 =[ 0.40.20 ]T ,
+P3 =[ −0.40.20 ]T , and P4 =[ −0.4 − 0.20 ]T are selected as
+the desired positions. Table III shows the total length of top
+cables in each position.
+In addition to α∗1 , α1min , and α1mid =( α1min + α1max )/2
+are selected as nonoptimal sets of bottom cables tensions. In the
+optimization process, the maximum time for calculation of α∗1
+using MA TLAB command "linprog" was 0.01 s on a computer
+with Intel Core i7-2600 3.4 GHz processor and 8 GB RAM.
+Tables IV provides α∗1 , α1mid , α1min , and their corresponding
+cables’ tensions for two case of zero and 5.7 payloads, respec-
+tively. Note that for the selected points of the workspace, α∗1
+is obtained as α1max . Nevertheless, it is worth to mention that
+this result cannot be extended to the other points of workspace,
+different β directions, or similar CDPRs.
+Since direct measurement of stiffness is not possible in order
+to evaluate the stiffness of the moving platform, an indirect ap-
+proach has been used. As (15) indicates, free vibration equation
+of the moving platform in all of its six DOFs is affected by the
+Fig. 7. z-direction acceleration signal of moving platform at P0 .
+optimized stiffness matrix. Accordingly, the moving platform
+natural frequencies can be used as a comparison criterion.
+In order to ﬁnd a comparable natural frequency, a small per-
+turbation is applied in the z-direction and the vibration signals
+of the moving platform are recorded. The same initial condi-
+tion is considered in (15) and the vibration of the platform is
+simulated. For recording the desired signals, a six axis inertial
+measurement unit, illustrated in Fig. 6 is used, which records the
+translational accelerations and angular velocities of the moving
+platform.
+Fig. 7 shows recorded acceleration of the platform in the z-
+direction at position P0 . Taking the Fourier transform of the
+signal, the dominant frequency will be considered as the natural
+frequency of the platform in the z-direction. It is worth mention-
+ing that the damping ratio ( ζ) of the illustrated vibration signal
+is 0.05 which results in 0.2% error in calculation of the mov-
+ing platform natural frequency. We have similar results for the
+damping ratio of other selected points of workspace showing
+that the cables’ damping can be ignored.
+In addition to validate the model, the natural frequency of the
+platform in the z-direction using the model (15) ( fmodel )i sa l s o
+calculated and compared with the actual natural frequency of
+the platform (factual ). The error in the model and actual natural
+frequency of the platform in the z-direction is deﬁned as
+ferror = 100 fmodel − factualfactual . (38)
+In the second experiment, in order to show the effect of
+kinematically-constrained actuation, two different actuation
+methods are tested. For this goal, the circular path of
+x(t)= x0 + rr cos(f(t/tm )+3 π/2)
+y(t)= y0 + rr sin(f(t/tm )+3 π/2)
+f(t/tm )= −40π(t/tm )7 + 140π(t/tm )6
+− 168π(t/tm )5 +7 0π(t/tm )4 (39)
+is considered as the desired trajectory and a Z-direction har-
+monic disturbing moment Me = 1 sin(10 πt)ez N.m. is ap-
+plied on the moving platform, where t, tm = 4s , [x0,y 0 ]
+=[ 0, 0] mm, and rr = 100 mm denote time, total motion time,
+center and radius of the circle, respectively. The initial and ﬁnal
+values of jerk, acceleration, and velocity are zero. In this exper-
+iment, maximization of Kθz is proposed to solve the tensions
+redundancy problem and the harmonic moment is made by a
+multiaxis reaction mechanism designed in [24].
+To implement the experiment, ﬁrst, the trajectory (39) is
+tracked by the robot with all eight constrained top cables. Next,
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 9 =====
+JAMSHIDIFAR et al.: KINEMATICALLY-CONSTRAINED REDUNDANT CDPR: MODELING, REDUNDANCY ANALYSIS AND STIFFNESS OPTIMIZATION 929
+Fig. 8. Moving platform Kθz variation in common actuation and with
+four constrained cables.
+Fig. 9. Kinematically-constrained moving platform Kθz variation.
+T ABLE V
+ACTUAL AND MODEL NA TURALFREQUENCIES FOR ZERO PAY L OA D S(IN HZ)
+Pi P0 P1 P2 P3 P4
+α ∗1 fmode l 2.55 2.50 3.33 3.33 2.50
+factual 2.4 2.62 3.23 3.17 2.67
+ferror (% ) +6.5 −4.5 +3.3 +5.1 −6.3
+α 1mid fmode l 2.36 2.39 3.12 3.12 2.39
+factual 2.20 2.53 3.04 3.01 2.58
+ferror (% ) +7.3 −5.4 +2.7 +4.2 −7.1
+α 1min fmode l 2.16 2.27 2.9 2.9 2.27
+factual 1.99 2.44 2.77 2.79 2.47
+ferror (% ) +8.6 −6.8 +4.4 +3.7 −8.2
+cables 41, 31, 34, and 44 are removed and the same experiment
+is repeated with only four constrained top cables. As Fig. 8
+indicates, in case of having only four constrained cables, the
+rotational stiffness of the moving platform is in the same order
+of that with common actuation of all eight cables. However,
+as depicted in Fig. 9, the stiffness of kinematically-constrained
+actuated platform is in a considerably higher order.
+B. Experiment Results
+Tables V and VI provide the actual and model natural fre-
+quencies of the moving platform for zero and 5.7 kg payloads in
+the ﬁrst experiment. The corresponding natural frequency errors
+are also shown in these tables.
+As seen in the tables and as expected, the optimal cable ten-
+sions result in maximum natural frequency or in fact maximum
+stiffness in the z-direction. This is true in all the platform posi-
+tions and also for different payloads.
+The accuracy of the model could also be inferred from the
+error in the actual and calculated natural frequency of the plat-
+form in the z-direction. The maximum error in frequency for
+zero and 5.7 kg payloads are 8.6% and 9.7%, respectively. Such
+errors considering the complexity of the experimental setup and
+T ABLE VI
+ACTUAL AND MODEL NA TURALFREQUENCIES FOR 5.7 KG PAY L OA D S(IN HZ)
+Pi P0 P1 P2 P3 P4
+α ∗1 fmode l 2.05 1.98 2.66 2.66 1.98
+factual 1.98 2.11 2.53 2.48 2.13
+ferror (% ) +3.3 −6.2 +5.2 +7.1 −6.9
+α 1mid fmode l 1.89 1.9 2.51 2.51 1.9
+factual 1.78 2.07 2.41 2.36 2.05
+ferror (% ) +6.6 −8.2 +4.2 +6.6 −7.3
+α 1min fmode l 1.74 1.81 2.36 2.36 1.81
+factual 1.63 1.95 2.19 2.15 2.01
+ferror (% ) +7.1 −7.3 +8.1 +9.7 −9.6
+Fig. 10. z-direction angular velocity in the second experiment.
+its pulley system is acceptable. The error in the model could be
+reduced further by including more details of the cable collec-
+tor system; however, the optimization system developed in this
+paper is independent from such model improvements.
+Fig. 10 compares the rotational angular velocity of the moving
+platform in the second experiment.
+As this ﬁgures demonstrates, for the robot with only four
+constrained cables, the moving platform undesired rotational
+vibration is signiﬁcantly considerable than the kinematically-
+constrained actuated robot. Root-mean-square deviations of de-
+picted signals are obtained as 8.02 and 0.79, which proves the
+considerable effects of kinematically-constrained actuation on
+disturbance rejection and vibration limitation of the CDPR.
+VII. C ONCLUSION
+A general model of the ﬂexible redundant kinematically-
+constrained CDPRs has been developed and the effects of
+cables’ kinematic constraints and redundant tensions on the
+stiffness of CDPRs are studied. By the goal of perturbation
+minimization, maximization of the stiffness of moving platform
+in a desired direction has been proposed as a linear objective
+function to address the redundancy problem of the actuators.
+The proposed approach has been developed generally and used
+in modeling and stiffness maximization of a planar redundant
+warehousing robot as a case study. Experimental evaluation of
+natural frequency of the moving platform for optimized and
+nonoptimized tensions and also different payloads has demon-
+strated validity of the proposed approach. Agreement between
+the theoretical and experimental results conﬁrms acceptabil-
+ity of our assumptions in negligibility of the impacts of ca-
+bles’ damping effects as well as spools systems’ uneven tension
+distribution on the natural frequency of the moving platform.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 10 =====
+930 IEEE/ASME T RANSACTIONS ON MECHATRONICS, VOL. 22, NO. 2, APRIL 2017
+Moreover, comparison of the CDPR vibrations with dif-
+ferent actuation methods demonstrates the effectiveness of
+kinematically-constrained auction method in stiffness improve-
+ment of such robots.
+REFERENCES
+[1] S. Kawamura, W. Choe, S. Tanaka, and S. R. Pandian, “Development of
+an ultrahigh speed robot FALCON using wire drive system,” inProc.1995
+IEEE Int. Conf. Robot. Autom. , 1995, vol. 1, pp. 215–220.
+[2] S. K. Mustafa, G. Y ang, S. H. Y eo, W. Lin, and I. M. Chen, “Self-
+calibration of a biologically inspired 7 DOF cable-driven robotic arm,”
+IEEE/ASME Trans. Mechatronics, vol. 13, no. 1, pp. 66–75, Feb. 2008.
+[3] S. Donohoe, S. V elinsky, and T. Lasky, “Mechatronic implementation of
+a force optimal underconstrained planar cable robot,” IEEE/ASME Trans.
+Mechatronics, vol. 21, no. 1, pp. 69–78, Feb. 2015.
+[4] S. Behzadipour and A. Khajepour, “Design of reduced DOF parallel cable-
+based robots,” Mech. Mach. Theory, vol. 39, no. 10, pp. 1051–1065, Oct.
+2004.
+[5] P . Bosscher, R. L. Williams II, and M. Tummino, “A concept for rapidly-
+deployable cable robot search and rescue systems,” in Proc. 2005 ASME
+Int. Des. Eng. Tech. Conf. Comput. Info. Eng. Conf. , 2005, pp. 589–598.
+[6] S. Torres-Mendez and A. Khajepour, “Design optimization of a warehous-
+ing cable-based robot,” in Proc. 2014 ASME Int. Des. Eng. Tech. Conf.
+Comput. Info. Eng. Conf. , 2014, pp. V05A T08A091–V05A T08A099.
+[7] H. Jamshidifar, B. Fidan, G. Gungor, and A. Khajepour, “Adaptive vibra-
+tion control of a ﬂexible cable driven parallel robot,”IF AC-PapersOnLine,
+vol. 48, no. 3, pp. 1302–1307, 2015.
+[8] O. Saber, “A spatial translational cable robot,” J. Mech. Robot. ,v o l .7 ,
+no. 3, 2015, Art. no. 31006.
+[9] H. Khakpour, L. Birglen, and S. A. Tahan, “Synthesis of differentially
+driven planar cable parallel manipulators,” IEEE Trans. Robot. , vol. 30,
+no. 3, pp. 619–630, Jun. 2014.
+[10] S. Fang, D. Franitza, M. Torlo, F. Bekes, and M. Hiller, “Motion control of
+a tendon-based parallel manipulator using optimal tension distribution,”
+IEEE/ASME Trans. Mechatronics, vol. 9, no. 3, pp. 561–568, Sep. 2004.
+[11] C. Gosselin and M. Grenier, “On the determination of the force distribution
+in overconstrained cable-driven parallel mechanisms,”Meccanica, vol. 46,
+no. 1, pp. 3–15, 2011.
+[12] W.-J. Shiang, D. Cannon, and J. Gorman, “Dynamic analysis of the cable
+array robotic crane,” in Proc. 1999 IEEE Int. Conf. Robot. Autom. , 1999,
+vol. 4, pp. 2495–2500.
+[13] A. Pott, T. Bruckmann, and L. Mikelsons, “Closed-form force distribution
+for parallel wire robots,” in Proc. 5th Int. Workshop Comput. Kinematics,
+2009, pp. 25–34.
+[14] K. Y u, L. Lee, and V . Krovi, “Simultaneous trajectory tracking and stiffness
+control of cable actuated parallel manipulator,” in Proc. 2009 ASME Int.
+Des. Eng. Tech. Conf. Comput. Info. Eng. Conf., 2009, no. 716, pp. 55–63.
+[15] K. Y u, L.-F. Lee, C. P . Tang, and V . N. Krovi, “Enhanced trajectory
+tracking control with active lower bounded stiffness control for cable
+robot,” in Proc. 2010 IEEE Int. Conf. Robot. Autom. , 2010, pp. 669–674.
+[16] P . H. Borgstrom, B. L. Jordan, G. S. Sukhatme, M. Batalin, and W. J.
+Kaiser, “Rapid computation of optimally safe tension distributions for
+parallel cable-driven robots,”IEEE Trans. Robot., vol. 25, no. 6, pp. 1271–
+1281, Dec. 2009.
+[17] T. Bruckmann, A. Pott, and M. Hiller, “Calculating force distribu-
+tions for redundantly actuated tendon-based Stewart platforms,” in Ad-
+vances in Robot Kinematics. Dordrecht, The Netherlands: Springer, 2006,
+pp. 403–412.
+[18] M. Hassan and A. Khajepour, “Analysis of bounded cable tensions in
+cable-actuated parallel manipulators,” IEEE Trans. Robot., vol. 27, no. 5,
+pp. 891–900, Oct. 2011.
+[19] H. D. Taghirad and Y . B. Bedoustani, “An analytic-iterative redundancy
+resolution scheme for cable-driven redundant parallel manipulators,”IEEE
+Trans. Robot., vol. 27, no. 6, pp. 1137–1143, Dec. 2011.
+[20] A. Pott, “An improved force distribution algorithm for over-constrained
+cable-driven parallel robots,” in Computational Kinematics . Dordrecht,
+The Netherlands: Springer, 2014, pp. 139–146.
+[21] X. Diao and O. Ma, “Vibration analysis of cable-driven parallel manipu-
+lators,” Multibody Syst. Dyn., vol. 21, no. 4, pp. 347–360, 2009.
+[22] D. Surdilovic, J. Radojicic, and J. Kr ¨uger, “Geometric stiffness analysis
+of wire robots: A mechanical approach,” in Cable-Driven Parallel Robots.
+Heidelberg, Germany: Springer-V erlag, 2013, pp. 389–404.
+[23] S. Behzadipour and A. Khajepour, “Stiffness of cable-based parallel ma-
+nipulators with application to stability analysis,” J. Mech. Des., vol. 128,
+no. 1, pp. 303–310, 2006.
+[24] M. Rushton, “Vibration control in cable robots using a multi-axis reaction
+system,” M.S. thesis, Dept. Mech. Eng., Univ. Waterloo, Waterloo, ON,
+Canada, 2016.
+Hamed Jamshidifar received the B.Sc. degree
+in mechanical engineering from the Isfahan Uni-
+versity of T echnology , Isfahan, Iran, and the
+M.Sc. degree in mechanical engineering from
+the Sharif University of T echnology , T ehran, Iran,
+in 2008 and 2011, respectively . He is currently
+working toward the Ph.D. degree in the De-
+partment of Mechanical and Mechatronics En-
+gineering, University of Waterloo, Waterloo, ON,
+Canada.
+His research interests include robotics, con-
+trol, cable-driven robots, surgical robotics, and haptic interfaces.
+Amir Khajepour received the B.Sc. degree in
+mechanical engineering from Ferdowsi Univer-
+sity , Mashhad, Iran, in 1990; the M.Sc. degree
+in mechanical engineering from the Sharif Uni-
+versity of T echnology , T ehran, Iran, in 1992;
+and the Ph.D. degree in mechanical engineer-
+ing from the University of Waterloo, Waterloo,
+ON, Canada, in 1996.
+He is currently a Professor with the Depart-
+ment of Mechanical and Mechatronics Engineer-
+ing, University of Waterloo, and is the Canada
+Research Chair with the Mechatronic Vehicle Systems Laboratory . He
+has developed an extensive research program that applies his exper-
+tise in several key multidisciplinary areas. His research interests include
+modeling and control of dynamic systems.
+Baris Fidan (S’02–M’04–SM’11) received the
+B.S. degree in electrical engineering and math-
+ematics from Middle East T echnical University ,
+Ankara, T urkey , in 1996; the M.S. degree in
+electrical engineering from Bilkent University ,
+Ankara, T urkey , in 1998; and the Ph.D. degree
+in electrical engineering from the University of
+Southern California, Los Angeles, CA, USA, in
+2003.
+He is currently an Associate Professor with
+the Department of Mechanical and Mechatron-
+ics Engineering, University of Waterloo, Waterloo, ON, Canada. His re-
+search interests include cooperative and adaptive control with vehicular
+and mechatronic applications, system identiﬁcation, sensor networks,
+and nonlinear mechatronic systems.
+Mitchell Rushton received the B.Sc. degree in
+mechatronics engineering and the M.Sc. degree
+in mechanical engineering from the University of
+Waterloo, Waterloo, ON, Canada, in 2013 and
+2016, respectively .
+He is currently a Research Associate with
+the Department of Mechanical and Mechatron-
+ics Engineering, University of Waterloo. His re-
+search interests include robotics, control system
+design, and mechatronic systems.
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:12:19 UTC from IEEE Xplore. Restrictions apply.

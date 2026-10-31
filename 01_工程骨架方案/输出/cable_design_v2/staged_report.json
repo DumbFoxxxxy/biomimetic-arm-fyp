@@ -1,0 +1,165 @@
+{
+  "stages": {
+    "A_scapula_up": {
+      "actions": [
+        "K6"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": true,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "K6": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S06"
+        ]
+      }
+    },
+    "B_scapula_aux": {
+      "actions": [
+        "SLIDE_FWD",
+        "SLIDE_BACK",
+        "SCAP_EXT",
+        "SCAP_INT"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": true,
+      "pass_cable_clearance": false,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "SLIDE_FWD": [
+          "S03",
+          "S04",
+          "S01"
+        ],
+        "SLIDE_BACK": [
+          "S03",
+          "S04"
+        ],
+        "SCAP_EXT": [
+          "S04",
+          "S05"
+        ],
+        "SCAP_INT": [
+          "S04",
+          "S05",
+          "S06"
+        ]
+      }
+    },
+    "C_gh": {
+      "actions": [
+        "K2",
+        "K3",
+        "K4",
+        "K5"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": true,
+      "pass_cable_clearance": false,
+      "pass_guide_geometry": false,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "K2": [
+          "G02",
+          "G05"
+        ],
+        "K3": [
+          "G01",
+          "G02",
+          "G05",
+          "G06"
+        ],
+        "K4": [
+          "G01",
+          "G02",
+          "G03",
+          "G05"
+        ],
+        "K5": [
+          "G01",
+          "G02",
+          "G03",
+          "G05"
+        ]
+      }
+    },
+    "D_elbow": {
+      "actions": [
+        "K1"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": true,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "K1": [
+          "E01",
+          "E02"
+        ]
+      }
+    },
+    "E_combined": {
+      "actions": [
+        "K7"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": false,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": false,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "K7": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "G01",
+          "G03",
+          "S06"
+        ]
+      }
+    },
+    "F_pectoral": {
+      "actions": [
+        "PECTORAL"
+      ],
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "pass_contraction": true,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "selected_cables": {
+        "PECTORAL": [
+          "P01",
+          "P02",
+          "G05"
+        ]
+      }
+    }
+  }
+}

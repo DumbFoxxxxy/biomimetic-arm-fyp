@@ -1,0 +1,136 @@
+Dim swApp As Object
+Dim reportPath As String
+
+Sub main()
+    Dim root As String
+    Dim asmPath As String
+    Dim savePath As String
+    Dim errs As Long
+    Dim warns As Long
+    Dim asm As Object
+    Dim comps As Variant
+    Dim i As Long
+    Dim c As Object
+    Dim xf As Object
+    Dim vals As Variant
+    Dim ok As Boolean
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\zero_pose.txt"
+    ResetFile reportPath
+    asmPath = FindFile(root, ".SLDASM")
+    WriteLine reportPath, "path|" & asmPath
+    Set asm = swApp.OpenDoc6(asmPath, 2, 1, "", errs, warns)
+    If asm Is Nothing Then
+        WriteLine reportPath, "ERROR|open|" & errs & "|" & warns
+        swApp.ExitApp
+        Exit Sub
+    End If
+
+    comps = asm.GetComponents(False)
+    For i = LBound(comps) To UBound(comps)
+        Set c = comps(i)
+        WriteLine reportPath, "before|" & SafeStr(c.Name2) & "|" & TransformText(c)
+        Select Case SafeStr(c.Name2)
+            Case "Thorax-1"
+                ' fixed reference
+            Case "universal_joint_pin-2", "clavicle-1", "scapula-1"
+                c.SetXform IdentityTransform()
+            Case Else
+                If InStr(1, SafeStr(c.Name2), "humerus", vbTextCompare) = 1 Then
+                    c.SetXform HumerusTransform()
+                End If
+        End Select
+    Next i
+
+    asm.EditRebuild3
+    For i = LBound(comps) To UBound(comps)
+        Set c = comps(i)
+        WriteLine reportPath, "after|" & SafeStr(c.Name2) & "|" & TransformText(c)
+    Next i
+
+    savePath = root & "\zero_pose.SLDASM"
+    ok = asm.SaveAs3(savePath, 0, 0)
+    WriteLine reportPath, "save|" & savePath & "|" & CStr(ok)
+    swApp.CloseDoc asm.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Function IdentityTransform() As Variant
+    IdentityTransform = Array(1#, 0#, 0#, 0#, 1#, 0#, 0#, 0#, 1#, 0#, 0#, 0#, 1#, 0#, 0#, 0#)
+End Function
+
+Function HumerusTransform() As Variant
+    ' Rotate the local +X humerus about global Z by -85 deg around GH so
+    ' local +X maps to a=(0.08716,-0.99619,0).
+    HumerusTransform = Array( _
+        0.0871557427476582, 0.9961946980917455, 0#, _
+        -0.9961946980917455, 0.0871557427476582, 0#, _
+        0#, 0#, 1#, _
+        -0.0416293461215685, 0.3296495406835773, 0#, _
+        1#, 0#, 0#, 0#)
+End Function
+
+Function TransformText(c As Object) As String
+    Dim xf As Object
+    Dim vals As Variant
+    Dim j As Long
+    Dim s As String
+    s = ""
+    On Error Resume Next
+    Set xf = c.Transform2
+    If Not xf Is Nothing Then vals = xf.ArrayData
+    On Error GoTo 0
+    If IsArray(vals) Then
+        For j = LBound(vals) To UBound(vals)
+            s = s & "|" & CStr(vals(j))
+        Next j
+    Else
+        s = "|NODATA"
+    End If
+    TransformText = s
+End Function
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function
+
+Function FindFile(folder As String, ext As String) As String
+    Dim fso As Object
+    Dim fl As Object
+    Dim file As Object
+    Dim result As String
+    result = ""
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set fl = fso.GetFolder(folder)
+    For Each file In fl.Files
+        If UCase(Right(file.Name, Len(ext))) = UCase(ext) Then
+            If UCase(file.Name) <> "ZERO_POSE.SLDASM" Then
+                result = file.Path
+                Exit For
+            End If
+        End If
+    Next file
+    FindFile = result
+End Function

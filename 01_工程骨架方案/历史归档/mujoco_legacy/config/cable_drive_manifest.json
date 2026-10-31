@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "model_name": "right_arm_cable_drive_v1",
+  "description": "World-fixed cable sliders pull the humerus and ulna. Only one via point is used per cable channel.",
+  "units": "meters",
+  "defaults": {
+    "travel_m": 0.45,
+    "rated_stretch_m": 0.02,
+    "pretension_n": 0.2,
+    "spring_safety_margin_m": 0.01,
+    "damping_ratio": 0.7,
+    "slider_offset_m": 0.12,
+    "slider_radius_m": 0.008,
+    "slider_kp": 50000.0,
+    "slider_kv": 500.0,
+    "mesh_units": "meters",
+    "cable_width_m": 0.0015,
+    "release_m": 0.3,
+    "joint_stiffness_nm_per_rad": {
+      "clavicle_protraction": 3.0,
+      "clavicle_elevation": 3.0,
+      "clavicle_axial_rotation": 3.0,
+      "scapula_upward_rotation": 3.0,
+      "scapula_posterior_tilt": 3.0,
+      "scapula_external_rotation": 3.0,
+      "shoulder_rotation": 4.0,
+      "shoulder_flexion": 2.0,
+      "shoulder_abduction": 2.0,
+      "elbow_flexion": 1.0
+    }
+  },
+  "cables": [
+    {
+      "id": "supraspinatus",
+      "group": "rotator_cuff",
+      "enabled": true,
+      "insertion_body": "shoulder_abduction",
+      "insertion_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "via_body": "shoulder_abduction",
+      "via_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "torso",
+      "target_joint": "shoulder_abduction",
+      "guide_offset_m": 0.06,
+      "guide_moment_sign": 1.0,
+      "channels": 1,
+      "channel_offset_m": 0.002,
+      "max_force_n": 220.0,
+      "shape_class": "straight_diamond",
+      "insertion_part_m": [
+        -0.005162546950135488,
+        -0.06681735288920658,
+        -0.008942621181090755
+      ],
+      "travel_m": 0.45,
+      "guides": [
+        {
+          "body": "torso",
+          "local_m": [
+            0.13357023696262327,
+            0.007516469032313178,
+            0.10487779597695865
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "infraspinatus",
+      "group": "rotator_cuff",
+      "enabled": true,
+      "insertion_body": "shoulder_abduction",
+      "insertion_local_m": [
+        0.012498681825842517,
+        -0.028371567247536367,
+        -0.00326108152822147
+      ],
+      "via_body": "shoulder_abduction",
+      "via_local_m": [
+        0.012498681825842517,
+        -0.028371567247536367,
+        -0.00326108152822147
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "torso",
+      "target_joint": "shoulder_rotation",
+      "guide_offset_m": 0.06,
+      "guide_moment_sign": 1.0,
+      "channels": 1,
+      "channel_offset_m": 0.002,
+      "max_force_n": 260.0,
+      "shape_class": "fan",
+      "insertion_part_m": [
+        0.012498681825842572,
+        -0.028371567247536335,
+        -0.003261081528221639
+      ],
+      "travel_m": 0.45,
+      "guides": [
+        {
+          "body": "torso",
+          "local_m": [
+            0.1112065352000652,
+            0.007265225811749709,
+            0.05219699966477936
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "deltoid_anterior",
+      "group": "deltoid",
+      "enabled": true,
+      "insertion_body": "shoulder_abduction",
+      "insertion_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "via_body": "shoulder_abduction",
+      "via_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "torso",
+      "target_joint": "shoulder_flexion",
+      "guide_offset_m": 0.06,
+      "guide_moment_sign": 1.0,
+      "channels": 2,
+      "channel_offset_m": 0.006,
+      "max_force_n": 420.0,
+      "shape_class": "fan",
+      "insertion_part_m": [
+        -0.005162546950135488,
+        -0.06681735288920658,
+        -0.008942621181090755
+      ],
+      "travel_m": 0.6,
+      "guides": [
+        {
+          "body": "torso",
+          "local_m": [
+            0.07048514189039404,
+            0.01589516403867547,
+            0.17777942518945783
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "deltoid_middle",
+      "group": "deltoid",
+      "enabled": true,
+      "insertion_body": "shoulder_abduction",
+      "insertion_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "via_body": "shoulder_abduction",
+      "via_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "torso",
+      "target_joint": "shoulder_abduction",
+      "guide_offset_m": 0.06,
+      "guide_moment_sign": 1.0,
+      "channels": 1,
+      "channel_offset_m": 0.002,
+      "max_force_n": 480.0,
+      "shape_class": "wrap",
+      "insertion_part_m": [
+        -0.005162546950135488,
+        -0.06681735288920658,
+        -0.008942621181090755
+      ],
+      "travel_m": 0.45,
+      "guides": [
+        {
+          "body": "torso",
+          "local_m": [
+            0.13357023696262327,
+            0.007516469032313178,
+            0.10487779597695865
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "deltoid_posterior",
+      "group": "deltoid",
+      "enabled": true,
+      "insertion_body": "shoulder_abduction",
+      "insertion_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "via_body": "shoulder_abduction",
+      "via_local_m": [
+        -0.005162546950135571,
+        -0.0668173528892066,
+        -0.008942621181090574
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "torso",
+      "target_joint": "shoulder_flexion",
+      "guide_offset_m": 0.06,
+      "guide_moment_sign": -1.0,
+      "channels": 1,
+      "channel_offset_m": 0.002,
+      "max_force_n": 360.0,
+      "shape_class": "fan",
+      "insertion_part_m": [
+        -0.005162546950135488,
+        -0.06681735288920658,
+        -0.008942621181090755
+      ],
+      "travel_m": 0.45,
+      "guides": [
+        {
+          "body": "torso",
+          "local_m": [
+            -0.01877362398724989,
+            -0.10744726780851027,
+            -0.008312431318188568
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "elbow_flexors",
+      "group": "elbow",
+      "enabled": true,
+      "insertion_body": "forearm_ulna",
+      "insertion_local_m": [
+        0.00975360481187365,
+        -0.04514204788031834,
+        0.007312619939142695
+      ],
+      "via_body": "forearm_ulna",
+      "via_local_m": [
+        0.00975360481187365,
+        -0.04514204788031834,
+        0.007312619939142695
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "shoulder_abduction",
+      "target_joint": "elbow_flexion",
+      "guide_offset_m": 0.08,
+      "guide_moment_sign": 1.0,
+      "channels": 2,
+      "channel_offset_m": 0.002,
+      "max_force_n": 650.0,
+      "shape_class": "straight_diamond",
+      "insertion_part_m": [
+        0.009753604811873817,
+        -0.04514204788031834,
+        0.007312619939142482
+      ],
+      "travel_m": 0.12,
+      "guides": [
+        {
+          "body": "shoulder_abduction",
+          "local_m": [
+            -0.01482109535552048,
+            -0.22697776365695085,
+            -0.010155165896100755
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    },
+    {
+      "id": "triceps",
+      "group": "elbow",
+      "enabled": true,
+      "insertion_body": "forearm_ulna",
+      "insertion_local_m": [
+        0.00975360481187365,
+        -0.04514204788031834,
+        0.007312619939142695
+      ],
+      "via_body": "forearm_ulna",
+      "via_local_m": [
+        0.00975360481187365,
+        -0.04514204788031834,
+        0.007312619939142695
+      ],
+      "guide_mode": "explicit",
+      "guide_body": "shoulder_abduction",
+      "target_joint": "elbow_flexion",
+      "guide_offset_m": 0.08,
+      "guide_moment_sign": -1.0,
+      "channels": 1,
+      "channel_offset_m": 0.002,
+      "max_force_n": 700.0,
+      "shape_class": "y_branch",
+      "insertion_part_m": [
+        0.009753604811873817,
+        -0.04514204788031834,
+        0.007312619939142482
+      ],
+      "travel_m": 0.12,
+      "guides": [
+        {
+          "body": "shoulder_abduction",
+          "local_m": [
+            0.006356623976430692,
+            -0.2743293735403472,
+            -0.02287895867345619
+          ],
+          "radius_m": 0.004
+        }
+      ]
+    }
+  ]
+}

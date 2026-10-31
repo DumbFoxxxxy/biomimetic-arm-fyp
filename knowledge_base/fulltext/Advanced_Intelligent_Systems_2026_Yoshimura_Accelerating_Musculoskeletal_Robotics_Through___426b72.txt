@@ -1,0 +1,1258 @@
+===== PAGE 1 =====
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, 
+provided the original work is properly cited.
+© 2026 The Author(s). Advanced Intelligent Systems published by Wiley‐VCH GmbH.
+www.advintellsyst.com
+RESEARCH ARTICLE 
+Accelerating Musculoskeletal Robotics Through 
+Parametric Design and 3D‐Printed Flexible Structures
+Shunnosuke Yoshimura 
+ | Kento Kawaharazuka 
+ | Kei Okada
+Graduate School of Information Science and Technology, The University of Tokyo, Tokyo, Japan
+Correspondence: Shunnosuke Yoshimura ( yoshimura@jsk.imi.i.u-tokyo.ac.jp )
+Received: 27 May 2026 | Revised: 24 July 2026 | Accepted: 18 August 2026
+Keywords: 3D printing | biomimetic robots | flexible structures | musculoskeletal robotics | parametric design
+ABSTRACT
+The human body moves smoothly through coordinated soft elements including muscles, tendons, ligaments, and cushioning 
+tissues. Conventional musculoskeletal robots often simplify these using wires or rigid joints, limiting biological flexibility and 
+requiring extensive customization. Thus, a unified framework for designing biomimetic compliant elements remains lacking. 
+Here, parametric design is integrated with flexible 3D printing to generate muscle‐, tendon‐, ligament‐, and cushioning‐inspired 
+compliant components through a unified fabrication process using a single thermoplastic polyurethane (TPU) material. Tuning 
+pattern parameters, like lattice density and branch thickness, tailors mechanical properties across body regions. Additionally, 
+ligament‐based joint constraints and integrated tendon‐driven actuation enable continuous, coordinated multijoint leg motions 
+at life scale under external suspension, with partial body‐weight support and torso roll, pitch, and yaw each constrained from 
+−20° to +20°. These results validate patterned flexible structures as a practical framework for musculoskeletal robot construction, 
+simplifying design‐to‐fabrication workflows and enabling scalable biomimetic systems with potential extensions to whole‐body 
+humanoids and embedded sensing.
+1 | Introduction
+Human and animal bodies are composed of diverse soft 
+elements such as muscles, tendons, ligaments, and soft tissues, 
+which cooperate to generate complex and smooth motions. 
+Understanding these mechanisms of soft bodies and reproducing 
+them in robots is an important challenge directly linked to 
+elucidating motor science and acquiring advanced robotic func­
+tions. Musculoskeletal robots mimic the biological driving prin­
+ciple in which muscles pull bones to produce body motion 
+and reconstruct it in robotic form, thereby contributing to the 
+understanding of locomotor mechanisms and the reproduction of 
+bodily functions.
+Since biological bodies are composed of diverse soft elements 
+whose properties and distributions vary substantially across body 
+regions, their unified reproduction remains difficult. In previous 
+studies, musculoskeletal robots have been realized by simplifying 
+the skeleton and joints and by substituting muscles and ligaments 
+with wires or rigid links. However, these nonbiological structures 
+differ greatly from the shapes, materials, and functional princi­
+ples of biological soft elements, limiting the reproduction of the 
+inherent flexibility and multifunctionality of muscles, tendons, 
+and ligaments.
+Robots that mimic the complex skeletal structures and tendon‐
+driven mechanisms characteristic of biological systems have been 
+developed, such as Kenta [1], which incorporated such mecha‐
+nisms, and Kotaro [2], a child‐sized robot that achieved biologically 
+inspired complex mechanisms including a shoulder [3] and whole‐
+body motions [4]. Kojiro [5] and Kenzoh [6] achieved powerful 
+movements through enhanced motor output. The ECCEROBOT 
+family [7] incorporated muscle–tendon complexes, while Roboy 
+[8], though child‐sized, introduced interaction into tendon‐driven 
+Advanced Intelligent Systems , 2026; e70537
+https://doi.org/10.1002/aisy.70537
+1 of 17
+Advanced Intelligent Systems
+
+===== PAGE 2 =====
+mechanisms. Kenshiro [9], which extended to adult size and inte‐
+grated soft tissues, realized precise and backdrivable body motions 
+through tension control [10]. Furthermore, Kengoro [11–13], 
+which enhanced biomimicry by including hands and feet, and 
+Musashi [14–16], which incorporated motor learning into control 
+to achieve life‐sized body movements, have also been developed. 
+Although these robots reproduced the overall muscle arrangement 
+and the number of muscles with high fidelity, the heavy reliance 
+on substitute structures such as wires lacking muscular volume 
+and simple rotational joints instead of ligament‐based joints limited 
+their ability to reproduce biological mechanical properties and the 
+interactions among flexible components.
+To address this problem, attempts have been made to employ 
+soft materials and emerging actuators. Pneumatic muscle actua­
+tors [17–19], origami‐based structures [20, 21], HASEL actuators 
+with self‐healing capability [ 22–24], and thread‐based actuators 
+[25–28] have been proposed. However, these alternative elements 
+have not been designed under a common design principle, leaving 
+issues of generality and applicability in the design process. 
+Moreover, they often relied on multimaterial use and manual 
+fabrication processes, leading to complexity and inefficiency in 
+production. As a result, current musculoskeletal robots are largely 
+limited to wire‐driven structures powered by motors or musculos­
+keletal architectures employing pneumatic artificial muscles such 
+as McKibben‐type actuators [29–34].
+Meanwhile, recent advances in 3D printing technologies have 
+enabled the inexpensive and rapid fabrication of flexible 
+and complexly shaped body elements. Research has explored 
+endowing mechanical properties through organic geometries 
+[35–37], and fabricating body parts via 3D printing [ 38–40], 
+bringing such techniques into wider and more versatile use 
+[41–43]. Furthermore, parametric design, which has developed 
+in the field of architecture [ 44, 45], can automatically generate 
+complex structures solely through parameter settings, and its 
+application to engineering design is also anticipated [ 46, 47]. 
+Therefore, combining 3D printing with parametric design makes 
+it possible to achieve the unified and efficient design and fabrica­
+tion of flexible body elements, which was previously difficult.
+Recent studies have demonstrated musculoskeletal and locomo­
+tion systems based on architected materials. Guan et al. [ 48] 
+blended and superimposed multiple lattice topologies within 
+a single elastic material, producing continuously varying soft‐
+to‐rigid structures and a tendon‐driven elephant robot capable 
+of trunk manipulation and walking. Kim et al. [ 49] used motor‐
+driven TPU handed‐shearing auxetic structures directly as load‐
+bearing legs and achieved untethered quadrupedal walking at 
+0.65 body lengths per second. Related actuators combining TPU 
+auxetic structures and origami bellows generated up to 75 N and 
+were demonstrated as artificial muscles in a battery‐powered 
+human‐scale single leg [ 50]. These studies establish important 
+benchmarks in spatial stiffness programming, untethered loco­
+motion, and individual actuator performance.
+However, despite recent advances, three challenges remain:
+• Biological flexibility and multifunctionality remain difficult 
+to reproduce due to reliance on nonbiological substitute 
+structures for body parts.
+• Each body part often requires individual design, lacking a 
+common design principle.
+• Fabrication can require multiple materials and skilled 
+manual work, constraining efficiency and generality.
+In this study, we propose a unified design‐and‐fabrication frame­
+work for musculoskeletal soft elements that integrates parametric 
+design with 3D printing. Here, “unified” refers to a common work­
+flow that converts prescribed anatomical volumes and surfaces 
+into parameterized 3D lattices or 2D surface patterns, adjusts their 
+mechanical properties according to functional requirements, 
+fabricates them using a single TPU material and FDM process, 
+and integrates them into a musculoskeletal system. Mechanical 
+properties can be adjusted through structural parameters such as 
+lattice density and strut diameter.
+For brevity, these components are hereafter referred to as muscles, 
+tendons, ligaments, and cushioning elements according to their 
+intended functional roles in the musculoskeletal robot. This 
+terminology does not imply complete reproduction of the struc­
+tures, material properties, or underlying physical mechanisms of 
+the corresponding biological tissues.
+Compared with the recent lattice‐based robotic systems reported 
+by Guan et al. [48] and Kim et al. [49, 50], the main contribution 
+of this work is a pattern‐structured robotic framework that adapts 
+lattice‐based designs to diverse prescribed shapes and functional 
+roles, and integrates them into an anatomically organized, life‐
+sized human lower‐limb system. Guan et al. [ 48] and Kim et al. 
+[49] used lattice structures as the principal load‐bearing body or 
+leg architecture, spanning roles otherwise assigned to bones and 
+joints. In contrast, our approach preserves the anatomical organ­
+ization of a rigid skeletal framework surrounded by soft muscles 
+and ligaments that provide actuation and joint constraints. The 
+high‐output actuator developed by Kim et al. [ 50] focuses on 
+individual artificial‐muscle performance, whereas our study 
+emphasizes geometric adaptability and the integration of multiple 
+muscles and soft functional elements across multiple joints.
+The specific contributions of this study are as follows: (i) tuning 
+anisotropic stiffness through asymmetric cell dimensions within 
+the same lattice topology, thereby enabling functional differentia­
+tion without combining different cell types; (ii) generating struc­
+tural gradients from compliant muscle‐inspired regions to stiff 
+tendon‐like regions within a single TPU print, thereby reducing 
+part‐specific fabrication and manual assembly; (iii) constructing 
+ligament‐inspired joint constraints by projecting 2D patterns 
+onto 3D joint surfaces, thereby defining joint ranges of motion 
+without relying on rigid mechanisms or bulk lattice deformation; 
+and (iv) applying the common parametric design principle to 
+integrate muscle‐, tendon‐, ligament‐, and cushioning‐inspired 
+components into a life‐sized leg system, rather than limiting the 
+application to an individual element or a single joint.
+We found that diverse soft elements with distinct functions can be 
+reproduced even when fabricated via 3D printing using a single 
+thermoplastic polyurethane (TPU) material, thereby simplifying 
+the integrated workflow from design to fabrication. Additionally, 
+we evaluated these flexible elements, including their long‐term 
+characteristics, and clarified practical considerations for their 
+2 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 3 =====
+use. Furthermore, by parametrically generating flexible elements 
+based on human lower‐limb morphology, we constructed a 
+life‐sized musculoskeletal leg robot. Through joint constraints 
+provided by ligaments and the coordinated actuation of flexible 
+muscle‐tendon elements, we demonstrated continuous multijoint 
+motions through combinations of flexion and extension, thereby 
+validating the feasibility of the integrated design and manufac­
+turing process.
+These results demonstrate that this design and fabrication method 
+is effective as a unified foundation for musculoskeletal robots, 
+enabling the construction of musculoskeletal systems that inte­
+grate biologically inspired soft elements.
+2 | Results
+In this study, we propose an integrated design and fabrication 
+framework that fuses parametric design with fused deposition 
+modeling (FDM) 3D printing to generate musculoskeletal‐
+inspired soft elements through a shared parameterized workflow 
+using a single TPU material. In this section, we first outline the 
+concept and generation method of the Flexible Pattern Structure, 
+and present element‐level applications corresponding to muscles, 
+tendons, ligaments, and cushioning elements. Furthermore, we 
+quantitatively evaluate the mechanical properties of these pattern 
+structures, and verify their effectiveness through integration into 
+a ligament‐constrained joint and a life‐sized musculoskeletal 
+leg robot. Finally, we demonstrate continuous, coordinated multi­
+joint leg motions under partial body‐weight support conditions, 
+serving as a demonstration of the integrated musculoskeletal 
+system. These results support the viability of flexible pattern struc­
+tures as a generalized framework that enables the construction 
+of integrated musculoskeletal robots while reducing reliance on 
+nonbiological substitute mechanisms and the use of multiple 
+materials. An overview of the proposed method is shown in 
+Figure 1.
+2.1 | Overview of Flexible Pattern Structure
+In this study, we introduce the Flexible Pattern Structure as 
+compliant elements inspired by musculoskeletal soft tissues. 
+These are fabricated as 3D lattice structures and 2D surface 
+pattern structures via FDM 3D printing using TPU95A (Figure 2).
+The 3D lattice structure is composed based on a unit element that 
+connects the vertices of a rectangular cuboid with branch‐like 
+struts (Figure 2A1). These unit elements are repeatedly arranged 
+at equal intervals or with a spatial gradient in the x, y, and 
+z directions. By adjusting the strut diameter p, lattice spacing 
+(x, y, z), and branch structure, mechanical properties such as 
+compressive stiffness and deformation range can be controlled. 
+The design of these parameters is detailed in a subsequent section. 
+Additionally, because the struts mutually support each other 
+during layer‐by‐layer fabrication, they can be printed without 
+internal support materials.
+On the other hand, the 2D pattern structure is created by projec­
+ting a branch‐like network generated on a 2D plane onto a curved 
+surface (Figure 2B). This method can provide ligament‐like joint 
+constraints with small restoring torques while maintaining a wide 
+range of motion against twisting and bending. Although the 2D 
+pattern requires support material during printing, its removal 
+is relatively easy because the structure is arranged on the outer 
+surface (Figure 2C).
+Through these pattern structures, compliant elements inspired 
+by muscles, tendons, ligaments, and cushioning elements can be 
+integrally generated while adjusting their mechanical properties 
+under a unified parametric design principle using a single TPU 
+material. In this study, we adopt a step‐by‐step procedure: we first 
+prototype at the unit‐structure level and experimentally evaluate 
+the mechanical properties corresponding to desired functions 
+such as compression, tension, and joint constraint. Subsequently, 
+we reflect the obtained parameters in the part‐scale design to 
+fabricate the entire body part. This stepwise flow enables efficient 
+fabrication while minimizing the number of prototyping itera­
+tions associated with design changes at the part scale. Collectively, 
+these approaches provide a design method for integrating soft 
+elements into the internal structures of biomimetic robots.
+2.2 | Mechanical Characterization
+We evaluated the mechanical properties of the flexible pattern 
+structures (muscle‐ and tendon‐type lattices) in terms of velocity‐
+dependent hysteresis (A–E), cyclic loading or fatigue (F–H), and 
+creep and recovery under constant load (I, J). Two conditions, 
+Conditions A and B, were established by changing the printing 
+orientation. Additionally, we evaluated the ligament constraint 
+properties of a hip joint as a representative joint (K, L). The 
+data are presented as mean ± SD (n = 3 independent specimens). 
+Three specimens per condition were used to evaluate specimen‐
+to‐specimen variation while covering multiple loading and time‐
+dependent conditions. The tests were intended to identify engi­
+neering trends for design selection and repeated robotic oper­
+ation, rather than to establish a constitutive material model. 
+Because the simplified specimens were designed to isolate the 
+mechanical behavior of a regular lattice, their measured proper­
+ties may differ from those of the integrated muscle components. 
+In the integrated components, the lattice‐cell geometry varies 
+spatially to conform to the complex 3D muscle shapes, and the 
+structures additionally contain internal wire‐routing channels 
+and external protective patterned shells. The main trends are 
+summarized in Figure 3.
+Rate stiffening was modest over 50–300 mm/min (A–D): the 
+apparent modulus in muscle‐type compression increased from 
+0.00610 ± 0.00052 → 0.00699 ± 0.00085 MPa (Condition A, approx. 
+1.15 times) and from 0.00943  ± 0.00103 → 0.0112 ± 0.0013 MPa 
+(Condition B, approx. 1.19 times). At around ε ≈ 0.55, a kink 
+indicating a rapid increase in stress appeared, reflecting increased 
+strut bending and local contact between the lattice struts. An 
+idealized geometric limit can be derived from the cell dimension 
+x and the strut diameter p. If the struts connected to the two 
+opposing faces in the x‐direction are assumed to be completely 
+flattened, each group of struts retains a thickness of approximately 
+p. The minimum cell thickness is therefore approximated as 2 p, 
+and the corresponding geometric strain limit is
+ εflat = x − 2px = 1 − 2px (1)
+Advanced Intelligent Systems , 2026 3 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 4 =====
+FIGURE 1 | Overview of the musculoskeletal robot construction method proposed in this study. This study proposes a method for constructing 
+musculoskeletal robots by converting biological body elements into patterned structures through parametric design and fabricating them via 
+3D printing with flexible materials. Muscles, tendons, ligament joints, and cushioning elements can be designed in a unified manner, enabling 
+biological structure and motions that incorporate antagonistic actuation and multijoint muscles.
+For the muscle‐type structure with x = 15 and p = 2 mm, this 
+approximation gives εflat ≈ 0.73, which is larger than the experi­
+mentally observed kink at ε ≈ 0.55. This difference arises because 
+the struts are flexible, and their connections are continuous rather 
+than ideal hinges. Consequently, the bending resistance increases 
+before complete flattening, and the bent struts can locally contact 
+each other near the junctions where multiple struts converge. 
+Thus, εflat represents an idealized limit for complete flattening 
+rather than the exact onset of stiffening.
+The actual onset may also be affected by the cell aspect ratios, such 
+as y/x and z/x, because they determine the initial inclination of the 
+struts. For a strut connecting the cell center to a vertex, the angle 
+θ between the strut and the x‐axis is expressed as
+ cos θ = x
+x2 + y2 + z2 = 11 + (y/x)2 + (z/x)2 (2)
+Both expressions depend only on the dimensionless geometric 
+ratios p/x, y/x, and z/x, and therefore remain unchanged 
+under uniform geometric scaling without introducing material‐
+specific parameters.
+Changes in these aspect ratios therefore alter the strut orienta­
+tion and may affect the bending deformation and local contact 
+behavior before complete flattening. For denser structures with 
+cell dimensions of approximately 7 mm, the cell dimensions are 
+relatively small compared with p, and the idealized strut‐folding 
+assumption becomes less applicable. Instead, the response is 
+dominated by deformation of the dense connected lattice as a 
+whole, resulting in a more nearly linear stress–strain response.
+Furthermore, Condition B exhibited higher stiffness and stress 
+in the linear region compared to Condition A, with a modulus 
+ratio B/A of  ≈1.55 at 50 mm/min (and B/A ≈ 1.54 and 1.60 at 
+150 and 300 mm/min, respectively) ( E). In tendon‐type tension, 
+4 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 5 =====
+A
+C D
+B
+FIGURE 2 | Basic pattern structures for flexible body elements. (A) 3D structures are formed by repeating unit patterns, with region shape 
+and lattice variations controlling density and thickness. (B) 2D structures are generated by projecting planar patterns onto curved surfaces such as 
+sectors or cylinders. These patterns are suitable for layered 3D printing (C) and can deform through compression, bending, and twisting (D).
+nonmonotonic velocity responses were also partially observed, 
+which may include temporary changes due to history depend­
+ence (D).
+These results indicate that the printing orientation should 
+be considered when selecting the lattice parameters. The 
+muscle‐type structures exhibited an approximately 1.5‐fold 
+difference in apparent modulus between Conditions A and B. 
+Although both conditions provided sufficient compliance for 
+the functional requirement of deformation under relatively 
+small external loads, such as contact forces, the orientation‐
+dependent difference should be considered when a specific 
+stiffness is required. In contrast, the mechanical properties of 
+the tendon‐type structures were comparatively less affected 
+by the printing orientation. Accordingly, fixing the printing 
+orientation and selecting the lattice parameters based on 
+mechanical measurements obtained in the corresponding 
+orientation provides a practical means of accounting for FDM‐
+induced anisotropy.
+Under cyclic loading (999 cycles) (F, G), both structures exhibited 
+an initial substantial decrease followed by gradual changes, indi­
+cating response conditioning during the early cycles. In the 
+tendon‐type structure, the elastic modulus decreased (Condition 
+A: 2.72 → 1.43 MPa; Condition B: 2.59 → 1.33 MPa). In the muscle‐
+type structure, the retention rate of the compressive modulus was 
+80.9%–85.4% (Condition A: 0.00792  → 0.00676 MPa; Condition 
+B: 0.0131 → 0.0106 MPa).
+Advanced Intelligent Systems , 2026 5 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 6 =====
+A B C D
+E F G H
+I J K L
+FIGURE 3 | Mechanical characterization overview. The upper panels show the test structures, and the lower panels present the corresponding 
+plots. Measurements were performed with n = 3, and mean ± SD are reported. (A–E) Hysteresis and rate dependence (compression/tension) of 
+muscle and tendon structures. (F–H) Fatigue characteristics. (I,J) Creep and recovery of the muscle structure (reference length in J: 37.5 mm).
+(K) Joint fatigue. (L) Stress relaxation.
+In the creep test under constant load (muscle‐type, 1.25 kg,
+∼120 min), immediate displacement dominated in compression, 
+and the additional creep was relatively small (instantaneous: 
+25.83 ± 0.70/23.83 ± 0.76 mm, additional: 3.18  ± 0.69/2.91 ± 
+0.43 mm). In tension, the time‐dependent component was 
+relatively larger (additional: 7.60  ± 1.24/5.69 ± 1.70 mm). The 
+recovery rate at 30 min after unloading was R30 = 0.862–0.906, 
+and the residual deformation was 1.67–2.77 mm.
+For the hip joint, we evaluated fatigue through reciprocating 
+motion within the measured angular range, as well as stress 
+relaxation after being fixed at 90° of flexion for 3 h. In the hip joint, 
+torque was generated monotonically within a range of  ±1.5 Nm 
+between 90° of flexion and 30 ° of extension. At certain angles, 
+the torque was observed to decrease to approximately 0.8 times 
+its initial value due to fatigue. Regarding stress relaxation, the 
+torque also decreased to an average of approximately 0.8 times its 
+initial value.
+The detailed measurement results are provided in Figures 
+S15–S31 and Tables S3–S5. As an overall trend, although this 
+structure exhibited viscoelastic properties characteristic of TPU 
+(such as initial softening, creep, and stress relaxation), no rupture 
+occurred, and it demonstrated a stable mechanical response 
+following the initial changes.
+2.3 | Muscle, Tendon, and Cushioning Element
+In this study, we present a method for automatically generating 
+soft elements corresponding to muscles, tendons, and cushioning 
+elements from a single TPU material through the parametric 
+design of 3D lattice patterns (Figure 4). We extended the Patterned 
+6 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 7 =====
+A B
+C D
+FIGURE 4 | The method of constructing muscles, tendons, and cushioning elements. (A) Muscle generation: from volume definition to lattice 
+creation and structural integration. (B) Pattern parameters (thickness, density, gradients) allow diverse variations. (C) Examples include muscle–
+tendon complexes and sole damping elements, with different parameter settings. (D) Elastic characteristics are shown.
+Structure Muscle (PSM) from previous research [ 51], enabling 
+the application of parameter gradients, structural variations, and 
+adaptation to various body parts. In this section, we summarize 
+the rationale for parameter selection as practical design guidelines 
+based on experimental results.
+In the generation pipeline, the input volume (A1) is converted into 
+lattice coordinates (A2), and then integrated with a space‐filling 
+3D lattice (A3‐1), tubes for wire routing (A3‐2), and an outer 
+shell (A3‐3). The continuous tubular walls of the wire‐routing 
+channels (A3‐2) were designed to be substantially stiffer than the 
+surrounding sparse lattice, thereby maintaining channel clear­
+ance during lattice deformation. Together, these structures allow 
+integrated connections with bones and tendons, enabling mono­
+lithic fabrication (A4). Even within the same volume, flexibility 
+and range of motion can be differentiated by uniformly varying or 
+spatially grading the lattice density and strut diameter (Figure 4B). 
+In the following, descriptions are based on a reference specimen 
+Advanced Intelligent Systems , 2026 7 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 8 =====
+with (x, y, z, p) = (15, 10, 30, 2) [mm] and printing orientation A, 
+evaluated under compression at 100 mm/min up to approximately 
+ε ≈ 0.6–0.7.
+Geometric parameters were selected by setting candidate ranges 
+according to required functions and experimentally mapping 
+them using metrics like Young’s modulus (Figure 4D). The data 
+are presented as mean ± SD (n = 3 independent specimens). The 
+detailed data are provided in Figures S33–S36 and Tables S8–S17. 
+Because the flexible and sparse lattice patterns addressed in this 
+study undergo large deformations and are heavily influenced by 
+the 3D printing process, we adopted a strategy of relying on empir­
+ical mapping derived from actual measurements rather than 
+theoretical predictions. The parameters are defined as follows: 
+for muscles, x represents the compression direction from external 
+forces, y is the contraction direction (governing softness and range 
+of motion), z is the unit cell dimension in the nonload‐bearing 
+direction, and p is the strut diameter (affecting overall stiffness 
+and printability). For tendons, while the structure is similar, the 
+primary load is tension rather than compression. We determined 
+these parameters systematically in the following steps.
+First, we determined p, which governs overall stiffness and print­
+ability. Increasing p from 1.5 to 3 mm exponentially increases 
+Young’s modulus by approximately 28 times. We set p = 2 mm as 
+the baseline, representing the minimum dimension that balances 
+printability and flexibility.
+Second, we adjusted x and y. While setting both to 5 mm yields 
+a high stiffness of 0.08–0.27 MPa, values around 15 mm ensure 
+stable flexibility (0.005–0.01 MPa) and provide a contact strain 
+exceeding 0.5, yielding a sufficient range of motion.
+Third, we finely tuned the overall properties using z. By increasing 
+z from 25 to 40 mm, the stiffness can be mildly reduced to approx­
+imately 1/2 to 1/5. Through this design procedure, assigning 
+parameters such as ( x, y, z, p) = (15, 10, 20, 2) [mm] achieves a 
+Young’s modulus of ∼0.02 MPa in the x‐direction and ∼0.01 MPa 
+in the y‐direction, thereby differentiating muscle flexibility 
+according to required functions using a single material.
+For tendon elements, x was reduced to achieve high stiffness. 
+Based on tensile tests of isotropic structures, we designated x as 
+the dominant parameter for stiffness. In tensile tests with x = {5, 6, 
+7, 8} [mm] (Figure 4D), Young’s modulus increased roughly line­
+arly from 1.07 to 2.61 MPa as x decreased.
+Examples of generation are shown in Figure 4C. In the muscle‐
+tendon complex (C1), the low‐density side was designed as a 
+highly deformable muscle, while the high‐density side acted as 
+a highly stiff tendon (series elastic element). As mechanical refer­
+ence values, the muscle element exhibited a compressive stiffness 
+of 1.3 N/mm, while the tendon element exhibited a tensile stiff­
+ness of 15 N/mm. While these values do not indicate strict equiva­
+lence with actual biological tissues, they serve as design guidelines 
+reflecting the macroscopic deformation behaviors reported in 
+the literature for muscles (maximum contraction of ∼20%) and 
+tendons (10–100 N/mm, strain of ∼10%) [52, 53]. Furthermore, 
+regarding specific parameter settings, relatively high‐density 
+patterns (x, y, z  ≈ 12, 12, 25 mm) were used for internal muscles 
+that operate without losing shape even under friction against 
+bones. Conversely, lower‐density patterns ( x, y ≈ 12.5, 15, and 
+z = 30 mm) were used for external muscles that undergo large 
+deformations and act as cushions.
+Finally, in the sole element (C2), support was provided through 
+branch orientation and a thickness gradient, demonstrating 
+threshold stiffening that increased from ∼5 N/mm during the 
+initial 5 mm to ∼30 N/mm thereafter with a 15 mm indenter. 
+From the above, we demonstrated that structural design and 
+functional differentiation tailored to required functions can be 
+achieved through the control of pattern parameters using a single 
+TPU material.
+2.4 | Joint and Ligament
+To mimic biological joints constrained by ligaments, we propose 
+a method for designing ligament arrangements by projecting 2D 
+patterns onto a cylindrical surface (Figure 5A1,A2).
+By unfolding the target cylindrical surface into a 2D plane, 
+arranging patterns with different orientations and densities, 
+and projecting them back, different joint constraint directions 
+can be specified. In this study, these patterns were designed 
+as functional layouts for providing joint constraints and ranges 
+of motion, rather than for accurately reproducing a prescribed 
+morphed shape. A 1‐DOF rotational joint can be constructed 
+using directionally oriented patterns, while a multi‐DOF joint 
+can use an isotropic lattice. Furthermore, overlapping multiple 
+projection planes can represent complex constraints, such as the 
+cruciate ligaments of the knee (Figure 5C). Examples of diverse 
+ligamentous joints generated from the same input surface are 
+shown in Figure 5B.
+Using this method, we prototyped a hip joint (ball joint), a knee 
+joint (1‐DOF hinge), and an ankle joint (flexion‐extension hinge) 
+(Figure 5C). The ranges of motion (ROM) were as follows: hip 
+joint (flexion 90 °/extension 30/abduction 60 °/adduction 30 °), 
+knee joint (flexion 150°), and ankle joint (dorsiflexion 30 °/plan­
+tarflexion 15°). These are comparable to representative values for 
+typical human joints (hip: 120 °/20°/40°/25°, knee: 140 °, ankle: 
+20°/60°) [54].
+To validate the practicality of these bearing‐free joints, we evalu­
+ated fatigue under repetitive motion and stress relaxation under 
+static loading. The data are presented as mean  ± SD (n = 3 inde­
+pendent specimens). Measuring joint torque during repetitive 
+motion revealed that the majority of the initial torque was main­
+tained after 999 cycles (e.g., ∼87% at 90° hip flexion, 79% at 135° 
+knee flexion, and 94% at 30° ankle dorsiflexion), confirming that 
+the joints function without constraint failure.
+For stress relaxation and recovery, the joints were fixed for 3 h 
+at hip flexion 90 °, knee flexion 180 °, or ankle dorsiflexion 30 °, 
+and their torque–angle responses were measured at 0, 10, 30, 
+and 60 min after release ( n = 3, mean ± SD). Although an initial 
+torque decrease due to stress relaxation was observed immediately 
+after release, viscoelastic behavior confirmed that the original 
+constraint force recovered over time. The prototype and detailed 
+data are provided in Figures S14, S37 and S38, together with Tables 
+S18 and S19.
+8 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 9 =====
+BA
+C
+FIGURE 5 | The method of constructing joints and ligaments. (A) Ligament generation: a surface region is unfolded to a plane, where patterns 
+are defined and projected back to form 2D ligaments. (B) Altering planar patterns yields various ligaments, from rotational and twisting joints to 
+complex 3D forms. (C) Examples include detailed hip, knee, and ankle models with their ranges of motion, fatigue behavior, and stress relaxation.
+In summary, joint constraint and ROM can be achieved solely 
+through ligament patterns, maintaining sufficient performance 
+under repetitive and static loads. Directly implementing bone 
+morphology and ligament constraint principles without rigid 
+mechanisms like bearings is a key advantage of this method.
+2.5 | Leg Design and Externally Supported Motion 
+Demonstration
+In this study, we integrated the muscles, tendons, ligaments, and 
+cushioning elements generated by the proposed flexible pattern 
+structures into a life‐sized lower limb model and verified that 
+it functions as a system combining joint constraints and active 
+actuation (Figures 6, 7).
+First, we confirmed the generation of joint motions in a single‐leg 
+prototype, and subsequently extended this to a bipedal robot 
+to demonstrate continuous coordinated motion (Figure 8). The 
+lower limb model consists of four bones constituting the skeleton 
+(pelvis, femur, tibia, and foot), three joints (hip, knee, and ankle), 
+six major muscles, and a cushioning pad on the sole (Figure 6). 
+The design requirements were as follows: (i) to unify the skeletal 
+shape and morphological scale to life‐size, (ii) to construct each 
+joint using passive constraints via ligament patterns, and (iii) to 
+enable the generation of active joint motions through the contrac­
+tion of muscle groups, including antagonistic relationships and 
+multijoint muscles.
+However, directly implementing a number of muscles equiva­
+lent to the human body would result in an excessive number 
+of actuators; therefore, in this prototype, we simplified the 
+configuration while preserving the core objective (the generation 
+of coordinated motions including multijoint and antagonistic 
+movements). Specifically, the fibula was omitted, and redundant 
+muscles were consolidated into six main muscles: MA (hip 
+Advanced Intelligent Systems , 2026 9 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 10 =====
+A
+B
+C
+FIGURE 6 | The leg structure designed with the proposed method. (A) Muscle arrangement: (MA) hip extension and knee flexion, (MB) hip 
+adduction, (MC) hip flexion, (MD) hip flexion and knee extension, (ME) hip abduction, (MF) knee flexion and ankle plantarflexion. Muscles are 
+parameterized for flexibility, tendons for strength. (B) Parameter distribution (left) and hardware setup with motor‐driven wires routed through 
+PTFE tubes (right). (C) Life‐sized leg prototype (0.95 m), with detailed muscle shapes in Figures S7–S12.
+extension + knee flexion), MB (hip adduction), MC (hip flexion), 
+MD (hip flexion  + knee extension), ME (hip abduction), and 
+MF (knee flexion  + ankle plantarflexion) (Figure 6A). Muscles 
+and tendons are generated from the same 3D lattice unit, but 
+by varying the lattice density and strut diameter, they are func­
+tionally differentiated: muscles act as highly deformable soft 
+elements, while tendons act as thin, high‐stiffness elastic trans­
+mission elements (Figure 6B). The muscle‐ and tendon‐type 
+structures were oriented for printing to approximate Condition A 
+as closely as their curved geometries allowed.
+For the actuators, we utilized a wire‐winding mechanism driven 
+by motors and pulleys. By centralizing the motors on the pelvic 
+frame and routing wires to each muscle via Bowden (PTFE) 
+cables, we achieved multimuscle actuation while minimizing 
+weight increases in the distal segments (Figure 6B,C). However, 
+Bowden cable transmission faces the inherent challenge that 
+friction loss increases substantially as the routing angle increases. 
+In practice, operation occurs under the constraint that when the 
+routing angle bends from 0° to 120°, the transmission efficiency η 
+decreased from 0.738 ± 0.034 to 0.480 ± 0.025 at a 20 N load, while 
+the tension loss ΔT increased from 5.67 ± 1.01 to 22.10 ± 2.01 N at 
+a 55 N load. Further details are provided in Figure S32 and Tables 
+S6 and S7.
+In the motion experiments, by commanding the lengths of the wires 
+connected to each muscle, we confirmed that representative motions 
+of the hip, knee, and ankle joints could be generated through the 
+combination of antagonistic relationships and multijoint muscles 
+(Figure 7). In hip flexion and knee extension (Figure 7A), the hip 
+joint was flexed by approximately 90° through the contraction of MC 
+and the relaxation of its antagonist MA; subsequently, the knee was 
+transitioned to an extended position (nearly straight) by adjusting 
+the command to MD, which antagonizes MA at the knee. In hip 
+extension (Figure 7B), the hip joint was extended by approximately 
+30° while simultaneously using MD to suppress the tendency for 
+knee flexion accompanying the contraction of the biarticular muscle 
+MA. In hip abduction (Figure 7C), approximately 30° of abduction 
+was achieved through the contraction of ME, which has a wide 
+attachment surface. In knee flexion (Figure 7D), the knee joint 
+10 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 11 =====
+A
+B
+D E
+C
+FIGURE 7 | The biomimetic leg was driven to perform five actions. These actions were achieved under antagonistic driving of multijoint 
+muscles and the contact between muscles and bones. For each of the five actions, pictures are provided, along with plots showing the current and 
+contraction distance of the muscles involved in the movement. The muscle markers in the pictures and the plot lines correspond to the muscle 
+colors shown in Figure 6. (A) The hip was flexed to 90°, and then the knee was extended to its maximum. (B) With the knee extended, the hip was 
+extended by 30°. (C) The hip was abducted by 30°. (D) With the hip angle nearly unchanged, the knee joint was flexed to 105°. (E) With the knee 
+extended, the ankle was plantarflexed by 15 °.
+was flexed by approximately 105° through the contraction of MA 
+while suppressing motion on the hip joint side using MC. In ankle 
+plantarflexion (Figure 7E), approximately 15° of plantarflexion was 
+generated by the contraction of MF, with MD used simultaneously 
+to suppress unnecessary knee flexion.
+These results demonstrate that coordinated motions utilizing 
+multijoint muscles and antagonistic relationships are viable 
+in a life‐sized leg that integrates the proposed soft elements 
+(muscles and tendons) and ligamentous joints. Because the 
+muscle elements possess volume and deform with contact, 
+joint motions are generated as an interaction between passive 
+deformation and wire tension. Moreover, tendons functioned 
+as serial elastic elements, preventing direct opposition of 
+motors and aligning muscle orientations even in wide ranges of 
+motion due to their slender, flexible structures. Furthermore, 
+Advanced Intelligent Systems , 2026 11 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 12 =====
+FIGURE 8 | Constrained stepping demonstration under external support. A life‐sized musculoskeletal two‐leg system was suspended and 
+constrained to  ±20° in torso roll, pitch, and yaw. Periodic alternating leg motions were generated using predefined muscle wire‐length commands. 
+Two conditions were evaluated. The experiment verifies continuous, coordinated multijoint motion under supported conditions.
+the hip, knee, and ankle joints are all passively constrained 
+solely by ligament patterns without the use of bearings, and 
+motions were observed without dislocation within the scope of 
+these tests.
+Finally, to confirm continuous coordinated motion at a life‐size 
+scale, we extended the single‐leg prototype into a bipedal robot 
+and conducted a motion demonstration under external support 
+(Figures 1, 8). In the experiment, the torso was supported by 
+external wires, constraining roll, pitch, and yaw to within ±20°, 
+respectively. By providing pre‐set time‐series commands for 
+wire lengths to each muscle, we generated periodic motions 
+corresponding to the alternating movements of the left and 
+right legs and forward propulsion. Under the condition of a 
+short stride (0.4 m) and a short period (1.6 s) shown on the 
+left of Figure 8, periodic motion under support was observed. 
+Similarly, under the condition of a long stride (0.8 m) and a 
+long period (2.4 s) shown on the right of Figure 8, periodic 
+motion under support was also observed. From the above, 
+we demonstrated continuous, coordinated multijoint motion 
+under external support conditions in a life‐sized demonstrator 
+that integrates the muscles, tendons, ligaments, and cush‐
+ioning elements generated and fabricated in this study.
+3 | Discussion and Conclusion
+In this study, by integrating parametric design and 3D printing 
+of TPU, we proposed a framework to design, generate, and 
+integrate multiple soft elements inspired by muscles, tendons, 
+ligaments, and cushioning elements as a common “flexible 
+pattern structure.”
+Here, the contribution does not lie in the individual use of 
+Rhino/Grasshopper or FDM printing but in organizing these 
+existing tools into a common design‐to‐fabrication workflow 
+for multiple functionally distinct musculoskeletal elements and 
+integrating the resulting elements into an anatomically organized, 
+life‐sized system.
+Through this framework, anisotropic stiffness tuning, muscle–
+tendon gradients, surface‐projected ligament patterns, and 
+system‐level integration into a life‐sized leg were realized within 
+a common single‐material design and fabrication process.
+At the element level, the results demonstrated that functional 
+differentiation can be achieved through parameter differences 
+within the same lattice topology: muscle elements act as highly 
+12 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 13 =====
+deformable soft elements, while tendon elements act as highly 
+stiff elastic transmission elements. Furthermore, the ligament‐
+patterned joints provided passive constraints without bearings. 
+These findings support the potential for an integrated design that 
+mitigates the fragmentation of materials and structures for each 
+element—a common issue in conventional approaches—and 
+provides a design space for achieving both biomimetic structures 
+and robotic functions.
+The 2D ligament patterns used in this study were selected to 
+realize functional joint constraints rather than accurate target‐
+shape morphing. The sensitivity of the constraint behavior to 
+pattern resolution and geometry was not systematically evaluated. 
+Finer patterns and sensitivity analysis will therefore be required 
+for applications that require precise matching to a prescribed 
+morphed shape.
+For the 3D patterned structures, stiffness can be adjusted through 
+two complementary strategies: broad‐range adjustment by collec­
+tively changing the cell dimensions and fine adjustment by 
+varying an individual geometric parameter. For broad‐range 
+adjustment, x, y, and z are collectively changed while the branch 
+thickness p is fixed. As shown in Figure 1, structures with cell 
+dimensions of approximately 15 mm exhibited low stiffness over 
+a broad compressive strain range and initial effective Young’s 
+moduli below 0.3 MPa, whereas those with cell dimensions 
+of approximately 7 mm exhibited effective Young’s moduli of 
+approximately 1–2.5 MPa and a more nearly linear stress–strain 
+response within the measured range. For fine adjustment, one of 
+the four primary geometric parameters, x, y, z, and p, is varied 
+while the other three are fixed. Within the parameter ranges 
+used for the muscle‐inspired components ( x, y = 10–20 mm, 
+z = 20–40 mm, and p = 1–3 mm), individual parameter variations 
+produced changes in the effective Young’s modulus on the order 
+of 10−3–10−2 MPa. Thus, collective changes in the cell dimensions 
+can be used to select the overall stiffness characteristics, whereas 
+individual parameter changes enable finer adjustment according 
+to local functional requirements. In general, increasing x, y, or 
+z, or decreasing p, reduced the effective Young’s modulus and 
+increased structural compliance.
+The conformal morphing metacylinder study [55] differs from this 
+study in its purpose and deformation mechanism. Its apparent 
+secant moduli, estimated at 10 mm displacement, were approxi­
+mately 0.0009–0.013 MPa, whereas our initial effective Young’s 
+moduli ranged from below 0.3 to approximately 2.5 MPa. Our 
+method therefore covers a broader stiffness range, while the meta­
+cylinder enables discrete tuning by combining multiple cylinders. 
+Because of the different geometries and loading conditions, 
+these values provide only an order‐of‐magnitude comparison. 
+In addition, the reduced‐order modeling and physics‐enhanced 
+neural‐network approach proposed by Mohammadi et al. [ 56] 
+may provide a future means of predicting and inversely designing 
+nonlinear stiffness responses from lattice parameters.
+Within the tested conditions, all three specimens per condition 
+completed the repetitive loading tests without rupture, and no 
+visible interlayer separation was observed under large deforma­
+tion. These results support the structural integrity of the printed 
+structures within the evaluated loading and cycle ranges, while 
+broader characterization of fatigue life and failure limits will 
+require longer‐term testing with larger sample sets. For practical 
+operation, the time‐ and cycle‐dependent behavior of TPU should 
+be explicitly considered in system design and control, including 
+creep, stress relaxation, and changes in mechanical response 
+under cyclic loading. In the cyclic tests, changes in the measured 
+mechanical properties were most prominent during the initial 
+∼100 cycles and subsequently converged toward a stable response. 
+Accordingly, preconditioning is recommended to reduce initial 
+transient effects before deployment. Furthermore, because defor­
+mations induced by creep and stress relaxation were partially 
+reversible after unloading, their temporal recovery characteristics 
+should be incorporated into the operational strategy.
+In the integration experiments using a life‐sized lower limb 
+model, we incrementally verified that passive constraints and 
+active actuation can coexist. The single‐leg prototype reproduced 
+representative joint motions through antagonistic and multijoint 
+muscle combinations, with the ligamentous joints maintaining 
+motion without dislocation. Furthermore, the bipedal robot 
+exhibited anterior‐posterior stepping motions under external 
+support, providing evidence for the viability of element integra­
+tion in continuous coordinated motions at a life‐size scale. The 
+external support was deliberately introduced to decouple balance 
+control from structural evaluation, allowing the joint constraints 
+and tendon‐driven actuation to be evaluated independently of 
+whole‐body balance.
+The proposed method addresses constraints and interferences 
+as an integrated physical body from the perspective of design 
+principles. This contrasts with the high routing fidelity of 
+conventional wire‐driven musculoskeletal robots (Kenta [ 1], 
+Kotaro [2–4], Kojiro [ 5], Kenzoh [ 6], ECCEROBOT family [ 7], 
+Roboy [8], Kenshiro [9, 10], Kengoro [11–13], Musashi [14–16]). 
+Conversely, increasing volumetric elements exacerbates imple­
+mentation constraints like contact friction. In addition, unlike soft 
+actuator systems (pneumatic muscles [17–19], origami structures 
+[20, 21], HASEL actuators [22–24], fiber‐driven actuators [25–28]) 
+that often focus on mimicking a single body part with complex 
+processes, our unified design principle provides a straightforward 
+and scalable fabrication pathway for integrating various soft 
+elements into a life‐sized bipedal robot.
+Regarding manufacturing trade‐offs, conventional molding tech­
+niques require numerous manual processes and specialized skills. 
+By exclusively using TPU 3D printing, our method eliminates 
+mold preparation and complex post‐processing, keeping human 
+labor time minimal. Conversely, the prolonged machine time 
+required to print life‐sized soft parts (e.g., 20–40 h per muscle) 
+is an unavoidable limitation. However, mapping characteristics 
+from unit patterns minimizes whole‐body prototyping iterations. 
+Consequently, the reduction in human intervention makes this a 
+practical method that simplifies and facilitates overall soft robotic 
+system development.
+Another manufacturing constraint arises from the difference 
+between volumetric 3D lattices and 2D patterns projected onto 
+surfaces. Because internal support structures are difficult to 
+access and remove after printing, the 3D lattices must be 
+self‐supporting. This requirement restricts the available lattice 
+topologies according to printability constraints such as over­
+hang angles and bridging distances, thereby limiting geometric 
+Advanced Intelligent Systems , 2026 13 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 14 =====
+design freedom. In contrast, support structures used for surface‐
+projected 2D patterns remain accessible from the exterior and are 
+comparatively easier to remove, allowing a wider range of local 
+pattern geometries.
+Regarding sustainability, the 3D lattices used in this study require 
+no internal supports, reducing material use and printing time, 
+and completed 999 loading cycles without rupture. Rotary 4D 
+printing [ 57] reduced material use by 70% and printing time 
+by approximately 50% through support‐free printing on a rotary 
+mandrel. However, it is limited to tubular geometries and requires 
+an additional rotary mechanism, whereas our method accommo­
+dates arbitrary 3D shapes but requires supports for outer shells 
+and surface‐projected patterns. Sustainable robotic joints [ 58] 
+enable thermally controlled stiffness changes and reduce opera­
+tional power through reinforcement learning. However, shape 
+recovery requires 100–170 J, and the recovery performance of 
+the 3‐mm‐thick spring decreased to 52% after 25 cycles. Our 
+structures cannot change stiffness during operation, but maintain 
+their geometry‐defined properties without additional energy and 
+showed no rupture within the tested 999 cycles.
+Although this robot mimics the human musculoskeletal system, 
+core differences from biological tissues exist at the element 
+level. First, unlike human muscles where volumetric fibers 
+actively generate contractile force, our actuation is handled by 
+motors and wires, while the TPU lattice provides series elasticity 
+and cushioning. Viewed as an integrated module, it engineers 
+the dual nature of biological muscles: active contraction and 
+impact cushioning. Second, regarding Poisson’s ratio, water‐rich 
+human muscles bulge laterally under longitudinal contraction. 
+In contrast, our sparse TPU lattice collapses internally, resulting 
+in minimal lateral bulging. This nonbiological trait is advanta­
+geous for suppressing unintended internal interference within 
+the robot. Third, unlike biological tissues that continuously 
+self‐repair via metabolism, the viscoelastic TPU elements inevi­
+tably experience irreversible fatigue over long‐term use. While 
+periodic maintenance is required, the mold‐free 3D printing 
+approach allows rapid, low‐cost remanufacturing and replace­
+ment of degraded parts.
+This study has two main limitations. First, a generalized 
+analytical design model linking lattice geometry to mechan‐
+ical properties has not yet been established. Because flexible 
+TPU lattices exhibit nonlinear responses, predicting mechanical 
+properties directly from geometric parameters remains difficult. 
+We utilized practical, empirical design rules requiring charac‐
+teristic mapping via prototyping. The empirical design maps 
+presented here are specific to TPU95A and the tested FDM 
+conditions and are not intended as universal scaling laws across 
+different materials or geometric scales. Although the dimen‐
+sionless ratios p/x, y/x, and z/x provide a scale‐independent 
+description of the idealized deformation geometry, they do not 
+predict stress or stiffness across materials. Establishing such 
+scaling laws would require systematic evaluation of normalized 
+stiffness, relative density, and strut slenderness across multiple 
+materials, scales, and printing conditions. Ideally, parameter 
+determination methods based on physical models should be 
+established. Additionally, achievable properties are restricted by 
+material limits; for instance, achieving extremely high tendon 
+stiffness requires structural enlargement.
+Second, the prototype has not achieved walking without external 
+support. The bipedal stepping demonstration relied on external 
+suspension that provided partial body‐weight support and 
+constrained torso roll, pitch, and yaw to  ±20°; autonomous 
+walking was not demonstrated. The inherent flexibility and 
+large deformations introduce kinematic variations (e.g., dynamic 
+changes in moment arms and wire friction), complicating 
+modeling. Unlike rigid components, soft structures lack invar­
+iable dimensional stability, and viscoelastic variations make 
+control challenging. Introducing machine learning approaches 
+to acquire a body schema through actual operation is expected 
+to compensate for these uncertainties and realize autono­
+mous motions.
+The proposed framework indicates broad potential for future 
+applications. Parameter‐based design enables straightforward 
+customization for different physiques. Future multimaterial 3D 
+printing for monolithic fabrication of bones, muscles, and liga­
+ments could advance design automation, extending applications 
+to prosthetics, assistive exosuits, and sensor‐integrated artificial 
+bodies. Future work will focus on whole‐body expansion and 
+realizing environmental contact motions that leverage the passive 
+adaptability of soft structures.
+In conclusion, this study demonstrated that an integrated 
+approach based on single‐material TPU and flexible pattern 
+structures is applicable to life‐sized musculoskeletal systems. 
+This provides a foundation for connecting the designs of 
+soft elements—which have conventionally been fragmented 
+in biomimetic robots—under a unified principle.
+4 | Experimental Section
+4.1 | Design Software
+Parametric design was carried out using Rhinoceros 8 and 
+Grasshopper as design software. The core component, which 
+generates body elements composed of pattern structures from 
+volume region input and pattern parameters, is defined as a 
+Python script within Grasshopper. Rhinoceros, fundamentally a 
+modeling software without a history function, allows real‐time 
+confirmation of the model generated by changing parameters 
+through integration with Grasshopper. This feature makes it 
+possible to generate multiple models with different parame­
+ters easily.
+4.2 | Details of Muscle Design
+This section describes the formulation of a parametric design 
+method for generating muscles within design software. The 
+muscle volume region is converted into a complex pattern shape 
+using a 3D model representation, where a pattern coordinate 
+system is designed based on NURBS surfaces [ 59]. NURBS 
+surfaces, one type of surface representation constructed from 
+control points, can represent geometric shapes such as surfaces 
+with four edges or spheres and tori. Additionally, 2D coordinates 
+can be defined on the surface, allowing a point on the surface 
+to be represented by 2D surface coordinates. In particular, the 
+lattice points obtained by dividing the surface coordinate system 
+14 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 15 =====
+are represented as ( t, s). The cross‐sectional shape of the cylin­
+drical muscle covering (Figure 4B‐2) is constructed from NURBS 
+surfaces. Therefore, the lattice points inside the muscle can be 
+uniquely defined in 3D coordinates (u, t, s) based on their position 
+in the cross‐section from the end of the cylindrical shape, where 
+u represents the number of the cross‐section from the end of 
+the cylinder. Then, as a pattern structure, a group of lattice 
+points connected by branches in a specific direction is defined as 
+follows. Here, Ai and Bj are constant parameters that identify the 
+connected branches. The direction of the branches is determined 
+based on the four combinations of ± in the equation.
+ Si, j = {(u, t, s) ∣ u ± t ∈ Ai, u ± s ∈ Bj} (3)
+Based on this set representation, adjacent lattice points are 
+connected by branches to generate the curve that serves as the 
+basis for generating the pattern structure. This curve is trimmed at 
+the muscle outline as needed and thickened to create a printable 
+pattern structure. Moreover, this pattern structure can be applied 
+to tendons and cushioning elements by changing the parameters. 
+Specifically, in the fabrication of the leg, for the sole, additional 
+definitions for the lattice point groups forming this pattern curve 
+are added, which results in branches in specific directions being 
+added to the pattern. The detailed algorithms, as well as the design 
+and fabrication procedures, are presented in Figures S1–S13, 
+Table S1, and Algorithms S1–S3.
+4.3 | Details of Ligament Design
+This section details the formulation of a parametric design 
+method for generating ligaments in design software. The cylin­
+drical surfaces on which the ligaments are distributed are also 
+represented by NURBS surfaces, which can handle continuous 
+curves using a coordinate system defined on the surface. A 
+separate flat NURBS surface is created, and the ligament pattern is 
+defined on it. Although the shapes of these two surfaces differ, the 
+commonality lies in the definition of positions on the surface in a 
+2D surface coordinate system. Therefore, curves that serve as the 
+basis for generating the ligament pattern structure are obtained 
+by projecting the pattern on the flat surface onto the cylindrical 
+surface according to the surface coordinate system. Finally, a 
+printable pattern structure is generated by adding thickness, 
+similar to muscles.
+4.4 | 3D‐Printing Process
+3D printing was performed using an FDM 3D printer. The mate­
+rial for the flexible patterned structure is TPU95A [ 60]: thermo­
+plastic polyurethane. The Young’s modulus is 9.8 ± 0.7 MPa in the 
+transverse direction of the layers and 7.4  ± 0.6 MPa in the longi­
+tudinal direction. The elongation at break is 650% in the trans­
+verse direction and 480% in the longitudinal direction. Compared 
+to more ordinary materials like PLA and ABS, this material 
+exhibits rubber‐like properties and is deformable. In general, 
+flexible materials for 3D printers have a hardness ranging from 
+95 to 65 A. Among these, TPU95A offers high tensile strength and 
+relatively low elongation but is easy to print. By leveraging these 
+characteristics and combining them with patterned structures, 
+it achieves both printability and flexibility. For fabrication, the 
+Prusa XL [ 61], which utilizes a tool changer system to enable 
+multimaterial printing including flexible materials, is employed. 
+Printing details and parameters are listed in Table S2. The internal 
+structure of the muscle (Figure 4A3‐1,A3‐2) does not require 
+support during printing, but the muscle surface (Figure 4A3‐3) 
+does. The ligaments also require supports, where tree supports 
+are particularly effective. In multimaterial printers, switching the 
+support material to PLA enables easy removal of the support 
+after printing while achieving high‐quality prints. Even with 
+conventional printers limited to one material, supports can be 
+made using TPU, allowing for successful printing. The bones are 
+printed using PLA and are fixed to muscles and ligaments using 
+insert nuts and screws.
+4.5 | Leg Hardware Configuration
+The hardware configuration of the leg partially utilizes a system 
+based on previous research [ 11, 14]. The overall system consists 
+of motors and wire winding units, a PC, motor drivers, and power 
+supplies for the motors and drivers. Maxon EC‐4pole motors [62] 
+equipped with a 53:1 gearhead and an encoder and wire winding 
+units developed in previous research [14] were used as actuators. 
+In this setup, the PC was placed externally to the leg, sending 
+commands via a LAN cable. Motor control was performed using 
+encoders attached to the motors, with the wire length controlled 
+as the target value. While the hardware configuration of the 
+motors is fundamentally based on previous research, the proposed 
+structural patterns for body elements created in this study are not 
+dependent on the type or drive method of the motors. Therefore, 
+as long as a mechanism for pulling wires can be implemented, 
+the system can be easily adapted to other actuators, as well as 
+pneumatic or hydraulic actuators.
+Author Contributions
+S.Y. conceived the idea for this study. K.K. and K.O. supervised the project. 
+S.Y. designed the hardware concept. S.Y. implemented the system and 
+conducted the experiments. S.Y. wrote the manuscript, and K.K. and K.O. 
+revised it. All authors discussed the results, interpreted the data, and 
+contributed to the manuscript.
+Funding
+This work was supported by the JST FOREST Program (Grant Number 
+JPMJFR232N to K.K.).
+Conflicts of Interest
+The authors declare no conflicts of interest.
+Data Availability Statement
+All data supporting the findings of this study are available in the paper, 
+the Supporting Information, and at https://doi.org/10.5281/zenodo.
+18802152. This study did not generate new materials.
+References
+1. I. Mizuuchi, R. Tajima, T. Yoshikai, et al., “The Design and Control 
+of the Flexible Spine of a Fully Tendon‐Driven Humanoid “Kenta”,” in 
+IEEE/RSJ International Conference on Intelligent Robots and Systems 
+3,(2002), 2527–2532.
+Advanced Intelligent Systems , 2026 15 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 16 =====
+2. I. Mizuuchi, T. Yoshikai, Y. Sodeyama, et al., “Development of 
+Musculoskeletal Humanoid Kotaro,” in IEEE International Conference on 
+Robotics and Automation (2006), 82–87.
+3. Y. Sodeyama, T. Yoshikai, T. Nishino, I. Mizuuchi, and M. Inaba , 
+“The Designs and Motions of a Shoulder Structure with a Wide Range 
+of Movement using Bladebone‐Collarbone Structures,” in IEEE/RSJ 
+International Conference on Intelligent Robots and Systems (2007), 
+3629–3634.
+4. Y. Nakanishi, I. Mizuuchi, T. Yoshikai, T. Inamura, and M. Inaba , 
+“Pedaling by a Redundant Musculoskeletal Humanoid Robot,” in 5th 
+IEEE‐RAS International Conference on Humanoid Robots (2005), 68–73.
+5. I. Mizuuchi, Y. Nakanishi, Y. Sodeyama, et al., “An Advanced 
+Musculoskeletal Humanoid Kojiro,” in 7th IEEE‐RAS International 
+Conference on Humanoid Robots (2007), 294–299.
+6. Y. Nakanishi, T. Izawa, M. Osada, et al., “Development of 
+Musculoskeletal Humanoid Kenzoh with Mechanical Compliance 
+Changeable Tendons by Nonlinear Spring Unit,” in IEEE International 
+Conference on Robotics and Biomimetics (2011), 2384–2389.
+7. S. Wittmeier, C. Alessandro, N. Bascarevic, et al., “Toward 
+Anthropomimetic Robotics: Development, Simulation, and Control of 
+a Musculoskeletal Torso,” Artificial Life 19 (2013): 1–171.
+8. Roboy, https://roboy.org/.
+9. Y. Nakanishi, Y. Asano, T. Kozuki, et al., “Design Concept of Detail 
+Musculoskeletal Humanoid “Kenshiro” ‐ toward a Real Human Body 
+Musculoskeletal Simulator,” in 12th IEEE‐RAS International Conference 
+on Humanoid Robots (2012), 1–6.
+10. T. Kozuki, T. Shirai, Y. Asano, et al., “Muscle‐Tendon Complex Control 
+by “Tension Controlled Muscle” and “Non‐Linear Spring Ligament” 
+for Real World Musculoskeletal Body Simulator Kenshiro,” in 5th 
+IEEE RAS/EMBS International Conference on Biomedical Robotics and 
+Biomechatronics (2014), 875–880.
+11. Y. Asano, T. Kozuki, S. Ookubo, et al., “Human Mimetic 
+Musculoskeletal Humanoid Kengoro Toward Real World Physically 
+Interactive Actions,” in IEEE‐RAS 16th International Conference on 
+Humanoid Robots (Humanoids) (2016), 876–883.
+12. S. Makino, K. Kawaharazuka, M. Kawamura, Y. Asano, K. Okada , 
+and M. Inaba, “High‐Power, Flexible, Robust Hand: Development of 
+Musculoskeletal Hand using Machined Springs and Realization of Self‐
+Weight Supporting Motion with Humanoid,” in IEEE/RSJ International 
+Conference on Intelligent Robots and Systems (2017), 1187–1192.
+13. Y. Asano, S. Nakashima, T. Kozuki, et al., “Human Mimetic 
+Foot Structure with Multi‐Dofs and Multi‐Sensors for Musculoskeletal 
+Humanoid Kengoro,” in IEEE/RSJ International Conference on 
+Intelligent Robots and Systems (2016), 2419–2424.
+14. K. Kawaharazuka, S. Makino, K. Tsuzuki, et al., “Component 
+Modularized Design of Musculoskeletal Humanoid Platform Musashi 
+to Investigate Learning Control Systems,” in IEEE/RSJ International 
+Conference on Intelligent Robots and Systems (2019), 7300–7307.
+15. K. Kawaharazuka, A. Miki, Y. Toshimitsu, K. Okada, and M. Inaba , 
+“Adaptive Body Schema Learning System Considering Additional 
+Muscles for Musculoskeletal Humanoids,” IEEE Robotics and Automation 
+Letters 7, no. 2 (2022): 3459.
+16. K. Kawaharazuka, K. Tsuzuki, Y. Koga, et al., “Toward Autonomous 
+Driving by Musculoskeletal Humanoids: A Study of Developed Hardware 
+and Learning‐based Software,” IEEE Robotics and Automation Magazine 
+27, no. 3 (2020): 84.
+17. M. A. Robertson and J. Paik, “New Soft Robots Really Suck: Vacuum‐
+Powered Systems Empower Diverse Capabilities,” Science Robotics 2, no. 9 
+(2017): eaan6357, https://doi.org/10.1126/scirobotics.aan6357.
+18. D. Yang, M. S. Verma, J.‐H. So, et al., “Buckling Pneumatic Linear 
+Actuators Inspired by Muscle,” Advanced Materials Technologies 1, no. 3 
+(2016): 1600055.
+19. C. Tawk, G. M. Spinks, M. in het Panhuis, and G. Alici, “3D 
+Printable Linear Soft Vacuum Actuators: Their Modeling, Performance 
+Quantification and Application in Soft Robotic Systems,” IEEE/ASME 
+Transactions on Mechatronics 24, no. 5 (2019): 2118, https://doi.org/10.
+1109/TMECH.3516.
+20. Z. Jiao, C. Zhang, W. Wang, M. Pan, H. Yang, and J. Zou, “Advanced 
+Artificial Muscle for Flexible Material‐based Reconfigurable Soft Robots,” 
+Advanced Science 6, no. 21 (2019): 1901371.
+21. R. V. Martinez, C. R. Fish, X. Chen, and G. M. Whitesides, “Elastomeric 
+Origami: Programmable Paper‐Elastomer Composites as Pneumatic 
+Actuators,” Advanced Functional Materials 22, no. 7 (2012): 1376, https://
+doi.org/10.1002/adfm.v22.7.
+22. E. Acome, S. K. Mitchell, T. G. Morrissey, et al., “Hydraulically 
+Amplified Self‐Healing Electrostatic Actuators with Muscle‐Like 
+Performance,” Science 359, no. 6371 (2018): 61, https://doi.org/10.1126/
+science.aao6139.
+23. N. Kellaris, V. G. Venkata, G. M. Smith, S. K. Mitchell, and C. Keplinger, 
+“Peano‐HASEL Actuators: Muscle‐Mimetic, Electrohydraulic Transducers 
+that Linearly Contract on Activation,” Science Robotics 3, no. 14 (2018): 
+eaar3276, https://doi.org/10.1126/scirobotics.aar3276.
+24. X. Wang, S. K. Mitchell, E. H. Rumley, P. Rothemund, and C. Keplinger, 
+“High‐Strain Peano‐Hasel Actuators,” Advanced Functional Materials 30, 
+no. 7 (2020): 1908821.
+25. C. S. Haines, N. Li, G. M. Spinks, A. E. Aliev, J. Di, and R. H. Baughman, 
+“New Twist on Artificial Muscles,” Proceedings of the National Academy of 
+Sciences 113, no. 42 (2016): 11716, https://doi.org/10.1073/pnas.1605273113.
+26. C. S. Haines, M. D. Lima, N. Li, et al., “Artificial Muscles from Fishing 
+Line and Sewing Thread,” Science 343, no. 6173 (2014): 868, https://doi.
+org/10.1126/science.1246906.
+27. Y. Wang, J. Qiao, K. Wu, et al., “High‐Twist‐Pervaded Electrochemical 
+Yarn Muscles with Ultralarge and Fast Contractile Actuations,” Materials 
+Horizons 7 (2020): 3043.
+28. M. Kanik, S. Orguc, G. Varnavides, et al., “Strain‐Programmable 
+Fiber‐Based Artificial Muscle,” Science 365, no. 6449 (2019): 145, https://
+doi.org/10.1126/science.aaw2502.
+29. S. Kurumaya, H. Nabae, G. Endo, and K. Suzumori, “Active Textile 
+Braided in Three Strands with Thin McKibben Muscle,” Soft Robotics 6, no. 
+2 (2019): 250, https://doi.org/10.1089/soro.2018.0076.
+30. S. Koizumi, S. Kurumaya, H. Nabae, G. Endo, and K. Suzumori , 
+“Recurrent Braiding of Thin McKibben Muscles to Overcome Their 
+Limitation of Contraction,” Soft Robotics 7, no. 2 (2020): 251, https://doi.
+org/10.1089/soro.2019.0022.
+31. S. Kurumaya, K. Suzumori, H. Nabae, and S. Wakimoto , 
+“Musculoskeletal Lower‐Limb Robot Driven by Multifilament Muscles,” 
+Robomech Journal 3 (2016): 1, https://doi.org/10.1186/s40648‐016‐0061‐3.
+32. S. Ikemoto, F. Kannou, and K. Hosoda, “Humanlike Shoulder Complex 
+for Musculoskeletal Robot Arms,” in IEEE/RSJ International Conference 
+on Intelligent Robots and Systems (2012), 4892–4897.
+33. R. Niiyama and Y. Kuniyoshi, “A Pneumatic Biped with an Artificial 
+Musculoskeletal System,” in Proceedings of 4th International Symposium 
+on Adaptive Motion of Animals and Machines (2008), 80–81.
+34. R. Niiyama, A. Nagakubo, and Y. Kuniyoshi, “Mowgli: A Bipedal 
+Jumping and Landing Robot with an Artificial Musculoskeletal System,” 
+in IEEE International Conference on Robotics and Automation (2007), 
+2546–2551.
+35. Y. Yang, X. Li, M. Chu, et al., “Electrically Assisted 3D Printing of 
+Nacre‐Inspired Structures with Self‐Sensing Capability,” Science Advances 
+5, no. 4 (2019): eaau9490, https://doi.org/10.1126/sciadv.aau9490.
+36. M. Peng, Z. Wen, L. Xie, et al., “3d Printing of Ultralight 
+Biomimetic Hierarchical Graphene Materials with Exceptional Stiffness 
+and Resilience,” Advanced Materials 31, no. 35 (2019): 1902930.
+16 of 17 Advanced Intelligent Systems , 2026
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+===== PAGE 17 =====
+37. Z. Ji, C. Yan, S. Ma, et al., “3d Printing of Bioinspired Topographically 
+Oriented Surfaces with Frictional Anisotropy for Directional Driving,” 
+Tribology International 132 (2019): 99.
+38. A. Hamidi and Y. Tadesse, “Single Step 3D Printing of Bioinspired 
+Structures via Metal Reinforced Thermoplastic and Highly Stretchable 
+Elastomer,” Composite Structures 210 (2019): 250, https://doi.org/10.1016/
+j.compstruct.2018.11.019.
+39. L. Wu, I. Chauhan, and Y. Tadesse, “A Novel Soft Actuator for the 
+Musculoskeletal System,” Advanced Materials Technologies 3, no. 5 (2018): 
+1700359, https://doi.org/10.1002/admt.v3.5.
+40. M. Schaffner, J. A. Faber, L. Pianegonda, “3d Printing of Robotic 
+Soft Actuators with Programmable Bioinspired Architectures,” Nature 
+Communications 9, no. 1 (2018): 878, https://doi.org/10.1038/s41467‐018‐
+03216‐w.
+41. B. Berman, “3‐D Printing: The New Industrial Revolution,” Business 
+Horizons 55, no. 2 (2012): 155, https://doi.org/10.1016/j.bushor.2011.11.003.
+42. E. Macdonald, R. Salas, D. Espalin, et al., “3D Printing for the Rapid 
+Prototyping of Structural Electronics,” IEEE Access 2 (2014): 234, https://
+doi.org/10.1109/Access.6287639.
+43. T. Rayna and L. Striukova, “From Rapid Prototyping to Home 
+Fabrication: How 3d Printing is Changing Business Model Innovation,” 
+Technological Forecasting and Social Change 102 (2016): 214.
+44. A. Eltaweel and Y. SU, “Parametric Design and Daylighting: 
+A Literature Review,” Renewable and Sustainable Energy Reviews 73 
+(2017): 1086.
+45. I. Caetano, L. Santos, and A. Leitão, “Computational Design in 
+Architecture: Defining Parametric, Generative, and Algorithmic Design,” 
+Frontiers of Architectural Research 9, no. 2 (2020): 287, https://doi.org/10.
+1016/j.foar.2019.12.008.
+46. S. Krish, “A Practical Generative Design Method,” Computer‐Aided 
+Design 43, no. 1 (2011): 88, https://doi.org/10.1016/j.cad.2010.09.009.
+47. S. Khan and M. J. Awan, “A Generative Design Technique for Exploring 
+Shape Variations,” Advanced Engineering Informatics 38 (2018): 712.
+48. Q. Guan, B. Dai, H. H. Cheng, and J. Hughes, “Lattice Structure 
+Musculoskeletal Robots: Harnessing Programmable Geometric Topology 
+and Anisotropy,” Science Advances 11, no. 29 (2025): eadu9856.
+49. T. Kim, A. Torres‐Soto, H. Wang, and R. L. Truby, “Architected 
+Elastomers as Load Bearing Actuators for Untethered Soft Robot 
+Walking,” Advanced Materials Technologies 10, no. 20 (2025): e00503.
+50. T. Kim, E. A. Dunn, M. Chen, and R. L. Truby, “Architected Soft 
+Actuators for Artificial Musculoskeletal Systems,” Advanced Materials 37, 
+no. 43 (2025): e01290.
+51. S. Yoshimura, A. Miki, K. Miyama, et al., “Patterned Structure Muscle: 
+Arbitrary Shaped Wire‐Driven Artificial Muscle Utilizing Anisotropic 
+Flexible Structure for Musculoskeletal Robots,” in IEEE/RSJ International 
+Conference on Intelligent Robots and Systems (IEEE, 2024).
+52. K. Kubo, T. Ikebukuro, and H. Yata, “Mechanical Properties of Muscles 
+and Tendon Structures in Middle‐Aged and Young Men,” Scientific Reports 
+12, no. 1 (2022): 1702.
+53. T. A. Wren, S. A. Yerby, G. S. Beaupré, and D. R. Carter, “Mechanical 
+Properties of the Human Achilles Tendon,” Clinical Biomechanics 16, no. 
+3 (2001): 245, https://doi.org/10.1016/S0268‐0033(00)00089‐9.
+54. P. J. Mansfield and D. A. Neumann, Essentials of Kinesiology for the 
+Physical Therapist Assistant E‐Book (Elsevier Health Sciences, 2018).
+55. A. Zolfagharian, M. Mohammadi, E.‐H. Kim, and K. Park, “Conformal 
+Morphing Meta‐Cylinders 3d Printing for Mechanical Intelligence 
+Programming,” Progress in Additive Manufacturing (2026): 1–21.
+56. M. Mohammadi, A. Z. Kouzani, M. Bodaghi, and A. Zolfagharian , 
+“Inverse Design of Adaptive Flexible Structures using Physical‐
+Enhanced Neural Network,” Virtual and Physical Prototyping 20, no. 1 
+(2025): e2530732.
+57. H. Soleimanzadeh, M. Bodaghi, M. Jamalabadi, B. Rolfe, and 
+A. Zolfagharian, “Rotary 4D Printing of Programmable Metamaterials 
+on Sustainable 4D Mandrel,” Advanced Materials Technologies 11, no. 1 
+(2026): e01581, https://doi.org/10.1002/admt.v11.1.
+58. M. Mohammadi, A. Z. Kouzani, M. Bodaghi, et al., “Sustainable 
+Robotic Joints 4d Printing with Variable Stiffness using Reinforcement 
+Learning,” Robotics and Computer‐Integrated Manufacturing 85 
+(2024): 102636.
+59. G. E. Farin, NURB Curves and Surfaces: From Projective Geometry to 
+Practical use (AK Peters, Ltd., 1995).
+60. Tpu 95a hf, Bambu Lab, https://store.bambulab.com/products/tpu‐
+95a‐hf.
+61. Original prusa xl semi‐assembled 5‐toolhead 3d printer, 
+Prusa Research, https://www.prusa3d.com/product/original‐prusa‐xl‐
+semi‐assembled‐5‐toolhead‐3d‐printer/.
+62. Ec 4pole 22, brushless dc motor, 90w, maxon, URL, https://www.
+maxongroup.co.jp/maxon/view/product/motor/ecmotor/ec4pole/323218.
+Supporting Information
+Additional supporting information can be found online in the Supporting 
+Information section.
+Advanced Intelligent Systems , 2026 17 of 17
+ 26404567, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.70537, Wiley Online Library on [23/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

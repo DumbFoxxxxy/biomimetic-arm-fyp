@@ -1,0 +1,108 @@
+Dim swApp As Object
+Dim reportPath As String
+
+Sub main()
+    Dim root As String
+    Dim asmPath As String
+    Dim errs As Long
+    Dim warns As Long
+    Dim asm As Object
+    Dim comps As Variant
+    Dim c As Object
+    Dim mu As Object
+    Dim pt As Object
+    Dim vec As Object
+    Dim xf As Object
+    Dim ok As Boolean
+    Dim pi As Double
+
+    pi = 3.14159265358979
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\test_math_setxform.txt"
+    ResetFile reportPath
+    asmPath = root & "\assembly_zero.SLDASM"
+    Set asm = swApp.OpenDoc6(asmPath, 2, 1, "", errs, warns)
+    If asm Is Nothing Then
+        WriteLine reportPath, "ERROR|open|" & errs & "|" & warns
+        swApp.ExitApp
+        Exit Sub
+    End If
+    comps = asm.GetComponents(False)
+    Set c = FindHumerus(comps)
+    If c Is Nothing Then
+        WriteLine reportPath, "ERROR|no_humerus"
+        swApp.CloseDoc asm.GetTitle()
+        swApp.ExitApp
+        Exit Sub
+    End If
+    WriteLine reportPath, "before|" & SafeStr(c.Name2) & "|" & TransformText(c)
+
+    Set mu = swApp.GetMathUtility()
+    Set pt = mu.CreatePoint(Array(0.15906, 0.18754, 0.0073))
+    Set vec = mu.CreateVector(Array(0#, 0#, 1#))
+    Set xf = mu.CreateTransformRotateAxis(pt, vec, -85# * pi / 180#)
+    WriteLine reportPath, "objects|" & CStr(Not mu Is Nothing) & "|" & CStr(Not pt Is Nothing) & "|" & CStr(Not vec Is Nothing) & "|" & CStr(Not xf Is Nothing)
+    ok = c.SetXform(xf)
+    WriteLine reportPath, "setxform|" & CStr(ok)
+    WriteLine reportPath, "after|" & SafeStr(c.Name2) & "|" & TransformText(c)
+    asm.EditRebuild3
+    WriteLine reportPath, "after_rebuild|" & SafeStr(c.Name2) & "|" & TransformText(c)
+    swApp.CloseDoc asm.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Function FindHumerus(comps As Variant) As Object
+    Dim i As Long
+    Set FindHumerus = Nothing
+    For i = LBound(comps) To UBound(comps)
+        If InStr(1, SafeStr(comps(i).Name2), "humerus", vbTextCompare) > 0 Then
+            Set FindHumerus = comps(i)
+            Exit Function
+        End If
+    Next i
+End Function
+
+Function TransformText(c As Object) As String
+    Dim xf As Object
+    Dim data As Variant
+    Dim j As Long
+    Dim s As String
+    s = ""
+    On Error Resume Next
+    Set xf = c.Transform2
+    If Not xf Is Nothing Then data = xf.ArrayData
+    On Error GoTo 0
+    If IsArray(data) Then
+        For j = LBound(data) To UBound(data)
+            s = s & "|" & CStr(data(j))
+        Next j
+    Else
+        s = "|NODATA"
+    End If
+    TransformText = s
+End Function
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function

@@ -1,0 +1,151 @@
+{
+  "scope": "All 16 spatial tendons, 9 scalar DOFs; no gravity or payload; qpos initialized once per independent action",
+  "gh_mechanism": "user-authorized 3-axis concentric yokes with separate antagonistic sector spools",
+  "nq": 10,
+  "nv": 9,
+  "nu": 16,
+  "pass": false,
+  "actions": [
+    {
+      "action": "SCAP_UP_ROT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 1.2544682984728026,
+      "maximum_humerus_orientation_error_deg": 0.12900309449522054,
+      "maximum_elbow_error_deg": 0.006839570551453421,
+      "maximum_preload_N": 7.354179675739047,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_DOWN_ROT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.8132674353879953,
+      "maximum_humerus_orientation_error_deg": 0.08172719616119546,
+      "maximum_elbow_error_deg": 0.0010515074512684535,
+      "maximum_preload_N": 8.491869675541434,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_PROTRACT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.061530040409556126,
+      "maximum_humerus_orientation_error_deg": 0.005547071998295026,
+      "maximum_elbow_error_deg": 0.0003793903612347975,
+      "maximum_preload_N": 13.765529082406681,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_RETRACT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.05090980784824045,
+      "maximum_humerus_orientation_error_deg": 0.004613794894154567,
+      "maximum_elbow_error_deg": 0.0003525391676899494,
+      "maximum_preload_N": 7.354179675739047,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_ELEVATE",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.10142895679261776,
+      "maximum_humerus_orientation_error_deg": 0.010091786410605335,
+      "maximum_elbow_error_deg": 0.0008261506674879941,
+      "maximum_preload_N": 15.723671297943937,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "SCAP_DEPRESS",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.13206243357685066,
+      "maximum_humerus_orientation_error_deg": 0.012511762006881536,
+      "maximum_elbow_error_deg": 0.0009077457981018278,
+      "maximum_preload_N": 7.354179675739047,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_FLEX",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 21.920212013452375,
+      "maximum_humerus_orientation_error_deg": 2.3832149664582145,
+      "maximum_elbow_error_deg": 0.020353717852055135,
+      "maximum_preload_N": 7.354179675739111,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_EXT",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 6.331196202465903,
+      "maximum_humerus_orientation_error_deg": 0.6883460545792011,
+      "maximum_elbow_error_deg": 0.004563097946669266,
+      "maximum_preload_N": 7.354179675739107,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_ABD",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 21.931818700830544,
+      "maximum_humerus_orientation_error_deg": 2.384722972487953,
+      "maximum_elbow_error_deg": 0.0011598212889706422,
+      "maximum_preload_N": 7.354179675739093,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_INT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.0008017307272833589,
+      "maximum_humerus_orientation_error_deg": 0.7165172760379148,
+      "maximum_elbow_error_deg": 3.1773688302871523e-06,
+      "maximum_preload_N": 7.354179675739114,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "GH_EXT_ROT",
+      "pass": true,
+      "maximum_wrist_tracking_error_mm": 0.0010273598385121634,
+      "maximum_humerus_orientation_error_deg": 0.9539809052429834,
+      "maximum_elbow_error_deg": 5.264194005158364e-06,
+      "maximum_preload_N": 7.354179675739121,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "ELBOW",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 5.154555739040557,
+      "maximum_humerus_orientation_error_deg": 0.020792596006256978,
+      "maximum_elbow_error_deg": 1.2135214139558888,
+      "maximum_preload_N": 7.354179675739118,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "CROSS_BODY",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 8.971539308763173,
+      "maximum_humerus_orientation_error_deg": 0.7440269773973842,
+      "maximum_elbow_error_deg": 0.6940314988446457,
+      "maximum_preload_N": 13.765529082406717,
+      "finite": true,
+      "positive_push": false
+    },
+    {
+      "action": "RAISE_170",
+      "pass": false,
+      "maximum_wrist_tracking_error_mm": 23.435123928916703,
+      "maximum_humerus_orientation_error_deg": 2.5677042048516823,
+      "maximum_elbow_error_deg": 0.0036763447802484655,
+      "maximum_preload_N": 7.354179675739047,
+      "finite": true,
+      "positive_push": false
+    }
+  ],
+  "full_geometry_verified": false
+}

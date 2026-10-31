@@ -1,0 +1,463 @@
+===== PAGE 1 =====
+The Designs and Motions of a Shoulder Structure with a Wide Ra nge
+of Movement Using Bladebone-Collarbone Structures
+Yoshinao Sodeyama, Tomoaki Yoshikai, Tamaki Nishino, Ikuo Mizuuchi and Masa yuki Inaba
+Abstract— We are trying to develop an innovative hu-
+manoid which learns from the structure of a human shoulder,
+especially the bladebone and collarbone. We consider that the
+bladebone-collarbone structures have the following merits,
+1)wide range of movement, 2)having the shoulder structure
+built on to the outside of the chest, allowing space for a lot of
+parts inside the chest, 3)ﬂexible shoulder like humans. In con-
+trast, it is diﬃcult to control the shoulder structure because it
+have multiple degrees of freedom and extraordinary physical
+constraints. An aim of our research is to create a repeatable
+motion generation system of the bladebone-collarbone struc-
+tures for real musculo-skeletal humanoid robots. In this paper,
+we describe the design process of the bladebone-collarbone
+structures for a muscle-driven humanoid robot, and the
+simulation system considering geometrical constraints of the
+structures. Then, we show a motion experiment using the
+shoulder structures of the humanoid, based on the simulation
+system we presented.
+I. INTRODUCTION
+At some future point, it will be usual in our daily life
+for humanoid robots to assist humans directly. Then,
+humanoids must not be dangerous to humans. It will
+be of the utmost necessity that the humanoid robot
+has a safe and ﬂexible body structure. The ﬂexibility
+of the arms will be especially important, because these
+parts will come in direct contact with human bodies and
+environments.
+From this point of view, we have developed a whole-
+type musculo-skeletal humanoid robot named ‘’Kotaro”
+[1]. The whole articulated structure of Kotaro is driven
+by muscles which consists of chemical ﬁbers, a DC motor,
+pulleys, and a tension sensor. It has 91 DOF throughout
+the body. It has about 90 motors currently, and it can
+have up to 120 motors throughout the body.
+A number of groups have been trying to develop
+human-form robots with a speciﬁc shoulder structure [2]–
+[5]. A control mechanism for a musculo-skeletal arm has
+been also researched [6]. Referring to their approach, we
+have developed a characteristic type of shoulder structure
+with ’bladebones and collarbones’ for ﬂexibility, wide
+range of movement, and good spatial eﬃciency. We
+showed the ﬁrst prototype of the bladebone-collarbone
+structure and explained the eﬀectivity of them for
+tendon-driven humanoid robots [7]. Based on the results
+Authors are with Graduate School of Interdisciplinary Info r-
+mation Studies, and Graduate School of Information Science
+and Technology, University of Tokyo, 7-3-1 Hongo, Bunkyo-k u,
+Tokyo, 113-8656, Japan. [sodeyama, yoshikai, nishino, ikuo,
+inaba]@jsk.t.u-tokyo.ac.jp
+Fig. 1. Lifting an arm motion of the humanoid Kotaro using
+bladebone-collarbone structures
+Fig. 2. Side view of the lifting an arm motion of Kotaro –The
+green lines are visible outlines of the bladebone –The pink l ines
+are image outlines of muscles to drive the bladebone :The ran ge of
+movement is expanded by rotating the bladebone
+of the study, we have adopted the ’bladebone and col-
+larbone’ approach, and designed an improved version of
+the shoulder structure with bladebones and collarbones
+for Kotaro’s shoulder structure. Using bladebones, it
+can move its arms in a wide range of movement like
+humans (Fig. 1, Fig. 2). We have mainly improved muscle
+arrangements, output power of motors and so on, which
+are explained in the next chapters.
+Proceedings of the 2007 IEEE/RSJ International
+Conference on Intelligent Robots and Systems
+San Diego, CA, USA, Oct 29 - Nov 2, 2007
+ThC5.4
+1-4244-0912-8/07/$25.00 ©2007 IEEE. 3629
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Fig. 3. A conﬁguration of the shoulder structure with the
+bladebone and the collarbone
+Fig. 4. Assembly drawing around the bladebone components
+:Motors and boards are in the bladebone parts
+II. THE DESIGN OF A SHOULDER WITH
+BLADEBONE-COLLARBONE STRUCTURES
+A. The Hardware Construction of the Shoulder Struc-
+ture
+The shoulder structure of Kotaro consist of four bone
+parts which are the bladebone, the collarbone, the upper-
+arm bone, and the chest (Fig. 3).
+The Bladebone and the chest constitute a bone connec-
+tion which consists of a sternoclavicular joint (which is
+between a chest and a collarbone) and an acromioclavicu-
+lar joint (which is between a collarbone and a bladebone).
+An upperarm can make a motion by an scapulohumeral
+joint (which is between an upper-arm and a bladebone).
+In addition, a bladebone can make movements of up-and-
+down, backward and forward, rotation direction on the
+back chest surface. This structure enables it to generate
+a wide range of movements for the upper-arm with a
+shoulder motion.
+Upperarm-bladebone joints (Scapulohumeral joints) of
+Kotaro are ball-and-socket joints, but the socket parts
+are designed deeper than that of humans to prevent bone
+dislocations and to improve the intensity of the joint
+frame. However this limits the range of movement. The
+maximum range of movement of it is 90-degree at ﬂexion
+of a shoulder when Kotaro uses an upperarm-bladebone
+joint only. Typically, the maximum range of movement
+4.5W
+Motors
+Boards
+Tension sensors
+Flame
+Elbow joint
+Bladebone-upperarm joint ball
+Fig. 5. Assembly drawing of the upper-arm components
+of a human shoulder is 180-degree at ﬂexion using a
+shoulder blade [8] [9]. In fact, it is important to expand
+the range of movement of shoulder structure by the eﬀect
+of the bladebone-collarbone like humans.
+The shape of the bladebone can generate eﬀective
+muscle arrangements, and it can contain some parts.
+It is located on the chest surface, having the shoulder
+structure built on to the outside of the chest, allowing
+space for a lot of parts inside the chest.
+Each bone-parts are designed as the assembled struc-
+tures of motors, boards and sensors by using 3D-CAD.
+Bladebone parts are designed that have DC-motors
+(4.5W x 3, 3.0W x 1), a motor driver board (x 1), a
+USB-hub board (x 1) and a sensor board (x 1) inside
+it (Fig. 4). Each parts are made of nylon resin by a 3D
+modeling machine of Rapid Prototyping SLS (Selective
+Laser Sintering) way [10] [11]. The strength of the
+material of this is also equivalent to ABS plastics ones.
+Collarbones are the only structural links between a
+chest and bladebones, and bladebones are held on the
+surface of a chest by the smallest number of muscles. As
+a result, strong tension is generated to the collarbone
+parts. Collarbones are made of alloyed metal material
+of bronze and stainless used steel by metal type Rapid
+Prototyping system for the intensity of the parts.
+Upper-arm parts are designed that can contain DC-
+motors (4.5W x 2), a motor driver board (x 1) and a
+USB-hub board (x 1) (Fig. 5). These motors are for
+driving a elbow joint. The RP frame-parts make a parts
+unit for ease of maintenance.
+The chest parts are made in three sections. It has four
+joints as elements of spine joints. A middle section of the
+chest parts is principally for driving shoulder blades. The
+middle section of the chest parts is designed so that it can
+contain DC-motors (20W x 4, 4.5W x 8, 3W x 6), and
+3630
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Fig. 6. An interior ﬁgure of the middle section of the chest :A
+total of 23 motors are contained in the whole chest space
+Fig. 7. Assembly drawing of the middle section of the chest pa rts
+motor driver boards (x 6) (Fig. 6, Fig. 7). The motors
+named R2, R3, R6 and R7 work to drive the bladebone.
+R4 and R5 work to drive the spine joint between the
+top section and middle section of the chest. R1 works to
+drive the upper-arm. The functions are symmetric.
+The top section of the chest parts is mainly for driving
+a neck structure and has ball-and-socket joints between
+collarbones and a chest. A bottom section of the chest
+parts is mainly for driving a spine joint between the
+middle section of the chest and itself. The cover parts of
+the chest, which has a smooth surface, are made of the
+RP method the way of Stereolithography.
+The curvature factor of the surface of the bladebone at
+the chest side is slightly-bigger than the curvature of the
+surface of the chest. At the same time, the bladebones
+are stabilized on the chest surface, by slipping a piece of
+felt clothing fabric between the chest and bladebones it
+reduces the friction resistance between them.
+4.5W motors (x 2) and 3W motor (x 1) inside
+the bladebone drive the upper-arm directly. The 4.5W
+motors pull the upper-arm to abduction direction, and
+the 3W motor pull the arm to backward direction. In
+Fig. 8. Muscle compositions of the shoulder structure
+Fig. 9. An illustration of the directions about four muscles working
+for the bladebone
+addition, 4.5W motor (x 1) inside the chest works by
+pulling the upper-arm to the chest side. 20W motor (x
+1) insides the chest works by lifting the upper-arm to
+inﬂection as forward elevating direction that muscle is
+putted in position from the chest to the bladebone by
+a corrugated tube. It is a problem that friction between
+chemical wire and corrugated tube reduce driving perfor-
+mance, however corrugated tubes are putted on a lower
+curvature and it reduce friction as small as possible. A
+20W motor is relatively large size parts for Kotaro. It has
+a disadvantage we think that the motors are designed in
+the bladebone parts, so these motors are designed inside
+of the chest parts. Having the shoulder structure built on
+to the outside of the chest, having good spatial eﬃciency.
+In the result, the chest can contain the large size motors
+and a lot of boards inside like this.
+Scapulohumeral joint, sternoclavicular joint and
+acromioclavicular joint are ball-and-socket joints of three
+degrees of freedom, and these are designed to have angle
+sensor of ball-and-socket joints [12].
+B. Muscle Arrangements to Move the Bladebones in
+Diﬀerent Directions
+Fig. 8 shows muscle arrangements to move the shoul-
+der structure of Kotaro. The left one is a front view
+and the right one is a back view of the robot. Chest,
+bladebone, collarbone and upper-arm bone of the Kotaro
+are in this ﬁgure, the lines of yellow color are the muscles
+to drive upper-arm bones, and the red lines are the
+muscles to drive bladebones.
+3631
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+A bladebone needs four muscles to move and it has
+four output points of muscles (Fig. 9). Each side of the
+two muscles from the bladebone are cross interfering each
+other. The upper two points of the bladebone is actuated
+to the bottom, and lower two points of the bladebone is
+pulled from the topside of the chest. These four muscles
+are driven by four motors inside the chest. It can control
+the motions of shoulder structure that are up-and-down,
+back-and-forward, and rotation direction. In addition,
+20W motors inside the chest actuate the front under
+point of the bladebone to the topside of the chest, so it
+can generate an extra power to lift up and rotate the
+bladebone and whole arm parts.
+Torsion coil springs, as elastic elements, are putted
+on the joint between an upper-arm and a bladebone.
+The springs generate power which work for negating the
+empty weight of an arm, so it helps the muscles to drive
+the arm. In addition to this, joint structures can get the
+physical ﬂexibility by using the springs.
+III. A MOTION GENERATING SYSTEM ON THE
+BASIS OF GEOMETRICAL CONSTRAINT
+A. 3-Dimentional Geometrical Model for a Humanoid
+Robot
+We made a 3-D geometrical model of the humanoid
+Kotaro (Fig. 10). The model has the dataset that are the
+3D-shape of body structure, muscle arrangements (start
+points and end points of all muscles), and elastic element
+(rubbers and springs) models of Kotaro. We can compute
+approximative muscle lengths from a 3-D geometrical
+model by straight-line approximation. In addition, we
+can see the stereoscopic positions of the muscles and the
+condition of the muscle tensions.
+The motion of a humanoid is made by simulation using
+the geometrical model which can calculate the muscle
+length of the whole body and send the data to the real
+humanoid robot.
+B. A Collision Detection System between Bladebones
+and a Chest
+We can get the muscle lengths from the geometrical
+model, and send the data to the robot to make a motion.
+At this moment, when we compute the muscle lengths
+for making some motion about a bladebone-collarbone
+structure, we have to consider the physical constraint
+between bladebones and a thorax because bladebones
+move along a thorax surface. Bladebones don’t enter into
+the chest and don’t ﬂoat to the chest too. They are in
+contact with at least one point, that we deﬁned. We
+checked collision detection between a bladebone and a
+chest to identify the position of a bladebone on the chest.
+When a bladebone moves, it ﬂoats to the chest. In this
+bout, a bladebone is rotated in little increments angle
+around the vertical axis of a bladebone-collarbone-joint
+until the surface of a bladebone is in touch with the
+surface of a chest (Fig. 11).
+Fig. 10. A three-dimentional geometrical model of the human oid
+Kotaro
+Fig. 11. Reaching motion using a shoulder blade by 3D geometr ical
+model of Kotaro (from backview)
+This system can make motions on the geometrical
+model. It makes motions to the real humanoid about
+any positions of bladebones. The body shape of the
+geometrical model is made by the 3D-CAD model of
+the humanoid Kotaro. The shape is the same as the real
+humanoid, so this check system is reliable.
+C. A Decision Method for conﬁgurations of the
+Bladebones
+We simulated motions reaching a hand to a red apple
+using a 3D-geometrical model and a collision detection
+system. We can solve the inverse kinematics because the
+DOF of bladebone-upperarm joints, elbow joints, wrist
+joints are 3, 1, 1 in sequence. Here, an end-point position
+is decided by solving inverse kinematics from center
+points of an apple and a bladebone-upperarm joint.
+Motions are conﬁned to two types, rotating motion
+and backward-forward motion. It is not diﬃcult motions
+when the humanoid does the reaching motion naturally.
+Fig. 12 shows a process ﬂowchart of this system. At
+this time, a distance between center points of an apple
+and a bladebone-upperarm joint is named ’distance-A’. A
+distance between center points of a bladebone-upperarm
+joint and an end-point position is named ’distance-B’.
+3632
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Fig. 12. Process ﬂowchart of a reaching motion using the
+bladebone-collarbone structure
+If distance-A is shorter than distance-B, the reaching
+motion is generated by inverse kinematics of a bladebone-
+upperarm joint to an end-point, but a bladebone
+doesn’t move. If distance-A is longer than distance-B,
+a bladebone is driven, and when a point of an apple is
+high, a bladebone is rotated, and when a point of an
+apple is low, a bladebone is driven to forward direction.
+At each motion, the most suitable position of a
+bladebone is got decided by the collision detection system
+explained in foregoing subsection. After that, a reaching
+motion is generated by solving an inverse kinematics.
+IV. A MOTION EXPERIMENT WITH A
+HUMANOID ROBOT
+A. Motions of Bladebone Based on 3D Geometrical
+Model
+We can simulate a position of a bladebone on 3D-
+geometrical model by the system. From this simulation,
+we can make motions of a shoulder structure following
+geometrical model by sending the muscle length to a real
+robot. This driving system is a reproducible method, if
+a ﬁrst position of a bladebone is made to respond to a
+ﬁrst position of a bladebone on the geometrical model.
+However, we cannot make exactly the same position of
+bladebone as the geometrical model, because the powers
+of frictional forces between a bladebone and a chest and
+force of gravity are not in the geometrical model.
+It have about ten degrees error as rotating angle of
+a bladebone. We have to make an improvement about
+this point. We should improve the structure to reduce
+frictional forces between bladebones and the chest as
+little as possible, and do a 3D-geometrical simlation with
+eﬀects of frictional forces and gravity force. Aside from
+this, we can drive bladebones by the teaching muscle
+lengths and replaying the lengths way. Though muscles
+to drive bladebones and upperarms are twenty so it is
+more eﬃcient driving motions used geometrical model.
+B. An Experiment of a Tracking and a Reaching Motion
+We did an experiment of reaching for an apple motion.
+This is explained in the foregoing section and stereo
+vision censors (Fig. 13, Fig. 14). A center position
+coordinate of an apple is input by vision censors as USB
+stereo cameras inside a Kotaro head parts. At ﬁrst, vision
+censors pick out red color of an apple within the visual
+ﬁeld. Stereo cameras can track it to the center in the
+visual ﬁeld, from the information of barycentric position
+by color abstraction. Two eyes of Kotaro can rotate to
+the direction of convergence. Accordingly, the physical
+object exists at intersection point of two sight lines. After
+this, the process starts generating an arm motion with
+bladebone-collarbone structure.
+Fig. 13. Field of vision: red color image processing of an app le
+for the reaching motion
+Fig. 14. An experiment of a reaching motion by the humanoid
+Kotaro with the bladebone-collarbone structure
+3633
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+V. CONCLUSIONS AND FUTURE WORKS
+A. Conclusions
+Heading towards the next stage, we have developed
+the speciﬁc shoulder structure with bladebones and
+collarbones and suggested the way to drive this structure.
+We proposed the design method of which makes the
+best possible use of 3D-CAD and Rapid prototyping,
+and realized the unprecedented type shoulder structure
+for Kotaro. The merits of using shoulder blades are the
+ﬂexibility, wide range of movement, and good spatial
+eﬃciency are showed in the motion of Kotaro.
+We made a motion generating method using a 3D-
+geometrical model and vision sensors. It is an eﬀective
+driving system for the multi-degree-of-freedom shoulder
+structure which has bladebones making a drive on the
+chest surface. The motion generation system was based
+on the collision detection between the bladebone and
+the chest on the geometrical model, and restrictions of
+motion types of the bladebones. Then, we showed an
+experiment of the reaching motion with bladebone. The
+errors are caused by frictional forces and gravity force but
+it can be considered as unimportant factor by generating
+a reaching motion with using visual feedbacks.
+In this paper, we only made motions restricted to ro-
+tation and backward-forward direction only for motions
+of bladebones, but we should make more natural driving
+system of bladebones coordinated action of arms using
+multi-degree-of-freedom to the full. We should consider
+for a better search method of bladebones on a chest
+surface. As a way, virtual spring models are arranged
+on bladebones of a 3D-geometrical model and rotate a
+bladebone-collarbone joint in steps of a small angle to
+the direction shortened the most longest spring.
+B. Future Works
+As foregoing developments, the repeatability of mo-
+tions is the most important point for making a motion
+adapted to environment the shoulder structure by learn-
+ing the motions.
+A simulation system should be developed with inﬂec-
+tions of the force of gravity and conﬂict.
+As a hardware of bladebone-collarbone structure, we
+will develop new body structure which reduce conﬂict
+between bladebones and the chest as little as possible,
+and get more strong driving power of muscles.
+VI. ACKNOWLEDGMENTS
+This research has been supported by ”Project for the
+Practical Application of Next-Generation Robots” for
+Aichi EXPO organized by The New Energy and In-
+dustrial Technology Development Organization (NEDO),
+Japan, and Grant-in Aid for Young Scientists (A)
+(#17680015) by Japan Ministry of Education, Culture,
+Sports, Science and Technology (MEXT).
+References
+[1] I. Mizuuchi, T. Yoshikai, Y. Sodeyama, Y. Nakanishi, A.
+Miyadera, T. Yamamoto, T. Niemel, M. Hayashi, J. Urata,
+Y. Namiki, T. Nishino, and M. Inaba, ”Development of Mus-
+culoskeletal Humanoid Kotaro”, in Proceedings of the 2006
+IEEE International Conference on Robotics and Automation,
+Orland, FL, 2006, pp.82–87.
+[2] I. Mizuuchi, S. Yoshida, M. Inaba, and H.Inoue, ”The de-
+velopment and control of the ﬂexible-spine of a human-form
+robot”, Advanced Robotics, Vol.17, no.2, pp.179–196, 2003 .
+[3] I. Mizuuchi, R. Tajima, T. Yoshikai, D. Sato, K. Nagashim a,
+and M. Inaba, ”The Design and Control of the Flexible Spine
+of a Fully Tendon-Driven Humanoid ”Kenta””, in Proceedings
+of the 2005 IEEE/RSJ International Conference on Intellige nt
+Robots and Systems, Lausanne, Switzerland, 2002, pp.2527–
+2532.
+[4] Y. Nakamura, M. Okada and S. Hoshino, ”Development of the
+Torso Robot-Design of the New Shoulder Mechanism ”Cyber-
+netic shoulder””, Preprints of 6th International Symposiu m
+of Experimental Robotics, 1999, pp.452–461.
+[5] Y. Masutani, K. Osuka, M. Kurisu, T. Doi, T. Kaneda, Z.
+Xin-Zhi, H. Sugimoto, T. Azuma, ”Development of a standard
+robotic dummy for the purpose of evaluating rescue equipmen t
+and skill”, in Proceedings of the 2003 IEEE/RSJ Internation al
+Conference on Intelligent Robots and Systems, 2003, pp.340 4–
+3409.
+[6] K. Tahara, Z. W. Luo, S. Arimoto, and H. Kino, ”Sensorymo-
+tor control mechanism for reaching movements of a redundant
+musculo-skeletal arm”, In Journal of Robotic Systems, Vol. 22,
+2005, pp.639–651.
+[7] Y. Sodeyama, I. Mizuuchi, T. Yoshikai, Y. Nakanishi, and
+M. Inaba, ”A Shoulder Structure of Muscle-Driven Humanoid
+with Shoulder Blades”, in Proceedings of the 2005 IEEE/RSJ
+International Conference on Intelligent Robots and System s,
+Alberta, Canada, 2005, pp.1077–1082.
+[8] I. A. Kapandji, The Physiology of the Joints Vol. 1: Upper
+Limb, Churchill Livingstone, 1980.
+[9] Tortora Grabowski, Principles of Anatomy & Physiology V ol.
+2 Support and Movement, Biological Sciences Textbooks,inc ,
+2003.
+[10] Ashley S, Rapid Prototyping is Coming of Age, Mechanica l
+Engineering, Vol.117, No. 7, 1995, pp.63–68.
+[11] J. Won, K. Dclaurentis, and C. Mavroidis, ”Rapid Protot yping
+of Robotics Systems”, in proceedings of the 2000 IEEE
+International Conference on Robotics & Automation, San
+Fransicco, CA, 2000, pp.3077–3082.
+[12] J. Urata, Y. Nakanishi, A. Miyadera, I. Mizuuchi, T. Yos hikai,
+and M. Inaba, ”A Three-Dimensional Angle Sensor for a
+Spherical Joint Using a Micro Camera”, in Proceedings of
+the 2006 IEEE International Conference on Robotics and
+Automation, Orland, FL, 2006, pp.4428–4430.
+3634
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:34:15 UTC from IEEE Xplore. Restrictions apply.

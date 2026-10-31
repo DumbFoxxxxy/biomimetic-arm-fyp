@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf8'?>
+<mujoco model="E1_geometry_only_assembly">
+  <compiler meshdir="D:\XJTLU\PSP\mujoco_arm\exports\anatomical_concept\joint_model\SC_connection\AC_compact\GH_connection\elbow_connection" angle="degree" />
+  <visual>
+    <global offwidth="900" offheight="800" />
+  </visual>
+  <asset>
+    <mesh name="humerus_GH_elbow_fork" file="humerus_GH_elbow_fork.stl" scale=".001 .001 .001" />
+    <mesh name="forearm_elbow_hub" file="forearm_elbow_hub.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_bearing_bush" file="elbow_bearing_bush.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_spacer_left" file="elbow_spacer_left.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_spacer_right" file="elbow_spacer_right.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_shoulder_pin" file="elbow_shoulder_pin.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_washer_left" file="elbow_washer_left.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_washer_right" file="elbow_washer_right.stl" scale=".001 .001 .001" />
+    <mesh name="elbow_retaining_nut" file="elbow_retaining_nut.stl" scale=".001 .001 .001" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 1" dir="0 1 -1" />
+    <body name="humerus_GH_elbow_fork" mocap="true">
+      <geom name="humerus_GH_elbow_fork" type="mesh" mesh="humerus_GH_elbow_fork" contype="0" conaffinity="0" rgba=".88 .85 .78 1" />
+    </body>
+    <body name="forearm_elbow_hub" mocap="true">
+      <geom name="forearm_elbow_hub" type="mesh" mesh="forearm_elbow_hub" contype="0" conaffinity="0" rgba=".88 .85 .78 1" />
+    </body>
+    <body name="elbow_bearing_bush" mocap="true">
+      <geom name="elbow_bearing_bush" type="mesh" mesh="elbow_bearing_bush" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_spacer_left" mocap="true">
+      <geom name="elbow_spacer_left" type="mesh" mesh="elbow_spacer_left" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_spacer_right" mocap="true">
+      <geom name="elbow_spacer_right" type="mesh" mesh="elbow_spacer_right" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_shoulder_pin" mocap="true">
+      <geom name="elbow_shoulder_pin" type="mesh" mesh="elbow_shoulder_pin" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_washer_left" mocap="true">
+      <geom name="elbow_washer_left" type="mesh" mesh="elbow_washer_left" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_washer_right" mocap="true">
+      <geom name="elbow_washer_right" type="mesh" mesh="elbow_washer_right" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+    <body name="elbow_retaining_nut" mocap="true">
+      <geom name="elbow_retaining_nut" type="mesh" mesh="elbow_retaining_nut" contype="0" conaffinity="0" rgba=".3 .55 .65 1" />
+    </body>
+  </worldbody>
+</mujoco>

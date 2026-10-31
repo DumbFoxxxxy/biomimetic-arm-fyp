@@ -1,0 +1,72 @@
+{
+  "frames": {
+    "SC_J": {
+      "owner": "clavicle",
+      "origin_m": [
+        0.0449999960174535,
+        0.299999934198918,
+        -0.106507118037789
+      ],
+      "distance_to_bone_m": 0.019946550610774532,
+      "ok": true
+    },
+    "ACST_J": {
+      "owner": "scapula",
+      "origin_m": [
+        0.1726794879417645,
+        0.29999993419891824,
+        -0.02732058409277379
+      ],
+      "distance_to_bone_m": 0.009938157289471223,
+      "ok": true
+    },
+    "GH_J": {
+      "owner": "humerus",
+      "origin_m": [
+        0.19549580903605018,
+        0.25811281275573034,
+        0.00630717829645167
+      ],
+      "distance_to_bone_m": 0.01985721824254717,
+      "ok": true
+    },
+    "ELBOW_J": {
+      "owner": "ulna",
+      "origin_m": [
+        0.19549580903604963,
+        -0.005887187244269676,
+        0.006307178296452531
+      ],
+      "distance_to_bone_m": 0.012489215733421972,
+      "ok": true
+    }
+  },
+  "joints": {
+    "SC_J": {
+      "parent": "thorax",
+      "child": "clavicle",
+      "gap_m": 6.338561125025496e-05,
+      "ok": true
+    },
+    "ACST_J": {
+      "parent": "clavicle",
+      "child": "scapula",
+      "gap_m": 0.0003109775142102978,
+      "ok": true
+    },
+    "GH_J": {
+      "parent": "scapula",
+      "child": "humerus",
+      "gap_m": 0.00117704799423693,
+      "ok": true
+    },
+    "ELBOW_J": {
+      "parent": "humerus",
+      "child": "ulna",
+      "gap_m": 0.0004889069191730547,
+      "ok": true
+    }
+  },
+  "passed": true,
+  "stl_vs_part_error": {}
+}

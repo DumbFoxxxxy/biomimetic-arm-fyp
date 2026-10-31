@@ -1,0 +1,1408 @@
+===== PAGE 1 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Paper:
+Human Mimetic Forearm and Hand Design with
+a Radioulnar Joint and Flexi ble Machined Spring Finger
+for Human Skillful Motions
+Kento Kawaharazuka, Shogo Makino, Masaya Kawamura,
+Shinsuke Nakashima, Yuki Asano, Kei Okada, and Masayuki Inaba
+Department of Mechano-Informatics, Graduate School of Information Science and Technology, The University of Tokyo
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+E-mail: {kawaharazuka, makino, kawamura, s -nakashima, asano, k-okada, inaba }@jsk.t.u-tokyo.ac.jp
+[Received September 18, 2018; accepted January 19, 2020]
+Humans have characteristic forearm and hand struc-
+tures, and most of the previously developed hu-
+manoids are not equipped with them. The human
+forearm has a radioulnar structure composed of two
+long thin bones, and the human hand has ﬂexibility
+to move to ﬁt the object and strength to support the
+human body. Therefore, we develop a novel minia-
+ture bone-muscle module integrating bone and mus-
+cle structures, and realize the human radioulnar struc-
+ture. In addition, we develop a novel ﬁnger, which is
+ﬂexible and robust, by using machined springs. We
+integrate them and construct a forearm and hand sys-
+tem which imitates human joint structures, muscle ar-
+rangements, proportion, and weight. Using this fore-
+arm and hand system, we realize several human skill-
+ful motions.
+Keywords: biomimetics, humanoid, tendon-driven
+1. Introduction
+In recent years, tendon-driven musculoskeletal hu-
+manoids, which imitate not only the human proportion but
+also every part of the human body, have been actively de-
+veloped [1–4]. We have developed these humanoids by
+imitating the joint structures, actuator structures, arrange-
+ment of muscles, and weight of links, and have attempted
+to realize human skillful motions. In previous studies,
+screw home mechanism of the human knee [5], ﬂexible
+spine [6, 7], shoulder structure composed of bladebone
+and collarbone [8], etc. have been developed.
+Of these characteristic structures, we will focus on sev-
+eral points concerning the human forearm and hand, as
+stated below.
+• The human forearm has a radioulnar structure com-
+posed of two long thin bones, which are not seen in
+ordinary axis-driven humanoids.
+• The human hand is so ﬂexible and robust that it can
+1. The ﬁrst two authors equally contributed to this work.
+support the weight of the body and endure large ex-
+ternal force.
+• The human hand is closely related to the forearm.
+For example, the actuators to move the ﬁngers are
+located in the forearm.
+As for the reason we focused on these three points,
+there are many studies about the radioulnar structure and
+ﬂexible ﬁnger structure in the background. Regarding
+the radioulnar structure, H. Endo et al. developed a fore-
+arm with a radioulnar joint and tendons using corrugated
+tubes, and controlled it using a human-like reﬂex con-
+trol [9]. S. Ikemoto et al. developed an upper limb with
+a radioulnar joint using pneumatic actuators [10]. Y .
+Nakanishi et al. developed a radioulnar structure on Ken-
+zoh [11]. However, actuators of the forearm developed by
+H. Endo et al. are arranged not in the forearm but at the
+center of the body, and therefore, the ratio of space occu-
+pied by the actuators in the forearm is low and there are
+no muscles of the wrist and ﬁngers. The upper limb devel-
+oped by S. Ikemoto et al. uses pneumatic actuators, which
+are easy to arrange but difﬁcult to control, and the forearm
+structure developed by Y . Nakanishi et al. does not realize
+multiple degrees of freedom (DOFs) because many actu-
+ators cannot be placed in the f orearm. In addition, very
+few previous studies discuss the merits of this radioulnar
+structure or the arrangement of muscles. In this study, we
+found the beneﬁts of the radioulnar structure from prelim-
+inary experiments, which will be explained in Section 5.3.
+There are several studies on robot hands that imitate hu-
+man hands, such as [12–16]. Some of these can achieve
+dexterous motion. In [12, 13], the developed hands have
+many DOFs and are driven by many actuators. In [14], the
+hand can grasp objects with appropriate ﬁnger arrange-
+ments, thanks to the abduction and adduction movements
+in each ﬁnger. In [15], ﬁngers have mechanical torque-
+velocity converters, and in [16], ﬁngers have an underac-
+tuated mechanism to achieve both dexterity and reduction
+of mass and cost. However, they cannot support as large
+a weight as human hands can. Concerning robot hands
+that can support a large load, although a hand with reten-
+tion mechanism [17] can lift an object weighing 50 kg,
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 445
+https://doi.org/10.20965/jrm.2020.p0445
+© Fuji Technology Press Ltd. Creative Commons CC BY-ND: This is an Open Access article distributed under the terms of 
+the Creative Commons Attribution-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nd/4.0/).
+
+===== PAGE 2 =====
+Kawaharazuka, K. et al.
+Fig. 1. Newly developed forearm and hand with a radioul-
+nar joint using miniature bone-muscle modules and ﬂexible
+machined spring ﬁngers.
+the size of this hand is larger than that of human and it is
+difﬁcult to install actuators or such mechanisms in the ﬁn-
+gers of a life-sized hand. Considering hands which have
+ﬂexible ﬁngers, a hand with compression springs was de-
+veloped [18] and its ﬂexibility enabled it to grasp objects
+without precise control. In [19], a prosthetic hand with
+soft and hard springs could grasp objects ﬂexibly and
+parry external force. In [20], a hand with robust ﬁngers
+succeeded in supporting an object weighing 50 pounds.
+Flexible and robust ﬁngers can support a large load in this
+way, but it is necessary to support a heavier load in order
+to support the entire robot body with its hands. At the
+same time, the radioulnar joint, wrist, and ﬁngers have a
+close relationship in the arrangement of muscles, and we
+cannot consider them separately.
+In this paper, we describe an integrated design of the
+forearm, which has a radioulnar structure [21], and the
+hand, which is so ﬂexible and robust that it can support
+the weight of the humanoid [22] ( Fig. 1 ). First, we de-
+velop a miniature bone-muscle module in order to real-
+ize a forearm with a radioulnar structure. This enables
+the compact arrangement of many muscle modules in the
+forearm, the realization of two long thin bones: the ulna
+and radius, and the realization of multiple DOFs in the
+hand. In addition, we design ﬂexible ﬁnger joints using
+machined springs for the hand to support the humanoid’s
+weight. Next, we design the forearm and hand integrat-
+ing the components stated above, while considering the
+proportion and the muscle arrangements of humans. Fi-
+nally, we evaluate the effectiveness of the developed fore-
+arm and hand system through several experiments.
+This paper explains the respective components of the
+forearm and hand published in [21, 22] in more detail, in-
+cluding their advantages and disadvantages, and in addi-
+tion, it explains the integrated design of the forearm and
+hand. Moreover, we will discuss the tradeoff of the fore-
+arm and hand design by comparing the one developed in
+this study to the latest one attached to Musashi [23].
+This paper is organized as follows. In Section 1, we
+explained the background and purpose of this study and
+the previous studies. In Section 2, we will detailedly state
+the design and performance of the miniature bone-muscle
+module developed for the forearm. In Section 3, we will
+detailedly state the design and performance of the ﬂexible
+and robust ﬁnger joint using machined spring. In Sec-
+tion 4, we will state the integrated design of the forearm
+and hand system. In Section 5, we will conduct some
+experiments to show the effectiveness of the forearm and
+hand system developed in this study. In Section 6, we will
+discuss the tradeoff of forearm and hand design from the
+experimental results and the latest design of Musashi. In
+Section 7, we will state the conclusion and future work
+directions.
+2. Miniature Bone-Muscle Module
+2.1. Overview
+In this section, we will explain the realization of the ra-
+dioulnar structure composed of two long thin bones. In
+our laboratory, we have developed tendon-driven mus-
+culoskeletal humanoids such as Kenzoh [11] and Ken-
+shiro [24]. However, none of them have realized all hu-
+man forearm and hand joints: the radioulnar joint, wrist
+joint, and ﬁnger joints. The reason is the difﬁculty in
+muscle arrangement. Conventional methods try to imitate
+humans by attaching muscle modules, which include ac-
+tuators and circuit boards, to bone structures. The muscle
+modules of Anthrob [3] and those of Kengoro [25] are two
+examples, and these humanoids are constructed by attach-
+ing these muscle modules to the body structures. How-
+ever, this method distorts the human proportion of the ulna
+and radius, and therefore, detailedly imitating humans by
+using many muscle modules becomes challenging. There-
+fore, we developed a new miniature bone-muscle module.
+We succeeded in making the muscle module compact by
+using two strategies shown below.
+• Integration of muscle and bone:
+Each muscle module includes two actuators. This
+creates space between the actuators, which we are
+able to utilize. We integrate muscles and bones by
+placing bone structure parts in this space, and this en-
+ables the construction of a compact muscle module
+without wastefully separating muscle modules and
+bones. In addition, by using common parts, there is
+a large beneﬁt of reducing the volume.
+• Adoption of miniature motors, and heat dissipation
+by the contact of motors and bone structures:
+Using miniature motors with high reduction gear is
+the easiest method in order to make the muscle mod-
+ule compact. However, using a high reduction gear is
+not a good idea for getting a large torque in terms of
+backdrivability. In addition, miniature motors heat
+446 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 3 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Fig. 2. Details of the newly developed miniature bone-
+muscle module.
+up more easily. In order to compensate for these
+drawbacks, we realize continuous high torque by dis-
+sipating motor heat to body structures through a heat
+transfer sheet.
+These two approaches enable the imitation of muscle
+arrangements, proportion, and weight of humans, because
+the radioulnar structure can be realized by simply con-
+necting muscle modules lengt hwise. In addition, we aim
+to make this muscle module reliable and easily main-
+tainable by packaging motor drivers and cables as in the
+sensor-driver integrated muscle module [25]. At the same
+time, this module can be applied not only to the radioulnar
+structure but also to all future tendon-driven humanoids
+because of the arrangement’s versatility. As a similar ap-
+proach, TORO [26] has embedded frameless motors in the
+body structure.
+2.2. Development of Miniature Bone-Muscle
+Module
+The details of the newly developed miniature bone-
+muscle module are shown in Fig. 2. Brushless DC motors
+are used in this module, and their gear ratios are 84 : 1
+or 157 : 1, depending on the muscle. The muscle wire is
+Dyneema, and it is wound by a pulley. The loadcells that
+measure muscle tension, thermo sensors attached to mo-
+tors, and hall sensors in motors, are all connected to motor
+drivers, and circuit covers are placed to protect them in or-
+der to keep the system stable.
+This muscle module has three noteworthy points. First,
+this module can be used as the bone structure, because the
+“base of bone” and “support of bone” in Fig. 2 become
+the bone structure. In other words, the bone structure can
+be composed without additional body parts by connecting
+these muscle modules lengthwise and crosswise. Second,
+a heat transfer sheet is placed between “base of bone” and
+“motor,” through which heat generated in the motors is
+dissipated to the bone structure. This enables the motors
+to keep continuous high muscle tension. Third, we devel-
+oped a new ultra-tiny tension measurement unit as shown
+in Fig. 3 . Its volume is 61% of the previous unit’s vol-
+ume [25], because the limited space is used effectively
+by placing a loadcell, which determines the unit size, in
+Fig. 3. The structure of the newly developed ultra-tiny ten-
+sion measurement unit.
+a vertical direction. The size is 16 × 16 × 19 mm 3,a n d
+this unit can measure muscle tension up to 56.5 kgf. In
+another study, the muscle tension is measured by strain
+gauges placed on a cantilever with a pulley [27].
+2.3. Performance of Miniature Bone-Muscle
+Module
+First, we will compare the miniature bone-muscle mod-
+ule to the previous muscle module [25] in terms of size,
+weight, maximum tension, etc. The result of the compar-
+ison is shown in Ta ble 1. It is difﬁcult to simply compare
+these modules because the miniature bone-muscle mod-
+ule includes two muscles and the size and ability of the
+actuators are different. However, the number of muscles
+increased twice as much as the previous module despite
+the 21% increase in volume.
+Next, we will explain the versatility of the miniature
+bone-muscle module. Although we mainly focus on the
+integration of bone and muscle, it is important not to re-
+duce the freedom of muscle arrangement design, as a pre-
+condition of muscle modules. Therefore, the tension mea-
+surement unit is designed to be able to attach to the mus-
+cle module in various ways, as shown in Fig. 4. Similarly,
+Fig. 4 shows various ways of connecting muscle modules,
+and this enables various designs using muscle modules as
+the bone structure.
+Next, we will explain the performance of the ultra-tiny
+tension measurement unit. The structure of this unit is
+shown in the left of Fig. 5, and we will consider the equi-
+librium of the moments around the shaft. We aim to mea-
+sure muscle tension up to 50 kgf in this study and set r1
+to 5.0 mm, r2 to 5.0 mm, and r3 to 11.3 mm. The rated
+value of the loadcell is 50 kgf; therefore, this tension unit
+can measure muscle tension up to 56.5 kgf based on the
+equation below.
+T = r3
+r1 + r2
+F ............. ( 1 )
+The result of the calibration of this unit is shown in the
+right of Fig. 5 , and this shows that the force can be cor-
+rectly measured up to 56.5 kgf.
+Finally, we will explain the cooling effect by dissipat-
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 447
+
+===== PAGE 4 =====
+Kawaharazuka, K. et al.
+Table 1. Comparison of newly developed miniature bone-muscle m odule and sensor driver integrated muscle module [25].
+This study
+ Previous work [25]
+Module dimension [mm3]
+ 32.0 × 40.0 × 126
+ 22.0 × 40.5 × 149
+Module weight [kg]
+ 0.30
+ 0.32
+Actuator number
+ 2
+ 1
+Actuator
+ BLDC60W (changeable)
+ BLDC120W (changeable)
+Diameter of winding pulley [mm]
+ 8
+ 12
+Reduction ratio of actuator
+ 157 : 1 (changeable)
+ 53 : 1 (changeable)
+Continuous maximum winding tension [N]
+ 424
+ 338
+Winding rate with no load [mm/s]
+ 116
+ 200
+Tension measurement units arrangement Bone-muscle module s arrangement 
+Fig. 4. General versatility of the newly developed miniature
+bone-muscle module. Left: various arrangements of ultra-
+tiny tension measurement units. Right: various connections
+of muscle modules.
+Fig. 5. The principle of ultra-tiny tension measurement unit.
+Left: the principle of tension measurement. Right: the result
+of calibration.
+ing heat to bone structures. We conducted an experiment
+in which the module (gear ratio is 157 : 1) lifted 20 kg
+and 40 kg weights on two conditions; with a heat transfer
+sheet ﬁlling or without ﬁlling the space between the mo-
+tors and bone structure, and then plotted the increase in
+heat during this experiment. The result is shown in Fig. 6.
+We can see that a large cooling effect is obtained by dissi-
+pating heat from the motors to the bone structure through
+a heat transfer sheet.
+3. Machined Spring Finger
+3.1. Overview
+In this section, we will explain the design and perfor-
+mance of the ﬂexible ﬁnger joint using machined springs.
+20
+30
+40
+50
+60
+70
+80
+90
+0 200 400 600 800
+7HPSHUDWXUH>ႏ@
+Time [sec]
+20[kgf]
+20[kgf] with
+heat transfer
+sheet
+40[kgf]
+40[kgf] with
+heat transfer
+sheet
+Heat transfer sheet
+Structure
+Motor
+20 [kg]
+40 [kg]
+Fig. 6. Comparison of motor heat transition, with and with-
+out heat transfer sheet. 20 kgf and 40 kgf weights are lifted
+with the newly developed miniature bone-muscle module.
+Humans can support themselves using their hands, such as
+when dangling from a bar, putting weight on the ground or
+walls, and stabilizing the body by holding a handrail, and
+can act in various environments, when compared to using
+only their feet. Thus, we attempted to develop hands that
+can support the body weight. For this purpose, the hands
+need not only to be able to bring out a large force but also
+not to be broken by a large load. Thus, we used ﬂexi-
+ble machined springs in each ﬁnger joint, and developed
+a robust and ﬂexible hand which can stand large loads and
+external impacts.
+3.2. Fingers Using Machined Springs
+The axis joint [12], rubber joint [28], and spring
+joint [29] are some of the frequently used structures of
+a robot ﬁnger joint. Using these as a ﬁnger joint, which
+is thin and small, is not adequate because the axis joint
+is weak against an external impact, the rubber joint does
+not have enough strength, and connecting an ordinary coil
+spring joint to other parts is difﬁcult. Therefore, we use
+machined springs, as shown in Fig. 7, as the ﬁnger joints.
+First, the beneﬁts of using springs as a ﬁnger joint are
+stated below.
+• Springs have high strength and ﬂexibility, and there-
+fore, can absorb external impacts.
+• Actuators to extend ﬁngers are not needed; therefore,
+actuators to ﬂex ﬁngers can use more space and their
+448 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 5 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+
+
+Fig. 7. Machined spring used in ﬁngers.
+power can be higher because a restoring force of ex-
+tending a ﬁnger joint can be obtained by the springs.
+Second, the beneﬁts of machined spring over ordinary coil
+spring are stated below.
+• We can design the machined springs integrated with
+attachments, and thereby maintaining the structural
+strength.
+• The ﬁnger can obtain a larger cross-sectional area in
+a limited space because the cross section of the ma-
+chined spring is a rectangle.
+• We can adjust the aspect ratio of the rectangular
+cross section, and adjust the rigidity of bending and
+torsion independently.
+On the other hand, there are some disadvantages as listed
+below.
+• A restoring force weakens the torque exerted by ac-
+tuators because it exerts force in the opposite direc-
+tion.
+• When we install the DOF of ﬂexion and extension,
+other DOFs occur together which are sometimes dif-
+ferent from human ﬁnger joints such as that of ab-
+duction and adduction.
+The ﬁrst disadvantage is canceled by the advantage men-
+tioned above that actuators to ﬂex ﬁngers can use more
+space and weight instead of those to extend ﬁngers. In
+order to cancel the second disadvantage, we place some
+plates near the spring joints, the detail of which will be
+described later. Based on these characteristics of the ma-
+chined spring, we can develop a ﬁnger structure which
+is more shock-resistant than the axis joint, can support a
+larger load than the rubber joint, and has a ﬁrmer structure
+than the ordinary coil spring joint.
+In this study, we developed the ﬁnger using machined
+springs made of stainless steel (SUS630). The devel-
+oped ﬁnger is shown in Fig. 8 . We constructed a ﬁnger
+with three joints by connecting three machined springs
+and parts imitating the human tendon sheath. These three
+joints correspond to the CM, MP , and IP joints in the
+thumb, and to MP , PIP , and DIP in the other four ﬁngers.
+For the hand to ﬁt the surfaces of objects when grasping
+them, the proximal of the three joints in each ﬁnger is the
+softest and the distal is the hardest, as shown in Ta ble 2.
+Regarding the torsion rigidity, we determined the inner
+and outer radii of machined springs for the torsion rigid-
+ity to be sufﬁciently harder than the bending rigidity. We
+Collateral Ligaments
+(Fixed by screws)
+Force Sensor Machined Spring
+Tendon Sheath
+Additional Bones
+(Inserted in coils
+and glued)
+Wire
+(Dyneema)
+Fig. 8. Exploded view of the newly developed ﬁnger.
+Table 2. Spring constants of machined springs in each
+joint [◦/Nm].
+CM joint
+ MP joint
+ IP joint
+Thumb
+ 664
+ 443
+ 443
+MP joint
+ PIP joint
+ DIP joint
+Index
+ 863
+ 664
+ 443
+Middle
+ 903
+ 707
+ 443
+Ring
+ 863
+ 664
+ 443
+Little
+ 707
+ 664
+ 443
+embedded only one wire for ﬂexion through each ﬁnger,
+and pulling the wire ﬂexes the ﬁnger and loosening the
+wire extends the ﬁnger because of the restoring force of
+machined springs.
+However, simply connecting machined springs causes
+DOFs other than ﬂexion and extension to remain, such
+as abduction and adduction, and the length of the spring
+itself can change. In order to inhibit these DOFs, we ar-
+ranged thin plates imitating human ligaments and resin
+plates that inhibit the contraction of the springs by real-
+izing the human mimetic geometric constraint using con-
+tact among ﬁnger bones. Using these plates, we could
+develop a structure in which springs do not contract, and
+the ﬁngers do not bend in the direction of abduction and
+adduction, but can certainly ﬂex and extend.
+We show the result of a hammer hitting the ﬁngers in
+Fig. 9. The ﬂexibility of the machined springs can parry
+an external force.
+4. Human Mimetic Design of Forearm and
+Hand
+In this section, we will explain the respective designs
+of the forearm and hand, their integrated design, circuit
+system, muscle arrangement, and proportion.
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 449
+
+===== PAGE 6 =====
+Kawaharazuka, K. et al.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+From front of finger
+ From back of finger
+ From side of finger
+Fig. 9. The results of a hammer hitting the ﬁngers from
+various directions.
+hand radius
+ulna humerus
+Simplified structure
+Proximal 
+radioulnar joint
+Pronation
+Distal 
+radioulnar joint
+Proximal
+fixed
+Distal
+radius
+ulna
+Pronation detail
+Radioulnar joint
+Fig. 10. Structure of the human radioulnar joint.
+4.1. Human Mimetic Forearm Design
+We show the structure of the human forearm in Fig. 10.
+In the ulna, the proximal is thick and the distal is thin,
+however, in the radius, the proximal is thin and the distal
+is thick. In addition, the humerus mainly connects to the
+ulna, and the hand mainly connects to the radius.
+The newly developed forearm with a radioulnar joint
+is shown in Fig. 11; it takes advantage of miniature bone-
+muscle modules, which can connect lengthwise and cross-
+wise to make the structure compact. The radius and ulna
+are each composed of two miniature bone-muscle mod-
+ules, and the radius is composed almost completely of
+muscle modules. Similar to the human body, the radius is
+thick at the distal, and connects to the hand through a uni-
+versal joint. Similarly, the ulna is thick at the proximal,
+and connects to the humerus. The proximal and distal
+Fig. 11. Structure of the newly developed forearm.
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+Fig. 12. The structure of the human hand and newly devel-
+oped hand.
+radioulnar joints are each equipped with spherical plain
+bearings, and these enable the rotation of the radioulnar
+joint.
+4.2. Human Mimetic Hand Design
+We show the newly developed hand using the machined
+springs stated in Section 3, in Fig. 12 . The carpals con-
+nect to the wrist joint, which is composed of a universal
+joint, and ﬁve ﬁngers connect to the carpals. In order to
+make grasping possible with the limited number of mus-
+cles equipped in the hand, we arranged the thumb in the
+opposite direction of the other four ﬁngers. When plac-
+ing the hands on a wall, the thumb, equipped with ﬂexible
+joints composed of machined springs, bends by the reac-
+tion force from the wall, and the plane of the palms can be
+pressed to the wall. The palm is composed of a polycar-
+bonate plate covering the metacarpals which are the root
+bones of the four ﬁngers. In addition, loadcells are ar-
+ranged under this plate as well as in ﬁngertips ( Fig. 13 ),
+and this hand can measure the reaction force of the palm.
+Loadcells in the hand and an ampliﬁer circuit near the
+wrist are connected by shield cables, and we have not ob-
+served the inﬂuence of noise.
+450 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 7 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Loadcell
+Fingertip
+Overview
+Fig. 13. Loadcell arrangement in the palm and ﬁngertips.
+Loadcells are placed in the position of the circles.
+Fig. 14. Forearm and hand actuation system developed in
+this study.
+4.3. Forearm and Hand Actuation System
+The actuation system and each role of the muscles are
+shown in Fig. 14. Since the radius and ulna are each com-
+posed of two miniature bone-muscle modules, the total
+number of muscles is eight, and two of them move only
+the radioulnar joint. In addition, two muscles move only
+the wrist joint, and one is a polyarticular muscle which
+moves the wrist and radioulnar joint simultaneously. The
+remaining three muscles can actuate ﬁngers and simulta-
+neously move the wrist joint. Three muscles actuate the
+thumb, index and middle ﬁngers, and ring and little ﬁn-
+gers, respectively. Regarding the latter two muscles, the
+respective groups of two ﬁngers are actuated by one wire,
+and the branch point of this wire is composed of a mov-
+able pulley [30] for bending ﬁngers along the surface of
+objects.
+The important point here is the relationship between
+the movements of ﬁngers and radioulnar/wrist joints. In
+humans, since the muscles actuating ﬁngers are arranged
+along the long thin radius and ulna, the ﬁnger muscles
+are hardly affected by the rotation of the radioulnar joint.
+However, we cannot design the thin bones completely as
+in humans due to the size of muscle modules, and arrang-
+ing muscles along the bones as in humans is not realis-
+tic due to friction. Therefore, as shown in Fig. 15 ,w e
+make the ﬁnger muscles intersect the axis of the radioul-
+nar joint. In detail, as in Fig. 15(c), a bolt for ﬁxing the ra-
+Fig. 15. The muscle routes of ﬁnger joints. (a) and (b)
+shows the entrance and exit for ﬁnger muscles to penetrate
+through a bolt (c).
+Fig. 16. Forearm and hand circuit system developed in this
+study.
+dioulnar joint has a hole in the center, and ﬁnger muscles
+penetrate through the hole. Thus, the ﬁnger movements
+are not affected by the rotation of the radioulnar joint.
+As the ﬁnger muscles pass near the wrist joint, the ﬁn-
+ger movements are hardly affected by the rotation of the
+wrist joints. By constructing this structure, we can han-
+dle ﬁnger joints independently with the radioulnar/wrist
+joints, and their motion generation becomes easy.
+4.4. Forearm and Hand Circuit System
+The circuit conﬁguration of the forearm and hand
+is shown in Fig. 16 . As this forearm-hand system is
+equipped to the tendon-driven musculoskeletal humanoid
+Kengoro [4] and the circuit communication of Kengoro
+is USB communication, we need to conﬁgure suitable
+circuits for it. Motor drivers are included in each mus-
+cle module, and control boards of motor drivers (control
+board), USB hubs, and loadcell ampliﬁcation boards for
+hand force sensor (loadcell board) are equipped to the side
+of the radius. Control boards and a loadcell board connect
+to a USB hub, and each control board connects to three
+motor drivers by daisy chain. The loadcell board uses Ar-
+duino Nano, and we use rosserial for communication.
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 451
+
+===== PAGE 8 =====
+Kawaharazuka, K. et al.
+Fig. 17. Muscle arrangement of the newly developed fore-
+arm and hand.
+Fig. 18. Comparison of upper limb link length and weight
+between a human [31] and Kengoro with the newly devel-
+oped forearm and hand.
+4.5. Muscle Arrangement, Proportion, Weight, and
+Performance
+We show the muscle arrangement in Fig. 17.W e i m i -
+tated the muscles of the human hand, and 1 DOF radioul-
+nar joint, 2 DOFs wrist joint, and 3 ﬁngers are actuated by
+8 muscles. In these muscles, the gear ratios of #1, #4, #6
+are 84 : 1, and those of the others are 157 : 1. The num-
+ber of muscles included in the forearm is an important
+index for expressing the DOFs of the ﬁngers and wrist.
+Anthrob [3] has 2, Kenzoh [11] has 6, and therefore, this
+forearm-hand system could compactly arrange a greater
+number of muscles.
+Regarding the proportion and weight of this forearm-
+hand system, we were able to imitate humans without de-
+viating from the human forearm and hand, as shown in
+Fig. 18.
+In addition, we show the range of motion and maximum
+torque of 4 DOF: the elbow, radioulnar, and wrist joint, in
+Ta ble 3. This was also able to imitate humans.
+5. Experiments
+5.1. Grasping Using Force Sensors in Fingertips
+We conducted an object grasping experiment while ad-
+justing ﬁngertip forces by referencing the loadcell values
+arranged at each ﬁngertip. We adjusted each muscle wire
+length actuating a ﬁnger according to the below equations
+that reference the ﬁngertip loadcell values,
+Δl = k
+(
+Fﬁnger − Fref
+)
+.......... ( 2 )
+Fﬁnger =
+⎧
+⎪⎨
+⎪⎩
+Fthumb (Thumb)
+F1 + F2
+2 (Other ﬁngers)
+... ( 3 )
+where l is the wire length, Fref is the reference value of
+force sensor, Fthumb is the value of force sensor at the tip
+of the thumb, and F1 and F2 are the values of force sen-
+sors at the ﬁngertips to which the wire is connected. Each
+group of ﬁngers: index and middle, and ring and little, is
+actuated by one muscle, and therefore, we used the aver-
+age sensor value of two ﬁngers. In Fig. 19, we show the
+result when Kengoro grasped a soft sponge with different
+forces. We realized two kinds of grasping, with and with-
+out sponge deformation. As a supplement, although the
+speed of winding wire was at most about 2 mm/s in this
+experiment considering that the sponge must not fall off,
+actuators can wind wires at a speed of 10 mm/s in other
+motions, which is equivalent to 30 ◦/s at each joint and to
+45 mm/s at each ﬁngertip.
+5.2. Dangling
+We conducted an experiment in which Kengoro dan-
+gled from a bar. The target length of muscles was ﬁxed
+after the pose of Kengoro as shown in the left of Fig. 20.
+Then, Kengoro held a bar in its hands driven by miniature
+bone-muscle modules. Kengoro dangled from the bar by
+lifting it up with a crane. The weight of Kengoro is 56 kg
+and it dangled from the bar using the four muscles in both
+hands. The tension and temperature of the muscles are
+shown in the right of Fig. 20 , which shows a small in-
+crease in temperature. The hands with machined spring
+ﬁngers were able to support the weight of the entire body.
+In addition, this experiment shows the structural strength
+of the forearm using miniature bone-muscle modules.
+5.3. Beneﬁts of the Radioulnar Structure
+Before explaining the remaining experiments, we will
+state some beneﬁts of the radioulnar structure that we
+found from a number of preliminary experiments.
+The radioulnar structure is one of the joints speciﬁc to
+humans, and it is characterized by the following points.
+1. It is able to move even when the ulna is ﬁxed to the
+ground.
+2. It has a slanting joint axis and passes the proximal of
+the radius, the distal of the ulna, and near the little
+ﬁnger.
+3. Twisting of the skin can be dispersed by its two long
+bones.
+The ﬁrst characteristic is used for writing text, soldering,
+and so on. These motions are made possible by three
+DOFs: radioulnar and wrist joint, when the forearm is
+452 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 9 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Table 3. Comparison between joint performance of a human and that of Kengoro.
+Human∗1
+ Kengoro
+Joint
+ Torque [Nm] Workspace [ ◦]
+ Torque∗2 [Nm] Workspace [ ◦]
+Elbow pitch
+ −72.5∼42.1 −145∼0
+ −49.9∼46.5 −145∼0
+Radioulnar yaw
+ −7.3∼9.1 −90∼85
+ −8.5∼3.3 −85∼85
+Wrist roll
+ −12.2∼7.1 −85∼85
+ −15.1∼14.6 −75∼85
+Wrist pitch
+ −11∼9.5 −15∼45
+ −15.9∼13.3 −15∼45
+∗1Source: [32, 33]. ∗2Simulated value.
+ܨ௥௘௙ ൌͺሾ ܰ ሿ
+ܨ௥௘௙ ൌͳ ͸ሾ ܰ ሿ
+0
+5
+10
+15
+20
+25
+30
+0 5 10 15 20 25 30 35 40
+Force [N]
+Time [sec]
+Index
+Middle
+Ring
+Little
+F_ref
+0
+5
+10
+15
+20
+25
+30
+0 5 10 15 20 25 30 35 40
+Force [N]
+Time [sec]
+Index
+Middle
+Ring
+Little
+F_ref
+Fig. 19. The result of sponge grasping using force sensors
+at ﬁngertips.
+stably ﬁxed to the table. The second characteristic is used
+for opening a door, turning a screw, playing badminton,
+and so on. When opening a door, the torque is efﬁciently
+transferred because the axis of a door knob matches that
+of the radioulnar joint by bending the wrist joint in the di-
+rection of the ulna. When playing badminton, the swing
+speed is maximized when the racket head is kept away
+from the radioulnar joint axis by bending the wrist joint
+in the direction of the radius. The third characteristic is
+useful for cable wiring of the robot and the skin equip-
+ment.
+We will conduct experiments to illustrate these beneﬁts
+in the following sections.
+5.4. Opening a Book
+The motion of opening a book ( Fig. 21 )i sa ne x a m -
+ple of using the ﬁrst and second characteristics described
+in Section 5.3. The ﬁgure shows that the book is opened
+because the motion of turning a page is realized just by
+rotating the radioulnar joint. Although this motion can
+be realized with the straight radioulnar joint and wrist,
+by using the feature of the slanting radioulnar joint, the
+robot can turn a page without moving the wrist and real-
+ize larger motions by moving the wrist.
+This characteristic can be regarded as an extension of
+the range of motion. Fig. 22 shows the comparison of
+the reachable area of the center of the palm when moving
+05101520253035404550
+0
+left flexor digitorum
+profundus (index,
+middle)
+left flexor digitorum
+profundus (ring, little)
+right flexor digitorum
+profundus (index,
+middle)
+right flexor digitorum
+profundus (ring, little)
+30
+40
+50
+60
+70
+80
+0 50 100 150 200 250 300
+7HPSHUDWXUH>ႏ@
+Time [sec]
+0
+10
+20
+30
+40
+50
+0 50 100 150 200 250 300
+Tension [kgf]
+Time [sec]
+Fig. 20. Result of dangling. Left: overview of dangling
+motion. Right: muscle tension and temperature during the
+experiment.
+1 2 3 4
+Fig. 21. Kengoro opening a book.
+Fig. 22. The reachable points of the center of the palm com-
+pared between the slanting radioulnar joint and the ordinary
+straight radioulnar joint. Left: x-y plain. Right: y-z plain.
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 453
+
+===== PAGE 10 =====
+Kawaharazuka, K. et al.
+1 2 3
+1 2 3 4
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+-90 -60 -30 0 30 60 90
+Torque [Nm]
+Joint Angle [deg]
+hrp2 kengoro
+The relationship between joint angle and 
+torque when the skin is attached to the robot
+Fig. 23. Comparison of twisting of the skin between Ken-
+goro and HPR2.
+the radioulnar and wrist joints, in the two cases where the
+radioulnar joint is slanting or straight. The hand is able
+to move stably and widely because of the combination of
+the extended reachable area by the slanting joint axis and
+the movability of the radius when the ulna is ﬁxed.
+5.5. Twisting of the Skin
+Installation of the skin is an example of using the third
+characteristic described in Section 5.3. When attaching
+the skin to the robot and moving the radioulnar joint, the
+two long thin bones inhibit twisting of the skin and it can
+be stretched only. We compared the difference of twisting
+of the skin and inhibition of yaw movements by the skin
+between the ordinary axis-driven humanoid HRP2 [34]
+and musculoskeletal humanoid Kengoro. In this study,
+we attached spandex used for tights, etc. between the ra-
+dius and ulna as the skin for Kengoro. Regarding HRP2,
+spandex is attached between the proximal and distal links
+of the wrist yaw joint. As shown in the upper left ﬁgures
+of Fig. 23, twisting of the skin largely occurs in the case
+of HRP2. On the other hand, as shown in the lower left
+ﬁgures of Fig. 23, regarding Kengoro, twisting of the skin
+is converted to the expansion and contraction of the skin,
+and twisting hardly occurs. We show the measured yaw
+joint torque, when rotating the radioulnar or wrist yaw
+joint to −90◦,0 ◦, and 90 ◦, in the right ﬁgure of Fig. 23.
+Compared with the radioulnar joint of Kengoro, regard-
+ing the wrist joint of HRP2, the skin generates a larger
+torque in the direction to inhibit its rotation. Therefore,
+the radioulnar structure is important for the inhibition of
+twisting of the skin, and moreover, the skin attached to the
+radioulnar joint does not inhibit the joint rotation.
+5.6. Badminton Swing
+In the badminton swing motion ( Fig. 24), the speed of
+a racket head becomes faster when the distance from the
+slanting joint axis to the racket head is farther. This mo-
+tion is in contrast to the screw turning motion in the point
+that the slanting axis is used to get not torque but speed.
+In this experiment, Kengoro moved according to the bad-
+minton swing motion generated by the method in [35].
+The speed of each joint is shown in Fig. 25; here, we can
+1 2 3 4 5 6
+50 [mm]
+Slanting radioulnar joint Straight radioulnar joint
+Fig. 24. Badminton swing motion. Upper pictures show the
+comparison between the slanting radioulnar structure with
+larger radius of racket rotation and the ordinary straight ra-
+dioulnar structure with smalle r radius of racket rotation.
+-4
+-2
+0
+2
+4
+6
+8
+00 . 511 . 52
+Joint angle velocity [rad/s]
+Time[sec]
+shoulder-r
+shoulder-p
+shoulder-y
+elbow-p
+radioulnar-y
+wrist-r
+wrist-p
+Radioulnar-y: 7 [rad/s]
+Fig. 25. Joint angle velocity of badminton swing motion.
+see that the speed of the radioulnar joint is the fastest. In
+detail, as the turning radius is 50 mm larger in the case
+of the slanting joint axis than in the straight joint axis, the
+increase of speed affected by the slanting axis is 0.35 m/s
+against the head speed of 8 m/s, which is an increase of
+about 4.3%. Although this is not a large effect, the ra-
+dioulnar joint is important in competitions such as bad-
+minton, which require speed; at the same time, it is im-
+portant to properly use the effect of the slanting radioul-
+nar joint, depending on the case. In addition, the hand was
+able to grasp the badminton racket ﬂexibly, and Kengoro
+kept grasping the racket even when swinging powerfully.
+6. Discussion
+We will discuss the advantages and disadvantages of
+this study while comparing the developed forearm of Ken-
+goro and the forearm of the latest musculoskeletal hu-
+manoid Musashi [23]. The design concept of Musashi
+is a simple and modularized structure which can be eas-
+ily constructed and reconstructed for the investigation of
+learning control systems. We show the overview of its
+forearm and hand in Fig. 26. Four miniature bone-muscle
+modules are parallelly arranged in the forearm. The fore-
+arm has no radioulnar joint. The yaw joint is designed as
+the elbow yaw joint, and therefore, all eight muscles can
+be used for only wrist and ﬁnger joints.
+We show the comparison between Kengoro and
+Musashi, regarding the beneﬁts of the radioulnar struc-
+ture, maintainability, human-like forearm length, and
+454 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 11 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Fig. 26. The design of the forearm and hand attached to the
+latest musculoskeletal humanoid Musashi.
+Table 4. Comparison of the forearm between Kengoro and
+Musashi.
+Kengoro
+ Musashi
+Beneﬁts of the radioulnar joint
+ ©
+ ×
+Maintainability
+ ∆
+ ©
+Human-like forearm length
+ ∆
+ ©
+Packing ratio of muscles
+ ×
+ ©
+packing ratio of muscles, in Ta ble 4. While Kengoro has
+the beneﬁts of the radioulnar joint, the forearm of Musashi
+is superior in other aspects. Since the radioulnar structure
+is complex, the maintainability naturally decreases. The
+radioulnar structure was not suitable for Musashi, which
+was developed for the investigation of learning control
+systems. In addition, while the forearm length of Ken-
+goro does not deviate from that of humans, it is 50 mm
+longer, as shown in Fig. 18. This is because muscle mod-
+ules are arranged lengthwise for the realization of the ra-
+dioulnar structure with two long thin bones. On the other
+hand, the forearm length of Musashi is 231 mm, realizing
+a more human-like length. Likewise, the space for rota-
+tion is necessary in order to rotate and intersect the two
+long thin bones, and this decreases the packing ratio of
+muscles in the forearm.
+Thus, while the radioulnar structure has many bene-
+ﬁts, there is still a room for its design improvement. Al-
+though one of them is the conversion of the current actu-
+ators to pneumatic actuators, their precise control is difﬁ-
+cult. In addition, we can consider smaller muscle modules
+or muscle modules that are not ﬁxed to the bone struc-
+ture [36] like pneumatic actuators. However, the latter de-
+creases reliability and maintainability. The simultaneous
+realization of the radioulnar joint and its maintainability
+will be explored in our future work.
+7. Conclusions
+In this study, we explained the design method of human
+mimetic forearm and hand, and its applications. First,
+the human forearm is composed of two long thin bones,
+and to realize this, we explained the design of a miniature
+bone-muscle module integrating bone and muscle, and a
+compact design of the forearm using these modules. In
+addition, we were able to realize a continuous high mus-
+cle tension by heat dissipation from muscle to bone struc-
+tures. Second, in order to realize a ﬂexible and robust
+hand, we developed a ﬁnger joint using machined springs.
+By using these joints, we could construct a hand that is
+not broken when hit with a hammer and can grasp vari-
+ous objects. Finally, by integrating these design methods,
+we succeeded in constructing a human mimetic forearm
+and hand without deviating from the human proportion,
+weight, muscle arrangement , and bone struct ure. Utiliz-
+ing the beneﬁts of this forearm and hand system, we con-
+ducted several experiments such as opening a book, dan-
+gling, and badminton swinging, and validated their effec-
+tiveness.
+In future works, we would like to study the control and
+learning method of more skillful human motions using
+this forearm and hand system. In addition, we would like
+to construct a more ﬂexible and multi-DOF body that im-
+itates human beings in more detail.
+References:
+[1] Y . Nakanishi, S. Ohta, T. Shirai, Y . Asano, T. Kozuki, Y . Kake-
+hashi, H. Mizoguchi, T. Kurotobi, Y . Motegi, K. Sasabuchi, J. Urata,
+K. Okada, I. Mizuuchi, and M. Inaba, “Design Approach of
+Biologically-Inspired Musculoskeletal Humanoids,” Int. J. of Ad-
+vanced Robotic Systems, V ol.10, No.4, pp. 216-228, 2013.
+[2] S. Wittmeier, C. Alessandro, N. Bascarevic, K. Dalamagkidis,
+D. Devereux, A. Diamond, M. J¨ antsch, K. Jovanovic, R. Knight,
+H. G. Marques, P . Milosavljevic, B. Mitra, B. Svetozarevic,
+V . Potkonjak, R. Pfeifer, A. Knoll, and O. Holland, “Toward An-
+thropomimetic Robotics: Development, Simulation, and Control of
+a Musculoskeletal Torso,” Artiﬁcial Life, V ol.19, No.1, pp. 171-
+193, 2013.
+[3] M. J¨ antsch, S. Wittmeier, K. Dalamagkidis, A. Panos, F. V olkart,
+and A. Knoll, “Anthrob – A Printed Anthropomimetic Robot,” Proc.
+of the 2013 I EEE-RAS Int. C onf. on Humanoid Robots, pp. 342-
+347, 2013.
+[4] Y . Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima,
+T. Katayama, I. Y anokura, T. Hirose, K. Kawaharazuka, S. Makino,
+Y . Kakiuchi, K. Okada, and M. Inaba, “Human Mimetic Muscu-
+loskeletal Humanoid Kengoro toward Real World Physically Inter-
+active Actions,” Proc. of the 2016 I EEE-RAS Int. C onf. on Hu-
+manoid Robots, pp. 876-883, 2016.
+[5] Y . Asano, H. Mizoguchi, T. Kozuki , Y . Motegi, M. Osada, J. Urata,
+Y . Nakanishi, K. Okada, and M. I naba, “Lower Thigh Design of
+Detailed Musculoskeletal Humanoid “Kenshiro”,” Proc. of the 2012
+IEEE/RSJ Int. Conf. on Inte lligent Robots and Systems, pp. 4367-
+4372, 2012.
+[6] I. Mizuuchi, T. Y oshikai, Y . Nakanishi, Y . Sodeyama, T. Y amamoto,
+A. Miyadera, T. Niemela, M. Hay ashi, J. Urata, and M. Inaba,
+“Development of muscle-driven ﬂexible-spine humanoids,” Proc. of
+the 2005 I EEE-RAS Int. C onf. on Humanoid Robots, pp. 339-344,
+2005.
+[7] M. Osada, H. Mizoguchi, Y . Asano, T. Kozuki, J. Urata, Y . Nakan-
+ishi, K. Okada, and M. Inaba, “Application of “Planar Muscle” with
+Soft Skin-Like Outer Function Su itable for Musculoskeletal Hu-
+manoid,” J. Robot. Mechatron., V ol.24, No.6, pp. 1080-1088, 2012.
+[8] Y . Sodeyama, T. Y oshikai, T. Ni shino, I. Mizuuchi, and M. In-
+aba, “The Designs and Motions of a Shoulder Structure with a
+Wide Range of Movement Using B ladebone-Collarbone Struc-
+tures,” Proc. of the 2007 I EEE/RSJ Int. C onf. on Intelligent Robots
+and Systems, pp. 3629-3634, 2007.
+[9] H. Endo and M. Wada, “The Coupled Tendon-driven System for
+Musculoskeletal Elbow Joints,” J. of the Robotics Society of Japan,
+V ol.11, No.8, pp. 1252-1260, 1993.
+[10] S. Ikemoto, F. Kannou, and K. Hosoda, “Humanlike Shoulder Com-
+plex for Musculoskeletal Robot Arms,” Proc. of the 2012 IEEE/RSJ
+Int. Conf. on Intelligent Robots and Systems, pp. 4892-4897, 2012.
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 455
+
+===== PAGE 12 =====
+Kawaharazuka, K. et al.
+[11] Y . Nakanishi, T. Izawa, M. Os ada, N. Ito, S. Ohta, J. Urata, and
+M. Inaba, “Development of Musculoskeletal Humanoid Kenzoh
+with Mechanical Compliance C hangeable Tendons by Nonlinear
+Spring Unit,” Proc. of the 2011 IEEE Int. Conf. on Robotics and
+Biomimetics, pp. 2384-2389, 2011.
+[12] A. Kochan, “Shadow delivers ﬁrst hand,” Industrial Robot: An Int.
+J., V ol.32, No.1, pp. 15-16, 2005.
+[13] M. Grebenstein, A. Albu-Sch¨ affer, T. Bahls, M. Chalon,
+O. Eiberger, W. Friedl, R. Gruber, S. Hadda din, U. Hagn,
+R. Haslinger, H. H¨oppner, S. J ¨org, M. Nickl, A. Nothhelfer, F. Pe-
+tit, J. Reill, N. Seitz, T. Wimb¨ ock, S. Wolf, T. W ¨ usthoff, and
+G. Hirzinger, “The DLR Hand Arm System,” Proc. of The 2011
+IEEE Int. Conf. on Robotics and Automation, pp. 3175-3182, 2011.
+[14] A. Ke, J. Huang, and J. He, “An Underactuated Prosthetic Hand
+with Coupled Metacarpophalangeal Joints,” J. Adv. Comput. Intell.
+Intell. Inform., V ol.22, No.5, pp. 674-682, 2018.
+[15] A. H. Arieta, R. Katoh, H. Y okoi, and Y . Wenwei, “Development of
+a Multi-DOF Electromyography Prosthetic System Using the Adap-
+tive Joint Mechanism,” Applied Bi onics and Biomechanics, V ol.3,
+No.2, pp. 101-111, 2006.
+[16] T. E. Wiste, S. A. Dalley, T. J. Withrow, and M. Goldfarb, “Design
+of a multifunctional anthropomorphic prosthetic hand with extrin-
+sic actuation,” Proc. of the 2009 IEEE Int. Conf. on Rehabilitation
+Robotics, pp. 675-681, 2009.
+[17] T. Mouri, K. Nakamura, H. Kawasaki, T. Abe, Y . Kobayashi,
+K. Mori, and M. Saito, “High Out put Robot Hand with Retention
+Mechanism,” Proc. of the 2016 JSME Annual Conf. on Robotics
+and Mechatronics, 2016 (in Japanese).
+[18] J. Y ang, E. P . Pitarch, K. Abde l-Malek, A. Patrick, and L. Lind-
+kvist, “A multi-ﬁngered hand prosthesis,” Mechanism and Machine
+Theory, V ol.39, No.6, pp. 555-581, 2004.
+[19] M. Hioki, S. Ebisawa, H. Sakaeda, T. Mouri, S. Nakagawa,
+Y . Uchida, and H. Kawasaki, “De sign and control of electromyo-
+gram prosthetic hand with high gr asping force,” Proc. of the 2011
+IEEE Int. Conf. on Robotics and Biomimetics, pp. 1128-1133,
+2011.
+[20] L. U. Odhner, L. P . Jentoft, M. R. Claffee, N. Corson, Y . Tenzer,
+R. R. Ma, M. Buehler, R. Kohout, R. D. Howe, and A. M. Dollar, “A
+compliant, underactuated hand for robust manipulation,” The Int. J.
+of Robotics Research, V ol.33, No.5, pp. 736-752, 2014.
+[21] K. Kawaharazuka, S. Maki no, M. Kawamura, Y . Asano, Y . Kak-
+iuchi, K. Okada, and M. Inaba, “Human mimetic forearm design
+with radioulnar joint using min iature bone-muscle modules and its
+applications,” Proc. of the 2017 IEEE/RSJ Int. C onf. on Inte lligent
+Robots and Systems, pp. 4956-4962, 2017.
+[22] S. Makino, K. Kawa harazuka, M. Kawamura, Y . Asano, K. Okada,
+and M. Inaba, “High-power, ﬂexi ble, robust hand: Development
+of musculoskeletal hand using machined springs and realization of
+self-weight supporting motion with humanoid,” Proc. of the 2017
+IEEE/RSJ Int. Conf. on Inte lligent Robots and Systems, pp. 1187-
+1192, 2017.
+[23] K. Kawaharazuka, S. Makino, K. Tsuzuki, M. Onitsuka, Y . Naga-
+matsu, K. Shinjo, T. Makabe, Y . Asano, K. Okada, K. Kawasaki,
+and M. Inaba, “Component Modularized Design of Musculoskeletal
+Humanoid Platform Musashi to Investigate Learning Control Sys-
+tems,” Proc. of the 2019 I EEE/RSJ Int. C onf. on Intelligent Robots
+and Systems, pp. 7294-7301, 2019.
+[24] Y . Nakanishi, Y . Asano, T. Kozuki, H. Mizoguchi, Y . Motegi,
+M. Osada, T. Shirai, J. Urata, K. Okada, and M. Inaba, “Design
+Concept of Detail Musculoskeletal Humanoid “Kenshiro” – Toward
+a real human body musculoskeletal simulator,” Proc. of the 2012
+IEEE-RAS Int. Conf. on Humanoid Robots, pp. 1-6, 2012.
+[25] Y . Asano, T. Kozuki, S. Ookubo, K. Kawasaki, T. Shirai, K. Kimura,
+K. Okada, and M. Inaba, “A Sensor-driver Integrated Muscle Mod-
+ule with High-tension Measurability and Flexibility for Tendon-
+driven Robots,” Proc. of the2015 IEEE/RSJ Int. Conf. on Intelligent
+Robots and Systems, pp. 5960-5965, 2015.
+[26] J. Englsberger, A. Werner, C. Ott, B. Henze, M. A. Roa, G. Garo-
+falo, R. Burger, A. Beyer, O. Eiberger, K. Schmid, and A. Albu-
+Sch¨affer, “Overview of the tor que-controlled humanoid robot
+TORO,” Proc. of the 2014 I EEE-RAS Int . Conf. on Humanoid
+Robots, pp. 916-923, 2014.
+[27] M. T. Mason and J. K. Salisbury, “Robot Hands and the Mechanics
+of Manipulation,” MIT Press, 1985.
+[28] M. C. Carrozza, G. Cappiello, G. Stellin, F. Zaccone, F. V ecchi,
+S. Micera, and P . Dario, “A Cosmetic Prosthetic Hand with Tendon
+Driven Under-Actuated Mechan ism and Compliant Joints: Ongo-
+ing Research and Preliminary Res ults,” Proc. of the 2005 IEEE Int.
+Conf. on Robotics and Automation, pp. 2054-2059, 2005.
+[29] J. Y ang, K. Abdel-Malek, and J. P otratz, “Design and prototyping
+of an active hand prosthetic device,” Industrial Robot: An Int. J.,
+V ol.32, No.1, pp. 71-78, 2005.
+[30] C. Gosselin, F. Pelletier, and T. Laliberte, “An anthropomorphic un-
+deractuated robotic hand with 15 dofs and a single actuator,” Proc.
+of The 2008 IEEE Int. Conf. on Robotics and Automation, pp. 749-
+754, 2008.
+[31] Y . Asano, K. Okada, and M. Ina ba, “Design principles of a hu-
+man mimetic humanoid: Humanoid platform to study human intel-
+ligence and internal body system,” Science Robotics, V ol.2, No.13,
+eaaq0899, 2017.
+[32] I. A. Kapandji, “Physiologie A rticulaire,” 6th Edition, V ol.1,
+Ishiyaku Pub, Inc., 2010.
+[33] D. A. Neumann, “Kinesiology of the Musculoskeletal System:
+Foundations for Rehabilitation,” Mosby, 2013.
+[34] H. Hirukawa, F. Kanehiro, K. Kaneko, S. Kajita, K. Fujiwara,
+Y . Kawai, F. Tomita, S. Hirai, K. Tanie, T. Isozumi, K. Akachi,
+T. Kawasaki, S. Ota, K. Y okoyama, H. Handa, Y . Fukase, J. Maeda,
+Y . Nakamura, S. Tachi, and H. Inoue, “Humanoid robotics plat-
+forms developed in HRP ,” Robotics and Autonomous Systems,
+V ol.48, No.4, pp. 165-175, 2004.
+[35] R. Terasawa, S. Noda, K. Kojima, R. Koyama, F. Sugai, S. Nozawa,
+Y . Kakiuchi, K. Okada, and M. Inaba, “Achievement of Dynamic
+Tennis Swing Motion by Ofﬂine Motion Planning and Online
+Trajectory Modiﬁcation Based on Optimization with a Humanoid
+Robot,” Proc. of the 2016 I EEE-RAS Int . Conf. on Humanoid
+Robots, pp. 1094-1100, 2016.
+[36] S. Ohta, K. Hongo, Y . Nakanishi, I. Mizuuchi, and M. Inaba, “Im-
+provement of Performance for Musculoskeletal Robots by Mount-
+able Actuator Units,” J. Robot. Mechatron., V ol.22, No.3, pp. 391-
+401, 2010.
+Name:
+Kento Kawaharazuka
+Afﬁliation:
+Department of Mechano-Informatics, Graduate
+School of Information Science and Technology,
+The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2017- Master Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2019- Doctor Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2019- Research Fellowship for Y oung Scientists (DC1), Japan Society for
+the Promotion of Science (JSPS)
+Main Works:
+• K. Kawaharazuka et al., “Long-time Self-body Image Acquisition and its
+Application to the Control of Musculoskeletal Structures,” IEEE Robotics
+and Automation Letters, V ol.4, No.3, pp. 2965-2972, 2019.
+• K. Kawaharazuka et al., “Com ponent Modularized Design of
+Musculoskeletal Humanoid Platform Musashi to Investigate Learning
+Control Systems,” 2019 IEEE/RSJ Int. C onf. on Inte lligent Robots and
+Systems, pp. 7294-7301, 2019.
+Membership in Academic Societies:
+• The Japan Society of Mechanical Engineers (JSME)
+• The Robotics Society of Japan (RSJ)
+• The Institute of Electrical and Electronics Engineers (I EEE)
+456 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+
+===== PAGE 13 =====
+Human Mimetic Forearm and Hand Design for Skillful Motions
+Name:
+Shogo Makino
+Afﬁliation:
+Department of Mechano -Informatics, Graduate
+School of Information Science and Technology,
+The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2017- Master Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2019- FANUC Corporation
+Main Works:
+• S. Makino et. al., “Five-Finge red Hand with Wide Range of Thumb
+Using Combination of Machined Springs and V ariable Stiffness Joints,”
+2018 IEEE/RSJ Int. C onf. on Robots and Systems, pp. 4562-4567, 2018.
+Name:
+Masaya Kawamura
+Afﬁliation:
+Department of Mechano -Informatics, Graduate
+School of Information Science and Technology,
+The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2016- Master Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2018- Central Japan Railway Company
+Main Works:
+• M. Kawamura et al., “A joint-space controller based on redundant
+muscle tension for multiple DOF joints in musculoskeletal humanoids,”
+2016 IEEE-RAS Int. C onf. on Humanoid Robots, pp. 814-819, 2016.
+Membership in Academic Societies:
+• The Japan Society of Mechanical Engineers (JSME)
+• Japan Railway Rolling Stock & Machinery Association (JRMA)
+• Japan Railway Engineers’ Association (JREA)
+Name:
+Shinsuke Nakashima
+Afﬁliation:
+Department of Mechano-Informatics, Graduate
+School of Information Science and Technology,
+The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2013- Master Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2015- Doctor Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2016- Research Fellowship for Y oung Scientists (DC2), Japan Society for
+the Promotion of Science (JSPS)
+Main Works:
+• S. Nakashima et al., “Development of active self-melting bolt and its
+application to self-healing structu re,” Trans. of the Japan Society of
+Mechanical Engineers, V ol.84, No.864, p. 18-00123, 2018.
+Membership in Academic Societies:
+• The Robotics Society of Japan (RSJ)
+• The Society of Instrument and Control Engineers (SICE)
+Name:
+Y uki Asano
+Afﬁliation:
+Research Associate, Department of Mechano-
+Informatics, Graduate School of Information
+Science and Technology, The University of
+Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2011- Master Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Interdisciplinary I nformation Studies, The University
+of Tokyo
+2013- Doctor Course Student, Depar tment of Mechano-Informatics,
+Graduate School of Information Sci ence and Technology, The University
+of Tokyo
+2016- Research Associate, Department of Mechano-Informatics, Graduate
+School of Information Science and Technology, The University of Tokyo
+Main Works:
+• Y . Asano et al., “Human mimetic musculoskeletal humanoid Kengoro
+toward real world physically inter active actions,” 2016 IEEE-RAS Int.
+Conf. on Humanoid Robots, pp. 876-883, 2016
+Membership in Academic Societies:
+• The Robotics Society of Japan (RSJ)
+• The Japan Society of Mechanical Engineers (JSME)
+Journal of Robotics and Mechatronics V ol.32 No.2, 2020 457
+
+===== PAGE 14 =====
+Kawaharazuka, K. et al.
+Name:
+Kei Okada
+Afﬁliation:
+Professor, Department of Mechano-Informatics,
+Graduate School of Information Science and
+Technology, The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+2002- Assistant Professor, Professional Programme for Strategic Software
+Project, The University of Tokyo
+2006- Lecturer, Department of Creative Informatics, Graduate School of
+Information Science and Technology, The University of Tokyo
+2009- Associate Professor, Department of Mechano-Informatics, Graduate
+School of Information Science and Technology, The University of Tokyo
+2017- Professor, Department of Mecha no-Informatics, Graduate School of
+Information Science and Technology, The University of Tokyo
+Main Works:
+• K. Okada, M. Kojima, Y . Sagawa, T. Ichino, K. Sato, and M. Inaba,
+“Vision based behavior veriﬁcation system of humanoid robot for daily
+environment tasks,” 2006 IEEE-RAS Int. C onf. on Humanoid Robots,
+pp. 7-12, 2006.
+Membership in Academic Societies:
+• The Robotics Society of Japan (RSJ)
+• Information Processing Society of Japan (IPSJ)
+• The Institute of Electrical and Electronics Engineers (I EEE)
+Name:
+Masayuki Inaba
+Afﬁliation:
+Professor, Department of Creative Informatics,
+Graduate School of Information Science and
+Technology, The University of Tokyo
+Address:
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
+Brief Biographical History:
+1986- Lecturer, Department of Mechanical Engineering, The University of
+Tokyo
+1989- Associate Professor, Department of Mechanical Engineering, The
+University of Tokyo
+2000- Professor, Department of Mecha no-Informatics, Graduate School of
+Information Science and Technology, The University of Tokyo
+Main Works:
+• M. Inaba, S. Kagami, and K. Nishiwaki, “Robot Anatomy,” H. Inoue
+(Ed.), Iwamami Lectures Robotics V ol.7, Iwanami Shoten, Publishers,
+2005 (in Japanese).
+Membership in Academic Societies:
+• The Japan Society of Mechanical Engineers (JSME)
+• The Robotics Society of Japan (RSJ)
+• The Japanese Society for Artiﬁcial Intelligence (JSAI)
+• Information Processing Society of Japan (IPSJ)
+• The Society of Instrument and Control Engineers (SICE)
+• The Institute of Electrical and Electronics Engineers (I EEE)
+458 Journal of Robotics and Mechatronics V ol.32 No.2, 2020
+Powered by TCPDF (www.tcpdf.org)

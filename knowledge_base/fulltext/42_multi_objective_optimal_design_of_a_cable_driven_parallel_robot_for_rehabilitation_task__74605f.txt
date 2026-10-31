@@ -1,0 +1,1042 @@
+===== PAGE 1 =====
+Mechanism and Machine Theory 156 (2021) 104141 
+Contents lists available at ScienceDirect 
+Mechanism and Machine Theory 
+journal homepage: www.elsevier.com/locate/mechmachtheory 
+Research paper 
+Multi-Objective optimal design of a cable driven parallel 
+robot for rehabilitation tasks 
+Ines Ben Hamida a , b , ∗, Med Amine Laribi a , Abdelfattah Mlika b , 
+Lotﬁ Romdhane b , c , Saïd Zeghloul a , Giuseppe Carbone d 
+a Department of GMSC, Pprime Institute, CNRS - University of Poitiers - ENSMA - UPR 3346, Poitiers, France 
+b Mechanical Laboratory of Sousse (LMS), National Engineering School of Sousse, University of Sousse, Sousse 40 0 0, Tunisia 
+c Department of Mechanical Engineering, American University of Sharjah, P.O. Box 26666, Sharjah, UAE 
+d Department of Mechanical, Energy and Management Engineering, University of Calabria, 87036 Rende, Italy 
+a r t i c l e i n f o 
+Article history: 
+Received 24 July 2020 
+Revised 16 September 2020 
+Accepted 9 October 2020 
+Available online 25 October 2020 
+Keywords: 
+Cables driven parallel robots 
+Dimensional synthesis 
+Topological synthesis 
+Performance criteria 
+Optimization approaches 
+a b s t r a c t 
+This paper addresses the topological and dimensional synthesis of cable-driven parallel 
+robots. A combined methodology for type and size optimization is proposed and applied 
+to a cable driven parallel robot, which is intended for upper-limb rehabilitation exercises. 
+The proposed approach deals with a set of deterministic and non-deterministic parameters 
+within a multi-objective genetic algorithm. The proposed study aims to select a suitable 
+architecture having optimal dimensions by considering several optimality criteria such as 
+minimizing the cable tensions and achieving the smallest footprint. An illustrative appli- 
+cation of the proposed synthesis approach is developed for LAWEX, a cable driven parallel 
+robot for upper limb rehabilitation. Four different topology solutions have been consid- 
+ered for LAWEX robot. It is also proposed to use an additional safety criterion to select a 
+solution on the obtained Pareto front. 
+© 2020 Elsevier Ltd. All rights reserved. 
+1. Introduction 
+A CDPR (cable driven parallel robot) is a parallel robot where the moving platform is suspended by ﬂexible cables instead 
+of classic rigid kinematic chains. This characteristic gives CDPRs valuable performances in terms of large workspace, high 
+payload, high speed and acceleration as compared with classical parallel robots. CDPRs allow design solutions having a larger 
+workspace when compared to parallel robots with rigid links having a comparable size. Accordingly, several researchers have 
+been investigating this research topic. 
+The ﬁrst CDPRs have been intended for industrial applications. RoBoCrane [1] is considered as the ﬁrst cable driven 
+parallel robot implemented in 1989 in the National Institute of Standards and Technology (NIST) of America. This 6-DOF 
+robot has been used for several applications e.g. cutting, shaping, ﬁnishing, lifting and positioning, [1] . Lately, several CDPRs 
+have been proposed and developed in Japan, Italy, France and Germany. For example, Falcon-7, [2] is a 6-DOF Japanese 
+Robot with ultra-high speed and small actuators. Driven by 7 cables, this fully constrained robot was used for applications 
+that require high precision and stiffness. Cable robots are also used for construction tasks, given their large workspace and 
+high stiffness as compared with classic parallel mechanisms. For example, Pinto et al. [3] proposed SPIDERobot, a 4-DOF 
+∗ Corresponding author. 
+E-mail address: ines.ben.hamida@univ-poitiers.fr (I. Ben Hamida). 
+https://doi.org/10.1016/j.mechmachtheory.2020.104141 
+0094-114X/© 2020 Elsevier Ltd. All rights reserved. 
+
+===== PAGE 2 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Nomenclature 
+CDPR Cable Driven Parallel Robot 
+DOF Degrees of Freedom 
+WS workspace 
+m Number of cables 
+J Jacobian Matrix 
+K(J) Local condition number of the Jacobian Matrix 
+μj Inverse of the local condition number 
+μ Global Conditioning Index 
+T Transpose 
+τ Cable’s tension 
+f Force 
+M Moment 
+W Wrench 
+Ma End-effector mass 
+g Gravitational acceleration = 9.764 m/s ²
+V Robot’s size 
+P Center of the moving platform 
+I Design vector of the optimization problem 
+F (I ) Objective functions of the optimization problem 
+C (I ) Constraint functions of the optimization problem 
+U i Orientation vector of the i th cable 
+robot, for architectures projects. Paper [3] presented an optimization of the robot’s trajectory to avoid collisions using a new 
+Vision-Guided Path Planning System. Likewise, cable robots have demonstrated their eﬃciency in medicals applications, such 
+as haptic devices and rehabilitation robots. Haptic devices require an independent control system that allows the user not 
+only to feed information but also to receive a feedback from the machine as a felt sensation. Many haptic devices have 
+been proposed in the literature. For example, Billette and Gosselin [4] proposed a haptic interface using a 3-DOF cable 
+driven parallel robot for a sword-ﬁghting simulator. RIME is a telesurgical device with a cable driven 5-dof haptic master 
+developed at university of Padua [5] . Experiments reported by Boschetti et al. [5] evoke the advantage of the wire driven 
+haptic master to drive naturally and simply the surgical tool. The simplicity of assembly and reconﬁguration of CDPRs, as 
+well as their high sensitivity, light weight and large workspace make them suitable for rehabilitation tasks. Sophia-3 is a 
+2-DOF cable driven parallel robot used for the upper limb rehabilitation [6] . This simple device in terms of kinematics and 
+cost can, assure shoulder rehabilitation exercises instead of complex and 3-D exoskeletons. 
+Passive cable devices such as CATRASYS and Milli-CATRASYS have been proposed since early ‘90 s for the determination 
+of the pose and orientation of mechanisms’ end-effector, [7] . A recent work of Varela et al. [8] proposed an experimental 
+approach using CATRASYS to characterize human walking. CUBE, proposed by Cafolla et al. [9] , consists of 5 DOF parallel 
+robot driven through 6 cables dedicated to clinical exercises for both upper and lower limbs. NeReBot is an upper limb 
+neurorehabilitation device proposed by Fanin et al. [10] .. It uses 3 cables to suspend the patient upper limb. Clinical tests by 
+Rosati et al. [11] show that patients treated with the additional protocol of NeReBot are recovering faster than others treated 
+with a classical protocol. 
+Dimensional synthesis is one of the challenging tasks in the design process of a mechanical system. It consists of search- 
+ing for the “best dimensions” of the mechanism to fulﬁll the required performances. Kelaiaia et al. [12] proposed two differ- 
+ent approaches for dimensional synthesis: the Atlas approach and the cost function approach. The most used technique is 
+the cost function [12–18] , where an optimization problem is formulated in order to minimize an objective function subject 
+to constraint functions. Design approaches of CDPRs depend on their applications and the desired speciﬁcations, such as 
+workspace, speed, compliance. A recent work of Laribi et al. [19] proposed a multi-criteria optimization of LAWEX, a CDPR 
+dedicated to upper limb rehabilitation. The problem formulation consists in the minimization of cables tensions distribution, 
+while following a prescribed trajectory. The solution was given using a Genetic Algorithm method implemented under MAT- 
+LAB software. Lamine et al. [20] developed a discrete algorithm for the design optimization of a Cable Driven Leg Trainer; 
+for gait rehabilitation. The objective of this optimization is to minimize cables tensions considering the height’s difference 
+among patients. Cables tensions of all heights have been calculated to compute the optimum power of the robot’s actua- 
+tors. A different optimization model was proposed by Hernandez et al. [21] for the design of a CDPR used for patients with 
+shoulder problems. A prescribed workspace was deﬁned using the upper limb possible movements. A kinematic and wrench 
+analyses have been carried out to determine the Jacobian matrix. The considered objective function was for the optimization 
+of cables tensions. The problem was solved using the Estimation of Distribution Algorithm. In most the cases, the cables are 
+considered as massless, however, in some mechanisms, long cables’ masses cannot be neglected. Liu et al. [22] proposed a 
+tension optimization iterative algorithm to avoid sags of long cables. 
+2 
+
+===== PAGE 3 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 1. Mechanical design process. 
+This work proposed an optimization approach of a cable driven parallel robot intended for rehabilitation of human upper 
+limb. The paper is structured as follows: Section 2 presents the difference between our CDPR design process and the com- 
+monly used robotic mechanism design processes. The following section deals with the search of the topological structures 
+for the CDPRs. Different characteristics and performances of cable robots are analyzed in Section 4 . Section 5 introduces the 
+proposed case of study on the synthesis of LAWEX, a CDPR intended for rehabilitation tasks. A concurrent design approach 
+combining type and dimensional synthesis is proposed and carried out. The last section presents some conclusions. 
+2. The proposed design approach 
+The mechanical design process has been the object of several works in the literature such as, just for example, [23–25] . 
+The procedure described in Fig. 1 represents the proposed general conceptual design as based on the fulﬁllment of speciﬁc 
+requirements or needs. 
+First, a problem deﬁnition based on the required functional criteria by the user should be identiﬁed. A mathematical 
+formulation of the design problem is then established for the mechanism synthesis, which is processed in two phases: 
+- Phase 1: Topological synthesis, which requires decisions on the main design choices concerning the number of DOFs, 
+the actuation nature, the degree of redundancy. 
+- Phase 2: Dimensional synthesis related to the mechanism dimensions, where an optimization problem could be for- 
+mulated to identify the best design parameters for a given required task of the mechanism. 
+As shown in Fig. 1 , the classical design process is a sequential one, where the topological synthesis comes ﬁrst followed 
+by the dimensional synthesis. In the present work, a concurrent design approach is proposed, where the topology and 
+dimensions of the mechanism are optimized simultaneously. 
+The objective of this novel design approach is to select the suitable manipulator architecture with optimized dimensions 
+for a given task. The proposed methodology combines the type and the dimensional optimization in the same operation. The 
+3 
+
+===== PAGE 4 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 2. Different conﬁgurations of CDPRs. 
+Fig. 3. Different shapes of end-effector. 
+problem formulation depends on the desired application, which will deﬁne the objectives, the constraints, and the decision 
+parameters. 
+3. Optimal topology search strategy 
+Most of the literature works on synthesis of cable driven parallel robots are interested only on dimensional optimization. 
+However, the number of cables, the positions of the cables exit points and the positions of the cable anchor points on the 
+moving platform, deﬁne the robot design and affects the number of DOFs as well as the device performances. 
+Generally, according to the number of DOFs n and the number of cables m , two main cases of CDPRs can be deﬁned, 
+under constrained and fully constrained CDPRs. A necessary condition but not suﬃcient to deﬁne an under-constrained 
+CDPR is m ≤ n. Typically, the end-effector of an under-constrained CDPR is still movable when actuators are locked so that 
+external forces are necessary for static equilibrium. A CDPR is deﬁned as fully constrained if all its n DOFs can be controlled, 
+it requires at least n + 1 cables. 
+Fig. 2 presents three possible designs of the CDPRs. The ﬁrst case (a) presents an under constrained robot with 3 cables 
+for 3 DOFs. The gravity is used in this case, to ensure positive tensions in the cables. The second case (b) is a fully con- 
+strained CDPR, which uses 4 cables to ensure the same number of DOFs as the ﬁrst case. The third robot, case (c), is an over 
+constrained CDPR, as it is using 5 cables to ensure 3 DOFs. 
+Redundancy of CDPRs was addressed by Merlet [26] . Despite the advantage of increasing drastically the robot’s 
+workspace, redundancy affects the kinematics and cables tensions distribution. Maintaining a positive cable tension in re- 
+dundant structures, is one of the most challenging addressed issues in the literature [27] . 
+An additional issue of cables that can affect the robot motion is the distribution of attachment points on the end-effector. 
+Fig. 3 shows two different end-effectors with different attachment points. The ﬁrst conﬁguration uses an end-effector with 
+two anchor points. In this case, the controllable motions of the end effector are limited to just 3 translations. In the sec- 
+ond case, the end-effector contains one anchor point for each cable. This feature gives the robot an additional mobility in 
+rotation, 3 translations and one rotation are possible. 
+4 
+
+===== PAGE 5 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 4. Discretization Approach. 
+The number of anchor points is related to the required movements of the end effector and the number of cables. A 
+full measure of the moving object pose, i.e., position and orientation, requires 3 non-aligned points, however reducing the 
+number of attachment points reduces the risk of cable wrapping issue. For example, for translational devices, only one 
+attachment point is suﬃcient to deﬁne the pose of the end effector. 
+4. Optimal dimensional synthesis strategies 
+Dimensional synthesis deals with the determination of the mechanism dimensions according to the required perfor- 
+mances by the designer. 
+A general optimization problem is formulated in order to minimize or to maximize an objective function subject to 
+constraint functions as stated below: 
+⎧ 
+⎪ ⎨ 
+⎪ ⎩ 
+M inimize/M aximize F ( I ) 
+Sub ject to C i ( I ) ≤ 0 
+I = [ x 1 , .., x n ] 
+x min j < x j < x max j 
+(1) 
+where 
+F (I ) is the objective function deﬁning the criteria to optimize. 
+C i (I ) are constraint functions. 
+I = [ x 1 , .., x n ] is the design vector deﬁned by the set of design variables and ( x min j , x max j ) the search domain for each 
+design variable x j . 
+Depending on the application requirements, the performance criteria of an optimization problem are determined, some 
+of them will be ﬁxed as objectives to optimize and others as constraints. In the following, some of the mainly used perfor- 
+mance criteria for CDPRs are introduced. 
+4.1. Workspace 
+Workspace analysis remains one of the active research items for parallel robots and especially for CDPRs. A general 
+deﬁnition of the workspace is given by the region of space reachable by the moving platform. CDPRs have potentially a large 
+workspace compared to the classic parallel robots. However, there is an additional constraint for CDPRs since the robot’s 
+cables can only pull on the end-effector, which requires the cables tensions to always be positive. Additional conditions can 
+be added to the workspace, which lead to different workspaces types. 
+The ﬁrst researches on CDPRs’ workspace have been interested in wrench closure workspace (WCW) and wrench feasible 
+workspace (WFW). WCW refers to the main characteristics of CDPRs, which is the positive tension in the cables [28] . A 
+given pose belongs to WCW if it is able to generate positive cables tensions. However, WFW is deﬁned by the maximum 
+and the minimum of acceptable tensions, [29 , 30] . 
+The evaluation of parallel manipulators workspace remains an important research ﬁeld. Discretization approaches pre- 
+sented in Fig. 4 have been widely used for workspace analysis [31] . The general principle consists of discretizing the 3D 
+space, calculate the inverse kinematic problem (IKP) at each point and check the constraints conditions. This method is easy 
+to implement and can be applied to any robot type, however the computational time could be high, especially for robots 
+5 
+
+===== PAGE 6 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 5. Power point function Approach. 
+with complex kinematic equations. Laribi et al. proposed an analytical method by determining the mathematical equations 
+of the boundaries of the robot’s workspace [14] . This method presented in Fig. 5 is based on the shape of the sub-workspace 
+of each leg (or cable) of the robot. This formulation was used for several optimization problems [19 , 32 , 33] . 
+4.2. Cables tensions 
+A cable can only pull on the attachment point due its ﬂexible nature. This limitation adds an extra constraint when 
+designing cable robots. Therefore, for the cable robot to function properly, the tensions in the different cables have to be 
+maintained positive, at all times. In practice and to be on the safe side, the tension in any cable of the robot is always 
+maintained greater than a non-zero minimum tension. 
+The optimization consists of minimizing the cables tensions values and consequently minimize the power consumption 
+of the manipulator. 
+Under static conditions, the relation between cables’ tensions and the wrench applied at the platform is given by Newton- 
+Euler formulation. 
+W τ = W p (2) 
+Where 
+W : is the structure matrix ( 6 × m ) 
+W = [ 
+l 1 
+l 1 × p 1 
+.. 
+l m 
+l m × p m 
+] ; l i is the vector of the i th cable direction and p i is the vector from the i th attachment point to the 
+inertia center of the end-effector. 
+τ = [ τ1 . . . τm ] T is the vector of all cables’ tensions 
+W p = [ f T M T ] T is the external wrench applied on the end-effector. 
+In case of redundant actuation, the vector tension is given by the summation of the particular and homogeneous solu- 
+tions as follows: 
+τ = W + W p + (I m − W + W )s (3) 
+Where 
+W + : is the under-constrained Moore-Penrose pseudoinverse of W . 
+I m : is the m × m identity matrix. 
+s : is an arbitrary m- vector 
+¯τ = W + W p = [ ¯τ1 . . . ¯τm ] T is the particular solution however Q = ( I m − W + W ) s is the homogeneous solution. To maintain 
+positive tension on all cables, the homogeneous solution Q is ﬁxed to guarantee a minimum required tension τmin (see 
+Fig. 6 ) [27] . 
+For mechanism synthesis problems, an objective function for the minimization of cable tensions was proposed in [19] . 
+This function is expressed by: 
+F ( I ) = 
+1 
+( max ( τ) ) 2 
+(τT . τ) (4) 
+Where 
+6 
+
+===== PAGE 7 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 6. Adjustable motor control. 
+Fig. 7. Sagging cable in its vertical plane. 
+τ = [ τ1 , τ2 , .., τm ] , m is the number of cables of the manipulator 
+τi is the tension of the i th cable 
+4.3. Cables sagging 
+In general, the studies on CDPRs consider the cables to be massless. However, in some cases with long-span cables, the 
+aspect of sagging cables has to be taken into account. As shown in Fig. 7 , a cable with a non-negligible mass has tendency 
+to sag under its proper weight. 
+Cables sagging issue was addressed ﬁrst by Jeong et al. [34] where an analytical expression of the longitudinal defor- 
+mation of a cable was established and then a compensation factor of the cable deformation was proposed and validated 
+through experimental tests. 
+Liu et al. [22] proposed a tension optimization approach for a cable driven parallel robot with large dimensions. The 
+mathematical model for sagged cable layout proposed in [35] is used and then an iterative approach was applied to compute 
+the cables tensions. 
+4.4. Compactness 
+The compactness is a geometric criterion that characterizes the robot’s size. There is no general formulation of this cri- 
+terion. Essomba et al. [17] used the notion of local compactness function to optimize a spherical parallel manipulator. The 
+index is given by the most inclined axis for a given conﬁguration, then a global index is proposed through a discrete ap- 
+proach. For the same robot, Nelson et al. [36] proposed a compactness criterion as the sum of the angular design parameters. 
+A different approach, proposed in [37] , considers the robot’s compactness as the ratio of a desired workspace by the entire 
+volume occupied by the robot. 
+The calculation of the occupied volume by the robot depends on the base geometric shape, it could be a cube, a prism 
+or a cylinder. Table 1 presents examples of different basic geometric shapes. 
+4.5. Singularity 
+Singular conﬁgurations correspond to the poses of the end-effector where the robots’ performances degenerate and the 
+control is lost. The determination of these conﬁgurations is essential in order to avoid them in the robot’s trajectory. Gener- 
+ally, singularities can be identiﬁed through the examination of the Jacobian matrix. However, the Jacobian matrix considers 
+7 
+
+===== PAGE 8 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Table 1 
+Different bases shape. 
+Robot Occupied volume 
+LAWEX [19] 
+ Cube 
+V = d 2 h 
+Where 
+d : is the horizontal position of the motors 
+h : is the height of the robot 
+CUBE [9] 
+ Prism 
+V = d 2 2 h 
+Where 
+d : is the horizontal position of the motors 
+h : is the height of the robot 
+FAST [2] 
+ Cylinder 
+V = π R 2 h 
+Where 
+R: is the radius of the platform 
+h : is the height 
+all cables as rigid links. Therefore, the analysis of the Jacobian matrix becomes of no use if there is a slack in one of the 
+robot’s cable. Accordingly, two singularity cases can be distinguished [38] ; the Jacobian singularity and force closure singu- 
+larity, depending if the Jacobian matrix is singular or not and the force-closure condition is violated or not. 
+Recently, J-P Merlet [39] investigated the singularity of cable driven robots in case of sagging cables. In this case, the 
+singularity analysis showed, in counter to rigid parallel robots, CDPRs present two class of singularities: inverse kinematic 
+and forward kinematic singularities. 
+To describe the overall kinematic behavior of the robots, we use the error ampliﬁcation factor, which is calculated using 
+the inverse of the condition number K ( J ), introduced by Gosselin [40] . 
+μj = 
+1 
+K ( J ) 
+(5) 
+Where K(J ) = ‖ J ‖ · ‖ J −1 ‖ 
+J : is the Jacobian matrix of the robot at a given location 
+In the case of redundant actuation, the Jacobian matrix is a non-square matrix. The pseudo-inverse of the Jacobian matrix 
+J + , is used instead of its inverse. The condition number can be understood as a measure of how sensitive the related function 
+is to changes or errors in its entries. A large condition number also means that the matrix is getting close to being singular. 
+The condition number, in this case, is calculated as K(J ) = ‖ J ‖ · ‖ J + ‖ 
+8 
+
+===== PAGE 9 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 8. Safety criterion. 
+To evaluate the global dexterity within the desired workspace, a global conditioning index ranging between 0 and 1 is 
+deﬁned in Eq. (6) 
+μ = 
+∑ N 
+j=1 μj 
+N 
+(6) 
+Where N is the discretization parameter of the desired workspace. The best kinematic performance is reached when 
+μ = 1 
+The use of the condition number is not appropriate for manipulators having translational and rotational DOF and the 
+normalization of the Jacobian matrix will be needed. 
+4.6. Safety 
+Safety issues are of a great importance in the design of robotic devices. The human-robot interaction has been investi- 
+gated in several works mainly for medical devices, where the user is in direct physical contact with the manipulator. The 
+increase of use of medical robots, requires the deﬁnition of speciﬁc safety standards since the safety measures of medical 
+and industrial robots should be different. 
+The «I E C 80,601–2–78:2019» is a recent ISO standard applies to the general requirements for basic safety and essential 
+performance of medical robots that physically interact with a patient with an impairment to support or perform rehabilita- 
+tion, assessment, compensation or alleviation [41] . Since the workspace in these situations is shared by the robot and the 
+patient, conventional measures requiring a safety zone cannot be applied. The «I E C 80,601–2–78:2019» standards evokes the 
+risk management and situation awareness due to mechanical and electrical hazards. Different situations have been tackled 
+as Energy release, exceeding the patient’s movement limits, misalignment and collisions. 
+Carbone et al. [42] have highlighted 3 aspects that affect patient’s safety during a rehabilitation task: 
+- Operation ranges: when the robot moves the patient limb outside its operation space. 
+- Operation modes: when the robot speed is greater than the patient safe speed. 
+- Operation forces/torques: when the robot exercises an important effort on the human limb. 
+To ensure that the robot’s works on a safety mode, the knowledge of the human operation ranges, modes and forces is 
+required. 
+Another safety measure has been investigated in literature, which is the detection of cable failure. In fact, an emergency 
+stop is often used with classical rigid robots however due to the ﬂexibility of cables, the braking of motors could be not 
+enough to stop the robot. Boschetti et al. [43] proposed an operational strategy for cable failure that consists in generating 
+an opposite wrench in case of failure, which leads the end-effector to a safe position. 
+Another criterion that have been introduced in a previous work [44] is the minimum distance between the cables and 
+the patient during the rehabilitation task as presented in Fig. 8 . The approach consists in discretizing the cables’ line into t 
+points and calculate the distance between each point and the cylinder surrounding the patient. The cylinder surrounding the 
+patient with diameter D , the shoulder width, and centered on its spine is presented in Fig 9 . The objective of this method 
+is to maximize this distance to avoid any risk of collision between the user and the robot. The distance d j between a given 
+point P j ( x j , y j , z j ) on the cable and the cylinder, the safety area of the patient, is given by the following equation. 
+9 
+
+===== PAGE 10 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 9. Dimension and position of the cylinder surrounding the patient. 
+Table 2 
+Summary of the CDPR criteria. 
+Constraint Performance 
+Workspace √ √ 
+Compactness × √ 
+Dexterity × √ 
+Singularity √ ×
+Payload and weight √ √ 
+Cables tensions √ √ 
+Safety √ √ 
+Cables interferences √ ×
+Cables sagging √ ×
+Power consumption √ √ 
+Table 3 
+Elbow mouvement mesures. 
+Forearm length (cm) Lower limit ( °) Upper limit ( °) 
+1 27 0 125 
+2 21 0 130 
+3 30 5 150 
+4 27 0 130 
+5 25 0 120 
+6 32 0 125 
+7 30 0 140 
+8 23 5 135 
+9 28 0 150 
+10 31 0 130 
+d j = 
+√ (
+x j − x c 
+)2 
++ 
+(
+y j − y c 
+)2 
+− D 
+2 
+(7) 
+Where x c , y c , z c are the coordinates of a point from the cylinder axis ( z c = z j ) . 
+4.7. Overview 
+Table 2 presents an overview of the presented criteria. As it can be seen, some of them could be considered as constraints 
+or/and objectives. 
+10 
+
+===== PAGE 11 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 10. Flexion movement of upper arm. 
+Fig. 11. Desired workspace. 
+5. A case of study 
+5.1. Requirements and constraints for forearm rehabilitation tasks 
+CDPRs achieved interesting results regarding physical rehabilitation of post-stroke patients. Among the physiotherapy 
+exercises for post stroke patients is the Elbow ﬂexion/extension planar movement shown in Fig. 10 [42 , 45 , 46] . It consists of 
+an arc of center the elbow of the patient and radius the length of the forearm. To deﬁne the workspace required for this 
+particular exercise several measures of 10 normal subjects of different ages (25–70 years) and gender, have been carried out. 
+The results are given in Table 3 . According to the obtained movements ranges, a desired workspace, presented in Fig. 11 , 
+was deﬁned as a surface limited by two arcs corresponding to the maximal and minimum forearm lengths. 
+LAWEX robot, shown in Fig. 12 , is a rehabilitation device built in LARM in Cassino [42] . It consists of 4 motors controlling 
+the lengths of 4 ﬂexible cables attached to a circular end-effector. The used cables are thin with negligible weights so that 
+sagging issue can be considered as negligible. As a rehabilitation device, LAWEX operates at low speed. The weight of the 
+moving part is estimated to be equal to 1.5 Kg, including the average weight of a human hand and forearm, as it is reported 
+in [47] . 
+This section aims at the study and the comparison of four different designs of LAWEX robot (see Fig. 13 ). The objective 
+is to select the optimal design and the optimal parameters of the robot having the best tension distribution along the 
+prescribed trajectory and occupying the smallest volume. 
+By assuming that the orientation of the end-effector during the rehabilitation task is constrained, we consider only the 
+forces generated by the cables’ tensions and the moments are neglected. 
+5.2. Geometric and kinematic modellings for different topologies 
+5.2.1. Design (a), under-constrained suspended CDPR 
+This design consists of a suspended cable driven robot with 3 cables attached in the same point of the end-effector. The 
+inverse geometric model of a cable driven parallel robot deﬁnes the lengths of cables according to the end-effector position. 
+The position of the end effector is given by the vector p = [ x, y, z ] T . 
+11 
+
+===== PAGE 12 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 12. LAWEX robot. 
+Fig. 13. Different designs of LAWEX robot: (a) Under-constrained suspended CDPR (b) Fully constrained CDPR (c) under-constrained suspended CDPR and 
+(d) Fully constrained CDPR. 
+The motors positions according to Fig. 14 are given by the following equations. 
+A 1 = [ d 1 , 0 , h ] T 
+A 2 = [ 0 , 0 , h ] T 
+A 3 = [ 0 , d 2 , h ] T 
+(8) 
+The inverse kinematic model (IKM) is obtained by the closed-loop equation of each cable deﬁned in the following equa- 
+tion. 
+p = A 1 + l 1 = A 2 + l 2 = A 3 + l 3 (9) 
+here 
+l i : is the vector from the i th motor to the end-effector. 
+x, y, z : are the coordinates of the end-effector. 
+{ 
+l 1 = p − A 1 
+l 2 = p − A 2 
+l 3 = p − A 3 
+(10) 
+The IKM is given by the length of the 3 cables 
+⎧ 
+⎪ ⎨ 
+⎪ ⎩ 
+l 1 = p − A 1 = 
+√ 
+( x − d 1 ) 2 + y 2 + (z − h ) 2 
+l 2 = p − A 2 = 
+√ 
+x 2 + y 2 + (z − h ) 2 
+l 3 = p − A 3 = 
+√ 
+x 2 + ( y − d 2 ) 2 + (z − h ) 2 
+(11) 
+12 
+
+===== PAGE 13 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 14. Geometric Parameters of design (a). 
+⎛ 
+⎝ 
+l 1 
+l 2 
+l 3 
+⎞ 
+⎠ = 
+⎛ 
+⎜ 
+⎝ 
+√ 
+( x − d 1 ) 2 + y 2 + (z − h ) 2 √ 
+x 2 + y 2 + (z − h ) 2 
+√ 
+x 2 + ( y − d 2 ) 2 + (z − h ) 2 
+⎞ 
+⎟ 
+⎠ (12) 
+The cables tensions are given by the Newton Euler formulation as follows 
+W τ = W p (13) 
+Where 
+τ = [ τ1 , τ2 , τ3 ] T 
+W p = [ 0 0 − M a g ] T , M a : end-effector mass, g : gravitational acceleration 
+W = [ W 1 , W 2 , W 3 ] , W i = 
+[
+U i 
+p i × U i 
+]
+, U i = −l i / l i 
+p i : is the vector connecting the reference point on the moving platform p to the anchor point of the i th cable . 
+The Jacobian Matrix of the LAWEX robot is given by 
+J = W T = 
+⎛ 
+⎜ 
+⎜ 
+⎜ 
+⎜ 
+⎝ 
+x − d 1 
+l 1 
+y 
+l 1 
+z − h 
+l 1 
+x 
+l 2 
+y 
+l 2 
+z − h 
+l 2 
+x 
+l 3 
+y − d 2 
+l 3 
+z − h 
+l 3 
+⎞ 
+⎟ 
+⎟ 
+⎟ 
+⎟ 
+⎠ 
+(14) 
+5.2.2. Design (b), fully constrained CDPR 
+For this design, four cables are used to control the end-effector pose. However, we consider the orientation of the end- 
+effector to be constrained due to a ﬁxed support of the patient elbow. In this case, the LAWEX robot is a fully constrained 
+mechanism where the end-effector position is deﬁned by the length of the 4 cables. The considered parameters are given 
+in Fig. 15 . 
+The IKM of the fully constrained CDPR is given by Eq (15) . 
+⎛ 
+⎜ 
+⎜ 
+⎝ 
+l 1 
+l 2 
+l 3 
+l 4 
+⎞ 
+⎟ 
+⎟ 
+⎠ = 
+⎛ 
+⎜ 
+⎜ 
+⎜ 
+⎜ 
+⎝ 
+√ 
+(x − d 1 ) 2 + y 2 + ( z − h ) 2 √ 
+x 2 + y 2 + ( z − h ) 2 
+√ 
+x 2 + ( y − d 2 ) 2 + ( z − h ) 2 √ 
+x 2 + y 2 + z 2 
+⎞ 
+⎟ 
+⎟ 
+⎟ 
+⎟ 
+⎠ 
+(15) 
+The cables tensions are obtained, as in the previous case, through Newton-Euler formulation. 
+W τ = W p (16) 
+where 
+13 
+
+===== PAGE 14 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 15. Geometric Parameters of Design (b). 
+τ = [ τ1 , τ2 , τ3 , τ4 ] T 
+W p = [ 0 0 − M a g ] T , M a : end-effector mass, g : gravitational acceleration 
+W = [ W 1 , W 2 , W 3 , W 4 ] , W i = 
+[
+U i 
+p i × U i 
+]
+, U i = −l i / l i 
+Since the mechanism is over constrained, there is an inﬁnite number of solutions of the tension vector. The vector tension 
+is given by the following equation. 
+τ = ¯τ + β N (17) 
+where 
+¯τ = W + W p : is the particular solution of Eq (19) where W + is the Moore-Penrose pseudoinverse of W 
+N : is the Kernel vector of W 
+β : is an arbitrary scalar chosen so that τi (i = 1 . 4 ) is greater than the minimum desired tension. 
+In our case, we ﬁx τmin = 0 . 5 N . The value of 0.5 N has been selected by referring to the maximum loading conditions of 
+LAWEX (1.5 Kg) and to the mass of the LAWEX cables (nylon cables, whose weight is about 5 g per m). Accordingly, a ten 
+times higher cable tension value provides a negligible sagging effect. This assumption is also discussed in [43] . 
+5.2.3. Design (c), under constrained suspended CDPR 
+For this design, four cables are used to control the end-effector pose. In this case, the LAWEX robot is a redundant 
+mechanism where the end-effector position is deﬁned by the length of the 4 cables. The considered parameters are given 
+in Fig. 16 . 
+The IKM of the over constrained CDPR is given by Eq (18) . 
+⎛ 
+⎜ 
+⎜ 
+⎝ 
+l 1 
+l 2 
+l 3 
+l 4 
+⎞ 
+⎟ 
+⎟ 
+⎠ = 
+⎛ 
+⎜ 
+⎜ 
+⎜ 
+⎜ 
+⎝ 
+√ 
+(x − d 1 ) 2 + y 2 + ( z − h ) 2 √ 
+x 2 + y 2 + ( z − h ) 2 
+√ 
+x 2 + ( y − d 2 ) 2 + ( z − h ) 2 √ 
+(x − d 1 ) 2 + ( y − d 2 ) 2 + ( z − h ) 2 
+⎞ 
+⎟ 
+⎟ 
+⎟ 
+⎟ 
+⎠ 
+(18) 
+Cables tensions are given through the Newton Euler formulation ( Eq (19) ) 
+W τ = W p (19) 
+Where 
+τ = [ τ1 , τ2 , τ3 , τ4 ] T 
+W p = [ 0 0 − M a g ] T , M a : end-effector mass, g : gravitational acceleration 
+W = [ W 1 , W 2 , W 3 , W 4 ] , W i = 
+[
+U i 
+p i × U i 
+]
+U i − l i / l i 
+The tension vector is obtained by summation of the particular and a homogeneous solution as deﬁned in Eq (17) of the 
+previous case. 
+14 
+
+===== PAGE 15 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 16. Geometric parameters of design (c). 
+Fig. 17. Geometric Parameters of design (d). 
+5.2.4. Design (d), fully constrained CDPR 
+In this design, four cables are distributed above and below the platform as shown in Fig. 17 . The motors positions are 
+given in the following Equations: 
+A 1 = [ 0 , 0 , h ] T 
+A 2 = [ d 2 , d 2 , h ] T 
+A 3 = [ d 1 , 0 , 0 ] T 
+A 4 = [ 0 , d 2 , 0 ] T 
+The IKM of the fully constrained CDPR is given by Eq. (20) 
+⎛ 
+⎜ 
+⎜ 
+⎝ 
+l 1 
+l 2 
+l 3 
+l 4 
+⎞ 
+⎟ 
+⎟ 
+⎠ = 
+⎛ 
+⎜ 
+⎜ 
+⎜ 
+⎜ 
+⎝ 
+√ 
+x 2 + y 2 + ( z − h ) 2 
+√ 
+( x − d 1 ) 2 + ( y − d 2 ) 2 + ( z − h ) 2 √ 
+( x − d 1 ) 2 + y 2 + z 2 √ 
+x 2 + ( y − d 2 ) 2 + z 2 
+⎞ 
+⎟ 
+⎟ 
+⎟ 
+⎟ 
+⎠ 
+(20) 
+The cables tensions are obtained through Newton-Euler formulation and the solution is deﬁned as in the previous two 
+cases 
+15 
+
+===== PAGE 16 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+5.3. Mathematical formulation of the optimization problem 
+The objective of this optimization is to select the best LAWEX design (a, b, c, or d) and the best set of design parameters 
+that guarantee the best compromise between cables tension and the compactness criterion for a prescribed rehabilitation 
+trajectory. 
+Given : 
+- Trajectory of the patient wrist 
+Objectives: 
+- Include the prescribed trajectory; 
+- Minimize the occupied volume by the robot; 
+- Minimize the maximum cables tensions. 
+A mathematical formulation of the optimization problem is given as follows: 
+{ 
+Minimize F ( I ) = 
+{
+F 1 ( I ) 
+F 2 ( I ) 
+Sub ject to C i ( I ) ≤ 0 
+I = [ x 1 , .., x n ] 
+x j min < x j < x j max 
+(21) 
+where 
+F 1 (I ) and F 2 (I ) are the objective functions deﬁning the robot’s size and the cables tensions, respectively. 
+C i (I ) are the constraint functions describing the prescribed trajectory. 
+I = [ x 1 , .., x n ] is the decision vector deﬁned by the set of design variables and x j min , x j max the search domain for each 
+design variable x j . 
+5.3.1. The proposed solving algorithm approach 
+A novel approach for mechanism synthesis is proposed in Fig. 18 . It aims to expand the Non-dominated Sorting Genetic 
+Algorithm (NSGA-II) [48] allowing the synthesis of more than one architecture. 
+The NSGA-II optimization algorithm is an evolutionary elitist algorithm inspired from the natural evolutionary process. 
+The strength of this metaheuristic is highlighted especially with complex problems involving several objectives and/or con- 
+straints. 
+Two types of coding, discrete and real, can be used to represent individuals (solutions) of the Genetic Algorithm. The 
+Main contribution of this approach is to combine both coding types in the same formulation. The design vector is composed 
+of two parts: a discrete part handling the design type and a continuous part handling the set of design parameters of the 
+studied manipulator. 
+Starting for a randomly generated initial population, the individuals are evaluated, selected and then genetical operators 
+are applied (Crossover and mutation). 
+The initial population is created randomly with an arbitrary number of each design type then evaluation, ranking and 
+sort of the individuals according to the crowding distance, are performed. After combination of the old population and the 
+new individuals obtained through crossover and mutation operators, the set is raked and sorted according to the crowding 
+distance. A new generation is born by applying selection operator. From each generation, a parallel selection is made to 
+select the non-dominated solutions which will appear in the Pareto front. The same steps are repeated with new generations 
+until achieving one of the stopping criteria. The considered stopping criterion is the maximum number of generations. 
+5.3.2. The decision vector 
+The decision vector of the proposed approach is composed of two parts, a discreate variable ( des = 1 , 2 , 3 , 4 ) referring to 
+the selected design a, b, c or d and a design vector composed of continuous design parameters of the robot. The decision 
+vector is given by: 
+I = [ des, d 1 , d 2 , h, r, z E ] T (22) 
+where: des = 1 , 2 , 3 , 4 : assigns the design type (see Fig. 13 ) 
+d 1 , d 2 , h : design parameters of the robot 
+r = x E 
+√ 
+2 = y E 
+√ 
+2 
+x E , y E , z E : position of the patient elbow as shown in Fig. 19 . 
+16 
+
+===== PAGE 17 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 18. ﬂowchart of the proposed approach. 
+Table 4 
+Design parameters of LARM Prototype. 
+d 1 LA W EX d 2 LA W EX h LA W EX V LA W EX 
+0 . 6 m 0 . 6 m 0 . 65 m 0 . 234 m 3 
+5.3.3. The selected objective functions 
+5.3.3.1. Compactness. This criterion aims to reduce the occupied volume by the robot. It is computed as the ratio of the 
+cuboid robot’s volume by the volume of the actual design (see Fig. 12 ). 
+F 1 ( I ) = 
+d 1 × d 2 × h 
+V LA W EX 
+(23) 
+Where V LA W EX : is the volume of the built prototype at LARM Cassino. The design parameters of this prototype are given 
+in Table 4 . 
+5.3.3.2. Cables. tensions. To guarantee a minimal cables tension along the prescribed trajectory, the objective function is 
+given as a ratio of the calculated maximal tension at a point from the trajectory by the maximal tension of the existing 
+prototype 
+F 2 ( I ) = 
+max ( τ) 
+τmax 
+(24) 
+5.3.4. The deﬁned constraint functions 
+The proposed optimization problem is subject to two constraints: 
+- The belonging of the desired trajectory to the robot workspace 
+17 
+
+===== PAGE 18 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 19. Design parameters of the design approach. 
+- A positive cables’ tension 
+To examine if a given point ( x, y, z ) from the trajectory is inside the workspace or not, the power point function is used 
+as follows: 
+{
+f i max = ( x − x Ai ) 2 + ( y − y Ai ) 2 + ( z − z Ai ) 2 − l max 2 ≤ 0 
+f i min = l min 2 − ( x − x Ai ) 2 + ( y − y Ai ) 2 + ( z − z Ai ) 2 ≤ 0 , i = 1 , 2 , 3 (25) 
+To ensure a positive cables tension, the Moore–Penrose inverse, presented in Section 4.2 , is used 
+τ = ¯τ + Q ≥ 0 (26) 
+where 
+¯τ = W + W p , W + : is the under-constrained Moore-Penrose pseudoinverse of W . 
+Q = ( I m − W + W ) s , I m : is the m × m identity matrix, s : is an arbitrary m- vector 
+A penality function is considered to ensure that the problem constraints are respected and it is given as bellows: 
+F 0 ( I ) = 
+{
+0 if const raint s are sat is f ied 
+cf ot her wise 
+(27) 
+Here, cf is a large positive constant. 
+5.4. Numerical implementation and results 
+The described optimization problem is solved using MATLAB software. The modiﬁed NSGA-II algorithm was implemented 
+with the following inputs: population size = 500, and number of generations = 100. 
+Fig. 20 gives the evolution of the different robot’s designs from one population to another. To assure the transition of the 
+four designs from generation to generation, a minimum ratio of p = 10% individuals from the population size of each design 
+is imposed. The evolution of populations shows that starting from the 50th generation, designs «c» starts taking advantage 
+and dominates the population individuals. 
+To analyze the dominance of «c» Individuals, a presentation of the last generations in terms of the objective function 
+is given in Fig. 21 . The solutions of design «c» are numerous but very close; they have close ﬁtness values however, the 
+solutions of designs «a» and «b» are more scattered. 
+Fig. 22 presents the set of non-dominated optimal solutions called Pareto front of the optimization process. The ﬁrst 
+and second designs, «a» and «b», are excluded from the Pareto front since their solutions are dominated solutions. The 
+18 
+
+===== PAGE 19 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 20. Evolution of solutions type through generations. 
+Fig. 21. Last population solutions. 
+minimum cables tension is obtained for the third design «c» where the end-effector is suspended by four cables while the 
+best compactness values are presented by design «d», where the cables are fairly distributed below and above the end- 
+effector. We called this design 2–2 topology. 
+The solutions having a compactness index greater than 1 in the Pareto front are the solutions with a bulkier design than 
+LARM prototype. 
+Discontinuity of the Pareto front along cables tension index axis can be explained by heterogeneity of the studied designs 
+where the compactness index is a common function of all designs and cables tension function is speciﬁc for each design. To 
+19 
+
+===== PAGE 20 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 22. Pareto front. 
+Table 5 
+Two selected solutions from the Pareto front. 
+Design d 1 d 2 h rz e 
+I 4 0 . 3 m 0 . 3 m 0 . 404 m 0 . 281 m 0 . 05 m 
+3 0 . 3 m 0 . 302 m 0 . 405 m 0 . 281 m 0 . 05 m 
+Table 6 
+Design parameters of the selected solution. 
+Design d 1 d 2 h rz e 
+I 4 0 . 3 m 0 . 3 m 0 . 386 m 0 . 284 m 0 . 053 m 
+examine the point of discontinuity, both solutions of the gap point of the Pareto front are identiﬁed ( Table 5 ) and presented 
+in Fig. 23 . 
+Fig. 23 shows that the occupied volume of both solutions is very close however a considerable difference of the maximal 
+cable tension is recorded along the desired trajectory. The distinction of motors position from a design to another affects 
+the static equilibrium of the end-effector and then the applied efforts. 
+5.4.1. Pareto front selection approach 
+To select a single solution from the set of the Pareto front, a novel criterion is proposed. The decision process is per- 
+formed relatively to the patient safety. We consider the approach presented previously in Fig. 8 . It consists in evaluat- 
+ing the minimum distance between the cables and the user, nbpoints are selected on each cable at equal distance and 
+then the distance from a point p ij to the patient is calculated where i = 1 ..m and j = 1 ..nb. To simplify the model, we con- 
+sider the axis centered on the spine of the patient. To evaluate patient safety, the minimum distance between cables and 
+the patient is computed. 
+F s = min 
+(
+P ij 
+)
+(28) 
+Where P ij = 
+√ 
+( x ij − x c ) 2 + ( y ij − y c ) 2 − D 2 is the distance from the point p ij to the cylinder 
+x ij , y ij : are the coordinates of the point p ij 
+The safety function is computed for all Pareto solutions. The ranking of Pareto solutions reveals that the design «d» is 
+safer for the patient than solutions of design «c» with a minimum distance equal to 10 cm during desired trajectory. The 
+solution which guarantee the maximal distance between cables and patient is selected. Design parameters of this solution 
+are given in Table 6 . 
+20 
+
+===== PAGE 21 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 23. CAD and maximal tension distribution of the two selected solutions from the Pareto front. 
+Table 7 
+Design parameters of the existing LAWEX prototype. 
+d 1 LAWEX d 2 LAWEX h LAWEX r LAWEX z E LAWEX 
+I LAWEX 0 . 6 m 0 . 6 m 0 . 65 m 0 . 29 m 0 . 22 m 
+Results show that a 2–2 topology is the best topology for the selected optimality criteria. Also, the dimensional synthesis 
+provide feasible sizes for fulﬁlling the desired design requirements in terms of optimal tradeoff between occupied robot 
+volume, cable tensions and the user safety. 
+5.4.2. Comparison of the obtained solutions with the Lawex prototype 
+Design parameters of the existing LAWEX rehabilitation device ( Fig. 12 ) are given in Table 7 . 
+The index of cables tension on the Pareto front of design «d» solutions is greater than 1 which attested a maximal cables 
+tension slightly greater than LAWEX prototype maximal cables tension. Fig. 24 shows a difference going from 2 to 4 N along 
+the prescribed trajectory between both designs. 
+Fig. 25 presents the CAD models of LAWEX prototype and the selected solution. A signiﬁcant difference on the occupied 
+volume by both designs can be noticed. An evaluation of the occupied volume and maximal cables tension are given in 
+Table 8 . Results demonstrate a 2–2 topology as being the most effective in terms of the selected optimality criteria with 
+optimal tradeoff between occupied robot volume, cable tensions and the user safety. Namely, it has been possible to achieve 
+a reduction of the occupied volume of about 85% while maximum cable tension has been reduced by 2%. In terms of safety, 
+the actual prototype is still 38% safer than the selected solution due to the position of exiting points which are secluded 
+from the patient position. 
+21 
+
+===== PAGE 22 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+Fig. 24. Maximal cables tension of LAWEX prototype in N: (a) LAWEX prototype, (b) selected optimal solution. 
+Fig. 25. (a) CAD of the built LAWEX prototype, (b) CAD of the proposed solution. 
+Table 8 
+Performances comparison of LAWEX prototype and the proposed solution. 
+LAWEX prototype Proposed solution % improvement 
+Occupied volume V LA W EX = 0 . 234 m 3 V sol = 0 . 0347 m 3 V LA W EX −V sol V LA W EX % = 85% 
+Maximal cable tension Max ( τLAWEX ) = 20 . 1 N Max ( τsol ) = 19 . 7 N Max ( τLAWEX ) −Max ( τsol ) Max ( τLAWEX ) % = 2% 
+Safety: minimal distance between cables and the patient d min LA W EX = 10.4 cm d min sol = 6.3 cm d min LA W EX −d min sol d min LA W EX % = −38% 
+22 
+
+===== PAGE 23 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+6. Conclusion 
+First part of this paper focuses at fundamental characteristics related to topological and dimensional performances of 
+CDPRs with a general discussion on their type and dimensional synthesis, which are currently done in sequential order. 
+Then, authors propose a concurrent optimization approach speciﬁc for CDPRs, which is combining their type and dimen- 
+sional synthesis. A speciﬁc case of study is carried out by referring to LAWEX a 3DOFs CDPR rehabilitation device for 
+the human forearm. The reported case of study proposes concurrent multi-objective optimization by taking into account 
+cables tensions and occupied volume alongside with desired workspace and motion performances. Topology search has 
+been considering four different topology designs of LAWEX. The topology and dimensions of the mechanism are optimized, 
+simultaneously. In addition to the design parameters, the decision vector of the GA contains a discrete variable to deﬁne 
+the selected topology among the four proposed architectures. A Pareto front has been obtained showing the set of feasible 
+optimal solutions. An additional safety criterion is implemented for identifying an optimal solution among the set of so- 
+lutions in the obtained Pareto front. This has allowed to identify the desired optimal solution. Results demonstrate a 2–2 
+topology as being the most effective in terms of the selected optimality criteria with optimal tradeoff between occupied 
+robot volume, cable tensions and the user safety. 
+Declaration of Competing Interest 
+The authors have conﬁrmed that there is no declaration of completing interest. 
+Acknowledgement 
+This work is supported by the “Poitiers Université Foundation”. 
+References 
+[1] James Albus , R. Bostelman , N. Dagalakis , The NIST RoBoCrane, J Res Natl Inst Stand Technol 94 (3) (1992) 373–384 . 
+[2] X. Tang , An overview of the development for cable-driven parallel manipulator, Adv. Mech. Eng. January (2014) . 
+[3] A.M. Pinto , E. Moreira , J. Lima , J.P. Sousa , P. Costa , A cable-driven robot for architectural constructions : a visual-guided approach for motion control 
+and path-planning, Auton Robots 41 (7) (2017) 1487–1499 . 
+[4] G. Billette , C. Gosselin , Producing rigid contacts in cable-driven haptic interfaces using impact generating reels, in: IEEE International Conference on 
+Robotics and Automation, 2009, pp. 307–312 . 
+[5] G. Boschetti , G. Rosati , A. Rossi , A haptic system for robotic assisted spine surgery, in: Proceedings of the IEEE International Conference on Control 
+Applications, 24, 2005, pp. 19–24 . 
+[6] D. Zanotto , G. Rosati , S. Minto , A. Rossi , Sophia-3: a semiadaptive cable-driven rehabilitation device with a tilting working plane, IEEE Trans. Robot. 30 
+(4) (2014) 974–979 . 
+[7] E.E. Hernández-Martínez , M. Ceccarelli , G. Carbone , C.S. López-Cajún , J.C. Jáuregui-Correa , Characterization of a cable-based parallel mechanism for 
+measurement purposes, Mech. Based Design Struct. Mach. 38 (1) (2010) 25–49 . 
+[8] M.J. Varela , M. Ceccarelli , P. Flores , A kinematic characterization of human walking by using CaTraSys, Mech Mach Theory 86 (2015) 125–139 . 
+[9] D. Cafolla , M. Russo , G. Carbone , CUBE, a Cable-driven device for limb rehabilitation, J Bionic Eng 16 (2019) 4 93–4 94 . 
+[10] C. Fanin , P. Gallina , A. Rossi , U. Zanatta , S. Masiero , NeRebot: a wire-based robot for neurorehabilitation.pdf, in: In Proceedings of the 8th International 
+Conference on Rehabilitation Robotics ICORR03, 2003, pp. 23–26 . 
+[11] G. Rosati , S. Masiero , A. Rossi , On the use of cable-driven robots in early inpatient stroke rehabilitation, in: Advances in Italian Mechanism Sci- 
+ence,Mechanisms and Machine Science 47, 2017, pp. 551–558 . 
+[12] R. Kelaiaia , O. Company , A. Zaatri , Multiobjective optimization of a linear delta parallel robot, Mech Mach Theory 50 (2012) 159–178 . 
+[13] R. Kelaiaia , A. Zaatri , O. Company , L. Chikh , Some investigations into the optimal dimensional synthesis of parallel robots, Int. J. Adv. Manuf. Technol. 
+83 (9–12) (2016) 1525–1538 . 
+[14] M.A. Laribi , L. Romdhane , S. Zeghloul , Analysis and dimensional synthesis of the DELTA robot for a prescribed workspace, Mech Mach Theory 42 (7) 
+(2007) 859–870 . 
+[15] S. Botello-Aceves , S.I. Valdez , H.M. Becerra , E. Hernandez , Evaluating concurrent design approaches for a Delta parallel manipulator, Robotica 36 (5) 
+(2018) 697–714 . 
+[16] M.A . Laribi , A . Mlika , L. Romdhane , S. Zeghloul , Multi criteria optimum design of 3 DOF translational in parallel manipulators (3TPM), in: 13th World 
+Congress in Mechanism and Machine Science, 2011, pp. 19–25 . 
+[17] T. Essomba , M.A. Laribi , S. Zeghloul , G. Poisson , Optimal synthesis of a spherical parallel mechanism for medical application, Robotica 34 (3) (2016) 
+671–686 . 
+[18] N. Bilel , N. Mohamed , A. Zouhaier , R. Lotﬁ, Multi-objective robust design optimization of a mechatronic system with uncertain parameters, using a 
+polynomial chaos expansion method, Proc. Inst. Mech. Eng. 231 (9) (2017) 729–739 . 
+[19] M.A. Laribi , G. Carbone , S. Zeghloul , On the optimal design of cable driven parallel robot with a prescribed workspace for upper limb rehabilitation 
+tasks, J Bionic Eng 16 (2019) 503–504 . 
+[20] H. Lamine , M.A. Laribi , S. Bennour , L. Romdhane , S. Zeghloul , Design study of a cable-based gait training machine, J Bionic Eng 14 (2) (2017) 232–244 . 
+[21] E. Hernandez , S.I. Valdez , G. Carbone , M. Ceccarelli , Design optimization of a cable-driven parallel robot in upper arm training-rehabilitation processes, 
+MuSMe 3 (2017) 1–10 . 
+[22] P. Liu , Y. Qiu , Tension optimization for a cable-driven parallel robot with non- negligible cable mass, Open Auto Control Syst. J. 7 (2015) 1973–1980 . 
+[23] J.E. Parada Puig , N.E.N. Rodriguez , M. Ceccarelli ,A methodology for the design of robotic hands with multiple ﬁngers, Int. J. Adv. Robot. Syst. 5 (2) 
+(2008) 177–184 . 
+[24] D.G. Olson , A.G. Erdman , D.R. Riley , A systematic procedure for type synthesis of mechanisms with literature review literaturbe-sprechung, Mech Mach 
+Theory 20 (4) (1985) 285–295 . 
+[25] L. Nouaille , M.A. Laribi , C.A. Nelson , T. Essomba , G. Poisson , S. Zeghloul , Design process for robotic medical tool guidance manipulators, Proc. Inst. 
+Mech. Eng. 230 (2) (2016) 259–275 . 
+[26] J.-.P. Merlet , On the redundancy of cable-driven parallel robots, in: P. Flores, F. Viadero (Eds.), New Trends in Mechanism and Machine Science. Mech- 
+anisms and Machine Scienc, 24, Springer, Cham, 2014, pp. 31–39 . 
+[27] M.A. Khosravi , H.D. Taghirad , Robust PID control of fully-constrained cable driven parallel robots, Mechatronics 24 (2) (2014) 87–97 . 
+23 
+
+===== PAGE 24 =====
+I. Ben Hamida, M.A. Laribi, A. Mlika et al. Mechanism and Machine Theory 156 (2021) 104141 
+[28] M. Gouttefarde , C.M. Gosselin , Analysis of the wrench-closure workspace of planar parallel cable-driven mechanisms, IEEE Trans. Robot. 22 (3) (2006) 
+434–445 . 
+[29] J.M. Heo , B.J. Park , J.O. Park , C.S. Kim , J. Jung , K.S. Park , Workspace and stability analysis of a 6-DOF cable-driven parallel robot using frequency-based 
+variable constraints, J. Mech. Sci. Technol. 32 (3) (2018) 1345–1356 . 
+[30] A.Z. Loloei , M.M. Aref , H.D. Taghirad ,W r e n c h feasible workspace analysis of cable-driven parallel manipulators using LMI approach, in: IEEE/ASME 
+International Conference on Advanced Intelligent Mechatronics, AIM, 2009, pp. 1034–1039 . 
+[31] G. Castelli , E. Ottaviano , M. Ceccarelli , A fairly general algorithm to evaluate workspace characteristics of serial and parallel manipulators, Mech. Based 
+Design Struct. Mach. 36 (1) (2008) 14–33 . 
+[32] I. Ben Hamida , M.A. Laribi , A. Mlika , L. Romdhane , S. Zeghloul , Geometric based approach for workspace analysis of translational parallel robots, 
+ROMANSY 22 –R o b o t Design, Dynamics and Control. CISM International Centre for Mechanical Sciences 584 (2019) 180–188 . 
+[33] M.A . Laribi , A . Mlika , L. Romdhane , S. Zeghloul , Geometric and kinematic performance analysis and comparison of three translational parallel manip- 
+ulators, The 14th IFToMM World Congress, 2015 . 
+[34] J.W. Jeong , S.H. Kim , Y.K. Kwak , C.C. Smith , Development of a parallel wire mechanism for measuring position and orientation of a robot end-effector, 
+Mechatronics 8 (8) (1998) 845–861 . 
+[35] K. Kozak , Q. Zhou , J. Wang , Static analysis of cable-driven manipulators with non-negligible cable mass, IEEE Trans. Robot. 22 (3) (2006) 425–433 . 
+[36] C.A . Nelson , M.A . Laribi , S. Zeghloul , Optimization of a redundant serial spherical mechanism for robotic minimally invasive surgery, in: M. L., 
+S. Zeghloul, L. Romdhane (Eds.), Computational Kinematics. Mechanisms and Machine Science, 50, Springer, Cham, 2018, pp. 126–143 . 
+[37] I. Ben Hamida , M... Laribi , A. Mlika , L. Romdhane , S. Zeghloul , Comparative study of design of a 3-DOF translational parallel manipulator with pre- 
+scribed workspace, in: T. UHL (Ed.), Advances in Mechanism and Machine Science. IFToMM WC 2019, Mechanisms and Machine Science, 73, Springer, 
+Cham, 2019, pp. 501–512 . 
+[38] X. Diao , O. Ma , Q. Lu , Singularity analysis of planar cable-driven parallel robots, in: IEEE International Conference on Robotics, Automation and Mecha- 
+tronics, 2008, pp. 272–277 . 
+[39] J.P. Merlet , Singularity of cable-driven parallel robot with sagging cables: preliminary investigation, Int. Conf. Robot. Auto. 2019–May (2019) 504–509 . 
+[40] C. Gosselin , J. Angeles , A global performance index for the kinematic optimization of robotic manipulators, J. Mech. Design 113 (September 1991) 
+(1991) 220 . 
+[41] ISO/TC 299 ROBOTICS, Particular requirements for basic safety and essential performance of medical robots for rehabilitation, assessment, compensa- 
+tion or alleviationMedical Electrical Equipment, 1st ed., 2019 . 
+[42] G. Carbone , B. Gherman , I. Ulinici , C. Vaida , Design issues for an inherently safe robotic rehabilitation device, in: C. Ferraresi, G. Quaglia (Eds.), Advances 
+in Service and Industrial Robotics. RAAD 2017. Mechanisms and Machine Science, 49, Springer, Cham, 2017, pp. 1025–1032 . 
+[43] G. Boschetti , G. Carbone , C. Passarini , Cable failure operation strategy for a rehabilitation cable-driven robot, Robotics 8 (1) (2019) 1–12 . 
+[44] I. Ben Hamida , M.A. Laribi , A. Mlika , L. Romdhane , S. Zeghloul , G. Carbone , Novel safety criterion for synthesis of cable driven parallel robots, Mech. 
+Mach. Sci. 84 (2020) 112–120 . 
+[45] M.H. Rahman , M. Saad , J.P. Kenné, P.S. Archambault , Exoskeleton robot for rehabilitation of elbow and forearm movements, in: 18th Mediterranean 
+Conference on Control and Automation, MED’10, 2010, pp. 1567–1572 . 
+[46] M.H. Rahman , M. Saad , J.P. Kenné, P.S. Archambault , Modeling and control of a 7DOF exoskeleton robot for arm movements, in: IEEE International 
+Conference on Robotics and Biomimetics, ROBIO, 2009, pp. 245–250 . 
+[47] S. Plagenhoef , F.G. Evans , T. Abdelnour , Anatomical data for analyzing human motion, Res Q Exerc Sport 54 (2) (1983) 169–178 . 
+[48] K. Deb , S. Agrawal , A. Pratap , T. Meyarivan , A fast elitist non-dominated sorting genetic algorithm for multi-objective optimization: NSGA-II, Lecture 
+Notes in Computer Science (including subseries Lecture Notes in Artiﬁcial Intelligence and Lecture Notes in Bioinformatics) 1917 (20 0 0) 849–858 . 
+24

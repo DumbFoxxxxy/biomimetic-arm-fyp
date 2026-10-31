@@ -1,0 +1,103 @@
+{
+  "scope": "local rigid yaw/pitch sampling,shoulder contact and3 bench insertion paths only; no installed arm/route,thread,friction,preload or load proof",
+  "motion_paths": [
+    {
+      "path": "yaw_revolution",
+      "samples": 361,
+      "angular_step_deg": 1,
+      "return_same_rigid_configurations": true,
+      "first_limit": null,
+      "max_overlap_mm3": 0
+    },
+    {
+      "path": "pitch_at_5_yaws",
+      "samples": 805,
+      "angular_step_deg": 1,
+      "return_same_rigid_configurations": true,
+      "first_limit": null,
+      "max_overlap_mm3": 0
+    }
+  ],
+  "nominal_seat_contacts": [
+    {
+      "label": "yaw_rear_shoulder",
+      "gap_mm_capped1": 0.0,
+      "nominal_contact": true
+    },
+    {
+      "label": "yaw_front_shoulder",
+      "gap_mm_capped1": 0.0,
+      "nominal_contact": true
+    },
+    {
+      "label": "pitch_shoulder_on_fork",
+      "gap_mm_capped1": 0.0,
+      "nominal_contact": true
+    }
+  ],
+  "assembly_paths": [
+    {
+      "label": "pitch_hub_and_sleeve_into_open_yoke",
+      "moving": [
+        "pitch_crimp_blank",
+        "pitch_sleeve"
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "first_limit": null,
+      "final_5mm_step_mm": 0.1,
+      "other_step_mm": 1
+    },
+    {
+      "label": "pitch_back_washer_and_loose_nut",
+      "moving": [
+        "pitch_back_washer",
+        "pitch_nut"
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "first_limit": null,
+      "final_5mm_step_mm": 0.1,
+      "other_step_mm": 1
+    },
+    {
+      "label": "pitch_pin_and_front_washer",
+      "moving": [
+        "pitch_M2x12",
+        "pitch_front_washer"
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "first_limit": null,
+      "final_5mm_step_mm": 0.1,
+      "other_step_mm": 1
+    }
+  ],
+  "all_local_motion_clear": true,
+  "all_local_fitting_clear": true,
+  "source_sha256": {
+    "yaw_sleeve": "c89d040e5827066466fe3fe375641910e5d601c91fc21b6a7298da9e69b7a881",
+    "rotor_yoke": "6ec8e9918a9a8986d11e9887aff6cdf0503f46ea87d06a590433930a9c69cb2c",
+    "pitch_crimp_blank": "d282eff067a7ccc0366ba0554eb683ac4f128907305b3cf128058a64ed4c1cb0",
+    "pitch_sleeve": "9eb207f752589f448f4e5c16c4fc58448cde395778737e3c068847b505a33243",
+    "pitch_M2x12": "a08f00b0067175667cfe27151589e59cc88306b76e6317703ec86133b971285a",
+    "pitch_front_washer": "05fbd7594b723a2a81a05d87ceda145fc4c73ff38192433cb122e6650975b1bd",
+    "pitch_back_washer": "64349a965afe1f65a156a4a5ee8b870e8a4237b0e2f2280605837e0173eb9afc",
+    "pitch_nut": "8572665eba399d6b70de4d0cf5902e4d97904482841ede3cf79fc60192c3310e",
+    "yaw_M3": "2ac117c631a2e2a66562cbe9aad23855d17b0d8835781c3656e236e06e0310c2",
+    "yaw_front_washer": "9c243867e641c3cc45d163ce33eabd00090e4f9c2e69780066547528333f9fdf",
+    "yaw_base_washer": "a91592b5acffb4739474fbaa82f7952fdf7ca40edd3f5d8d072f78c626800ae7",
+    "yaw_back_washer": "bd4cee412daf99fec8983f9dcd8d871e154cfb80f0f67f15ad7d2f593b6fd237",
+    "yaw_nut": "2dc2c6e7af14104b1389e3f30ab968575ce37759faee21aa7c5c361b5bd365cf"
+  },
+  "frozen": false
+}

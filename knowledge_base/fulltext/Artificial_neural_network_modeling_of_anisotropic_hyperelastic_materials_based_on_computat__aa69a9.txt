@@ -1,0 +1,532 @@
+===== PAGE 1 =====
+1 
+ 
+ Artificial neural network modeling for 
+anisotropic hyperelastic materials based on 
+computational crystal structure data 
+ 
+Sunyoung Im1, Wonbae Kim2, Hyungjun Kim3 and Maenghyo Cho4 
+Multiscale Mechanical Design Division, Department of Mechanical and Aerospace 
+Engineering, Seoul National University, Gwanak-ro 1, Gwanak-gu, Seoul 151-744, Republic 
+of Korea 
+Based on computational crystal structures da ta, a new modeling approach using 
+artificial neural network for anisotropic hyperelastic materials is proposed. Compared to 
+experiments, computational model for materials can simulate various behaviors of 
+materials and provide information on all components of strain, stress and constitutive 
+tensors. Classical hype relastic modeling methods assume the strain energy density 
+function, and obtain stress and constitutive tensor by differentiating it with respect to the 
+strains. However, it is not easy to find the strain energy density function that describes the 
+anisotropic hyperelastic materials such as complex hexagonal and tetragonal crystal 
+structures. Bypassing the assumption of the strain energy density function , this study 
+directly use s the data of the st rain, stress, and constitutive tensor through machine 
+learning technique . Artificial neural network ( ANN) models are constructed for face -
+centered cubic (Cu), di amond cubic (Si) and hexagonal (ZnO) structures. Numerical 
+simulations based on finite element method (FEM) are performed using the proposed 
+ANN models in order to characterize macroscopic mechanical behaviors. 
+ 
+ 
+ 
+ 
+1 Graduate student, Department of Mechanical and Aerospace Engineering, Seoul National University . 
+E-mail : imsunyoung@snu.ac.kr 
+Tel : +82-2-880-1645 
+AIAA student member 
+2 Research Professor, Department of Mechanical and Aerospace Engineering, Seoul National University . 
+E-mail : wbkim@snu.ac.kr 
+Tel : +82-2-880-1645 
+3 Graduate student, Department of Mechanical and Aerospace Engineering, Seoul National University . 
+E-mail : okijpl2@snu.ac.kr 
+Tel : +82-2-880-1695 
+AIAA student member. 
+4 Professor, Department of Mechanical and Aerospace Engineering, Seoul National University. 
+E-mail : mhcho@snu.ac.kr 
+Tel : +82-2-880-1693 
+AIAA member. 
+
+===== PAGE 2 =====
+2 
+ 
+ 
+Nomenclature 
+
+ = strain energy density function 
+iL
+ = polynomial basis 
+ic
+,
+ijc ,
+ijkc = material constants 
+ijS
+ = Second Piola-Kirchhoff stress 
+ijE
+ = Green-Lagrangian strain 
+ijC
+ = constitutive tensor 
+iX
+ = undeformed coordinate 
+ix
+ = deformed coordinate 
+0
+ = volume in the undeformed coordinate 
+mJu
+ = rate of nodal displacement 
+ext
+iIf
+ = rate of external force 
+II. Introduction 
+ 
+ Continuum mechanics consists of the compatibility for strain and displacement, the equilibrium for stress and 
+force, and the constitutive law for strain and stress . The compatibility relation is based on geometry, and the 
+equilibrium equation is derived from N ewton’s laws of motion. So that there are no uncertainty or error in two 
+equations. I n contrast, the constitutive equation is a formulation obtained from the observations and the 
+experiments, which inevitability involves the uncertainty. 
+Hyperelastic mate rial is a type of constitutive model for ideal elastic material of which the stress -strain 
+relationship derives from a strain energy density function. Over the decades, many hyperplastic models have been 
+proposed to consider large deformation for rubberlike materials [1-5]. Those functions have material constants to 
+be determined from experimental data. Classical hyperealstic model represents test data well only for certain 
+levels of strains, and hardly for other conditions. Obtaining from observations and experiments, it is fundamentally 
+impossible to construct a model that perfectly simulates the behavior of materials. 
+ In this background, Sussman and Bathe presented a different approach which directly interpolate using spline 
+function the test data ob tained, instead of fitting the material constants [6]. Since then, the model-free modeling 
+approaches such as ‘What-You-Prescribe-is-What-You-Get (WYPiWYG)’ have been actively studied [7-11]. 
+ Meanwhile, with these uncertainty of the constitutive relation, Ortize suggests to directly use a data set 
+obtained from the physical experiments without depending on the empirical modeling [12]. This approach is 
+usually called ‘data-driven’ computing which does not require any modeling. Related studies are also being carried 
+out extensively [13-14]. 
+ To our knowledge, however, above recent researches about ‘WYPiWYG’ or ‘data-driven approaches’ just 
+focus on data processing methods with in imagined strain-stress spaces [6-14]. Despite the brilliant advances in 
+computational materials [15-18], none of them uses the meaningful material data. So, it is notable that this study 
+utilize the data based on com putational materials. Using computational materials rather than experimentation, it 
+is realized that there is a lot of information available. Computational materials can perform the behaviors under 
+various loading conditions and also give all components of strain, stress, and constitutive tensor with regard to the 
+mechanical properties of the materials. 
+ Based on diverse and sufficient material data, this study proposes to use artificial neural network for modeling 
+the hyperelastic materials. Artificial neural network have been broadly in the various engineering applications due 
+to their practicality [ 19-21]. Since ANN can identify complex nonlinear relationships between input and output 
+data, it is a good alternative to classic model based on polynomial strain energy density functions. 
+ For challenging tasks, this paper targets the crystal structure s as anisotropic hype rplastic material which is 
+rarely reported for its complexity. With the great interest of nanoscale devices over past decades, it is meaningful 
+to understand the properties of the single crystals and construct a practical model for them. The reference data of 
+single crystal structure is computed using molecular mechanics (MM) and density functional theory (DFT) with 
+The Cauchy -Born rule (CBR). The proposed ANN model is embedded in finite element method (FEM) and 
+verified its effectiveness. 
+
+===== PAGE 3 =====
+3 
+ 
+III. Computational crystal structures 
+ 
+Some of the properties of crystalline solids depend on the crystal structure of the materials, the way atoms, 
+ions, or molecules are spatially arranged. There are many different possible crystal structures, and they are divided 
+into seven different crystal system according to unit cell geometry. These seven crystal systems are cubic, 
+tetragonal, hexagonal, orthorhombic, rhombohedra, monoclinic, and triclinic. Among them, this study targets the 
+face-centered cubic (FCC) and diamond cubic belonging to the cubic crystal structure, and wurtzite belonging to 
+the hexagonal crystal structure. 
+Fig. 1 shows the unit cells of (a) face-centered cubic crystal structure, (b) diamond cubic crystal structure, and 
+(c) hexagonal wurtzite crystal structure. 
+a , 
+b , and 
+c coordinate system is based on the unit cell geometry. In 
+FCC and diamond crystal structures, the three edge lengths are identical and the three interaxial angles are equal 
+to 
+90 . In hexagonal crystal structures , however, the edge length in 
+c direction is not equal to the others, and 
+only two interaxial angles are equal to 
+90 and the remaining angle is 
+120 . Therefore, ZnO of Fig 1. (c) is 
+expected to show different characteristics depending on the axes. 
+To obtain the specific hyperelastic behavior of crystal structures, this study conducted numerical simulation 
+based on molecular mechanics (MM) and density functional theory (DFT). The Cauchy-Born rule (CBR) which 
+acts as the bridge between the atomistic deformation in a crystal structure and the macroscopic deformation in the 
+continuum scale is also used. The macroscopic deformation gradient determine the position of each atom in the 
+deformed state. Once any atomic position of a structure in a deformed configuration is defined, the stress and 
+tangent modulus of the deformed state is computed analytica lly from the inter-atomic potential function. For the 
+copper, the embedded-atom method (EAM) potential is used to describe metallic bonding of face -centered cubic 
+(FCC) crystal. For the silicon of diamond cubic crystal structure, Tersoff potential is used to consider covalent 
+boding materials. However, lacking of empirical potential precisely characterizing the wurtzite ZnO, first -
+principle calculations based on DFT is used to obtain the stress -strain relationship and constitutive tensor. These 
+computational materials can give all components of strain, stress, and constitutive tensor under various loading 
+conditions. 
+ 
+ 
+ 
+ 
+Fig. 1 Unit cells of (a) Face-centered cubic (FCC), (b) Diamond cubic (DC), 
+and (c) Hexagonal wurtzite crystal structures 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 4 =====
+4 
+ 
+IV. Classical hyperelastic modeling for crystal structures 
+ 
+Hyperelastic is the constitutive relation for ideally elastic material where the stress-strain relationship derived 
+from a strain energy density function. A strain energy density function is a function of strain, and the stress is 
+obtained by differentiating it with respect to strain. For isotropic materials, the constitutive relation is the same 
+regardless of the selected coordinate systems. So that a lot of the strain energy density functions have been studied 
+for isotropic materials using the invariants of strain tensor such as Neo-Hookean, Mooney-Rivlin, and polynomial 
+models. 
+However, as these invariants are not suitable for the crystal structures which are anisotropic hyperelastic 
+materials, Smith and Rivlin proposed the form-invariant quantities. The form of the strain energy density function 
+is determined for each crystal systems. By limiting the order of the polynomial bases to three, an anisotropic 
+hyperealstic model for crystal structures is derived as: 
+1 1 1
+N N N N N N
+i i ij i j ijk i j k
+i i j i i j i k j
+c L c L L c L L L
+     
+     
+ (1) 
+ 
+Where 
+iL is the polynomial basi s which is a function of the for m invariants. 
+ic ,
+ijc , and 
+ijkc are material 
+constants determined by least squa re method which minimize the difference between reference data of material 
+and the predicted value of model. 
+Based on the model in Eq. (1) , Kim, et al. suggested a specific anisotropic hyperelastic model for crystal 
+structures with face-centered cubic (FCC) and diamond cubic systems which are the simplest crystal systems [5]. 
+Kim model utilizes the nine strain invariants of the crystal structures directly as its polynomial bases. For FCC 
+and diamond cubic stru ctures, Kim, et al. computed 17 material constants and eight material constants utilizing 
+nine component of constitutive tensor as reference data. Although a large number of material constants were used, 
+Kim model was confirmed its accuracy only in strain range -2.5% to 2.5%. 
+ 
+ 
+V. Artificial neural network modeling for crystal structures 
+A. ANN modeling 
+Artificial neural network (ANN), which is an algorithms simulating the functioning of the biological neurons, 
+is able to be identified as data processing systems. ANN consists of numerous neurons which are also called units 
+or nodes. Each node is connected to the nodes of neighboring layers, but not to nodes of same layer. The weight 
+is the parameter associated with each connection. The weights correspond to the strength of connection between 
+the interconnected nodes. Training is the process to find the optimal value of weights. 
+The advantage of ANN is that it does not require any mathematical model, it just learns from the exa mples 
+and recognizes patterns in a series of input and output data. With sufficient data about all components of strain, 
+stress, and constitutive tensor in various loading conditions , ANN model can be an efficient alternati ve of 
+complicated hyperelastic model of crystal structures. 
+ 
+Fig. 2 Architecture of artificial neural network (ANN) for strain-stress model 
+
+===== PAGE 5 =====
+5 
+ 
+Fig. 2 shows architecture of artificial neural network (ANN) for strain-stress model. The first layer, which 
+is called the input layer, receives the component of strain tensor which composed of six independent variables. 
+The last layer, called the ou tput layer, returns the six independent component of stress . Layers located in 
+between the input and output layers are called hidden layers. The number of hidden layers can be more 
+than one, but it is demonstrated that a single layer network with a sufficiently large number of units can 
+be used for estimating any non-linear continuous function with any preferred accuracy. Therefore, it is 
+highly suggested to utilize a single hidden layer. Although the dimension of hidden layer also does not have 
+a fixed value, this study empirically used ten dimension of hidden layer. The ANN model for strain -stress 
+relationship can be written as: 
+   11 22 33 23 31 12 11 22 33 23 31 12, , , , , , , , , , ANNws s s s s s f E E E E E E
+ (2) 
+Here 
+ijs is the component of second Piola-Kirchhoff stress tensor, and 
+ijE is the component of the Green -
+Lagrangian strain tensor. 
+For modeling strain -constitutive tensor, ANN model has a n input layer of six dimension s for strain and an 
+output layer of 21 dimensions for components of constitutive tensor. The number of hidden layer is recommended 
+to one, and the dimension of hidden layer is adopted as 21 which is equal to the dimension of output la yer. The 
+ANN model for strain-constitutive tensor is defined as: 
+   11 12 13 56 66 11 22 33 23 31 12, , , , , , , , , , ANNwC C C C C g E E E E E E
+ (3) 
+Here 
+ijC is the component of constitutive tensor. 
+B. Application of ANN model to crystal structures 
+This study applied the proposed ANN model for copper, silicon and zinc-oxide. These models are established 
+and trained within the Matlab programming environment. The trained data were constructed on a total of 19 
+different loading conditions: x-, y-, and z-direction for the uniaxial deformation; xy-, yz-, and zx-direction for the 
+pure shear and si mple shear deformation; x,y-, y,z - , and z,x -direction for the biaxial deformation; triaxial 
+deformation of strain ratio (1:1:1), (1:-0.5:-0.5), and ( 1:1:-1). The strain range of copper is from -15% to 15%, 
+and the strain range of silicon and zinc -oxide is from -14% to 14%. Both ranges are much wider than the range 
+used in classical Kim model. 
+Table 1 shows the mate rial constants of 17 parameter models for copper and silicon . Since the material 
+constants are based on the data of 19 different loading condition with wide ranges, their values are slightly 
+different from those in the literature. 
+For copper, Fig. 3 shows the second Piola-Kirchhoff (2nd PK) stress of reference data, Kim model, and ANN 
+model under four basic deformation conditions: (a) uniaxial, (b) biaxial, (c) pure shear, and (d) triaxial behaviors. 
+Kim model matches the reference data within a narrow str ain range, but the larger the range, the larger the 
+difference between them. On the other hand, the ANN model tends to match the refere nce data over the entire 
+strain range. Fig. 4 represents the tangent modulus of copper in basic loading conditions. And it shows a clearer 
+performance difference between the two models. For the trained data, it is easily confirmed that the ANN model 
+follows the reference data more accurately than Kim model. The validation results for strain ratio ( 1:0.5:0) is 
+shown in Fig. 5 . The ANN model predicts both 2 nd PK stress and tangent modulus more accurately than Kim 
+model. 
+The ANN model of silicon also shown the same trend as shown in Fig. 6, 7, 8 in which the ANN model more 
+accurately follows the reference data than Kim model. In the case of zinc oxide, there is no existing comparable 
+model, so ANN model is only compared with the reference data as shown in Fig. 9, 10, 11. What is notable is that 
+the biaxial behavior of Fig. 9 (b) and Fig. 10 (b) is somewhat complicated, but the ANN model delicately describes 
+it. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 6 =====
+6 
+ 
+Table. 1 The material constants of 17 parameter models for copper and silicon in GPa 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig. 3 The second Piola-Kirchhoff stress of copper using ANN model and Kim model under four 
+deformation conditions : (a) uniaxial behavior, (b) biaxial behavior, (c) pure shear behavior, and (d) 
+triaxial behavior 
+ 
+ 
+
+===== PAGE 7 =====
+7 
+ 
+ 
+Fig. 4 The tangent modulus of copper using ANN model and Kim model under four deformation 
+conditions : (a) uniaxial behavior, (b) biaxial behavior, (c) pure shear behavi or, and (d) triaxial behavior 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig. 5 (a) The second Piola-Kirchhoff stress, and (b) tangent modulus of copper 
+using ANN model and Kim model for validation loading condition 
+ 
+ 
+ 
+ 
+ 
+Fig. 6 The second Piola-Kirchhoff stress of silicon using ANN model and Kim model under four 
+deformation conditions : (a) uniaxial behavior, (b) biaxial behavior, (c) pure sh ear behavior, and (d) 
+triaxial behavior 
+
+===== PAGE 8 =====
+8 
+ 
+ 
+Fig. 7 The tangent modulus of silicon using ANN model and Kim model under four deformation 
+conditions : (a) uniaxial behavior, (b) biaxial behavior, (c) pure shear behavior, and (d) triaxial behavior 
+ 
+ 
+ 
+ 
+Fig. 8 (a) The second Piola-Kirchhoff stress, and (b) tangent modulus of silicon 
+using ANN model and Kim model for validation loading condition 
+ 
+ 
+ 
+ 
+Fig. 9 The second Piola-Kirchhoff stress of ZnO using ANN model and Kim model under four 
+deformation conditions : (a) uniaxial behavior, (b) biaxial behavior, (c) pure shear behavior, and (d) 
+triaxial behavior 
+ 
+
+===== PAGE 9 =====
+9 
+ 
+ 
+Fig. 10 The tangent modulus of ZnO using ANN model under four deformation conditions : 
+(a) uniaxial behavior, (b) biaxial behavior, (c) pure shear behavior, and (d) t riaxial behavior 
+ 
+ 
+ 
+ 
+ 
+Fig. 11 (a) The second Piola-Kirchhoff stress, and (b) tangent modulus of ZnO 
+using ANN model and Kim model for validation loading condition 
+ 
+VI. Numerical example 
+A. Tension test of a notched bar 
+In order to investigate the applicability of the proposed ANN model, nonlinear finite element analysis of the 
+notched specimen 12 is performed. The notched specimen is under a uniform tensile loading as shown in Fig. 12. 
+The specimen has a dimension of 120 n m in length, 25 nm in width, and 10 nm in thickness. The notched part 
+located at the center of the specimen has a dimension of 40 nm in length, and 15 nm in width. The specimen is 
+modeled using 480 8 -node hexahedral elements with 796 nodes. The single crys tal copper is adopted as a test 
+material. One edge marked A in Fig. 12 is fixed in the x -direction, and the other end marked B is subjected a 
+tensile loading uniformly with a force of 250 nN. 
+ 
+ 
+Fig. 12 FEM model of the notched specimen under a uniform tensile load 
+
+===== PAGE 10 =====
+10 
+ 
+ 
+The CBR FEM model, the linear elastic FEM model, the geometric nonlinear FEM model, and the proposed 
+ANN FEM model are analyzed. As reference results, the CBR FEM analysis is performed. The linear FEM model, 
+the geometric nonlinear FEM model are calculated in order to consider both geometric and material nonlinearity. 
+For the nonlinear analyses, the following total Lagrangian description is used: 
+ 
+00
+00
+SE exti J m JII
+jrkl jr mi mJ iI
+j r k l j r
+x N x NNN C d S d u fX X X X X X                            
+ (4) 
+ 
+Where 
+iX and 
+ix are the undeformed and deformed coordinates, respectively. 
+0 is the volume in 
+the undeforemd configuration, and 
+mi is the Kronecker delta.
+SE
+ijklC is the constitutive tensor, and 
+jrS 
+is the second Piola-Kirchhoff (2nd PK) stress tensor. 
+mJu
+ is the rate of nodal displacement, and 
+ext
+iIf
+ is 
+the rate of external force. The subscripts 
+I and 
+J correspond to the number of nodes per an element, 
+and the subscripts 
+i , 
+j , 
+k , 
+l , 
+m , 
+j , and 
+r vary from 1 to 3 for three dimensional problems. 
+For the ANN FEM analysis, the constitutive tensor
+SE
+ijklC , and the 2nd PK stress 
+jrS are obtained from each 
+ANN model at the given Green-Lagrangian strain as: 
+ 
+ 
+ANN
+jr w klS f E
+ (5) 
+ 
+ 
+SE ANN
+jkrl w klC g E
+ (6) 
+ 
+Table. 2 Tip displacement and error of linear elastic model, geometric nonlinear model, ANN model and 
+CBR model in FE analysis 
+ 
+ 
+Table. 2 shows the tip displacement at edge B under the uniformly applied tensile loading. The tip 
+displacements of the CBR FEM model are smaller than that of the linear FEM model and that of geometric 
+nonlinear FEM model due to the effects of both the geometric and material nonlinearity . On the other hand, the 
+tip displacement of the proposed ANN FEM model is significantly consistent with those of the CBR FEM model 
+having only 0.2% error. 
+VII. Conclusion 
+This study suggested to use artificial neural network (ANN) models for the anisotropic hyperelasticity based 
+on data of computational materials. Data on material behaviors of copper, silicon, and zinc -oxide was obtained 
+from molecular mechanics (MM) and density functional theory (DFT) in various loading conditions . Without 
+assuming the strain ener gy density function, two types of ANN model were constructed just based on sufficient 
+data. One is a model with six strain components as inputs and six stress components as outputs. The other is a 
+model with six strain components as inputs and 21 constitut ive tensor components as outputs. It was confirmed 
+that ANN models not only simulate accurately simulate the trained loading condition, but also can predict the 
+untrained loading condition compared to classical hyperelastic model . ANN model is simply embedded into a 
+nonlinear finite element analysis framework. To validate its applicability, the notched bar of copper was analyzed 
+under uniform tensile load. Since the numerical results of ANN FEM model was almost identical to those of the 
+CBR FEM model, its accuracy is verified. 
+ 
+
+===== PAGE 11 =====
+11 
+ 
+Acknowledgments 
+This work was supported by the National Research Foundation of Korea (NRF) grant funded by the Korea 
+government (MSIP) (No. 2012R1A3A2048841). 
+References 
+[1] Mooney, Melvin. "A theory of large elastic deformation." Journal of applied physics 11.9 (1940): 582-592. 
+doi: 10.1063/1.1712836 
+[2] Rivlin, R. S. "Large elastic deformations of isotropic materials VI. Further results in the theory of torsion, 
+shear and flexure." Philosophical Transactions of the Royal Society of London. Series A, Mathematical and 
+Physical Sciences 242.845 (1949): 173-195. 
+doi: 10.1098/rsta.1949.0009 
+[3] Ogden, Raymond William. "Large deformation isotropic elasticity –on the correlation of theory and 
+experiment for incompressible rubberlike solids." Proceedings of the Royal Society of London. A. 
+Mathematical and Physical Sciences 326.1567 (1972): 565-584. 
+doi: 10.1098/rspa.1972.0026 
+[4] Yeoh, Oon H. "Some forms of the strain energy function for rubber." Rubber Chemistry and technology 66.5 
+(1993): 754-771. 
+doi: 10.5254/1.3538343 
+[5] Kim, Wonbae, Hayoung Chung, and Maenghyo Cho. "Aniso tropic hyperelastic modeling for face -centered 
+cubic and diamond cubic structures." Computer Methods in Applied Mechanics and Engineering 291 (2015): 
+216-239. 
+ doi: 10.1016/j.cma.2015.03.024 
+[6] Sussman, Theodore, and Klaus ‐Jürgen Bathe. "A model of incompressible isotropic hyperelastic material 
+behavior using spline interpolations of tension–compression test data." Communications in numerical methods 
+in engineering 25.1 (2009): 53-63. 
+ doi: 10.1002/cnm.1105 
+[7] Latorre, Marcos, and Francisco Javier MontáNs. "Extension of the Sussman –Bathe spline-based hyperelastic 
+model to incompressible transversely isotropic materials." Computers & Structures 122 (2013): 13-26. 
+ doi: 10.1016/j.compstruc.2013.01.018 
+[8] Latorre, Marcos, and Francisco Javier Montáns. "What -you-prescribe-is-what-you-get orthotropic 
+hyperelasticity." Computational Mechanics 53.6 (2014): 1279-1298. 
+ doi: 10.1007/s00466-013 
+[9] Crespo, José, Marcos Latorre, and Francisco Javier Montáns. "WYPIWYG hyperelasticity f or isotropic, 
+compressible materials." Computational Mechanics 59.1 (2017): 73-92. 
+ doi: 10.1007/s00466-016-1335-6 
+[10] Romero, Xabier, Marcos Latorre, and Francisco J. Montáns. "Determination of the WYPiWYG strain 
+energy density of skin through finite ele ment analysis of the experiments on circular specimens." Finite 
+Elements in Analysis and Design 134 (2017): 1-15. 
+ doi: 10.1016/j.finel.2017.05.009 
+[11] Latorre, Marcos, and Francisco J. Montáns. "Experimental data reduction for hyperelasticity." Computers & 
+Structures (2018). 
+ doi: 10.1016/j.compstruc.2018.02.011 
+[12] Kirchdoerfer, Trenton, and Michael Ortiz. "Data -driven computational mechanics." Computer Methods in 
+Applied Mechanics and Engineering 304 (2016): 81-101. 
+ doi: 10.1016/j.cma.2016.02.001 
+[13] Kanno, Yoshihiro. "Simple heuristic for data -driven computational elasticity with material data involving 
+noise and outliers: a local robust regression approach." Japan Journal of Industrial and Applied Mathematics 
+35.3 (2018): 1085-1101. 
+ doi: 10.1007/s13160 
+[14] Nguyen, Lu Trong Khiem, and Marc -André Keip. "A data -driven approach to nonlinear elasticity." 
+Computers & Structures 194 (2018): 97-115. 
+ doi: 10.1016/j.compstruc.2017.07.031 
+ [15] Wu, H. A. "Molecular dynamics study of the mechanics of metal nanowires at finite temperature." European 
+Journal of Mechanics-A/Solids 25.2 (2006): 370-377. 
+doi: 10.1016/j.euromechsol.2005.11.008 
+[16] Daw, Murray S., and Michael I. Baskes. "Embedded-atom method: Derivation and application to impurities, 
+surfaces, and other defects in metals." Physical Review B 29.12 (1984): 6443. 
+doi: 10.1103/PhysRevB.29.6443 
+[17] Tersoff, Jerry. "New empirical approach for the structure and energy of covalent systems." Physical Review 
+B 37.12 (1988): 6991. 
+doi: 10.1103/PhysRevB.37.6991 
+
+===== PAGE 12 =====
+12 
+ 
+[18] Kresse, Georg, and Jürgen Furthmüller. "Efficient iterative schemes for ab initio total -energy calculations 
+using a plane-wave basis set." Physical review B 54.16 (1996): 11169. 
+doi: 10.1103/PhysRevB.54.11169 
+[19] Oishi, Atsuya, and Genki Yagawa. "Computational mechanics enhanced by deep learning." Computer 
+Methods in Applied Mechanics and Engineering 327 (2017): 327-351. 
+ doi: 10.1016/j.cma.2017.08.040 
+[20] Jung, Sungmoon, and Jamshid Ghaboussi. "Characterizing rate-dependent material behaviors in self-learning 
+simulation." Computer methods in applied mechanics and engineering 196.1-3 (2006): 608-619. 
+ doi: 10.1016/j.cma.2006.06.006 
+[21] Khademi, Faezehossadat, et al. "Multiple linear regression, ar tificial neural network, and fuzzy logic 
+prediction of 28 days compressive strength of concrete." Frontiers of Structural and Civil Engineering 11.1 
+(2017): 90-99. 
+ doi: 10.1007/s11709

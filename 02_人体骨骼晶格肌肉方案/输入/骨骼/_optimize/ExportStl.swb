@@ -1,0 +1,63 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo ErrorHandler
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    WriteLog "start"
+
+    Dim base As String
+    base = "D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC)
+    Dim outDir As String
+    outDir = base & "\_optimize\original"
+    EnsureDir outDir
+
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim fl As Object
+    Set fl = fso.GetFolder(base)
+    Dim file As Object
+    For Each file In fl.Files
+        If UCase(Right(file.Name, 7)) = ".SLDPRT" Then
+            Dim errs As Long
+            Dim warns As Long
+            Dim doc As Object
+            Set doc = swApp.OpenDoc6(file.Path, 1, 0, "", errs, warns)
+            If doc Is Nothing Then
+                WriteLog "OPEN FAILED " & file.Name
+            Else
+                Dim outPath As String
+                outPath = outDir & "\" & fso.GetBaseName(file.Name) & ".stl"
+                Dim ok As Boolean
+                ok = doc.SaveAs3(outPath, 0, 1)
+                WriteLog "export " & file.Name & " -> " & ok
+                swApp.CloseDoc doc.GetTitle()
+            End If
+        End If
+    Next file
+
+    WriteLog "done"
+    swApp.ExitApp
+    Exit Sub
+
+ErrorHandler:
+    WriteLog "ERROR " & Err.Number & " " & Err.Description
+    swApp.ExitApp
+End Sub
+
+Sub EnsureDir(path As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(path) Then
+        fso.CreateFolder path
+    End If
+End Sub
+
+Sub WriteLog(msg As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim ts As Object
+    Set ts = fso.OpenTextFile("D:\XJTLU\PSP\" & ChrW(&H9AA8) & ChrW(&H9ABC) & "\_optimize\ExportStl.log", 8, True)
+    ts.WriteLine Now & " " & msg
+    ts.Close
+End Sub

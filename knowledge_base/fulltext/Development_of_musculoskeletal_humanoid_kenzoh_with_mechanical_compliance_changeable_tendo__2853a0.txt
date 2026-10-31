@@ -1,0 +1,671 @@
+===== PAGE 1 =====
+Development of Musculoskeletal Humanoid Kenzoh with Mechanical
+Compliance Changeable Tendons by Nonlinear Spring Unit
+Y uto Nakanishi, Tamon Izawa, Masahiko Osada, Nobuyuki Ito, Shigeki Ohta, Junichi Urata and Masayuki Inaba
+Abstract— We have developed and studied musculoskeletal
+humanoids. Our goal is to achieve more human-like humanoids
+which can do natural and dynamic motions as well as humans.
+Especially, joint DOFs redundancy, mechanical joint compli-
+ance and great joint generating power are very important
+for humanlike dynamic motions and tasks, such as running,
+jumping, landing, throwing/kicking/catching a ball, and so on.
+This paper presents the concepts and aim of this project and
+also shows the outline of our latest results about development of
+new musculoskeletal humanoid Kenzoh, which is the succeeding
+version of our previous Kojiro.
+I. INTRODUCTION
+If humanoids’ bodies become as ﬂexible and complicated
+as human beings, they will be able to do more natural and
+various motions than conventional humanoids[1], [2], [3],
+which have less joint DOFs and a rigid body than human
+beings. Based on these standpoints, we have developed
+the fully tendon-driven redundant humanoids, which have
+spine structures like a human body, and studied on how to
+control such a complicated body through the relationship
+between actuator outputs and sensor inputs [4]. And also we
+developed the humanoid Kojiro[5], which has both redundant
+and powerful actuators in order to achieve fullbody motions,
+and we managed to let Kojiro balance using spines[6] and
+walk using simple reﬂex[7].
+Then, the next motivation of our groups is to let muscu-
+loskeletal humanoids do more dynamic motions with some
+hard contact to environments like sports as shown in Fig.1. In
+this paper, we describe development of a new musculoskele-
+tal humanoid, which is named Kenzoh, as a new adaptive
+humanoid platform and also our future sports’ partner. The
+challenging points of this robot are following:
+∙ More similar humanlike body structure: arrange-
+ments of multi-joints’ DOFs and redundant muscles
+∙ Joint softness by mechanical stiffness adjustment
+muscle modules for absorption of impact
+∙ More joint power generating high torque and high
+speed for sports activities
+II describes characteristics of Kenzoh focusing on these
+three points and comparison with other robots researches.
+III describes key technologies in Kenzoh to achieve these
+three points. Finally in IV, we conﬁrmed performances of
+Y . Nakanishi, T. Izawa, M. Osada, N. Ito, S. Ohta, J. Urata
+and M. Inaba are with Department of Mechano-Informatics, The
+University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, 113-8656 Tokyo,
+JAPAN {nakanish,izawa,osada,n-ito,ohta,urata,
+inaba}@jsk.t.u-tokyo.ac.jp
+For playing football, baseball, soccer 
+with human beings …
+Next challenges for musculoskeletal humanoids
+1.Super-multi joints’ DOFs like human beings
+2.Mechanical joints’ softness for shock absorption
+3.More joints’ power for high speed and high torque
+Tackled!
+Fig. 1. Motivation in this paper: how to develop humanoids
+which can do more dynamic motions with some hard contact to
+environments or humans like sports
+Kenzoh’s upper body developed by some basic experiments.
+II. C HARACTERISTICS OF KENZOH
+A. Redundancy of joints’ DOFs
+In order to implement enough joints’ DOFs, Kenzoh has
+a spine structure which consists of three spherical joints, a
+neck structure which consists of three spherical joints, and
+a shoulder structure which consists of a collarbone and a
+scapula like human beings as shown in Fig.2. Quantity of
+joint DOFs of Kenzoh is more than general anthropomorphic
+robots, and also it almost equals to quantity of joint DOFs
+in Table I, which is upper body data because Kenzoh is
+only upper body at present. In Table I, Pneuborn-7II is
+musculoskeletal infant robot by Narioka et al. [8], ECCE
+is life-sized musculoskeletal humanoid by Marques et al.[9]
+and Kojiro is our developed previous musculoskeletal hu-
+manoid. There are some blanks in this table, because some
+speciﬁcation of another group’s robot cannot be surveyed
+from published papers.
+In order to implement such complicated body structure
+consisting of many bones, we and another group to develop
+humanoid with redundant joints adopt tendon-driven muscu-
+loskeletal humanoids, whose joint’s structure can be designed
+,((( 2384
+Proceedings of the 2011 IEEE
+International Conference on Robotics and Biomimetics
+December 7-11, 2011, Phuket, Thailand
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Spherical joint(3 DOFs)
+Condylar joint(2 DOFs)
+Rotational joint(1 DOF)
+Cervical vartebrae
+Vartebral
+column
+Pelvis
+Collarbone
+Chest 
+(Cavea thoracis)
+Scapula
+Upper arm
+Forearm
+Radius
+Hand
+Head
+Fig. 2. Arrangement of joint DOFs and bones of Kenzoh
+TABLE I
+SPECIFICA TIONS OF TENDON ROBOTS DEVELOPED (ONL Y UPPER BODY )
+Pneuborn-7II ECCE1 Kojiro Kenzoh
+Height[cm] 40 71 90
+Weight[kg] 2.72 25 35
+PWR[W] 2109 3900
+PWR/Weight[W/kg] 84.3 111.4
+Number of muscles 12 43 70 80
+Neck 3 6 10
+Spine 3 24 26
+Arms 6 40 44
+Eyes 0 3 2
+Number of joint DOFs 16 45 42 46
+Neck 2 9 9 9
+Spine 4 12 12 9
+Arms 10 24 18 26
+Eyes 0 0 3 2
+Fig. 3. Joint stiffness control by using a pair of nonlinear spring units
+as a purely joint mechanism in a simple way with no driving
+mechanisms, such as gears.
+B. Soft joint by mechanical stiffness adjustment muscle
+In tendon-driven robots, mechanical joint stiffness can be
+easily controlled by setting nonlinear spring unit modules
+both antagonistic muscles [10], [11] like in Fig.3. A nonlin-
+ear spring unit, which we call NST in this paper, is the unit
+which has nonlinear relationship between tension and spring
+constant of the tendon. The larger tension becomes, the larger
+spring constant becomes. NST can be easily implemented as
+Spring
+Wire
+Pulley
+Low stiffness High stiffness
+Fig. 4. Mechanism of non-linear spring tension unit(NST)
+a simple structure consisting of one spring and guided pulleys
+of tendon(wire) like in Fig.4.
+If robot’s joint is adjusted as low stiffness by NST, it
+can be adapted against suddenly collision with environments
+without no joint feedback control, because low joint stiffness
+is mechanically achieved by NST units. Of course, low joint
+stiffness can be achieved by joint feedback control by joint
+torque sensor[12](or tension sensor in case of tendon robots).
+However, it is difﬁcult to achieve enough fast response to
+impulse force, and also it does not work by some failure of
+a torque sensor, which often is fragile.
+Therefore, in order to develop adaptive humanoids with
+environment as our sports’ partners, robot’s joints should be
+designed to control its own joint stiffness mechanically. One
+of most important Kenzoh characteristics is that Kenzoh’s
+all muscles have NST units , so Kenzoh’s all joints stiffness
+can be adjusted mechanically.
+C. Joint power for supporting robot’s own weight
+Fig.5 shows the arrangement of tendon paths of Ken-
+zoh. Kenzoh have many muscles which are implemented
+as winding wire mechanism by a motor with a pulley.
+Kenzoh uses two type of motor(MAXON 90W AC motor
+and MAXON 40W AC motor). Kenzoh’s upper body has
+totally 3900[W] PWR, which almost equals to full body
+total PWR of Kojiro, which is the previous musculoskeletal
+humanoid we developed. Therefore, Kenzoh has as about
+twice joint power as Kojiro, which seems to be enough to
+support Kenzoh’s own weight by its arm.
+1) Light weight ends of arms and legs: By arranging
+almost all muscles to actuate spines and shoulder joints in
+chest bone, light weight hands and foots can be designed.
+For example, Kenzoh’s radius has no motor units to actuate
+its wrist joint, because all motor units for wrist are put in
+upperarm structure. In case of Kenzoh’s leg, actuators for its
+ankle joint can be put in its lowerleg bone, actuators for
+its knee joint can be put in its thigh bone and actuators
+for its hip joint can be put in its pelvis bone, which is
+enough space because it has no actuators for spine joints,
+which are almost put in its chest bone. The lighter ends of
+arms and legs become, the more payloads of arms and legs
+become and the faster speed of hands and foots becomes,
+which leads more powerful and dynamic performance of
+humanoids. Thus strategy of arrangement muscles is similar
+to human beings.
+2) Humanlike shoulder and forearm structure of Kenzoh:
+Kenzoh’s shoulder structure consists of collarbone, scapula
+2385
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Quantity of muscles: 80
+Neck : 10
+Arm: 22 x 2
+Scapula: 7
+Upper arm: 6
+Forearm: 3
+Radius: 2
+Wrist 4
+Spine: 26
+Tendon path of muscles
+Fig. 5. Arrangement of tendon muscles of Kenzoh
+Collarbone
+Scapula
+Chest bone 
+(Cavea thoracis)
+Forearm(Ulna)
+Radius
+Wrist joint(radio carpalis)
+Fig. 6. Humanlike shoulder and forearm structure of Kenzoh
+and upperarm like a human being as shown in Fig.6. This
+multiple shoulder joints structure enables to give enough
+wide movable range of its arm or hand and to do natural
+gestures like humans. And also a scapula bone contributes
+as many attachment points of muscles, such as cowl muscles
+from head bones and latissimus dorsi muscles from a pelvis
+bone, which enables to achieve more powerful movement of
+shoulder.
+Kenzoh’s forearm structure consists of ulna and radius
+and condylar joint of wrist like a human being as shown
+in Fig.6. By dividing rotation movement around radius/ulna
+and pronation/inﬂextion around wrist condylar joint, it can
+be easily designed to have enough moment arms of tendon
+paths of muscles through entire joint movable range.
+Fig. 7. All actuator modules in Kenzoh’s upper body
+D. Simultaneous implementation of joint softness, redun-
+dancy and powerful performance
+It is not difﬁcult to satisfy each demand(i.e. joint soft-
+ness, redundancy and powerful performance) individually
+and many researches about each demand have been studied.
+However, it is very difﬁcult to satisfy simultaneously all
+three demands because of limitation of body space .W e
+have to manage to stuff many and various elements, such
+as powerful muscle actuator units, nonlinear spring tension
+units and motor driver boards as shown in Fig.7.
+For example, newly DLR JUSTIN[13] has mechanical
+joint stiffness control modules in all joints and generates
+enough joints torque, but redundancy of joint DOFs is less
+than Kenzoh. Musculoskeletal infant robot Pneuborn-7II[8]
+has ﬂexible pneumatic actuators with mechanical elasticity,
+however, it has less joint DOFs and less actuators. Pneumatic
+actuator’s power depends on accumulator’s pressure and
+valve’s diameter. In order to improve actuator power, valve’s
+size has to be bigger. Therefore, pneumatic actuators may
+not be ﬁt for embedding numerous actuator systems. Also
+very humanlike musculoskeletal legs[14] and a shoulder[15]
+with redundant pneumatic actuators have been developed,
+however, these robots are implemented as only several parts
+of fullbody robot. By these pneumatic actuators, it seems to
+be difﬁcult to develop fullbody powerful humanoids with
+redundant joints and muscles. WBD-II[] has joint-driven
+articulated spine joints and enough power to walk and dance,
+but it has no mechanisms to adjust joint stiffness and its
+arm joint structure is quite simpler than human’s. Human
+mimetic humanoid ECCE[9] and our developed Kojiro adopt
+the same tendon-driven actuator systems as Kenzoh, and also
+have almost the same redundancy of joint DOFs as Kenzoh.
+However, these robots do not have enough joint power and
+mechanisms to adjust joint stiffness.
+In order to achieve simultaneous implementation of joint
+softness, redundancy and powerful performance, it is very
+important to make each module as small and high efﬁciency
+as possible and to design bone structure to stuff many
+elements keeping easiness of maintenance. In next session,
+we introduce key technologies to do this simultaneous im-
+plementation using in Kenzoh.
+2386
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+40W Actuator Unit with NST
+90W Actuator Unit with NST
+Actuator Elements of Chest bone
+1.Motor
+2.Spring
+3.Guide Pulley
+4.Wire(Tendon)
+5.Tension Sensor 
+(Loadcell)
+6.Pulley
+1
+2
+6
+1
+2
+3
+3
+4
+4
+5
+5
+6
+Fig. 8. Integration NST unit with actuator muscle system
+Spring
+Rotation axis Top VIew
+Wire(Tendon of muscle)
+Fig. 9. Rotary NST unit mechanism
+III. K EY TECHNOLOGIES OF KENZOH
+A. Implementation of nonlinear spring tension unit
+Kenzoh adopts two types of NST unit developed by
+ourselves. One is the integration type with actuator unit
+parts as shown in Fig.8. Advantage of this NST unit is to
+utilize effectively motor shaft space as spring and guided
+pulley of NST units, which often becomes dead space
+in previous musculoskeletal humanoids we developed. In
+Kenzoh, the integration NST units are mainly used in a
+chest bone, bladebones and upperarms, which have enough
+spaces. The other NST is the rotary NST unit as shown in
+Fig.9. Advantage of this NST unit is to put it anywhere
+through its tendon path, which enables to widen freedom
+of robot design. It is very useful at designing a complicated
+structures of Kenzoh which has many elements. And also
+this rotary NST unit can achieve higher stiffness than other
+NST mechanisms[16]. In Kenzoh, the rotary NST units are
+mainly used in a spine vertebrae, which have less spaces.
+B. Highpower , small and robust motor driver board
+We newly develop a distributed motor driver board
+for Kenzoh’s muscles[17] in Fig.10. This board size is
+26x46[mm], which is almost half size of the previous motor
+board(H8-15D) used in Kojiro and also it has more robust
+against motor servo noise, thanks to separating a logic power
+Motion generator
+Motion controller
+Robot bodyMotion system
+Outer sensor
+Inner sensor
+Upper layer
+Middle layer
+Lower layer
+Joint controller
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Joint controller
+Joint controller
+Joint controller
+Body controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Environment
+Motion generatorMotion generator
+Motion controller
+Robot bodyMotion system
+Outer sensorOuter sensor
+Inner sensorInner sensor
+Upper layer
+Middle layer
+Lower layer
+Joint controller
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Actuato
+rInner sensor
+Joint controller
+Joint controller
+Joint controller
+Body controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Muscle controller
+Environment
+Motor boardsHost control PC USB 
+Fig. 10. Highpower, small and stable motor driver board JSK-FPGA01D
+Front parts
+Center parts
+Back parts
+Fig. 11. Design of chest to accumulate many module elements
+system from a motor power system. This board can control
+one motor based on its position or its tension whose control
+loop is 1[msec] and realtime. 80 control motor boards are
+distributed within Kenzoh’s body, and each board connects
+to whole body control PC outside of the body by USB
+connections, whose control loop is about 32[msec] and not
+realtime. And we now try to control these complicated object
+by dividing hierarchic control layer, which consists of whole
+body motion control layer, joint control layer and each
+muscle control layer.
+C. Bone design to accumulate many module elements
+Kenzoh has many elements, especially, chest has to embed
+many elements, that is, 26 muscle modules(20 of 26 muscle
+modules are integration units with NST) and 26 motor driver
+boards. In order to pack modules more effectively, these
+modules are put in a line to the center of the chest bone
+structure. However, it leads bad maintenance to put modules
+in the center of chest, because it is difﬁcult to access centered
+modules easily. Therefore, Kenzoh’s chest structure consists
+of three parts, that is a front part, a center part and a back
+part, as shown in Fig.11. And also each part is designed
+so as not to depend on each other, the motor test of each
+part can be checked individually, which enables to do easy
+maintenance.
+2387
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Front view (Base posture) Front view (spine twist posture)
+Side view (Base posture)
+Fig. 12. Musculoskeletal humanoid Kenzoh
+5 kg weight
+Fig. 13. Experiment of Kenzoh’s arm payload test
+Fig. 14. Experiment of Kenzoh’s spine movable range test
+IV . E XPERIMENTS IN KENZOH PERFORMANCES
+At this time, Kenzoh’s head, spine, right arm already
+have developed as shown in Fig.12. Left arm is now under
+construction, so we set dummy left arm, whose weight is
+equal to the weight of real Kenzoh’s right arm.
+We carried out some experiments, such as Kenzoh arm’s
+payload test in Fig.13, which is lifting up motion of 5[kg]
+weight, and Kenzoh spine’s movable range test as shown in
+Fig.14. In these experiment, all muscles were controlled base
+on muscles’ length by motor driver. All muscles’ length order
+could be calculated by Kenzoh’s geometric body model in
+Fig.5 at each goal joints’ posture.
+Fig.15 shows that the estimation of motor core temperature
+based on thermal control[18] from motor input current and
+temperature of motor’s outer in a FPGA-01D during Fig.13
+motion. From this graph, we conﬁrmed that the actuator
+Fig. 15. Time transition of input current and estimated motor core
+temperature during lifting up motion
+systems in Kenzoh can generate enough joint torque during
+this motion, because there are some margin in motor’s core
+temperature, which is about 60[degree] in this experiment
+and the limit of motor’s core temperature is 100[degree].
+Fig.16 shows experiment image of shock absorption by
+NST mechanisms in abdominal muscles of Kenzoh. This
+experiment is a simple example of tackled case in sports ac-
+tivities, such as in footballs. In this experiment, we compared
+two cases, that is, high stiffness and low stiffness of spine
+joints by using NST units. In high stiffness case, spine’s
+tendons are all relaxed where NST’s spring displacement
+is nearly 0[mm], which is initial position. In low stiffness
+case, on the other hand, spine’s tendons are all tightened
+where NST’s spring displacement is nearly 35[mm], which
+is almost mechanical limitation position.
+Fig.17 shows the result of this experiment. The upper
+graph is in the case of high stiffness and the lower graph
+is in the case of low stiffness. As you can see this graph,
+the peak of tension of the abdominal muscle in the case of
+low stiffness is quite lower than in the case of high stiffness.
+And also the impact time distance in the low stiffness case
+is shorter than in the high stiffness case. By this result, we
+conﬁrmed that NST’s spring could certainly absorb impact
+force at the sudden collision, which can be useful when
+robots play some sports.
+V. C ONCLUSION AND FUTURE WORKS
+This paper proposes how to develop new adaptive hu-
+manoid platform which can do more dynamic motion with
+hard contact to environments like sports activities, and shows
+a new musculoskeletal humanoid Kenzoh actually developed
+as an implementation of this design concept, which is si-
+multaneous realization of joints’ softness, redundancy and
+powerfule performance.
+As future works, we plan Kenzoh to catch a football using
+spine joints and whole arm joints. In catching a football, it
+seems to be very important to absorb ball’s contact impact
+by controlling each joints’ mechanical stiffness. And also we
+2388
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+11.25kg
+125mm
+13.8J
+Shock absorption by 
+abdominal muscles
+Fig. 16. Experiment image of shock absorption by abdominal muscles of
+Kenzoh
+Weight 
+11.25kg
+Posture at impact
+Posture at 0.1 second 
+after impact
+High Stiffness
+Low Stiffness
+ 0
+ 5000
+ 10000
+ 15000
+ 20000
+ 25000
+ 30000
+ 35000
+ 40000
+ 0.2 0.4 0.6 0.8 1.0 1.2
+ 15
+ 20
+ 25
+ 30
+ 35
+ 40
+Tension[gf]
+Spring displacement[mm]
+Time[s]
+ 0
+ 5000
+ 10000
+ 15000
+ 20000
+ 25000
+ 30000
+ 35000
+ 40000
+ 5
+ 10
+ 15
+ 20
+ 25
+ 30
+Tension[gf]
+Spring displacement[mm]
+Time[s]
+tension spring displacement
+tension spring displacement
+ 0.2 0.4 0.6 0.8 1.0 1.2
+0.18 [sec]
+0.22 [sec]
+Fig. 17. Experiment result of shock absorption by abdominal muscles of
+Kenzoh
+develop more humanlike musculoskeletal humanoid with soft
+body. In Kenzoh’s body, bone structure has to become bigger
+to embed many actuators. As a result, shape of Kenzoh’s
+bone become to look like conventional humanoid’s rigid
+body structure. So, next humanoid we are developing has
+similar shape of the bone structure, soft muscle structure,
+which leads to soft external body, to human beings and also
+the same concepts as Kenzoh.
+REFERENCES
+[1] Y oshiaki Sakagami, Ryujin Watanabe, Chiaki Aoyama, Shinichi
+Matsunaga, Nobuo Higaki, and Kikuo Fujimura. The intelligent
+asimo:system overview and integration. In IEEE/RSJ International
+Conference on Intelligent Robots nad Systems(IROS’02) , pp. 2478–
+2483, October 2002.
+[2] Hideki Kondo, Y u Ogura, Hiroyuki Aikawa, Kazushi Shimomura,
+Akitoshi Morishima, Hun ok Lim, and Atsuo Takanishi. Biped
+Humanoid Robot Capable of Being Used as Human Motion Simulator.
+In Proceedings of the 10th International Symposium on Experimental
+Robotics (ISER2006) , pp. 523–531, 2006.
+[3] Kenji Kaneko, Kensuke Harada, Fumio Kanehiro, Gou Miyamori, and
+Kazuhiko Akachi. Humanoid robot HRP-3. In Proceedings of the 2008
+IEEE/RSJ International Conference on Intelligent Robots and Systems ,
+pp. 2471–2478, 2008.
+[4] Masayuki Inaba, Ikuo Mizuuchi, Ryosuke Tajima, Tomoaki Y oshikai,
+Daisuke Sato, Koichi Nagashima, and Hirochika Inoue. Building
+spined muscle-tendon humanoid. In Robotics Research: The Tenth
+International Symposium , pp. 113–130. Springer V erlag, 2003.
+[5] Ikuo Mizuuchi, Y uto Nakanishi, Y oshinao Sodeyama, Y uta Namiki,
+Tamaki Nishino, Naoya Muramatsu, Junichi Urata, Kazuo Hongo, To-
+moaki Y oshikai, and Masayuki Inaba. An Advanced Musculoskeletal
+Humanoid Kojiro. In Proceedings of International Conference on
+Humanoid Robots(Humanoids’07) , 12 2007.
+[6] Y uto Nakanishi, Y uta Namiki, Kazuo Hongo, Junichi Urata, Ikuo
+Mizuuchi, and Masayuki Inaba. Realization of large joint movement
+while standing by a musculoskeletal humanoid using its spine and
+legs coordinately. In Proceedings of the 2008 IEEE/RSJ International
+Conference on Intelligent Robots and Systems , pp. 205–210, 9 2008.
+[7] Kazuo Hongo, Y uto Nakanishi, Y uta Namiki, Ikuo Mizuuchi, and
+Masayuki Inaba. Automatic parameter adjustment of reﬂexive walking
+of a musculo-skeletal humanoid. In Proceedings of the 2008 IEEE-
+RAS International Conference on Humanoid Robots , pp. 16–21, 12
+2008.
+[8] Kenichi Narioka, Ryuma Niiyama, Y oichiro Ishii, and Koh Hosoda.
+Pneumatic Musculoskeletal Infant Robots. In Workshop of the 2009
+IEEE/RSJ International Conference on Intelligent Robots and Systems ,
+2009.
+[9] Hugo Marques, Michael Jantsch, Steffen Wittmeier, Cristiano Alessan-
+dro, Max Lungarella, Rob Knight, and Owen Holland. Ecce1: the ﬁrst
+of a series of anthropomimetic musculoskelal upper torsos. In accepted
+at International Conference on Humanoid Robots(Humanoids’10) ,1 2
+2010.
+[10] Koichi Koganezawa and Y uki Shimizu. Mechanical stiffness control
+of tendon driven multi-dof joint by the actuator with non linear elastic
+system. Journal of the Robotics Society of Japan , V ol. 22, No. 8, pp.
+1043–1049, 2004.
+[11] Hiroaki Kobayashi and Ryuta Ozawa. Adaptive neural network
+control of tendon-driven mechanisms with elastic tendons. Automatica,
+V ol. 39, No. 9, pp. 1509–1519, 2003.
+[12] Rainer Bischoff, Johannes Kurth, Gunter Schreiber, Ralf Koeppe, Alin
+Albu-Schaffer, Alexander Beyer, Oliver Eiberger, Sami Haddadin,
+Andreas Stemmer, Gerhard Grunwald, and Gerhard Hirzinger. The
+kuka-dlr lightweight robot arm - a new reference platform for robotics
+research and manufacturing. In accepted at International Symposium
+on Robotics (ISR2010) , 2010.
+[13] Oliver Eiberger, Sami Haddadin, Michael Weis, Alin Albu-Sch ¨affer,
+and Gerd Hirzinger. On joint design with intrinsic variable compliance:
+derivation of the dlr qa-joint. In Proceedings of the 2010 IEEE
+International Conference on Robotics & Automation , pp. 1687–1694,
+2010.
+[14] Kenichi Narioka, Shinpei Tsugawa, and Koh Hosoda. 3D Limit
+Cycle Walking of Musculoskeletal Humanoid Robot with Flat Feet.
+In Proceedings of the 2009 IEEE/RSJ International Conference on
+Intelligent Robots and Systems , pp. 4676–4681, 2009.
+[15] Atsushi Sugahara, Y utaka Nakamura, Ippei Fukuyori, Y oshio Mat-
+sumoto, and Hiroshi Ishiguro. Genarating circular motion of a human-
+like robotic arm using attractor selection model. Journal of Robotics
+and Mechatronics, pp. 315–321, 2010.
+[16] Masahiko Osada Masahiko, Nobuyuki Ito, Y uto Nakanishi, and
+Masayuki Inaba. Realization of ﬂexible motion by musculoskeletal
+humanoid kojiro with add-on nonlinear spring units. In accepted
+at International Conference on Humanoid Robots(Humanoids’10) ,1 2
+2010.
+[17] Nobuyuki Ito, Junichi Urata, Y uto Nakanishi, Kei Okada, and
+Masayuki Inaba. Development of very small high output motor
+driver for realizing forceful musculoskeletal humanoids. In accepted
+at International Conference on Humanoid Robots(Humanoids’10) ,1 2
+2010.
+[18] Junichi Urata, Toshinori Hirose, Y uta Namiki, Y uto Nakanishi, Ikuo
+Mizuuchi, and Masayuki Inaba. Thermal control of electrical motors
+for high-power humanoid robots. In Proceedings of the 2008 IEEE/RSJ
+International Conference on Intelligent Robots and Systems , pp. 2047–
+2052, 2008.
+2389
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 08:48:17 UTC from IEEE Xplore. Restrictions apply.

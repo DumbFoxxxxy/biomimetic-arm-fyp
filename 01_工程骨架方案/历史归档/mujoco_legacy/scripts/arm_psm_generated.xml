@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="right_arm_reference_skeleton">
+  <compiler angle="degree" coordinate="local" autolimits="true" meshdir="D:/XJTLU/PSP/mujoco_arm/assets" />
+  <option timestep="0.001" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.25 0.25 0.25" />
+    <rgba haze="0.15 0.2 0.25 1" />
+    <global azimuth="135" elevation="-18" />
+  </visual>
+  <default>
+    <default class="visual_mesh">
+      <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.82 0.80 0.72 1" />
+    </default>
+    <default class="arm_joint">
+      <joint type="hinge" limited="true" damping="0.25" armature="0.02" />
+    </default>
+    <default class="position_actuator">
+      <position kp="35" kv="2.5" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="clavicle" file="clavicle.obj" scale="0.001 0.001 0.001" />
+    <mesh name="scapula" file="scapula.obj" scale="0.001 0.001 0.001" />
+    <mesh name="humerus" file="humerus.obj" scale="0.001 0.001 0.001" />
+    <mesh name="radius" file="radius.obj" scale="0.001 0.001 0.001" />
+    <mesh name="ulna" file="ulna.obj" scale="0.001 0.001 0.001" />
+    <material name="clavicle_mat" rgba="0.78 0.76 0.68 1" />
+    <material name="scapula_mat" rgba="0.72 0.75 0.69 1" />
+    <material name="humerus_mat" rgba="0.82 0.80 0.72 1" />
+    <material name="radius_mat" rgba="0.76 0.73 0.66 1" />
+    <material name="ulna_mat" rgba="0.70 0.72 0.67 1" />
+    <material name="torso_mat" rgba="0.48 0.52 0.55 1" />
+    <material name="rib_mat" rgba="0.68 0.70 0.65 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.10 1" />
+  </asset>
+  <worldbody>
+    <light name="key_light" pos="-0.35 -0.45 1.80" dir="0.35 0.25 -1" directional="true" diffuse="0.9 0.9 0.9" specular="0.2 0.2 0.2" />
+    <geom name="floor" type="plane" size="2 2 0.1" pos="0 0 0" material="torso_mat" contype="0" conaffinity="0" group="0" />
+    <body name="torso" pos="0 0 0">
+      <geom name="torso_visual" type="capsule" fromto="-0.04 -0.10 1.34 -0.04 -0.10 1.15" size="0.035" material="torso_mat" contype="0" conaffinity="0" />
+      <geom name="sternum" type="capsule" fromto="-0.055 -0.145 1.17 -0.035 -0.145 1.36" size="0.012" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="thoracic_spine" type="capsule" fromto="-0.035 0.050 1.12 -0.035 0.050 1.43" size="0.018" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_1_r" type="capsule" fromto="-0.035 -0.120 1.370 -0.115 -0.020 1.335" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_2_r" type="capsule" fromto="-0.035 -0.125 1.335 -0.125 -0.005 1.285" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_3_r" type="capsule" fromto="-0.035 -0.130 1.300 -0.132 0.000 1.235" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_4_r" type="capsule" fromto="-0.035 -0.130 1.260 -0.128 0.010 1.190" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_5_r" type="capsule" fromto="-0.035 -0.125 1.215 -0.118 0.020 1.145" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_6_r" type="capsule" fromto="-0.035 -0.115 1.175 -0.100 0.025 1.105" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_1_l" type="capsule" fromto="-0.055 -0.120 1.370 -0.015 -0.020 1.335" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_2_l" type="capsule" fromto="-0.055 -0.125 1.335 -0.010 -0.005 1.285" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_3_l" type="capsule" fromto="-0.055 -0.130 1.300 -0.005 0.000 1.235" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_4_l" type="capsule" fromto="-0.055 -0.130 1.260 -0.005 0.010 1.190" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_5_l" type="capsule" fromto="-0.055 -0.125 1.215 -0.010 0.020 1.145" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <geom name="rib_6_l" type="capsule" fromto="-0.055 -0.115 1.175 -0.020 0.025 1.105" size="0.007" material="rib_mat" contype="0" conaffinity="0" />
+      <site name="sternoclavicular_ref" pos="-0.01142 -0.12958 1.31903" size="0.008" material="joint_mat" />
+      <body name="clavicle_protraction" pos="-0.01142 -0.12958 1.31903">
+        <joint name="clavicle_protraction" class="arm_joint" axis="0 0 1" range="-30 40" />
+        <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+        <body name="clavicle_elevation" pos="0 0 0">
+          <joint name="clavicle_elevation" class="arm_joint" axis="0 1 0" range="-20 40" />
+          <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+          <body name="clavicle_axial_rotation" pos="0 0 0">
+            <joint name="clavicle_axial_rotation" class="arm_joint" axis="1 0 0" range="-30 30" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+            <geom name="clavicle_visual" class="visual_mesh" mesh="clavicle" material="clavicle_mat" pos="-0.01142 -0.12958 1.31903" mass="0.15" />
+            <body name="scapula_upward_rotation" pos="-0.13804 0.05895 0.03056">
+              <joint name="scapula_upward_rotation" class="arm_joint" axis="0 1 0" range="-20 50" />
+              <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+              <body name="scapula_posterior_tilt" pos="0 0 0">
+                <joint name="scapula_posterior_tilt" class="arm_joint" axis="1 0 0" range="-15 35" />
+                <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                <body name="scapula_external_rotation" pos="0 0 0">
+                  <joint name="scapula_external_rotation" class="arm_joint" axis="0 0 1" range="-20 30" />
+                  <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                  <site name="acromioclavicular_ref" pos="0 0 0" size="0.008" material="joint_mat" />
+                  <geom name="scapula_visual" class="visual_mesh" mesh="scapula" material="scapula_mat" pos="0.14946 0.07063 -1.34959" mass="0.15" />
+                  <body name="shoulder_rotation" pos="-0.01741 -0.00596 -0.01708">
+                    <joint name="shoulder_rotation" class="arm_joint" axis="0 0 1" range="-90 90" />
+                    <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                    <body name="shoulder_flexion" pos="0 0 0">
+                      <joint name="shoulder_flexion" class="arm_joint" axis="1 0 0" range="-45 180" />
+                      <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                      <body name="shoulder_abduction" pos="0 0 0">
+                        <joint name="shoulder_abduction" class="arm_joint" axis="0 1 0" range="-45 180" />
+                        <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                        <geom name="humerus_visual" class="visual_mesh" mesh="humerus" material="humerus_mat" pos="0.16687 0.07659 -1.33251" mass="1.8" />
+                        <site name="elbow_ref" pos="-0.04725 0.00781 -0.29301" size="0.008" material="joint_mat" />
+                        <body name="forearm_ulna" pos="-0.04725 0.00781 -0.29301">
+                          <joint name="elbow_flexion" class="arm_joint" axis="1 0 0" range="0 145" />
+                          <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                          <geom name="ulna_visual" class="visual_mesh" mesh="ulna" material="ulna_mat" pos="0.21412 0.06878 -1.03950" mass="0.45" />
+                          <site name="wrist_ref" pos="-0.04136 -0.04582 -0.23290" size="0.008" material="joint_mat" />
+                          <site name="radiocapitellar_contact_ref" pos="-0.01956 -0.00251 -0.00328" size="0.006" rgba="0.10 0.35 0.95 1" />
+                          <site name="distal_ulnar_head_ref" pos="-0.02251 -0.04355 -0.23300" size="0.006" rgba="0.10 0.35 0.95 1" />
+                          <geom name="pronation_axis_visual" type="capsule" fromto="-0.01956 -0.00251 -0.00328 -0.02251 -0.04355 -0.23300" size="0.0015" rgba="0.05 0.35 0.95 0.85" contype="0" conaffinity="0" group="2" />
+                          <body name="radius" pos="-0.01956 -0.00251 -0.00328">
+                            <joint name="forearm_pronation" class="arm_joint" axis="-0.01262 -0.17584 -0.98434" range="-90 90" />
+                            <inertial pos="0 0 0" mass="0.01" diaginertia="1e-5 1e-5 1e-5" />
+                            <geom name="radius_visual" class="visual_mesh" mesh="radius" material="radius_mat" pos="0.23368 0.07129 -1.03622" mass="0.35" />
+                            <site name="lig_annular_ligament_i" pos="0.006 0.004 -0.003" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                            <site name="lig_interosseous_membrane_i" pos="-0.01 0.004 -0.12" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                            <site name="lig_tfcc_i" pos="-0.0407 -0.0456 -0.2295" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                            <site name="cable_elbow_flexors_0_insertion" pos="0.000134366575 -0.0021958929 -0.03" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                            <site name="cable_elbow_flexors_1_insertion" pos="-0.000134366575 0.0021958929 -0.03" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                          </body>
+                          <site name="lig_elbow_mcl_i" pos="0.008 0.006 0" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                          <site name="lig_elbow_lcl_i" pos="-0.008 0.006 0" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                          <site name="lig_annular_ligament_o" pos="0.006 0.004 -0.003" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                          <site name="lig_interosseous_membrane_o" pos="0.004 0.006 -0.12" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                          <site name="lig_tfcc_o" pos="-0.0225 -0.0436 -0.233" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                          <site name="cable_triceps_0_insertion" pos="0 -0.01 0.01" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        </body>
+                        <site name="lig_glenohumeral_superior_i" pos="0 0 0.005" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                        <site name="lig_glenohumeral_inferior_anterior_i" pos="-0.008 -0.005 -0.025" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                        <site name="lig_glenohumeral_inferior_posterior_i" pos="0.008 0.008 -0.025" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                        <site name="lig_elbow_mcl_o" pos="0.014 0 -0.285" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                        <site name="lig_elbow_lcl_o" pos="-0.014 0 -0.285" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                        <site name="cable_supraspinatus_0_insertion" pos="0.008 0.002 0.002" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_infraspinatus_0_insertion" pos="0.006 -0.006 -0.002" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_deltoid_anterior_0_insertion" pos="0.012 0 -0.13" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_deltoid_middle_0_insertion" pos="0.012 0 -0.13" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_deltoid_middle_0_via_0" pos="0.018 0 -0.065" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_deltoid_posterior_0_insertion" pos="0.012 0 -0.128" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_elbow_flexors_0_origin" pos="0.0101343666 0.0078041071 -0.115" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_elbow_flexors_1_origin" pos="0.00986563343 0.0121958929 -0.115" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                        <site name="cable_triceps_0_origin" pos="0 -0.02 -0.12" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                      </body>
+                    </body>
+                  </body>
+                  <site name="lig_ac_superior_i" pos="0 0 0.008" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_coracoclavicular_conoid_i" pos="0.055 -0.035 -0.04" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_coracoclavicular_trapezoid_i" pos="0.06 -0.04 -0.045" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_coracoacromial_o" pos="0.06 -0.04 -0.04" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_coracoacromial_i" pos="-0.005 0 -0.005" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_glenohumeral_superior_o" pos="-0.012 -0.006 -0.01" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_glenohumeral_inferior_anterior_o" pos="-0.004 -0.018 -0.028" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="lig_glenohumeral_inferior_posterior_o" pos="0.01 0.005 -0.025" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+                  <site name="cable_supraspinatus_0_origin" pos="0.045 -0.004 -0.025" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                  <site name="cable_infraspinatus_0_origin" pos="0.05 -0.03 -0.072" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                  <site name="cable_deltoid_middle_0_origin" pos="0 0 0" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                  <site name="cable_deltoid_posterior_0_origin" pos="0.03 0.008 0.018" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+                </body>
+              </body>
+            </body>
+            <site name="lig_sc_anterior_i" pos="0 0 0.015" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="lig_sc_posterior_i" pos="0 0 -0.012" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="lig_costoclavicular_i" pos="-0.045 0.015 0.005" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="lig_ac_superior_o" pos="-0.132 0.055 0.03" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="lig_coracoclavicular_conoid_o" pos="-0.128 0.045 0.028" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="lig_coracoclavicular_trapezoid_o" pos="-0.11 0.04 0.025" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+            <site name="cable_deltoid_anterior_0_origin" pos="-0.085 0.03 0.022" size="0.004" rgba="0.95 0.38 0.12 0.85" group="3" />
+          </body>
+        </body>
+      </body>
+      <site name="lig_sc_anterior_o" pos="-0.045 -0.14 1.32" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+      <site name="lig_sc_posterior_o" pos="-0.035 -0.132 1.315" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+      <site name="lig_costoclavicular_o" pos="-0.045 -0.12 1.255" size="0.004" rgba="0.2 0.8 0.95 0.75" group="3" />
+    </body>
+    <camera name="arm_view" mode="targetbodycom" target="forearm_ulna" pos="-0.12 -0.55 1.28" xyaxes="1 0 0 0 0.716 0.698" />
+    <flexcomp name="psm_supraspinatus" type="grid" dim="2" count="7 3 1" spacing="0.00921782105 0.01 0.01" radius="0.001" mass="0.12" pos="-0.10446 -0.07463 1.32459" quat="0.000366086124 0.0900471637 -3.30994859e-05 0.995937434" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="7" grid="0 0" />
+      <pin id="10" grid="6 0" />
+      <pin id="7" grid="0 1" />
+      <pin id="10" grid="6 1" />
+      <pin id="7" grid="0 2" />
+      <pin id="10" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_infraspinatus" type="grid" dim="2" count="7 3 1" spacing="0.0138415198 0.01 0.01" radius="0.001" mass="0.12" pos="-0.09946 -0.10063 1.27759" quat="0.133966503 0.335159685 -0.0482102189 0.931341364" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="7" grid="0 0" />
+      <pin id="10" grid="6 0" />
+      <pin id="7" grid="0 1" />
+      <pin id="10" grid="6 1" />
+      <pin id="7" grid="0 2" />
+      <pin id="10" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_deltoid_anterior" type="grid" dim="2" count="7 3 1" spacing="0.0253490812 0.01 0.01" radius="0.001" mass="0.12" pos="-0.09642 -0.09958 1.34103" quat="0.43444358 -0.345120971 0.557905705 0.617164091" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="4" grid="0 0" />
+      <pin id="10" grid="6 0" />
+      <pin id="4" grid="0 1" />
+      <pin id="10" grid="6 1" />
+      <pin id="4" grid="0 2" />
+      <pin id="10" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_deltoid_middle" type="grid" dim="2" count="7 3 1" spacing="0.0245500148 0.01 0.01" radius="0.001" mass="0.12" pos="-0.14946 -0.07063 1.34959" quat="0.480322283 -0.500925776 0.518932081 0.499072507" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="7" grid="0 0" />
+      <pin id="10" grid="6 0" />
+      <pin id="7" grid="0 1" />
+      <pin id="10" grid="6 1" />
+      <pin id="7" grid="0 2" />
+      <pin id="10" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_deltoid_posterior" type="grid" dim="2" count="7 3 1" spacing="0.0279104899 0.01 0.01" radius="0.001" mass="0.12" pos="-0.11946 -0.06263 1.36759" quat="0.420442252 -0.466372628 0.568531716 0.531504066" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="7" grid="0 0" />
+      <pin id="10" grid="6 0" />
+      <pin id="7" grid="0 1" />
+      <pin id="10" grid="6 1" />
+      <pin id="7" grid="0 2" />
+      <pin id="10" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_elbow_flexors" type="grid" dim="2" count="7 3 1" spacing="0.0374778936 0.01 0.01" radius="0.001" mass="0.12" pos="-0.15687 -0.06659 1.21751" quat="0.399617743 -0.411723317 0.583357232 0.5748773" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="10" grid="0 0" />
+      <pin id="12" grid="6 0" />
+      <pin id="10" grid="0 1" />
+      <pin id="12" grid="6 1" />
+      <pin id="10" grid="0 2" />
+      <pin id="12" grid="6 2" />
+    </flexcomp>
+    <flexcomp name="psm_triceps" type="grid" dim="2" count="7 3 1" spacing="0.0284419578 0.01 0.01" radius="0.001" mass="0.12" pos="-0.16687 -0.09659 1.21251" quat="0.453695627 -0.394614294 0.542365447 0.586753405" rgba="0.82 0.86 0.78 0.85">
+      <elasticity young="800000" poisson="0.45" damping="0.12" />
+      <contact contype="0" conaffinity="0" />
+      <pin id="10" grid="0 0" />
+      <pin id="11" grid="6 0" />
+      <pin id="10" grid="0 1" />
+      <pin id="11" grid="6 1" />
+      <pin id="10" grid="0 2" />
+      <pin id="11" grid="6 2" />
+    </flexcomp>
+  </worldbody>
+  <tendon>
+    <spatial name="ligament_sc_anterior" width="0.002" stiffness="80" damping="0.8" springlength="0.0378554316" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_sc_anterior_o" />
+      <site site="lig_sc_anterior_i" />
+    </spatial>
+    <spatial name="ligament_sc_posterior" width="0.002" stiffness="80" damping="0.8" springlength="0.0250078728" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_sc_posterior_o" />
+      <site site="lig_sc_posterior_i" />
+    </spatial>
+    <spatial name="ligament_costoclavicular" width="0.002" stiffness="100" damping="1" springlength="0.0701778719" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_costoclavicular_o" />
+      <site site="lig_costoclavicular_i" />
+    </spatial>
+    <spatial name="ligament_ac_superior" width="0.002" stiffness="70" damping="0.8" springlength="0.0111963253" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_ac_superior_o" />
+      <site site="lig_ac_superior_i" />
+    </spatial>
+    <spatial name="ligament_coracoclavicular_conoid" width="0.002" stiffness="100" damping="1" springlength="0.0621792385" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_coracoclavicular_conoid_o" />
+      <site site="lig_coracoclavicular_conoid_i" />
+    </spatial>
+    <spatial name="ligament_coracoclavicular_trapezoid" width="0.002" stiffness="100" damping="1" springlength="0.0549550516" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_coracoclavicular_trapezoid_o" />
+      <site site="lig_coracoclavicular_trapezoid_i" />
+    </spatial>
+    <spatial name="ligament_coracoacromial" width="0.002" stiffness="65" damping="0.8" springlength="0.0839642781" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_coracoacromial_o" />
+      <site site="lig_coracoacromial_i" />
+    </spatial>
+    <spatial name="ligament_glenohumeral_superior" width="0.002" stiffness="45" damping="0.6" springlength="0.00579621428" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_glenohumeral_superior_o" />
+      <site site="lig_glenohumeral_superior_i" />
+    </spatial>
+    <spatial name="ligament_glenohumeral_inferior_anterior" width="0.002" stiffness="45" damping="0.6" springlength="0.0265743504" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_glenohumeral_inferior_anterior_o" />
+      <site site="lig_glenohumeral_inferior_anterior_i" />
+    </spatial>
+    <spatial name="ligament_glenohumeral_inferior_posterior" width="0.002" stiffness="45" damping="0.6" springlength="0.0260237603" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_glenohumeral_inferior_posterior_o" />
+      <site site="lig_glenohumeral_inferior_posterior_i" />
+    </spatial>
+    <spatial name="ligament_elbow_mcl" width="0.002" stiffness="90" damping="1" springlength="0.0555917143" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_elbow_mcl_o" />
+      <site site="lig_elbow_mcl_i" />
+    </spatial>
+    <spatial name="ligament_elbow_lcl" width="0.002" stiffness="90" damping="1" springlength="0.0442316482" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_elbow_lcl_o" />
+      <site site="lig_elbow_lcl_i" />
+    </spatial>
+    <spatial name="ligament_annular_ligament" width="0.002" stiffness="50" damping="0.6" springlength="0.0199913006" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_annular_ligament_o" />
+      <site site="lig_annular_ligament_i" />
+    </spatial>
+    <spatial name="ligament_interosseous_membrane" width="0.002" stiffness="35" damping="0.5" springlength="0.034020172" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_interosseous_membrane_o" />
+      <site site="lig_interosseous_membrane_i" />
+    </spatial>
+    <spatial name="ligament_tfcc" width="0.002" stiffness="55" damping="0.8" springlength="0.0380290166" rgba="0.2 0.8 0.95 0.65">
+      <site site="lig_tfcc_o" />
+      <site site="lig_tfcc_i" />
+    </spatial>
+    <spatial name="cable_supraspinatus_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_supraspinatus_0_origin" />
+      <site site="cable_supraspinatus_0_insertion" />
+    </spatial>
+    <spatial name="cable_infraspinatus_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_infraspinatus_0_origin" />
+      <site site="cable_infraspinatus_0_insertion" />
+    </spatial>
+    <spatial name="cable_deltoid_anterior_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_deltoid_anterior_0_origin" />
+      <site site="cable_deltoid_anterior_0_insertion" />
+    </spatial>
+    <spatial name="cable_deltoid_middle_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_deltoid_middle_0_origin" />
+      <site site="cable_deltoid_middle_0_via_0" />
+      <site site="cable_deltoid_middle_0_insertion" />
+    </spatial>
+    <spatial name="cable_deltoid_posterior_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_deltoid_posterior_0_origin" />
+      <site site="cable_deltoid_posterior_0_insertion" />
+    </spatial>
+    <spatial name="cable_elbow_flexors_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_elbow_flexors_0_origin" />
+      <site site="cable_elbow_flexors_0_insertion" />
+    </spatial>
+    <spatial name="cable_elbow_flexors_1" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_elbow_flexors_1_origin" />
+      <site site="cable_elbow_flexors_1_insertion" />
+    </spatial>
+    <spatial name="cable_triceps_0" width="0.0015" rgba="0.95 0.38 0.12 0.9">
+      <site site="cable_triceps_0_origin" />
+      <site site="cable_triceps_0_insertion" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <motor name="motor_cable_supraspinatus_0" tendon="cable_supraspinatus_0" gear="1" ctrllimited="true" ctrlrange="0 220" forcelimited="true" forcerange="0 220" group="2" />
+    <motor name="motor_cable_infraspinatus_0" tendon="cable_infraspinatus_0" gear="1" ctrllimited="true" ctrlrange="0 260" forcelimited="true" forcerange="0 260" group="2" />
+    <motor name="motor_cable_deltoid_anterior_0" tendon="cable_deltoid_anterior_0" gear="1" ctrllimited="true" ctrlrange="0 420" forcelimited="true" forcerange="0 420" group="2" />
+    <motor name="motor_cable_deltoid_middle_0" tendon="cable_deltoid_middle_0" gear="1" ctrllimited="true" ctrlrange="0 480" forcelimited="true" forcerange="0 480" group="2" />
+    <motor name="motor_cable_deltoid_posterior_0" tendon="cable_deltoid_posterior_0" gear="1" ctrllimited="true" ctrlrange="0 360" forcelimited="true" forcerange="0 360" group="2" />
+    <motor name="motor_cable_elbow_flexors_0" tendon="cable_elbow_flexors_0" gear="1" ctrllimited="true" ctrlrange="0 650" forcelimited="true" forcerange="0 650" group="2" />
+    <motor name="motor_cable_elbow_flexors_1" tendon="cable_elbow_flexors_1" gear="1" ctrllimited="true" ctrlrange="0 650" forcelimited="true" forcerange="0 650" group="2" />
+    <motor name="motor_cable_triceps_0" tendon="cable_triceps_0" gear="1" ctrllimited="true" ctrlrange="0 700" forcelimited="true" forcerange="0 700" group="2" />
+  </actuator>
+  <sensor>
+    <jointpos name="sensor_clavicle_protraction" joint="clavicle_protraction" />
+    <jointpos name="sensor_clavicle_elevation" joint="clavicle_elevation" />
+    <jointpos name="sensor_clavicle_axial_rotation" joint="clavicle_axial_rotation" />
+    <jointpos name="sensor_scapula_upward_rotation" joint="scapula_upward_rotation" />
+    <jointpos name="sensor_scapula_posterior_tilt" joint="scapula_posterior_tilt" />
+    <jointpos name="sensor_scapula_external_rotation" joint="scapula_external_rotation" />
+    <jointpos name="sensor_shoulder_rotation" joint="shoulder_rotation" />
+    <jointpos name="sensor_shoulder_flexion" joint="shoulder_flexion" />
+    <jointpos name="sensor_shoulder_abduction" joint="shoulder_abduction" />
+    <jointpos name="sensor_elbow_flexion" joint="elbow_flexion" />
+    <jointpos name="sensor_forearm_pronation" joint="forearm_pronation" />
+    <tendonpos name="sensor_ligament_sc_anterior" tendon="ligament_sc_anterior" />
+    <tendonpos name="sensor_ligament_sc_posterior" tendon="ligament_sc_posterior" />
+    <tendonpos name="sensor_ligament_costoclavicular" tendon="ligament_costoclavicular" />
+    <tendonpos name="sensor_ligament_ac_superior" tendon="ligament_ac_superior" />
+    <tendonpos name="sensor_ligament_coracoclavicular_conoid" tendon="ligament_coracoclavicular_conoid" />
+    <tendonpos name="sensor_ligament_coracoclavicular_trapezoid" tendon="ligament_coracoclavicular_trapezoid" />
+    <tendonpos name="sensor_ligament_coracoacromial" tendon="ligament_coracoacromial" />
+    <tendonpos name="sensor_ligament_glenohumeral_superior" tendon="ligament_glenohumeral_superior" />
+    <tendonpos name="sensor_ligament_glenohumeral_inferior_anterior" tendon="ligament_glenohumeral_inferior_anterior" />
+    <tendonpos name="sensor_ligament_glenohumeral_inferior_posterior" tendon="ligament_glenohumeral_inferior_posterior" />
+    <tendonpos name="sensor_ligament_elbow_mcl" tendon="ligament_elbow_mcl" />
+    <tendonpos name="sensor_ligament_elbow_lcl" tendon="ligament_elbow_lcl" />
+    <tendonpos name="sensor_ligament_annular_ligament" tendon="ligament_annular_ligament" />
+    <tendonpos name="sensor_ligament_interosseous_membrane" tendon="ligament_interosseous_membrane" />
+    <tendonpos name="sensor_ligament_tfcc" tendon="ligament_tfcc" />
+    <tendonpos name="sensor_cable_supraspinatus_0" tendon="cable_supraspinatus_0" />
+    <tendonpos name="sensor_cable_infraspinatus_0" tendon="cable_infraspinatus_0" />
+    <tendonpos name="sensor_cable_deltoid_anterior_0" tendon="cable_deltoid_anterior_0" />
+    <tendonpos name="sensor_cable_deltoid_middle_0" tendon="cable_deltoid_middle_0" />
+    <tendonpos name="sensor_cable_deltoid_posterior_0" tendon="cable_deltoid_posterior_0" />
+    <tendonpos name="sensor_cable_elbow_flexors_0" tendon="cable_elbow_flexors_0" />
+    <tendonpos name="sensor_cable_elbow_flexors_1" tendon="cable_elbow_flexors_1" />
+    <tendonpos name="sensor_cable_triceps_0" tendon="cable_triceps_0" />
+    <actuatorfrc name="sensor_motor_cable_supraspinatus_0" actuator="motor_cable_supraspinatus_0" />
+    <actuatorfrc name="sensor_motor_cable_infraspinatus_0" actuator="motor_cable_infraspinatus_0" />
+    <actuatorfrc name="sensor_motor_cable_deltoid_anterior_0" actuator="motor_cable_deltoid_anterior_0" />
+    <actuatorfrc name="sensor_motor_cable_deltoid_middle_0" actuator="motor_cable_deltoid_middle_0" />
+    <actuatorfrc name="sensor_motor_cable_deltoid_posterior_0" actuator="motor_cable_deltoid_posterior_0" />
+    <actuatorfrc name="sensor_motor_cable_elbow_flexors_0" actuator="motor_cable_elbow_flexors_0" />
+    <actuatorfrc name="sensor_motor_cable_elbow_flexors_1" actuator="motor_cable_elbow_flexors_1" />
+    <actuatorfrc name="sensor_motor_cable_triceps_0" actuator="motor_cable_triceps_0" />
+  </sensor>
+</mujoco>

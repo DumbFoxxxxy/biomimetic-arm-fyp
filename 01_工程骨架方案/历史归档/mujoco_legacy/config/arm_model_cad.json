@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "model_name": "right_arm_psm",
+  "base_xml": "arm_cad_reference.xml",
+  "mesh_asset_dir": "assets_cad",
+  "output_xml": "arm_psm_generated_cad.xml",
+  "units": "meters",
+  "gravity": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "timestep": 0.001,
+  "integrator": "implicitfast",
+  "include_position_actuators": false,
+  "density_kg_m3": 850.0,
+  "bodies": {
+    "thorax": "torso",
+    "clavicle": "clavicle_axial_rotation",
+    "scapula": "scapula_external_rotation",
+    "humerus": "shoulder_abduction",
+    "ulna": "forearm_ulna",
+    "radius": "radius"
+  },
+  "ligaments": [
+    {
+      "id": "sc_anterior",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12656470404607525,
+        -0.25244700209158627,
+        -1.2936366271526771
+      ],
+      "insertion_body": "clavicle_axial_rotation",
+      "insertion_local": [
+        1.6718952365977204e-06,
+        4.328106989827774e-06,
+        1.4236957130606243e-05
+      ],
+      "stiffness": 80.0,
+      "damping": 0.8,
+      "width": 0.002
+    },
+    {
+      "id": "sc_posterior",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.1265553363400432,
+        -0.2524409928439991,
+        -1.2936446977801084
+      ],
+      "insertion_body": "clavicle_axial_rotation",
+      "insertion_local": [
+        -1.1339109930190716e-06,
+        -3.3803682058142215e-06,
+        -1.1486706324603802e-05
+      ],
+      "stiffness": 80.0,
+      "damping": 0.8,
+      "width": 0.002
+    },
+    {
+      "id": "costoclavicular",
+      "origin_body": "torso",
+      "origin_local": [
+        -0.12657160449281177,
+        -0.25244639738269836,
+        -1.2937042808160075
+      ],
+      "insertion_body": "clavicle_axial_rotation",
+      "insertion_local": [
+        -4.4231747748824546e-05,
+        1.687125309753057e-05,
+        4.988981871974829e-06
+      ],
+      "stiffness": 100.0,
+      "damping": 1.0,
+      "width": 0.002
+    },
+    {
+      "id": "ac_superior",
+      "origin_body": "clavicle_axial_rotation",
+      "origin_local": [
+        -0.00012845187672377278,
+        6.431764355648894e-05,
+        2.6197704319656623e-05
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006199520660569533,
+        0.0014723522274516087,
+        -0.004581147760225121
+      ],
+      "stiffness": 70.0,
+      "damping": 0.8,
+      "width": 0.002
+    },
+    {
+      "id": "coracoclavicular_conoid",
+      "origin_body": "clavicle_axial_rotation",
+      "origin_local": [
+        -0.00012460861380748155,
+        5.4074324136717424e-05,
+        2.6748828099471213e-05
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006769857894023232,
+        0.0014414898288297594,
+        -0.004629610805452103
+      ],
+      "stiffness": 100.0,
+      "damping": 1.0,
+      "width": 0.002
+    },
+    {
+      "id": "coracoclavicular_trapezoid",
+      "origin_body": "clavicle_axial_rotation",
+      "origin_local": [
+        -0.00010698187425975903,
+        4.801667958308187e-05,
+        2.349260400114872e-05
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006823222558259658,
+        0.0014368613109586618,
+        -0.004634620690523434
+      ],
+      "stiffness": 100.0,
+      "damping": 1.0,
+      "width": 0.002
+    },
+    {
+      "id": "coracoacromial",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006824135842489625,
+        0.0014369578416993391,
+        -0.004629622456741572
+      ],
+      "insertion_body": "scapula_external_rotation",
+      "insertion_local": [
+        0.0006147356340873955,
+        0.0014716541959254813,
+        -0.004594043557583064
+      ],
+      "stiffness": 65.0,
+      "damping": 0.8,
+      "width": 0.002
+    },
+    {
+      "id": "glenohumeral_superior",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006082123164987933,
+        0.001464956946467325,
+        -0.004598796785679042
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.003401526616892625,
+        0.00023641175685594362,
+        0.013130276543287665
+      ],
+      "stiffness": 45.0,
+      "damping": 0.6,
+      "width": 0.002
+    },
+    {
+      "id": "glenohumeral_inferior_anterior",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006169270593521503,
+        0.001453375025407624,
+        -0.004616738702008434
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.0033908819851160956,
+        0.0002301260582843696,
+        0.013101359734891503
+      ],
+      "stiffness": 45.0,
+      "damping": 0.6,
+      "width": 0.002
+    },
+    {
+      "id": "glenohumeral_inferior_posterior",
+      "origin_body": "scapula_external_rotation",
+      "origin_local": [
+        0.0006288584378282564,
+        0.0014775882664947206,
+        -0.004614423283316683
+      ],
+      "insertion_body": "shoulder_abduction",
+      "insertion_local": [
+        0.003406579088696759,
+        0.00024334318279628064,
+        0.013099382727351212
+      ],
+      "stiffness": 45.0,
+      "damping": 0.6,
+      "width": 0.002
+    },
+    {
+      "id": "elbow_mcl",
+      "origin_body": "shoulder_abduction",
+      "origin_local": [
+        0.003388694621532011,
+        0.00022524527804218054,
+        0.012840437536861373
+      ],
+      "insertion_body": "forearm_ulna",
+      "insertion_local": [
+        -0.00624415857342224,
+        -0.008863694148171135,
+        -0.0033490527401945657
+      ],
+      "stiffness": 90.0,
+      "damping": 1.0,
+      "width": 0.002
+    },
+    {
+      "id": "elbow_lcl",
+      "origin_body": "shoulder_abduction",
+      "origin_local": [
+        0.0033608186524807593,
+        0.0002248455085264851,
+        0.01284303956180156
+      ],
+      "insertion_body": "forearm_ulna",
+      "insertion_local": [
+        -0.006260156170300959,
+        -0.00886341723347104,
+        -0.0033490673126073036
+      ],
+      "stiffness": 90.0,
+      "damping": 1.0,
+      "width": 0.002
+    },
+    {
+      "id": "annular_ligament",
+      "origin_body": "forearm_ulna",
+      "origin_local": [
+        -0.006246190295276633,
+        -0.008865667084004315,
+        -0.003352049343355475
+      ],
+      "insertion_body": "radius",
+      "insertion_local": [
+        -0.0006521315906761772,
+        -0.0013601229058520516,
+        -0.00028261031705415006
+      ],
+      "stiffness": 50.0,
+      "damping": 0.6,
+      "width": 0.002
+    },
+    {
+      "id": "interosseous_membrane",
+      "origin_body": "forearm_ulna",
+      "origin_local": [
+        -0.006248054103374344,
+        -0.008863939183125552,
+        -0.0034690559268365177
+      ],
+      "insertion_body": "radius",
+      "insertion_local": [
+        -0.0006557711179542167,
+        -0.001370373201698044,
+        -0.00040019724352214324
+      ],
+      "stiffness": 35.0,
+      "damping": 0.5,
+      "width": 0.002
+    },
+    {
+      "id": "tfcc",
+      "origin_body": "forearm_ulna",
+      "origin_local": [
+        -0.006275310863588445,
+        -0.008913368875521655,
+        -0.003581950499479717
+      ],
+      "insertion_body": "radius",
+      "insertion_local": [
+        -0.0007049496182379613,
+        -0.0014046708445951026,
+        -0.0005088160577374765
+      ],
+      "stiffness": 55.0,
+      "damping": 0.8,
+      "width": 0.002
+    }
+  ]
+}

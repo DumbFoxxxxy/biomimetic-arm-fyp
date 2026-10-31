@@ -1,0 +1,90 @@
+{
+  "frozen": false,
+  "additional_SC_mount_reverse_slot_mm3": 0.0,
+  "additional_scapular_removal_mm3": 1010.6219805656438,
+  "total_scapular_removed_fraction": 0.11244223547446264,
+  "protected_AC_radius_mm": 12,
+  "protected_GH_radius_mm": 14,
+  "trials": [
+    {
+      "action": "SLIDE_BACK",
+      "trial_joint_deg": -0.5,
+      "scapular_volume_mm3": 75238.57819777798,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SLIDE_BACK",
+      "trial_joint_deg": -1.0,
+      "scapular_volume_mm3": 75174.97599679085,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SLIDE_BACK",
+      "trial_joint_deg": -1.5,
+      "scapular_volume_mm3": 75093.57061474338,
+      "accepted": false,
+      "reason": "remaining collision outside allowed contour relief",
+      "remaining_collisions": [
+        {
+          "bones": [
+            "thorax_geom",
+            "clavicle_visual"
+          ],
+          "volume_mm3": 0.7193987849305937
+        }
+      ]
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -0.5,
+      "scapular_volume_mm3": 75174.97599679085,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -1.0,
+      "scapular_volume_mm3": 75174.97599679085,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -1.5,
+      "scapular_volume_mm3": 75174.97599679085,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -2.0,
+      "scapular_volume_mm3": 75174.97311450847,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -2.5,
+      "scapular_volume_mm3": 74274.70861360502,
+      "accepted": true,
+      "reason": null,
+      "remaining_collisions": []
+    },
+    {
+      "action": "SCAP_INT",
+      "trial_joint_deg": -3.0,
+      "scapular_volume_mm3": 70789.18756921114,
+      "accepted": false,
+      "reason": "15 percent total scapular material-removal budget",
+      "remaining_collisions": []
+    }
+  ]
+}

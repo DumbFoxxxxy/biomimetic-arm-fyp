@@ -1,0 +1,284 @@
+{
+  "structure": {
+    "bones": [
+      "thorax",
+      "clavicle",
+      "scapula",
+      "humerus",
+      "ulna",
+      "radius"
+    ],
+    "skeleton_joints": [
+      "sternoclavicular",
+      "acromioclavicular",
+      "glenohumeral",
+      "elbow",
+      "proximal_radioulnar"
+    ],
+    "wires": 22,
+    "ligaments": 81,
+    "sliders": 22,
+    "expected_wires": 22
+  },
+  "missing_assets": [],
+  "geometry": {
+    "sternoclavicular": {
+      "gap_mm": 0.6,
+      "design_radius_mm": 42.2,
+      "fit_rms_mm": null
+    },
+    "acromioclavicular": {
+      "gap_mm": 1.39,
+      "design_radius_mm": 31.7,
+      "fit_rms_mm": null
+    },
+    "glenohumeral": {
+      "gap_mm": 0.0,
+      "design_radius_mm": 36.4,
+      "fit_rms_mm": 2.92
+    },
+    "elbow": {
+      "gap_mm": 1.06,
+      "design_radius_mm": 15.0,
+      "fit_rms_mm": 3.45
+    },
+    "proximal_radioulnar": {
+      "gap_mm": 2.32,
+      "design_radius_mm": 25.9,
+      "fit_rms_mm": 4.01
+    }
+  },
+  "neutral": {
+    "finite": true,
+    "taut_tendons": [
+      "wire_teres_major_0",
+      "wire_trapezius_levator_0"
+    ],
+    "energy_j": 0.0
+  },
+  "wire_moment_arms": [
+    {
+      "wire": "supraspinatus_0",
+      "channel": "supraspinatus",
+      "expected": "glenohumeral_abduction",
+      "best_axis": "glenohumeral.abduction",
+      "best_mm_per_rad": -15.65,
+      "second_axis": "glenohumeral.internal_rotation",
+      "second_mm_per_rad": 1.53,
+      "expected_mm_per_rad": -15.65
+    },
+    {
+      "wire": "infraspinatus_teres_minor_0",
+      "channel": "infraspinatus_teres_minor",
+      "expected": "glenohumeral_external_rotation",
+      "best_axis": "glenohumeral.internal_rotation",
+      "best_mm_per_rad": 31.19,
+      "second_axis": "glenohumeral.flexion",
+      "second_mm_per_rad": -1.62,
+      "expected_mm_per_rad": 31.19
+    },
+    {
+      "wire": "subscapularis_0",
+      "channel": "subscapularis",
+      "expected": "glenohumeral_internal_rotation",
+      "best_axis": "glenohumeral.internal_rotation",
+      "best_mm_per_rad": -13.08,
+      "second_axis": "glenohumeral.abduction",
+      "second_mm_per_rad": -1.4,
+      "expected_mm_per_rad": -13.08
+    },
+    {
+      "wire": "teres_major_0",
+      "channel": "teres_major",
+      "expected": "glenohumeral_adduction",
+      "best_axis": "glenohumeral.abduction",
+      "best_mm_per_rad": 36.36,
+      "second_axis": "glenohumeral.internal_rotation",
+      "second_mm_per_rad": 9.22,
+      "expected_mm_per_rad": 36.36
+    },
+    {
+      "wire": "deltoid_anterior_0",
+      "channel": "deltoid_anterior",
+      "expected": "glenohumeral_flexion",
+      "best_axis": "glenohumeral.flexion",
+      "best_mm_per_rad": -15.49,
+      "second_axis": "acromioclavicular.upward_rotation",
+      "second_mm_per_rad": 13.41,
+      "expected_mm_per_rad": -15.49
+    },
+    {
+      "wire": "deltoid_anterior_1",
+      "channel": "deltoid_anterior",
+      "expected": "glenohumeral_flexion",
+      "best_axis": "glenohumeral.flexion",
+      "best_mm_per_rad": -16.05,
+      "second_axis": "glenohumeral.abduction",
+      "second_mm_per_rad": 13.18,
+      "expected_mm_per_rad": -16.05
+    },
+    {
+      "wire": "deltoid_middle_0",
+      "channel": "deltoid_middle",
+      "expected": "glenohumeral_abduction",
+      "best_axis": "glenohumeral.abduction",
+      "best_mm_per_rad": -15.4,
+      "second_axis": "glenohumeral.internal_rotation",
+      "second_mm_per_rad": 14.42,
+      "expected_mm_per_rad": -15.4
+    },
+    {
+      "wire": "deltoid_middle_1",
+      "channel": "deltoid_middle",
+      "expected": "glenohumeral_abduction",
+      "best_axis": "glenohumeral.internal_rotation",
+      "best_mm_per_rad": 15.3,
+      "second_axis": "glenohumeral.abduction",
+      "second_mm_per_rad": -14.94,
+      "expected_mm_per_rad": -14.94
+    },
+    {
+      "wire": "deltoid_posterior_0",
+      "channel": "deltoid_posterior",
+      "expected": "glenohumeral_extension",
+      "best_axis": "glenohumeral.internal_rotation",
+      "best_mm_per_rad": 22.88,
+      "second_axis": "glenohumeral.flexion",
+      "second_mm_per_rad": 19.47,
+      "expected_mm_per_rad": 19.47
+    },
+    {
+      "wire": "pectoralis_major_0",
+      "channel": "pectoralis_major",
+      "expected": "glenohumeral_adduction",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": -99.8,
+      "second_axis": "sternoclavicular.elevation",
+      "second_mm_per_rad": 67.15,
+      "expected_mm_per_rad": 23.54
+    },
+    {
+      "wire": "pectoralis_major_1",
+      "channel": "pectoralis_major",
+      "expected": "glenohumeral_adduction",
+      "best_axis": "sternoclavicular.elevation",
+      "best_mm_per_rad": 111.11,
+      "second_axis": "acromioclavicular.upward_rotation",
+      "second_mm_per_rad": 66.36,
+      "expected_mm_per_rad": 32.82
+    },
+    {
+      "wire": "coracobrachialis_0",
+      "channel": "coracobrachialis",
+      "expected": "glenohumeral_flexion",
+      "best_axis": "glenohumeral.abduction",
+      "best_mm_per_rad": 13.73,
+      "second_axis": "glenohumeral.flexion",
+      "second_mm_per_rad": -10.61,
+      "expected_mm_per_rad": -10.61
+    },
+    {
+      "wire": "trapezius_levator_0",
+      "channel": "trapezius_levator",
+      "expected": "scapulothoracic_upward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 120.2,
+      "second_axis": "acromioclavicular.external_rotation",
+      "second_mm_per_rad": 31.17,
+      "expected_mm_per_rad": -27.65
+    },
+    {
+      "wire": "rhomboid_lower_trap_0",
+      "channel": "rhomboid_lower_trap",
+      "expected": "scapulothoracic_downward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 84.43,
+      "second_axis": "sternoclavicular.elevation",
+      "second_mm_per_rad": 54.47,
+      "expected_mm_per_rad": 26.36
+    },
+    {
+      "wire": "rhomboid_lower_trap_1",
+      "channel": "rhomboid_lower_trap",
+      "expected": "scapulothoracic_downward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 78.62,
+      "second_axis": "sternoclavicular.elevation",
+      "second_mm_per_rad": 62.89,
+      "expected_mm_per_rad": 28.84
+    },
+    {
+      "wire": "serratus_anterior_0",
+      "channel": "serratus_anterior",
+      "expected": "scapulothoracic_upward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 109.64,
+      "second_axis": "acromioclavicular.upward_rotation",
+      "second_mm_per_rad": -29.47,
+      "expected_mm_per_rad": -29.47
+    },
+    {
+      "wire": "serratus_anterior_1",
+      "channel": "serratus_anterior",
+      "expected": "scapulothoracic_upward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 109.94,
+      "second_axis": "sternoclavicular.elevation",
+      "second_mm_per_rad": 35.8,
+      "expected_mm_per_rad": -27.03
+    },
+    {
+      "wire": "serratus_anterior_2",
+      "channel": "serratus_anterior",
+      "expected": "scapulothoracic_upward_rotation",
+      "best_axis": "sternoclavicular.protraction",
+      "best_mm_per_rad": 98.54,
+      "second_axis": "acromioclavicular.upward_rotation",
+      "second_mm_per_rad": -29.47,
+      "expected_mm_per_rad": -29.47
+    },
+    {
+      "wire": "elbow_flexors_0",
+      "channel": "elbow_flexors",
+      "expected": "elbow_flexion",
+      "best_axis": "proximal_radioulnar.valgus",
+      "best_mm_per_rad": 5.43,
+      "second_axis": "elbow.flexion",
+      "second_mm_per_rad": -5.23,
+      "expected_mm_per_rad": -5.23
+    },
+    {
+      "wire": "elbow_flexors_1",
+      "channel": "elbow_flexors",
+      "expected": "elbow_flexion",
+      "best_axis": "proximal_radioulnar.valgus",
+      "best_mm_per_rad": 5.55,
+      "second_axis": "elbow.flexion",
+      "second_mm_per_rad": -4.44,
+      "expected_mm_per_rad": -4.44
+    },
+    {
+      "wire": "triceps_0",
+      "channel": "triceps",
+      "expected": "elbow_extension",
+      "best_axis": "elbow.flexion",
+      "best_mm_per_rad": 13.63,
+      "second_axis": "glenohumeral.internal_rotation",
+      "second_mm_per_rad": 0.0,
+      "expected_mm_per_rad": 13.63
+    },
+    {
+      "wire": "triceps_1",
+      "channel": "triceps",
+      "expected": "elbow_extension",
+      "best_axis": "elbow.flexion",
+      "best_mm_per_rad": 8.76,
+      "second_axis": "acromioclavicular.upward_rotation",
+      "second_mm_per_rad": -0.0,
+      "expected_mm_per_rad": 8.76
+    }
+  ],
+  "weak_wires": [],
+  "ligaments_taut_at_neutral": 0,
+  "failures": []
+}

@@ -1,0 +1,117 @@
+Dim swApp As Object
+Dim reportPath As String
+Dim root As String
+Dim part As Object
+Dim skMgr As Object
+
+Sub main()
+    Dim templ As String
+    Dim ok As Boolean
+    Dim errs As Long
+    Dim warns As Long
+    Dim f As Object
+    Dim n As Long
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+    root = "D:\XJTLU\PSP\final_model\cable_motion_work"
+    reportPath = root & "\audit\cable_paths.txt"
+    ResetFile reportPath
+    templ = "C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2026\templates\gb_part.prtdot"
+    Set part = swApp.NewDocument(templ, 0, 0, 0)
+    If part Is Nothing Then
+        WriteLine reportPath, "ERROR|new_part"
+        swApp.ExitApp
+        Exit Sub
+    End If
+    Set skMgr = part.SketchManager
+
+    ' Coordinates are in mm in the script; CreateLine needs metres.
+    CreatePath "CAB_E01_PATH", _
+        162.55, 147.69, -12.70, 184.34, -101.35, -12.70, 194.80, -220.89, -12.70
+    CreatePath "CAB_E02_PATH", _
+        162.55, 147.69, 27.30, 184.34, -101.35, 27.30, 194.80, -220.89, 27.30
+    CreatePath "CAB_G01_PATH", _
+        160.11, 231.37, -20.09, 159.06, 187.54, -12.70, 179.11, -41.58, -12.70
+    CreatePath "CAB_G02_PATH", _
+        121.37, 250.84, 42.67, 159.06, 187.54, 27.30, 179.11, -41.58, 27.30
+    CreatePath "CAB_G03_PATH", _
+        164.15, 239.15, -18.29, 179.06, 187.54, 7.30, 199.11, -41.58, 7.30
+    CreatePath "CAB_G04_PATH", _
+        100.00, 200.00, -74.20, 140.50, 187.54, 12.00, 159.11, -41.58, 7.30
+    CreatePath "CAB_G05_PATH", _
+        108.36, 150.20, 64.55, 159.06, 187.54, -10.70, 155.00, 165.10, 3.30
+    CreatePath "CAB_G06_PATH", _
+        51.10, 112.86, 114.24, 159.06, 187.54, 25.30, 168.90, 166.30, 13.30
+    CreatePath "CAB_S01_PATH", _
+        75.00, 258.00, 79.77, 95.14, 231.53, 76.02, 142.75, 104.30, 34.70
+    CreatePath "CAB_S02_PATH", _
+        75.00, 158.00, 79.77, 95.95, 190.54, 75.32, 109.85, 94.19, 63.25
+    CreatePath "CAB_S03_PATH", _
+        120.00, 210.00, 29.30, 68.74, 210.10, 98.94, 68.74, 210.10, 98.94
+    CreatePath "CAB_S04_PATH", _
+        55.00, 255.00, 97.48, 112.80, 196.09, 60.70, 112.80, 196.09, 60.70
+    CreatePath "CAB_S05_PATH", _
+        100.00, 200.00, -74.20, 134.53, 230.32, 41.83, 134.53, 230.32, 41.83
+    CreatePath "CAB_S06_PATH", _
+        55.00, 255.00, 97.48, 120.43, 152.53, 54.07, 120.43, 152.53, 54.07
+
+    Dim savePath As String
+    savePath = root & "\cable_paths_full.SLDPRT"
+    ok = part.SaveAs3(savePath, 0, 0)
+    WriteLine reportPath, "save|" & savePath & "|" & CStr(ok)
+
+    n = 0
+    Set f = part.FirstFeature()
+    Do While Not f Is Nothing
+        WriteLine reportPath, "feature|" & SafeStr(f.Name) & "|" & SafeStr(f.GetTypeName2)
+        n = n + 1
+        Set f = f.GetNextFeature()
+    Loop
+    WriteLine reportPath, "feature_count|" & n
+    part.EditRebuild3
+    swApp.CloseDoc part.GetTitle()
+    swApp.ExitApp
+End Sub
+
+Sub CreatePath(name As String, x1 As Double, y1 As Double, z1 As Double, _
+               x2 As Double, y2 As Double, z2 As Double, _
+               x3 As Double, y3 As Double, z3 As Double)
+    Dim s1 As Object
+    Dim s2 As Object
+    Dim sameEnd As Boolean
+    sameEnd = (Abs(x2 - x3) < 0.000001) And (Abs(y2 - y3) < 0.000001) And (Abs(z2 - z3) < 0.000001)
+    part.ClearSelection2 True
+    skMgr.Insert3DSketch True
+    Set s1 = skMgr.CreateLine(x1 / 1000#, y1 / 1000#, z1 / 1000#, _
+                             x2 / 1000#, y2 / 1000#, z2 / 1000#)
+    If Not sameEnd Then
+        Set s2 = skMgr.CreateLine(x2 / 1000#, y2 / 1000#, z2 / 1000#, _
+                                 x3 / 1000#, y3 / 1000#, z3 / 1000#)
+    End If
+    skMgr.InsertSketch True
+    WriteLine reportPath, "created|" & name & "|" & CStr(Not s1 Is Nothing) & "|" & CStr(Not s2 Is Nothing) & "|same_end=" & CStr(sameEnd)
+End Sub
+
+Sub ResetFile(path As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.CreateTextFile(path, True)
+    ts.Close
+End Sub
+
+Sub WriteLine(path As String, text As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(path, 8, True)
+    ts.WriteLine text
+    ts.Close
+End Sub
+
+Function SafeStr(v As Variant) As String
+    On Error Resume Next
+    SafeStr = CStr(v)
+    On Error GoTo 0
+End Function

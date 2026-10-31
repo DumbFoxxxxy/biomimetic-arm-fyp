@@ -1,0 +1,276 @@
+Dim swApp As Object
+
+Sub main()
+    On Error GoTo FatalError
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+
+    Dim assemblyPath As String
+    Dim outputFolder As String
+    assemblyPath = "D:\XJTLU\PSP\model\biomimetic_structure.SLDASM"
+    outputFolder = "D:\XJTLU\PSP\model\validation"
+
+    EnsureFolder outputFolder
+    ResetFile outputFolder & "\assembly_audit.txt"
+    ResetFile outputFolder & "\components.txt"
+    ResetFile outputFolder & "\features.txt"
+    ResetFile outputFolder & "\mates.txt"
+
+    WriteLine outputFolder & "\assembly_audit.txt", "assembly|" & assemblyPath
+
+    Dim wasOpen As Boolean
+    Dim swAssembly As Object
+    Set swAssembly = swApp.GetOpenDocumentByName(assemblyPath)
+    wasOpen = Not swAssembly Is Nothing
+
+    If swAssembly Is Nothing Then
+        Dim errors As Long
+        Dim warnings As Long
+        Set swAssembly = swApp.OpenDoc6(assemblyPath, 2, 0, "", errors, warnings)
+        WriteLine outputFolder & "\assembly_audit.txt", _
+            "open|errors=" & errors & "|warnings=" & warnings
+    Else
+        WriteLine outputFolder & "\assembly_audit.txt", "open|already_open"
+    End If
+
+    If swAssembly Is Nothing Then
+        WriteLine outputFolder & "\assembly_audit.txt", "FAIL|could_not_open_assembly"
+        Exit Sub
+    End If
+
+    WriteLine outputFolder & "\assembly_audit.txt", "title|" & swAssembly.GetTitle()
+    WriteLine outputFolder & "\assembly_audit.txt", "path|" & swAssembly.GetPathName()
+    WriteLine outputFolder & "\assembly_audit.txt", "type|" & swAssembly.GetType()
+
+    DumpComponents swAssembly, outputFolder
+    DumpFeatures swAssembly, outputFolder
+    DumpMates swAssembly, outputFolder
+    DumpSummary swAssembly, outputFolder
+
+    WriteLine outputFolder & "\assembly_audit.txt", "PASS|audit_complete"
+
+    If Not wasOpen Then
+        On Error Resume Next
+        swApp.CloseDoc swAssembly.GetTitle()
+        On Error GoTo FatalError
+    End If
+    Exit Sub
+
+FatalError:
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "FATAL|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub DumpComponents(swAssembly As Object, outputFolder As String)
+    Dim components As Variant
+    Dim component As Object
+    Dim componentName As String
+    Dim componentPath As String
+    Dim suppressed As Boolean
+    Dim xform As Object
+    Dim values As Variant
+    Dim line As String
+    Dim i As Long
+    Dim j As Long
+
+    On Error GoTo ComponentError
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        WriteLine outputFolder & "\assembly_audit.txt", "components|0"
+        Exit Sub
+    End If
+
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "components|" & (UBound(components) + 1)
+    WriteLine outputFolder & "\components.txt", _
+        "name|path|suppressed|fixed|xform0|xform1|xform2|xform3|xform4|xform5|xform6|xform7|xform8|xform9|xform10|xform11|xform12|xform13|xform14|xform15"
+
+    For i = 0 To UBound(components)
+        Set component = components(i)
+        componentName = ""
+        componentPath = ""
+        suppressed = False
+        fixed = False
+        line = ""
+
+        On Error Resume Next
+        componentName = component.Name2
+        componentPath = component.GetPathName()
+        suppressed = component.IsSuppressed()
+        fixed = component.IsFixed()
+        Set xform = component.Transform2
+        If xform Is Nothing Then
+            Set xform = component.GetXform()
+        End If
+        values = xform.ArrayData
+        On Error GoTo ComponentError
+
+        line = EscapeCsv(componentName) & "|" & _
+            EscapeCsv(componentPath) & "|" & CStr(suppressed) & "|" & _
+            CStr(fixed)
+
+        If IsArray(values) Then
+            For j = LBound(values) To UBound(values)
+                line = line & "|" & CStr(values(j))
+            Next j
+        End If
+
+        WriteLine outputFolder & "\components.txt", line
+    Next i
+    Exit Sub
+
+ComponentError:
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "component_error|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub DumpFeatures(swModel As Object, outputFolder As String)
+    WriteLine outputFolder & "\features.txt", "depth|parent|type|name"
+    On Error GoTo FeatureError
+    DumpFeature swModel.FirstFeature(), 0, outputFolder
+    Exit Sub
+
+FeatureError:
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "feature_error|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub DumpFeature(feature As Object, depth As Long, outputFolder As String)
+    Dim child As Object
+
+    Do While Not feature Is Nothing
+        Dim featureName As String
+        Dim featureType As String
+
+        featureName = ""
+        featureType = ""
+        On Error Resume Next
+        featureName = feature.Name
+        featureType = feature.GetTypeName2()
+        On Error GoTo 0
+
+        WriteLine outputFolder & "\features.txt", _
+            CStr(depth) & "|" & EscapeCsv(featureType) & "|" & EscapeCsv(featureName)
+
+        Set child = feature.GetFirstSubFeature()
+        If Not child Is Nothing Then
+            DumpFeature child, depth + 1, outputFolder
+        End If
+        Set feature = feature.GetNextFeature()
+    Loop
+End Sub
+
+Sub DumpMates(swAssembly As Object, outputFolder As String)
+    Dim mates As Variant
+    Dim mate As Object
+    Dim i As Long
+
+    WriteLine outputFolder & "\mates.txt", "index|type_id"
+    On Error GoTo MateError
+    mates = swAssembly.GetMates()
+    If IsEmpty(mates) Then
+        WriteLine outputFolder & "\assembly_audit.txt", "mates|0"
+        Exit Sub
+    End If
+
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "mates|" & (UBound(mates) + 1)
+    For i = 0 To UBound(mates)
+        Set mate = mates(i)
+        WriteLine outputFolder & "\mates.txt", CStr(i) & "|" & CStr(mate.GetType())
+    Next i
+    Exit Sub
+
+MateError:
+    WriteLine outputFolder & "\assembly_audit.txt", _
+        "mate_error|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub DumpSummary(swAssembly As Object, outputFolder As String)
+    Dim mateCount As Long
+    Dim refAxisCount As Long
+    Dim coordSysCount As Long
+    Dim namedJointCount As Long
+
+    SummarizeFeature swAssembly.FirstFeature(), mateCount, refAxisCount, _
+        coordSysCount, namedJointCount
+
+    WriteLine outputFolder & "\assembly_audit.txt", "mate_features|" & mateCount
+    WriteLine outputFolder & "\assembly_audit.txt", "reference_axes|" & refAxisCount
+    WriteLine outputFolder & "\assembly_audit.txt", "coordinate_systems|" & coordSysCount
+    WriteLine outputFolder & "\assembly_audit.txt", "named_joint_features|" & namedJointCount
+End Sub
+
+Sub SummarizeFeature(feature As Object, ByRef mateCount As Long, _
+                     ByRef refAxisCount As Long, ByRef coordSysCount As Long, _
+                     ByRef namedJointCount As Long)
+    Dim child As Object
+    Dim featureType As String
+    Dim featureName As String
+
+    Do While Not feature Is Nothing
+        featureType = ""
+        featureName = ""
+        On Error Resume Next
+        featureType = feature.GetTypeName2()
+        featureName = feature.Name
+        On Error GoTo 0
+
+        If Left(featureType, 4) = "Mate" Then
+            mateCount = mateCount + 1
+        ElseIf featureType = "RefAxis" Then
+            refAxisCount = refAxisCount + 1
+        ElseIf featureType = "CoordSys" Then
+            coordSysCount = coordSysCount + 1
+        End If
+
+        If InStr(1, featureName, "SC_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "AC_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "ST_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "GH_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "ELBOW_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "PRUJ_", vbTextCompare) > 0 Or _
+           InStr(1, featureName, "DRUJ_", vbTextCompare) > 0 Then
+            namedJointCount = namedJointCount + 1
+        End If
+
+        Set child = feature.GetFirstSubFeature()
+        If Not child Is Nothing Then
+            SummarizeFeature child, mateCount, refAxisCount, coordSysCount, _
+                namedJointCount
+        End If
+        Set feature = feature.GetNextFeature()
+    Loop
+End Sub
+
+Sub EnsureFolder(folderPath As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(folderPath) Then
+        fso.CreateFolder folderPath
+    End If
+End Sub
+
+Sub ResetFile(filePath As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 2, True, -1)
+    ts.Close
+End Sub
+
+Sub WriteLine(filePath As String, message As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 8, True, -1)
+    ts.WriteLine message
+    ts.Close
+End Sub
+
+Function EscapeCsv(value As String) As String
+    EscapeCsv = Replace(Replace(value, "|", "/"), vbCrLf, " ")
+    EscapeCsv = Replace(EscapeCsv, vbCr, " ")
+    EscapeCsv = Replace(EscapeCsv, vbLf, " ")
+End Function

@@ -1,0 +1,718 @@
+===== PAGE 1 =====
+ 
+ 
+Abstract— In this paper, we propose a method to determine 
+the optimal multiarticular muscle arrangement of a robot for a 
+specific motion. Multiarticular muscles contribute to the reali-
+zation of a musculoskeletal robot with dynamic motion ability 
+similar to humans and animals. However, the ability is affected 
+by the multiarticular muscle arrangement. In previous r e-
+searches, the muscle arrangements of the robots were based on 
+those of humans and animals. However, we suppose that a more 
+suitable muscle arrangement than any other one of humans and 
+animals can be found by limiting the variety of motions. 
+Therefore, we focus ed on a specific motion, and furthermore, 
+searched for the optimal multiarticular muscle arrangement for 
+the specific motion. Specifically, we estimated the impulse 
+properties of robots with a great variety of possible muscle 
+arrangements. The im pulse properties were calculated using 
+dynamics simula tion corresponding to the specific motion. 
+Then, on the basi s of the evaluation of the impulse properties, 
+we found the optimal muscle arrangement from among 736,281 
+of possible muscle arrangements. Furthermore, we demon-
+strated the effectiveness of our method using simulation ex-
+periments. The results indicate that there is a more suitable 
+muscle arrangement than any other one of humans and animals 
+on condition that we focus on the specific motion. 
+I. INTRODUCTION 
+s one approach to realize a robot with dynamic mo-
+tion ability similar to humans and animals, muscul o-
+skeletal robots, which have musculoskeletal structures 
+similar to humans and animals, have been developed recently 
+[1]–[6], [15]–[17], [26]. Humans and animals have dynamic 
+motion ability, and t he ability results from their musculo-
+skeletal structures which include multiarticular muscles. A 
+single multiarticular muscle can couple multiple joints, and 
+let them produce the torque cooperatively. Multiarticular 
+muscles are disadvantageous from the standpoint of control-
+lability. However, they can improve the weight and velocity 
+performance of a robot [19]. This indicates that multiarticular 
+muscles contribute to the realization of a robot with dynamic 
+motion ability. 
+In previous researches, various musculoskeletal robots 
+ 
+Tadashi Asaoka is with Department of Mechanical Systems Engineering, 
+Tokyo University of Agriculture and Technology, 
+asaoka@mizuuchi.lab.tuat.ac.jp 
+Masaki Kawamura is with Sharp Co. Ltd., k a-
+wamsk@mizuuchi.lab.tuat.ac.jp 
+Shouhei Kumakura is with Department of Mechanic al Systems Eng i-
+neering, Tokyo University of Agriculture and Technology, kumak u-
+ra@mizuuchi.lab.tuat.ac.jp 
+Ikuo Mizuuchi is with Department of Mechanical Systems Engineering, 
+Tokyo University of Agriculture and Technology, 
+ikuo@mizuuchi.lab.tuat.ac.jp 
+ 
+Fig. 1. Muscle arrangements of human and animal legs [11]. 
+ 
+with multiarticular muscles were developed. Niiyama et al. 
+[2]–[4] developed some robots with biarticular muscles, and 
+realized jumping and running motions by the robots. Hosoda 
+et al. [6] developed a legged robot with biarticular muscles , 
+and realized a jumping motion by the robot. Oshima et al. 
+[18] developed a robot with a gastrocnemius muscle which is 
+a biarticular muscle in a human leg, and realized a jumping 
+motion by the robot. 
+The multiarticular muscle arrangement affects the motion 
+ability of a robot . Therefore, the multiarticular muscle a r-
+rangement is very important for a robot with dynamic motion 
+ability. However, the determination of the optimal muscle 
+arrangement of a robot for desired motions have hardly been 
+studied so far. 
+In the above mentioned researches [2]–[4], [6], [18], the 
+muscle arrangements of the robots were based on ones of 
+humans and animals. Humans and animals have a variety of 
+muscle arrangements (Fig. 1). Moreover, humans and an i-
+mals can a great variety of dynamic motions. However, we 
+suppose that a more suitable muscle arrangement than any 
+other one of humans and animals can be found by limiting the 
+variety of motions. 
+Therefore, in this research, we focus on a specific motion, 
+and furthermore, propose a method to determine the optimal 
+multiarticular muscle arrangement for the specific motion. 
+Furthermore, we demonstrate the effectiveness of our method 
+using simulation experiments. 
+In add ition, robot parameters in this research are taken 
+from our developed musculoskeletal robot with PAM 
+(McKibben-type p neumatic artificial muscle ) actuators as 
+shown in Fig. 2. 
+II. OVERVIEW OF DETERMINING THE OPTIMAL 
+MULTIARTICULAR MUSCLE ARRANGEMENT OF A ROBOT FOR 
+THE SPECIFIC MOTION 
+ We previously proposed a method to determine the optimal 
+muscle arrangement of a robot for a specific motion [10]. In 
+the previous research , we determined the optimal muscle 
+arrangement by evaluating the force properties of a robot.
+Determining the Optimal Multiarticular Muscle Arrangement 
+of a Musculoskeletal Robot for a Specific Motion using Dynamics Simulation 
+Tadashi Asaoka, Masaki Kawamura, Shouhei Kumakura and Ikuo Mizuuchi 
+A 
+2012 12th IEEE-RAS International Conference on Humanoid Robots
+Nov.29-Dec.1, 2012. Business Innovation Center Osaka, Japan
+978-1-4673-1369-8/12/$31.00 ©2012 IEEE 216
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+ 
+ 
+ 
+Fig. 4. Backward jumping for back handspring as the specific motion [12]. 
+ 
+ 
+ 
+ 
+ 
+(a) Our developed robot. (b) PAMs. 
+ 
+Fig. 2. Our developed musculoskeletal robot with PAMs. 
+ 
+ 
+Fig. 3. Estimation of impulse properties using dynamics simulation cor-
+responding to the specific motion. 
+ 
+The force properties were calculated on the basis of the statics 
+and kinematics of the robot [9]. We estimated a sequence of 
+force properties using a sequence of robot key poses corr e-
+sponding to the specific motion. On the basis of the evalu a-
+tion of the sequences of the force properties, we determined 
+the optimal muscle arrangement of a robot for the sp ecific 
+motion. 
+The previous research [10] ignored the dynamics of the 
+robot and the muscle. However, in performing dynamic 
+motions such as jumping and running, their dynamics cannot 
+be ignored. In this research, we propose an approach in 
+consideration of the dynamics of the robot and the muscle. In 
+this research, we determined the optimal muscle arrangement 
+by evaluating the impulse properties of a robot estimated 
+using dynamics simulation corresponding to the specific 
+motion (Fig. 3). However, in this research, we dealt with the 
+translational impulse and did not deal with the angular i m-
+pulse. 
+In dynamics simulation, the generation of robot motions is 
+generally a difficult problem. We generated robot motions 
+using the maximum COG (the center of gravity) acceleration 
+profile [10]. It is a method to calculate the combination of 
+muscle tension vectors which maximizes the magnitude of 
+COG acceleration of a robot in a given direction. Using the 
+method, we obtained the desired muscle tension vector for 
+the specific motion. 
+In this research, as an example of artificial muscles, we 
+dealt with PAM actuators. In the simulation, we calculated 
+the muscle tension vector generated by PAM actuators 
+from through the PAM actuator model, and furthermore, 
+applied to the robot motion model. 
+In this research, as an example of the specific motion, we 
+dealt with backward jumping for back handspring (Fig. 4). 
+The realization of complex and fast robot motion is important. 
+It enhances the mobility of a robot. Back handspring is i n-
+cluded in such interesting robot motions. 
+In this research, as an example of muscle arrangement, we 
+attempted to optimally arrange six PAM actuators at three 
+joints in a robot leg. The three joints are ankle, knee and hip 
+joint. In the case that all the muscles are monoarticular 
+muscles, not less than six muscles are necessary to drive three 
+joints. Therefore, we considered that the number of muscles 
+was six. 
+We generated a vast se arch space for the optimal muscle 
+arrangement. The search space was generated from the 
+number of joints and muscles, without reference to muscle 
+arrangements of humans and animals [10]. We searched for 
+the optimal muscle arrangement for backward jumping mo-
+tion from among the search space. 
+It should be noted that while we describe our solution for 
+the specific example in this paper, our approach is more 
+general and geared towards l arger problems of determining 
+the optimal muscle arrangement for desired robot motion s. 
+For example, we can easily imagine that our method can 
+determine the optimal muscle arrangement of a robot for 
+multiple motions by using multi -objective optimization 
+methods [13]. 
+III. ROBOT MOTION MODEL AND PAM ACTUATOR 
+MODEL 
+A. Robot Motion Model 
+The robot model is shown in Fig. 5. It was modeled as a 
+four-link robot in the sagittal plane (the x -y plane ). The 
+generalized coordinates are defined as the position of the toe 
+( ) , the angle and the joint angle vector 
+ ( ), where is the attitude of the 
+link 1 (foot), and , and are the angles of 
+joint 1 (ankle joint), joint 2 (knee joint) and joint 3 (hip joint) 
+respectively. 
+ 
+ 
+Fig. 5. Robot model. 
+217
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+ 
+The robot motion is divided into the following three phases 
+by contact with the ground (phase transitions: A B C). 
+ 
+ Phase A: The toe and heel are on the ground. 
+ Phase B: The toe is on the ground and the heel is off the 
+ground. 
+ Phase C: The toe and heel are off the ground ( flight 
+phase). 
+ 
+The constraint ( ) ( { }) in phase A and B are 
+defined as the following equation respectively: 
+ 𝐴( ) [
+𝒙 
+𝒚 
+ 
+] 𝟎 (1) 
+ 𝐵( ) [𝒙 𝒚 ] 𝟎 (2) 
+where [ ] is the 
+generalized coordinates. 
+The equations of motion can be derived by Lagrange’s 
+formulation [7]. 
+ [ 𝑴( ) 𝑞 ( )𝑇
+ 𝑞 ( ) 𝟎 ] [ ̈𝝀 ] [𝒖 − 𝒃( ̇ )𝜸 ( ̇ ) ] (3) 
+where 𝑴( ) is the inertial matrix , 𝒃( ̇ ) is 
+the nonlinear term , 𝒖 is the external force vector, 
+ 𝑞 ( ) ( ) ⁄ ( 𝑞𝐴 𝑞𝐵 ) is the Ja-
+cobian matrix of relationship between and , and 
+𝝀 (𝝀𝐴 [ 𝐴 𝐴 𝐴 ]𝑇 𝝀𝐵 [ 𝐵 𝐵]𝑇 ) is the 
+Lagrange multiplier vector. The second derivative of ( ) 
+provides 𝜸 ( ̇ ). The 𝜸 ( ̇ ) is represented by the fo l-
+lowing equation: 
+ 
+ 𝜸 ( ̇ ) − 𝜕( 𝑞𝑠 ̇ )𝜕 ̇ (𝜸𝐴 𝜸𝐵 ) (4) 
+The 𝝀 represents the constraint forces. At the beginning, 
+the robot keeps (1). If the zero crossing of 𝐴 is detected, 
+the heel is off the ground and the constraint switches to (2 ) 
+(phase A phase B). Then, if the zero crossing of 𝐵 is 
+detected, the toe is off the ground (phase B phase C). 
+The 𝒖 is represented by the following equation: 
+ 𝒖 [𝟎 1
+𝝉 ] (5) 
+where 𝝉 is the joint torque vector. The 𝝉 is associated 
+with the muscle tension vector , as the following 
+equation: 
+ 𝝉 −𝑱𝑀𝑇( ) 𝑟 (6) 
+where 𝑱𝑀( ) is the Jacobian matrix of relationship between 
+the muscle length vector ( 1 ) and : 
+ ̇ 𝑱𝑀( ) ̇ (7) 
+We calculated the robot dynamic motion from (3) using 
+Baumgarte stabilization [24]. The muscle arrangement was 
+evaluated by the following equation: 
+ 𝑀 ( ̇ ) (8) 
+where 𝑀 is the evaluation value of the muscle arrangement, 
+ is the time when the toe is out of the ground and ( ̇ ) 
+is COG momentum of the robot in a given direction de-
+pending on the specific motion. 
+B. PAM Actuator Model 
+A PAM actuator is composed of rubber tube covered over 
+braided threads. One side of the actuator is sealed off, and the 
+other has a tube to supply air pressure. By filling the rubbe r 
+tube with compressed air, the diameter of the rubber tube 
+increases and the axis shortens due to the inextensible threads, 
+resulting in tension to the axis of the actuator. 
+ The static characteristic of a PAM actuator is given by 
+[21]: 
+ 
+ ( ) { ( − ) − } (9) 
+where 
+ 
+ 
+ 
+ (10) 
+ 
+ 
+ (11) 
+ 
+1
+ (12) 
+ [N] is the tension, [Pa(gauge)] is the inner pressure, is 
+the contracting ratio, [m] is the initial length, [m] is the 
+initial diameter and [rad] is the initial angle be tween the 
+thread and the axis. 
+Using ( 9), We calculate d the muscle tension vector . 
+The inner pressure in consideration of the response delay 
+was calculated according to the desired muscle tension vector 
+ [20], [22] and [25]. 
+IV. MOTION GENERATION BY USING MAXIMUM COG 
+ACCELERATION PROFILE 
+ We calculated the muscle tension vector 
+df , which 
+maximizes COG acceleration magnitude in a specific direc-
+tion at each time using the maximum COG acceleration 
+profile. The maximum COG acceleration profile is formu-
+lated as below. 
+218
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+ 
+ We divided the generalized coordinates into dependent 
+generalized coordinates and independent generalized co-
+ordinates ( 𝐴 ( ) , 𝐵 
+( ) ). The COG acceleration of 
+the robot ̈ is defined as the following equation: 
+ 
+ ̈ 𝑱 ( ) ̈ 𝑱̇ ( ) ̇ (13) 
+where 𝑱 ( ) {𝜕 𝜕 𝑠} (𝑱 𝐴 𝑱 𝐵 ) is the COG 
+Jacobian matrix connecting COG position of the robot 
+with . Equation (3) is redefined using and as fol-
+lows: 
+ 
+[
+ 
+ 
+ 𝑴𝑣𝑣 𝑴𝑣𝑤 ( 𝑞 𝑣)𝑇
+𝑴𝑤𝑣 𝑴𝑤𝑤 ( 𝑞 𝑤)𝑇
+ 𝑞 𝑣 𝑞 𝑤 𝟎 ] 
+ 
+ 
+[
+ ̈ 
+ ̈ 
+𝝀 
+] [
+𝒖𝑣 − 𝒃𝑣
+𝒖𝑤 − 𝒃𝑤
+𝜸 
+] (14) 
+Using generalized coordinate partitioning method [23], we 
+derived the equation of motion related to : 
+ 𝑴̂ ̈ ̂ (15) 
+where 𝑴̂ and ̂ are defined as follows respectively: 
+𝑴̂ (𝑴𝑤𝑤 𝑇𝑴𝑣𝑤) (𝑴𝑤𝑣 𝑇𝑴𝑣𝑣) (16) 
+ ̂ (𝒖𝑤 − 𝒃𝑤 𝑇(𝒖𝑣 − 𝒃𝑣)) 
+ −(𝑴𝑤𝑣 𝑇𝑴𝑣𝑣)( 𝑞 𝑣) 1𝜸 (17) 
+where 
+ −( 𝑞 𝑣) 1 𝑞 𝑤 (18) 
+The following equation was derived by using (5), (13) and 
+(15) [28]: 
+ ̈ ( ) ( ̇ ) (19) 
+where ( ) and ( ̇ ) are defined as follows respe c-
+tively: 
+ ( ) 𝑱 ( )𝑴̂ 1𝑱𝑀( )𝑇 (20) 
+ ( ̇ ) 𝑱 ( )𝑴̂ 1 (−𝒃𝑤 𝑇(𝒖𝑣 − 𝒃𝑣) 
+− (𝑴𝑤𝑣 𝑇𝑴𝑣𝑣)( 𝑞 𝑣) 1𝜸 )
+ 𝑱̇ ( ) ̇ 
+(21) 
+ 
+The ̈ are given by using its magnitude and direction 
+as follows: 
+ ̈ ( ) ( ) (22) 
+Therefore, The muscle tension vector 
+df was calculated as 
+the following linear programming problem [28]: 
+ ( )( ( ) ( ̇ )) 
+ ( − ( ) ( ))( ( ) ( ̇ )) 𝟎 
+ (23) 
+where is the minimum of muscle tension vector and 
+ is the maximum of muscle tension vector . Using (9), 
+we calculated and . 
+V. GENERATION OF THE SEARCH SPACE FOR THE OPTIMAL 
+MUSCLE ARRANGEMENT 
+The matrix 𝑱𝑀( ) is given as follows: 
+ 𝑱𝑀( ) 
+(
+ 
+ 
+𝜕 1
+𝜕𝜃𝑎𝑛𝑘𝑙𝑒
+𝜕 1
+𝜕𝜃𝑘𝑛𝑒𝑒
+𝜕 2
+𝜕𝜃𝑎𝑛𝑘𝑙𝑒
+𝜕 2
+𝜕𝜃𝑘𝑛𝑒𝑒
+𝜕 1
+𝜕𝜃ℎ𝑖𝑝
+𝜕 2
+𝜕𝜃ℎ𝑖𝑝
+⋮ ⋮
+𝜕 6
+𝜕𝜃𝑎𝑛𝑘𝑙𝑒
+𝜕 6
+𝜕𝜃𝑘𝑛𝑒𝑒
+⋮
+𝜕 6
+𝜕𝜃ℎ𝑖𝑝)
+ 
+ 
+ (24) 
+The magnitude of the value 
+𝜕 𝑖
+𝜕𝜃 
+ means the moment arm of the 
+ th muscle at the th joint. On the other hand, the sign of the 
+value 
+𝜕 𝑖
+𝜕𝜃 
+ means the direction of the th joint rotation by the 
+ th muscle contraction. In this research, we considered only 
+the sign of the value 
+𝜕 𝑖
+𝜕𝜃 
+. Generally, the magnitude of the 
+value 
+𝜕 𝑖
+𝜕𝜃 
+ can be calculated from muscle anchor points and 
+joint angles [2 7]. In the case of using circular pulleys, the 
+magnitude of the value 
+𝜕 𝑖
+𝜕𝜃 
+ can be calculated from the pulley 
+radiuses regardless of the anchor points and the joint angles. 
+If we consider the magnitude as well as the sign of the value 
+𝜕 𝑖
+𝜕𝜃 
+, the search space grows too large. In order to prevent the 
+search space from growing too large, in this research, we 
+assumed that all the arrangement patterns of one muscle at 
+one joint were three according to the sign of the value 
+𝜕 𝑖
+𝜕𝜃 
+ as 
+follows: 
+ 
+ The th muscle crosses the front of the th joint: 
+ 
+ 
+𝜕 𝑖
+𝜕𝜃 
+ 𝑟 (25) 
+ 
+ The th muscle crosses the back of the th joint: 
+ 
+ 
+𝜕 𝑖
+𝜕𝜃 
+ −𝑟 (26) 
+ 
+ The th muscle crosses the center of the th joint, or does 
+not cross the th joint: 
+ 
+219
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+ 
+ 
+𝜕 𝑖
+𝜕𝜃 
+ (27) 
+ 
+where 
+ 
+ 𝑟 |
+𝜕 𝑖
+𝜕𝜃 
+| (28) 
+ 
+The value 𝑟 is calculated from given anchor points and joint 
+angles, or pulley radiuses. Here, for simplicity, we assumed 
+that 𝑟 was constant (𝑟 m). 
+ Under the above conditions, all arrangement patterns of 
+one muscle at three joints is as follows: 
+ 
+ 
+  hipkneeankle
+hipkneeankle
+SwSvSuwvu
+SSS
+
+
+,,,,
+d (29) 
+ 
+where 
+ 
+ 
+ 0,, rrSankle  (30) 
+ 
+ 
+ 0,, rrSknee  (31) 
+ 
+ 
+ 0,, rrShip  (32) 
+ 
+The number of all arrangement patterns of one muscle at 
+three joints is as follows: 
+ 
+ 
+27333  hipkneeankle SSS (33) 
+ 
+However, 
+ 0,0,0 means that the m uscle can drive no joints 
+of a robot. Therefore, excepting it, we supposed that all the 
+arrangement patterns were 26 [10]. 
+The Possible muscle arrangements of six muscles at three 
+joints are defined as repeated combinations selecting six 
+patterns from the above 26 patterns. Therefore, the number of 
+all the possible muscle arrangements is as follows: 
+ 
+ 
+281,736CH 631626  (34) 
+VI. SEARCH RESULTS AND SIMULATION EXPERIMENTS 
+A. Search Results 
+In this paper, w e searched for the optimal muscle a r-
+rangement of a robot for a backward jumping motion from 
+among the above 736,281 of possible muscle arrangements . 
+In this search, we supposed that was 77 [deg] using the 
+knowledge of biomechanics [14]. Furthermore, we supposed 
+that the maximum tension of each mus cle was the same (= 
+400 [N]). We show the search result in Fig. 6. 
+B. Simulation Experiments 
+In order to demonstrate the effectiveness of our method, we 
+performed simulation experiments. In this simulation e x-
+periments, we compared the muscle arrangement found by 
+our method with the muscle arrangement of a human leg [8] 
+(Fig. 7). 
+The number of muscles in the muscle arrangement found 
+by our method (= 6) is different from that of the muscle ar-
+rangement of a human leg (= 9). Therefore, we changed the 
+maximum tension of each muscle of a human leg according to 
+the ratio of maximum tension [8]. As a result, the total of 
+maximum tension of muscle arrangement found by our 
+method became the same as that of the muscle arrangement of 
+a human leg (= 2,400 N). Under these conditions, the muscle 
+arrangement of a human leg was evaluated for a backward 
+jumping motion in the same way as we determi ned the o p-
+timal muscle arrangement. We show the results in Fig. 8. 
+VII. CONCLUSION 
+In this paper, we focused on a specific motion, and fur-
+thermore, proposed a method to determine the optimal mul-
+tiarticular muscle arrangement of a robot for the specific 
+motion. We determined the optimal muscle arrangement by 
+evaluating impulse properties of the robot. We estimated the 
+impulse properties using dynamics simulations of the robot 
+and the muscle during the specific motion. We searched for 
+the optimal muscle arrang ement from among 736,281 of 
+possible muscle arrangements. Furthermore, we demo n-
+strated the effectiveness of our method using simulation e x-
+periments. As a result, the results indicate that there is a more 
+suitable muscle arrangement than any other one of humans 
+and animals on condition that we focus ed on the specific 
+motion. In the future, using our method, we intend to realize 
+dynamic motions such as back handspring by a real robot. 
+ 
+ 
+ 
+𝑱𝑀𝑇 ( 
+− 
+ 
+ 
+− 
+− 
+ 
+ 
+− 
+− 
+− 
+− 
+ 
+− 
+ 
+− 
+ 
+) 
+ 
+Fig. 6. Multiarticular muscle arrangement found by our method. The 
+numbers in parentheses are the maximum muscle tensions [N] at . 
+ 
+ 
+ 
+𝑱𝑀𝑇 ( 
+− 
+ 
+ 
+ 
+ 
+− 
+ 
+ 
+ 
+ 
+ 
+− 
+− 
+ 
+ 
+ 
+ 
+ 
+ 
+− 
+ 
+ 
+− 
+− 
+ 
+) 
+ 
+Fig. 7. Multiarticular muscle arrangement in a human leg. The numbers 
+in parentheses are the maximum muscle tensions [N] at . 
+ 
+220
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+ 
+ 
+(a) Comparison of momentum 
+ 
+(b) Simulated robot motion 
+ 
+(c) Simulated joint torque 
+ 
+Fig. 8. Comparison results of multiarticular muscle arrangement s. 
+REFERENCES 
+[1] I. Mizuuchi, T. Yoshikai, Y. Nakanishi, Y. Sodeyama, T. Yamamoto, et 
+al., “Development of Muscle -Driven Flexible -Spine Humanoids,” 
+Proceedings of IEEE -RAS International Conference on Humanoid 
+Robots (Humanoids 2005) , pp. 339–344, 2005. 
+[2] R. Niiyama, S . Nishikawa and Y . Kuniyoshi, “Athlete Robot with 
+Applied Human Muscle Activation Patterns for Bipedal Running,” 
+Proceedings of the IEEE -RAS International Conference on Humanoid 
+Robots (Humanoids 2010) , pp. 498–503, 2010. 
+[3] R. Niiyama and Y . Kuniyoshi, “A Pneumatic Biped with an Artificial 
+Musculoskeletal System,” Proceedings of the 4th International Sy m-
+posium on Adaptive Motion of Animals and Machines (AMAM 2008) , 
+pp. 80–81, 2008. 
+[4] R. Niiyama, A . Nagakubo and Y . Kuniyoshi, “Mowgli: A Bipedal 
+Jumping and Landing Robot with an Artif icial Musculoskeletal Sy s-
+tem,” Proceedings of the 2007 IEEE International Conference on 
+Robotics and Automation (ICRA 2007) , pp. 2546–2551, 2007. 
+[5] K. Narioka, R. Niiyama, Y. Ishii and K . Hosoda, “Pneumatic Musc u-
+loskeletal Infant Robots,” Proceedings of the 2009 IEEE/RSJ Intern a-
+tional Conference on Intelligent Robots and Systems, Work shop, 2009. 
+[6] K. Hosoda, Y . Sakaguchi, H . Takayama, and T . Takuma, “Pneuma t-
+ic-driven jumping robot with anthropomorphic muscular skeleton 
+structure,” Autonomous Robots , Vol. 28, Issue 3, pp. 307-316, 2010. 
+[7] S.-H. Hyon, N. Yokoyama and T . Emura, “Back Handspring Robot – 
+Target Dynamics-Based Control,” Proceedings of the 2004 IEEE/RSJ 
+International Conference on Intelligent Robots and Systems (IROS 
+2010), pp. 248–253, 2004. 
+[8] T. Oshima, T. Fujikawa and M . Kumamoto, “Kinematic Analyses for 
+the Various Muscular Arrangements of Animals,” Transactions of the 
+Japan Society of Mechanical Engineers, Series C, Vol. 65, No. 635, pp. 
+2837–2844, 1999. 
+[9] R. Niiyama and Y . Kuniyoshi, “Design Pr inciple Based on Maximum 
+Output Force Profile for a Musculoskeletal Robot,” Industrial Robot: 
+An International Journal, Vol. 37, No. 3, pp. 250–255, 2010. 
+[10] T. Asaoka, M. Kawamura, S. Kumakura and I. Mizuuchi, “Determining 
+an Optimal Multiarticular Muscle Ar rangement of a Musculoskeletal 
+Robot for a Specific Motion using Human Motion Data ,” Proceedings 
+of the 20 12 IEEE International Conference on Mechatronics and A u-
+tomation (ICMA 2012), pp. 2120–2127, 2012. 
+[11] K. Yoshida, “Motion Control Based on Animal Musculos keletal 
+Structure,” Ph.D. Dissertation, University of Tokyo, Japan, 2009. 
+[12] Okayama Prefectural Education Center, 
+http://www2.edu-ctr.pref.okayama.jp/hotai2/index.html, Japan, 2011. 
+[13] R. T. Marler and J. S. Arora , “Survey of multi -objective optimization 
+methods for engineering,” Structural and Multidisciplinary Optimiz a-
+tion, Vol. 26, No. 6, pp. 369–395, 2004. 
+[14] C. Huang, G. -S. Hsu, “Biomechanical Analysis of Gymnastic Back 
+Handspring,” 27 International Conference on Biomechanics in Sports , 
+2009. 
+[15] D. Majoe, L. Widmer and J . Gutknecht, “Pneumatic Air Muscle and 
+Pneumatic Sources for Light Weight Autonomous Robots,” Proceed-
+ings of the 20 11 IEEE International Conference on Robotics and A u-
+tomation (ICRA 2011), pp. 3243–3250, 2011. 
+[16] I. Mizuuchi, Y. Nakanishi, Y. Sodeyama, Y. Namiki, T. Nishino, et al., 
+“An Advanced Musculoskeletal Humanoid Kojiro,” Proceedings of the 
+2007 IEEE -RAS International Conference on Humanoid Robots (H u-
+manoids 2007), pp. 294–299, 2007. 
+[17] I. Mizuuchi, T. Yoshikai, Y. Sodeyama, Y. Nakanishi, A. Miyadera, et 
+al., “Development of Musculoskeletal Humanoid Kotaro,” Proceedings 
+of the 2006 IEEE International Conference on Robotics and Autom a-
+tion (ICRA 2006), pp. 82–87, 2006. 
+[18] T. Oshima, K. Toriumi, T . Fujikawa and N . Momose, “Jump Mech a-
+nism using C oordination Function of Bi -articular Muscle in Knee and 
+Ankle Joint,” Transactions of the Japan Society of Mechanical Eng i-
+neers, Series C, Vol. 71, No. 712, pp. 176–182, 2005. 
+[19] S. Hirose and M . Sato, “Coupled drive of the multi -DOF robot,” Pro-
+ceedings of IE EE International Conference on Robotics and Autom a-
+tion, Vol. 3, pp. 1610–1616, 1989. 
+[20] C.-P. Chou and B . Hannaford, “Measurement and Modeling of 
+McKibben Pneumatic Artificial Muscles,” IEEE Transactions on R o-
+botics and Automation , Vol. 12, No. 1, pp. 90–102, 1996. 
+[21] B. Tondu and P. Lopez, “Modeling and Control of McKibben Artificial 
+Muscle Robot Actuators,” IEEE Control Systems Magazine , Vol. 20, 
+Issue 2, pp. 15–38, 2000. 
+[22] M. Sugisaka and H. Zhao, “The characteristics of McKibben muscle 
+based on the pneumatic ex periment system,” Artificial Life and R o-
+botics, Vol. 11, Issue 2, pp. 223-226, 2007. 
+[23] R.-A. Wehage and E. -J. Haug, “Generalized Coordinate Partitioning 
+for Dimension Reduction in Analysis of Constrained Dynamic Sy s-
+tems,” ASME Journal of Mechanical Design , Vol. 104, pp. 247 –255, 
+1982 
+[24] J. Baumgarte, “Stabilization of Constraints and Integrals of Motion in 
+Dynamical Systems,” Computer Methods in Applied Mechanics and 
+Engineering, Vol. 1, pp. 1–16, 1972. 
+[25] T. Hiroki, M. Hiroyuki and N. Taro, “Orbit Tracking Control of 6-DOF 
+Lubber Artificial Muscle Manipulator Considering Nonlinear D y-
+namics Model,” Transactions of the Japan Society of Mechanical E n-
+gineers, Series C, Vol. 77, No. 779, pp. 2742 –2755, 2011. 
+[26] B. Verrelst, R.-V. Ham, B. Vanderborght, F. Daerden, D. Lefeber, et al., 
+“The Pneumatic Biped "Lucy" Actuated with Pleated Pneumatic Art i-
+ficial Muscles,” Autonomous Robots , Vol. 18, No. 2, pp. 2 01–213, 
+2005. 
+[27] Y. Nakamura, K. Yamane, I. Suzuki, and Y. Fujita , “Dynamic Co m-
+putation of Musculo -Skeletal Human Model Based o n Efficient Alg o-
+rithm for Closed Kinematic Chains,” Proceedings of the 2nd Intern a-
+tional Symposium on Adaptive Motion of Animals and Machines , 
+SaP-I-2, 2003. 
+[28] T. Sugimoto, “Characteristics Analysis and Motion Control Utilizing 
+Redundant Degree of Freedom of a Manipulator with Kinematic R e-
+dundancy and Actuation Redundancy,” Master Dissertation, The Un i-
+versity of Tokyo, Japan, 2011. 
+221
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on October 27,2026 at 11:13:08 UTC from IEEE Xplore. Restrictions apply.

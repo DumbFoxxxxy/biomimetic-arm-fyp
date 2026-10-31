@@ -1,0 +1,37 @@
+{
+  "scope": "finite rigid geometry, nominal assembly and CAD review only; full musculoskeletal goal incomplete",
+  "checks": {
+    "nine_connected_parts": true,
+    "neutral_all_pairs": true,
+    "OBJ_STL": true,
+    "nine_individual_STEP": true,
+    "nine_body_STEP": true,
+    "whole_42_body_STEP": true,
+    "42_scene_geometry": true,
+    "sample_step_deg": true,
+    "13_motion_paths": true,
+    "forearm_straight_retention": true,
+    "pin_axial_retention": true,
+    "sequential_assembly": true
+  },
+  "frozen": false,
+  "sha256": {
+    "assembly.json": "e843d407d8d34d6ca394ad44e2f277c6001205fe221a64c9f6c021cf1c04ba70",
+    "cad_input.json": "4f03439a099e5cec3f93905ed64e3f2027bc75e1cc3642290b6ee8954e68cd0e",
+    "arm.xml": "34656cc6d6a112fac870d782e6604d8fe653dea45d6060880e73a648ff3ea82d",
+    "bone_motion_audit.json": "cf2dfd404753d4a5996ee4561ec8c9f97bf5917101e304daf58758b2dc2e45bf",
+    "geometry_checks.json": "fc86ab0fed081f847228a828f9c43f4165a4c89b16f77c57500eb5dc2c364eab",
+    "audit_checks.json": "e24ed1802546969a1e52790bece0ec9a4913b0b728df002046c852c18e806ebc",
+    "cad_roundtrip.json": "32f5c739e24af44d8ae203d5c71fee7fc83359b6da92dbe857020008d4ef643a",
+    "assembly_STEP_check.json": "676da14fbfe36c71cbeccfa77f37b0e849a03bead92f337c2866d5bdaf6b5ecb",
+    "whole_arm_STEP_check.json": "a1636903fe6344092376301993ec5bbcbcb64882363374f8bf4d94f21969d209",
+    "assembly_and_retention_checks.json": "c934360a6626126a70a798eecaad25d34535e33362267d1799c9da9398bb9870"
+  },
+  "not_verified": [
+    "steel/TPU muscle geometry and actuation",
+    "whole-arm support fixture",
+    "printed tolerances and preload",
+    "general retention escape paths, loads and strength",
+    "arbitrary combined motion"
+  ]
+}

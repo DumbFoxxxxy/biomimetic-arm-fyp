@@ -1,0 +1,833 @@
+{
+  "scope": "actual swivel-cap port endpoints, numerical free-centreline path,0.6mmsteel and rigidly posed source-manufactured short-guide pieces. These are hypothetical TPU-guide poses, NOT lattice deformation, equilibrium, friction ordrive proof; no actual model guides are fixed to virtual supports",
+  "quick": true,
+  "critical_flexor_only": true,
+  "single_critical_case": true,
+  "sampling_per_link": 32,
+  "small_metal_distance_method": "all triangles for solids<1024faces; nearest128 forlarger solids; independent actualsolid Booleans finalgate",
+  "regularizer": "0.05mm^-1 squared-distance to smooth rest/cap interpolation; numerical shape regularizer, not calibrated TPU elasticity or external anchors",
+  "normal_bow_initial_guess_mm": 12,
+  "metal_aware": true,
+  "constrained_metal_parts": [
+    "paired_bone_frame",
+    "FJ1486_keeper",
+    "FJ1486_keeper_bolt",
+    "FJ1486_keeper_front_washer",
+    "FJ1486_keeper_back_washer",
+    "FJ1486_keeper_nut",
+    "FJ1477_keeper",
+    "FJ1477_keeper_bolt",
+    "FJ1477_keeper_front_washer",
+    "FJ1477_keeper_back_washer",
+    "FJ1477_keeper_nut"
+  ],
+  "source_sha256": {
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\assembly.json": "787b60be8be3a7ae60efdfa40d1b9dd1ae5720ccbdd627e8265c7d6875e52b92",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\conditional_motion.json": "5f66a14af2349912509c1a32deae26aa37ed2ff929e5ed0bcdb94d68e9331390",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\TPU_muscle.obj": "736d2725c2455035b4ecde66c26e7755b8a09d96a3a8c7b485f817e4a202d523",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_rigid_cap.obj": "918ee45ff216517c6c52df5575e12de034ea417a52ec5d45d0e4407792c1e48c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_washer_left.obj": "9555c78cb5e7fb710c94cae3642c00db410725026b9b1f0cbe3654a948c65dfe",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_left.obj": "1faa098cdc9acb944ac790225c8c7d7ed185fc2d92b50fb4b8ffd93140c5bfd1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_washer_right.obj": "428fe5e2f2f8cec036eeac8012164282b8062a18939f8e8e3bd06c9e29cff1a8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\proximal_nut_right.obj": "15b78a8f9378605427d5920288a6643b94b4a2fc2203d26569afd284abe2a9e1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_bolt_left.obj": "1e60a01f0fe89dbd6d6216d8aed87726b17b495aeef84219956bbe95f3768d07",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_head_washer_left.obj": "08374a72d8d4a3a54e72f43f959e5e6d6e883e58496f7baebf0b8795ab448840",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_washer_left.obj": "a933dec23f7921af0c02efaa387a1a9806f514ff9d7b85bc23678c32d95f615e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_left.obj": "73c589ba68753e31f27ac775d9026d875dc5b275530e63d22d46fa3cb207365f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_bolt_right.obj": "97d57162118564ad2bf2e5728621404b1736d79cdb0e54961ef78298fe3aab71",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_head_washer_right.obj": "e37852df3fee0f686710275518d581759183cfb9fb1317e5ff5a4b35d9a0da2c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_washer_right.obj": "7f6f5ad903c0267d8055d8edb1bdcf05f5bfa114b38813bd4739d3a56a417566",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\distal_nut_right.obj": "4f900f1290716ecd1c11548c3fde159f838ed38cb283c96e0c61b00e3769dd32",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\active_wire_crimp_barrel.obj": "6e52f2505a8dcab0698bd4c4f9c0a5890402e0fa3c9967f6836a1a2dd9121967",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\TPU_muscle.obj": "7d17158da76946fd8d20804d0655fccf896507e1e7b11199bb2a40911c1f98e1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_rigid_cap.obj": "8e601af51c4b1f77e0491fb3af17cfc14f1c87c138141ac550e43b15db05fd65",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_washer_left.obj": "66a5b3f6b0edf4c0ca42821bd8897ecc9e96b302c76ce14a6c3c025cde042e24",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_left.obj": "3c275a3ee882b79a83ab554331001c5459393170f8aee96d5da88cba78aadf25",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_washer_right.obj": "4d26067da0be389af635d43e48521b451c7792204e6176fd44a8795033a0f9ca",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\proximal_nut_right.obj": "572dfe84434b2ea0081e38cd66d018ce5059f501821965ea3663828597d5500d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_bolt_left.obj": "4da96a589910e9dc68a2e78df3ce38456ab7e3824a53759d8108ac8007b7659e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_head_washer_left.obj": "17fac4525e4ff9321be8453e9f35298c293c58156fa1c8bee735d2a98226cab8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_washer_left.obj": "8846fde77a6306b2b29de2fcbe5e112a02cb36418f1f22e90be20e4f17d62c68",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_left.obj": "2d3e99ba778a434daf19bb80ded65da507116ce1049779d2dc435630afd62ec5",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_bolt_right.obj": "a0acd89a43ec641cce4896730346a9fa15c6f53730b49b7fcdd21b5343afc135",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_head_washer_right.obj": "b0319e272fbd92db329693871e81a91fd26b3a0c3a6fef9974d409fa99753523",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_washer_right.obj": "1fc7551a4d14b9ff258d948effd97bd615bafb782a994dc593069597f0d51e3c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\distal_nut_right.obj": "de2c3a2d1c8704cf96a6ac11d5b2789895f3d19358e97a3cab1f0b120af16a1d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\extensor_reanchor_extended\\muscle\\FJ1477\\active_wire_crimp_barrel.obj": "e845e310ae6fa6d7f934048348ad329ec4fac402307952d5d0ebf155c7f83868",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\humerus_M2_mounts.obj": "261340687b4618147c5e43f8df91c22f99532117993a0e9c3daa155eba5fb733",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_bolt_left.obj": "d442c791c02c50ef7897c104058435708899914b59f9f42bb010b2ad6daab9cd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_head_washer_left.obj": "f3e4738a520a0ada19b1b55d007933cb2bc1836d5d4bbde48cdf347b11c0e55f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_bolt_right.obj": "dddb5e40fbb4569ab425638f2acd6a4818b340104ec0acc46587cde86a5e1794",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_proximal_head_washer_right.obj": "5eaaed51e19daab337c6e3d18a1c87a008df692e26fe6d8c1494f418400a8d54",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_bolt_left.obj": "7fe948866e4f991be59f28826f6a0c7f091739fb845b67cfa6c04ee95232e3a3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_head_washer_left.obj": "511cf4aefc21cb79ac2e1c42052d83c828465783cf29062f798ac16b585b1542",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_bolt_right.obj": "6c5b1fe1d50baff77be7a7eeda7fa42e45987b0867c998ab41610e267dba5ebb",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_proximal_head_washer_right.obj": "6fd0ca715359ae4f14abd37452d2aaca6ebb1161b0a2431ce9576b11cd27c056",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_adapter.obj": "340c25e7919fea3c05e7d89a68ba5659e9426f73b3d9cfe77f1dfa644bd7e45d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_adapter.obj": "05248aabed2c8446a4642db385fb6f3a3d05e1af25e8fbe01952be38733331af",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_bolt.obj": "66da948912b46fa679a1ad521b8a0984e6f69d94da9e9d80dd07294ab00936c6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_front_washer.obj": "dbe8eb5fa3ace3e66eb20227e55268a7f43da14db485ccdc0ecc31083fc543b2",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_back_washer.obj": "09b7ee67b848ed74374ba16e3406c35277778d937f2f597170e3da87a0b12378",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_0_nut.obj": "5b0fbfdbe020fbca7bf93549a30085bd893c72e75d1836f43c798dcd26db00ca",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_bolt.obj": "2536507cd8b15058325c624c1ee98c099ce83a3d296b170c50a93fb34fda3989",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_front_washer.obj": "476ce7e483014a79297015716b0070778f970c8474bd68a7f3968e062cb0693c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_back_washer.obj": "bf17a72180361adb7273ae4c5b28e43b106912e593e81260bcbe8a5dd008e0db",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1486_bone_1_nut.obj": "5bf24ac28e9cb2c7e9f2069959bf4d0bdc85526704496f4dc257af0ac07ffd59",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_bolt.obj": "6ee326efd1a444b69b59507a9756116fe650de0959677d1dadf7733636ec3de8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_front_washer.obj": "842b08ddc78f9d67f9e1c05f0e85d7f3e2fffbe10e3ca5c0b3b1a9d001980483",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_back_washer.obj": "5ff04786d7c07a0da8dba3ecbc771599a6e7121e024931e68931c870777c71dd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_0_nut.obj": "0856bc5f088691e5cf0b60471a3d3512bc6c1c21bd13466eef82329f9a6b2111",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_bolt.obj": "0ecf9dbd07e9f17fb2ef54040685bbd1bb3c2b219d5848da5fb2ac7c7b45016b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_front_washer.obj": "d5ecb07d78c28b0f3a6a157446efd08102f70f93f6eeb9d5e4257c15158ddeb9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_back_washer.obj": "005824af0041081759211404be08994ce63efb210987384eb56c1b4ab12c06fa",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\FJ1477_bone_1_nut.obj": "930e4fe7b51ca03c840928597efb53d368239864226547effbf8f3c4c175e1f9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\clavicle_SC_AC_balls.obj": "cadfafa89ee0a0829f9e4dea052cf587f1b66c3f4870d24494dd5dc533c0bd9c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\manubrium_socket_base.obj": "2131074f10ddebd53f7cbee60d6aa6a78840502deec22ef61323dcd073c2c15f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_cap_left.obj": "58b3ee5a4fd93f1b0c0b1eb888884b21f0719e2fb357e8ae68426ee499282908",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_cap_right.obj": "1aa71d06cc96fe4da7f80c69b6fa3c824afb113b097da5aae0d3f209d5c441dc",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bolt_left.obj": "476d0c4d2274dc5d0891b475b67aad2eb903e3f620d50367eccea99af503a446",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_nut_left.obj": "26d102bf5dcd4f4cd602d623457cd0635d34c65e5d2c1bd5ef773f1efd01e595",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_top_washer_left.obj": "fac782efa2daf72f9270b4dccc01290e6bc923d10ae6aebabe4c4b9e906962c4",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bottom_washer_left.obj": "fad89ddc4e69c02e1c06946dac19a79501574f101de029d7c1026bf91e756ab0",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bolt_right.obj": "2c3ab3a986d4fecd07969aec431149022e1432442c3e3bd510cda4015eaf2852",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_nut_right.obj": "acf11421f9d4c8e40cea936c51911f72d4bacbe19deb4c2fab0195e33b8b11de",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_top_washer_right.obj": "be08ab46cf4bcc67267a074dac49a74f7082d8eb5ea5c1b46f2d82a3c1fed421",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\SC_bottom_washer_right.obj": "7baa53cf550e5426b7eac0f4f0111d11dc129f5bcba320d961cec1f7cc3af559",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\scapula_AC_GH_sockets.obj": "e4928a46f3ddc12b24e07b8758f13cc870699c989c4b5fe9b4264bcb17208d95",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_cap_left.obj": "e33588e8eccf9e8402231c3e7a086ef1148e1d1df5a70be6883dc414b5761f15",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_cap_right.obj": "292d77c56a3a84f6d9c0a9fec82206d25616abef4e2a38034869d48a63431359",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bolt_left.obj": "1715f02289beaf3f30772ff50be971b9611e39cc4b6b9acb566a66bbff7f5d83",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_nut_left.obj": "ed3449657430affebe653f696a463ac82d59cd2fa36f2c975d3e793b6b25b657",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_top_washer_left.obj": "9d99dfcc325263b5b91df4054b60e5b61832d7d0b0606a86d9a63038ff549a6d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bottom_washer_left.obj": "9a2be02b8b30e481251f1ee47dd0abdf1175128b400bdff31e754a1ab743bb78",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bolt_right.obj": "eede60caa96e5933bad0dea7dcc89ab845d234e0d64567ffbf911e22f4b7b1df",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_nut_right.obj": "260128650271f6216cd7790938c266bd5d8d4035d24d54d6908b75f17f4e3bae",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_top_washer_right.obj": "ad851c9bf6cdec72d7846bd6e50e5a3852322c57b27f272ebe134dbebf121757",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\AC_bottom_washer_right.obj": "574e3dabf038c90cdf13adfdfd06ad2d30107641edbb2ffed9cd3433a5be3ad9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_cap_0.obj": "6fc15bf0a0ca3efb3426d695b2d0436108c13cfed11a0a9df289b616e8888e33",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_cap_1.obj": "8fd33dd413c0dbfef2824899946e6b7fd732e436aefd061df3472b0964df3e5c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bolt_0.obj": "8adb148ed5fdb8db54f942556241c1d870aefaa80d0fb772a6ebdd27ba14843f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_nut_0.obj": "4f4e284e4bb8a14b7a89010de260a43dd58f908f03afacbb5dfafc432b0d3ebd",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_top_washer_0.obj": "66ae1450eb71c201d8b1dc27de8bed686eff0306a3bec71e2d84743f5307256a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bottom_washer_0.obj": "fc49675d229aa40be28bfbaf0d968c5280976a9e3dbdf21f3eeea77a01626595",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bolt_1.obj": "7ebcb6a025f11766f2b6066b37c3fd3fb1ef47df5eb38f556e0dcceadbb27886",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_nut_1.obj": "f78954490355035853086ebe944c9baf7ee7c108676adb28c7d8e85f7a33f5d2",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_top_washer_1.obj": "323470b1d45de3fe12b78f133e0add21d8579e034bcd7f78cbdc7259921b0f18",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\GH_bottom_washer_1.obj": "632a185cc57512b9e5bbb2ad16771f50d2aaf2b75b57b3b4eec5cfaf896b13f8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\direct_forearm_seated.obj": "b6f1a289ea6bdd2273735f63ff2e37126bf47005e9deec755d902d8a870964f6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_bearing_bush.obj": "d73ae21702ac35e2e99bae5c034ec86e76ed38d66b4fd0adbde3832dac6ce91e",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_spacer_left.obj": "1a08e14b7d530b0509257520036b2ed8dd10bc1857ff5f217eca682b915867b8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_spacer_right.obj": "78fddc215d5288e4b0bd721fd2ede81ac6b5f70bfc1856dc59fc9f3424e6527d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_shoulder_pin.obj": "7fe14e71e970030b2a9734ef19cab65acbb4b5214e474feadd6e7eb6e2865b5a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_washer_left.obj": "c085e2a7574023c2b7cbee28331e1388cb5672cd1ccba1d93d57042f22bec4d5",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_washer_right.obj": "63e6934cc09d0ae88f40a7827742f7d141b7a308b700a531e8ec373b74d68eed",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\elbow_connection\\elbow_retaining_nut.obj": "4e39a49623ad93fc509618ad12ca3ea01d74bb05b8f4407e73455c54ea040819",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_0_bolt.obj": "643cf0ae6fe039d777e6c377bc5d788fd224cb502ac65ed4b057716d580ff2f3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_0_front_washer.obj": "4dc058dec8031d086b91c9aab8ba129ec1c3115dbaee220b904176c4930bca97",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_0_back_washer.obj": "091563d9a68a1de0f84b5f02c2a16bc12c854e53b698a35742008606825d5e4b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_0_nut.obj": "71daeed899431e4bb2c0db6c7548ff081f7fda4b268bec75b6bfe3f8b3d79d7d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_1_bolt.obj": "1c3d69596d5e3554cfa8bc765b30d859f4cba17d4ff00a148ded31dd6a9cc8a8",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\bone_1_front_washer.obj": "777572c30786734b9e7948f9091325969606dbd9062fd175fa5ab16333d94e81",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_1_back_washer.obj": "fbc3f0d972360c3321339b9ccf8f968e7a48ce8ffc271a64efdffcc849b62257",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\elbow_muscles\\mounted_elbow_candidate\\side_lever_candidate\\axis_negative_r15\\bone_1_nut.obj": "fe8999f59cfe850a762df5e8747466e7e82c08935e1047a01fff99b4c7e8eafb",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\flexor_cap_rotor.obj": "5756c8c4811cbb706082c8711c0152a3e1abb02aecdc6ddf9435cb9fefe3b7a3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_pin_-1.obj": "cd39df03fd732b1e22cf6cfea224d129e1957b8f5a8276904ae2c38bb20289d3",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_pin_1.obj": "effd5771e65d01f86925ce9e6422d71375fb62ccc0c5706d55915385656441e0",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\washer_-1.obj": "9600cfa5cfa8128faa26b39d9e5f352abbb41d63988eb1cb9d212b22b27c311d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\washer_1.obj": "40dc6bc27777c90fbdd7a8a7cf8bbb3b4971a2565e09e254be4ac7768d62430f",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\extensor_cap_rotor.obj": "e9b50475c3661e644842ba91409f42d47c081c5406bba777681259dfe092cab1",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_pin_-1.obj": "07981190ab547795112f720783e9e99179c3a39cb4c9506a6e70a76b4ef1b55b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_pin_1.obj": "15c8923c2447f03d06af89bec1bcbdba3b2551d73957d381737efdede14f1561",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\washer_-1.obj": "f799feb58122da1044501dd0d268b0586dbec6e232a7564dac2f07667553c391",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_study\\washer_1.obj": "25bbe7f64d4b9288f660f4badf0b91a7f1b00512c31ccaa89d1cb27897694d04",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\paired_bone_frame.obj": "b4e1a679a84b05fa34809ca4586bac7bfbd63d42f6659668af066e539ce6ae8b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper.obj": "2705f06f13a1db580240da32e4c7d5b2cb11745daaa686c51075c122a029c25a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_bolt.obj": "af09c4bf2422d22e390d5dae306e7f1934de5e2b5e732221617c39d1d42855e6",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_front_washer.obj": "aa3a4e0c2e6d3f5a93d2e4a44237f9ce209a9b092c605f58aff1e19a02e7c04a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_back_washer.obj": "2d6ab31ff3e0de88dc493d305ff338d0a52096ce630b691db261cb9cf5386e7b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1486_keeper_nut.obj": "dbc852fe251b895c593a75311eba54566f6deaab5f8a1eb88ecfacbd26a8f023",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper.obj": "33f36f5795a1316715109d3cc24effb493b104ad4bea3b066e21cf0d262618a9",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_bolt.obj": "d54859bba3832315cf4ed1a48f2f613ecf50dd9abf47e6495bb87987c2d4938a",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_front_washer.obj": "0c1c6a93dcdc4338a92da9b8676dc169bea12feed83b411b67dac9c6cc3e20ab",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_back_washer.obj": "3e8207ddf1734779201d5769e5251b0ec1c5858a2560eac886d25dc26fd3473b",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\FJ1477_keeper_nut.obj": "2e9f75e1dc60b27e3127a0e3e48a6604f9b27e573b5e57724d49c9264387df2c",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\shifted_muscle\\FJ1486\\design.json": "902a9344b0fdc0a45558a458110e0a81e291cc2530fdf42699c77d70ecbfb626",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\design.json": "b340a90043bf8f674a4459af62d55249324ea8568bc4e45e6879d29acbdd1b6d",
+    "D:\\XJTLU\\PSP\\mujoco_arm\\exports\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\cap_swivel_flexor\\screen.json": "39e1d07a6f90a1e012057a68579113bf3c2efcbee561fc7a87516f777e8ba63a"
+  },
+  "guide_sources": [
+    {
+      "muscle": "FJ1486",
+      "tube_count": 19,
+      "extraction": "actual manufactured TPU intersect actual nominal guide-cylinder region, not replacement cylinders",
+      "source_neutral_wire_max_guide_overlap_mm3": 0.0,
+      "extract_volumes_mm3": [
+        30.89928148185553,
+        31.09805025660274,
+        31.042821388557662,
+        31.049130075785833,
+        30.92666069283713,
+        30.76994813788041,
+        30.719994897665206,
+        30.72602067127257,
+        30.739017323002667,
+        30.742868742814128,
+        30.751614429922384,
+        30.7697925912124,
+        30.781332099112543,
+        30.808438955328434,
+        30.82585616220482,
+        30.864326835940297,
+        30.89274668749939,
+        30.97099284246374,
+        30.669972415583736
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "muscle": "FJ1486",
+      "elbow_deg": 132,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully",
+      "centreline_display_mm": [
+        [
+          -48.131123651573326,
+          -27.624633647732054,
+          110.9911891004906
+        ],
+        [
+          -48.64887886096006,
+          -27.58210003258129,
+          108.03651137953099
+        ],
+        [
+          -50.23981346013481,
+          -27.12465394346245,
+          98.5585676095568
+        ],
+        [
+          -51.81957868024284,
+          -26.368031855139456,
+          88.57081177628902
+        ],
+        [
+          -53.363046908652905,
+          -25.594914653164913,
+          79.77564808559478
+        ],
+        [
+          -54.85416748813734,
+          -24.919481194557722,
+          72.23450424251638
+        ],
+        [
+          -56.32210474773257,
+          -24.44726761754819,
+          65.78127193406831
+        ],
+        [
+          -57.81415863942751,
+          -24.24958702536148,
+          60.27562780984388
+        ],
+        [
+          -59.37295828257364,
+          -24.244448763976525,
+          55.55064120422243
+        ],
+        [
+          -60.904808242575676,
+          -24.32696733616722,
+          51.44038633750083
+        ],
+        [
+          -62.166972420384354,
+          -24.52984100438068,
+          47.816646544149435
+        ],
+        [
+          -63.140347968388056,
+          -24.842328136581624,
+          44.476895534403766
+        ],
+        [
+          -63.83702744529555,
+          -25.2704399738626,
+          41.17119945905853
+        ],
+        [
+          -64.34520730406561,
+          -25.647958236824,
+          37.65742745190793
+        ],
+        [
+          -64.72016348727686,
+          -26.05813758499003,
+          33.66596067829419
+        ],
+        [
+          -64.99549007363753,
+          -26.505781263897774,
+          29.006788787124414
+        ],
+        [
+          -65.11174032287083,
+          -27.005963864383418,
+          23.470215982621486
+        ],
+        [
+          -65.07971810768204,
+          -27.7780817752559,
+          16.59487639712798
+        ],
+        [
+          -65.0306846830229,
+          -29.0053764926236,
+          7.636095505635559
+        ],
+        [
+          -64.61016758640592,
+          -28.5781960687732,
+          -3.275388805547964
+        ],
+        [
+          -63.24510828067039,
+          -26.514595480442896,
+          -11.282018677541785
+        ],
+        [
+          -62.39561413797659,
+          -25.175059494228606,
+          -19.37251931687794
+        ],
+        [
+          -62.41456699645281,
+          -25.173639723071005,
+          -21.822445596055644
+        ]
+      ],
+      "geometric_wire_length_mm": 135.70052986399378,
+      "bone_corridor_intersections": [],
+      "steel_rigid_intersections": [],
+      "guide_checks": [
+        {
+          "guide": 0,
+          "pose_affine_mm": [
+            [
+              0.9992837094545021,
+              -0.0023531632675130613,
+              0.03776944057683247,
+              -3.4330808801356554
+            ],
+            [
+              0.0023508531863886207,
+              0.999997231167912,
+              0.00010557369822912374,
+              0.4079306099876021
+            ],
+            [
+              -0.03776958443174214,
+              -1.6707667059066703e-05,
+              0.9992864745470678,
+              -0.3377274189935946
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.6450526861184533,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 1,
+          "pose_affine_mm": [
+            [
+              0.9969480106288853,
+              -0.010988054235597108,
+              0.07729118169120959,
+              -7.686183317832047
+            ],
+            [
+              0.009232472357976518,
+              0.9996920357442024,
+              0.023034650502482847,
+              -1.5766428584408168
+            ],
+            [
+              -0.07752048475897964,
+              -0.022250760295502495,
+              0.9967424331837212,
+              -2.780047855160703
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.1721191683727135,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 2,
+          "pose_affine_mm": [
+            [
+              0.9950191292109949,
+              -0.013133220762373388,
+              0.09881523676336519,
+              -9.265175491408186
+            ],
+            [
+              0.011304319818891916,
+              0.9997547106989583,
+              0.019045492607810684,
+              -1.1479654369444425
+            ],
+            [
+              -0.09904112710195377,
+              -0.01783359043066562,
+              0.9949235237920178,
+              -2.598522341912627
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.2288976419889557,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 3,
+          "pose_affine_mm": [
+            [
+              0.9882420342316586,
+              -0.021356265780915047,
+              0.15139878364626433,
+              -13.163588540723609
+            ],
+            [
+              0.016595998311162895,
+              0.9993295003644463,
+              0.03263621518193937,
+              -2.063544966490376
+            ],
+            [
+              -0.15199425850251488,
+              -0.02973986572331638,
+              0.9879338468587002,
+              -2.869892571715525
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.8774874794053689,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 4,
+          "pose_affine_mm": [
+            [
+              0.9789040328448935,
+              -0.02315768127800494,
+              0.20300398094084288,
+              -16.14625053135451
+            ],
+            [
+              0.01611804628703312,
+              0.9992123117784406,
+              0.0362624402691464,
+              -2.620008037589262
+            ],
+            [
+              -0.2036838311302417,
+              -0.03222542145900798,
+              0.9785062182469237,
+              -1.7210869581840882
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.1451952450973315,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 5,
+          "pose_affine_mm": [
+            [
+              0.9714869691341748,
+              -0.020451268436773758,
+              0.23620925981388208,
+              -17.1522290136704
+            ],
+            [
+              0.011287182366427355,
+              0.9991325658202126,
+              0.04008385500105627,
+              -3.175643683612755
+            ],
+            [
+              -0.23682412950694454,
+              -0.03627480581403178,
+              0.9708751053284003,
+              1.0572796689796178
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.644439611521359,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 6,
+          "pose_affine_mm": [
+            [
+              0.9720671679071555,
+              -0.03242487251051052,
+              0.2324522504077752,
+              -15.735430757321964
+            ],
+            [
+              0.014954183594668144,
+              0.9969550970075624,
+              0.07653043148747297,
+              -4.4529660440895
+            ],
+            [
+              -0.2342259453390654,
+              -0.0709165861651488,
+              0.9695922051753005,
+              5.316668029491176
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.460222540596742,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 7,
+          "pose_affine_mm": [
+            [
+              0.9706080176659233,
+              -0.043416890207973145,
+              0.23671723572079695,
+              -14.094548690214737
+            ],
+            [
+              0.016973273811705027,
+              0.9934927336146001,
+              0.11262369302727554,
+              -5.581072698975564
+            ],
+            [
+              -0.2400666241249279,
+              -0.10529559297358038,
+              0.965028939504719,
+              9.623979095008707
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.3073668193212207,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 8,
+          "pose_affine_mm": [
+            [
+              0.9727194969247281,
+              -0.041905105297506434,
+              0.228168232785611,
+              -11.919924600787333
+            ],
+            [
+              0.010194249748074317,
+              0.9903209593583548,
+              0.13842136658630994,
+              -6.214438379339946
+            ],
+            [
+              -0.23176034512957078,
+              -0.1323191581198755,
+              0.9637316964901952,
+              15.465184736486549
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.6224897175834476,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 9,
+          "pose_affine_mm": [
+            [
+              0.9818690233070337,
+              -0.025597166248673867,
+              0.18782440243517154,
+              -8.716375329429987
+            ],
+            [
+              -0.00017295042499357663,
+              0.9907195560490945,
+              0.13592178394222032,
+              -6.381687812960447
+            ],
+            [
+              -0.18956052109614493,
+              -0.13348987355572284,
+              0.9727524158283212,
+              23.995677014512637
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 4.800773794041076,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 10,
+          "pose_affine_mm": [
+            [
+              0.9914366501022138,
+              -0.021743392195752626,
+              0.12876565431015438,
+              -6.731380725175498
+            ],
+            [
+              0.0017414619266887255,
+              0.9881546436294506,
+              0.1534515154174485,
+              -5.214701317634471
+            ],
+            [
+              -0.1305769357293178,
+              -0.15191321591413703,
+              0.9797305949525953,
+              33.46269410849284
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 3.824701699570229,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 11,
+          "pose_affine_mm": [
+            [
+              0.9983508191056698,
+              -0.019340214036255972,
+              0.0540518095170716,
+              -5.895726656034476
+            ],
+            [
+              0.009803845795222156,
+              0.9851499924982114,
+              0.17141580116312874,
+              -4.27932202322555
+            ],
+            [
+              -0.056564358023949046,
+              -0.17060318989340614,
+              0.983714910428592,
+              43.832946997442114
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.8564103678432615,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 12,
+          "pose_affine_mm": [
+            [
+              0.9997615268771431,
+              -0.011284795845367027,
+              -0.018696062660664748,
+              -6.451560354663407
+            ],
+            [
+              0.013806343079711812,
+              0.989947163546638,
+              0.14076220471678788,
+              -3.8371689617448084
+            ],
+            [
+              0.016919641457442573,
+              -0.14098676096958182,
+              0.9898668895181095,
+              54.736055394448826
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.008165638883576,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 13,
+          "pose_affine_mm": [
+            [
+              0.997073875045425,
+              -0.007316396042332442,
+              -0.07609308806226787,
+              -7.704967029656856
+            ],
+            [
+              0.017979626909515243,
+              0.9899300599192519,
+              0.14041085956741753,
+              -2.9952493131826436
+            ],
+            [
+              0.07429953376768218,
+              -0.14136812518109645,
+              0.9871649469388015,
+              63.317586269888864
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 2.1927367881355826,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 14,
+          "pose_affine_mm": [
+            [
+              0.9956144113924682,
+              -0.0031863497589556308,
+              -0.09349754543752947,
+              -8.207742192685025
+            ],
+            [
+              0.018214291110942027,
+              0.9868965264304885,
+              0.1603230667083249,
+              -1.8807565188667361
+            ],
+            [
+              0.09176155745711351,
+              -0.16132294720420198,
+              0.9826264413694531,
+              68.2749095272954
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.921397390948898,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 15,
+          "pose_affine_mm": [
+            [
+              0.9947659004738406,
+              -0.00265082202420021,
+              -0.10214585844303903,
+              -8.710257742329013
+            ],
+            [
+              0.02075402694394654,
+              0.9840676496067792,
+              0.17657896636632464,
+              -0.6694360162827699
+            ],
+            [
+              0.10005035542205382,
+              -0.17777467238047628,
+              0.9789719568199772,
+              71.41519045608995
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 1.3937050711919339,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 16,
+          "pose_affine_mm": [
+            [
+              0.9945447659299189,
+              0.004871209669676355,
+              -0.1041968323787102,
+              -8.659547810340044
+            ],
+            [
+              0.00909772990170751,
+              0.9910516747824772,
+              0.13316834917307713,
+              -3.9441803104489814
+            ],
+            [
+              0.10391313618613653,
+              -0.1333898392952067,
+              0.9856009389711236,
+              73.76010150498689
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 10.216882137274165,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 17,
+          "pose_affine_mm": [
+            [
+              0.9863906743171916,
+              0.02013727535006937,
+              -0.1631806598882098,
+              -13.255502561735724
+            ],
+            [
+              -0.02338266914532385,
+              0.9995646755708201,
+              -0.017991946382805088,
+              -16.316390525368924
+            ],
+            [
+              0.1627473145821965,
+              0.021562687505895496,
+              0.9864321376069449,
+              79.08234806339293
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 14.098922913317551,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        },
+        {
+          "guide": 18,
+          "pose_affine_mm": [
+            [
+              0.9679662090972494,
+              0.01709274020492191,
+              -0.2504980165154744,
+              -21.328064303821414
+            ],
+            [
+              -0.050956154458025746,
+              0.9902914135507933,
+              -0.12933053224363225,
+              -26.842166660642757
+            ],
+            [
+              0.24585542167857444,
+              0.1379520006373899,
+              0.9594396057863109,
+              85.74287970610257
+            ]
+          ],
+          "incoming_outgoing_turn_deg": 6.08557538400728,
+          "steel_material_intersection_mm3": 0.0,
+          "rigid_intersections": [],
+          "actual_TPU_embedded_guide_pose_verified": false
+        }
+      ],
+      "actual_TPU_body_deformation_verified": false,
+      "actual_friction_or_drive_verified": false
+    }
+  ],
+  "frozen": false
+}

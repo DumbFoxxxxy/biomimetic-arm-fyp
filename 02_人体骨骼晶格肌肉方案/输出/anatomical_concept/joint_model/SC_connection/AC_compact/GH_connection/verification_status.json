@@ -1,0 +1,33 @@
+{
+  "scope": "G1 finite-path geometry and roundtrip checks only; NOT whole-arm completion",
+  "checks": {
+    "12_connected_parts": true,
+    "neutral_assembly": true,
+    "OBJ_STL": true,
+    "individual_STEP": true,
+    "compound_STEP": true,
+    "36_scene_geometry": true,
+    "sample_step": true,
+    "13_paths": true,
+    "26_pullout_directions": true
+  },
+  "frozen": false,
+  "evidence_sha256": {
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\assembly.json": "a344f32527b99ba67a371c81229ff90b0e339aa53b70e94cb6dfa7ed56781e77",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\cad_input.json": "e81821f332635c40c3e11b1eef058f9de88ca9ca10571f8aa4e68bef02072098",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\arm.xml": "3eafc07a849cec3804beff8b86609edbb6e975b9d28bb8cb652d55e8e9821d5f",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\bone_motion_audit.json": "b67f2699b9069aba36067f2d56f820e56be401a1b901a84f4a370f317e55f3ad",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\geometry_checks.json": "2a17a67b3742edce782816600a1daa658ac4f8a4d60d8b537b9696a9482f710f",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\cad_roundtrip.json": "dcb3b236e8d520cde40cf770b294a9e69694d406e3876686153fdb29129deac2",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\assembly_STEP_check.json": "145d8d47ec6023237dcd7dc1c0019015df51d52eafc012f4999b23f2a9c6e147",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\audit_checks.json": "0fbe0128b2807602a83e4123a718649051b0132d669e05e37ebe1f5bea3ab7d8",
+    "mujoco_arm\\exports\\anatomical_concept\\joint_model\\SC_connection\\AC_compact\\GH_connection\\capture_probes.json": "98920391288f0daac7b7b37bb3f9cfb1b0edcc927226f0d2a34ee387cf49dc0a"
+  },
+  "not_verified": [
+    "elbow physical connection",
+    "muscle interfaces/channels",
+    "steel+TPU deformation and drive",
+    "arbitrary escape path",
+    "manufacturing fit, load, strength and life"
+  ]
+}

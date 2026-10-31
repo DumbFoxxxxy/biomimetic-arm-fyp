@@ -1,0 +1,917 @@
+===== PAGE 1 =====
+Component Modularized Design of Musculoskeletal Humanoid
+Platform Musashi to Investigate Learning Control Systems
+Kento Kawaharazuka 1, Shogo Makino 1, Kei Tsuzuki 1, Moritaka Onitsuka 1, Y uya Nagamatsu1
+Koki Shinjo 1, Tasuku Makabe 1, Y uki Asano1, Kei Okada 1, Koji Kawasaki 2 and Masayuki Inaba 1
+Abstract— To develop Musashi as a musculoskeletal hu-
+manoid platform to investigate learning control systems, we
+aimed for a body with ﬂexible musculoskeletal structure,
+redundant sensors, and easily reconﬁgurable structure. For this
+purpose, we develop joint modules that can directly measure
+joint angles, muscle modules that can realize various muscle
+routes, and nonlinear elastic units with soft structures, etc.
+Next, we develop MusashiLarm, a musculoskeletal platform
+composed of only joint modules, muscle modules, generic bone
+frames, muscle wire units, and a few attachments. Finally, we
+develop Musashi, a musculoskeletal humanoid platform which
+extends MusashiLarm to the whole body design, and conduct
+several basic experiments and learning control experiments to
+verify the effectiveness of its concept.
+I. INTRODUCTION
+The tendon-driven musculoskeletal humanoid [1], [2], [3],
+[4], which imitates not only the human proportion but also
+the joint and muscle structure of human beings, has many
+beneﬁts. For example, it can realize mechanical variable
+stiffness, measure muscle tensions by using not expensive
+torque sensors but pressure sensors or loadcells, apply ball
+joints that have no singularity, and use an underactuated
+system such as the spine. Also, its body, which has a
+muscle structure like the human body, is useful in the
+sense that we can understand the human body better, embed
+humanlike learning control systems, and realize more human-
+like motions.
+In this study, we develop Musashi as a hardware platform
+to investigate learning control systems of musculoskeletal
+structures such as self-body image acquisition methods [5],
+[6] (Fig. 1). We consider 3 requirements for such a muscu-
+loskeletal humanoid platform.
+ It is a musculoskeletal humanoid with a ﬂexible body
+structure.
+ It has redundant sensors to investigate learning control
+systems.
+ Its construction and reconstruction are easy, and we can
+transform the body structure.
+To develop a musculoskeletal humanoid platform with such
+characteristics has 3 beneﬁts.
+ We can safely investigate learning control systems using
+the ﬂexible body and variable stiffness control.
+1 The authors are with Department of Mechano-Informatics, Gradu-
+ate School of Information Science and Technology, The University of
+Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan. [kawaharazuka,
+makino, tsuzuki, onitsuka, nagamatsu, shinjo, makabe, asano, k-
+okada, inaba]@jsk.t.u-tokyo.ac.jp
+2 The author is associated with TOYOTA MOTOR CORPORA TION.
+koji kawasaki@mail.toyota.co.jp
+MusashiLarm Musashi
+Fig. 1: The newly developed MusashiLarm and Musashi.
+ Although joint encoders usually cannot be installed in
+the musculoskeletal humanoid, a mechanism to directly
+measure joint angles makes experimental evaluations
+easy and accelerates developments.
+ By changing link lengths, increasing degrees of freedom
+(DoFs), adding elastic elements, etc., we can consider
+changes in self-body image due to growth and deterio-
+ration of the body components.
+To fulﬁll such requirements, we construct a new mus-
+culoskeletal humanoid Musashi using 3 concepts stated as
+below.
+ A ﬂexible body structure with nonlinear elastic elements
+having soft structures, and soft materials covering the
+folded back muscles.
+ Joint modules which can directly measure joint angles
+and have compact sphere-shaped structures.
+ A modularized body structure easily constructed us-
+ing only joint modules, muscle modules, generic bone
+frames, muscle wire units, and a few attachments.
+Musculoskeletal humanoids developed so far [1], [2], [3], [4]
+have very complex bodies mimicking the detailed human
+musculoskeletal structure at the cost of design effort. By
+component modularization, this study aims to accelerate
+the investigation of learning control systems by increasing
+ﬂexiblity, redundancy of internal sensors, and easiness of
+design, at the cost of human-like ball joints and human-like
+body proportion to some degree.
+2019 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+Macau, China, November 4-8, 2019
+978-1-7281-4004-9/19/$31.00 ©2019 IEEE 7300
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Generic bone frame
+Muscle relay unit
+Muscle wire (Dyneema)
+Nonlinear elastic unit
+Tension measurement unit
+Muscle module
+Joint module
+Fig. 2: Overview of the proposed musculoskeletal structure.
+II. D EVELOPMENT OF RESPECTIVE MODULES
+In this study, we propose the modularized musculoskeletal
+structure as shown in Fig. 2. The joint module, which can
+directly measure joint angles, connects generic bone frames
+together, and the muscle module is attached to the bone
+frame. The muscle wire goes out from the tension measure-
+ment unit attached to the muscle actuator, is folded back
+through the muscle relay unit, and is attached to the nonlinear
+elastic unit. Also, the folded back wire in each muscle is
+covered by a soft foam cover. There is a spring between
+them in order to inhibit the friction between the wire and soft
+foam cover. This muscle conﬁguration inhibits the decrease
+of transmission efﬁciency due to the use of a motor with a
+high gear ratio, and we expect it to have the same effect as
+planar muscles [7] by covering the entire joint with folded
+back muscle wires. Also, by adding the nonlinear elastic units
+and soft foam covers, we enable soft environmental contact
+and variable stiffness control.
+In this study, we call the muscle components muscle wire
+unit, except for the muscle module. In the following sections,
+we will explain the detailed design of the joint modules,
+muscle modules, and muscle wire units.
+Simplified human
+DOF configuration
+Joint module grouping
+Rearrangeable joint module parts
+2× center parts 3× axis parts
+×
+Fig. 3: Grouping of simpliﬁed human joints, and application
+of joint modules.
+A. Joint Module
+We set the requirements of the joint module, as below.
+(1) It has a spherical shape for the muscles to be able to
+cover the joint like in human beings.
+(2) It can measure joint angles in some way.
+(3) Its circuits and cables are packaged compactly, and it
+can function as a stand-alone unit.
+(4) It has a general versatility and can be used as any joint
+of the musculoskeletal humanoid.
+Regarding (2), there are some methods to measure joint
+angles. In the ordinary axis-driven humanoid [8], each joint
+is independent, and each joint typically has an encoder or
+potentiometer. Also, there is a method to use an inertial
+measurement unit (IMU) to obtain joint angles from the
+acceleration and terrestrial magnetism. However, in the mea-
+surement of joint angles by IMU, we must use the terrestrial
+magnetism to inhibit the drift of yaw rotation, and so, it is
+difﬁcult to measure joint angles correctly due to the noise
+of the many muscle motors included in the body of the
+musculoskeletal humanoid. Urata, et al. have developed a
+system to measure joint angles using a small camera [9], but
+we do not adopt it due to the system complexity. In this study,
+we design a sphere-shaped joint module which can directly
+measure joint angles using small potentiometers, like in the
+ordinary axis-driven humanoid. We compromise only on the
+point that it has a singularity like in the ordinary axis-driven
+humanoid.
+Regarding (3), we package the circuits and cables that read
+potentiometers into this joint module compactly, and make
+it possible to function as a stand-alone, only by connecting
+a USB cable.
+Regarding (4), the simpliﬁed human DoF conﬁguration
+can be expressed as the left ﬁgure of Fig. 3, if we ignore
+the complex scapula joint. We can group the joints into
+just 4 kinds of joint modules as shown in the upper right
+ﬁgure of Fig. 3. We construct these 4 kinds of joint modules
+by combination of the 2 kinds of center parts and 3 kinds
+of axis parts, as shown in the lower right ﬁgure of Fig. 3.
+By combining these 5 rearrangeable parts, we can construct
+various joint modules other than the 4 kinds of joint modules
+by adding or removing DoFs.
+Fig. 4: Overview of the newly developed joint modules.
+We show the developed joint modules in Fig. 4. In order
+from the left, the joint modules are for the wrist, elbow, and
+shoulder joints.
+The detailed structure of this joint module is shown in
+Fig.5. This is the structure of the shoulder joint module, and
+it is divided into 4 links, and 3 rotation axes exist among
+these links. Its structure is made by cutting A7075, and
+other parts are bearings, spacers, and circuit covers. A Po-
+tentiometer Board which reads the output of a potentiometer
+is arranged at each joint axis, and a Potentiometer Control
+Board which integrates them is arranged in the joint module.
+Also, its electrical wiring is shown in the right ﬁgure of Fig. 5.
+7301
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Potentiometer Board
+Exploded view
+Potentiometer Control Board
+3x
+Circuit cover
+(3D printer parts)
+Bearing
+Links
+Joint angle limiter
+Spacer
+Joint attachment
+(connect joint module 
+and bone frame)
+Joint angle limiter
+Shoulder-pitch
+Shoulder-roll
+Shoulder-yaw
+Electrical wiring
+USB serial
+Potentiometer analog 1
+Potentiometer analog 2
+Potentiometer analog 3
+Fig. 5: Detailed design of the joint module, for the shoulder joint.
+All of the electrical wiring that connects the Potentiometer
+Control Board and Potentiometer Boards passes through the
+joint module, except for one USB cable, which connects the
+joint module to the outside PC. The Potentiometer Control
+Board is equipped with IMU, which can be used for a more
+correct measurement of postures.
+B. Muscle Module
+First, we show the details of the sensor-driver integrated
+muscle module [10] in the left of Fig. 6. This is the muscle
+module which dramatically increases the modularity and
+reliability by including ϕ 22 brushless DC motor, a pulley
+winding the muscle wire, motor driver, thermal sensor, ten-
+sion measurement unit, circuit cover, etc. into one package.
+We can freely change the gear ratio of the actuator, but we
+used 29:1 or 53:1 in this study. The motor driver can conduct
+a current control and muscle tension control feedbacking
+muscle tension. We use chemical ﬁber Dyneema with high
+abrasion resistance as the muscle wires. The structure of
+the tension measurement unit is shown in the left of Fig. 7,
+and this unit can measure muscle tension up to 500 N by
+converting it to the pressure to the loadcell using the angular
+moment around the axis. Also, as shown in the right of Fig. 7,
+the tension measurement unit can be attached to the muscle
+actuator from various directions and realize various muscle
+routes.
+Next, we show the details of the miniature bone-muscle
+module [11] in the right of Fig. 6. A major difference of
+this module compared to the previous module is that this
+module can be used as not only the muscle actuator but also
+as the bone structure. This module includes 2 small ϕ 16
+brushless DC motors. By including multiple actuators in one
+module, we can use space efﬁciently. “Base of bone” and
+“Support of bone” in Fig. 6 become the body structure, and
+we can compactly construct the body structure with only
+muscle modules, by connecting these modules lengthwise
+and crosswise. Also, this module can compensate for the
+drawbacks adopting these small actuators, by dissipating the
+heat of the muscle actuator to “Base of bone” through “Heat-
+transfer-sheet”.
+These muscle modules are excellent in terms of the
+modularity, reliability, and versatility, so they can be the
+foundation of the musculoskeletal platform.
+Sensor-driver integrated 
+muscle module
+Thermal
+sensor
+Load cell
+Tension measurement unit
+Cover
+Motor
+driver
+Motor
+Miniature bone-muscle module
+Structure
++
+Cover
+Motor driver
+Ultra tiny tension 
+measurement unit
+Support of bone
+Base of bone
+Pulley cover
+Thermal sensor
+Motor and gear head
+Pulley + bearing
+Heat-transfer-sheet
+Fig. 6: Detailed design of the sensor-driver integrated muscle
+module [10] and miniature bone-muscle module [11].
+load cell
+wire
+Tension measurement unit
+T
+Fig. 7: The structure of the tension measurement unit, and
+the versatility of its arrangements to the muscle actuator.
+C. Muscle Wire Unit
+1) Muscle Relay Unit: We develop the muscle relay unit,
+which folds back a muscle wire, by arranging an axis with
+3 bearings into a base structure. We can realize compact
+muscle relay units by directly using bearings to fold back
+muscles, without embedding the bearing into the structure.
+The structure of the muscle relay units can be standardized
+by the direction of attachment to the bone frame and the
+direction of the folded back muscle. We need to design only
+3 kinds of muscle relay units shown in the upper ﬁgure of
+7302
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Fig.8. We show the developed muscle relay units in the lower
+ﬁgure of Fig. 8. This is the result of considering the most
+compact shape when setting the direction of the axis and
+the attachment by a screw. By choosing these units from the
+direction of the tapped holes and the direction the muscle
+will be folded back, we can quickly realize the muscle relay
+mechanism.
+Orthogonal-relayParallel-relay Skew-relay
+Overview
+muscle wire
+axis
+bearing
+screw
+Developed
+relay units
+Fig. 8: Standardized 3 muscle relay units: Parallel-relay,
+Skew-relay, and Orthogonal-relay.
+2) Nonlinear Elastic Unit: We show the previously devel-
+oped nonlinear spring units in Fig. 9. The two units in the left
+of Fig. 9 are the nonlinear spring tensioner (NST) units for
+Kenzoh [12], and the right unit is the add-on nonlinear spring
+unit [13]. Although these units can geometrically realize
+nonlinear elasticity, they are too hard and large to use for
+the human-mimetic musculoskeletal structure because they
+are generally composed of metal and springs.
+In this study, we develop a compact and ﬂexible nonlinear
+elastic unit (NEU). The closest way to realize it is the method
+using O-ring, included in Anthrob [3]. However, the elastic
+unit in [3] could not express nonlinear elasticity.
+We show the developed nonlinear elastic unit in Fig. 10.
+The ﬁrst unit is Oring-NEU. Although this is basically the
+same as the unit in Anthrob [3], only nitrile rubber could
+express nonlinear elasticity, when we tried some materials
+of O-ring (urethane, silicon, ethylene propylene, ﬂuorine,
+and nitrile). However, nitrile rubber deteriorates by ozone
+in the air, and is easily ruptured from cracks. Also, because
+nonlinear elasticity can be obtained by pulling on the O-ring,
+there is a limit of muscle tension due to the strength of the
+rubber.
+Then, we developed Grommet-NEU. The nonlinear elas-
+ticity can be expressed by compressing the grommet structure
+using the rolled muscle wire around it. In this structure,
+we can geometrically realize nonlinear elasticity, and so
+can freely choose its material. Also, the strength increases
+dramatically compared to Oring-NEU, because only the
+compression of the rubber is used. In this study, we use
+weather and water resistant ethylene propylene rubber as the
+grommet.
+Rotary NST unit Actuator unit with NST Add-on NST
+Fig. 9: Previous nonlinear spring tensioner units [12], [13].
+Oring-NEU
+Muscle Wire Oring
+Grommet-NEU
+Muscle Wire Grommet
+Oring-NEU
+Grommet-NEU
+Fig. 10: Developed nonlinear elastic units: Oring-NEU and
+Grommet-NEU.
+Finally, we conducted a parameter identiﬁcation of this
+muscle conﬁguration to verify the nonlinear elastic feature.
+The result is shown in Fig. 11. As shown in the upper ﬁgure
+of Fig.11, we ﬁx the absolute muscle length, wind the muscle
+wire, and identify the parameter by examining the amount of
+the wound muscle and the value of a force gauge. We assume
+that the relative change in muscle length is sufﬁciently small
+compared to the absolute muscle length. We show the result
+of the changes in muscle length and muscle tension in this
+condition, with the nonlinear elastic unit in the left ﬁgure,
+without the nonlinear elastic unit in the center ﬁgure, and
+with only the nonlinear elastic unit in the right ﬁgure of
+Fig.11. In this experiment, we ﬁxed the absolute muscle
+length to 480 mm, and arranged the origin of the graphs by
+using the assumption that the elongation of the muscle is 0
+when the muscle tension is 0. We can estimate the feature of
+the Dyneema as shown below, by using the assumption that
+its elongation is linear to the muscle tension and its spring
+constant is inversely proportional to the absolute muscle
+length, and executing least-square method (LSM):
+T = ad∆ld=labs (1)
+where T [N] is the muscle tension obtained from the force
+gauge, ad is the spring constant of Dyneema per unit length
+(in this study, ad is estimated to be 2:8E + 4 from the lower
+center ﬁgure of Fig. 11), ∆ld [mm] is the muscle elongation,
+and labs [mm] is the absolute muscle length. Also, we can
+estimate the parameters of this muscle conﬁguration by LSM
+using an exponential function as shown below:
+T = amexp(bm∆lm) (2)
+where am; bm are constants which express the nonlinear elas-
+tic feature (in this study, we estimated that am = 1:34; bm =
+7303
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Force gauge
+Pulley
+Muscle module
+Nonlinear
+Elastic Unit
+Muscle wire
+(Dyneema)
+Oring-NEU
+Grommet-NEU
+Same
+0
+100
+200
+300
+400
+500
+600
+700
+800
+2 4 6 8 10 12
+Wound muscle length [mm]
+Dyneema
+raw value lsm result
+0
+100
+200
+300
+400
+500
+600
+0 10 20 30 40
+Muscle tension [N]
+Wound muscle length [mm]
+Oring-NEU+Dyneema
+raw value lsm result
+0
+100
+200
+300
+400
+500
+0 5 10 15 20 25 30
+Wound muscle length [mm]
+Oring-NEU
+0
+100
+200
+300
+400
+500
+600
+0 10 20 30 40
+Muscle tension [N]
+Wound muscle length [mm]
+Grommet-NEU+Dyneema
+raw value lsm result
+0
+100
+200
+300
+400
+500
+0 5 10 15 20 25 30
+Wound muscle length [mm]
+Grommet-NEU
+Fig. 11: Identiﬁcation of nonlinear elastic parameters.
+0:19 regarding Oring-NEU, and am = 3:32; bm = 0:14 regard-
+ing Grommet-NEU, from the left ﬁgure of Fig. 11). By using
+Eq. 1 and Eq. 2, the feature of the nonlinear elastic unit is
+expressed as shown below:
+∆lo = ∆lm   ∆ld = 1bm log( Tam + 1)   T lbasead (3)
+where lbase is the absolute muscle length of 480 mm that is
+ﬁxed in this study. So, by summing up the effects of Eq. 1
+and Eq. 3, we can estimate the entire feature of this muscle
+conﬁguration. T used in these equations is the output of the
+force gauge, and in actual use, we can measure half of T
+from the tension measurement unit, because each muscle is
+folded back through a pulley. Also, the muscle features of
+the actual robot may be different from the estimated features
+due to the effects of the soft foam cover, friction, etc., so the
+actual elastic feature needs to be learned by using the sensor
+information of the actual robot [6].
+III. D ESIGN OF MODULARIZED MUSCULOSKELETAL
+HUMANOIDS
+A. MusashiLarm: Modularized Musculoskeletal Upper Limb
+1) Body Structure: The detailed design of MusashiLarm
+is shown in Fig. 12. MusashiLarm is composed of 4 links and
+3 joints. We call these links the scapula, humerus, forearm
+and hand, respectively. The links of the scapula and humerus
+are constructed by aluminum generic bone frames, and in
+each link, 5 sensor-driver integrated muscle modules [10]
+are each connected to the generic bone frame through a
+muscle attachment. We can connect the muscle module to the
+generic bone frame, and the muscle modules to each other,
+through the muscle attachment. Also, the joint module and
+generic bone frame are connected through a joint attachment,
+and if we change the joint attachment, we can change the
+conﬁguration of the robot easily. The link of the forearm is
+composed of 4 miniature bone-muscle modules [11] which
+can connect lengthwise and crosswise as a bone structure. By
+using the beneﬁt that the module can not only act as muscles
+but also as a bone structure, we do not need to use the bone
+frame, and the forearm link can easily be constructed using
+only the muscle modules. Also, the hand has ﬂexible ﬁnger
+joints using machined springs [14].
+In this way, we can realize easily constructable and
+reconstructable musculoskeletal body structures using joint
+modules, muscle modules, muscle wire units, generic bone
+frames, and a few attachments (muscle and joint attach-
+ments).
+Miniature bone-muscle module
+Sensor-driver integrated muscle module
+Bone frame
+Muscle attachment
+(connect muscle module 
+and bone frame)
+Joint attachment
+(connect joint module 
+and bone frame)
+Collarbone
+Joint module
+10x
+4x
+Scapula
+Hand
+Forearm
+Humerus
+Fig. 12: Detailed modular design of MusashiLarm.
+2) Muscle Conﬁguration: The muscle arrangement of
+MusashiLarm is shown in Fig. 13. The scapula and humerus
+include 5 muscles each, the forearm includes 4 miniature
+bone-muscle modules (8 muscles), and the total number
+of muscles is 18. These muscles imitate the basic muscles
+of the human body, and include polyarticular muscles. The
+nonlinear elastic units are applied to all muscles except for
+the ones moving the wrist and ﬁngers, and we use brushless
+DC motors (90W, gear ratio is 29:1), as actuators.
+3) Circuit Conﬁguration: Next, the circuit conﬁguration
+is shown in Fig. 14, and we can connect new modularized
+components quickly in this conﬁguration. The entire com-
+munication system is USB communication. Control Boards,
+a Loadcell Board, and Potentiometer Control Boards are
+connected to USB hubs which are arranged in the body.
+Control Boards are for the muscle motor control, a Loadcell
+Board ampliﬁes the signal of loadcells attached to the hand
+7304
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+#1
+Front Back Number Muscle name
+#1 Deltoid (rear)
+#2 Deltoid (middle)
+#3 Deltoid (front)
+#4 Subscapularis
+#5 Infraspinatus
+#6 Triceps brachii
+#7 Teres major
+#8 Pronator teres
+#9 Biceps brachii
+#10 Brachialis
+#11 Extensor carpi radialis
+#12 Flexor carpi radialis
+#13 Flexor digitorum
+(index, middle)
+#14 Adductor pollicis
+#15 Flexor pollicis
+#16 Flexor digitorum
+(ring, little)
+#17 Extensor carpi ulnaris
+#18 Extensor digitorum
+#2
+#3
+#4
+#9
+#10
+#11
+#12
+#13
+#18
+#7
+#5
+#6
+#8
+#14
+#15
+#16
+#17
+Fig. 13: Muscle arrangement of MusashiLarm.
+and integrates them, and Potentiometer Control Boards inte-
+grate the signal of potentiometers included in joint modules.
+Through the Control Board, motor drivers can connect up
+to 3 drivers by a daisy chain. Also, the Loadcell Board can
+read up to 12 signals of the loadcells, and the Potentiometer
+Control Board can read up to 4 signals of the potentiometers.
+The Potentiometer Control Board also sends the sensor
+information of the equipped IMU (MPU9250, InvenSense)
+to the PC (NUC, Intel), as redundant sensors.
+Host PC
+USB Hub Control Board Loadcell Board
+USB Hub Control Board Motor Driver Motor
+Loadcell Board
+Motor Driver …
+Loadcell in hand
+…
+Target Current Current
+Daisy chain length, tension, temperature
+Sensor value
+Control signal
+Potentiometer
+Board
+Potentiometer
+Control Board
+Potentiometer 
+Control Board Potentiometer Board
+……
+20 mm 12 mm32 mm34 mm28 mm
+Fig. 14: Circuit conﬁguration of MusashiLarm.
+B. Musashi: Musculoskeletal Humanoid Platform
+We can extend MusashiLarm with easily constructable and
+reconstructable structures to the whole-body musculoskeletal
+humanoid platform Musashi, by adding only a few joint
+attachments. As another example, this design has been ap-
+plied to the two-wheel inverted musculoskeletal pendulum,
+TWIMP [15].
+1) Body Structure: We show the musculoskeletal hu-
+manoid platform Musashi which extends MusashiLarm, in
+Fig.15. From the left, the ﬁgures are the overview, the body
+without muscle wires, the body without muscle wires and
+exteriors, and the body without muscle wires, exteriors, and
+muscle modules.
+We basically extend the structure of MusashiLarm, but the
+muscle conﬁguration in the lower limb is different from the
+upper. The gear ratio of the muscle actuators in the lower
+limb is 53:1, and there are no nonlinear elastic units and
+mechanisms folding back muscle wires.
+Also, we show the body structure of only joint attach-
+ments, in the right ﬁgure of Fig. 15. The number of additional
+joint attachments compared to MusashiLarm is 4, and so we
+use 5 kinds of joint attachments in Musashi in total. Thus,
+we can construct the whole body of Musashi using joint
+modules, muscle modules, muscle wire units, generic bone
+frames, and 6 attachments including the muscle attachment.
+As shown in the left ﬁgure of Fig. 15, the upper legs, lower
+legs, chest, and head are covered with exteriors.
+Musashi w/o wire, exterior w/o wire, exterior,
+muscle module
+Only
+joint attachments
+Respective
+joint attachments
+Fig. 15: Overview of Musashi body structure.
+2) Head, Hand, and F oot: Although we stated the de-
+velopment of Musashi in terms of modularization, in this
+section, we introduce the characteristic structures of the head,
+hand, and foot of Musashi (Fig. 16).
+First, the head equips the movable eye-camera unit [16],
+and the camera has various functions such as resolution mod-
+iﬁcation, auto focus, exposure compensation, etc. Musashi
+can recognize the self body by a wide perspective, measure
+the distance to an object by congestion, and change ROI,
+etc., and so we can accelerate learning control systems.
+Second, the hand equips ﬂexible and tough ﬁve ﬁngers
+made of machined springs [14]. The thumb has a wide
+range of motion by a combination of machined springs, and
+the ﬁngers have a variable stiffness mechanism. Also, the
+loadcells are equipped in the palm and ﬁngertips, and we
+can use these sensors to detect environmental contact, as
+redundant sensors.
+Third, the foot has a core-shell structure, which can
+measure contact force, in the toe and heel [17]. The structure
+can measure 6-axis force by the loadcells between the core
+and shell, and Musashi can measure force not only to the
+sole but also to the instep.
+IV. E XPERIMENTS
+A. Basic Experiments of MusashiLarm
+First, we conducted a hammer hitting motion with a block.
+The result is shown in the center ﬁgure of Fig. 17. Due to
+7305
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+Pan
+Tilt
+HeadMusashi
+Hand
+Foot
+Robot
+Loadcell
+Core
+Shell
+Fig. 16: Overview of Musashi head, hand, and foot.
+the soft body, the upper limb can absorb external impact and
+parry force without breaking the robot itself.
+Second, we conducted a dumbbell lifting motion with a
+dumbbell weight of 3.6 kg. The result is shown in the upper
+ﬁgure of Fig. 17. Although the upper limb has a very soft
+body, it can exhibit high power and succeeded in lifting the
+dumbbell.
+1 2 3 4
+1 2 3 4
+Hammer hitting
+Dumbbell lifting
+Fig. 17: V arious motions using MusashiLarm.
+B. Learning Control of Handle Operation
+We conducted a handle operation experiment with
+Musashi, as an example of the environmental contact behav-
+ior by a ﬂexible body using a learning control system. In the
+handle operation, the arm must move along the circular orbit
+and needs a large force. Also, we must accurately describe
+the relationship between the handle rotation and movement
+of the ﬂexible arm.
+Therefore, we use a learning control method [18] (Fig. 18)
+which improved on the self-body image acquisition [6], and
+the robot acquires handle operation while moving. We update
+the self-body image using the joint angles measured from the
+joint modules, and the muscle lengths and tensions measured
+from muscle modules. Then, we can conduct position control
+by calculating the target muscle length by inputting the target
+joint angles and measured muscle tensions into the self-body
+image. Musashi rotates the handle from -30 deg to 60 deg
+while solving inverse kinematics, and the self-body image
+is updated while moving. We can measure the rotation of
+the handle from AR marker. The experimental appearance is
+shown in the upper ﬁgure of Fig. 19, and the transition of the
+handle rotation and muscle tensions is shown in the lower
+ﬁgure. In the beginning, the muscle tension is high at 270 N,
+and the handle rotates only about 40 deg in total. By updating
+the self-body image online, the relationship between joint
+angles, muscle lengths, and muscle tensions when rotating
+the handle, is learned. Finally, the handle rotates about 65
+deg in total, and the maximum muscle tension to rotate it
+is about 180 N, because the difference between the actual
+robot and its geometric model including the antagonistic
+relationship is correctly modiﬁed. We were able to conduct
+an example of learning control systems using the redundant
+sensors and ﬂexible structure of Musashi. However, it is
+difﬁcult to completely conduct intended movements, and
+we would like to investigate learning controls considering
+hysteresis, etc., in the future.
+Learning Control System
+Muscle
+Tension
+Muscle
+Elongation
+Compensation
+Joint
+Angle
+Ideal Muscle
+Length
+𝒍𝑖𝑑𝑒𝑎𝑙 = 𝒇𝑖𝑑𝑒𝑎𝑙(𝜽)
+𝒍ℎ𝑎𝑟𝑑 = 𝒈(𝜽, 𝑻) Overview
+𝒍 = 𝒍𝑖𝑑𝑒𝑎𝑙 + 𝒍ℎ𝑎𝑟𝑑
+𝜽
+𝑻
+𝒍𝑖𝑑𝑒𝑎𝑙
+𝒍ℎ𝑎𝑟𝑑
+Muscle Length:
+𝜽
+𝒍, 𝑻
+Muscle module Joint module
+Update the network 
+by 𝜽, 𝑻, 𝒍 , online
+Control using 
+this network
+𝜽𝒕𝒂𝒓𝒈𝒆𝒕
+𝑻𝒕𝒂𝒓𝒈𝒆𝒕 𝒍𝒕𝒂𝒓𝒈𝒆𝒕
+Musashi
+Fig. 18: The overview of the learning control system extend-
+ing the previous method [6].
+V. CONCLUSION
+In this study, we stated the component modularized design
+of the musculoskeletal humanoid platform Musashi, to inves-
+tigate learning control systems. At ﬁrst, we set the ﬂexible
+body, redundant sensors, and easily reconﬁgurable structure,
+as the requirements, and designed respective modules to
+fulﬁll them. We proposed generic joint modules including
+potentiometers and IMU, which can be applied to various
+joints and be used for redundant sensors in learning control
+systems. We designed 2 kinds of compact and reliable
+muscle modules, and used them depending on different
+body parts. Regarding muscle wire units, we standardized
+muscle relay units by the direction of the folded back
+muscle and the mounting direction, and realized compact
+and strong nonlinear elastic units with a soft structure, by
+7306
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+0
+50
+100
+150
+200
+250
+300
+0 100 200 300 400
+Muscle tension [N]
+Transition of Muscle Tension
+#1 #2 #3 #4 #5 #6 #7 #8 #9 #10
+-40
+-30
+-20
+-10
+0
+10
+20
+30
+0 100 200 300 400
+Handle angle [deg]
+Time [sec]
+Transition of Handle Angle
+Online learning
+Online learning
+1 2 3 4
+Fig. 19: The experiment of the handle operation. Lower
+graphs express the transition of the handle rotation angle
+and muscle tensions.
+using the compression of the grommet structure. Then, we
+designed MusashiLarm composed of only joint modules,
+muscle modules, muscle wire units, generic bone frames, and
+a few attachments, and designed a musculoskeletal humanoid
+platform Musashi by extending MusashiLarm to the whole
+body with only 4 additional joint attachments. Also, we
+conducted experiments with environmental contact and using
+learning control systems, and veriﬁed the effectiveness of our
+concepts. In future works, we would like to investigate more
+advanced learning control systems using these musculoskele-
+tal platforms.
+REFERENCES
+[1] Y . Nakanishi, S. Ohta, T. Shirai, Y . Asano, T. Kozuki, Y . Kake-
+hashi, H. Mizoguchi, T. Kurotobi, Y . Motegi, K. Sasabuchi,
+J. Urata, K. Okada, I. Mizuuchi, and M. Inaba, “Design Approach
+of Biologically-Inspired Musculoskeletal Humanoids,” International
+Journal of Advanced Robotic Systems , vol. 10, no. 4, pp. 216–228,
+2013.
+[2] S. Wittmeier, C. Alessandro, N. Bascarevic, K. Dalamagkidis, D. De-
+vereux, A. Diamond, M. J ¨antsch, K. Jovanovic, R. Knight, H. G.
+Marques, P . Milosavljevic, B. Mitra, B. Svetozarevic, V . Potkonjak,
+R. Pfeifer, A. Knoll, and O. Holland, “Toward Anthropomimetic
+Robotics: Development, Simulation, and Control of a Musculoskeletal
+Torso,” Artiﬁcial Life , vol. 19, no. 1, pp. 171–193, 2013.
+[3] M. J ¨antsch, S. Wittmeier, K. Dalamagkidis, A. Panos, F. V olkart,
+and A. Knoll, “Anthrob - A Printed Anthropomimetic Robot,” in
+Proceedings of the 2013 IEEE-RAS International Conference on
+Humanoid Robots , 2013, pp. 342–347.
+[4] Y . Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima,
+T. Katayama, Y . Iori, H. Toshinori, K. Kawaharazuka, S. Makino,
+Y . Kakiuchi, K. Okada, and M. Inaba, “Human Mimetic Musculoskele-
+tal Humanoid Kengoro toward Real World Physically Interactive Ac-
+tions,” in Proceedings of the 2016 IEEE-RAS International Conference
+on Humanoid Robots , 2016, pp. 876–883.
+[5] K. Kawaharazuka, S. Makino, M. Kawamura, Y . Asano, K. Okada, and
+M. Inaba, “Online Learning of Joint-Muscle Mapping using Vision
+in Tendon-driven Musculoskeletal Humanoids,” IEEE Robotics and
+Automation Letters , vol. 3, no. 2, pp. 772–779, 2018.
+[6] K. Kawaharazuka, S. Makino, M. Kawamura, A. Fujii, Y . Asano,
+K. Okada, and M. Inaba, “Online Self-body Image Acquisition Con-
+sidering Changes in Muscle Routes Caused by Softness of Body Tissue
+for Tendon-driven Musculoskeletal Humanoids,” in Proceedings of the
+2018 IEEE/RSJ International Conference on Intelligent Robots and
+Systems, 2018, pp. 1711–1717.
+[7] M. Osada, T. Izawa, J. Urata, Y . Nakanishi, K. Okada, and M. Inaba,
+“Approach of “planar muscle” suitable for musculoskeletal humanoids,
+especially for their body trunk with spine having multiple vertebral,”
+in Proceedings of the 2011 IEEE-RAS International Conference on
+Humanoid Robots , 2011, pp. 358–363.
+[8] K. Kaneko, F. Kanehiro, S. Kajita, K. Y okoyama, K. Akachi,
+T. Kawasaki, S. Ota, and T. Isozumi, “Design of prototype humanoid
+robotics platform for HRP,” in Proceedings of the 2002 IEEE/RSJ
+International Conference on Intelligent Robots and Systems , 2002, pp.
+2431–2436.
+[9] J. Urata, Y . Nakanishi, A. Miyadera, I. Mizuuchi, T. Y oshikai, and
+M. Inaba, “A Three-Dimensional Angle Sensor for a Spherical Joint
+Using a Micro Camera,” in Proceedings of the 2006 IEEE Interna-
+tional Conference on Robotics and Automation , 2006, pp. 4428–4430.
+[10] Y . Asano, T. Kozuki, S. Ookubo, K. Kawasaki, T. Shirai, K. Kimura,
+K. Okada, and M. Inaba, “A Sensor-driver Integrated Muscle Module
+with High-tension Measurability and Flexibility for Tendon-driven
+Robots,” in Proceedings of the 2015 IEEE/RSJ International Con-
+ference on Intelligent Robots and Systems , 2015, pp. 5960–5965.
+[11] K. Kawaharazuka, S. Makino, M. Kawamura, Y . Asano, Y . Kaki-
+uchi, K. Okada, and M. Inaba, “Human Mimetic Forearm Design
+with Radioulnar Joint using Miniature Bone-muscle Modules and its
+Applications,” in Proceedings of the 2017 IEEE/RSJ International
+Conference on Intelligent Robots and Systems , 2017, pp. 4956–4962.
+[12] Y . Nakanishi, T. Izawa, M. Osada, N. Ito, S. Ohta, J. Urata, and
+M. Inaba, “Development of Musculoskeletal Humanoid Kenzoh with
+Mechanical Compliance Changeable Tendons by Nonlinear Spring
+Unit,” in Proceedings of the 2011 IEEE International Conference on
+Robotics and Biomimetics , 2011, pp. 2384–2389.
+[13] M. Osada, N. Ito, Y . Nakanishi, and M. Inaba, “Realization of ﬂexible
+motion by musculoskeletal humanoid “Kojiro” with add-on nonlinear
+spring units,” in Proceedings of the 2010 IEEE-RAS International
+Conference on Humanoid Robots , 2010, pp. 174–179.
+[14] S. Makino, K. Kawaharazuka, M. Kawamura, A. Fujii, T. Makabe,
+M. Onitsuka, Y . Asano, K. Okada, K. Kawasaki, and M. Inaba, “Five-
+Fingered Hand with Wide Range of Thumb Using Combination of
+Machined Springs and V ariable Stiffness Joints,” in Proceedings of
+the 2018 IEEE/RSJ International Conference on Intelligent Robots
+and Systems , 2018, pp. 4562–4567.
+[15] K. Kawaharazuka, T. Makabe, S. Makino, K. Tsuzuki, Y . Nagamatsu,
+Y . Asano, T. Shirai, F. Sugai, K. Okada, K. Kawasaki, and M. In-
+aba, “TWIMP: Two-Wheel Inverted Musculoskeletal Pendulum as a
+Learning Control Platform in the Real World with Environmental
+Physical Contact,” in Proceedings of the 2018 IEEE-RAS International
+Conference on Humanoid Robots , 2018, pp. 784–790.
+[16] T. Makabe, K. Kawaharazuka, K. Tsuzuki, K. Wada, S. Makino,
+M. Kawamura, A. Fujii, M. Onitsuka, Y . Asano, K. Okada,
+K. Kawasaki, and M. Inaba, “Development of Movable Binocular
+High-Resolution Eye-Camera Unit for Humanoid and the Evaluation
+of Looking Around Fixation Control and Object Recognition,” in
+Proceedings of the 2018 IEEE-RAS International Conference on
+Humanoid Robots , 2018, pp. 840–845.
+[17] K. Shinjo, K. Kawaharazuka, Y . Asano, S. Nakashima, S. Makino,
+M. Onitsuka, K. Tsuzuki, K. Okada, K. Kawasaki, and M. Inaba,
+“Foot with a Core-shell Structural Six-axis Force Sensor for Pedal
+Depressing and Recovering from Foot Slipping during Pedal Pushing
+Toward Autonomous Driving by Humanoids (in press),” in Proceed-
+ings of the 2019 IEEE/RSJ International Conference on Intelligent
+Robots and Systems , 2019.
+[18] K. Kawaharazuka, K. Tsuzuki, S. Makino, M. Onitsuka, Y . Asano,
+K. Okada, K. Kawasaki, and M. Inaba, “Long-time Self-body Image
+Acquisition and its Application to the Control of Musculoskeletal
+Structures,” IEEE Robotics and Automation Letters , vol. 4, no. 3, pp.
+2965–2972, 2019.
+7307
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 28,2026 at 06:59:08 UTC from IEEE Xplore. Restrictions apply.

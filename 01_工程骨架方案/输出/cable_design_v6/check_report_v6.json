@@ -1,0 +1,69 @@
+{
+  "schema_version": 6,
+  "model": "D:\\XJTLU\\PSP\\mujoco_arm\\cable_design_v6\\arm_cable_design_v6.xml",
+  "structural_pass": true,
+  "joint_count": 7,
+  "channel_count": 17,
+  "actuator_count": 17,
+  "static_actions_pass": false,
+  "positive_spanning_hard_gate": false,
+  "full_pass": false,
+  "frozen_hardpoints": false,
+  "failure_reasons": [
+    "static:K1",
+    "static:K2",
+    "static:K3",
+    "static:K4",
+    "static:K5",
+    "static:K6",
+    "static:K7",
+    "static:SLIDE_BACK",
+    "static:SCAP_EXT",
+    "static:PECTORAL",
+    "elbow:moment_arm",
+    "elbow:contraction",
+    "trajectory:FRONT_REACH",
+    "trajectory:HAND_TO_MOUTH",
+    "trajectory:LATERAL_RAISE",
+    "trajectory:ALL_ACTIONS"
+  ],
+  "elbow": {
+    "pass": false,
+    "pass_opposite": true,
+    "pass_wrap": true,
+    "pass_moment_arm": false,
+    "pass_contraction": false,
+    "minimum_arm_mm": 2.4194215198521767,
+    "max_contraction_percent": 35.862209768697895
+  },
+  "trajectory_summary": {
+    "FRONT_REACH": {
+      "pass_full": false,
+      "rms_error_mm": 321.8640369775046,
+      "p95_error_mm": 447.77267893195443,
+      "min_visual_clearance_mm": -10.487263366081834,
+      "max_relative_residual": 0.9016542079417457
+    },
+    "HAND_TO_MOUTH": {
+      "pass_full": false,
+      "rms_error_mm": 129.355100418558,
+      "p95_error_mm": 216.2035832660892,
+      "min_visual_clearance_mm": -7.731131270298709,
+      "max_relative_residual": 0.6248068435638251
+    },
+    "LATERAL_RAISE": {
+      "pass_full": false,
+      "rms_error_mm": 343.0859030289164,
+      "p95_error_mm": 640.733969019975,
+      "min_visual_clearance_mm": -10.18668841255203,
+      "max_relative_residual": 0.04343124641942981
+    },
+    "ALL_ACTIONS": {
+      "pass_full": false,
+      "rms_error_mm": 98.01731294843607,
+      "p95_error_mm": 237.99124279859154,
+      "min_visual_clearance_mm": -11.881118197950514,
+      "max_relative_residual": 0.3323319452642932
+    }
+  }
+}

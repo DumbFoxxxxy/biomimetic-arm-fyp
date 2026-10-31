@@ -1,0 +1,199 @@
+Dim swApp As Object
+Dim reportPath As String
+
+Sub main()
+    On Error GoTo FatalError
+
+    Set swApp = Application.SldWorks
+    swApp.Visible = True
+
+    Dim assemblyPath As String
+    Dim outDir As String
+    Dim openErrors As Long
+    Dim openWarnings As Long
+    Dim swAssembly As Object
+    Dim components As Variant
+    Dim i As Long
+
+    assemblyPath = "D:\XJTLU\PSP\model\biomimetic_structure.SLDASM"
+    outDir = "D:\XJTLU\PSP\model\exports\audit"
+    reportPath = outDir & "\assembly_geometry.txt"
+
+    EnsureFolder outDir
+    ResetFile reportPath
+
+    Set swAssembly = swApp.GetOpenDocumentByName(assemblyPath)
+    If swAssembly Is Nothing Then
+        Set swAssembly = swApp.OpenDoc6(assemblyPath, 2, 0, "", openErrors, openWarnings)
+    End If
+    If swAssembly Is Nothing Then
+        WriteLine reportPath, "ERROR|could_not_open_assembly"
+        Exit Sub
+    End If
+
+    WriteLine reportPath, "assembly|" & swAssembly.GetPathName()
+    On Error Resume Next
+    WriteLine reportPath, "config|" & swAssembly.ConfigurationManager.ActiveConfiguration.Name
+    On Error GoTo FatalError
+
+    components = swAssembly.GetComponents(False)
+    If IsEmpty(components) Then
+        WriteLine reportPath, "ERROR|no_components"
+        Exit Sub
+    End If
+
+    For i = LBound(components) To UBound(components)
+        ReportComponent components(i)
+    Next i
+
+    Dim stlOk As Boolean
+    On Error Resume Next
+    stlOk = swAssembly.SaveAs3(outDir & "\assembly_check.stl", 0, 0)
+    On Error GoTo FatalError
+    WriteLine reportPath, "stl_export|" & CStr(stlOk)
+    WriteLine reportPath, "PASS|audit_complete"
+    Exit Sub
+
+FatalError:
+    WriteLine reportPath, "ERROR|" & Err.Number & "|" & Err.Description
+End Sub
+
+Sub ReportComponent(component As Object)
+    Dim name As String
+    Dim line As String
+    Dim values As Variant
+    Dim xform As Object
+    Dim box As Variant
+    Dim j As Long
+
+    On Error Resume Next
+    name = component.Name2
+    Set xform = component.Transform2
+    If Not xform Is Nothing Then
+        values = xform.ArrayData
+    End If
+    line = "component|" & name
+    If IsArray(values) Then
+        For j = LBound(values) To UBound(values)
+            line = line & "|" & CStr(values(j))
+        Next j
+    End If
+    WriteLine reportPath, line
+
+    values = Empty
+    box = component.GetBox(True, True)
+    If IsArray(box) Then
+        line = "asmbox|" & name
+        For j = LBound(box) To UBound(box)
+            line = line & "|" & CStr(box(j))
+        Next j
+        WriteLine reportPath, line
+    End If
+
+    ReportPartBox component, name
+    ReportPartFrames component, name
+    On Error GoTo 0
+End Sub
+
+Sub ReportPartBox(component As Object, name As String)
+    Dim part As Object
+    Dim bodies As Variant
+    Dim body As Object
+    Dim box As Variant
+    Dim mins(2) As Double
+    Dim maxs(2) As Double
+    Dim have As Boolean
+    Dim i As Long
+    Dim k As Long
+
+    On Error Resume Next
+    Set part = component.GetModelDoc2()
+    If part Is Nothing Then
+        Exit Sub
+    End If
+    bodies = part.GetBodies2(0, False)
+    If Not IsArray(bodies) Then
+        Exit Sub
+    End If
+    have = False
+    For i = LBound(bodies) To UBound(bodies)
+        Set body = bodies(i)
+        If Not body Is Nothing Then
+            box = body.GetBodyBox
+            If IsArray(box) Then
+                For k = 0 To 2
+                    If Not have Or box(k) < mins(k) Then
+                        mins(k) = box(k)
+                    End If
+                    If Not have Or box(k + 3) > maxs(k) Then
+                        maxs(k) = box(k + 3)
+                    End If
+                Next k
+                have = True
+            End If
+        End If
+    Next i
+    If have Then
+        WriteLine reportPath, "partbox|" & name & "|" & CStr(mins(0)) & "|" & _
+            CStr(mins(1)) & "|" & CStr(mins(2)) & "|" & CStr(maxs(0)) & "|" & _
+            CStr(maxs(1)) & "|" & CStr(maxs(2))
+    End If
+    On Error GoTo 0
+End Sub
+
+Sub ReportPartFrames(component As Object, name As String)
+    Dim part As Object
+    Dim names As Variant
+    Dim values As Variant
+    Dim xform As Object
+    Dim i As Long
+    Dim j As Long
+    Dim line As String
+
+    On Error Resume Next
+    Set part = component.GetModelDoc2()
+    If part Is Nothing Then
+        Exit Sub
+    End If
+    names = Array("SC_J", "ACST_J", "GH_J", "ELBOW_J")
+    For i = LBound(names) To UBound(names)
+        values = Empty
+        Set xform = part.Extension.GetCoordinateSystemTransformByName(names(i))
+        If Not xform Is Nothing Then
+            values = xform.ArrayData
+        End If
+        If IsArray(values) Then
+            line = "partframe|" & names(i) & "|" & name
+            For j = LBound(values) To UBound(values)
+                line = line & "|" & CStr(values(j))
+            Next j
+            WriteLine reportPath, line
+        End If
+    Next i
+    On Error GoTo 0
+End Sub
+
+Sub EnsureFolder(folderPath As String)
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(folderPath) Then
+        fso.CreateFolder folderPath
+    End If
+End Sub
+
+Sub ResetFile(filePath As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 2, True, -1)
+    ts.Close
+End Sub
+
+Sub WriteLine(filePath As String, message As String)
+    Dim fso As Object
+    Dim ts As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set ts = fso.OpenTextFile(filePath, 8, True, -1)
+    ts.WriteLine message
+    ts.Close
+End Sub

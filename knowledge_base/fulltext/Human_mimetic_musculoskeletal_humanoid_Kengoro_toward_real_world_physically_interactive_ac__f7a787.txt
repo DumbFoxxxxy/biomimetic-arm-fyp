@@ -1,0 +1,885 @@
+===== PAGE 1 =====
+Human Mimetic Musculoskeletal Humanoid Kengoro toward
+Real World Physically Interactive Actions
+Y uki Asano, Toyotaka Kozuki, Soichi Ookubo, Masaya Kawamura, Shinsuke Nakashima,
+Takeshi Katayama, Iori Y anokura, Toshinori Hirose, Kento Kawaharazuka,
+Shogo Makino, Y ouhei Kakiuchi, Kei Okada and Masayuki Inaba
+Abstract— We have been developing human mimetic mus-
+culoskeletal humanoids from the view point of human-inspired
+design approach. Kengoro is our latest version of muscu-
+loskeletal humanoid designed to achieve physically interactive
+actions in real world. This study presents the design concept,
+body characteristics, and motion achievements of Kengoro. In
+the design process of Kengoro, we adopted the novel idea of
+multifunctional skeletal structures to achieve both humanoid
+performance and humanlike proportions. We adopted the
+sensor–driver integrated muscle modules for improved muscle
+control. In order to demonstrate the effectiveness of these body
+structures, we conducted several preliminary movements using
+Kengoro.
+I. INTRODUCTION
+Research for understanding humans through humanoid
+development has been widely conducted. ECCE [1] and
+anthrob [2] are developed to have humanlike musculoskeletal
+structures. We have been developing musculoskeletal hu-
+manoids such as Kenta, Kotaro, Kojiro, Kenzoh and Kenshiro
+[3]–[7]. Kenshiro is designed with signiﬁcant anatomical
+ﬁdelity to humans with respect to not only musculoskeletal
+structures, but also muscle arrangement or body proportions.
+The research objective of such humanoids is to understand
+the human more by developing humanoids with anatomical
+ﬁdelity, or achieving several motions in the same way
+as humans. We are interested in essential factors required
+for humanlike ﬂexibility and skillful motions. We are also
+interested in brain mechanism of humans for the ability of
+adaptive action acquisition. In order to understand humans
+more, we believe that the next challenge that we should be
+concentrating on is achieving physically interactive actions
+with such humanoids. Humans naturally learn and perform
+physically interactive actions such as balancing with envi-
+ronmental contacts using four limbs coordinately. Human
+motions with environmental contact are started in childhood
+from standing and moving by grabbing the environment.
+Therefore, we believe that the methodology and mechanism
+of humans to achieve physically interactive actions is quite
+important to understand humans.
+On the other hand, in recent humanoid research, the
+importance of not only the position control, but also the force
+Authors are with Department of Mechano-Informatics, Graduate
+School of Information Science and Technology, The University
+of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan.
+[asano, kozuki, ookubo, kawamura, snakashima,
+katayama, iori, hirose, kawaharazuka, makino,
+youhei, k-okada, inaba]@jsk.t.u-tokyo.ac.jp
+Fig. 1. Whole body images of human mimetic musculoskeletal humanoid
+Kengoro.
+control approach is growing in the case of contacting hu-
+mans or environment. Research for adaptive behavior against
+environmental contacts are widely conducted by assuming
+actions in the real world environment. COMAN, TORO, and
+W ALKMAN are developed based on their force (torque) con-
+trol systems [8]–[10]. Adaptivity and ﬂexibility that comes
+from both hardware and software towards external force are
+important rather than less ﬂexibility in stiff bodies. With
+respect to control strategies, we believe that the force control
+approaches considering dynamics make humanoid behaviors
+more human/animal-like as compared to the position control
+approaches.
+Based on these backgrounds, we are interested in hu-
+manoid constitution and system that can achieve physically
+interactive actions. Especially, we are interested in physically
+interactive actions by humanoids with humanlike muscu-
+2016 IEEE-RAS 16th International Conference on
+Humanoid Robots (Humanoids)
+Cancun, Mexico, Nov 15-17, 2016
+978-1-5090-4718-5/16/$31.00 ©2016 IEEE 876
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+With muscles(front, back)With motorsOnly bone
+Joint DOFs 
+configuration
+7451670
+1DOF rotational joint
+3DOF spherical joint
+int
+Fig. 2. Overview and joint DOFs conﬁguration of Kengoro.
+loskeletal structures because the adaptive ability of humans is
+deeply related to musculoskeletal system. Therefore, we are
+developing human mimetic musculoskeletal humanoid “Ken-
+goro” that is designed with anatomically inspired humanoid
+structure and force control systems to achieve physically
+interactive actions (Fig.1). In this paper, we describe the
+design concept, speciﬁcation, and element technologies of
+Kengoro. We also demonstrate several motions of Kengoro
+using its body structures.
+The rest of this paper is organized as follows: Section
+II describes the overview and concept of the developed
+humanoid Kengoro. Section III explains characteristics of
+skeletal structures. Section IV is regarding muscle structure
+and control system. Section V demonstrates several pre-
+liminary movements by Kengoro to show its performances.
+Section VI presents the conclusion and brieﬂy discusses the
+future work.
+II. O VERVIEW OF KENGORO ’S DESIGN
+The name, Kengoro, is a Japanese male name. Kengoro
+is represented with three Chinese characters: Ken, go, and
+ro. Each character means tendon, ﬁve and traditional name
+ending of Japanese male, respectively. The whole body CAD
+image of Kengoro and joint DOFs conﬁguration are shown
+in Fig.2. The system architecture of Kengoro is shown in
+Fig.3. USB is adopted for the internal communication that
+is available easily by connecting to a PC.
+In body design of Kengoro, we incorporate the knowledge
+of human anatomy in terms of the following four points,
+as used in the design process of our previous humanoid
+Kenshiro.
+• Human mimetic body proportions
+• Function replicated skeletal structures
+• Anatomically correct muscle arrangement
+• Human inspired joint properties
+Foot sensor
+IMUInternal battery 
+system
+Motor 
+driver
+Motor 
+driver
+Control 
+board
+Control 
+board
+USB 
+hub
+USB 
+hub
+PC
+(control)
+PC
+(vision)
+Stereo 
+camera
+Control 
+board
+㽢 38
+Motor 
+driver
+㽢 106
+Servo 
+battery
+(26.4V)
+Logic 
+battery
+(9.9V)
+PC battery
+(19.0V)
+USB hub
+㽢 18
+Tension 
+sensor 
+(load cell)
+Length 
+sensor
+(hall sensor)
+Thermal 
+sensor
+IMU
+External power 
+supply
+Foot sensor
+Load 
+cell
+Load 
+cell
+AMP 
+board
+Load cell
+㽢 12
+Power supply
+TCP/IP
+USB
+USB
+USB
+Serial(RS485)
+USB
+USB
+Power
+Sensor
+Motor 
+driver
+Motor 
+driver
+Motor 
+㽢 106
+Fig. 3. The system architecture of Kengoro.
+A. Human mimetic body proportions
+1) Link length: The target link lengths of Kengoro are
+decided by the human bone model [11] by scaling the model
+to 157 [cm]. As similar research, HRP4(C) was designed to
+have a humanlike slim body proportions [12], [13]. Fig.4
+and Table I show 17 measurement lengths of Kengoro
+and the bone model for comparison. Kengoro has achieved
+106% on average with body proportions. Chest thickness is
+877
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+one human-mimetic proportion that other humanoids have
+difﬁculty to achieve because of backpacks required for thier
+battery systems. Current testbed values are described in
+the forearm and hand of Kengoro because those are under
+development.
+L
+E
+I
+J
+F
+M
+P
+Q
+R
+N
+O
+D
+H
+K
+T
+G
+S
+i
+b
+f
+g
+c
+j
+m
+n
+o
+k
+l
+a
+e
+h
+q
+d
+p
+Fig. 4. Body proportions and comparison lengths of the human bone model
+(design target) and Kengoro.
+TABLE I
+LINK LENGTH COMPARISON BETWEEN HUMAN AND KENGORO .
+Length [mm]
+Sign Name Human(target length) Kengoro Ratio [%]
+a Body height 1574 1670 106
+b Face(head) 199 237 119
+c Chest length 248 281 113
+d Chest thickness 188 203 108
+e Spine 686 745 109
+f Upper arm 275 271 98.5
+g Forearm ∗1 244 290 119
+h Hand ∗1 164 169 103
+i Shoulder width 350 395 113
+j Pelvis height 932 979 105
+k Hip width(joint) 169 151 89.3
+l Hip width(trochanter) 303 293 96.7
+m Upper leg 381 384 101
+n Lower leg 351 348 99.1
+o Foot 71.3 79.2 111
+p Foot length 234 241 103
+q Foot width 82 91 111
+Average 106
+∗1 Kengoro’s forearm and hand are testbed.
+2) Mass properties: We also compared mass properties
+between each link weight of Kengoro and those of the target
+human. The result is shown in Table II and Kengoro is 115%
+on average weight. This result does not deviate from human
+weight. We believe that humanlike weight of limbs comes
+from lightness of skeletal structure made of CFRP (carbon
+ﬁber reinforced plastic), and less cable weight owing to
+effective element arrangement by the new skeletal structures
+and muscle modules.
+B. Joint DOFs conﬁguration
+The number of DOFs is 114 except for hands. The
+breakdown of the DOFs is 40 for spine (15 for lumber, 6
+for thoracic, and 19 for cervical), 26 DOFs for the arm (3
+for sternoclavicular, 3 for acromioclavicular, 3 for shoulder,
+TABLE II
+LINK WEIGHT COMPARISON BETWEEN HUMAN AND KENGORO .
+Weight [kg]
+Name Human(target weight) Kengoro Ratio [%]
+Body weight 50.0 55.9 112
+Head∗1 4.0 2.6 65.0
+Trunk∗2 17.0 17.1 100
+Upper arm 1.5 2.19 146
+Forearm∗3 1.0 1.28 128
+Hand∗3 0.5 0.39 78.0
+Pelvis 6.0 8.64 144
+Upper leg 5.0 5.07 101
+Lower leg 2.5 3.53 141
+Foot 1.0 1.34 134
+Average 115
+∗1 Head includes neck.
+∗2 Trunk includes spine, chest, and bladebone.
+∗3 Kengoro’s forearm and hand are testbed.
+1 for elbow, 1 for radioulnar, and 2 for wrist), 48 DOFs
+for leg (3 for hip, 2 for knee, 3 for ankle, and 16 for foot).
+The number of DOFs could be changed since the versions of
+forearm and hand are testbeds. Some unique points compared
+to Kenshiro are adding pitch DOFs to thoracic vertebrae and
+adopting the human mimetic foot with multi-DOFs.
+C. Battery system
+The battery system is composed of three types of batteries
+as shown in Fig.5, i.e., internal PC power, logic power, and
+servo power. We prepared four LiFe batteries in total to ﬁt
+into the bone shape. Two servo batteries (26.4V , 2500mAh
+for each) and two logic batteries (9.9V , 2500mAh for each)
+are embedded into upper and lower leg links, respectively. PC
+battery is installed on the back. Runtimes of these batteries
+while standing are approximately 22 min for the logic, and
+71 min for the servo and 7 hours for the PC.
+Servo 
+batteryPitch CFRP 
+frame
+Thermal gel
+Cable tunnel
+Femur link of Kengoro
+Logic
+battery
+CFRP frame
+Tibia link of Kengoro
+PC battery at back
+Fig. 5. Battery arrangement of Kengoro.
+878
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+D. Components inside head
+The components that are inside the head of Kengoro
+are shown in Fig.6. There are two mini PCs (Intel NUC
+i3, D34010WYK), a stereo camera (playstation camera), a
+speaker, a reservoir tank for water cooling, a network hub
+and an IMU board. One of the PCs is involved in motion
+control that manages each muscle information and controls
+entire body. The other is involved in vision processing. From
+the viewpoint of human mimetics, human brain has a role-
+sharing mechanism, having a motor area and a visual area.
+By equipping several PCs inside the head, the information
+processing load of each PC is reduced. The IMU inside the
+head is also based on a human mimetic idea that represents
+the semicircular canals of humans.
+PC for vision
+(Intel NUC i3)
+PC for control
+(Intel NUC i3)
+Stereo camera
+Reservoir 
+for water cooling
+IMU board
+Network hub
+Speaker
+Fig. 6. Components inside Kengoro’s head.
+III. S KELETAL STRUCTURE OF KENGORO
+In the skeletal design of Kengoro, we concentrated on the
+concept of multifunctional skeletal structures. This implies
+that the skeletal structures are equipped with not only the
+weight support function, but also other functions for func-
+tional high density humanoid systems. We also concentrated
+on increasing the number of whole body DOFs further
+for higher environmental adaptivity. The machine cutting
+spine and foot skeletal structures are new attempts in the
+development of musculoskeletal humanoids.
+A. Multifunctional skeletal structure
+In musculoskeletal humanoids with human mimetic slim
+body proportions, there is a trade-off between limited design
+space due to the human mimetic proportions and the number
+of components for improving humanoid performance. In
+order to solve this problem, the idea of multifunctional
+skeletal structure is adopted in the skeletal design of Ken-
+goro, which is inspired from the multifunctionality of hu-
+man biometric components such as bones and muscles. We
+integrated power supply or heat dissipation functions into
+the skeletal structure. In a related research, a pneumatic
+humanoid BuEnwa was developed whose skeletal structure
+was made by integrating air tanks with bones [14]. HyQ2Max
+[15] has the integrated hydraulic actuation system with a 3D
+printed hydraulic manifold.
+1) Battery-embedded skeletal structure: In order to
+achieve stand-alone motions in the outdoor environment,
+we embedded batteries into the skeletal structure of the
+upper and lower legs (Fig.5). The leg structure is thin-walled
+hollow shaped, and made of CFRP . By taking advantage
+of the ﬂexibility in terms of shape of CFRP , tunnels for
+electrical cables can be formed so that the system is stable
+by protecting the cable from outer disturbances. In pelvis
+and femur (upper leg) links, we adopted pitch CFRP that
+have high thermal conductivity and adopted the close-contact
+element arrangement that places elements (actuators, skeletal
+structures, batteries, and boards) in contact. It enables to
+transfer heat accumulation between each element.
+2) Skeletal structure with artiﬁcial perspiration: For the
+upper arm design, we integrated cooling functions into the
+skeletal structure (Fig.7). A more detailed description is
+provided in [16]. As the cooling mechanism, we constructed
+a water pipe integrated structure by 3D printed aluminum
+using powder sintered method. We also adopted latent heat
+mechanism using bi-layer porous inspired by human perspi-
+ration. Cooling water is directly connected to the bi-layer
+porous part of the arm and evaporated there. Bi-layer porous
+is used in four parts of the arm except for the contact surface
+to motors and connection points to other parts.
+printed frame
+machined elbow
+head of humerus
+muscle insertion
+motor space
+frame
+elbow Fluid routing inside 
+skeletal frame
+Artificial perspiration 
+by Bi-layer porous for cooling
+Fig. 7. Overview of developed humerus. Printed aluminum has Bi-layer
+porous structure that enables vapor cooling [16] .
+B. Human mimetic multi-DOFs skeletal structure
+1) S-shaped spine structure using machine cutting
+springs: In the spine structure of Kengoro, humanlike S-
+shaped multiple spine structure is achieved by classifying
+24 vertebrae of humans into three parts: cervical, thoracic,
+and lumber. Each part is made with appropriate production
+method to satisfy each required function (Fig.8). For a cervix
+with seven vertebrae, we made them by combination of pull
+spring and welding to make it smaller. For thoracic with
+12 vertebrae, we made them to be passively movable for
+more ﬂexibility in the chest part by making them by cutting
+metal. Although our previous spine structure in Kenshiro has
+ﬁxed thoracic vertebrae for protecting the inner components,
+such as motors, boards and electronic cables, Kengoro’s six
+out of 12 thoracic vertebrae from the top have movable
+range in the pitch direction for more anatomical ﬁdelity.
+The number of rib bones is 12 which is the same as in
+human. Each bone connects to each vertebra at the back
+side and to the sternum in the front side. The rib is made
+879
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+with CFRP so that it contributes to movable thoracic from the
+aspect of material elasticity. For the lumber with 5 vertebrae,
+we made them with machine cutting springs that integrate
+spring elasticity with skeletal structure. One of the problems
+in Kenshiro’s lumber structure is the connection of different
+types of elements, which is made of push springs and metal
+parts with bolt ﬁxings. That makes the assembly difﬁcult in
+small space, or may lead to breaking of a bolt due to the
+requirement of using small bolts. Cutting spring can solve
+the problem because it can reduce the number of parts and
+make the assembly process simple. By using these methods,
+strong and simple lumber structure that can withstand the
+upper body weight is achieved.
+2) Human mimetic foot structure with multi-DOFs and
+multi-sensors: For the foot structure of Kengoro, we did not
+adopt a plate-foot that is often used in ordinary humanoid,
+but the multi-DOF foot, which replicates the multibone
+connected structure of humans, since we believe that the
+end effector ﬂexibility is important in the situation of envi-
+ronmental contact. A more detailed description is provided
+in [17]. The foot is composed of mainly three parts, which
+are toe, ankle and heel, and is connected by spring-shaped
+elastic elements (3-DOFs). The total DOFs of the foot is 16
+including ﬁve ﬁngers that have two rotational DOFs each and
+the two spring-shaped elements with three DOFs. The toe is
+actuated by a muscle wire connected to the muscle actuator
+(leg muscle #27 in Table IV) that is installed on the tibia link
+(lower leg). In order to prevent the foot from disassembling
+or unexpected deformation, constraint for the multi-DOFs
+have to be considered. Inspired from human foot constraint,
+we attach a visco-elastic element (urethane rubber) at the sole
+replicating the human plantar aponeurosis and skin functions.
+It passively constrains the foot and enable adaptation to the
+environment. The 12 load cells (an axis force sensor) for
+measuring the distributed ground reaction forces are installed
+on each foot. The location of each sensor is as follow: ﬁve
+for each tip toe, ﬁve for the base of ﬁnger and two for the
+heel.
+IV . M USCLE STRUCTURE AND CONTROL OF KENGORO
+A. Sensor-driver integrated muscle module
+For the muscle actuator of Kengoro, the sensor-driver
+integrated muscle module [18] that enables ﬂexible tension
+control is used (Fig.10). The muscle module is composed of
+a motor, motor driver, tension sensor, and thermal sensor
+and is covered by sheet metals. Owing to constitute the
+whole body with the modules, all the muscles of Kengoro
+(116 muscles) can be controlled by tension. The module
+improved the system’s reliability by solving the following
+problems: secular change of tension value, exposure of
+electrical components (connectors and cables), and velocity
+based tension control.
+The number of muscle modules in upper body are as
+follow: ten for neck, eight for spine, four for blade, six for
+shoulder, ﬁve for elbow (including pronation and supination),
+three for wrist, and three for ﬁngers. For the legs, seventeen
+for hip, ten for knee, seven for ankle, one for foot ﬁngers.
+Lumber vertebrae
+Thoracic vertebrae
+Cervical vertebrae
+Fig. 8. Overview of Kengoro spine structure. The structure has seven
+cervical vertebrae, 12 thoracic vertebrae, and ﬁve lumber vertebrae.
+: 1DOF rotational joint
+: 3DOF spring joint
+: 3DOF spherical joint with elastic constraint
+Total DOFs: 19
+- Ankle : 3
+- Foot : 16
+5㽢1DOF rotational axis
+5㽢1DOF rotational axis
+3D printed titanium spring
+3DOF Ankle joint with 
+elastic constraint
+Arch structure
+Joint DOF configuration
+Urethane rubber sole
+Upper 
+structure
+Elastic 
+element
+Joint axis
+(pitch)
+Spherical 
+joint
+Rotatable according to urethane deformation
+lower
+structure
+Fig. 9. Overview of Kengoro foot with human mimetic multiple DOFs
+[17] .
+Several muscles are multi-counted because there are several
+bi/multi-articular muscles that actuate several joints at once.
+B. Muscle arrangement of Kengoro
+Muscle arrangement in Kengoro is decided based on
+anatomically correct muscle attachment points of humans.
+Primary muscles for standard actions of human are selected
+as priority. The muscle arrangement in Kengoro is shown in
+APPENDIX (Fig.14, Table III and Table IV).
+New additional muscles that were different from Kenshiro
+are biceps brachii (#18 in upper) for strengthening shoulder
+actuation in pitch direction, quadratus femoris (#6 in legs)
+for strengthening hip actuation in yaw direction, and ﬂexor
+digitorum (hallucis) longus (#27 in legs) for the toe actuation.
+Furthermore in order to rotate the spine in yaw direction
+effectively, the moment arm of internal oblique (#23 in
+upper) is increased by raising its muscle attachment point
+to upper, and external oblique (#24 in upper) is crossed such
+that it is over the sagittal line of the body. As improvement
+of the hip joint in terms of stable actuation, the attachment
+points of tensor fasciae latae (#17 in legs) and adductor
+880
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+CAD
+Muscle module
+Assembly
+Thermal
+sensor
+Load cell
+Tendon
+(wire)
+Tension measurement unit
+Cover
+Motor 
+driver
+Motor
+Fig. 10. Muscle module used for Kengoro’s actuators [18].
+magnus (#16 in legs) are extended to the tibia (lower leg)
+and bottom of the femur (upper leg), respectively.
+C. Muscle cover made of spring and forming materials
+Flexible outer cover is important for motions involving
+environmental contact. Muscle cover that is made of soft
+forming materials is adopted for Kengoro by replacing mus-
+cle sleeve used in Kenshiro. Fig.11 shows the muscle cover
+used in Kengoro. Inserting a low stiffness spring into the
+muscle cover prevents the muscle wires from being pressed
+in the cover. Changing the muscle exterior to soft material
+is effective for musculoskeletal humanoid because the ratio
+of muscle surface in the whole body is dominant in such
+humanoid.
+Fig. 11. Muscle wire cover that is newly proposed for Kengoro.
+D. Flexible muscle control based on current feedback
+For ﬂexible muscle control, the motor driver (FPGA02D)
+is newly developed that can feedback current for motor
+actuation. By implementing current feedback loop into motor
+control, which is related to force physically, ﬂexible tension
+control becomes available. An overview of Kengoro’s muscle
+control system is shown in Fig.12. The muscle control
+is simple PID control by tension and length, and can be
+represented as follows.
+Iref = KT,p (Tref − T )+ KL,p(Lref − L) (1)
+o = KI,p (Iref − I)+ KI,i
+∫
+(Iref − I)dt (2)
+where, I: current, T : muscle tension, L: muscle length, o:
+motor output, K: gain.
+Tension, Length 
+controller
+Current 
+controller
+Reference 
+controller
+Hardware 
+characteristic
+Iref
+I
+T, L
+Output
+(PWM)
+1[ms]
+200[us]
+PC
+Motor driver
+Muscle module
+Reference 
+generator
+(Tension, 
+length, torque, 
+angle)
+୰ୣ୤ǡ ୰ୣ୤
+ሺ߬௥௘௙ ǡߠ ௥௘௙ ሻ
+Length-angle, 
+tension-torque 
+calculatorǡ ǡ ɒǡ ߠ T, L 8[ms]
+Tref , Lref
+Control board
+Tension, 
+length
+Control
+ܫ௥௘௙ ൌܭ ்ǡ௣ ܶ௥௘௙ െܶ ൅ܭ ௅ǡ௣ ሺܮ௥௘௙ െܮ ሻ
+Control
+݋ൌܭ ூǡ௣ ܫ௥௘௙ െܫ ൅ܭ ூǡ௜ නሺܫ௥௘௙ െܫ ሻݐ݀ 
+ܶǣ ݊݋݅ݏ݊݁ݐ݈݁ܿݏݑ݉ 
+ܮǣ ݄ݐ݈݈݃݊݁݁ܿݏݑ݉ 
+߬ǣ ݁ݑݍݎ݋ݐݐ݊݅݋݆ 
+ߠǣ ݈݁݃݊ܽݐ݊݅݋݆ 
+ܫǣ ݐ݊݁ݎݎݑܿ
+݋ǣ ݐݑ݌ݐݑ݋ݎ݋ݐ݋݉ 
+Fig. 12. Muscle control of Kengoro
+V. P RELIMINARY MOVEMENTS USING KENGORO
+As veriﬁcation of Kengoro’s body performance, several
+preliminary movements are demonstrated (Fig.13).
+A. V eriﬁcation of multifunctional skeletal structures
+In order to achieve a humanoid that can move in real
+world, outdoor capability is necessary. We conducted a
+stand-alone movement in real world for the veriﬁcation of
+the internal battery system of Kengoro. In the movement,
+Kengoro’s arms are moved while maintaining its balance. In
+the push up movement, we demonstrated the upper body
+performance of Kengoro, in which the arms are able to
+support its weight owing to a new cooling method. From
+these preliminary movements, we conﬁrmed that the body
+design approach of the multifunctional skeletal structure is
+effective because it improves humanoid performances while
+maintaining human mimetic proportions.
+B. Motions with environmental contact
+For the motions in contact with surroundings, roll over
+motion and steps with wall support is achieved. During
+motions with environmental contact, adaptive behavior by
+ﬂexible muscle control or joint ﬂexibility is necessary to
+avoid breaking of the body and joints. Those demonstrations
+are achieved by whole body ﬂexibility owing to tension con-
+trol in all muscles, muscle cover for cushion and humanlike
+large DOFs in the whole body.
+VI. C ONCLUSION
+In this paper, we described the concept and speciﬁcation
+of human mimetic musculoskeletal humanoid, Kengoro. The
+design concept of Kengoro is based on, both, the human
+mimetic humanoid design approach that was adopted in our
+predecessor humanoid Kenshiro, and body characteristics to
+achieve physically interactive actions in the real world. In
+order to achieve physically interactive actions, all muscle
+actuators in the whole body is composed of the sensor-
+driver integrated muscle modules that are capable of ﬂexible
+tension control. Furthermore, the effectiveness of the idea
+of multifunctional skeletal structure is demonstrated from
+both aspects of keeping human mimetic body proportions and
+improving performance of Kengoro that can achieve pushing
+up or motions in the outside.
+881
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+1 2 3
+1 2 3
+1 2 3
+1 2 3 4 5
+Fig. 13. Several motion achievements by Kengoro. Top: movement in the
+outdoor. Upper middle: push up motion. Lower middle: rollover motion.
+Bottom: stepping motion with wall contact.
+As part of future studies, we would develop software sys-
+tems for human mimetic musculoskeletal humanoids. We are
+interested in a control system not only for the muscle layer,
+but also for the joint and end effector layers for adaptive
+whole body control. Utilization of toe DOF in the motions
+or environmental perception using distributed force sensors
+on the sole are also interesting research topics. Furthermore,
+the method of environmental contact detection using whole
+body human mimetic joint DOFs are necessary for physically
+interactive actions. Whole body balance control involving
+COG control is also required for such humanoids in which
+joint softness is inherent. By implementing those software
+systems, we would like to achieve motions utilizing its
+human mimetic body characteristics as humans do.
+APPENDIX
+The muscle arrangement of Kengoro is described here.
+Overall view of the muscles of Kengoro is shown in Fig.14.
+The name of the muscles in the upper body and legs are
+shown in Table III and Table IV, respectively.
+REFERENCES
+[1] H. G. Marques, M. Jantsh, S. Wittmeier, O. Holland, C. Alessandro,
+A. Diamond, M. Lungarella, and R. Knight, “Ecce1: the ﬁrst of a series
+of anthropomimetic musculoskeletal upper torsos,” in Proceedings of
+the 2010 IEEE-RAS International Conference on Humanoid Robots ,
+2010, pp. 391–396.
+[2] M. Jantsch, S. Wittmeier, K. Dalamagkidis, A. Panos, F. V olkart, and
+A. Knoll, “Anthrob - a printed anthropomimetic robot,” in Proceedings
+of the 2013 IEEE-RAS International Conference on Humanoid Robots ,
+2013, pp. 342–347.
+[3] M. Inaba, I. Mizuuchi, R. Tajima, T. Y oshikai, D. Sato, K. Nagashima,
+and H. Inoue, “Building spined muscle-tendon humanoid,” in Robotics
+Research: The Tenth International Symposium , ser. Springer Tracts in
+Advanced Robotics, vol. 6. Springer-V erlag, 2003, pp. 113–127.
+[4] I. Mizuuchi, T. Y oshikai, Y . Sodeyama, Y . Nakanishi, A. Miyadera,
+T. Y amamoto, T. Niemela, M. Hayashi, J. Urata, Y . Namiki, T. Nishino,
+and M. Inaba, “Development of musculoskeletal humanoid Kotaro,” in
+Proceedings of The 2006 IEEE International Conference on Robotics
+and Automation , 2006, pp. 82–87.
+[5] I. Mizuuchi, Y . Nakanishi, Y . Sodeyama, Y . Namiki, T. Nishino,
+N. Muramatsu, J. Urata, K. Hongo, T. Y oshikai, and M. Inaba,
+“An advanced musculoskeletal humanoid Kojiro,” in Proceedings of
+the 2007 IEEE-RAS International Conference on Humanoid Robots ,
+December 2007, pp. 294–299.
+[6] Y . Nakanishi, T. Izawa, M. Osada, N. Ito, S. Ohta, J. Urata, and
+M. Inaba, “Development of musculoskeletal humanoid kenzoh with
+mechanical compliance changeable tendons by nonlinear spring unit,”
+in Proceedings of the 2011 IEEE International Conference on Robotics
+and Biomimetics , December 2011, pp. 2384–2389.
+[7] Y . Nakanishi, Y . Asano, T. Kozuki, H. Mizoguchi, Y . Motegi, M. Os-
+ada, T. Shirai, J. Urata, K. Okada, and M. Inaba, “Design concept
+of detail musculoskeletal humanoid “Kenshiro” -toward a real human
+body musculoskeletal simulator-,” in Proceedings of the 2012 IEEE-
+RAS International Conference on Humanoid Robots , Nov. 2012, pp.
+1–6.
+[8] Z. Li, B. V anderborght, N. G. Tsagarakis, L. Colasanto, and D. G.
+Caldwell, “Stabilization for the compliant humanoid robot COMAN
+exploiting intrinsic and controlled compliance,” in Proceedings of The
+2012 IEEE International Conference on Robotics and Automation ,
+May 2012, pp. 2000–2006.
+[9] J. Englsberger, A. Werner, C. Ott, B. Henze, M. A. Roa, G. Garo-
+falo, R. Burger, A. Beyer, O. Eiberger, K. Schmid, and A. Albu-
+Schaffer, “Overview of the torque-controlled humanoid robot TORO,”
+in Proceedings of the 2014 IEEE-RAS International Conference on
+Humanoid Robots , 2014, pp. 916–923.
+[10] F.Negrello, M.Garabini, M.G.Catalano, P .Kryczka, W. Choi,
+D.G.Caldwell, A.Bicchi, and N.G.Tsagarakis, “W ALK-MAN
+humanoid lower body design optimization for enhanced physical
+performance,” May 2016, pp. 1817–1824.
+[11] Y . Nakamura, K. Y amane, G. Suwa, O. Kondou, M. Kouchi,
+K. Kawachi, and M. Mochimaru, “2008: Skeletal shape data of adult
+male(AIST H20PRO-905),” 2008.
+[12] K. KANEKO, F. KANEHIRO, M. MORISAW A, K. MIURA,
+S. NAKAOKA, and S. KAJITA, “Cybernetic human HRP-4C,” in
+Proceedings of the 2009 IEEE-RAS International Conference on
+Humanoid Robots , December 2009, pp. 7–14.
+[13] K. KANEKO, K. AKACHI, F. KANEHIRO, G. MIY AMORI,
+M. MORISAW A, A. HA Y ASHI, and N. KANEHIRA, “Humanoid
+robot HRP-4 -humanoid robotics platform with lightweight and slim
+body-,” in Proceedings of the 2011 IEEE/RSJ International Conference
+on Intelligent Robots and Systems , September 2011, pp. 4400–4407.
+[14] I. Mizuuchi, M. Kawamura, T. Asaoka, and S. Kumakura, “De-
+sign and development of a compressor-embedded pneumatic-driven
+musculoskeletal humanoid,” in Proceedings of the 2012 IEEE-RAS
+International Conference on Humanoid Robots , 2012, pp. 811–816.
+[15] C. Semini, J. Goldsmith, D. Manfredi, F. Calignano, E. P . Ambrosio,
+J. Pakkanen, and D. G. Caldwell, “Additive manufacturing for agile
+legged robots with hydraulic actuation,” in Proceedings of the 19th
+International Conference on Advanced Robotics , 2015, pp. 123–129.
+[16] T. Kozuki, H. Toshinori, T. Shirai, S. Nakashima, Y . Asano, Y . Kak-
+iuchi, K. Okada, and M. Inaba, “Skeletal structure with artiﬁcial
+perspiration for cooling by latent heat for musculoskeletal humanoid
+kengoro,” in Proceedings of the 2016 IEEE/RSJ International Confer-
+ence on Intelligent Robots and Systems , October 2016.
+[17] Y . Asano, S. Nakashima, T. Kozuki, S. Ookubo, I. Y anokura, Y . Kak-
+iuchi, K. Okada, and M. Inaba, “Human mimetic foot structure
+with multi-dofs and multi-sensors for musculoskeletal humanoids,”
+in Proceedings of the 2016 IEEE/RSJ International Conference on
+Intelligent Robots and Systems , October 2016.
+[18] Y . Asano, T. Kozuki, S. Ookubo, K. Kawasaki, T. Shirai, K. Kimura,
+K. Okada, and M. Inaba, “A sensor-driver integrated muscle mod-
+ule with high-tension measurability and ﬂexibility for tendon-driven
+robots,” in Proceedings of the 2015 IEEE/RSJ International Confer-
+ence on Intelligent Robots and Systems , October 2015, pp. 5960–5965.
+882
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 8 =====
+#1
+#2
+#3
+#4 #6
+#15
+#16
+#18 #17
+#7
+#20
+#10
+#21
+#22
+#11
+#12
+#5
+#8
+#14
+#13
+#19
+#23
+#24
+#9
+#1
+#2
+#3
+#4
+#5 #10
+#12
+#6
+#7
+#8
+#9
+#18
+#19
+#13
+#14
+#15
+#22
+#20
+#21
+#27
+#17
+#16
+#23
+#24
+#25
+#26
+#11
+Fig. 14. Muscle arrangement of Kengoro. Left: upper body, Right: lower body. Muscles for forearm and hand are not illustrated because they are under
+development.
+TABLE III
+NAMES OF MUSCLES IN KENGORO ’S UPPER BODY .
+# Muscle Name Joint # Muscle Name Joint
+1 Longus colli Neck 15 Pectoralis major Shoulder
+2 Sternocleidomastoid Neck 16 Pectoralis minor Shoulder
+3 Scalenus Neck 17 Latissimus dorsi Shoulder, spine
+4 Trapezius(upper) Neck, blade 18 Biceps brachii Shoulder, elbow
+5 Trapezius(bottom) Blade 19 Brachialis Elbow
+6 Splenius capitis Neck 20 Triceps brachii Elbow
+7 Obliquus capitis superior Neck 21 Rectus abdominis Spine
+8 Rhomboid Blade 22 Erector spinae Spine
+9 Serratus anterior Blade 23 Internal oblique Spine
+10 Infraspinatus Shoulder 24 External oblique Spine
+11 Deltoid(front) Shoulder
+12 Deltoid(middle) Shoulder
+13 Deltoid(rear) Shoulder
+14 Subscapularis Shoulder
+TABLE IV
+NAMES OF MUSCLES IN KENGORO ’SL E G S.
+# Muscle Name Joint # Muscle Name Joint
+1 Adductor minimus Hip 15 Adductor brevis Hip
+2 Adductor longus Hip 16 Adductor magnus Hip
+3 Pectineus Hip 17 Tensor fasciae latae Hip, knee
+4 Rectus femoris Hip, knee 18 V astus medialis Knee
+5 Sartorius Hip, knee 19 V astus lateralis Knee
+6 Quadratus femoris muscle Hip 20 Biceps femoris short Knee
+7 Biceps femoris longus Hip, knee 21 Gastrocnemius(medial) Knee, ankle
+8 Semimembranosus/ semitendinosus Hip, knee 22 Gastrocnemius(lateral) Knee, ankle
+9 Iliopsoas(iliacus) Hip 23 Tibialis anterior Ankle
+10 Gluteus minimus Hip 24 Soleus Ankle
+11 Gluteus medius(front) Hip 25 Tibialis posterior Ankle
+12 Gluteus medius(back) Hip 26 Peroneus longus Ankle
+13 Gluteus maximus(front) Hip 27 Flexor digitorum(hallucis) longus Ankle, toe
+14 Gluteus maximus(back) Hip
+883
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 21,2026 at 10:50:30 UTC from IEEE Xplore. Restrictions apply.

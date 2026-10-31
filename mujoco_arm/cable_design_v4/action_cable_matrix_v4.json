@@ -1,0 +1,852 @@
+{
+  "policy": {
+    "action_first": true,
+    "allowed_cable_groups": true,
+    "minimum_visible_deg": 5.0,
+    "minimum_visible_mm": 5.0
+  },
+  "actions": [
+    {
+      "id": "K1",
+      "label": "\u8098\u5c48\u66f2",
+      "group": "elbow",
+      "q_target_deg": {
+        "elbow": 116.0
+      },
+      "target_deg": 116.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "E01",
+        "E02"
+      ],
+      "metric": "joint_abs",
+      "metric_joint": "elbow",
+      "selected_cables": [
+        "E01",
+        "E02"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "E01": 1.974563187589343,
+        "E02": 18.74379064643313
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 1,
+        "minimum_singular_value": 1.4142135623730951,
+        "columns": [
+          "E01",
+          "E02"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": 10.543018144575178,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 17.579058047531223,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K2",
+      "label": "GH\u5c48\u66f2",
+      "group": "gh",
+      "q_target_deg": {
+        "gh_flex": 96.0
+      },
+      "target_deg": 96.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "P01",
+        "P02"
+      ],
+      "metric": "joint_abs",
+      "metric_joint": "gh_flex",
+      "selected_cables": [
+        "G02",
+        "G03"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "G02": 2.8021140296927838e-18,
+        "G03": 9.002322411700358e-19
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": false,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 1,
+        "minimum_singular_value": 2.8284271247461903,
+        "columns": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "P01",
+          "P02"
+        ],
+        "witness_coefficients": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.49,
+          0.44999999999999996
+        ]
+      },
+      "max_selected_contraction_percent": -3.034861676178802,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 10.712923112994439,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K3",
+      "label": "GH\u5916\u5c55",
+      "group": "gh",
+      "q_target_deg": {
+        "gh_abd": 96.0
+      },
+      "target_deg": 96.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06"
+      ],
+      "metric": "joint_abs",
+      "metric_joint": "gh_abd",
+      "selected_cables": [
+        "G04",
+        "G05"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "G04": 2.971753884076384e-18,
+        "G05": 6.557911057377555e-18
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": false,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 1,
+        "minimum_singular_value": 2.449489742783178,
+        "columns": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06"
+        ],
+        "witness_coefficients": [
+          0.45999999999999996,
+          0.01,
+          0.5,
+          0.01,
+          0.01,
+          0.01
+        ]
+      },
+      "max_selected_contraction_percent": -0.8289259048083089,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 9.252055798943069,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": false,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K4",
+      "label": "GH\u5185\u65cb",
+      "group": "gh",
+      "q_target_deg": {
+        "gh_rot": 56.0
+      },
+      "target_deg": 56.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "P01",
+        "P02"
+      ],
+      "metric": "joint_abs",
+      "metric_joint": "gh_rot",
+      "selected_cables": [
+        "G01",
+        "G02"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "G01": 0.09999165176230004,
+        "G02": 0.11251400831223475
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 1,
+        "minimum_singular_value": 2.8284271247461903,
+        "columns": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "P01",
+          "P02"
+        ],
+        "witness_coefficients": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.49,
+          0.01,
+          0.01,
+          0.44999999999999996
+        ]
+      },
+      "max_selected_contraction_percent": 0.4207374258370559,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 9.761700627335973,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K5",
+      "label": "GH\u5916\u65cb",
+      "group": "gh",
+      "q_target_deg": {
+        "gh_rot": -72.0
+      },
+      "target_deg": 72.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "P01",
+        "P02"
+      ],
+      "metric": "joint_abs",
+      "metric_joint": "gh_rot",
+      "selected_cables": [
+        "G01",
+        "G03",
+        "G04",
+        "G05"
+      ],
+      "cooperating_cable_count": 4,
+      "target_tensions_N": {
+        "G01": 0.0012605628242349353,
+        "G03": 0.0011233719943398845,
+        "G04": 0.0008417384626258437,
+        "G05": 0.011700399350260701
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 1,
+        "minimum_singular_value": 2.8284271247461903,
+        "columns": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "P01",
+          "P02"
+        ],
+        "witness_coefficients": [
+          0.43999999999999995,
+          0.5,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ]
+      },
+      "max_selected_contraction_percent": -0.40801478008157843,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 2.3028042800987647,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K6",
+      "label": "\u80a9\u80db\u4e0a\u56de\u65cb",
+      "group": "scapula",
+      "q_target_deg": {
+        "sc_elevation": 42.26192461124019,
+        "sc_protraction": -8.289513955493888,
+        "ac_ext": 15.58573377932018
+      },
+      "target_deg": 30.0,
+      "acceptance_deg": 24.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "mandatory_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "minimum_mandatory_tension_N": 2.0,
+      "metric": "scapula_up",
+      "selected_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "cooperating_cable_count": 6,
+      "target_tensions_N": {
+        "S01": 2.3119836461254093,
+        "S02": 5.445083797523061,
+        "S03": 112.10160964297185,
+        "S04": 78.58545379898052,
+        "S05": 0.27625030961183056,
+        "S06": 65.54201839685447
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 3,
+        "minimum_singular_value": 0.4113786260163246,
+        "columns": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "witness_coefficients": [
+          0.01,
+          0.01,
+          0.20979742928332495,
+          0.4320819051977662,
+          0.0696215523921875,
+          0.2684991131267214
+        ]
+      },
+      "max_selected_contraction_percent": 15.314856920793545,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 2.215370478663658,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "K7",
+      "label": "\u7ec4\u5408\u62ac\u5347",
+      "group": "combined",
+      "q_target_deg": {
+        "gh_flex": 96.0,
+        "sc_elevation": 42.26192461124019,
+        "sc_protraction": -8.289513955493888,
+        "ac_ext": 15.58573377932018
+      },
+      "target_deg": 150.0,
+      "acceptance_deg": 120.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "G01",
+        "G02",
+        "G03",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "P01",
+        "P02",
+        "G07"
+      ],
+      "mandatory_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "G02",
+        "G07"
+      ],
+      "minimum_mandatory_tension_N": 2.0,
+      "metric": "combined_lift",
+      "selected_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "G02",
+        "G07",
+        "G03",
+        "S05",
+        "S06"
+      ],
+      "cooperating_cable_count": 9,
+      "target_tensions_N": {
+        "S01": 7.478587394020829,
+        "S02": 6.684520468431916,
+        "S03": 42.40890229738182,
+        "S04": 12.22029084193979,
+        "G02": 48.90971572992852,
+        "G07": 17.61441851547632,
+        "G03": 41.23584170720956,
+        "S05": 17.524170519328514,
+        "S06": 21.657104802566998
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": true,
+        "rank": 4,
+        "minimum_singular_value": 0.41137862601632413,
+        "columns": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "G02",
+          "G07",
+          "G03",
+          "S05",
+          "S06"
+        ],
+        "witness_coefficients": [
+          0.01,
+          0.09735124027330115,
+          0.24332123275954806,
+          0.3293052481839019,
+          0.01,
+          0.02,
+          0.01,
+          0.01,
+          0.27002227878324886
+        ]
+      },
+      "max_selected_contraction_percent": 36.28429832378682,
+      "pass_contraction": false,
+      "min_selected_cable_clearance_mm": 2.215370478663658,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": false,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "SLIDE_FWD",
+      "label": "\u80a9\u80db\u524d\u6ed1",
+      "group": "scapula",
+      "q_target_deg": {
+        "sc_protraction": 5.0
+      },
+      "target_mm": 15.0,
+      "minimum_visible_mm": 5.0,
+      "allowed_cables": [
+        "S03",
+        "S04",
+        "S01",
+        "S02"
+      ],
+      "metric": "scapula_slide",
+      "selected_cables": [
+        "S03",
+        "S02"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "S03": 36.63125510344796,
+        "S02": 3.282529776115619e-19
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": false,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 3,
+        "minimum_singular_value": 0.23641050081815718,
+        "columns": [
+          "S03",
+          "S04",
+          "S01",
+          "S02"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": -0.00019286077736900588,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 7.975628360904977,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": true,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "SLIDE_BACK",
+      "label": "\u80a9\u80db\u540e\u6ed1",
+      "group": "scapula",
+      "q_target_deg": {
+        "sc_protraction": -5.0
+      },
+      "target_mm": -15.0,
+      "minimum_visible_mm": 5.0,
+      "allowed_cables": [
+        "S03",
+        "S04",
+        "S01",
+        "S02"
+      ],
+      "metric": "scapula_slide",
+      "selected_cables": [
+        "S03",
+        "S04"
+      ],
+      "cooperating_cable_count": 2,
+      "target_tensions_N": {
+        "S03": 33.50594479196945,
+        "S04": 17.35531828703978
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 3,
+        "minimum_singular_value": 0.42988032757897626,
+        "columns": [
+          "S03",
+          "S04",
+          "S01",
+          "S02"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": 3.523185987183075,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 5.456123873001047,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    },
+    {
+      "id": "SCAP_EXT",
+      "label": "\u80a9\u80db\u5916\u65cb",
+      "group": "scapula",
+      "q_target_deg": {
+        "ac_ext": 20.0
+      },
+      "target_deg": 20.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "metric": "scapula_external",
+      "selected_cables": [
+        "S01",
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "cooperating_cable_count": 4,
+      "target_tensions_N": {
+        "S01": 4.1231104168069853e-16,
+        "S03": 1.0109317959555067e-17,
+        "S04": 21.397709411151332,
+        "S05": 9.906552266237798
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 3,
+        "minimum_singular_value": 0.5456694265403103,
+        "columns": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": 3.5487109251807194,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 7.522335109998892,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": true,
+      "pass_minimum_functional": true
+    },
+    {
+      "id": "SCAP_INT",
+      "label": "\u80a9\u80db\u5185\u65cb",
+      "group": "scapula",
+      "q_target_deg": {
+        "ac_ext": -5.0
+      },
+      "target_deg": 20.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "metric": "scapula_external",
+      "selected_cables": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "cooperating_cable_count": 3,
+      "target_tensions_N": {
+        "S04": 23.585695687573413,
+        "S05": 10.32102231774422,
+        "S06": 1.9942862238279426
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": false,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 3,
+        "minimum_singular_value": 0.5775505363102316,
+        "columns": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": 0.507649402822758,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 2.233253472707604,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false,
+      "intended_q_target_deg": -20.0,
+      "degraded": true,
+      "degradation_reason": "At -20 deg the S05/S06 scapula anchors are inside the thorax; the -5 deg minimum-visible fallback is evaluated separately."
+    },
+    {
+      "id": "PECTORAL",
+      "label": "\u80f8\u5927\u808c\u62b1\u5408",
+      "group": "pectoral",
+      "q_target_deg": {
+        "gh_flex": 25.0,
+        "gh_abd": 8.0,
+        "gh_rot": -20.0
+      },
+      "target_deg": 20.0,
+      "minimum_visible_deg": 5.0,
+      "allowed_cables": [
+        "P01",
+        "P02",
+        "G05",
+        "G06"
+      ],
+      "metric": "pectoral",
+      "selected_cables": [
+        "P01",
+        "P02",
+        "G05"
+      ],
+      "cooperating_cable_count": 3,
+      "target_tensions_N": {
+        "P01": 2.450845682115123e-24,
+        "P02": 4.8955179666847465e-18,
+        "G05": 50.145579779740586
+      },
+      "pass_minimum_visible": true,
+      "pass_80_percent": true,
+      "pass_tension": true,
+      "positive_spanning": {
+        "pass": false,
+        "rank": 3,
+        "minimum_singular_value": 0.18529699052979934,
+        "columns": [
+          "P01",
+          "P02",
+          "G05",
+          "G06"
+        ],
+        "witness_coefficients": null
+      },
+      "max_selected_contraction_percent": 11.36062759828405,
+      "pass_contraction": true,
+      "min_selected_cable_clearance_mm": 2.3311314134671783,
+      "pass_cable_clearance": true,
+      "pass_guide_geometry": true,
+      "pass_visual_clearance": false,
+      "pass_minimum_functional": false
+    }
+  ],
+  "initial_assignment": {
+    "K1": [
+      "E01",
+      "E02"
+    ],
+    "K2": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "P01",
+      "P02"
+    ],
+    "K3": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06"
+    ],
+    "K4": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "P01",
+      "P02"
+    ],
+    "K5": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "P01",
+      "P02"
+    ],
+    "K6": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06"
+    ],
+    "K7": [
+      "G01",
+      "G02",
+      "G03",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "P01",
+      "P02"
+    ],
+    "SLIDE_FWD": [
+      "S03",
+      "S04",
+      "S01",
+      "S02"
+    ],
+    "SLIDE_BACK": [
+      "S03",
+      "S04",
+      "S01",
+      "S02"
+    ],
+    "SCAP_EXT": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06"
+    ],
+    "SCAP_INT": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06"
+    ],
+    "PECTORAL": [
+      "P01",
+      "P02",
+      "G05",
+      "G06"
+    ]
+  }
+}

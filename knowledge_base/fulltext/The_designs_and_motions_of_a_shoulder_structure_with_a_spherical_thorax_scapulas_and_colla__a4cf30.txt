@@ -1,0 +1,414 @@
+===== PAGE 1 =====
+The designs and Motions of a Shoulder Structure with a Spherical
+Thorax, Scapulas and Collarbones for Humanoid “Kojiro”
+Yoshinao Sodeyama, Tamaki Nishino, Yuta Namiki, Yuto Nakanishi, Ikuo Mizuuchi and Masayuki Inaba
+Abstract— Humanoid robots are still in a process of the
+evolution. We are trying to develop a next-generation which
+have safety, ﬂexibility and multiplicity of uses. A Shoulder
+structure is one of the keystone, because it controls arms and
+end eﬀectors and it have direct contact with humans and daily
+life environments. We have designed new shoulder structure
+following the scapula-collarbone structure for a muscle-driven
+humanoid robot named “Kojiro”(Fig. 1)[1]. We consider that
+the scapula-collarbone structures have the following merits,
+1)wide range of movement, 2)ﬂexible shoulder like humans,
+3)safety from the driving system, 4)allowing space for a
+lot of parts inside the thorax. The shoulder structure is
+consisted of scapula, collarbone, upper-arm and thorax. We
+have devised the spherical shape thorax and scapula structure
+which realizes desired scapula motions. In this paper, we
+describe the design process and operation test of the shoulder
+structure.
+I. INTRODUCTION
+Recently, studies of humanoid robots make advances
+to humans care in our daily life. In the future, it
+will be usual in our daily life for humanoid robots to
+assist humans directly. Then, humanoids must not be
+dangerous to humans. Existing hardware of humanoid
+robots are developed from the technology of industrial
+machines which have hard bodies and signiﬁcant power
+actuators, so it have a serious limitation about safety
+for humans. It will be of the utmost necessity that
+the humanoid robots have a safe and ﬂexible body
+structures. The ﬂexibility of the arms and shoulders
+will be especially important, because these parts will
+come in direct contact with human bodies and daily life
+environments.
+In this light, we have developed a whole-type musculo-
+skeletal humanoid Kojiro. Humanoid Kojiro is a substan-
+tial improvement version of a humanoid “Kotaro” [2]. We
+have mainly redesigned appropriate degrees of freedoms
+of bone structures and optimal muscle arrangements for
+the humanoids. In this paper, we explain new initiative
+of the shoulder designs for Kojiro which has ﬂexibility
+and wide range of movements.
+Authors are with Graduate School of Interdisciplinary Infor-
+mation Studies, and Graduate School of Information Science and
+Technology, University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo,
+113-8656, Japan. [sodeyama, nishino, namiki, nakanish, ikuo,
+inaba]@jsk.t.u-tokyo.ac.jp
+Fig. 1. Torso of humanoid “Kojiro” with spherical thorax and
+scapula-collarbone shoulder structure and its muscle arrangements.
+(The red lines are worked for scapulas and green lines are worked
+for upper arms.)
+Fig. 2. Construction of the shoulder parts
+II. Advantages of Having a Scapula-collarbone
+Structure for Musculo-skeletal Humanoids
+Human shoulder structure is constructed of a thorax,
+scapulas, collarbones, upper arms. It is a joint complex
+2008 IEEE/RSJ International Conference on Intelligent Robots and Systems
+Acropolis Convention Center
+Nice, France, Sept, 22-26, 2008
+978-1-4244-2058-2/08/$25.00 ©2008 IEEE. 1465
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+Fig. 3. Human shoulder bone structure
+Sherical thorax
+Orbit of acromioclavicular joint
+Acromioclavicular joint
+Sternoclavicular joint
+Collarbone
+Scapula
+Fig. 4. Motion diagram of the shoulder parts
+which consist of two anatomic joints and three physiolog-
+ical joints of the action of mainly muscles (Fig. 3) [3]. A
+number of groups have been trying to develop human-
+form robots with a speciﬁc shoulder structure . Some
+studies example allowing for analysis of conformation
+of human body structure [4]-[9]. Referring to their
+approach, we aim for developing the next-generation
+humanoid robot which can make safe and various motion
+like humans.
+When humanoid robots assist humans with directly
+contact, dangerousness caused by high-power motors is
+the most emphasis point. Musculo-skeletal joints can
+be driven by a lot of safe and lower output motors.
+Additionally, we can append motors as necessary. It can
+reduce the risk by high-power motors which is one of
+the problem of existing life size humanoid robot. It is
+especially eﬀective for shoulder and arm structures. We
+had developed the prototype humanoid “Kotaro” which
+has shoulders with scapula-collarbone system following
+a human shoulder joint structure [10]. We propose the
+design way of Humanoid Kojiro shoulder, following a
+human shoulder structure and improvement from Ko-
+taro. We have developed new shoulder structure which
+consists of spherical thorax, scapulas, collarbones, and
+upper arm.
+The merits using spherical thorax and scapula-
+collarbone structure include the following
+1) Having eﬃcient muscle arrangements for wide
+range of movement
+2) Reducing ﬂections between scapulas and a thorax
+3) Stabilization of scapulas posture
+We describe the design process of the shoulder structure
+in the next sections.
+Fig. 5. Range of movement of the scapula
+III. Spherical Shape Thorax and Scapula-Collarbone
+Structure
+A. Bone Parts Construction and Range of Movements
+Developed shoudler structure is consisted of thorax,
+scapula, collarbone, upper arm (Fig. 2). It is totally
+5DOFs joint structure(Fig. 4).
+1) Scapulohumeral joint (between scapula and upper
+arm) : 3DOFs
+2) Acromioclavicular joint (between scapula and col-
+larbone) : 1DOF
+3) Sternoclavicular joint (between collarbone and tho-
+rax): 1DOF
+Shoulder structure of Kotaro is consisted of 3DOFs
+acromioclavicular joints and 3DOFs sternoclavicular
+joints. Scapulas are constrained on chest surface, so the
+shoulder is 6DOFs in total. Changing shoudler design to
+Kojiro, it is stabilized in the rotational and translational
+motions around thorax, but it can not move translational
+motion in vertical direction. It can elevate arm (rotation
+of scapula) and tracslational motion (scapula moving
+forward and backward direction), so we consider that
+it has enough range of movement for working.
+Range of movements are shown in Fig. 5.
+1) Acromioclavicular joint: initial attitude(Fig. 5 up-
+side:red) +45 degrees(Fig. 5 upside:yellow) -45(Fig.
+5 upside:green).
+2) Sternoclavicular joint: initial attitube(Fig. 5 down-
+side:red) +30 degrees(Fig. 5 downside:light blue)
+-30 degrees(Fig. 5 downside:white).
+Range of movement of the shoulder structure is ﬂexion
+135 degrees to -60 degrees, abduction 60 degrees in total.
+B. Muscle Arrangements for Driving the Shoulders
+Fig. 6 shows muscle arrangements for scapulas. Scapu-
+las are made 2DOFs movement around a center point
+of spherical thorax. A scapula is driven by 4 muscles
+1466
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+Fig. 6. Muscle arrangements of the scapula structure
+Fig. 7. Force relations of the shoulder in a elevating an arm motion
+which enables arbitrary backward and forward and rotate
+motions. The arrangements of the 4 muscles are desided
+by the simuration using 3D-geometrical model. The most
+high-intensity exercise is an elevating arm motion. At this
+motion, a scapula is rotated to upper side.
+Fig. 7 shows power relation diagrams at an elevating
+arm motion. Upside of Fig. 7 shows a relation at ﬂexion
+an upper arm to 90 degrees. If we suppose the arm length
+is 550[mm], weight is 2.5[kgf], barycentric position is
+L1=197[mm], so it needs 4.8[Nm] torque for an elevat-
+ing arm motion. Two AC-40W-motors (rating tension
+283.2N(F2,F3)) are driven for the motion, and moment
+arms driving upper arms are L2=113[mm], L3=92[mm],
+so it can generate 58.1[Nm] torque in total. Condision
+equation ”F1xL1 < F1xL2 + F3xL3” is met. It means
+that the shoulder can elevate an arm to 90 degrees with
+the maximum load 30[kgf].
+Downside of Fig. 7 shows a relation at ﬂexion an upper
+arm to 135 degrees. This motion can be generated by
++45 degrees rotation of scapula. We suppose the arm
+weight is F4=2.5[kgf], moment arm L4=217[mm], so
+rotational moment is 5.3[Nm]. Mainly generating muscles
+for rotating 45 degrees motion of a scapula are two mus-
+cles, and parameters are as follows, F5=F6=283.2[N],
+L5=44[mm], L6=31[mm]. The torque generating by these
+muscles is 21.2[Nm] in total. Condision equation ”F4xL4
+Fig. 8. Prototype mock-up of the scapula and upper arm
+Fig. 9. Parts assembly diagram of the spherical thorax
+< F5xL5 + F6xL6” is met. It means that the shoulder
+can elevate an arm to 135 degrees. We have designed
+the arm and shoulders length and muscle arrangements
+using this parameters.
+At other motions, except elevationg arm motion, it
+is diﬃcult to deside the muscle arrangements between
+scapulas and upper arms. Range of movement of the
+shoudler required the widest of Kojiro joints, and it
+is also required using minimum number of motors for
+weight. We have made the mock-up of a scapula and
+an upper arm by way of rapid prototyping trial, and
+tried some muscle arrangements by knotting wires to
+the prototypes (Fig. 8). We have dicided the muscle
+arrangements which can hold posture of an upper arm
+in the range of movement required (Fig. 1).
+IV. THE DESIGN OF THE BODY WITH
+SCAPULA-COLLARBONE STRUCTURES
+The shoulder structure of Kojiro consists of four bone
+parts which are the scapula, the collarbone, the upper
+arm bone, and the chest. We introduce the design of
+the bone structures. The parts are made of nylon 12
+by Rapid Prototyping SLS (Selective Laser Sintering)
+way [11]. The strength of the material is also equivalent
+to ABS plastics ones. Each b one parts are designed as
+the assembled structures of motors, boards, sensors, and
+wires by using 3D-CAD.
+1467
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Fig. 10. Design of the scapula and the joints constitutions
+Fig. 11. Design of the scapula and PTFE plade parts
+A. The Design of the Spherical Thorax Parts
+1) The Desige of a Spherical Shape and Parts Ar-
+rangements: We have designed the thorax parts which
+have spherical shape with radius 118mm (Fig. 9). Ster-
+noclavicular joints and acromiclavicular joints of Kojiro
+are 1DOF joint structures. The rotation axis of the
+joints intersect at a central point of the spherical thorax
+shape. The internal side shape of scapulas coming in
+contact with the thorax is designed spherical shape with
+radius 118mm same as the thorax shape. Accordingly,
+the scapula can slide on the thorax surface with a certain
+amount of friction and touch area. Sternoclavicular joints
+and acromiclavicular joints have encoders at each axis, so
+we can con trol arbitrary positions of the scapulas using
+a 3D-geometrical model.
+Thorax parts are designed that have AC-
+motors(40Wx10), tension sensor(x12), motor driver
+board(x5), USB-hub board(x2), and sensor board(x2)
+inside it). The motor parts arrangements are desided
+from the muscle arrangements. We selected the positions
+of the parts which can have lower wire frictions and
+large moment arms. The parts can be contained inside
+Fig. 12. left: The Collarbones made of A7075, right: PTFE plate
+Fig. 13. Parts assembly diagram of the upper-arm
+the spherical shape, and we have considered ease of
+maintenance.
+Some actuators and boards for driving Kojiro neck and
+head have been designed as the unitizing parts under the
+neck. The thorax parts can con tain the neck unitizing
+parts inside the body. It realizes ease of maintenance of
+the head and neck unit. The thorax has the spine ball-
+and-socket joint at the bottom. It has mounting points
+of rubber and springs for connecting to the spine parts.
+2) Interface of the lines for the whole body: The back
+side of the thorax has the input interface of the power
+lines and USB logic line from a outside power supply and
+computer for Kojiro whole body. The thorax contains the
+multidrop lines to the head, arms, spines, pelvis, and legs.
+It has the enough space for the lines and connectors. The
+base power lines and USB line are held on the thorax
+bone to prevent the tension for each connectors.
+3) Heat countermeasure for high temperatures: An
+AC40W-motor rise in temperature to 90 degrees when
+it is in high output. The thorax contains 10 AC40W-
+motors contiguously inside it, and it closes up by the
+scapulas around the thorax surface, so the heat of the
+motors is especially problem for the thorax. The thorax
+has 4 cooling fans(40x40mm) and ﬂow path. Hot sections
+of the motors and boards have been designed on the ﬂow
+path.
+1468
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+Fig. 14. Circumduction of the Kojiro arm showing range of movement of the shoulder.
+B. The Design of Collarbone Parts
+We designed the collarbones made of A7075 (Fig.
+12:left). Both ends of the collarbone have bearings and
+encoders. It has an arch shape to avoid interpositions
+with neck parts and thorax parts.
+Collarbones are the only structural links between a
+thorax and scapulas, so the forces to the arms act
+directly to the parts. At the human body, many strong
+muscles (for example, preater pectoral muscle, anterior
+serratus muscle and latissimus dorsi muscle) connect
+scapulas to a thorax. Humanoid Kojiro have four muscles
+between a scapula and a thorax, so it needs strength
+design for collarbones. We have designed the collarbones
+which can take the maximal load 300[N] at the point
+of acromioclavicular joint. A length between the center
+point of an acromioclavicular joint and a sternoclavicular
+joint is 85[mm], so the maximal moment load is 29.8[Nm]
+to a sternoclavicular joint. A cross-sectional shape of
+collarbones is the minimum diameter 11[mm]. The max
+stress is 32[MN/m2] and allowable buckiling stress is
+205[[MN/m2], so factor of safety is 6.3.It is suﬃcient in
+intensity.
+C. The Design of Scapula Parts
+A bladebone parts are designed that can con tain
+40W-AC motors(x2), 4.5W-DC motors(x3), tension sen-
+sors(x5), motor driver boards(x2), sensor boards(x1),
+USB-hub board(x1) (Fig. 10). Scapulas can rotate and
+anterior-posterior slide motion on the spherical thorax.
+It realizes wide range of movements of the shoulder joint,
+but the friction is top issue of the scapula-collabone
+structure.
+Thorax side surfaces of the scapulas are always on a
+spherical thorax. Then, the scapulas curved surface is
+the same curvature of the thorax. We have developed
+the contacting surface parts of scapulas (Fig. 11, Fig.
+12:right). It have been made of PTFE (coeﬃcient of
+static friction is 0.02, coeﬃcient of dynamic friction is
+0.03). It reduces the friction between scapulas and a
+chest. This PTFE parts is one of the breakthrough of
+the developments. Muscle arrangements of the scapula
+1469
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+Fig. 15. Range of movement of the scapula on the thorax(left
+and front views). Left: A translational motion, 1)-30[deg], 2)initial
+pose, 3)30[deg]. Right: A rotational motion, 1)45[deg], 2) initial
+pose, 3)-45[deg]
+is showed (Fig. 6). It is controlled by four muscles from
+thorax.
+D. Parts Arrangements for Elevation of the Upper Arms
+The shape of scapula is designed which have large
+moment arms of muscles and can con tain a lot of parts.
+At the design of humanoid Kotaro, main actuators for
+elevation of the upper arms were contained in the chest
+parts. We used corrugated tubes from the chest to
+bladebones for the muscles. It was diﬃcult to generate
+an elevate arm motion by the frictions of the structure.
+When we try to develop the shoulder which can elevate
+an arm motion using a musculo-skeletal body structure,
+the top issue is diﬃculty of design the body which have
+large moment arms from the upper part of the body.
+The human shoulder can not obtains comparatively
+large moment arms. Human muscle is stronger than
+humanoids one, so it can ease to elevate arm motion.
+Nevertheless a human shoulder has lots of troubles (just
+like stiﬀ shoulder and frozen shoulder), so the shoulder
+is diﬃcult to drive for a human body. At the design of
+Kojiro, actuators lie directly on the upper arm bone. It
+reduces the friction caused by corrugated tubes. We have
+designed a apophysis which have 40W-motor to obtain
+large moment arms on foreside of the scapula.
+E. The Design of Upper Arms Parts
+An Upper arm parts are designed that have 40W-
+AC-motors(x2), tension sensors(x2), a motor driver
+board(x1), a sensor board(x1), and a USB hub
+board(x1)(Fig. 13). The muscles driving a ﬂexion move-
+ment of an elbow has large moment arm, which start
+70[mm] upper point from a center of the elbow joint.
+Additionally, foreside of the upper arm parts have been
+designed ﬁve attachment points of muscles from scapulas.
+V. Motion Tests of Scapulas on a Spherical Thorax
+Fig. 14 shows a motion test of an arm circumduction.
+Left photos are front views and right photos are left
+views of Kojiro. It gives graphic representaions of the
+range of movement of humanoid Kojiro shoulder using
+the scapula system. It realizes mainly wide range motions
+of the scapula.
+We have showed the rotational motion and translation
+motion of scapula on a spherical thorax (Fig. 15,:right
+and front views). It indicates the active range of move-
+ment of a scapula. Each acturator has tension sensors,
+so a scapula can generate in tension control.
+VI. Conclutions and Future Works
+We have indicated the designs and motions of a new
+shoulder structure for Kojiro. A scapula can move in
+very few frictions between a scapula and a thorax as
+planned. It can generate motions which have wide range
+of movement and ﬂexibility.
+After this, we will provide a reaching motion, a crank
+revolving motion, using this shoulder structure with
+whole body of Kojiro. Additionally, we will study about
+human care actions having direct contact with humans.
+References
+[1] I. Mizuuchi, Y. Nakanishi, Y. Sodeyama, Y. Namiki, T.
+Nishino, N. Muramatsu, J. Urata, K. Hongo, T. Yoshikai and
+M. Inaba, ”An Advanced Musculoskeletal Humanoid Kojiro”,
+in Proceedings of International Conference on Humanoid
+Robots(Humanoids’07), 2007.
+[2] I. Mizuuchi, T. Yoshikai, Y. Sodeyama, Y. Nakanishi, A.
+Miyadera, T. Yamamoto, T. Niemel, M. Hayashi, J. Urata,
+Y. Namiki, T. Nishino, and M. Inaba, ”Development of Mus-
+culoskeletal Humanoid Kotaro”, in Proceedings of the 2006
+IEEE International Conference on Robotics and Automation,
+Orland, FL, 2006, pp.82–87.
+[3] I. A. Kapandji, The Physiology of the Joints Vol. 1: Upper
+Limb, Churchill Livingstone, 1980.
+[4] Airic’s arm, http://www.festo.com/.
+[5] Owen Holland, and Rob Knight, ”The Anthropomimetic
+Principle”, AISB Symposium on Biologically Inspired Robots,
+Bristol, April, 2006.
+[6] Y. Nakamura, M. Okada and S. Hoshino, ”Development of the
+Torso Robot-Design of the New Shoulder Mechanism ”Cyber-
+netic shoulder””, Preprints of 6th International Symposium
+of Experimental Robotics, 1999, pp.452–461.
+[7] Y. Masutani, K. Osuka, M. Kurisu, T. Doi, T. Kaneda, Z.
+Xin-Zhi, H. Sugimoto, T. Azuma, ”Development of a standard
+robotic dummy for the purpose of evaluating rescue equipment
+and skill”, in Proceedings of the 2003 IEEE/RSJ International
+Conference on Intelligent Robots and Systems, 2003, pp.3404–
+3409.
+[8] Y. Nakamura, M. Nakamura, T. Hayashi, D. Kikuiri, T.
+Kondo, and K. Nobuhara, ”The changes od p osture and inter
+bone disance in the glenohumeral joint during humeral eleva-
+tion”, Biomechanism 18 Edited by The Society of Biomecha-
+nism, pp.229-239, 2006, Keio University Press.
+[9] Y. Sodeyama, I. Mizuuchi, T. Yoshikai, Y. Nakanishi, and
+M. Inaba, ”A Shoulder Structure of Muscle-Driven Humanoid
+with Shoulder Blades”, in Proceedings of the 2005 IEEE/RSJ
+International Conference on Intelligent Robots and Systems,
+Alberta, Canada, 2005, pp.1077–1082.
+[10] Y. Sodeyama, T. Yoshikai, T. Nishino, I. Mizuuchi, and M.
+Inaba, ”The Designs and Motions of a Shoulder Structure
+with a Wide Range of Movement Using Bladebone-Collarbone
+Structures”, in Proceedings of the 2007 IEEE/RSJ Interna-
+tional Conference on Intelligent Robots and Systems, San
+Diego, USA, 2007, pp.3629–3634.
+[11] Ashley S, Rapid Prototyping is Coming of Age, Mechanical
+Engineering, Vol.117, No. 7, 1995, pp.63–68.
+1470
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 07:30:09 UTC from IEEE Xplore. Restrictions apply.

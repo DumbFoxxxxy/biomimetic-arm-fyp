@@ -1,0 +1,166 @@
+{
+  "scope": "G1 engineered GH geometry, independent anatomical concept, not frozen or strength/drive acceptance",
+  "centre_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "ball_radius_mm": 16.0,
+  "socket_inner_radius_mm": 16.4,
+  "socket_outer_radius_mm": 19.5,
+  "neck_radius_mm": 4.5,
+  "neck_axis": [
+    -0.29658719166028213,
+    -0.02805316262920408,
+    -0.9545936610985675
+  ],
+  "humeral_root_display_mm": [
+    -35.104,
+    -7.2343555555555525,
+    174.60666666666668
+  ],
+  "scapular_roots_display_mm": [
+    [
+      -7.557441137260868,
+      -4.7259840149432915,
+      245.31758641976603
+    ],
+    [
+      -19.375,
+      -4.2283999999999935,
+      248.8599999999999
+    ]
+  ],
+  "cap_depth_mm": 3.0,
+  "cap_count": 2,
+  "neck_slot": {
+    "construction": "solid swept-cylinder difference",
+    "radius_mm": 5.3,
+    "sweep_step_deg": 2,
+    "angles_deg": [
+      0,
+      160
+    ],
+    "axes": [
+      [
+        -0.9849915762148533,
+        0.0,
+        0.17260241825008904
+      ],
+      [
+        0.0,
+        0.9998964030731843,
+        0.014393857068490468
+      ]
+    ],
+    "interpretation": "clearance construction only; not path validation or a general escape proof"
+  },
+  "bolt_sites_display_mm": [
+    [
+      -37.16365575571388,
+      -20.795087450771902,
+      220.6307666459787
+    ],
+    [
+      -8.904268439637178,
+      10.073341876019722,
+      210.94357746070176
+    ]
+  ],
+  "fasteners": "one nominal M3x12, nut and two washers per cap; unthreaded envelopes",
+  "components": {
+    "humerus_GH_ball": 1,
+    "scapula_AC_GH_sockets": 1,
+    "GH_cap_0": 1,
+    "GH_cap_1": 1,
+    "GH_bolt_0": 1,
+    "GH_nut_0": 1,
+    "GH_top_washer_0": 1,
+    "GH_bottom_washer_0": 1,
+    "GH_bolt_1": 1,
+    "GH_nut_1": 1,
+    "GH_top_washer_1": 1,
+    "GH_bottom_washer_1": 1
+  },
+  "part_owners": {
+    "humerus_GH_ball": "GH",
+    "scapula_AC_GH_sockets": "AC",
+    "GH_cap_0": "AC",
+    "GH_cap_1": "AC",
+    "GH_bolt_0": "AC",
+    "GH_nut_0": "AC",
+    "GH_top_washer_0": "AC",
+    "GH_bottom_washer_0": "AC",
+    "GH_bolt_1": "AC",
+    "GH_nut_1": "AC",
+    "GH_top_washer_1": "AC",
+    "GH_bottom_washer_1": "AC"
+  },
+  "bone_aliases": {
+    "humerus_GH_ball": "FJ3368",
+    "scapula_AC_GH_sockets": "FJ3384"
+  },
+  "neutral_overlaps": [],
+  "geometry_delta": {
+    "humerus_removed_mm3": 34892.11826824943,
+    "humerus_added_mm3": 0.005508096131989847,
+    "scapula_removed_mm3": 675.9352956750816,
+    "scapula_added_mm3": 6887.223606636414
+  },
+  "surface_simplification_tolerance_mm": 0.01,
+  "frozen": false,
+  "pending": [
+    "capture directions and escape paths",
+    "full solid motion sweep",
+    "muscle attachment remapping",
+    "assembly access",
+    "printed clearance, strength, loads and drive"
+  ],
+  "exterior_braces_display_mm": [
+    [
+      [
+        -38.468841686792985,
+        -23.299542860282727,
+        225.24776705610267
+      ],
+      [
+        -39.7272740272349,
+        -24.64931671167781,
+        226.00182956083506
+      ],
+      [
+        -19.668000000000006,
+        -5.7363,
+        245.47000000000003
+      ]
+    ]
+  ],
+  "existing_AC_context_reliefs": [
+    {
+      "part": "clavicle_SC_AC_balls",
+      "overlap_before_mm3": 4.573160175566023,
+      "removed_clearance_mm3": 6.261091009044321
+    },
+    {
+      "part": "AC_cap_left",
+      "overlap_before_mm3": 27.443018608534203,
+      "removed_clearance_mm3": 32.1397385703458
+    },
+    {
+      "part": "AC_cap_right",
+      "overlap_before_mm3": 1.136534801423906,
+      "removed_clearance_mm3": 1.7269294761354104
+    }
+  ],
+  "local_clearance_sliver_trims": [
+    {
+      "centre_display_mm": [
+        -4.6643471138842205,
+        -5.9479344192881936,
+        243.89435520925002
+      ],
+      "radius_mm": 0.7210559826475267,
+      "newly_cut_sliver_volume_mm3": 0.004058584444693869
+    }
+  ]
+}

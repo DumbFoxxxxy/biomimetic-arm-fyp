@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="blade_paper_shoulder_no_contact">
+  <compiler angle="degree" autolimits="true" meshdir="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo" />
+  <option timestep="0.001" gravity="0 0 0" integrator="implicitfast" />
+  <visual>
+    <global azimuth="45" elevation="-16" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" />
+  </visual>
+  <asset>
+    <mesh name="thorax" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\thorax.stl" />
+    <mesh name="clavicle" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\clavicle.stl" />
+    <mesh name="scapula" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\scapula.stl" />
+    <mesh name="v8_contact_band" file="D:\XJTLU\PSP\mujoco_arm\engineering\assets\thorax_contact_band.stl" />
+    <mesh name="v8_contact_pad" file="D:\XJTLU\PSP\mujoco_arm\engineering\assets\scapula_contact_pad.stl" />
+    <material name="thorax_mat" rgba="0.45 0.55 0.65 0.55" />
+    <material name="clavicle_mat" rgba="0.72 0.55 0.34 1" />
+    <material name="scapula_mat" rgba="0.30 0.72 0.52 1" />
+    <material name="band_mat" rgba="0.10 0.75 0.78 0.42" />
+    <material name="pad_mat" rgba="0.95 0.48 0.12 0.75" />
+    <material name="roller_mat" rgba="0.18 0.65 0.82 1" />
+    <mesh name="humerus" file="humerus.stl" scale="1 1 1" />
+    <mesh name="ulna" file="ulna.stl" scale="1 1 1" />
+    <material name="humerus_mat" rgba="0.85 0.72 0.30 1" />
+    <material name="ulna_mat" rgba="0.35 0.58 0.88 1" />
+    <material name="joint_mat" rgba="0.95 0.35 0.18 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_geom" type="mesh" mesh="thorax" material="thorax_mat" contype="0" conaffinity="0" />
+      <geom name="v8_thorax_contact_band" type="mesh" mesh="v8_contact_band" material="band_mat" density="0" group="1" contype="0" conaffinity="0" />
+    </body>
+    <body name="sc_elevation_body" pos="0.040000000 0.106000000 0.235000000">
+      <joint name="sc_elevation" type="hinge" axis="0.000000000 -1.000000000 0.000000000" range="-10.000000000 55.000000000" damping="0.4" armature="0.005" />
+      <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+      <body name="sc_protraction_body" pos="0 0 0">
+        <joint name="sc_protraction" type="hinge" axis="0.000000000 0.000000000 1.000000000" range="-25.000000000 25.000000000" damping="0.4" armature="0.005" />
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+        <body name="clavicle_body" pos="0 0 0">
+          <inertial pos="0 0 0" mass="0.02" diaginertia="2e-6 2e-6 2e-6" />
+          <geom name="clavicle_mesh" type="mesh" mesh="clavicle" pos="0.022180000 -0.189390000 -0.024900000" material="clavicle_mat" contype="0" conaffinity="0" density="1100" />
+          <body name="scapula" pos="0.116860000 -0.094030000 -0.001760000">
+            <joint name="ac_ball" type="ball" damping="0.5" armature="0.01" />
+            <inertial pos="0 0 0" mass="0.05" diaginertia="5e-6 5e-6 5e-6" />
+            <geom name="scapula_mesh" type="mesh" mesh="scapula" pos="-0.086814166 -0.112422486 -0.023140000" material="scapula_mat" contype="0" conaffinity="0" density="1100" />
+            <site name="v8_contact_marker" type="sphere" pos="-0.094680000 -0.103360000 -0.023140000" size="0.003" rgba="0.95 0.55 0.15 0.9" group="3" />
+            <geom name="ac_scapula_web" type="capsule" fromto="0.000000000 0.000000000 0.000000000 0.007865834 -0.009062486 0.000000000" size="0.003" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <geom name="gh_scapula_web" type="capsule" fromto="0.002200000 -0.019270000 -0.045700000 0.010065834 -0.028332486 -0.045700000" size="0.003" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <geom name="eye_web_S01" type="capsule" fromto="-0.104444165 -0.127722485 -0.120369995 -0.102477706 -0.129988107 -0.120369995" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S01" pos="-0.102477706 -0.129988107 -0.120369995" size=".0015" />
+            <geom name="eye_web_S02" type="capsule" fromto="-0.055362736 -0.091742521 -0.090502000 -0.053396278 -0.094008142 -0.090502000" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S02" pos="-0.053396278 -0.094008142 -0.090502000" size=".0015" />
+            <geom name="eye_web_S03" type="capsule" fromto="-0.076234164 -0.103242484 0.035209983 -0.074267705 -0.105508106 0.035209983" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S03" pos="-0.074267705 -0.105508106 0.035209983" size=".0015" />
+            <geom name="eye_web_S04" type="capsule" fromto="0.020380716 -0.019380774 -0.007093347 0.022347175 -0.021646395 -0.007093347" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S04" pos="0.022347175 -0.021646395 -0.007093347" size=".0015" />
+            <geom name="eye_web_S05" type="capsule" fromto="-0.079603283 -0.120730382 -0.023140000 -0.077636824 -0.122996003 -0.023140000" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S05" pos="-0.077636824 -0.122996003 -0.023140000" size=".0015" />
+            <geom name="eye_web_S06" type="capsule" fromto="0.024932724 -0.033966482 -0.045778557 0.026899182 -0.036232104 -0.045778557" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S06" pos="0.026899182 -0.036232104 -0.045778557" size=".0015" />
+            <geom name="eye_web_S07" type="capsule" fromto="-0.090339163 -0.115482484 -0.042580001 -0.088372705 -0.117748105 -0.042580001" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S07" pos="-0.088372705 -0.117748105 -0.042580001" size=".0015" />
+            <geom name="eye_web_S08" type="capsule" fromto="0.013240369 -0.025577824 -0.024660416 0.015206828 -0.027843446 -0.024660416" size="0.0015" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+            <site name="eye_S08" pos="0.015206828 -0.027843446 -0.024660416" size=".0015" />
+            <body name="gh_flex" pos="0.002200000 -0.019270000 -0.045700000">
+              <joint name="gh_flex" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="-40 120" damping="0.5" armature="0.008" />
+              <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+              <body name="gh_abd" pos="0 0 0">
+                <joint name="gh_abd" type="hinge" axis="0.000000000 -0.001000000 0.000000000" range="-20 120" damping="0.5" armature="0.008" />
+                <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                <body name="gh_rot" pos="0 0 0">
+                  <joint name="gh_rot" type="hinge" axis="0.000087156 -0.000000000 -0.000996195" range="-90 70" damping="0.5" armature="0.008" />
+                  <inertial pos="0 0 0" mass="0.004" diaginertia="1e-6 1e-6 1e-6" />
+                  <body name="humerus" pos="0 0 0">
+                    <geom name="humerus_shaft" type="mesh" mesh="humerus" material="humerus_mat" contype="0" conaffinity="0" density="900" />
+                    <geom name="gh_ball" type="sphere" size="0.014" material="joint_mat" contype="0" conaffinity="0" density="0" />
+                    <body name="ulna" pos="0.025280000 0.000000000 -0.288890000">
+                      <joint name="elbow" type="hinge" axis="0.000996195 -0.000000000 0.000087156" range="0 145" damping="0.2" armature="0.005" />
+                      <geom name="ulna_shaft" type="mesh" mesh="ulna" material="ulna_mat" contype="0" conaffinity="0" density="800" />
+                      <geom name="elbow_joint" type="sphere" size="0.012" material="joint_mat" contype="0" conaffinity="0" density="0" />
+                      <site name="B_E01" pos="0.010458689 0.015478475 -0.119543364" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                      <site name="B_E02" pos="0.010458689 -0.014521525 -0.119543364" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    </body>
+                    <site name="A_E01" pos="0.003486230 0.015000000 -0.039847788" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="G_E01" pos="0.023972664 0.020000000 -0.273947080" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="A_E02" pos="0.003486230 -0.015000000 -0.039847788" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="G_E02" pos="0.023972664 -0.020000000 -0.273947080" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G01" pos="0.013944919 0.015000000 -0.159391152" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G02" pos="0.013944919 -0.015000000 -0.159391152" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G03" pos="0.028887839 0.000000000 -0.158083816" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G04" pos="-0.000998002 0.000000000 -0.160698488" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G05" pos="-0.005772675 0.010606602 -0.055715135" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_G06" pos="-0.005772675 -0.010606602 -0.055715135" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_P01" pos="0.008532161 0.014005924 -0.054463624" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                    <site name="B_P02" pos="0.005713510 0.014444823 -0.079805720" size="0.0035" rgba="0.95 0.55 0.15 0.9" group="3" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+          <geom name="sc_web" type="capsule" fromto="0.000000000 0.000000000 0.000000000 0.000000000 0.008000000 0.000000000" size="0.003" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+          <geom name="ac_clavicle_web" type="capsule" fromto="0.116860000 -0.094030000 -0.001760000 0.116860000 -0.086030000 -0.001760000" size="0.003" rgba="0.7 0.72 0.77 1" density="500" contype="0" conaffinity="0" />
+        </body>
+      </body>
+    </body>
+    <site name="fixed_S01" pos="-0.020000000 -0.200000000 0.330000000" size=".002" />
+    <site name="fixed_S02" pos="0.240000000 -0.120000000 0.330000000" size=".002" />
+    <site name="fixed_S03" pos="0.040000000 -0.235000000 0.045000000" size=".002" />
+    <site name="fixed_S04" pos="0.240000000 -0.235000000 0.020000000" size=".002" />
+    <site name="fixed_S05" pos="-0.040000000 -0.235000000 0.120000000" size=".002" />
+    <site name="fixed_S06" pos="0.240000000 0.020000000 0.270000000" size=".002" />
+    <site name="fixed_S07" pos="0.100000000 -0.235000000 0.120000000" size=".002" />
+    <site name="fixed_S08" pos="0.240000000 0.080000000 0.200000000" size=".002" />
+  </worldbody>
+  <tendon>
+    <spatial name="S01" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S01" />
+      <site site="eye_S01" />
+    </spatial>
+    <spatial name="S02" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S02" />
+      <site site="eye_S02" />
+    </spatial>
+    <spatial name="S03" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S03" />
+      <site site="eye_S03" />
+    </spatial>
+    <spatial name="S04" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S04" />
+      <site site="eye_S04" />
+    </spatial>
+    <spatial name="S05" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S05" />
+      <site site="eye_S05" />
+    </spatial>
+    <spatial name="S06" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S06" />
+      <site site="eye_S06" />
+    </spatial>
+    <spatial name="S07" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S07" />
+      <site site="eye_S07" />
+    </spatial>
+    <spatial name="S08" width=".001" rgba="0.95 0.4 0.1 1">
+      <site site="fixed_S08" />
+      <site site="eye_S08" />
+    </spatial>
+  </tendon>
+  <actuator>
+    <position name="pull_S01" tendon="S01" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S02" tendon="S02" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S03" tendon="S03" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S04" tendon="S04" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S05" tendon="S05" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S06" tendon="S06" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S07" tendon="S07" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+    <position name="pull_S08" tendon="S08" kp="10000.0" kv="150.0" forcelimited="true" forcerange="-200 0" ctrllimited="true" ctrlrange="0 2" />
+  </actuator>
+  <sensor />
+</mujoco>

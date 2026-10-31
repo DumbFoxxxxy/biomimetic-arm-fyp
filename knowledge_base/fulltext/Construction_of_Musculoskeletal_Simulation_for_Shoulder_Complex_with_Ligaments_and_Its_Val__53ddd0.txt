@@ -1,0 +1,615 @@
+===== PAGE 1 =====
+Construction of Musculoskeletal Simulation for Shoulder Complex with
+Ligaments and Its Validation via Model Predictive Control
+Y uta Sahara1, Akihiro Miki 1, Y oshimoto Ribayashi1, Shunnosuke Y oshimura1,
+Kento Kawaharazuka 1, Kei Okada 1, and Masayuki Inaba 1
+Abstract— The complex ways in which humans utilize their
+bodies in sports and martial arts are remarkable, and human
+motion analysis is one of the most effective tools for robot
+body design and control. On the other hand, motion analysis
+is not easy, and it is difﬁcult to measure complex body motions
+in detail due to the inﬂuence of numerous muscles and soft
+tissues, mainly ligaments. In response, various musculoskeletal
+simulators have been developed and applied to motion analysis
+and robotics. However, none of them reproduce the ligaments
+but only the muscles, nor do they focus on the shoulder
+complex, including the clavicle and scapula, which is one of
+the most complex parts of the body. Therefore, in this study,
+a detailed simulation model of the shoulder complex including
+ligaments is constructed. The model will mimic not only the
+skeletal structure and muscle arrangement but also the ligament
+arrangement and maximum muscle strength. Through model
+predictive control based on the constructed simulation, we
+conﬁrmed that the ligaments contribute to joint stabilization
+in the ﬁrst movement and that the proper distribution of
+maximum muscle force contributes to the equalization of the
+load on each muscle, demonstrating the effectiveness of this
+simulation.
+I. I NTRODUCTION
+Humans make effective use of their bodies to achieve
+the complex movements seen in sports and martial arts.
+However, detailed analysis of how they move is difﬁcult.
+This is because it is difﬁcult to measure the contribution
+to movement of each of the more than 600 muscles in the
+human body. It is also difﬁcult to measure the effects of
+soft tissues, mainly ligaments, which are greatly involved
+in joint movement. For these reasons, various musculoskele-
+tal simulators have been developed and applied to motion
+analysis and robotics. However, existing musculoskeletal
+simulators have been constructed as simple models with a
+small number of muscles or without considering soft tissues
+such as ligaments. For example, in the model of Holzbaur et
+al. [1] the shoulder joint is conﬁgured as a joint that satisﬁes
+the regression equation obtained by de Groot et al. [2]
+by experimentally studying the shoulder bone interlocking,
+with 16 muscles belonging to the shoulder complex in one
+shoulder. In myoSuite’s myoArm, the shoulder is conﬁgured
+as a multiple uniaxial rotational joint with 63 muscles
+in the entire single arm, of which 15 muscles belong to
+the shoulder complex in one shoulder [3]. There are also
+Kengoro [4], musculoskeletal humanoids, which are wire-
+driven robots that mimic human muscles. Kengoro does not
+1 The authors are with the Department of Mechano-Informatics, Graduate
+School of Information Science and Technology, The University of Tokyo, 7-
+3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan. [sahara, miki, ribayashi,
+yoshimura, kawaharazuka, k-okada, inaba]@jsk.t.u-tokyo.ac.jp
+Fig. 1: Overview of the proposed musculoskeletal model.
+have ligaments in the shoulder joints and must have tension
+on the surrounding muscles or it will dislocate. Furthermore,
+Musashi [5] is a humanoid that includes the advantages of
+wire drive in musculoskeletal humanoids such as Kengoro,
+but it does not have scapula on its shoulders and does not
+adopt the structure of the human shoulder.
+In this study, a new musculoskeletal simulation model with
+soft tissue ligaments and the same number of muscles as a
+human was developed in order to apply the human shoulder
+structure, including its soft tissues and numerous muscles, to
+a musculoskeletal robot. In particular, the shoulder complex,
+which has the widest range of motion due to the function of
+muscles and ligaments, was the main target of the develop-
+ment. Ligaments were introduced to the joints in the same
+arrangement as in the human body, and 20 muscles were
+placed in one shoulder, for a total of 40 muscles involved
+in driving the shoulder complex. The maximum strength of
+each muscle was estimated from the volume and length of
+the muscle. In this paper, the effect of the ligaments was
+veriﬁed by performing raising movement experiments with
+and without the ligaments, and the uniformity of the load on
+each muscle by distributing the maximum muscle force was
+veriﬁed by performing raising movement experiments when
+the maximum muscle force of each muscle was estimated
+and when it was averaged.
+2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+October 14-18, 2024. Abu Dhabi, UAE
+979-8-3503-7770-5/24/$31.00 ©2024 IEEE 327
+2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) | 979-8-3503-7770-5/24/$31.00 ©2024 IEEE | DOI: 10.1109/IROS58592.2024.10802465
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 2 =====
+II. C ONFIGURATION OF THE MUSCULOSKELETAL MODEL
+OF THE SHOULDER COMPLEX
+In this study, it was necessary to use a simulator capable
+of simulating a musculoskeletal model with ligaments. Since
+both muscles and ligaments are soft tissues, and muscles
+generate tension rather than torque like motors, a simula-
+tor that can accurately represent these characteristics was
+required. Additionally, the simulation speed was important
+when conducting robot simulations.
+Based on these considerations, this study utilized MuJoCo
+as the simulator [6]. MuJoCo is a general-purpose physics
+engine intended to facilitate research and development in
+robotics, biomechanics, computer graphics and animation,
+machine learning, and other areas requiring fast and accurate
+simulation of articulated structures interacting with their
+environment. It can handle models containing tendons and
+muscles for simulations of tendon-driven robots such as mus-
+culoskeletal humanoids. Its simulation speed and accuracy
+are known to be superior to other mechanics simulators [7].
+Based on the above reasons, MuJoCo was employed in this
+study.
+The appearance of the musculoskeletal model of the
+shoulder complex created in this study is shown in Fig. 1.
+With the goal of creating a simulation model of the human
+shoulder complex with soft tissue ligaments and the same
+number of muscles as a human, this model was composed
+of three elements: skeleton, ligaments, and muscles. In this
+chapter, each of these elements is explained.
+A. Linked structure of the skeleton
+This model was constructed by the bones that make up
+the shoulder complex: thorax, spine, scapula, clavicle, and
+humerus. Of these, the thorax and spine, which are included
+in the torso, are ﬁxed to the world coordinate system,
+while the scapula, clavicle, and humerus, which are involved
+in shoulder motion, are connected by using the structural
+joints, the sternoclavicular joint, acromioclavicular joint, and
+scapulohumeral joint, as spherical counterpart joints.
+The links that compose this model were made using the
+skeletal mesh ﬁles provided by BodyParts3D [8]. Body-
+Parts3D is a database developed by the Life Science Database
+Integration Project that describes the location and shape
+of human body parts (organs and organs) indicated by
+anatomical terms in a three-dimensional human body model.
+In addition to mesh ﬁles for the skeleton, it also provides
+mesh ﬁles for muscles and major organs, which were adopted
+because they could be used for judging skeletal hits and
+setting muscle attachment points.
+We attempted to construct the degrees of freedom of each
+joint based on bone-to-bone contact, but because it was dif-
+ﬁcult for MuJoCo to determine the concave surface contact,
+we modeled the joints as spherical counterpart joints. There-
+fore, this model could not reproduce phenomena caused by
+translational movement such as shoulder dislocation.
+TABLE I: List of ligaments in the musculoskeletal model.
+The “start” and “stop” are bones with end points of liga-
+ments.
+name start stop
+Lig. interclaviculare manubrium clavicle
+Lig. stemoclaviculare antarius manubrium clavicle
+Lig. stemoclaviculare posterius manubrium clavicle
+Lig. acromioclaviculare clavicle scapula
+Lig. trapezoideum clavicle scapula
+Lig. coracohumerale clavicle scapula
+Ligamenta glenohumeralia scapula humerus
+(a) Ligaments. The yellow wire on right ﬁgure is the ligament.
+(b) Muscles. The red wire on right ﬁgure is the muscle.
+Fig. 2: Overview of the comparison between human and mus-
+culoskeletal models. The left ﬁgure shows the human from
+Visible Body , and the right ﬁgure shows the musculoskeletal
+model developed in this study.
+B. Representation and placement of ligaments
+Human bones are connected to each other by ligaments.
+Ligaments are connective tissues that bind bone to bone and
+are elastic biological soft tissues. It is mainly composed of
+collagen and has the role of maintaining the relative posi-
+tional relationship between bones and joint stability through
+its elasticity. In this study, ligaments were represented as
+elastic wires. The elastic wires were placed as shown in
+Fig. 2(a), based on the ligament and skeletal diagrams in
+Visible Body [9]. A list of the placed ligaments and the
+bones at both ends to which each ligament attaches is shown
+in Table I. MuJoCo’s tendon element was used as the elastic
+wire. In Visible Body, the ligaments and skeleton are
+shown in 3D, but their coordinates, etc., are not speciﬁcally
+indicated, so the coordinates of the end points of each
+ligament were determined visually, referring to the diagram
+of the ligaments in Visible Body. Although some ligaments
+328
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 3 =====
+TABLE II: List of muscles in the musculoskeletal model.
+The “origin” and “insertion” are bones with end points of
+muscles.
+name origin insertion
+pectoralis major thorax humerus
+pectoralis minor thorax scapula
+subscapularis scapula humerus
+infraspinatus scapula humerus
+teres major scapula humerus
+teres minor scapula humerus
+serratus anterior thorax scapula
+pectoralis major pars clavicularis clavicle humerus
+latissimus dorsi thorax humerus
+deltoideus pars spinalis scapula humerus
+deltoideus pars acriminalis scapula humerus
+deltoideus pars clavicularis clavicle humerus
+supraspinatus scapula humerus
+platysma thorax clavicle
+levator scaplulae thorax scapula
+rhomboideus minor thorax scapula
+rhomboideus major thorax scapula
+descending part of trapezius thorax clavicle
+transverse part of trapezius thorax scapula
+ascending part of trapezius thorax scapula
+do not constrain the positional relationship between bones,
+such as the transverse suprascapular ligament that forms
+the suprascapular foramen where the nerve passes, such
+ligaments were omitted in this model, and only ligaments
+that connect the different bones were placed. Since the
+glenohumeral ligament surrounds the humeral head of the
+scapulohumeral joint, it was represented by creating a sphere
+of the same shape as the humeral head and wrapping it
+around it. In this model, each joint was modeled as a
+spherical counterpart joint, so these ligaments were expected
+primarily to represent a range of motion equivalent to that
+of a human and to represent joint suppleness.
+C. Representation and placement of muscles
+Human skeletal muscles can be regarded as actuators
+between bones that generate tension. Bones and muscles are
+connected by tendons. Muscles are activated by electrical
+signals from nerves to generate tension, and mathematical
+models such as cross-bridge models [10] and Hill-type mod-
+els [11] and other mathematical models exist to describe this
+behavior. The former model is based on the basic structure
+inside the muscle, but there are many parameters that must
+be identiﬁed, and many simulators use Hill-type models [12].
+In this study, Hill-type models were used to represent mus-
+cles. The muscles involved in driving the shoulder complex
+were placed as shown in Fig. 2(b). A list of the placed
+muscles and the origin and stop of each muscle attachment
+is shown in Table II. The tendon and muscle elements of
+MuJoCo were used as muscles.
+Humans have approximately 640 muscles. Since this study
+focuses only on the shoulder complex, 40 muscles that drive
+the scapula, humerus, and clavicle were selected. The way
+the muscles are classiﬁed varies somewhat in the literature,
+but in this study we followed the mesh ﬁle of the muscles
+contained in the BodyParts3D. Therefore, some muscles,
+such as the trapezius, were divided into multiple regions,
+and independent muscles were placed for each region in
+this model. The endpoints of each muscles were placed at
+the starting and stopping points of the muscles, respectively,
+referring to the mesh ﬁles of the muscles in BodyParts3D.
+Since both the starting and stopping points are not simple
+points but are in plane contact with the bone, in this model,
+they were placed at coordinates near the center of the plane
+by referring to the mesh ﬁle of the muscles. In addition, some
+muscles, such as the deltoid and pectoralis major, generate
+torque on the bone by wrapping around it. A cylinder was
+placed in the same position as the humerus, and muscles were
+wrapped around this cylinder to represent the wrapping of
+the muscles around the bone.
+In the muscle element of MuJoCo, there exists a parameter
+that sets the maximum muscle force. It is known that
+there is a proportional relationship between the maximum
+muscle force and physiological cross-sectional area of human
+muscles such that Eq. 1 [13].
+F = kstress · PCSA (1)
+PCSA = Vl · cos α (2)
+V = mρ (3)
+F is the maximum muscle force, kstress is the proportional-
+ity constant, and PCSA is the physiological cross-sectional
+area of the muscle. The physiological cross-sectional area
+is deﬁned by Eq. 2, where V is muscle volume, l is muscle
+length, α is feather angle, m is muscle mass, and ρ is muscle
+density. This allows us to estimate the maximum muscle
+force if the muscle volume and length are known. In this
+model, the maximum muscle force was estimated by deﬁning
+the muscle volume V by the volume of the mesh ﬁle provided
+by BodyParts3D and the muscle length l by the length of the
+tendon element on the model. The proportionality constant
+kstress was set to the literature value 59 Pa [14].
+III. P OSITION CONTROL BY MODEL PREDICTIVE
+CONTROL
+The model developed had 40 muscles, making it a multi-
+input system. To see if this could be controlled, positional
+control of the elbow tip was performed. Because human
+muscles are arranged in an antagonistic manner, they can
+maintain their position even if extra muscular force is ex-
+erted between antagonistic muscles. However, exerting extra
+muscular force is thought to promote muscle fatigue, which
+is considered to be detached from actual human movement.
+Therefore, in this study, optimal control was employed to
+suppress unnecessary muscle fatigue. As a modeling method
+for muscle fatigue, there exists a model focusing on motor
+units proposed by Liu et al [15]. According to this model,
+muscle fatigue is calculated by the differential equation
+between muscle fatigue and the signal input to the muscle;
+the greater the signal to the muscle, the more muscle fatigue
+accumulates. Therefore, the objective of reducing muscle
+fatigue was substituted by simply decreasing the signal sent
+to the muscle.
+329
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 4 =====
+Fig. 3: Position control of the proposed musculoskeletal
+model with MPC. The two yellow balls are the target
+positions. The muscles are controlled to bring the tip of the
+humerus closer to the target position.
+In this study, model predictive control was employed
+to achieve optimal control in a multi-input system. As an
+experimental environment, we used the software MuJoCo
+MPC, which is capable of model predictive control on the
+CPU [16]. MuJoCo MPC is software for online model
+predictive control on MuJoCo. By setting the model and
+cost function, control can be performed on MuJoCo through
+model predictive control. The target position was set by a
+yellow ball, and by moving this, it was checked whether the
+elbow tip would follow. In MuJoCo MPC, optimal control is
+performed such that the cost function is minimized. The cost
+function J is deﬁned as the sum of the cost with respect to
+the position p and the cost with respect to the control input
+u with weights wi as shown in Eq. 4.
+J =
+∑
+i
+wi · ri (4)
+r1 = ||ptarget − pendeﬀector|| (5)
+r2 = ||u||2 (6)
+Eq. 5 is a constraint on position, with the distance between
+the end-effector and the target position as the cost. ptarget
+is the target position and pendeﬀector is the end-effector
+position. In this study, the end-effector position was set at the
+tip of the humerus. Eq. 6 is a constraint on the control input,
+and the cost is the sum of squares of the vector u ∈ [0, 1]40
+that lines up the signals to the 40 muscles in the model.
+IV. E XPERIMENTS WITH POSITION CONTROL
+A. Movement experiment by position control of elbow tip
+We veriﬁed that the implemented elbow tip position con-
+trol works correctly. It was conﬁrmed that the elbow tip
+1 2 3 4
+(a) Abduction
+1 2 3 4 5
+(b) Forward ﬂexion
+1 2 3
+(c) Backward extension
+Fig. 4: Elevation movements with MPC. As in humans,
+approximately 180 degrees of abduction, 180 degrees of
+anterior ﬂexion, and 50 degrees of posterior ﬂexion can be
+observed.
+followed the yellow ball, which was set as the target position,
+by moving it manually. This is shown in Fig. 3. When
+the model’s arm is moved by position control, its range
+of motion should be equivalent to that of a human. The
+human shoulder can be raised approximately 180 degrees
+forward, 180 degrees laterally, and 50 degrees backward [17].
+Therefore, we checked to what extent the shoulder could
+be raised in this model anteriorly, laterally, and posteriorly,
+respectively. For each direction, the shoulder is shown in Fig.
+4 when it is elevated. Here, the target position was set for
+each angle of elevation, and the state was observed after the
+shoulder was elevated and a short wait was made for the
+position to stabilize. Fig. 4(a) shows the state when the arm
+is raised laterally, Fig. 4(b) shows the state when the arm is
+raised forward, and Fig. 4(c) shows the state when the arm
+is raised backward. This conﬁrms that the range of motion
+in both directions is comparable to that of a human.
+B. Raising movement experiment with and without ligaments
+To see how the joint range of motion limitation of the
+ligament affects the raising of the upper arm, an experiment
+was conducted in which the elbow was raised with and
+330
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 5 =====
+(a) With ligaments
+ (b) Without ligaments
+Fig. 5: Comparison of the elevation of the upper arm with
+and without ligaments. The position of the scapula is closer
+to the spine when the ligaments are absent.
+without the ligament, respectively. By setting the target
+position above the left shoulder, the model was placed
+in an elevated posture. After the elbow was raised, the
+model waited until the posture became stable, and then was
+observed. The situation is shown in Fig. 5. Compared to
+when the ligaments were present, when the ligaments were
+absent, the position of the scapula was closer to the spine.
+The elimination of the ligaments has increased the range of
+motion of the sternoclavicular and acromioclavicular joints,
+allowing the shoulder to be positioned closer to the center
+of the body. This is thought to be due to the fact that the
+weight of the shoulder is now more easily deposited on the
+body.
+The angles of the clavicle, scapula, and humerus during
+the raising motion are also shown in Fig. 6. This shows
+that the angular changes of the scapula and clavicle are
+more oscillatory when the ligaments are absent than when
+they are present, indicating that the lack of range-of-motion
+restriction by the ligaments makes that movement unstable.
+C. Raising movement experiment with estimated and aver-
+aged maximum muscle force
+In this model, the maximum muscle force of each muscle
+was estimated from muscle volume and length. In order to
+conﬁrm how this maximum muscle force affects the upper
+arm raising motion, an experiment was conducted to raise the
+elbow when the maximum muscle force was estimated from
+the muscle volume and when it was averaged. Since maximal
+muscle force is proportional to muscle volume, averaging
+it corresponds to redistributing the muscle volumes of each
+muscle so that they are equal while maintaining the total
+(a) Without ligaments
+(b) With ligaments
+Fig. 6: Angle of rotation of scapula, clavicle, and humerus
+during raising motion.
+muscle volume of each muscle. The maximum muscle force
+estimated from the muscle volume and the maximum muscle
+force when averaged are shown in Table III.
+An experiment was conducted in which the target position
+was moved in a semicircle around the shoulder to raise the
+upper arm over a period of one second. Eight trials were
+made for each of the times when the maximum muscle force
+was estimated from muscle volume, etc. and when it was
+averaged, and the tension force applied to the muscle at
+this time was recorded. The ratio of the recorded tension
+divided by the maximum muscle force was calculated, and
+the average µ is shown in Fig. 7. In addition, the standard
+deviation σ at each time is shown by coloring the area
+included in [µ − σ, µ + σ]. This shows that some muscles
+have a larger ratio of tension to maximum muscle force when
+averaged than when maximum muscle force is estimated
+from muscle volume and when averaged. In particular, the
+tension ratio is larger in muscles such as the serratus anterior,
+levator scapulae, and descending trapezius. For the serratus
+331
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 6 =====
+TABLE III: Maximum muscle forces in the musculoskeletal
+model. EMF is estimated muscle force, and AMF is average
+muscle force. The underlined values are higher than the
+average muscle force.
+muscle EMF / N AMF / N
+pectoralis major 445.0 276.9
+pectoralis minor 23.0 276.9
+subscapularis 417.0 276.9
+infraspinatus 140.0 276.9
+teres major 98.5 276.9
+teres minor 79.6 276.9
+serratus anterior 40.0 276.9
+pectoralis major pars clavicularis 176.0 276.9
+latissimus dorsi 197.0 276.9
+deltoideus pars spinalis 32.6 276.9
+deltoideus pars acriminalis 32.4 276.9
+deltoideus pars clavicularis 118.0 276.9
+supraspinatus 146.0 276.9
+platysma 799.0 276.9
+levator scaplulae 22.2 276.9
+rhomboideus minor 35.2 276.9
+rhomboideus major 30.0 276.9
+descending part of trapezius 2626.0 276.9
+transverse part of trapezius 32.1 276.9
+ascending part of trapezius 48.2 276.9
+total 5537.8 5537.8
+anterior and levator scapulae muscles, the tension ratio is
+greater than 1, indicating that the muscles are being pulled
+and stretched fully.
+The volume of human muscles differs from region to
+region, and this in turn causes the maximum muscle strength
+to differ. Larger muscles, i.e., those with greater maximal
+muscle strength, are considered to be those that require
+greater force in actual movement. By averaging the maxi-
+mum muscle strength, the muscles that originally demanded
+greater strength would not be able to exert sufﬁcient muscle
+strength, and in order to raise the arm in this state, a greater
+load would have been placed on other muscles.
+In addition, the image after the model’s upper arm is
+raised and stabilized is shown in Fig. 8. This shows that
+the position of the scapula is different when maximum
+muscle force is estimated from muscle volume and when it
+is averaged. When the maximum muscle force is averaged,
+the stable position of the scapula is shifted away from the
+spine. At Table III, the muscles with greater than average
+maximum muscle strength included the latissimus dorsi,
+pectoralis major, vastus lateralis, and subscapularis muscles.
+Among these muscles, the latissimus dorsi, pectoralis major,
+and subscapularis muscles all work to move the shoulder
+closer to the spinal column, so the smaller strength of these
+muscles is thought to have shifted the stable position of the
+shoulder blade away from the spine.
+From these results, it was found that while the load on
+each muscle can be appropriately distributed by properly
+estimating the maximum muscle strength, conversely, if the
+maximum muscle strength is averaged, the muscles that are
+supposed to produce large force cannot exert sufﬁcient force,
+and in order to raise the arm in that state, a large load is
+placed on other muscles, which also affects the posture in
+which the arm is raised.
+(a) Estimated
+(b) Averaged
+Fig. 7: Comparison of the transitions and distribution of
+muscle tension during the arm raising movement in the case
+of estimated and averaged muscle tension. For the mean µ
+and standard deviation σ of the muscle tension at each time
+during the 8 trials, the change in µ is represented by a line,
+and the distribution is shown by ﬁlling in the [µ − σ, µ + σ]
+area.
+V. C ONCLUSION
+In this study, ligaments were integrated into a muscu-
+loskeletal model of the human shoulder. The skeleton was
+treated as links, which were represented by mesh ﬁles
+scanned from a human skeleton, and structural joints were
+represented by spherical counterparts. Ligaments were imple-
+mented in spherical-dual joints primarily to limit the range
+of motion of the joints. The position of the ligaments was
+determined with reference to the arrangement of human
+ligaments, and these were represented by elastic wires.
+Muscles were placed based on human muscle mesh ﬁles, and
+their maximum muscle strength was estimated from muscle
+volume and length.
+Although the model created was a multi-input system
+332
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply. 
+
+===== PAGE 7 =====
+(a) Estimated
+ (b) Average
+Fig. 8: Comparison of maximum muscle strength estimated
+from muscle volume and length and averaged. The scapula
+is further away from the spine in the averaged case than in
+the estimated case.
+with 40 muscles in both shoulders, position control of the
+elbow tip was achieved by model predictive control that
+added signal input to the muscles to the evaluation function.
+Using positional control, we investigated the changes in
+posture by changing the presence or absence of ligaments
+and the distribution of muscle force in the upper arm raising
+movement. When the ligaments were removed, the joint
+range of motion was no longer restricted, the position of
+the scapula during raising was closer to the spine, and
+the angles of each bone during the raising motion showed
+unstable changes. In addition, when maximum muscle force
+was estimated from muscle volume and averaged, the load on
+each muscle was more distributed in the former case, and in
+the latter case, muscles with a larger ratio of muscle tension
+to maximum muscle force occurred. This may suggest that
+muscles that are thicker and have greater maximal muscle
+force are those that require greater force in human exercise.
+In the future, the developed simulation model could be
+used to examine how muscles should be used in more
+practical tasks in sports and martial arts by optimizing their
+movement. Also, in the design and control of musculoskele-
+tal humanoids, it would be possible to reduce unnecessary
+output and price by using ligaments for joint conﬁguration
+and by making its muscles high-power actuators for the
+larger muscles in the human body and low-power actuators
+for those that are not.
+REFERENCES
+[1] K. R. Holzbaur, W. M. Murray, and S. L. Delp, “A model of the
+upper extremity for simulating musculoskeletal surgery and analyzing
+neuromuscular control,” Annals of biomedical engineering , vol. 33,
+pp. 829–840, 2005.
+[2] J. De Groot and R. Brand, “A three-dimensional regression model
+of the shoulder rhythm,” Clinical biomechanics , vol. 16, no. 9, pp.
+735–743, 2001.
+[3] C. Vittorio, W. Huawei, D. Guillaume, S. Massimo, and K. Vikash,
+“Myosuite – a contact-rich simulation suite for musculoskeletal
+motor control,” https://github.com/facebookresearch/myosuite, 2022.
+[Online]. Available: https://arxiv.org/abs/2205.13600
+[4] Y . Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima,
+T. Katayama, Y . Iori, H. Toshinori, K. Kawaharazuka, S. Makino,
+Y . Kakiuchi, K. Okada, and M. Inaba, “Human Mimetic Musculoskele-
+tal Humanoid Kengoro toward Real World Physically Interactive Ac-
+tions,” in Proceedings of the 2016 IEEE-RAS International Conference
+on Humanoid Robots , 2016, pp. 876–883.
+[5] K. Kawaharazuka, S. Makino, K. Tsuzuki, M. Onitsuka, Y . Nagamatsu,
+K. Shinjo, T. Makabe, Y . Asano, K. Okada, K. Kawasaki, and
+M. Inaba, “Component Modularized Design of Musculoskeletal Hu-
+manoid Platform Musashi to Investigate Learning Control Systems,”
+in Proceedings of the 2019 IEEE/RSJ International Conference on
+Intelligent Robots and Systems , 2019, pp. 7294–7301.
+[6] E. Todorov, T. Erez, and Y . Tassa, “Mujoco: A physics engine for
+model-based control,” in Proceedings of the 2012 IEEE/RSJ Inter-
+national Conference on Intelligent Robots and Systems , 2012, pp.
+5026–5033.
+[7] T. Erez, Y . Tassa, and E. Todorov, “Simulation tools for model-based
+robotics: Comparison of bullet, havok, mujoco, ode and physx,” in
+Proceedings of the 2015 IEEE International Conference on Robotics
+and Automation . IEEE, 2015, pp. 4397–4404.
+[8] N. Mitsuhashi, K. Fujieda, T. Tamura, S. Kawamoto, T. Takagi, and
+K. Okubo, “Bodyparts3d: 3d structure database for anatomical con-
+cepts,” Nucleic acids research , vol. 37, no. suppl 1, pp. D782–D785,
+2009.
+[9] A. Publishing, “Visible body,” 2018.
+[10] E. Eisenberg, T. L. Hill, and Y .-d. Chen, “Cross-bridge model of mus-
+cle contraction. quantitative analysis,” Biophysical Journal , vol. 29,
+no. 2, pp. 195–227, 1980.
+[11] T. L. Hill, “Theoretical formalism for the sliding ﬁlament model of
+contraction of striated muscle part i,” Progress in biophysics and
+molecular biology , vol. 28, pp. 267–340, 1974.
+[12] M. Millard, T. Uchida, A. Seth, and S. L. Delp, “Flexing
+Computational Muscle: Modeling and Simulation of Musculotendon
+Dynamics,” Journal of Biomechanical Engineering , vol. 135, no. 2,
+p. 021005, 02 2013. [Online]. Available: https://doi.org/10.1115/1.
+4023390
+[13] R. S. Sopher, A. A. Amis, D. C. Davies, and J. R. Jeffers, “The
+inﬂuence of muscle pennation angle and cross-sectional area on
+contact forces in the ankle joint,” The Journal of Strain Analysis for
+Engineering Design, vol. 52, no. 1, pp. 12–23, 2017, pMID: 29805194.
+[Online]. Available: https://doi.org/10.1177/0309324716669250
+[14] R. Hale, D. Dorman, and R. V . Gonzalez, “Individual muscle force
+parameters and ﬁber operating ranges for elbow ﬂexion – extension
+and forearm pronation – supination,” Journal of Biomechanics ,
+vol. 44, no. 4, pp. 650–656, 2011. [Online]. Available: https:
+//www.sciencedirect.com/science/article/pii/S0021929010006330
+[15] J. Z. Liu, R. W. Brown, and G. H. Y ue, “A dynamical model of muscle
+activation, fatigue, and recovery,” Biophysical journal , vol. 82, no. 5,
+pp. 2344–2359, 2002.
+[16] T. Howell, N. Gileadi, S. Tunyasuvunakool, K. Zakka, T. Erez, and
+Y . Tassa, “Predictive Sampling: Real-time Behaviour Synthesis with
+MuJoCo,” dec 2022. [Online]. Available: https://arxiv.org/abs/2212.
+00541
+[17] I. Kapandji, The Physiology of the Joints: The upper limb , ser. The
+Physiology of the Joints. Churchill Livingstone, 2007.
+333
+Authorized licensed use limited to: Xi'an Jiaotong-Liverpool University. Downloaded on September 23,2026 at 09:00:41 UTC from IEEE Xplore. Restrictions apply.

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="v8_shoulder_five_dof_r0">
+  <compiler angle="degree" autolimits="true" meshdir="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo" />
+  <option timestep="0.0005" gravity="0 0 -9.81" integrator="implicitfast" />
+  <visual>
+    <global azimuth="45" elevation="-16" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" />
+  </visual>
+  <asset>
+    <mesh name="thorax" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\thorax.stl" />
+    <mesh name="clavicle" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\clavicle.stl" />
+    <mesh name="scapula" file="D:\XJTLU\PSP\mujoco_arm\assets_tendon_demo\scapula.stl" />
+    <mesh name="v8_contact_band" file="D:\XJTLU\PSP\mujoco_arm\engineering\assets\thorax_contact_band.stl" />
+    <mesh name="v8_contact_pad" file="D:\XJTLU\PSP\mujoco_arm\engineering\assets\scapula_contact_pad.stl" />
+    <material name="thorax_mat" rgba="0.45 0.55 0.65 0.55" />
+    <material name="clavicle_mat" rgba="0.72 0.55 0.34 1" />
+    <material name="scapula_mat" rgba="0.30 0.72 0.52 1" />
+    <material name="band_mat" rgba="0.10 0.75 0.78 0.42" />
+    <material name="pad_mat" rgba="0.95 0.48 0.12 0.75" />
+    <material name="roller_mat" rgba="0.18 0.65 0.82 1" />
+  </asset>
+  <worldbody>
+    <light name="key" pos="-0.4 -0.5 1.5" dir="0.4 0.3 -1" directional="true" />
+    <geom name="floor" type="plane" size="1.5 1.5 0.1" pos="0 0 -0.45" rgba="0.12 0.14 0.17 1" contype="0" conaffinity="0" />
+    <body name="thorax" pos="0 0 0">
+      <geom name="thorax_geom" type="mesh" mesh="thorax" material="thorax_mat" contype="0" conaffinity="0" />
+      <geom name="v8_thorax_contact_band" type="mesh" mesh="v8_contact_band" material="band_mat" density="0" group="1" contype="0" conaffinity="0" />
+    </body>
+    <body name="sc_elevation_body" pos="0.040000000 0.106000000 0.235000000">
+      <joint name="sc_elevation" type="hinge" axis="0.000000000 -1.000000000 0.000000000" range="-10.000000000 55.000000000" damping="0.4" armature="0.005" />
+      <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+      <body name="sc_protraction_body" pos="0 0 0">
+        <joint name="sc_protraction" type="hinge" axis="0.000000000 0.000000000 1.000000000" range="-25.000000000 25.000000000" damping="0.4" armature="0.005" />
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-6 1e-6 1e-6" />
+        <body name="clavicle_body" pos="0 0 0">
+          <inertial pos="0 0 0" mass="0.02" diaginertia="2e-6 2e-6 2e-6" />
+          <geom name="clavicle_mesh" type="mesh" mesh="clavicle" pos="0.022180000 -0.197390000 -0.024900000" material="clavicle_mat" contype="0" conaffinity="0" density="1100" />
+          <body name="scapula" pos="0.116860000 -0.094030000 -0.001760000">
+            <joint name="ac_ball" type="ball" damping="0.5" armature="0.01" />
+            <inertial pos="0 0 0" mass="0.05" diaginertia="5e-6 5e-6 5e-6" />
+            <geom name="scapula_mesh" type="mesh" mesh="scapula" pos="-0.094680000 -0.103360000 -0.023140000" material="scapula_mat" contype="0" conaffinity="0" density="1100" />
+            <geom name="v8_scapula_contact_pad" type="mesh" mesh="v8_contact_pad" material="pad_mat" contype="0" conaffinity="0" density="0" group="1" />
+            <site name="v8_contact_marker" type="sphere" pos="-0.094680000 -0.103360000 -0.023140000" size="0.003" rgba="0.95 0.55 0.15 0.9" group="3" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <tendon />
+  <actuator />
+  <sensor />
+</mujoco>

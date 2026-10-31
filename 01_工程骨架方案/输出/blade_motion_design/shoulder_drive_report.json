@@ -1,0 +1,144 @@
+{
+  "scope": "No gravity/no payload; genuine tendon position actuation and prestress feedforward; qpos set only at run initialization",
+  "nq": 6,
+  "nv": 5,
+  "nu": 8,
+  "no_contact_reaction": true,
+  "duration_one_way_s": 12.0,
+  "max_feedforward_tension_N": 15.723671417661862,
+  "pass": true,
+  "actions": [
+    {
+      "action": "UP_ROT",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.19439242988660393,
+      "maximum_orientation_tracking_error_deg": 0.12376546092467952,
+      "maximum_tension_N": 7.354356977383077,
+      "endpoint": {
+        "contact_error_mm": 2.1236767198358454e-10,
+        "orientation_error_deg": 1.6728321800160488e-10,
+        "qpos": [
+          0.40165573351896294,
+          -0.012292499194329572,
+          0.9559838125018221,
+          0.2128325864828425,
+          -0.19395317718504063,
+          -0.056386216625456655
+        ]
+      },
+      "pass": true
+    },
+    {
+      "action": "DOWN_ROT",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.11764966627966865,
+      "maximum_orientation_tracking_error_deg": 0.08092869744052138,
+      "maximum_tension_N": 8.498654572214264,
+      "endpoint": {
+        "contact_error_mm": 7.381512732546372e-10,
+        "orientation_error_deg": 5.312184595494295e-10,
+        "qpos": [
+          -0.17042341952408158,
+          0.04205213392239425,
+          0.993874573880732,
+          -0.06387508836190654,
+          0.08952566935062171,
+          0.010883887516715405
+        ]
+      },
+      "pass": true
+    },
+    {
+      "action": "PROTRACT",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.0376408172262282,
+      "maximum_orientation_tracking_error_deg": 0.00550940523113467,
+      "maximum_tension_N": 13.765593759826743,
+      "endpoint": {
+        "contact_error_mm": 4.257576068882624e-10,
+        "orientation_error_deg": 4.691130871774212e-10,
+        "qpos": [
+          -0.006062965330746023,
+          0.14831284670711986,
+          0.9996598978419436,
+          0.006551061252129055,
+          0.0020020211849920986,
+          -0.02516275331279251
+        ]
+      },
+      "pass": true
+    },
+    {
+      "action": "RETRACT",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.036699166252071064,
+      "maximum_orientation_tracking_error_deg": 0.004562573343468845,
+      "maximum_tension_N": 7.3543395499577855,
+      "endpoint": {
+        "contact_error_mm": 8.202388357280416e-10,
+        "orientation_error_deg": 5.598505752248348e-10,
+        "qpos": [
+          0.004678649740282904,
+          -0.051381912799125955,
+          0.9988612212007495,
+          -0.008789534115604796,
+          -0.0038494589152684756,
+          0.0467352815059202
+        ]
+      },
+      "pass": true
+    },
+    {
+      "action": "ELEVATE",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.0676401078613341,
+      "maximum_orientation_tracking_error_deg": 0.009080068479401664,
+      "maximum_tension_N": 15.723671421977997,
+      "endpoint": {
+        "contact_error_mm": 2.799507481621032e-09,
+        "orientation_error_deg": 2.0335313392525247e-09,
+        "qpos": [
+          0.1368193546522397,
+          0.0580061832430325,
+          0.9984439649285135,
+          -0.045689574790644526,
+          0.03189966547628886,
+          0.0021267335941638366
+        ]
+      },
+      "pass": true
+    },
+    {
+      "action": "DEPRESS",
+      "finite": true,
+      "positive_push_force": false,
+      "maximum_contact_tracking_error_mm": 0.07456451796837377,
+      "maximum_orientation_tracking_error_deg": 0.012174862760620415,
+      "maximum_tension_N": 7.354179676706053,
+      "endpoint": {
+        "contact_error_mm": 1.0193592340287908e-09,
+        "orientation_error_deg": 7.45991431769824e-10,
+        "qpos": [
+          -0.129975814732521,
+          0.07601233765210952,
+          0.9984636381474051,
+          0.04345994925127202,
+          -0.030506653889212587,
+          0.015841091408397272
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "geometry_verified_here": false,
+  "input_sha256": {
+    "paper_motion_fit_repaired.json": "0763093d080e66f12ef8286145aeb3f520eaaa215f2bda731170fba471af8c8e",
+    "anchor_search_hybrid_channels_clear.json": "4cd8ecada665c3466def0a4888fd324fa0edde505ffb2ce4839ba7b28afd69e0",
+    "scapula_hybrid_body_local.stl": "a4ee78c4be29eb3a2e5f052397f6d096c6609631d1b3ca4beda758c4a4ad1da4"
+  }
+}
