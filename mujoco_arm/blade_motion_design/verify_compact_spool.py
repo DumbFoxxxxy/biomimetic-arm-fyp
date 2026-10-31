@@ -1,4 +1,12 @@
 """Search wrap-side choices for the compact GR fairlead geometry."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -12,7 +20,7 @@ def evaluate(s1,s2,n=161):
         e=root.find(f'.//geom[@name="entry_{rid}"]');b=root.find(f'.//site[@name="bridge_{rid}"]');x=np.fromstring(e.get('pos'),sep=' ');y=np.fromstring(b.get('pos'),sep=' ');b.set('pos',v8.vec(x+(y-x)*8/25))
     for node in root.find('tendon'):
         for item in list(node)[:2]:node.remove(item)
-    m=mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);J=[];L=[]
+    m=_load_project_xml(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);J=[];L=[]
     for theta in np.linspace(0,160,n):
         d.qpos[0]=np.radians(theta);mujoco.mj_forward(m,d);J.append(d.ten_J.copy());L.append(d.ten_length.copy())
     J=np.array(J);L=np.array(L);okay=bool(np.all(J[:,0]*J[:,1]<-1e-8) and np.min(np.abs(J))>.0249 and np.max(abs(np.diff(L,axis=0)))<.025*np.radians(160/(n-1))*1.1)

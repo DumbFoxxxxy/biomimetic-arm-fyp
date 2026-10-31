@@ -3,7 +3,15 @@
 Uses isolated mesh offsets and connecting webs; native CAD is not overwritten.
 Eight pull-only tendons stabilize the 5-DOF shoulder without assumed contact.
 """
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,sys,hashlib,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -85,7 +93,7 @@ def build():
     return tree
 
 def compile_model():
-    return mujoco.MjModel.from_xml_string(ET.tostring(build().getroot(),encoding='unicode'))
+    return _load_project_xml(ET.tostring(build().getroot(),encoding='unicode'))
 
 def q_from_native(model,data,reference=None):
     """Only used to report state; native ball quaternion remains authoritative."""

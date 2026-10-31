@@ -1,4 +1,12 @@
 """Plan a connected S09 bracket around all swept free steel paths."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import itertools,json,sys,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -12,7 +20,7 @@ from search_paper_anchors import segment_distances
 
 def main():
     cfg,fit,_=inputs();routes=json.loads((EXPORT/'full_arm_shoulder_routes_candidate.json').read_text())['routes'];row=next(r for r in routes if r['id']=='S09');end=np.array(row['eye_local_ac_mm']);start=end-np.array(row['additional_bracket_offset_local_mm']);lo=np.minimum(start,end)-35;hi=np.maximum(start,end)+35
-    tree,_=build_gimbal();m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);sid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,'scapula');segments=[];rots=[];origins=[]
+    tree,_=build_gimbal();m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);sid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,'scapula');segments=[];rots=[];origins=[]
     for seq in target_actions().values():
         for z in [a*(1-f)+b*f for a,b in zip(seq[:-1],seq[1:]) for f in np.linspace(0,1,5,endpoint=False)]+[seq[-1]]:
             apply_target(m,d,z);R=d.xmat[sid].reshape(3,3);rots.append(v8.DESIGN_TO_MJ.T@R@v8.DESIGN_TO_MJ);origins.append(v8.mj_to_design(d.xpos[sid]))

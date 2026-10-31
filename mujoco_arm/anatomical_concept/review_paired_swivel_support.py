@@ -1,6 +1,14 @@
 """Consolidate M10 geometry evidence without certifying muscle actuation."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 def run():
     dest=DEST/'paired_swivel_support';read=lambda name:json.loads((dest/name).read_text(encoding='utf8'));digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest();assembly=read('assembly.json');design=read('design.json');geometry=read('geometry_checks.json');exports=read('export_checks.json');cad=read('cad_roundtrip.json');whole=read('whole_arm_STEP_check.json')

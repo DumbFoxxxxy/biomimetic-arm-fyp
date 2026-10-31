@@ -37,6 +37,6 @@ def run():
     tree=ET.parse(BASE/'arm.xml');r=tree.getroot()
     for mesh in r.findall('./asset/mesh'):mesh.set('file',os.path.relpath((BASE/mesh.get('file')).resolve(),DEST).replace('\\','/'))
     for n,file in [('humerus','humerus_mounted.stl'),('ulna','forearm_mounted.stl')]:r.find(f'./asset/mesh[@name="{n}"]').set('file',file)
-    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True);print('mount checks',neutral,flush=True)
+    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True);print('mount checks',neutral,flush=True)
 
 if __name__=='__main__':run()

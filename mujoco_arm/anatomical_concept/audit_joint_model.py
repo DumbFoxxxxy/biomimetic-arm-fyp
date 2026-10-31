@@ -1,6 +1,14 @@
 """Prescribed-path solid probe, including available candidate joint hardware.
 Cartilage, muscle deformation, strength and manufacturing remain unvalidated.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from repair_inputs import *
 from scipy.spatial.transform import Rotation
 import mujoco
@@ -37,7 +45,7 @@ def run():
     scene=ET.parse(DEST/'arm.xml').getroot();compiler=scene.find('compiler')
     meshdir=compiler.get('meshdir','.') if compiler is not None else '.'
     mesh_evidence={str((DEST/meshdir/mesh.get('file')).resolve()):hashlib.sha256((DEST/meshdir/mesh.get('file')).read_bytes()).hexdigest() for mesh in scene.findall('./asset/mesh')}
-    m=mujoco.MjModel.from_xml_path(str(DEST/'arm.xml'));d=mujoco.MjData(m);definition=json.loads((OUT/'joint_model/definition.json').read_text(encoding='utf8'));inv=json.loads((OUT/'inventory.json').read_text(encoding='utf8'));support=json.loads((ROOT/'骨骼/支撑参考/sources.json').read_text(encoding='utf8'));byid={r['id']:r for r in inv['models']};owners=definition['bone_owner'];centres={k:np.array(v)-SHIFT for k,v in definition['centres_source_mm'].items()};moving={}
+    m=_load_project_model(str(DEST/'arm.xml'));d=mujoco.MjData(m);definition=json.loads((OUT/'joint_model/definition.json').read_text(encoding='utf8'));inv=json.loads((OUT/'inventory.json').read_text(encoding='utf8'));support=json.loads((ROOT/'骨骼/支撑参考/sources.json').read_text(encoding='utf8'));byid={r['id']:r for r in inv['models']};owners=definition['bone_owner'];centres={k:np.array(v)-SHIFT for k,v in definition['centres_source_mm'].items()};moving={}
     for fid in owners:
         v,f=read_obj(str(ROOT/byid[fid]['source']));v,f=weld_stl(v[f]);s=mf.Manifold(mf.Mesh64((v-SHIFT).astype(np.float64),f.astype(np.uint64)))
         if s.status()!=mf.Error.NoError:raise RuntimeError(fid+' not closed')

@@ -1,5 +1,13 @@
 """Actual MuJoCo mesh viewer; no muscle deformation/drive animation invented."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,sys,xml.etree.ElementTree as ET
 import numpy as np,mujoco
 OUT=Path(__file__).resolve().parents[1]/'exports/anatomical_concept/elbow_muscles'
@@ -13,7 +21,7 @@ def build(fid):
     ET.SubElement(asset,'mesh',name='source',file='../../assets/'+fid+'.stl',scale='.001 .001 .001');ET.SubElement(world,'geom',name='source',mesh='source',type='mesh',rgba='.75 .6 .6 0',group='1',contype='0',conaffinity='0')
     nodes=np.array(data['wire_polyline_display_mm'])/1000
     for i,(a,b) in enumerate(zip(nodes,nodes[1:])):ET.SubElement(world,'geom',name='wire_'+str(i),type='capsule',fromto=' '.join(map(str,np.r_[a,b])),size='.0003',rgba='.08 .08 .08 1',group='2',contype='0',conaffinity='0')
-    ET.indent(root);path=folder/'module_view.xml';ET.ElementTree(root).write(path,encoding='utf8',xml_declaration=True)
+    ET.indent(root);path=folder/'module_view.xml';ET.ElementTree(root).write(path,encoding='utf-8',xml_declaration=True)
     return path,data
 
 def camera(cam,fid,data):
@@ -24,7 +32,7 @@ def run():
         from PIL import Image,ImageDraw
         panels=[]
         for fid in ['FJ1486','FJ1477']:
-            path,data=build(fid);m=mujoco.MjModel.from_xml_path(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d);renderer=mujoco.Renderer(m,900,600);cam=mujoco.MjvCamera();camera(cam,fid,data);original=m.geom_rgba.copy();frames=[]
+            path,data=build(fid);m=_load_project_model(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d);renderer=mujoco.Renderer(m,900,600);cam=mujoco.MjvCamera();camera(cam,fid,data);original=m.geom_rgba.copy();frames=[]
             for source in [True,False]:
                 for g in range(m.ngeom):
                     name=mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,g)
@@ -33,7 +41,7 @@ def run():
             panel=Image.new('RGB',(1200,900),'white');panel.paste(frames[0],(0,0));panel.paste(frames[1],(600,0));panel.save(OUT/fid/'source_vs_module.png');panels.append(panel);renderer.close()
         combined=Image.new('RGB',(1200,1800),'white');combined.paste(panels[0],(0,0));combined.paste(panels[1],(0,900));combined.save(OUT/'shaped_muscle_comparison.png');print(OUT/'shaped_muscle_comparison.png');return
     fid=sys.argv[sys.argv.index('--id')+1] if '--id' in sys.argv else 'FJ1486';path,data=build(fid)
-    m=mujoco.MjModel.from_xml_path(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+    m=_load_project_model(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     from mujoco import viewer
     import time
     with viewer.launch_passive(m,d) as v:

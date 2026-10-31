@@ -1,5 +1,13 @@
 """Render exported XML with the system Python (MuJoCo and Pillow installed)."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json
 import numpy as np
 import mujoco
@@ -7,7 +15,7 @@ from PIL import Image,ImageDraw,ImageFont
 
 EXPORT=Path(__file__).resolve().parent.parent/'exports/blade_motion_design'
 def render():
-    model=mujoco.MjModel.from_xml_path(str(EXPORT/'shoulder_no_contact.xml'))
+    model=_load_project_model(str(EXPORT/'shoulder_no_contact.xml'))
     poses=json.loads((EXPORT/'render_states.json').read_text())
     renderer=mujoco.Renderer(model,height=480,width=640)
     camera=mujoco.MjvCamera();camera.lookat[:]=[.13,-.035,.19];camera.distance=.64;camera.azimuth=-100;camera.elevation=-8

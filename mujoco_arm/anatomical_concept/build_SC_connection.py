@@ -53,6 +53,6 @@ def run():
     for fid,name in [('FJ3362','clavicle_SC_ball'),('FJ3290','manubrium_socket_base')]:r.find(f'./asset/mesh[@name="{fid}"]').set('file',name+'.stl')
     for name in ['SC_cap_left','SC_cap_right',*hardware]:
         ET.SubElement(r.find('asset'),'mesh',name=name,file=name+'.stl',scale='.001 .001 .001');ET.SubElement(r.find('worldbody'),'geom',name=name,type='mesh',mesh=name,rgba='.2 .5 .7 1',group='3',contype='0',conaffinity='0')
-    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True);print('SC parts',report['components'],'overlaps',hits,flush=True)
+    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True);print('SC parts',report['components'],'overlaps',hits,flush=True)
 
 if __name__=='__main__':run()

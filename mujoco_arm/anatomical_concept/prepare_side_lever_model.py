@@ -19,7 +19,7 @@ def run():
         if name=='forearm_spotfaced':continue
         ET.SubElement(root.find('asset'),'mesh',name=name,file=name+'.obj',scale='.001 .001 .001')
         ET.SubElement(root.find('.//body[@name="elbow"]'),'geom',name=name,type='mesh',mesh=name,pos=' '.join(str(c/1000) for c in -E),rgba='.15 .55 .8 1' if name=='side_lever' else '.5 .6 .65 1',group='3',contype='0',conaffinity='0',mass='.001')
-    ET.indent(root);tree.write(folder/'arm.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(root);tree.write(folder/'arm.xml',encoding='utf-8',xml_declaration=True)
     scope=json.loads((MOUNT/'rigid_motion_scope.json').read_text(encoding='utf8'));scope['included']+=[k for k in design['parts'] if k!='forearm_spotfaced'];scope['scope']='M4 prescribed rigid packing:87 nominal bone/bolted pieces plus2 uncrimped passive stop positions; twoTPU and20 free distal pieces omitted, no grounding or drive proof for stops'
     scope['prescribed_uncrimped_stops']=['flexor_tendon_stop','extensor_tendon_stop'];scope['nominally_bolted_or_bone_instances']=87
     (folder/'rigid_motion_scope.json').write_text(json.dumps(scope,indent=2),encoding='utf8');print('M4 neutral',len(assembly['instances']),'knownrigid',len(scope['included']),flush=True)

@@ -1,4 +1,12 @@
 """Export the requested no-payload motion baseline with explicit hardware limits."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import copy,csv,json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -21,7 +29,7 @@ def main():
     conditional_pass=bool(conditional.get('pass') and conditional.get('input_fingerprint')==fingerprint(gravity_tree))
     connectivity=json.loads((EXPORT/'gimbal_connectivity_report.json').read_text())
     if any(r['positive_material_component_count']!=1 for r in connectivity):raise RuntimeError('Disconnected carrier material')
-    m=mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);targets=target_actions();zero=next(iter(targets.values()))[0];apply_target(m,d,zero)
+    m=_load_project_xml(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);targets=target_actions();zero=next(iter(targets.values()))[0];apply_target(m,d,zero)
     ghid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,'gh_flex');gh_world=v8.mj_to_design(d.xpos[ghid]);names=[mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_TENDON,t) for t in range(m.ntendon)]
     rows=[]
     for tid,rid in enumerate(names):

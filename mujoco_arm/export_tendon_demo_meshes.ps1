@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
-$root = "D:\XJTLU\PSP"
-$partDir = Join-Path $root "final_model"
+$root = Split-Path -Parent $PSScriptRoot
+$partDir = Join-Path $root "01_工程骨架方案\SolidWorks"
 $rawDir = Join-Path $root "mujoco_arm\assets_tendon_demo\raw"
 $boxPath = Join-Path $root "mujoco_arm\assets_tendon_demo\body_boxes.json"
 New-Item -ItemType Directory -Force -Path $rawDir | Out-Null

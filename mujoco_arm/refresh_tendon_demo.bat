@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d D:\XJTLU\PSP\mujoco_arm
+cd /d "%~dp0"
 powershell -ExecutionPolicy Bypass -File export_tendon_demo_meshes.ps1
 if errorlevel 1 exit /b 1
 D:\MujocoEnv\Scripts\python.exe prepare_tendon_demo_meshes.py

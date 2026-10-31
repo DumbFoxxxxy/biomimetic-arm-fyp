@@ -1,4 +1,12 @@
 """Isolated local-shape experiments. Never edits V2 or declares a freeze."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json, sys
 import numpy as np
 from audit_baseline import ROOT, local_solid, mujoco
@@ -6,7 +14,7 @@ import manifold3d as md
 
 NAMES=['thorax_geom','clavicle_visual','scapula_mesh','humerus_shaft','ulna_shaft']
 def load():
-    m=mujoco.MjModel.from_xml_path(str(ROOT/'mujoco_arm/cable_design_v2/arm_cable_design_v2.xml'))
+    m=_load_project_model(str(ROOT/'mujoco_arm/cable_design_v2/arm_cable_design_v2.xml'))
     d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     solids={};bodies={}
     for name in NAMES:

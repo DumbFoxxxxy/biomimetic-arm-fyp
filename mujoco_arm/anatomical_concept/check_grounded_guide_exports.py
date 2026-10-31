@@ -1,4 +1,12 @@
 """M7 OBJ/STL roundtrip and actual 109 rigid MuJoCo mesh registration."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_guide_ground_frames import *
 from scipy.spatial import cKDTree
 import mujoco
@@ -7,7 +15,7 @@ def run():
     inputs=json.loads((DEST7/'cad_input.json').read_text());checks=[]
     for r in inputs['parts']:
         name=r['name'];s,v,f=load(DEST7/(name+'.obj'));raw=(DEST7/(name+'.stl')).read_bytes();dt=np.dtype([('n','<f4',(3,)),('v','<f4',(3,3)),('a','<u2')]);tri=np.frombuffer(raw,dt,offset=84)['v'];sv,idx=np.unique(tri.reshape(-1,3),axis=0,return_inverse=True);restored=mf.Manifold(mf.Mesh(sv.astype(np.float32),idx.reshape(-1,3).astype(np.uint32)));delta=float(abs(tri-v[f]).max());error=abs(restored.volume()-s.volume())/max(1,s.volume());checks.append({'part':name,'coordinate_error_mm':delta,'relative_volume_error':error,'pass':s.status()==restored.status()==mf.Error.NoError and delta<.0001 and error<.0001})
-    a=json.loads((DEST7/'assembly.json').read_text());included=set(json.loads((DEST7/'rigid_motion_scope.json').read_text())['included']);m=mujoco.MjModel.from_xml_path(str(DEST7/'arm.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);registration=[]
+    a=json.loads((DEST7/'assembly.json').read_text());included=set(json.loads((DEST7/'rigid_motion_scope.json').read_text())['included']);m=_load_project_model(str(DEST7/'arm.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);registration=[]
     for r in a['instances']:
         if r['key'] not in included:continue
         gid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,r['key']);assert gid>=0;mid=m.geom_dataid[gid];start=m.mesh_vertadr[mid];end=start+m.mesh_vertnum[mid];actual=(m.mesh_vert[start:end]@d.geom_xmat[gid].reshape(3,3).T+d.geom_xpos[gid])*1000;_,v,f=load(ROOT/r['file']);expected=v[np.unique(f)]+np.array(r['translation_display_mm']);error=max(float(cKDTree(actual).query(expected)[0].max()),float(cKDTree(expected).query(actual)[0].max()));registration.append({'part':r['key'],'max_coordinate_error_mm':error,'pass':error<.001})

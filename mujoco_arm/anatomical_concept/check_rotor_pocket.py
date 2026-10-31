@@ -1,5 +1,13 @@
 """Separate M3 rotor pocket experiment; never overwrite the M2 baseline."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import sys,json,hashlib,os,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/'mujoco_arm/exports/anatomical_concept/elbow_muscles/mounted_elbow_candidate'
@@ -20,7 +28,7 @@ def build():
         for mesh in root.findall('./asset/mesh'):
             key=mesh.get('name');source=DEST/(substitutions[key]+'.obj') if key in substitutions else (BASE/mesh.get('file')).resolve()
             mesh.set('file',os.path.relpath(source,DEST).replace('\\','/'))
-        ET.indent(root);tree.write(DEST/filename,encoding='utf8',xml_declaration=True)
+        ET.indent(root);tree.write(DEST/filename,encoding='utf-8',xml_declaration=True)
     scope=json.loads((BASE/'rigid_motion_scope.json').read_text(encoding='utf8'))
     scope['scope']='M3 candidate known rigid parts; actual fused rotor, no output tendon or compliant motion'
     (DEST/'rigid_motion_scope.json').write_text(json.dumps(scope,indent=2),encoding='utf8')

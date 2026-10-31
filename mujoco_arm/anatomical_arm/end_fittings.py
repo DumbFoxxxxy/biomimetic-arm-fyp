@@ -59,6 +59,6 @@ def run():
         if n in ['humerus_mounted','forearm_mounted'] or n.endswith('_TPU'):continue
         ET.SubElement(r.find('asset'),'mesh',name=n,file=n+'.stl',scale='.001 .001 .001');group='4' if owners[n]=='neutral_C' else '3'
         ET.SubElement(r.find('.//body[@name="humerus"]'),'geom',name=n,type='mesh',mesh=n,pos=' '.join(str(-v/1000) for v in origins['humerus']),rgba='.3 .5 .65 1',group=group,contype='0',conaffinity='0',mass='.001')
-    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True);print('M2 neutral overlaps',overlaps,flush=True)
+    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True);print('M2 neutral overlaps',overlaps,flush=True)
 
 if __name__=='__main__':run()

@@ -1,8 +1,16 @@
 """Actual mesh and MuJoCo pose registration, independent of collision sampling."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
 from scipy.spatial import cKDTree
 import mujoco
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 def run():
     dest=DEST/'paired_swivel_support'
@@ -12,7 +20,7 @@ def run():
         path=ROOT/rows[p['name']]['file'];s,v,f=load(path);raw=path.with_suffix('.stl').read_bytes();dtype=np.dtype([('n','<f4',(3,)),('v','<f4',(3,3)),('a','<u2')]);tri=np.frombuffer(raw,dtype,offset=84)['v'];sv,index=np.unique(tri.reshape(-1,3),axis=0,return_inverse=True);stl=mf.Manifold(mf.Mesh(sv.astype(np.float32),index.reshape(-1,3).astype(np.uint32)));err=abs(stl.volume()-s.volume())/max(1,abs(s.volume()));distance=max(cKDTree(v).query(sv)[0].max(),cKDTree(sv).query(v)[0].max());passed=s.status()==stl.status()==mf.Error.NoError and err<1e-4 and distance<.001;assert passed,p['name'];exports.append({'part':p['name'],'STL_relative_volume_error':float(err),'bidirectional_vertex_error_mm':float(distance),'pass':bool(passed)})
     scenes={};motion=json.loads(((dest.parent if '--keepers' in sys.argv else dest)/'conditional_motion.json').read_text())['poses'];source={k:load(ROOT/r['file'])[1]+np.array(r['translation_display_mm']) for k,r in rows.items()}
     for scene in ['neutral_view.xml','rigid_hinges.xml']:
-        m=mujoco.MjModel.from_xml_path(str(dest/scene));d=mujoco.MjData(m);cases=[('nominal_zero',None)]
+        m=_load_project_model(str(dest/scene));d=mujoco.MjData(m);cases=[('nominal_zero',None)]
         if scene=='rigid_hinges.xml':cases += [(f'conditional_{q}',next(p for p in motion if p['elbow_deg']==q)) for q in [0,90,150]]
         scene_results=[]
         for label,pose in cases:

@@ -2,6 +2,14 @@
 
 This is an explicit diagnostic model; force spanning alone is not acceptance.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,sys,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -34,7 +42,7 @@ def build_wrap():
     return tree
 
 def audit():
-    tree=build_wrap();model=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));data=mujoco.MjData(model)
+    tree=build_wrap();model=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));data=mujoco.MjData(model)
     cfg,fit,anchors=inputs();zero=np.array(fit['poses'][0]['q_rad']);rows=[]
     dofs=[model.jnt_dofadr[mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_JOINT,name)] for name in ['gh_flex','gh_abd','gh_rot']]
     for pose in poses():

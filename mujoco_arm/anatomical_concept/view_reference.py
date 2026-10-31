@@ -1,5 +1,13 @@
 """Raw anatomical overlay, no kinematic model or soft simulation."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import argparse,time,json
 import numpy as np,mujoco
 OUT=Path(__file__).resolve().parents[1]/'exports/anatomical_concept'
@@ -15,7 +23,7 @@ def run():
     if args.AC and args.compact:target=target.parent/'AC_compact'
     if args.GH:target=OUT/'joint_model/SC_connection/AC_compact'/('GH_closed' if args.closed else 'GH_preserve_head' if args.preserve_head else 'GH_connection')
     if args.elbow:target=target/'elbow_connection'
-    m=mujoco.MjModel.from_xml_path(str(target/('arm.xml' if joint_view else 'reference.xml')));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+    m=_load_project_model(str(target/('arm.xml' if joint_view else 'reference.xml')));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     if args.SC or args.AC or args.GH:
         g=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,'FJ3290');m.geom_group[g]=3;m.geom_rgba[g,:]=[.5,.65,.7,1]
         if args.detail:

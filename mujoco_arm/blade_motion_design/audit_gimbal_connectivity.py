@@ -1,4 +1,12 @@
 """Find disconnected physical components within each rigid carrier."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -7,7 +15,7 @@ from audit_gimbal_assembly import local_solid,md
 from shoulder_model import EXPORT,v8
 
 def run():
-    tree,_=build_gimbal();m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);bs={}
+    tree,_=build_gimbal();m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);bs={}
     for g in range(m.ngeom):
         b=int(m.geom_bodyid[g]);n=mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,g)
         if not b or m.geom_group[g]==3 or n in ['floor','v8_thorax_contact_band','elbow_joint']:continue

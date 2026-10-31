@@ -1,6 +1,14 @@
 """Run or reuse only passing audits for the exact current motion model."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import copy,json,subprocess,sys
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 from gimbal_arm_model import build_gimbal
 from shoulder_model import EXPORT,ROOT
 from verification_snapshot import fingerprint

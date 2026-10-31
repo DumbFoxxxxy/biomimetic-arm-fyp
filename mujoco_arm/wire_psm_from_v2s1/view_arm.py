@@ -1,5 +1,13 @@
 """Interactive zero-pose arm/interface viewer. No actuation simulation."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import argparse,json,time,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -32,7 +40,7 @@ def build_model():
         for i,(start,end) in enumerate(zip(p[:-1],p[1:])):line(name+'_tendon_'+str(i),start,end,[.92,.46,.12,1])
         geom(name+'_sheave_envelope','cylinder',5,[.68,.7,.72,1],pos=vec(np.array(z['guide_center_mj_mm'])*.001),size='.0095 .003',quat=quat(z['guide_basis']))
         for role,color in [('A',[.1,.7,.2,1]),('C',[.1,.3,1,1]),('G',[1,.8,.1,1]),('B',[.9,.15,.2,1])]:geom(name+'_'+role,'sphere',3,color,pos=vec(np.array(z[role+'_mj_mm'])*.001),size='.0028')
-    return mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'))
+    return _load_project_xml(ET.tostring(root,encoding='unicode'))
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true',help='Load and verify without opening a window');args=parser.parse_args()

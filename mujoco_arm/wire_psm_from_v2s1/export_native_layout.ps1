@@ -19,8 +19,7 @@ public static class PsmNativeLayout {
   if(feature==null || !(feature.GetSpecificFeature2() is ISketch))throw new Exception("New sketch missing: "+name);
   feature.Name=name;return feature;
  }
- public static string Run() {
-  string folder=@"D:\XJTLU\PSP\mujoco_arm\exports\wire_psm_from_v2s1\PSM-W1";
+ public static string Run(string folder) {
   var markers=new List<Marker>();var expected=new Dictionary<string,Marker>();
   foreach(string line in File.ReadAllLines(Path.Combine(folder,"anchors_design_mm.csv"))) {
    if(line.StartsWith("module,") || string.IsNullOrWhiteSpace(line))continue;
@@ -79,4 +78,4 @@ public static class PsmNativeLayout {
  }
 }
 '@
-if (-not $CompileOnly) { [PsmNativeLayout]::Run() }
+if (-not $CompileOnly) { [PsmNativeLayout]::Run((Join-Path (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)) "01_工程骨架方案/输出/wire_psm_from_v2s1/PSM-W1")) }

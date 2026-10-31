@@ -1,4 +1,12 @@
 """Move two existing fairleads continuously to remove a dense-path wire crossing."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,sys,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -11,7 +19,7 @@ sys.path.insert(0,str(SOURCE))
 from search_paper_anchors import segment_distances
 
 def main():
-    path=EXPORT/'full_arm_shoulder_routes_candidate.json';candidate=json.loads(path.read_text());tree,_=build_gimbal();m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m)
+    path=EXPORT/'full_arm_shoulder_routes_candidate.json';candidate=json.loads(path.read_text());tree,_=build_gimbal();m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m)
     routes=candidate['routes'];names=[r['id'] for r in routes];ids=[mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_SITE,'eye_'+r) for r in names];fixed=np.array([r['fixed_eye_world_mm'] for r in routes]);from shoulder_model import v8
     target=[];seen=set()
     for seq in target_actions().values():

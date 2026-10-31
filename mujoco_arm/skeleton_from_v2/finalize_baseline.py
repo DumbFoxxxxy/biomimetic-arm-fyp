@@ -1,4 +1,12 @@
 """Freeze a bounded geometry baseline only after the explicit evidence gates."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,hashlib,shutil,csv,xml.etree.ElementTree as ET
 import numpy as np
 from verify_joint_candidate import ROOT,OUT,mujoco
@@ -11,7 +19,7 @@ def run():
     assert cad['input_cache_sha256']==vertices['input_cache_sha256']==fingerprint and cad['pass'] and cad['assembly_valid'] and vertices['pass']
     assert len(report['actions'])==len(paths)==12 and all(a['reverse_collision_count']==0 for a in report['actions'])
     source=ROOT/'mujoco_arm/cable_design_v2/arm_cable_design_v2.xml';assert digest(source)==baseline['source_xml_sha256']
-    model=mujoco.MjModel.from_xml_path(str(OUT/'skeleton_review.xml'))
+    model=_load_project_model(str(OUT/'skeleton_review.xml'))
     violations=[]
     for name,seq in paths.items():
         for q in seq:
@@ -28,7 +36,7 @@ def run():
             sourceasset=OUT/(name+'_review_local.stl');target=dest/'assets'/(name+'.stl');shutil.copy2(sourceasset,target)
             root.find(f'.//asset/mesh[@name="{mesh}"]').set('file','assets/'+target.name)
     ET.indent(tree,space='  ');tree.write(dest/'skeleton.xml',encoding='utf-8')
-    portable=mujoco.MjModel.from_xml_path(str(dest/'skeleton.xml'))
+    portable=_load_project_model(str(dest/'skeleton.xml'))
     for attr in ['body_pos','body_quat','jnt_pos','jnt_axis','jnt_range','mesh_vert','mesh_face']:
         assert np.array_equal(getattr(model,attr),getattr(portable,attr)),attr
     for part in (OUT/'cad').glob('*.step'):shutil.copy2(part,dest/'cad'/part.name)

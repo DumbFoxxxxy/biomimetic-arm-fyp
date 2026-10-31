@@ -1,4 +1,12 @@
 """M2 STL/OBJ and compiled neutral/rigid scene registration checks."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_elbow_muscle_mounts import *
 from scipy.spatial import cKDTree
 import mujoco
@@ -11,7 +19,7 @@ def run():
     scenes={}
     scope=json.loads((DEST/'rigid_motion_scope.json').read_text());rigid=set(scope['included'])
     for filename,selected in [('neutral_view.xml',assembly['instances']),('arm.xml',[r for r in assembly['instances'] if r['key'] in rigid])]:
-        m=mujoco.MjModel.from_xml_path(str(DEST/filename));d=mujoco.MjData(m);mujoco.mj_forward(m,d);rows=[]
+        m=_load_project_model(str(DEST/filename));d=mujoco.MjData(m);mujoco.mj_forward(m,d);rows=[]
         for r in selected:
             gid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,r['key'])
             if gid<0:raise RuntimeError('Missing scene geometry '+r['key'])

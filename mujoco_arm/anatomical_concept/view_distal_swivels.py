@@ -1,5 +1,13 @@
 """Actual M5 caps and local articulation preview, not TPU actuation."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import os,json,sys,hashlib,xml.etree.ElementTree as ET
 import numpy as np,mujoco
 ROOT=Path(__file__).resolve().parents[2]
@@ -14,7 +22,7 @@ def run():
         if '--cutaway' in sys.argv and key.endswith('socket_retainer'):color='.15 .5 .8 .28'
         parent=ET.SubElement(world,'body',name=key+'_motion',mocap='true') if key.endswith('ball_crimp_blank') else world
         ET.SubElement(parent,'geom',name=key,type='mesh',mesh=key,pos=' '.join(str(c/1000) for c in r['translation_display_mm']),rgba=color,contype='0',conaffinity='0')
-    ET.indent(root);path=DEST/('neutral_cutaway_view.xml' if '--cutaway' in sys.argv else 'neutral_view.xml');ET.ElementTree(root).write(path,encoding='utf8',xml_declaration=True);m=mujoco.MjModel.from_xml_path(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+    ET.indent(root);path=DEST/('neutral_cutaway_view.xml' if '--cutaway' in sys.argv else 'neutral_view.xml');ET.ElementTree(root).write(path,encoding='utf-8',xml_declaration=True);m=_load_project_model(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     # Rendering-only isolation avoids a forearm lever blocking the small socket.
     # All131 meshes remain in the model and neutral collision/export checks.
     for r in assembly['instances']:

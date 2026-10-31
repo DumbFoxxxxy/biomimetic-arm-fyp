@@ -1,7 +1,15 @@
 """Independent raw-coordinate anatomy reference; no inherited joint chain.
 All anatomy meshes undergo the same translation and no scaling or mirroring.
 """
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import sys,json,hashlib,struct,re,itertools
 from collections import Counter
 import numpy as np
@@ -27,7 +35,7 @@ def run():
         ET.SubElement(asset,'mesh',name=fid,file=fid+'.stl',scale='.001 .001 .001')
         ET.SubElement(world,'geom',name=fid,mesh=fid,type='mesh',rgba='.9 .87 .8 1' if kind=='bone' else '.75 .12 .12 .6' if kind=='muscle' else '.7 .75 .8 .35',group='0' if kind=='bone' else '1' if kind=='muscle' else '2',contype='0',conaffinity='0')
         rows.append({'id':fid,'name':name,'kind':kind,'source':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'metadata':metadata,'raw_bounds_mm':rawbounds,'vertices':len(v),'triangles':len(f),'boundary_edges':boundary,'nonmanifold_edges':nonmanifold,'mesh_closed_edge_test':boundary==0 and nonmanifold==0,'attachment_regions':'not yet labeled','fiber_directions':'not supplied','geometry_status':'anatomical surface only, not TPU lattice'})
-    ET.indent(root);ET.ElementTree(root).write(OUT/'reference.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(root);ET.ElementTree(root).write(OUT/'reference.xml',encoding='utf-8',xml_declaration=True)
     required=['deltoid','pectoralis major','trapezius','serratus anterior','rhomboid'];names=' '.join(r['name'].lower() for r in rows if r['kind']=='muscle')
     report={'route':'independent anatomical concept; no V2/A1 kinematic constraints','translation_subtracted_mm':SHIFT.tolist(),'rotation':'identity','scale':1,'laterality':'Right, from source labels','units':'mm, from source header','registration':'common raw BodyParts3D coordinates retained; header compatibility alone does not prove physiological fit','models':rows,'license':'BodyParts3D, (c) The Database Center for Life Science, CC Attribution-Share Alike 2.1 Japan, as stated in source OBJ headers','source_license_url':'http://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html','unprovided_or_unidentified_muscles':[name for name in required if name not in names],'required_group_presence_not_full_anatomical_completeness':True,'drive_validation':False}
     (OUT/'inventory.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8')

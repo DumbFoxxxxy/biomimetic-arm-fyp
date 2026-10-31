@@ -1,10 +1,18 @@
 """Render the coordinate proposal; boxes are space reservations, not TPU FEM."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,numpy as np,mujoco
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'mujoco_arm/exports/wire_psm_from_v2s1';DEST=OUT/'PSM-W1'
 def run():
-    m=mujoco.MjModel.from_xml_path(str(ROOT/'mujoco_arm/exports/skeleton_from_v2/V2-S1/skeleton.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);m.vis.global_.offwidth=640;m.vis.global_.offheight=640
+    m=_load_project_model(str(ROOT/'mujoco_arm/exports/skeleton_from_v2/V2-S1/skeleton.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);m.vis.global_.offwidth=640;m.vis.global_.offheight=640
     renderer=mujoco.Renderer(m,640,640);modules=json.loads((DEST/'zero_scene.json').read_text());panels=[]
     def add(scene,kind,size,pos,mat,color):
         if scene.ngeom>=scene.maxgeom:raise RuntimeError('Rendering capacity exceeded')

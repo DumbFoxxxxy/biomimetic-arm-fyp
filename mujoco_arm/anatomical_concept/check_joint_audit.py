@@ -1,4 +1,12 @@
 """Check actual quaternion sampling and compiled zero-pose mesh placement."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from audit_joint_model import *
 from scipy.spatial import cKDTree
 
@@ -13,7 +21,7 @@ def run():
             norm_error=max(norm_error,float(np.max(abs(np.linalg.norm(q[:,a:a+4],axis=1)-1))));dot=np.sum(q[:-1,a:a+4]*q[1:,a:a+4],axis=1);maximum=max(maximum,float(np.max(np.degrees(2*np.arccos(np.clip(abs(dot),0,1))))))
         maximum=max(maximum,float(np.max(abs(np.degrees(np.diff(q[:,-1]))))))
     assert maximum<=1+1e-6 and norm_error<1e-8
-    m=mujoco.MjModel.from_xml_path(str(dest/'arm.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);inv=json.loads((OUT/'inventory.json').read_text(encoding='utf8'));byid={r['id']:r for r in inv['models']};assembly=json.loads((dest/'assembly.json').read_text(encoding='utf8'));rows=[]
+    m=_load_project_model(str(dest/'arm.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);inv=json.loads((OUT/'inventory.json').read_text(encoding='utf8'));byid={r['id']:r for r in inv['models']};assembly=json.loads((dest/'assembly.json').read_text(encoding='utf8'));rows=[]
     part_paths={n:dest/(n+'.obj') for n in assembly['components']}
     if WITH_AC:
         sc=json.loads((SC_DEST/'assembly.json').read_text(encoding='utf8'))

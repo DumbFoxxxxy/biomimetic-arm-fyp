@@ -1,4 +1,12 @@
 """Test all 16 spatial tendons of the full 9-DOF no-payload arm."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,sys,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -21,7 +29,7 @@ def apply_target(model,data,z):
     set_arm(model,data,z[:5],np.degrees(z[5:8]),np.degrees(z[8]))
 
 def audit():
-    tree,specs=build_gimbal();model=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));desired=mujoco.MjData(model)
+    tree,specs=build_gimbal();model=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));desired=mujoco.MjData(model)
     cfg,fit,anchors=inputs();actions=target_actions();zero=next(iter(actions.values()))[0]
     humerus=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,'humerus');ulna=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,'ulna')
     wrist_local=v8.design_to_mj(np.array([.087155743,-.996194698,0.])*237.)

@@ -2,6 +2,14 @@
 
 This is geometric ROM verification, separate from tendon-driven tracking.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import copy,json,sys,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -42,7 +50,7 @@ def mesh_samples(model,data,name):
     return body,np.vstack([local,tri.mean(1),.5*(tri[:,0]+tri[:,1]),.5*(tri[:,1]+tri[:,2]),.5*(tri[:,2]+tri[:,0])])
 
 def audit():
-    cfg,fit,anchors=inputs();tree=build_arm();model=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));data=mujoco.MjData(model)
+    cfg,fit,anchors=inputs();tree=build_arm();model=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));data=mujoco.MjData(model)
     zero=np.array(fit['poses'][0]['q_rad']);up=[zero]+[np.array(p['q_rad']) for p in fit['poses'] if p.get('action')=='UP_ROT']
     set_arm(model,data,zero);neutral=world_direction(model,data)
     samples=[mesh_samples(model,data,name) for name in ['humerus_shaft','ulna_shaft']]

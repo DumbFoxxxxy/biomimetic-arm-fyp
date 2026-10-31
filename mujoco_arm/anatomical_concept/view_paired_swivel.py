@@ -3,7 +3,15 @@
 --render-motion creates an offscreen GIF. Interactive GUI opens only when the
 user runs the default/--motion command. No TPU mesh is deformed or animated.
 """
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,sys,time
 import numpy as np,mujoco
 ROOT=Path(__file__).resolve().parents[2];DEST=ROOT/'mujoco_arm/exports/anatomical_concept/direct_muscle_interfaces/mechanical_yoke_reanchored_pair/paired_swivel_support'
@@ -12,7 +20,7 @@ if '--keepers' in sys.argv:DEST=DEST/'captive_keepers'
 def run():
     motion='--motion' in sys.argv or '--render-motion' in sys.argv
     motion_folder=DEST.parent if '--keepers' in sys.argv else DEST
-    m=mujoco.MjModel.from_xml_path(str(DEST/('rigid_hinges.xml' if motion else 'neutral_view.xml')));d=mujoco.MjData(m);poses=json.loads((motion_folder/'conditional_motion.json').read_text())['poses'];angles=np.array([p['elbow_deg'] for p in poses]);keys=['elbow','FJ1486_swivel','FJ1477_swivel'];values=np.array([[p['elbow_deg'],p['relative_cap_angles_deg']['FJ1486'],p['relative_cap_angles_deg']['FJ1477']] for p in poses])
+    m=_load_project_model(str(DEST/('rigid_hinges.xml' if motion else 'neutral_view.xml')));d=mujoco.MjData(m);poses=json.loads((motion_folder/'conditional_motion.json').read_text())['poses'];angles=np.array([p['elbow_deg'] for p in poses]);keys=['elbow','FJ1486_swivel','FJ1477_swivel'];values=np.array([[p['elbow_deg'],p['relative_cap_angles_deg']['FJ1486'],p['relative_cap_angles_deg']['FJ1477']] for p in poses])
     def set_angles(v):
         for key,value in zip(keys,v):jid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_JOINT,key);d.qpos[m.jnt_qposadr[jid]]=np.radians(value)
         mujoco.mj_forward(m,d)

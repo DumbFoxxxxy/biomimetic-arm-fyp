@@ -3,9 +3,17 @@
 Metal keeper candidate; thin sheet forming and fastener procurement dimensions
 remain unqualified. No blind threading or friction-only pin fixation is assumed.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
 from build_forearm_receivers import bolt
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 def run():
     assert EXTENSOR_REANCHOR

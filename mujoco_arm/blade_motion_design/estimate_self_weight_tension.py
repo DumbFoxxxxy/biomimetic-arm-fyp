@@ -1,4 +1,12 @@
 """Report the unbounded quasistatic minimax force, without choosing hardware."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -10,7 +18,7 @@ from shoulder_model import EXPORT
 from verification_snapshot import fingerprint
 
 if __name__=='__main__':
-    tree,_=build_gimbal();root=tree.getroot();root.find('option').set('gravity','0 0 -9.81');m=mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);rows=[]
+    tree,_=build_gimbal();root=tree.getroot();root.find('option').set('gravity','0 0 -9.81');m=_load_project_xml(ET.tostring(root,encoding='unicode'));d=mujoco.MjData(m);rows=[]
     for action,seq in target_actions().items():
         peak=0.;worst=None
         for i,z in enumerate([a*(1-f)+b*f for a,b in zip(seq[:-1],seq[1:]) for f in np.linspace(0,1,5,endpoint=False)]+[seq[-1]]):

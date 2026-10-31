@@ -4,11 +4,19 @@ Interior guide centres are free numerical variables. Their moved poses are a
 geometric hypothesis, not a solved TPU body or imaginary fixed supports. Report
 each scope separately: bones, metal, short guide lumen, and unknown full lattice.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
 from study_extensor_bone_corridor import BoneDistance
 from scipy.spatial.transform import Rotation
 from scipy.optimize import minimize
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 def capsule_chain(points,radius):
     return mf.Manifold.batch_boolean([rod(p,q,radius,24) for p,q in zip(points,points[1:])]+[mf.Manifold.sphere(radius,16).translate(p) for p in points[1:-1]],mf.OpType.Add)

@@ -1,4 +1,12 @@
 """Play full-arm tendon controls; initialize state once and integrate thereafter."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import argparse,json,time,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -17,7 +25,7 @@ def main():
     if args.force_limit!=200.:label+=f'_{args.force_limit:g}N'
     report=json.loads((EXPORT/f'{label}_drive_report.json').read_text())
     if not report['pass'] or report.get('input_fingerprint')!=fingerprint(tree.getroot()):raise RuntimeError('Drive report is failed or stale: run audit_gimbal_inverse.py for these exact inputs')
-    tables=np.load(EXPORT/f'{label}_control_tables.npz');m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);apply_target(m,d,target_actions()[args.action][0]);viewer=None
+    tables=np.load(EXPORT/f'{label}_control_tables.npz');m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);apply_target(m,d,target_actions()[args.action][0]);viewer=None
     if not args.headless:
         from mujoco import viewer as mjviewer
         viewer=mjviewer.launch_passive(m,d)

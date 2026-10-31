@@ -3,7 +3,15 @@
 No TPU mesh is animated by an invented deformation law. GUI starts only when
 the user runs this file; --check compiles both scenes without opening a window.
 """
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import sys,time
 import numpy as np
 import mujoco
@@ -13,11 +21,11 @@ DEST=ROOT/'mujoco_arm/exports/anatomical_concept/direct_muscle_interfaces/yoke_a
 def run():
     if '--check' in sys.argv:
         for name in ['neutral_view.xml','arm.xml']:
-            m=mujoco.MjModel.from_xml_path(str(DEST/name));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+            m=_load_project_model(str(DEST/name));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
             print(name,'compiled; nq',m.nq,'geoms',m.ngeom)
         return
     rigid='--rigid-motion' in sys.argv
-    m=mujoco.MjModel.from_xml_path(str(DEST/('arm.xml' if rigid else 'neutral_view.xml')));d=mujoco.MjData(m)
+    m=_load_project_model(str(DEST/('arm.xml' if rigid else 'neutral_view.xml')));d=mujoco.MjData(m)
     print('Rigid-only 0–150deg prescribed geometry; no TPU/drive simulation.' if rigid else 'Neutral geometry only; TPU deformation and drive unverified.')
     from mujoco import viewer
     started=time.monotonic()

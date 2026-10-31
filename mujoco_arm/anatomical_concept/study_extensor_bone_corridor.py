@@ -5,11 +5,19 @@ Only cap-pad endpoints are prescribed. A 2.1mm radius corridor is checked
 against actual bone solids; other hardware and the full lattice remain outside
 this scope. Never infer a working muscle or validated wire route from success.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
 from scipy.spatial import cKDTree
 from scipy.spatial.transform import Rotation
 from scipy.optimize import minimize
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 class BoneDistance:
     def __init__(self,solid):

@@ -2,12 +2,20 @@
 
 from __future__ import annotations
 
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+
 import argparse
 import csv
 import itertools
 import json
 import math
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 import mujoco
 import numpy as np
@@ -140,7 +148,7 @@ class V2Evaluator:
             else float(guide_friction)
         )
         if model is None:
-            self.model = mujoco.MjModel.from_xml_path(str(model_path))
+            self.model = _load_project_model(str(model_path))
         else:
             self.model = model
         self.qpos_indices = {
@@ -1147,7 +1155,7 @@ def export_tension_report(path: Path, evaluation: dict) -> None:
 
 
 def export_route_validation(path: Path, config: dict, model_path: Path) -> None:
-    model = mujoco.MjModel.from_xml_path(str(model_path))
+    model = _load_project_model(str(model_path))
     data = mujoco.MjData(model)
     mujoco.mj_forward(model, data)
     rows = []

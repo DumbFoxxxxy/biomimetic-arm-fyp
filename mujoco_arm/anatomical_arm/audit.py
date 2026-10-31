@@ -1,6 +1,14 @@
 """Exact mesh bone audit; hardware and TPU receive independent neutral checks.
 Kinematic sweeps are not actuation or compliance predictions.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build import *
 import mujoco
 
@@ -9,7 +17,7 @@ def load(n):
     return mf.Manifold(mf.Mesh(v.astype(np.float32),f.astype(np.uint32)))
 
 def run():
-    m=mujoco.MjModel.from_xml_path(str(OUT/'arm.xml'));d=mujoco.MjData(m)
+    m=_load_project_model(str(OUT/'arm.xml'));d=mujoco.MjData(m)
     frames=json.loads((OUT/'body_frames.json').read_text(encoding='utf8'));orig={k:np.array(v) for k,v in frames['origins_mm'].items()};owners=frames['bone_owners'];base={n:load(n) for n in owners}
     bids={n:mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,n) for n in orig}
     jids={mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_JOINT,i):int(m.jnt_qposadr[i]) for i in range(m.njnt)}

@@ -1,4 +1,12 @@
 """Fit the complete 170-degree raising path, retaining the 50-degree scapula target."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -10,7 +18,7 @@ from shoulder_model import inputs,EXPORT,v8
 from search_gh_anchors import C
 
 def solve():
-    cfg,fit,_=inputs();tree,_=build_gimbal();m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m)
+    cfg,fit,_=inputs();tree,_=build_gimbal();m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m)
     zero=np.array(fit['poses'][0]['q_rad']);old=np.radians(json.loads((EXPORT/'combined_raise_endpoint_search.json').read_text())['q_deg'])
     set_arm(m,d,zero);neutral=world_direction(m,d);axis=v8.direct_kinematics(cfg,zero)['body_rotation']@C
     desired=v8.rotation_matrix(axis,np.radians(170.))@neutral;p1=np.cross(desired,axis);p1/=np.linalg.norm(p1);p2=np.cross(desired,p1)

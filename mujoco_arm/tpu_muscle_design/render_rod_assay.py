@@ -1,4 +1,12 @@
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -11,7 +19,7 @@ for index in [0,10,12]:
         for a,b in zip(line[:-1],line[1:]):ET.SubElement(world,'geom',type='capsule',fromto=' '.join(map(str,np.r_[points[a],points[b]])),size='.001',rgba='.12 .7 .6 1')
     ET.SubElement(world,'geom',type='capsule',fromto=f'-.02 0 0 {span+.02} 0 0',size='.0005',rgba='1 .45 .1 1')
     for x in [-.005,span+.005]:ET.SubElement(world,'geom',type='box',pos=f'{x} 0 0',size='.005 .006 .016',rgba='.12 .5 .45 1')
-    model=mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'));data=mujoco.MjData(model);mujoco.mj_forward(model,data);r=mujoco.Renderer(model,height=400,width=640);c=mujoco.MjvCamera();c.lookat[:]=[span/2,0,0];c.distance=.18;c.azimuth=-110;c.elevation=-24;r.update_scene(data,camera=c);panels.append(Image.fromarray(r.render()));r.close()
+    model=_load_project_xml(ET.tostring(root,encoding='unicode'));data=mujoco.MjData(model);mujoco.mj_forward(model,data);r=mujoco.Renderer(model,height=400,width=640);c=mujoco.MjvCamera();c.lookat[:]=[span/2,0,0];c.distance=.18;c.azimuth=-110;c.elevation=-24;r.update_scene(data,camera=c);panels.append(Image.fromarray(r.render()));r.close()
 page=Image.new('RGB',(1920,505),'#f4f6f8');draw=ImageDraw.Draw(page);font=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',22)
 for i,(im,label) in enumerate(zip(panels,['零位｜单胞段 75 mm','压缩 25%｜杆模型平衡构形','压缩 30%｜已检出接触，当前无接触模型失效'])):
     page.paste(im,(i*640,50));draw.text((i*640+12,12),label,font=font,fill='#123')

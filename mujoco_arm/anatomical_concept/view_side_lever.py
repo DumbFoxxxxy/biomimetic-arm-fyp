@@ -1,5 +1,13 @@
 """Actual neutral M4 manufactured meshes. Does not animate assumed TPU strain."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,os,sys,xml.etree.ElementTree as ET
 import numpy as np,mujoco
 ROOT=Path(__file__).resolve().parents[2]
@@ -12,8 +20,8 @@ def run():
         key=r['key'];ET.SubElement(asset,'mesh',name=key,file=os.path.relpath(ROOT/r['file'],folder).replace('\\','/'),scale='.001 .001 .001')
         color='.15 .55 .8 1' if key=='side_lever' else '.85 .12 .1 1' if r['kind']=='TPU' else '.85 .82 .75 1' if key in ['FJ3362','FJ3384','FJ3368','FJ3391','FJ3290'] else '.55 .6 .65 1'
         ET.SubElement(world,'geom',name=key,type='mesh',mesh=key,pos=' '.join(str(v/1000) for v in r['translation_display_mm']),rgba=color,contype='0',conaffinity='0')
-    ET.indent(root);path=folder/'neutral_view.xml';ET.ElementTree(root).write(path,encoding='utf8',xml_declaration=True)
-    m=mujoco.MjModel.from_xml_path(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d);cam=mujoco.MjvCamera();detail='--detail' in sys.argv
+    ET.indent(root);path=folder/'neutral_view.xml';ET.ElementTree(root).write(path,encoding='utf-8',xml_declaration=True)
+    m=_load_project_model(str(path));d=mujoco.MjData(m);mujoco.mj_forward(m,d);cam=mujoco.MjvCamera();detail='--detail' in sys.argv
     cam.lookat[:]=(np.array(design['joint_centre_display_mm'])+np.array(design['zero_forearm_direction'])*25)/1000 if detail else [-.05,0,.02]
     cam.distance=.38 if detail else 1.1;cam.azimuth=0 if detail else -90;cam.elevation=-10 if detail else -4
     if '--render' in sys.argv:

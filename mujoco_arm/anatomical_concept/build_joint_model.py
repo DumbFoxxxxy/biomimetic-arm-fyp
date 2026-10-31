@@ -17,7 +17,7 @@ def run():
             owner=owners[fid];attrs.update(pos=' '.join(str(x/1000) for x in SHIFT-centres[owner]),rgba='.9 .87 .8 1',mass='.1',group='0');ET.SubElement(nodes[owner],'geom',**attrs)
         else:
             attrs.update(rgba='.75 .12 .12 .35' if rec['kind']=='muscle' else '.7 .75 .8 .3',group='1' if rec['kind']=='muscle' else '2');ET.SubElement(world,'geom',**attrs)
-    ET.indent(root);ET.ElementTree(root).write(dest/'arm.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(root);ET.ElementTree(root).write(dest/'arm.xml',encoding='utf-8',xml_declaration=True)
     report={'scope':'engineering constraint candidate from independently fitted raw source anatomy; not manufactured or driven assembly','joints':{'SC':'spherical3','AC':'spherical3','GH':'spherical3','elbow':'hinge1'},'velocity_dofs':10,'frozen':False,'centres_source_mm':{k:v.tolist() for k,v in centres.items()},'bone_owner':owners,'source_coordinate_shift_mm':SHIFT.tolist(),'muscles':'neutral reference surfaces only; must hide while changing joints until compliant routing model is defined','forearm':'source ulna/radius held together solely for first elbow geometric test; final pronation/supination not determined','not_completed':['physical joint capture and supports','ligament/contact restraint of scapula','muscle motion and steel channels','force/strength/printed performance']};(dest/'definition.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8');print(dest/'arm.xml',flush=True)
 
 if __name__=='__main__':run()

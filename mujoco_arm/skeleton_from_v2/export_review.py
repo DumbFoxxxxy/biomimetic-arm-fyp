@@ -1,4 +1,12 @@
 """Export the checked mesh candidate for review, explicitly not native CAD."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,hashlib,xml.etree.ElementTree as ET
 import numpy as np
 from verify_joint_candidate import load_candidate,OUT,ROOT,NAMES,mujoco
@@ -31,7 +39,7 @@ def run():
     # Retain sites as seed references, hidden in review; not accepted muscle anchors.
     for site in root.findall('.//site'):site.set('rgba','0 0 0 0')
     ET.indent(tree,space='  ');tree.write(OUT/'skeleton_review.xml',encoding='utf-8')
-    check=mujoco.MjModel.from_xml_path(str(OUT/'skeleton_review.xml'))
+    check=_load_project_model(str(OUT/'skeleton_review.xml'))
     manifest={'frozen':False,'native_cad_roundtrip_verified':False,'review_model_dofs':check.nv,'files_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [OUT/'skeleton_review.xml',OUT/'retained_shape_rom.json',OUT/'retained_shape_paths.json']+list(OUT.glob('*_review_local.stl'))}}
     (OUT/'review_manifest.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)
 if __name__=='__main__':run()

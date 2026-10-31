@@ -2,6 +2,14 @@
 Explicitly excludes uninstalled SC/AC/GH reference primitives from acceptance.
 Reports that exclusion as unresolved hardware, never whole-arm PASS.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build import *
 import mujoco
 
@@ -10,7 +18,7 @@ if '--mounts' in sys.argv:DEST=DEST/'muscle_mounts'
 if '--fittings' in sys.argv:DEST=DEST/'muscle_mounts/end_fittings'
 
 def run():
-    m=mujoco.MjModel.from_xml_path(str(DEST/'arm.xml'));d=mujoco.MjData(m)
+    m=_load_project_model(str(DEST/'arm.xml'));d=mujoco.MjData(m)
     frames=json.loads((OUT/'body_frames.json').read_text(encoding='utf8'))['origins_mm'];lm=json.loads((OUT/'source_audit.json').read_text(encoding='utf8'))['landmarks_mm'];E=np.array(lm['E']);GH=np.array(lm['GH'])
     tree=ET.parse(DEST/'arm.xml');root=tree.getroot();source={x.get('name'):x.get('file') for x in root.findall('./asset/mesh')}
     names=['clavicle','scapula','humerus','ulna','elbow_pin','cotter_pin','thrust_washer_-1','thrust_washer_1'];parts={};owners={}

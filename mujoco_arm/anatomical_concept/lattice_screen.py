@@ -44,6 +44,6 @@ def run():
     for mesh in r.findall('./asset/mesh'):mesh.set('file',mesh.get('file') if mesh.get('name') in ids else '../assets/'+mesh.get('file'))
     for geom in r.findall('./worldbody/geom'):
         if geom.get('name') in ids:geom.set('rgba','.8 .12 .1 1')
-    ET.indent(r);tree.write(dest/'reference.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(r);tree.write(dest/'reference.xml',encoding='utf-8',xml_declaration=True)
 
 if __name__=='__main__':run()

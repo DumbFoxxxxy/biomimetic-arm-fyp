@@ -1,5 +1,13 @@
 """MuJoCo exploded assembly visualization of the checked E1 installation order."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json,xml.etree.ElementTree as ET
 import numpy as np,mujoco
 from PIL import Image,ImageDraw
@@ -14,8 +22,8 @@ def run():
     for name in names:
         ET.SubElement(asset,'mesh',name=name,file=name+'.stl',scale='.001 .001 .001')
         body=ET.SubElement(world,'body',name=name,mocap='true');ET.SubElement(body,'geom',name=name,type='mesh',mesh=name,contype='0',conaffinity='0',rgba='.88 .85 .78 1' if name in ['humerus_GH_elbow_fork','forearm_elbow_hub'] else '.3 .55 .65 1')
-    ET.indent(root);path=OUT/'assembly_view.xml';ET.ElementTree(root).write(path,encoding='utf8',xml_declaration=True)
-    m=mujoco.MjModel.from_xml_path(str(path));d=mujoco.MjData(m);bodies={n:mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,n) for n in names};gids={n:mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,n) for n in names}
+    ET.indent(root);path=OUT/'assembly_view.xml';ET.ElementTree(root).write(path,encoding='utf-8',xml_declaration=True)
+    m=_load_project_model(str(path));d=mujoco.MjData(m);bodies={n:mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_BODY,n) for n in names};gids={n:mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,n) for n in names}
     renderer=mujoco.Renderer(m,800,900);cam=mujoco.MjvCamera();cam.lookat[:]=E/1000;cam.distance=.38;cam.azimuth=-75;cam.elevation=-10
     stages=[('Seat forearm + bush',['forearm_elbow_hub','elbow_bearing_bush'],direction*.045,28),('Insert left sleeve',['elbow_spacer_left'],-axis*.085,20),('Insert right sleeve',['elbow_spacer_right'],axis*.085,20),('Insert pin + head-side washer',['elbow_shoulder_pin','elbow_washer_left'],-axis*(checks['pin_insertion']['distance_mm']/1000),28),('Position far washer',['elbow_washer_right'],axis*.025,16),('Position nut envelope',['elbow_retaining_nut'],axis*.025,16)]
     frames=[];installed={'humerus_GH_elbow_fork'}

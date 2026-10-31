@@ -1,4 +1,12 @@
 """Classify first full-degree GH collision sample into retained vs added material."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_GH_connection import *
 from audit_joint_model import controls_to_q
 import mujoco
@@ -10,7 +18,7 @@ def run():
     inv=json.loads((OUT/'inventory.json').read_text(encoding='utf8'));byid={r['id']:r for r in inv['models']}
     original=load(ROOT/byid['FJ3384']['source'],True)[0];scap=load(DEST/'scapula_AC_GH_sockets.obj')[0];hum=load(DEST/'humerus_GH_ball.obj')[0]
     regions={'retained_original_scapula':scap^original,'added_engineering_geometry':scap-original}
-    m=mujoco.MjModel.from_xml_path(str(DEST/'arm.xml'));d=mujoco.MjData(m);rows=[]
+    m=_load_project_model(str(DEST/'arm.xml'));d=mujoco.MjData(m);rows=[]
     for name in ['GH_flexion','GH_abduction']:
         pose=next((p for p in paths[name] if any(set(h['pair'])=={'FJ3384','FJ3368'} for h in p['hits'])),None)
         if not pose:continue

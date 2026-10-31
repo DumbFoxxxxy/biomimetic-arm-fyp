@@ -1,6 +1,14 @@
 """Staged keeper/forearm subassembly paths, no complete compliant arm claim."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 def run():
     dest=DEST/'paired_swivel_support/captive_keepers';a=json.loads((dest/'assembly.json').read_text());design=json.loads((dest/'design.json').read_text());rows={r['key']:r for r in a['instances']};world={k:load(ROOT/r['file'])[0].translate(r['translation_display_mm']) for k,r in rows.items()};inputs=[dest/'assembly.json',dest/'design.json']+[ROOT/r['file'] for r in rows.values()];hashes={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs};results=[]

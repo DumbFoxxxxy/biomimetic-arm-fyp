@@ -1,0 +1,7 @@
+# 发现
+
+436个源码/配置文件，旧目录联接42个。源脚本仍在实际mujoco_arm，无需移动源码。
+大量ROOT/清单相对路径与硬编码工作区路径存在于历史JSON，改变JSON会使既有源哈希失效。
+使用集中WorkspacePath解析旧数据地址并直接打开物理目标；新输出relative_to(ROOT)得到真实路径。
+MuJoCo原生from_xml_path不支持部分中文路径，需要Python读取XML和资源，以内存VFS提供ASCII资源名。
+当前查看器会重新写零位XML，验证前需控制生成内容和历史证据范围。

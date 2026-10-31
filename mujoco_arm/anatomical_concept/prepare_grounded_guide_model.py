@@ -31,7 +31,7 @@ def run():
         ET.SubElement(root.find('asset'),'mesh',name=key,file=str(ROOT/r['file']),scale='.001 .001 .001')
         ET.SubElement(root.find('.//body[@name="GH"]'),'geom',name=key,type='mesh',mesh=key,pos=' '.join(map(str,-gh/1000)),rgba='.2 .5 .8 1',group='3',contype='0',conaffinity='0',mass='.001')
     a.update(scope='M7 neutral manufactured pieces including unverified free muscle ends; only grounded frame/guide pieces enter prescribed rigid motion model',instances=list(rows.values()),frozen=False)
-    (DEST7/'assembly.json').write_text(json.dumps(a,indent=2),encoding='utf8');ET.indent(root);tree.write(DEST7/'arm.xml',encoding='utf8',xml_declaration=True)
+    (DEST7/'assembly.json').write_text(json.dumps(a,indent=2),encoding='utf8');ET.indent(root);tree.write(DEST7/'arm.xml',encoding='utf-8',xml_declaration=True)
     (DEST7/'rigid_motion_scope.json').write_text(json.dumps({'scope':'M7 known rigid bones, nominal bolts, integral adapter extensions and key-mounted sheaves; no installed cap/TPU/transmission pass','included':included,'omitted_compliant_or_free_distal':omitted,'omitted_old_uncrimped_stops':free_stops,'frozen':False},indent=2),encoding='utf8')
     print('M7 neutral',len(rows),'determinate rigid',len(included),'omitted',len(omitted),flush=True)
 

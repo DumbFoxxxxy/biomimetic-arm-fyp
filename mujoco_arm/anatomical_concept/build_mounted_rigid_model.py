@@ -16,7 +16,7 @@ def run():
         key=r['key'];ET.SubElement(root.find('asset'),'mesh',name=key,file=os.path.relpath(ROOT/r['file'],DEST).replace('\\','/'),scale='.001 .001 .001')
         position=(np.array(r['translation_display_mm'])-G)/1000
         ET.SubElement(root.find('.//body[@name="GH"]'),'geom',name=key,type='mesh',mesh=key,pos=' '.join(map(str,position)),rgba='.2 .45 .7 1' if 'adapter' in key or 'rigid_cap' in key else '.5 .6 .65 1',group='3',contype='0',conaffinity='0',mass='.001')
-    ET.indent(root);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(root);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True)
     (DEST/'rigid_motion_scope.json').write_text(json.dumps({'scope':'known rigid proximal parts only; not installed whole-module motion or muscle-drive acceptance','included':included,'omitted_compliant_or_free_distal':omitted,'omission_reason':'no validated TPU deformation/passive output transmission yet; no result transferred to these parts','frozen':False},indent=2),encoding='utf8');print('M2 rigid motion included',len(included),'omitted',len(omitted))
 
 if __name__=='__main__':run()

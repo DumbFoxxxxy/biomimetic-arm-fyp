@@ -2,9 +2,17 @@
 
 from __future__ import annotations
 
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+
 import copy
 import json
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 import xml.etree.ElementTree as ET
 
 import mujoco
@@ -78,7 +86,7 @@ def main():
         for route in config["routes"]
     }
     base_tree = ET.parse(MODEL)
-    base_model = mujoco.MjModel.from_xml_path(str(MODEL))
+    base_model = _load_project_model(str(MODEL))
     base_data = mujoco.MjData(base_model)
     base_data.eq_active[:] = 0
     base_data.ctrl[:] = 0.0
@@ -123,7 +131,7 @@ def main():
             set_site(tree, "B_S02", mj(b_point) - mj(AC_MM))
             xml = ET.tostring(tree.getroot(), encoding="unicode")
             try:
-                model = mujoco.MjModel.from_xml_string(xml)
+                model = _load_project_xml(xml)
             except Exception:
                 continue
             values = run_model(model, neutral, 40.0)

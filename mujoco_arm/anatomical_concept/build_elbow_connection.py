@@ -104,7 +104,7 @@ def run():
         ET.SubElement(root.find('asset'),'mesh',name=name,file=name+'.stl',scale='.001 .001 .001')
         owner=owners[name];centre=E if owner=='elbow' else G
         ET.SubElement(root.find(f'.//body[@name="{owner}"]'),'geom',name=name,type='mesh',mesh=name,pos=' '.join(str(x/1000) for x in -centre),rgba='.3 .55 .65 1',group='3',contype='0',conaffinity='0',mass='.001')
-    ET.indent(root);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(root);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True)
     print('elbow half gap',half,'parts',report['components'],'overlaps',overlaps,flush=True)
 
 if __name__=='__main__':run()

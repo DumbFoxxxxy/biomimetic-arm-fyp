@@ -2,10 +2,18 @@
 
 from __future__ import annotations
 
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+
 import argparse
 import json
 import math
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 import sys
 
 import mujoco
@@ -125,7 +133,7 @@ def main() -> None:
     args = parser.parse_args()
     config = load_json(args.config)
     actions = load_json(args.matrix)
-    model = mujoco.MjModel.from_xml_path(str(args.model))
+    model = _load_project_model(str(args.model))
     evaluator = V2Evaluator(None, config, actions, model=model)
     k7 = next(action for action in actions["actions"] if action["id"] == "K7")
     a_id = mujoco.mj_name2id(

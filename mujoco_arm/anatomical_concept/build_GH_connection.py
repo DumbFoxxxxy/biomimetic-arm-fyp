@@ -140,7 +140,7 @@ def run():
         if name in report['bone_aliases']:continue
         ET.SubElement(r.find('asset'),'mesh',name=name,file=name+'.stl',scale='.001 .001 .001')
         ET.SubElement(r.find('.//body[@name="AC"]'),'geom',name=name,type='mesh',mesh=name,pos=' '.join(str(v/1000) for v in -A),rgba='.7 .42 .2 1',group='3',contype='0',conaffinity='0',mass='.001')
-    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True)
+    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True)
     print('GH caps',len(sectors),'parts',report['components'],'overlaps',overlaps,flush=True)
 
 if __name__=='__main__':run()

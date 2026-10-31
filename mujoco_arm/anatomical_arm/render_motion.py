@@ -1,12 +1,20 @@
 """Animate only accepted BONE prefixes; neutral TPU specimens hidden on motion."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json
 import numpy as np,mujoco
 from PIL import Image,ImageDraw
 OUT=Path(__file__).resolve().parents[1]/'exports/anatomical_arm/A1'
 
 def run():
-    m=mujoco.MjModel.from_xml_path(str(OUT/'arm.xml'));d=mujoco.MjData(m);m.vis.global_.offwidth=800;m.vis.global_.offheight=800
+    m=_load_project_model(str(OUT/'arm.xml'));d=mujoco.MjData(m);m.vis.global_.offwidth=800;m.vis.global_.offheight=800
     renderer=mujoco.Renderer(m,800,800);cam=mujoco.MjvCamera();cam.lookat[:]=[.16,-.05,-.05];cam.distance=1.9;cam.azimuth=85;cam.elevation=-5
     paths=json.loads((OUT/'motion_paths.json').read_text(encoding='utf8'));audit=json.loads((OUT/'range_audit.json').read_text(encoding='utf8'));frames=[];opt=mujoco.MjvOption();opt.geomgroup[1]=0;opt.geomgroup[2]=0;opt.geomgroup[3]=0
     for aid in ['K1','K2','K3','K4','K5','K6','K7']:

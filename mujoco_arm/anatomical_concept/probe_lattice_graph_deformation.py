@@ -4,10 +4,18 @@ This is geometric compatibility optimization, NOT TPU finite elements or a
 calibrated elastic/contact equilibrium. Guide poses are prescribed hypotheses,
 not physical external anchors. No manufacturing source mesh is overwritten.
 """
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_direct_muscle_yoke import *
 from scipy.sparse import coo_matrix
 from scipy.sparse.linalg import splu
-from pathlib import Path
+from project_runtime import WorkspacePath as Path
 
 class RigidityFit:
     def __init__(self,V,faces,fixed):

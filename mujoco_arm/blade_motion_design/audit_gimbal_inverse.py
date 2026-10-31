@@ -1,4 +1,12 @@
 """Full-arm tendon tracking with inverse-dynamics and velocity feedforward."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,sys,argparse,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -15,7 +23,7 @@ def audit(gravity=False,force_limit=200.):
     tree,spec=build_gimbal()
     if gravity:tree.getroot().find('option').set('gravity','0 0 -9.81')
     for actuator in tree.getroot().find('actuator'):actuator.set('forcerange',f'-{force_limit:g} 0')
-    model=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));reference=mujoco.MjData(model)
+    model=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));reference=mujoco.MjData(model)
     targets=target_actions();zero=next(iter(targets.values()))[0];duration=12.;hold=2.;total=26.;timegrid=np.linspace(0,total,401)
     hid=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,'humerus');uid=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,'ulna');eid=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_JOINT,'elbow')
     wrist_local=v8.design_to_mj(np.array([.087155743,-.996194698,0.])*237.);rows=[];export={}

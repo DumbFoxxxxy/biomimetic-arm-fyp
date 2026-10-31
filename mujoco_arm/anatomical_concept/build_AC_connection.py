@@ -58,6 +58,6 @@ def run():
     for name in parts:
         if name in ['clavicle_SC_AC_balls','scapula_AC_socket']:continue
         ET.SubElement(r.find('asset'),'mesh',name=name,file=name+'.stl',scale='.001 .001 .001');ET.SubElement(r.find('.//body[@name="AC"]'),'geom',name=name,type='mesh',mesh=name,pos=' '.join(str(v/1000) for v in -A),rgba='.3 .6 .75 1',group='3',contype='0',conaffinity='0',mass='.001')
-    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf8',xml_declaration=True);print('AC components',report['components'],'overlaps',overlaps,'humerus',hum_hits,flush=True)
+    ET.indent(r);tree.write(DEST/'arm.xml',encoding='utf-8',xml_declaration=True);print('AC components',report['components'],'overlaps',overlaps,'humerus',hum_hits,flush=True)
 
 if __name__=='__main__':run()

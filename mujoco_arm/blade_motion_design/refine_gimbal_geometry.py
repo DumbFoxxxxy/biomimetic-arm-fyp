@@ -1,4 +1,12 @@
 """Actual material edits for the open concentric prototype, not collision masks."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import xml.etree.ElementTree as ET
 import json
 import numpy as np
@@ -43,7 +51,7 @@ def refine(root):
     cfg,fit,anchors=inputs();ac=np.array(cfg['geometry_mm']['AC']);sc=np.array(cfg['geometry_mm']['SC'])
     from gimbal_arm_model import GH_SHIFT
     gh=np.array([159.06,187.54,7.30])+GH_SHIFT
-    model=mujoco.MjModel.from_xml_string(ET.tostring(root,encoding='unicode'));data=mujoco.MjData(model);mujoco.mj_forward(model,data)
+    model=_load_project_xml(ET.tostring(root,encoding='unicode'));data=mujoco.MjData(model);mujoco.mj_forward(model,data)
     scap=root.find('.//body[@name="scapula"]');clav=root.find('.//body[@name="clavicle_body"]')
     # Sweep clearance for the medial GF rotor, including a 2 mm machining gap.
     void=cyl(B,gh-ac-50*B,40.,20.)

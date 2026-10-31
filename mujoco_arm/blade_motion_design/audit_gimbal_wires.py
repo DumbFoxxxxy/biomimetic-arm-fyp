@@ -1,4 +1,12 @@
 """Explicit steel path audit, including reconstructed cylinder wrapping arcs."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 import json,itertools,xml.etree.ElementTree as ET
 import numpy as np
 import mujoco
@@ -30,7 +38,7 @@ def wire_paths(m,d,clip_terminals=False):
     return out
 
 def audit():
-    cfg,fit,anchors=inputs();tree,_=build_gimbal();m=mujoco.MjModel.from_xml_string(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+    cfg,fit,anchors=inputs();tree,_=build_gimbal();m=_load_project_xml(ET.tostring(tree.getroot(),encoding='unicode'));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     parts=[]
     for g in range(m.ngeom):
         name=mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,g) or '';body=int(m.geom_bodyid[g])

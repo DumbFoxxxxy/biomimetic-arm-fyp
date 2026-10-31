@@ -1,5 +1,13 @@
 """Actual MuJoCo packing render; no fictitious dynamic muscle constraints."""
-from pathlib import Path
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
+from project_runtime import WorkspacePath as Path
 import json, hashlib, xml.etree.ElementTree as ET, sys
 import numpy as np
 import mujoco
@@ -25,7 +33,7 @@ def run():
     for path in sorted((DEST/'paired_placement').glob('*.obj')):
         if grounded and not path.stem.endswith('wire_corridor'):continue
         key=path.stem;colour='1 .25 .02 1' if key.endswith('wire_corridor') else '.1 .14 .19 1' if key.endswith('grooved_wheel') else '.25 .55 .85 1';add(key,path,rgba=colour)
-    xml=output/'whole_arm.xml' if grounded else DEST/'paired_placement/whole_arm.xml';ET.ElementTree(root).write(xml,encoding='utf8',xml_declaration=True);m=mujoco.MjModel.from_xml_path(str(xml));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
+    xml=output/'whole_arm.xml' if grounded else DEST/'paired_placement/whole_arm.xml';ET.ElementTree(root).write(xml,encoding='utf-8',xml_declaration=True);m=_load_project_model(str(xml));d=mujoco.MjData(m);mujoco.mj_forward(m,d)
     renderer=mujoco.Renderer(m,height=900,width=1400)
     for name,lookat,distance in [('whole_arm',[-.05,0,.025],1.05),('elbow_detail',[-.07,0,-.09],.43)]:
         cam=mujoco.MjvCamera();cam.lookat[:]=lookat;cam.distance=distance;cam.azimuth=125;cam.elevation=-7;renderer.update_scene(d,camera=cam);renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW]=False;im=Image.fromarray(renderer.render());draw=ImageDraw.Draw(im);draw.rectangle((0,0,1400,64),fill='white');draw.text((12,10),'M7 | real adapter-integrated guide frame candidate | MuJoCo' if grounded else 'M6 | actual arm + two sheave placement candidates | MuJoCo',fill='black');draw.text((12,34),'Ground-frame geometry candidate; cable ends FREE; TPU fixed; NO drive simulation' if grounded else 'Guides UNGROUNDED; cable ends FREE; TPU fixed; no contraction or drive simulated',fill='black');im.save(output/(name+'.png'))

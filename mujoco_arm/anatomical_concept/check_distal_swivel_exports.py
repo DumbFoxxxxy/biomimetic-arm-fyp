@@ -1,4 +1,12 @@
 """Exact M5 OBJ/STL fidelity, positive connectivity and131-scene registration."""
+
+# Locate the project package from this script, independent of working directory.
+import sys as _project_sys
+from pathlib import Path as _NativeProjectPath
+_project_root = next(p for p in _NativeProjectPath(__file__).resolve().parents if (p / 'project_runtime').is_dir())
+if str(_project_root) not in _project_sys.path:
+    _project_sys.path.insert(0, str(_project_root))
+from project_runtime import load_mujoco_model as _load_project_model, load_mujoco_xml as _load_project_xml
 from build_distal_swivels import *
 from scipy.spatial import cKDTree
 import mujoco
@@ -13,7 +21,7 @@ def run():
         C=np.array(design['selected']['ball_centre_display_mm']);u=np.array(design['selected']['neutral_terminal_axis']);wire=rod(C+u*3.5,C+u*9.5,.3);terminal=load(folder/'ball_crimp_blank.obj')[0]
         assert intersection(wire,terminal)<=.001
         minimum=float(wire.min_gap(terminal,3));(folder/'wire_stub_check.json').write_text(json.dumps({'scope':'straight0.6mm cable inside uncrimped terminal bore, no external route or grip claim','intersection_mm3':intersection(wire,terminal),'minimum_gap_mm_capped3':minimum,'actual_crimp_grip_verified':False},indent=2),encoding='utf8')
-    assembly=json.loads((DEST/'assembly.json').read_text(encoding='utf8'));m=mujoco.MjModel.from_xml_path(str(DEST/'neutral_view.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);scene=[]
+    assembly=json.loads((DEST/'assembly.json').read_text(encoding='utf8'));m=_load_project_model(str(DEST/'neutral_view.xml'));d=mujoco.MjData(m);mujoco.mj_forward(m,d);scene=[]
     for r in assembly['instances']:
         gid=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_GEOM,r['key']);assert gid>=0;mid=int(m.geom_dataid[gid]);start=int(m.mesh_vertadr[mid]);count=int(m.mesh_vertnum[mid]);actual=m.mesh_vert[start:start+count]@d.geom_xmat[gid].reshape(3,3).T+d.geom_xpos[gid];_,v,f=load(ROOT/r['file']);expected=(v[np.unique(f)]+r['translation_display_mm'])/1000
         delta=max(float(cKDTree(expected).query(actual)[0].max()),float(cKDTree(actual).query(expected)[0].max()))*1000;scene.append({'part':r['key'],'mesh_registration_error_mm':delta,'pass':delta<.001})
