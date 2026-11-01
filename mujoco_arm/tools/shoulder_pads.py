@@ -43,12 +43,17 @@ def pad_basis(normal):
 
 def build_pad(centre_source, normal_source, radius=PAD_RADIUS_MM,
               thickness=PAD_THICKNESS_MM, segments=48):
-    """Cylinder seat sitting on the bone surface, growing outward along the normal."""
+    """Cylinder seat sitting on the bone surface, growing outward along the normal.
+
+    `Manifold.cylinder(h)` spans z from 0 to h, so the plate's inner face is already at the
+    centre; translating by `thickness / 2` lifted every pad 2 mm off its seat (for a 4 mm plate).
+    That offset is what made `lift_to_clear` report 0 on most seats - the pad was already 2 mm
+    clear of the bone before any lift was applied.
+    """
     import interference as I
     mf = I._manifold()
     R = pad_basis(normal_source)
     solid = mf.Manifold.cylinder(thickness, radius, radius, segments)
-    solid = solid.translate([0.0, 0.0, thickness / 2.0])
     return solid.transform(np.c_[R, np.asarray(centre_source, dtype=float)])
 
 

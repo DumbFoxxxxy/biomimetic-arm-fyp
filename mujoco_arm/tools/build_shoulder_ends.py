@@ -53,22 +53,33 @@ def mf():
     return I._manifold()
 
 
-def disc(centre, normal, thickness, radius=PAD_R, holes=True):
-    """R11 plate growing outward along `normal`, with the bolt holes and the crimp bore."""
+def disc(centre, normal, thickness, radius=PAD_R, holes=True, boss_mm=0.0, boss_r=5.0):
+    """R11 plate growing outward along `normal`, with the bolt holes and the crimp bore.
+
+    `boss_mm` adds a smaller cylinder on the plate's outer face.  5.4.31 needs the tendon segment
+    to start 7 mm above the bone while the fitted plate is only 4 mm thick, so the missing 3 mm has
+    to be a boss - the same feature 5.9.18's one-sided clamp needs anyway.
+    """
     solid = shoulder_pads.build_pad(centre, normal, radius=radius, thickness=thickness)
+    if boss_mm > 0.0:
+        R0 = shoulder_pads.pad_basis(normal)
+        boss = mf().Manifold.cylinder(boss_mm, boss_r, boss_r, 48)
+        boss = boss.translate([0.0, 0.0, thickness + boss_mm / 2.0])
+        solid = solid + boss.transform(np.c_[R0, np.asarray(centre, float)])
     if not holes:
         return solid
     R = shoulder_pads.pad_basis(normal)
-    # holes run through the plate along the normal so a screw can pass
+    total = thickness + boss_mm
+    # holes run through the plate (and the boss) along the normal so a screw can pass
     for k in (0, 1):
         ang = np.pi * k
         off = R[:, 0] * (BOLT_PITCH / 2.0) * np.cos(ang) + R[:, 1] * (BOLT_PITCH / 2.0) * np.sin(ang)
-        hole = mf().Manifold.cylinder(thickness * 3.0, BOLT_HOLE_R, BOLT_HOLE_R, 32)
-        hole = hole.translate([0.0, 0.0, -thickness])
+        hole = mf().Manifold.cylinder(total * 3.0, BOLT_HOLE_R, BOLT_HOLE_R, 32)
+        hole = hole.translate([0.0, 0.0, -total])
         world = np.c_[R, np.asarray(centre, float) + off]
         solid = solid - hole.transform(world)
-    bore = mf().Manifold.cylinder(thickness * 3.0, CRIMP_R, CRIMP_R, 32)
-    bore = bore.translate([0.0, 0.0, -thickness])
+    bore = mf().Manifold.cylinder(total * 3.0, CRIMP_R, CRIMP_R, 32)
+    bore = bore.translate([0.0, 0.0, -total])
     solid = solid - bore.transform(np.c_[R, np.asarray(centre, float)])
     return solid
 
@@ -112,7 +123,7 @@ def blade_thickness(point, normal, bone_key, bone_tris, limit=15.0):
     return None
 
 
-def disc_rounded(centre, normal, lift, thickness, radius):
+def disc_rounded(centre, normal, lift, thickness, radius, boss_mm=0.0):
     """The disc exactly as it will be recorded and re-read by the other tools.
 
     The fit loops used to measure unrounded values and then store rounded ones, so a candidate
@@ -122,7 +133,7 @@ def disc_rounded(centre, normal, lift, thickness, radius):
     """
     c = np.round(np.asarray(centre, float) + np.asarray(normal, float) * round(lift, 2), 2)
     n = np.round(np.asarray(normal, float), 3)
-    return disc(c, n, round(thickness, 2), radius=round(radius, 1))
+    return disc(c, n, round(thickness, 2), radius=round(radius, 1), boss_mm=round(boss_mm, 2))
 
 
 def main(argv=None):
