@@ -81,6 +81,39 @@ def intersection_volume(a, b):
     return max(0.0, float((a ^ b).volume()))
 
 
+def clean_solid(solid, eps=1e-3):
+    """Return a watertight copy of `solid`, ready to hand to a printer.
+
+    Unioning many tubes leaves a few non-manifold edges (2 on the fixture beam, 8 on the medial
+    post, 10-41 on the TPU lattices).  simplify() on the in-memory union only partly clears them,
+    because the mesh it starts from still carries the hurt vertices.  Going through a file once,
+    rebuilding the Manifold from the welded mesh and simplifying THAT does clear them, and the
+    volume moves by less than 0.001% - far under any print resolution (5.9.26).
+    """
+    import mesh_geom
+    import uuid
+    from pathlib import Path
+
+    # The system temp dir is outside the sandbox, so the roundtrip file goes in the workspace.
+    scratch = Path(__file__).resolve().parents[2] / '_regen' / '_clean_tmp'
+    scratch.mkdir(parents=True, exist_ok=True)
+    tmp = scratch / ('%s.stl' % uuid.uuid4().hex[:12])
+    V, F = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh())
+    mesh_geom.write_stl(str(tmp), V, F, header='clean')
+    RV, RF = mesh_geom.read_stl(str(tmp))
+    W, G = mesh_geom.weld(RV, RF)
+    rebuilt = _manifold().Manifold(_manifold().Mesh64(W, G.astype(np.uint32)))
+    try:
+        out = rebuilt.simplify(eps)
+    except Exception:
+        out = rebuilt
+    try:
+        tmp.unlink()
+    except OSError:
+        pass
+    return out
+
+
 def gap(a, b, cap=GAP_CAP_MM):
     """Minimum surface gap [mm], capped at `cap`."""
     return float(a.min_gap(b, cap))

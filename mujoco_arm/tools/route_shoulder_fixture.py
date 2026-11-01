@@ -279,6 +279,10 @@ def main(argv=None):
         for tag, geom in fixture_solids.items():
             if geom is None:
                 continue
+            # Unioning many tube segments leaves a handful of non-manifold edges (2 on the beam,
+            # 8 on the medial post).  clean_solid goes through a file and simplifies the rebuilt
+            # mesh, which clears them at under 0.001% volume change (5.9.26).
+            geom = I.clean_solid(geom)
             V, F = mesh_geom.manifold_mesh_to_arrays(geom.to_mesh())
             target = dest / ('%s.stl' % tag)
             mesh_geom.write_stl(str(target), V, F, header='S1 fixture %s' % tag)

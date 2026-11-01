@@ -34,6 +34,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--boss-mm', type=float, default=3.0)
+    ap.add_argument('--simplify', type=float, default=1e-3,
+                    help='collapse edges shorter than this before writing [mm]; unioning the holes '
+                         'can leave non-manifold edges, and simplify(0.001) clears them at less '
+                         'than 0.001 percent volume change (5.9.26)')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_parts'))
     args = ap.parse_args(argv)
     out = Path(args.out)
@@ -54,6 +58,8 @@ def main(argv=None):
         cap = BE.disc_rounded(c, n, lift + pad_t + args.boss_mm + 0.2,
                               float(s['cap_thickness_mm']), float(s['cap_radius_mm']))
         for kind, geom in (('pad', pad), ('cap', cap)):
+            if args.simplify > 0:
+                geom = I.clean_solid(geom, eps=args.simplify)
             V, F = mesh_geom.manifold_mesh_to_arrays(geom.to_mesh())
             target = out / ('%s_%s.stl' % (name, kind))
             mesh_geom.write_stl(str(target), V, F, header='S1 %s %s' % (kind, name))

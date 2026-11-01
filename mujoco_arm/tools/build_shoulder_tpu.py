@@ -589,6 +589,11 @@ def main(argv=None):
                      'FREE' if (ok and blocked_pts == 0) else 'BLOCKED'))
 
         target = out_dir / ('%s_tpu.stl' % key)
+        # The lattice unions leave 10-41 non-manifold edges; clean_solid goes through a file and
+        # simplifies the rebuilt mesh to clear them (5.9.26).  Without this the part is "probably
+        # printable" rather than watertight.
+        solid = I.clean_solid(solid)
+        sv, sf = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh())
         mesh_geom.write_stl(str(target), sv, sf, header='S1 TPU %s' % key)
         rows.append({'module': key, 'envelope_mm3': round(envelope.volume(), 1),
                      'cells': cells, 'cells_skipped': skipped,
