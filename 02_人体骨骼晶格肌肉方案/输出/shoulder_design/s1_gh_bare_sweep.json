@@ -1,0 +1,149 @@
+{
+  "scope": "bare bone vs bare bone at the GH centre; no liner, no ball, no socket, no cap, no muscle envelope; GH centre held fixed",
+  "l0": "open shallow socket (D15)",
+  "gh_centre_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "threshold_mm3": 0.001,
+  "boundary_deg": 0.1,
+  "bones": {
+    "moving": "肱骨 FJ3368",
+    "fixed": [
+      "肩胛骨 FJ3384",
+      "锁骨 FJ3362"
+    ]
+  },
+  "sweeps": [
+    {
+      "axis": "flexion",
+      "sign": 1,
+      "axis_vector_source": [
+        -0.9849915762148533,
+        0.0,
+        0.17260241825008904
+      ],
+      "sampled_deg": [
+        0.0,
+        150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": null,
+      "worst": null,
+      "first_limit": null,
+      "elapsed_s": 0.2
+    },
+    {
+      "axis": "flexion",
+      "sign": -1,
+      "axis_vector_source": [
+        -0.9849915762148533,
+        0.0,
+        0.17260241825008904
+      ],
+      "sampled_deg": [
+        -0.0,
+        -150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": -51.69,
+      "worst": {
+        "angle_deg": -141.0,
+        "volume_mm3": 2150.2090431424617
+      },
+      "first_limit": "scapula (0.001 mm3)",
+      "elapsed_s": 0.3
+    },
+    {
+      "axis": "abduction",
+      "sign": 1,
+      "axis_vector_source": [
+        0.0,
+        0.9998964030731843,
+        0.014393857068490468
+      ],
+      "sampled_deg": [
+        0.0,
+        150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": 119.38,
+      "worst": {
+        "angle_deg": 150.0,
+        "volume_mm3": 965.9263330189049
+      },
+      "first_limit": "scapula (0.004 mm3)",
+      "elapsed_s": 0.3
+    },
+    {
+      "axis": "abduction",
+      "sign": -1,
+      "axis_vector_source": [
+        0.0,
+        0.9998964030731843,
+        0.014393857068490468
+      ],
+      "sampled_deg": [
+        -0.0,
+        -150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": -25.06,
+      "worst": {
+        "angle_deg": -134.0,
+        "volume_mm3": 9829.249816656138
+      },
+      "first_limit": "scapula (0.002 mm3)",
+      "elapsed_s": 0.7
+    },
+    {
+      "axis": "longitudinal",
+      "sign": 1,
+      "axis_vector_source": [
+        -0.17258506979557828,
+        0.014177871716920615,
+        -0.9848925736532052
+      ],
+      "sampled_deg": [
+        0.0,
+        150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": 97.44,
+      "worst": {
+        "angle_deg": 150.0,
+        "volume_mm3": 1207.7968111236162
+      },
+      "first_limit": "scapula (0.003 mm3)",
+      "elapsed_s": 0.3
+    },
+    {
+      "axis": "longitudinal",
+      "sign": -1,
+      "axis_vector_source": [
+        -0.17258506979557828,
+        0.014177871716920615,
+        -0.9848925736532052
+      ],
+      "sampled_deg": [
+        -0.0,
+        -150.0
+      ],
+      "step_deg": 1.0,
+      "first_hit_deg": -122.88,
+      "worst": {
+        "angle_deg": -150.0,
+        "volume_mm3": 36.880719895276556
+      },
+      "first_limit": "scapula (0.001 mm3)",
+      "elapsed_s": 0.2
+    }
+  ],
+  "not_verified": [
+    "cartilage/liner thickness and contact stress",
+    "GH centre drift (R13)",
+    "muscle envelope, cable path, drive",
+    "all poses (sampled + bisection only)"
+  ]
+}
