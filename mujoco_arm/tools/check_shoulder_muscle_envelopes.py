@@ -34,6 +34,7 @@ import attachment_regions
 import frames
 import interference as I
 import mesh_geom
+import muscle_sections
 
 MUSCLE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / 'muscle'
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
@@ -62,117 +63,8 @@ def solid_and_mesh(path):
     return mf.Manifold(mf.Mesh64(W, G.astype(np.uint32))), W, G
 
 
-def rot_to_z(direction):
-    """Rotation matrix whose third column is `direction` (chord -> +z)."""
-    z = frames.unit(direction)
-    helper = np.array([0.0, 0.0, 1.0]) if abs(z[2]) < 0.9 else np.array([1.0, 0.0, 0.0])
-    x = frames.unit(np.cross(helper, z))
-    y = np.cross(z, x)
-    return np.stack([x, y, z], axis=1)
-
-
-def _poly_area_centroid(polys):
-    """Signed-area weighted centroid of a CrossSection's polygons."""
-    total = 0.0
-    acc = np.zeros(2)
-    for poly in polys:
-        p = np.asarray(poly, float)
-        if len(p) < 3:
-            continue
-        x, y = p[:, 0], p[:, 1]
-        x1, y1 = np.roll(x, -1), np.roll(y, -1)
-        cross = x * y1 - x1 * y
-        a = 0.5 * cross.sum()
-        if abs(a) < 1e-12:
-            continue
-        cx = ((x + x1) * cross).sum() / (6.0 * a)
-        cy = ((y + y1) * cross).sum() / (6.0 * a)
-        total += a
-        acc += a * np.array([cx, cy])
-    if abs(total) < 1e-12:
-        return 0.0, None
-    return total, acc / total
-
-
-def _poly_min_distance(point, polys):
-    """Smallest distance from `point` to any polygon edge (2D, mm)."""
-    best = np.inf
-    for poly in polys:
-        p = np.asarray(poly, float)
-        if len(p) < 2:
-            continue
-        a = p
-        b = np.roll(p, -1, axis=0)
-        ab = b - a
-        ap = np.asarray(point, float) - a
-        denom = np.einsum('ij,ij->i', ab, ab)
-        denom = np.where(denom < 1e-18, 1e-18, denom)
-        t = np.clip(np.einsum('ij,ij->i', ap, ab) / denom, 0.0, 1.0)
-        closest = a + ab * t[:, None]
-        best = min(best, float(np.linalg.norm(np.asarray(point, float) - closest, axis=1).min()))
-    return best
-
-
 def section_profile(solid, origin, insertion, stations=13):
-    """Cross-sections perpendicular to the origin->insertion chord.
-
-    A straight chord is NOT a muscle centre line: both chord ends sit on the bone
-    surface, which is a boundary of the belly, so the chord leaves the muscle
-    almost immediately.  What the channel needs is the *section centroid curve*,
-    so that is what this measures - area, centroid, and the wall from the
-    centroid to the section boundary at every station.
-    """
-    chord = np.asarray(insertion, float) - np.asarray(origin, float)
-    length = float(np.linalg.norm(chord))
-    R = rot_to_z(chord)
-    T = np.c_[R.T, -R.T @ np.asarray(origin, float)]
-    moved = solid.transform(T)
-    rows = []
-    for k in range(stations):
-        t = 0.02 + 0.96 * k / max(1, stations - 1)
-        cs = moved.slice(float(t * length))
-        if cs.is_empty():
-            rows.append({'t': round(t, 4), 'z_mm': round(t * length, 2),
-                         'area_mm2': 0.0, 'centroid_xy_mm': None,
-                         'chord_offset_mm': None, 'wall_mm': None})
-            continue
-        polys = cs.to_polygons()
-        area, cen = _poly_area_centroid(polys)
-        if cen is None:
-            rows.append({'t': round(t, 4), 'z_mm': round(t * length, 2),
-                         'area_mm2': round(abs(cs.area()), 2), 'centroid_xy_mm': None,
-                         'chord_offset_mm': None, 'wall_mm': None})
-            continue
-        wall = _poly_min_distance(cen, polys)
-        world = np.asarray(origin, float) + R @ np.array([cen[0], cen[1], t * length])
-        rows.append({'t': round(t, 4), 'z_mm': round(t * length, 2),
-                     'area_mm2': round(abs(area), 2),
-                     'centroid_xy_mm': [round(float(cen[0]), 2), round(float(cen[1]), 2)],
-                     'chord_offset_mm': round(float(np.linalg.norm(cen)), 2),
-                     'wall_mm': round(wall, 2),
-                     'centroid_source_mm': np.round(world, 2).tolist()})
-    valid = [r for r in rows if r['wall_mm'] is not None]
-    if not valid:
-        return {'length_mm': round(length, 2), 'stations': rows,
-                'sections_inside': 0}
-    walls = [r['wall_mm'] for r in valid]
-    offs = [r['chord_offset_mm'] for r in valid]
-    areas = [r['area_mm2'] for r in valid]
-    belly = [r for r in valid if 0.15 <= r['t'] <= 0.85]
-    belly_walls = [r['wall_mm'] for r in belly]
-    return {'length_mm': round(length, 2),
-            'sections_total': len(rows),
-            'sections_inside': len(valid),
-            'wall_min_mm': round(min(walls), 2),
-            'wall_median_mm': round(float(np.median(walls)), 2),
-            'wall_min_at_t': min(valid, key=lambda r: r['wall_mm'])['t'],
-            'wall_min_belly_mm': round(min(belly_walls), 2) if belly_walls else None,
-            'wall_min_belly_at_t': (min(belly, key=lambda r: r['wall_mm'])['t']
-                                    if belly else None),
-            'chord_offset_max_mm': round(max(offs), 2),
-            'area_max_mm2': round(max(areas), 1),
-            'area_median_mm2': round(float(np.median(areas)), 1),
-            'stations': rows}
+    return muscle_sections.section_profile(solid, origin, insertion, stations=stations)
 
 
 def main(argv=None):
