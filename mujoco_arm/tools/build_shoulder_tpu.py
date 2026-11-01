@@ -44,6 +44,8 @@ CELL_MM = (15.0, 10.0, 20.0)
 STRUT_R_MM = 1.0
 #: elbow channel: outer R1.6, wire bore R0.85, wall 0.75 (§5.7)
 CHANNEL_OUTER_R_MM = 1.6
+#: lattice stubs below this are clipping debris, not structure [mm3]; one cell's struts are ~40 mm3
+DEBRIS_MM3 = 10.0
 BORE_R_MM = 0.85
 #: facets used for the channel tubes.  A polygonal bore is narrower than its nominal
 #: radius by cos(pi/n), so the check is made against the inscribed radius, not the
@@ -491,6 +493,20 @@ def main(argv=None):
             solid = (solid + (root ^ envelope)) - bore
             print('  Y root boss r%.1f mm at the shared seat: %.1f mm3'
                   % (args.root_boss_mm, root.volume()))
+        # Debris: clipping leaves a few cut-loose stubs.  A single cell's struts are ~40 mm3, so
+        # anything under DEBRIS_MM3 is a stub, not structure - the same rule 5.4.11 uses for the
+        # module envelopes.  Dropping them is what makes "one piece" mean one printable body.
+        raw_comps = [c for c in solid.decompose() if c.volume() > 0.5]
+        debris = [c for c in raw_comps if c.volume() < DEBRIS_MM3]
+        if debris and len(raw_comps) > len(debris):
+            # Subtract the stubs from the solid.  Rebuilding the part out of the decompose()
+            # components instead FILLS the bores: a component carries its channel cavity folded
+            # into itself (which is also why sum(decompose) exceeds volume(), 5.4.27), and
+            # reconstructing from it turns the lumen into solid.
+            for c in debris:
+                solid = solid - c
+            print('  dropped %d stub(s) totalling %.1f mm3 (< %.0f mm3)'
+                  % (len(debris), sum(c.volume() for c in debris), DEBRIS_MM3))
         comps = [c for c in solid.decompose() if c.volume() > 0.5]
         frags = sorted((round(c.volume(), 1) for c in comps), reverse=True)
         print('  channel: %d corridor(s), wall tube %.1f mm3' % (len(channels), wall.volume()))
