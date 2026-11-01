@@ -1,0 +1,261 @@
+{
+  "scope": "straight 4 mm posts from four mechanically defined grip zones to a dorsal backboard plane and to an anterior bar plane; no clamp body, jaw, bolt, bent arm or rail modelled",
+  "backboard": {
+    "dorsal_plane_y_mm": 7.083,
+    "anterior_plane_y_mm": -148.948,
+    "clearance_mm": 2.0,
+    "basis": "dorsal-most / anterior-most of scapula, clavicle and the six muscle bellies, plus the clearance"
+  },
+  "post_radius_mm": 4.0,
+  "post_start_mm": 4.0,
+  "posts": [
+    {
+      "zone": "medial_mid",
+      "label": "内侧缘中段",
+      "criterion": "medial 5% band, z in 1278-1295",
+      "side": "dorsal",
+      "centre_source_mm": [
+        -59.29,
+        -9.22,
+        1287.22
+      ],
+      "normal_source": [
+        0.9051,
+        -0.4251,
+        -0.0073
+      ],
+      "normal_y": -0.425,
+      "distance_to_surface_mm": 1.12,
+      "post_start_mm": 4.0,
+      "post_length_mm": 12.31,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {},
+      "belly_hits_mm3": {},
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [],
+      "reachable": true
+    },
+    {
+      "zone": "medial_mid",
+      "label": "内侧缘中段",
+      "criterion": "medial 5% band, z in 1278-1295",
+      "side": "anterior",
+      "centre_source_mm": [
+        -59.29,
+        -9.22,
+        1287.22
+      ],
+      "normal_source": [
+        0.9051,
+        -0.4251,
+        -0.0073
+      ],
+      "normal_y": -0.425,
+      "distance_to_surface_mm": 1.12,
+      "post_start_mm": 4.0,
+      "post_length_mm": 135.72,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {},
+      "belly_hits_mm3": {},
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [],
+      "reachable": true
+    },
+    {
+      "zone": "superior_angle",
+      "label": "上角",
+      "criterion": "medial 5% band, top 8 mm (z >= 1317)",
+      "side": "dorsal",
+      "centre_source_mm": [
+        -62.79,
+        -18.62,
+        1319.93
+      ],
+      "normal_source": [
+        0.848,
+        0.066,
+        0.5259
+      ],
+      "normal_y": 0.066,
+      "distance_to_surface_mm": 0.43,
+      "post_start_mm": 4.0,
+      "post_length_mm": 21.7,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {},
+      "belly_hits_mm3": {},
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [],
+      "reachable": true
+    },
+    {
+      "zone": "superior_angle",
+      "label": "上角",
+      "criterion": "medial 5% band, top 8 mm (z >= 1317)",
+      "side": "anterior",
+      "centre_source_mm": [
+        -62.79,
+        -18.62,
+        1319.93
+      ],
+      "normal_source": [
+        0.848,
+        0.066,
+        0.5259
+      ],
+      "normal_y": 0.066,
+      "distance_to_surface_mm": 0.43,
+      "post_start_mm": 4.0,
+      "post_length_mm": 126.33,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {
+        "scapula": 5.38,
+        "clavicle": 6.31
+      },
+      "belly_hits_mm3": {},
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [],
+      "reachable": true
+    },
+    {
+      "zone": "coracoid",
+      "label": "喙突",
+      "criterion": "6 mm patch around the most anterior vertex",
+      "side": "dorsal",
+      "centre_source_mm": [
+        -133.34,
+        -101.29,
+        1322.83
+      ],
+      "normal_source": [
+        -0.1874,
+        -0.9758,
+        -0.1128
+      ],
+      "normal_y": -0.976,
+      "distance_to_surface_mm": 1.49,
+      "post_start_mm": 4.0,
+      "post_length_mm": 104.37,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {
+        "scapula": 1641.78
+      },
+      "belly_hits_mm3": {
+        "FJ1468": 0.01,
+        "FJ1513": 352.57,
+        "FJ1504": 141.73,
+        "FJ1500": 60.07
+      },
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [
+        "scapula",
+        "FJ1513",
+        "FJ1504",
+        "FJ1500"
+      ],
+      "reachable": false
+    },
+    {
+      "zone": "coracoid",
+      "label": "喙突",
+      "criterion": "6 mm patch around the most anterior vertex",
+      "side": "anterior",
+      "centre_source_mm": [
+        -133.34,
+        -101.29,
+        1322.83
+      ],
+      "normal_source": [
+        -0.1874,
+        -0.9758,
+        -0.1128
+      ],
+      "normal_y": -0.976,
+      "distance_to_surface_mm": 1.49,
+      "post_start_mm": 4.0,
+      "post_length_mm": 43.66,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {},
+      "belly_hits_mm3": {
+        "FJ1468": 334.07
+      },
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [
+        "FJ1468"
+      ],
+      "reachable": false
+    },
+    {
+      "zone": "lateral_upper",
+      "label": "外侧缘上部",
+      "criterion": "most lateral surface point 45-65%% along inferior angle -> GH",
+      "side": "dorsal",
+      "centre_source_mm": [
+        -133.08,
+        -47.19,
+        1275.04
+      ],
+      "normal_source": [
+        -0.8822,
+        0.4303,
+        -0.1914
+      ],
+      "normal_y": 0.43,
+      "distance_to_surface_mm": 1.55,
+      "post_start_mm": 4.0,
+      "post_length_mm": 50.27,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {
+        "scapula": 17.05
+      },
+      "belly_hits_mm3": {
+        "FJ1500": 447.13
+      },
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [
+        "FJ1500"
+      ],
+      "reachable": false
+    },
+    {
+      "zone": "lateral_upper",
+      "label": "外侧缘上部",
+      "criterion": "most lateral surface point 45-65%% along inferior angle -> GH",
+      "side": "anterior",
+      "centre_source_mm": [
+        -133.08,
+        -47.19,
+        1275.04
+      ],
+      "normal_source": [
+        -0.8822,
+        0.4303,
+        -0.1914
+      ],
+      "normal_y": 0.43,
+      "distance_to_surface_mm": 1.55,
+      "post_start_mm": 4.0,
+      "post_length_mm": 97.76,
+      "post_radius_mm": 4.0,
+      "bone_hits_mm3": {
+        "scapula": 7.77
+      },
+      "belly_hits_mm3": {},
+      "graze_threshold_mm3": 50.0,
+      "blocked_by": [],
+      "reachable": true
+    }
+  ],
+  "reachable": [
+    "medial_mid/dorsal",
+    "medial_mid/anterior",
+    "superior_angle/dorsal",
+    "superior_angle/anterior",
+    "lateral_upper/anterior"
+  ],
+  "not_verified": [
+    "clamp jaws and the two-sided grip are not modelled, only the reach of a straight post",
+    "bent arms and rails are not modelled; a blocked straight post does not prove the zone is unusable",
+    "no humerus sweep against the clamps (S1-G1)",
+    "no clamp force, no fixture compliance (§5.9.4)"
+  ]
+}
