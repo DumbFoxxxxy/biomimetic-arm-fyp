@@ -126,6 +126,16 @@ def disc_rounded(centre, normal, lift, thickness, radius):
 
 
 def main(argv=None):
+    # A seat the fitter could not solve can still take a smaller, laterally offset clamp at the
+    # same attachment point: 5.9.18 found the deltoid posterior origin needs only a 1.0 mm offset,
+    # which costs 2.68% of its abduction moment arm - against 45.1% for the 17.39 mm seat move D22
+    # rejected.  Those solved clamps are read here and used verbatim.
+    clamp_specs = {}
+    _clamp_path = frames.OUTPUT_DIR.parent / 'shoulder_design' / 's1_one_sided_clamp.json'
+    if _clamp_path.is_file():
+        _c = json.loads(_clamp_path.read_text(encoding='utf-8'))
+        if _c.get('found'):
+            clamp_specs[_c['seat']] = _c['found']
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_ends'))
@@ -176,16 +186,30 @@ def main(argv=None):
     seats = []
     for g in merged:
         p = g['p']
+        seat_p = p.copy()
         n = bone_normal(p, bone_tris)
         bk, bsolid = nearest_bone(p, bones)
         g_module = g['module']
+        spec = clamp_specs.get(','.join(g['members']))
+        if spec is not None:
+            p = seat_p + np.asarray(spec['offset_source_mm'], float)
+            print('  %-22s using the solved one-sided clamp: offset %.1f mm'
+                  % (','.join(g['members']), spec['offset_mm']))
         # The pad must clear the bones AND the neighbouring modules.  On a 2.8 mm blade with the
         # opposite-side muscle pressed against the far face even a 2.3 mm disc reaches it, so the
         # footprint is fitted rather than fixed.
         blade = blade_thickness(p, n, bk, bone_tris)
         t_max = PAD_T if blade is None else float(max(1.0, min(PAD_T, blade - 0.5)))
         pad_r, thick, pad, lift = PAD_R, t_max, None, 0.0
-        for cand_t in sorted({t_max, round(t_max * 0.7, 2), 1.5, 1.0}, reverse=True):
+        if spec is not None:
+            # verbatim from the solved clamp: no search, no re-fitting
+            pad_r = float(spec['pad_radius_mm'])
+            thick = float(spec['pad_thickness_mm'])
+            lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=pad_r, thickness=thick)
+            lift = 0.0 if lift is None else lift
+            pad = disc_rounded(p, n, lift, thick, pad_r)
+        for cand_t in () if spec is not None else sorted(
+                {t_max, round(t_max * 0.7, 2), 1.5, 1.0}, reverse=True):
             done = False
             for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
                 # the lift is re-solved per candidate: the earlier value was fitted to 4 mm
@@ -212,7 +236,12 @@ def main(argv=None):
         # the seats that failed are on a thin blade, where the cap's THICKNESS is what reaches the
         # far side, so both are fitted.
         cap_r, cap_t, cap, cap_hit = PAD_R, thick, None, None
-        for cand_t in sorted({thick, round(thick * 0.6, 2), 1.5, 1.0}, reverse=True):
+        if spec is not None:
+            cap_r = float(spec['cap_radius_mm'])
+            cap_t = float(spec['cap_thickness_mm'])
+            cap = disc_rounded(p, n, lift + thick + 0.2, cap_t, cap_r)
+        for cand_t in () if spec is not None else sorted(
+                {thick, round(thick * 0.6, 2), 1.5, 1.0}, reverse=True):
             done = False
             for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
                 c_c = p + n * (lift + thick + 0.2)
@@ -236,6 +265,7 @@ def main(argv=None):
             'module': g['module'], 'heads': g['members'],
             'head': g['members'][0].split('/')[0], 'end': g['members'][0].split('/')[1],
             'centre_source_mm': np.round(p, 2).tolist(),
+            'seat_source_mm': np.round(seat_p, 2).tolist(),
             'normal_source': np.round(n, 3).tolist(),
             'nearest_bone': bk,
             'lift_mm': round(lift, 2),
