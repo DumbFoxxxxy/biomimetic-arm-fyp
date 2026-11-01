@@ -63,21 +63,8 @@ def load_solid(path):
 
 
 def polyline_wall(points, solid, tri, step=CHANNEL_SAMPLE_MM):
-    """Minimum distance from a polyline to the solid surface [mm] (positive = inside).
-
-    Samples the polyline and evaluates the signed distance to the *local* surface;
-    negative anywhere means the route leaves the belly.
-    """
-    samples = []
-    for a, b in zip(points, points[1:]):
-        n = max(2, int(np.ceil(np.linalg.norm(np.array(b) - np.array(a)) / step)) + 1)
-        for t in np.linspace(0.0, 1.0, n):
-            samples.append(np.asarray(a, float) + (np.asarray(b, float) - np.asarray(a, float)) * t)
-    d = [mesh_geom.signed_distance(p, tri) for p in samples]
-    return {'samples': len(d), 'min_mm': round(float(min(d)), 3),
-            'max_mm': round(float(max(d)), 3),
-            'inside_fraction': round(sum(1 for x in d if x < 0) / max(1, len(d)), 3),
-            'profile_mm': [round(float(x), 2) for x in d]}
+    """Thin wrapper kept for the printed table; the check lives in muscle_sections."""
+    return muscle_sections.path_clearance(points, tri, step=step)
 
 
 def main(argv=None):
@@ -171,7 +158,7 @@ def main(argv=None):
     # ---- three channels into one shared seat
     print('\n--- channel routing: three origins -> one shared seat ---')
     print('%-8s %-9s %7s %8s %9s %9s %s'
-          % ('head', 'route', 'samples', 'min wall', 'max wall', 'inside', 'verdict'))
+          % ('head', 'route', 'samples', 'worst', 'deepest', 'inside', 'verdict'))
     merged_arrays = mesh_geom.manifold_mesh_to_arrays(merged.to_mesh())
     _, MG = mesh_geom.weld(*merged_arrays)
     mW = merged_arrays[0]
@@ -200,22 +187,22 @@ def main(argv=None):
                         path.append(np.asarray(chunk[key], float))
                 path.append(distal)
             wall = polyline_wall(path, merged, tri)
-            bore_ok = wall['min_mm'] >= CHANNEL_OUTER_R_MM
+            bore_ok = wall['fits_channel']
             channels.append({'head': mid, 'name': label, 'route': route,
                              'path_points': len(path),
                              'path_source_mm': [np.round(p, 2).tolist() for p in path],
                              'path_length_mm': round(float(sum(np.linalg.norm(
                                  np.asarray(b, float) - np.asarray(a, float))
                                  for a, b in zip(path, path[1:]))), 2),
-                             'min_wall_mm': wall['min_mm'],
-                             'max_wall_mm': wall['max_mm'],
+                             'worst_mm': wall['worst_mm'],
+                             'deepest_mm': wall['deepest_mm'],
                              'inside_fraction': wall['inside_fraction'],
                              'channel_outer_r_mm': CHANNEL_OUTER_R_MM,
                              'fits_channel': bool(bore_ok),
                              'profile_mm': wall['profile_mm']})
-            print('%-8s %-9s %7d %8.2f %9.2f %9.2f %s'
-                  % (mid, route, wall['samples'], wall['min_mm'], wall['max_mm'],
-                     wall['inside_fraction'], 'OK' if bore_ok else 'TOO THIN'))
+            print('%-8s %-15s %7d %8.2f %9.2f %9.2f %s'
+                  % (mid, route, wall['samples'], wall['worst_mm'], wall['deepest_mm'],
+                     wall['inside_fraction'], 'OK' if bore_ok else 'OUT/TOO THIN'))
 
     # ---- can three bores share the R11 seat?
     pitch = 2.0 * BORE_RING_R_MM * np.sin(np.pi / 3.0)

@@ -95,6 +95,38 @@ def _area_centroid(polys):
     return total, acc / total
 
 
+def path_clearance(points, tri, step=1.5, wall_mm=1.6):
+    """Wall along a polyline inside a closed mesh.
+
+    Sign convention, which is easy to get backwards: ``mesh_geom.signed_distance``
+    returns NEGATIVE inside the material.  So along a route
+
+        worst_mm    = max(signed)  the least-inside point  (the binding one)
+        deepest_mm  = min(signed)  the most-inside point
+
+    A route can carry a channel only when even its worst point is at least `wall_mm`
+    inside, i.e. ``worst_mm <= -wall_mm``.  A positive ``worst_mm`` means the route
+    leaves the belly.
+    """
+    import mesh_geom
+    samples = []
+    for a, b in zip(points, points[1:]):
+        a = np.asarray(a, float)
+        b = np.asarray(b, float)
+        n = max(2, int(np.ceil(np.linalg.norm(b - a) / step)) + 1)
+        for t in np.linspace(0.0, 1.0, n):
+            samples.append(a + (b - a) * t)
+    d = [mesh_geom.signed_distance(p, tri) for p in samples]
+    worst = float(max(d))
+    return {'samples': len(d),
+            'worst_mm': round(worst, 3),
+            'deepest_mm': round(float(min(d)), 3),
+            'inside_fraction': round(sum(1 for x in d if x < 0) / max(1, len(d)), 3),
+            'required_wall_mm': wall_mm,
+            'fits_channel': bool(worst <= -wall_mm),
+            'profile_mm': [round(float(x), 2) for x in d]}
+
+
 def section_at(solid, origin, insertion, t, step=INRADIUS_STEP_MM):
     """One perpendicular section at fraction `t` of the origin->insertion chord.
 
