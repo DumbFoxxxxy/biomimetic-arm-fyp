@@ -158,8 +158,9 @@ def main(argv=None):
             clamp_specs[_c['seat']] = _c['found']
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
-    ap.add_argument('--pad-boss-mm', type=float, default=0.0,
-                    help='boss height on the pad; 5.4.31 needs 3 mm so the tendon starts at 7 mm')
+    ap.add_argument('--pad-boss-mm', type=float, default=3.0,
+                    help='boss height on the pad; 3 mm is the specified value - 5.4.31 needs the '
+                         'tendon to start 7 mm above the bone and the plate is only 4 mm')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_ends'))
     args = ap.parse_args(argv)
     out_dir = Path(args.out)
