@@ -158,6 +158,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_tendons'))
+    ap.add_argument('--standoff-mm', type=float, default=4.0,
+                    help='how far the segment starts from the seat along the bone normal [mm]')
     ap.add_argument('--relax', action='store_true',
                     help='densify and push each segment off the bone (the 5.9.11 method)')
     ap.add_argument('--segment-r', type=float, default=SEGMENT_R_MM,
@@ -200,7 +202,8 @@ def main(argv=None):
                     continue
                 solid, length, keep = build_along(paths[c['head']], L, from_distal=dist,
                                                   bone_tris=bone_tris, r=args.segment_r,
-                                                  relax=args.relax)
+                                                  relax=args.relax,
+                                                  pad_thickness_mm=args.standoff_mm)
                 bone_hit = max(I.intersection_volume(solid, b).__float__()
                                for b in bones.values())
                 near = {k: round(I.intersection_volume(solid, s), 3)
@@ -237,6 +240,7 @@ def main(argv=None):
         I.write_report(args.json_out, {
             'scope': 'rigid tendon segments from each bone-side seat to the TPU channel entry',
             'segment_outer_r_mm': args.segment_r, 'bore_r_mm': BORE_R_MM,
+            'standoff_mm': args.standoff_mm, 'relaxed': bool(args.relax),
             'segments': rows,
             'n_needed': len(need),
             'max_length_mm': round(max([r['length_mm'] for r in need], default=0.0), 2),
