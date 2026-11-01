@@ -40,6 +40,9 @@ CHANNEL_OUTER_R_MM = 1.6
 TUBE_R_MM = 3.2
 #: fragments below this are trimmed slivers, not anatomical lobes [mm3]
 DEBRIS_MM3 = 5.0
+#: how far the end-cap assembly may have to reach from a seat to the channel entry.
+#: The pad+transition+cap stack is about 13 mm (§5.7), so 20 mm leaves margin.
+CAP_REACH_MM = 20.0
 
 #: module -> (label, heads).  The deltoid's heads share one distal seat; the others are
 #: single muscles whose distal end is their own insertion seat.
@@ -170,6 +173,63 @@ def bridge(lobes, bone_tris, bone_solids, radius=TUBE_R_MM, offsets=(4.0, 6.0, 8
         if fallback is None:
             fallback = rec
     return fallback
+
+
+def channel_extent(path, tri, wall_mm=CHANNEL_OUTER_R_MM, step=1.0):
+    """Where does the channel actually start being enclosed, measured from each pad?
+
+    The band t 0.15-0.85 used earlier was a fraction of the path, which hides the pad
+    region and means different absolute lengths per module.  What the design needs is the
+    distance from each pad at which the wall first holds and then keeps holding - that is
+    the length the end-cap assembly has to cover.
+    """
+    pts, t = [], []
+    for a, b in zip(path, path[1:]):
+        a = np.asarray(a, float)
+        b = np.asarray(b, float)
+        n = max(2, int(np.ceil(np.linalg.norm(b - a) / step)) + 1)
+        for f in np.linspace(0.0, 1.0, n):
+            pts.append(a + (b - a) * f)
+            t.append(f)
+    if not pts:
+        return None
+    # de-duplicate consecutive identical samples
+    clean = [pts[0]]
+    for p in pts[1:]:
+        if np.linalg.norm(p - clean[-1]) > 1e-9:
+            clean.append(p)
+    depth = [mesh_geom.signed_distance(p, tri) for p in clean]
+    n = len(clean)
+    from_distal = [float(np.linalg.norm(p - clean[-1])) for p in clean]
+    from_origin = [float(np.linalg.norm(p - clean[0])) for p in clean]
+
+    # the longest contiguous stretch where the wall holds is the enclosed channel
+    runs, start = [], None
+    for i, d in enumerate(depth):
+        if d <= -wall_mm:
+            if start is None:
+                start = i
+        elif start is not None:
+            runs.append((start, i - 1))
+            start = None
+    if start is not None:
+        runs.append((start, n - 1))
+    if not runs:
+        return {'samples': n, 'wall_required_mm': wall_mm,
+                'worst_mm': round(float(max(depth)), 3),
+                'pad_to_channel_origin_mm': None,
+                'pad_to_channel_distal_mm': None,
+                'enclosed_fraction': 0.0, 'longest_run_mm': 0.0}
+    a, b = max(runs, key=lambda r: from_origin[r[1]] - from_origin[r[0]])
+    return {
+        'samples': n,
+        'wall_required_mm': wall_mm,
+        'worst_mm': round(float(max(depth)), 3),
+        'pad_to_channel_origin_mm': round(from_origin[a], 2),
+        'pad_to_channel_distal_mm': round(from_distal[b], 2),
+        'enclosed_fraction': round(sum(1 for d in depth if d <= -wall_mm) / n, 3),
+        'longest_run_mm': round(from_origin[b] - from_origin[a], 2),
+    }
 
 
 def main(argv=None):
@@ -327,17 +387,15 @@ def main(argv=None):
         ch = []
         for c in corridors:
             path = c['path_source_mm']
-            ts = np.linspace(0.0, 1.0, len(path))
-            idx = [k for k, t in enumerate(ts) if SP.BAND[0] <= t <= SP.BAND[1]]
-            band = [np.asarray(path[k]) for k in idx]
-            d = [mesh_geom.signed_distance(p, ftri) for p in band]
-            k_worst = int(np.argmax(d))
-            ch.append({'head': c['head'], 'worst_mm': round(max(d), 3),
-                       'deepest_mm': round(min(d), 3),
-                       'worst_at_t': round(float(ts[idx[k_worst]]), 3),
-                       'worst_to_pad_mm': round(float(
-                           np.linalg.norm(np.asarray(path[-1]) - band[k_worst])), 2),
-                       'fits': bool(max(d) <= -CHANNEL_OUTER_R_MM)})
+            ext = channel_extent(path, ftri)
+            gaps = [g for g in (ext['pad_to_channel_origin_mm'],
+                                ext['pad_to_channel_distal_mm']) if g is not None]
+            # the enclosed run is contiguous by construction, so the only samples outside
+            # it are the two pad regions.  The channel therefore holds for its whole free
+            # length; what matters is whether the end-cap assembly can bridge those two
+            # gaps, not a "worst point" that sits on a pad.
+            ext['fits'] = bool(gaps) and max(gaps) <= CAP_REACH_MM
+            ch.append({'head': c['head'], **ext})
         bone_hits = {n: round(I.intersection_volume(final, b), 3) for n, b in bones.items()}
         total_bone = sum(bone_hits.values())
         one = len(fcomps) == 1
@@ -375,9 +433,16 @@ def main(argv=None):
         print('  bone %s | channels %s'
               % ('clear' if total_bone <= I.HARD_MM3
                  else ', '.join('%.1f' % v for v in bone_hits.values()),
-                 ', '.join('%s %s (worst at t=%.2f, %.1f mm from the pad)'
+                 ', '.join('%s %s (enclosed %.1f..%.1f mm, worst %+.2f)'
                            % (x['head'], 'fit' if x['fits'] else 'SHORT',
-                              x['worst_at_t'], x['worst_to_pad_mm']) for x in ch)))
+                              x['pad_to_channel_origin_mm'] or 0.0,
+                              (x['longest_run_mm'] or 0.0), x['worst_mm'])
+                           for x in ch)))
+        print('  cap length needed per end (pad -> channel entry): %s'
+              % ', '.join('%s %.1f/%.1f mm' % (x['head'],
+                                               x['pad_to_channel_origin_mm'] or 0.0,
+                                               x['pad_to_channel_distal_mm'] or 0.0)
+                          for x in ch))
 
         modules.append({'module': key, 'label': label, 'heads': list(heads),
                         'merges_to_one_seat': bool(merge_distal),
