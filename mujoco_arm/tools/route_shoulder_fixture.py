@@ -143,6 +143,8 @@ def main(argv=None):
     global CLEAR_MM
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
+    ap.add_argument('--export', metavar='DIR',
+                    help='write the beam, both posts and both bases as STL into this directory')
     ap.add_argument('--clear-mm', type=float, default=CLEAR_MM,
                     help='clearance the route must keep from every obstacle [mm]')
     ap.add_argument('--post-r-mm', type=float, default=FX.POST_R_MM,
@@ -233,12 +235,15 @@ def main(argv=None):
 
     # --- posts: greedy route, base at the end ---
     results = {}
+    fixture_solids = {'medial_beam': beam}
     for tag, key, heading in (('medial_post', 'superior_angle', np.array([1.0, 0.0, -0.2])),
                               ('lateral_post', 'lateral_upper', np.array([-1.0, 0.0, -0.5]))):
         path, why = plan_post(starts[key], heading, obstacles)
         post = tube(path, args.post_r_mm) if len(path) > 1 else None
         base_c = path[-1]
         base = mf().Manifold.cube(list(BASE_SIZE)).translate(list(base_c))
+        fixture_solids[tag] = post
+        fixture_solids[tag.replace('post', 'base')] = base
         results[tag] = {
             'why': why, 'points': len(path),
             'length_mm': round(float(sum(np.linalg.norm(b - a)
@@ -266,6 +271,26 @@ def main(argv=None):
                           for t, v in results.items()))
     print('fixture exits all clear: %s' % ('YES' if ok else 'NO'))
 
+    # Export every fixture solid as STL so the parts exist as files, not just as routes.
+    exported = {}
+    if args.export:
+        dest = Path(args.export)
+        dest.mkdir(parents=True, exist_ok=True)
+        for tag, geom in fixture_solids.items():
+            if geom is None:
+                continue
+            V, F = mesh_geom.manifold_mesh_to_arrays(geom.to_mesh())
+            target = dest / ('%s.stl' % tag)
+            mesh_geom.write_stl(str(target), V, F, header='S1 fixture %s' % tag)
+            RV, RF = mesh_geom.read_stl(str(target))
+            RW, RG = mesh_geom.weld(RV, RF)
+            e, bnd, nm = mesh_geom.edge_census(RG)
+            exported[tag] = {'file': target.name, 'volume_mm3': round(geom.volume(), 1),
+                             'triangles': int(len(F)),
+                             'boundary_edges': int(bnd), 'nonmanifold_edges': int(nm)}
+            print('  exported %-14s %9.1f mm3  %6d tris  boundary %d  non-manifold %d'
+                  % (tag, geom.volume(), len(F), bnd, nm))
+
     if args.json_out:
         I.write_report(args.json_out, {
             'scope': 'D17 v3 fixture exits routed with obstacle avoidance: beam follows the '
@@ -277,6 +302,7 @@ def main(argv=None):
             'beam': {'clear': bool(beam_ok), 'points': len(beam_path),
                      'bone_mm3': round(beam_bone, 3), 'sweep_mm3': round(beam_sweep, 3)},
             'posts': results, 'pads': pads_ok, 'exits_all_clear': bool(ok),
+            'exported': exported,
             'not_verified': ['no jaws, screws or rails', 'wedge gaps not filled',
                              'single-axis sweep union, not combined poses'],
         })

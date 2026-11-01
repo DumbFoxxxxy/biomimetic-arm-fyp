@@ -1,6 +1,6 @@
 # 肩部仿生设计 · 技术文档
 
-**版本**：v0.8.28（草案，未定版）
+**版本**：v0.8.29（草案，未定版）
 **日期**：2026-11-01
 **上游依据**：[肘部交付与验证边界](../anatomical_concept/ELBOW_HANDOFF.md)、[肘部设计思路](../anatomical_concept/肘部设计思路.md)
 **方法论依据**：Yoshimura, Kawaharazuka, Okada, *Advanced Intelligent Systems* 2026（见 §11）
@@ -3127,6 +3127,35 @@ solid = solid.translate([0.0, 0.0, thickness / 2.0])                # → z: 2 �
 孔的螺纹未建（只是 r1.7 通孔）；`manifold3d` 只出网格，**没有 STEP**；
 没有公差、配合与实际加工验证。
 
+#### 5.9.25 夹具五件也导出了：梁 / 两柱 / 两底座（2026-11-01 实测）
+
+夹具此前只有"路线"和"干涉数"，**没有零件文件**。本节补上。
+
+脚本：`route_shoulder_fixture.py --export <dir>`（新增 `--export`）
+输出：`../anatomical_concept/shoulder_parts_fixture/*.stl`（不入库，可重建，已加 `.gitignore`）
+清单：本目录 [s1_fixture_v3_routed.json](s1_fixture_v3_routed.json) 的 `exported` 字段
+
+| 件 | 体积 mm³ | 三角面 | 边界边 | 非流形边 |
+|---|---:|---:|---:|---:|
+| 内侧梁 medial_beam | 2 288.8 | 25 734 | 0 | **2** ⚠ |
+| 内侧柱 medial_post | 2 504.8 | 2 780 | 0 | **8** ⚠ |
+| 内侧底座 medial_base | 7 200.0 | 12 | **0** | **0** |
+| 外侧柱 lateral_post | 2 460.9 | 3 688 | **0** | **0** |
+| 外侧底座 lateral_base | 7 200.0 | 12 | **0** | **0** |
+
+底座 7 200 mm³ = 20 × 18 × 20 mm，12 个三角面（标准立方体），**完全水密**。
+
+**路径仍然全部清**：`fixture exits all clear: YES`——柱在 45 mm 处让开，
+柱/骨、柱/扫掠、底座/扫掠、底座/骨**全 0**（与 §5.9.11 一致）。
+
+**两个警告照实说**：梁有 **2 条**、内侧柱有 **8 条非流形边**，
+由多段管并集产生（与 §5.4.26 晶格件同类，量级更小）。
+**切片软件通常能容忍并自动修复，但"能打印"不等于"已修复"**——
+正式打印前应过一遍修复，本步**没有做**。
+
+**本节没有证明什么**：非流形边未修；没有螺纹、销孔与配合；
+没有夹紧力（R12 的夹具柔度仍是无输入参数）；没有打印与装配验证。
+
 **本节没有证明什么**：两工具一致性未解决；8 处残余未清；
 端垫仍是平盘、不是随形底面；没有螺钉、压接、力与打印。
 
@@ -3441,7 +3470,7 @@ strut diameter"）：muscle–tendon complex 就是同一件连续实体里低�
 
 | 交付物 | 形式 | 状态与证据 |
 |---|---|---|
-| 本技术文档 | Markdown | ✅ v0.8.28 |
+| 本技术文档 | Markdown | ✅ v0.8.29 |
 | 肱骨近端止点排布（4 座 / 轴承冲突 / 压紧分量） | JSON + 工具 | ✅ `s1_attachment_layout.json` + `check_shoulder_attachment_layout.py` |
 | 起点侧 6 个骨侧座（肩胛 5 + 锁骨 1） | JSON + 工具 | ✅ `s1_origin_layout.json` + `check_shoulder_origin_layout.py` |
 | L0 裸骨扫掠（D15 开放浅窝边界） | JSON + 工具 | ✅ `s1_gh_bare_sweep.json` + `sweep_gh_bare.py` |
@@ -3474,7 +3503,7 @@ strut diameter"）：muscle–tendon complex 就是同一件连续实体里低�
 | 通道通丝检查记录 | CSV | 🔶 模板已就绪（	emplates/channel_patency.csv），**待实物**（R15） |
 | **台架试验记录模板 + 测量规程** | Markdown + 6 个 CSV | ✅ 	emplates/BENCH_PROTOCOL.md + p0_z_calibration / g3_single_muscle / g4_antagonist / g5_three_axis / crimp_slip / channel_patency（列已校验一致） |
 | 骨侧接口几何导出（端垫 / 端盖 20 件） | STL | ✅ shoulder_parts/*.stl + s1_parts_export.json + export_shoulder_parts.py；**20/20 水密**，STL 不入库可重建 |
-| 夹具梁 / 柱 / 底座导出 | STL | ⬜ 需重跑路径规划器 |
+| 夹具梁 / 柱 / 底座导出（5 件） | STL | ✅ shoulder_parts_fixture/*.stl + --export；**路径全清**；**梁 2 条、内侧柱 8 条非流形边待修** |
 
 **STEP 为分面 BRep，不含原生特征树与配合关系**（沿用肘部口径）。
 TPU 以 OBJ/STL 制造网格单独交付。
@@ -3643,6 +3672,7 @@ Parametric Design and 3D-Printed Flexible Structures.* Advanced Intelligent Syst
 | 2026-11-01 | v0.8.26 | **重写 §10 交付物表**：原表多行状态与正文脱节（已建成的仍标 ⬜、已收口的仍写旧数字），例如"肩部 TPU 生成脚本 ⬜"（实际早已交付）、"整装干涉 31 件 15 处意外"（实际 27 件、残余 2 处）、"腱段 2 端悬空球头"（实际 9 端全为真实端段）、"四模块 2/4 单件"（实际 1/1/1/2，冈下肌两件是 D18 设计）。新表分**10.1 几何/解析类（已完成可复现）**与**10.2 待实测/待制造**，每行以正文对应小节为准，并补入单侧压紧解、座换位力臂、带肌腹扫掠等新交付物。**这种漂移会让整份文档失去可信度**，故一并重写而非逐行修补 |
 | 2026-11-01 | v0.8.27 | 新增 **台架记录模板与测量规程**（`shoulder_design/templates/`）：`BENCH_PROTOCOL.md`（通用字段 + 6 张表的规程与通过条件 + 记录纪律）+ 6 个 CSV（`p0_z_calibration` 12 行、`g3_single_muscle` 24 行、`g4_antagonist` 18 行、`g5_three_axis` 9 行、`crimp_slip`、`channel_patency`），**列数已逐表校验一致**。规程强调：**先记条件再记结果**（`fixture_k` 必填，R12）、失败也要记、**手拉数据不写"达到 150°"而写实测角度与首次限制来源**（§1.3）。§10.2 相应行由 ⬜ 改为"模板已就绪、待实物" |
 | 2026-11-01 | v0.8.28 | 新增 **§5.9.24 端垫与端盖导出为 STL**（`export_shoulder_parts.py` + `s1_parts_export.json`）：从 `s1_end_pads.json` 的**记录值**重建，用的就是拟合时那个 `disc()`（含 2×M3 孔、r1.4 压接孔、3 mm 凸台），**文件与证据不可能不一致**。结果 **20 个文件（10 垫 + 10 盖）全部水密**（边界边 0、非流形边 0），体积 505.4–1 636.1（垫）/ 104.3–1 419.6（盖）mm³。`**/shoulder_parts/*.stl` 已入 `.gitignore`（同模块/TPU 件的 LFS 处理）。未做：夹具梁/柱/底座导出、螺纹、STEP、公差与加工验证 |
+| 2026-11-01 | v0.8.29 | 新增 **§5.9.25 夹具五件导出**（`route_shoulder_fixture.py --export`）：夹具此前只有路线与干涉数、**没有零件文件**。导出 **梁 2 288.8 / 内侧柱 2 504.8 / 外侧柱 2 460.9 / 两底座各 7 200.0 mm³**；路径仍 `all clear: YES`（柱 45 mm 处让开，柱/骨、柱/扫掠、底座/扫掠、底座/骨全 0）。**两个警告照实说**：梁 **2 条**、内侧柱 **8 条非流形边**（多段管并集所致，与晶格件同类）——切片软件通常能容忍自动修复，但**"能打印"不等于"已修复"**，正式打印前应过一遍修复。底座 7 200 mm³ = 20×18×20、12 面，完全水密 |
 
 ## 14. S1 现状总表（2026-11-01，第 50 轮盘点）
 

@@ -2,7 +2,7 @@
   "scope": "D17 v3 fixture exits routed with obstacle avoidance: beam follows the medial border, posts planned by greedy fan search against scapula, clavicle and the humerus sweep envelope, base placed at the route end",
   "beam_clearance_mm": 4.5,
   "post_clearance_mm": 3.5,
-  "post_r_mm": 3.0,
+  "post_r_mm": 4.0,
   "step_mm": 5.0,
   "max_post_mm": 95.0,
   "sweep_envelope_mm3": 1844011.3,
@@ -18,9 +18,9 @@
       "points": 10,
       "length_mm": 45.0,
       "base_centre": [
-        -21.5,
-        -13.3,
-        1345.7
+        -21.1,
+        -13.2,
+        1346.0
       ],
       "post_bone_mm3": 0.0,
       "post_sweep_mm3": 0.0,
@@ -32,11 +32,11 @@
       "points": 10,
       "length_mm": 45.0,
       "base_centre": [
-        -148.7,
-        -16.0,
-        1256.5
+        -148.5,
+        -16.6,
+        1258.4
       ],
-      "post_bone_mm3": 0.235,
+      "post_bone_mm3": 0.0,
       "post_sweep_mm3": 0.0,
       "base_sweep_mm3": 0.0,
       "base_bone_mm3": 0.0
@@ -45,21 +45,58 @@
   "pads": [
     {
       "zone": "medial_mid",
-      "lift_mm": 0.92,
+      "lift_mm": 2.92,
       "pad_bone_mm3": 0.0
     },
     {
       "zone": "superior_angle",
-      "lift_mm": 0.0,
-      "pad_bone_mm3": 0.0
+      "lift_mm": 0.58,
+      "pad_bone_mm3": 0.001
     },
     {
       "zone": "lateral_upper",
-      "lift_mm": 0.36,
+      "lift_mm": 2.36,
       "pad_bone_mm3": 0.0
     }
   ],
   "exits_all_clear": true,
+  "exported": {
+    "medial_beam": {
+      "file": "medial_beam.stl",
+      "volume_mm3": 2288.8,
+      "triangles": 25734,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 2
+    },
+    "medial_post": {
+      "file": "medial_post.stl",
+      "volume_mm3": 2504.8,
+      "triangles": 2780,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 8
+    },
+    "medial_base": {
+      "file": "medial_base.stl",
+      "volume_mm3": 7200.0,
+      "triangles": 12,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    "lateral_post": {
+      "file": "lateral_post.stl",
+      "volume_mm3": 2460.9,
+      "triangles": 3688,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    "lateral_base": {
+      "file": "lateral_base.stl",
+      "volume_mm3": 7200.0,
+      "triangles": 12,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  },
   "not_verified": [
     "no jaws, screws or rails",
     "wedge gaps not filled",
