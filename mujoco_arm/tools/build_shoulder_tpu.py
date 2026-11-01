@@ -91,7 +91,25 @@ def tube(path, r, segments=16):
         # the joint sphere must be as fine as the rod, or the sphere's facets are what
         # the bore clearance measures - they are coarser for the same segment count
         pieces.append(mf().Manifold.sphere(r, segments).translate(list(np.asarray(p, float))))
-    return mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    return union_all(pieces)
+
+
+def union_all(pieces, chunk=200):
+    """Union a big piece list in chunks.
+
+    One batch_boolean over ~2700 rods is what made the deltoid run for half an hour without
+    producing any output; unioning 200 at a time and folding the results keeps each operation
+    small and finishes in minutes.
+    """
+    if not pieces:
+        return None
+    if len(pieces) <= chunk:
+        return mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    acc = None
+    for i in range(0, len(pieces), chunk):
+        part = mf().Manifold.batch_boolean(pieces[i:i + chunk], mf().OpType.Add)
+        acc = part if acc is None else acc + part
+    return acc
 
 
 def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000, inset_mm=0.0):
@@ -132,7 +150,7 @@ def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000, inset_mm=
                 pieces.append(mf().Manifold.sphere(r, 12).translate(list(c)))
     if not pieces:
         return None, cells, skipped
-    struts = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    struts = union_all(pieces)
     return struts, cells, skipped
 
 
@@ -226,7 +244,7 @@ def swept_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM, max_cells=400
                 pieces.append(mf().Manifold.sphere(r, 12).translate(list(c)))
     if not pieces:
         return None, cells, skipped
-    struts = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    struts = union_all(pieces)
     return struts, cells, skipped
 
 
@@ -338,7 +356,7 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
                 pieces.append(mf().Manifold.sphere(r, 12).translate(list(centre)))
     if not pieces:
         return None, cells, skipped
-    struts = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    struts = union_all(pieces)
     return struts, cells, skipped
 
 
@@ -366,6 +384,9 @@ def main(argv=None):
                     help='lattice grid: world-axis and per-station swept are the two 5.4.15/'
                          '5.4.16 failures; structured is the parallel-transported grid that '
                          'shares corner nodes')
+    ap.add_argument('--root-boss-mm', type=float, default=0.0,
+                    help='radius of a densified boss at a shared insertion seat [mm]; the three '
+                         'deltoid branches are on independent grids and need one to connect (R11)')
     ap.add_argument('--cell', type=float, nargs=3, metavar=('X', 'Y', 'Z'),
                     default=list(CELL_MM),
                     help='lattice cell in mm; default is the paper value 15/10/20')
@@ -457,12 +478,31 @@ def main(argv=None):
         for mid, path in channels:
             b = tube(path, BORE_R_MM, segments=CHANNEL_SEGMENTS)
             bore = b if bore is None else bore + b
+        # Y root: the three branches are built on independent transported grids, so they do not
+        # share nodes and the part comes out in pieces.  R11 already says the bifurcation root is
+        # the weak point and needs its own treatment, so the root gets a densified boss that also
+        # ties the branches together.
+        root = None
+        if args.root_boss_mm > 0 and len(channels) > 1:
+            root = mf().Manifold.sphere(args.root_boss_mm, 32).translate(
+                list(np.asarray(seat, float)))
         solid = (clipped + wall) - bore
+        if root is not None:
+            solid = (solid + (root ^ envelope)) - bore
+            print('  Y root boss r%.1f mm at the shared seat: %.1f mm3'
+                  % (args.root_boss_mm, root.volume()))
         comps = [c for c in solid.decompose() if c.volume() > 0.5]
+        frags = sorted((round(c.volume(), 1) for c in comps), reverse=True)
         print('  channel: %d corridor(s), wall tube %.1f mm3' % (len(channels), wall.volume()))
         print('  part: %.1f mm3, %d piece(s), material %.1f%% of the solid envelope'
               % (solid.volume(), len(comps),
                  100.0 * solid.volume() / envelope.volume()))
+        if len(comps) > 1:
+            body = frags[0]
+            print('    fragments: %s  -> body %.0f mm3 (%.1f%% of the part), '
+                  'clipped stubs %.1f mm3'
+                  % (', '.join('%.1f' % f for f in frags[:6]), body,
+                     100.0 * body / solid.volume(), sum(frags[1:])))
 
         # the bore must be free along every corridor
         sv, sf = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh())
