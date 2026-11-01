@@ -102,7 +102,14 @@ def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
     # under the radius but perfectly usable as the second vertex.
     dists = [min(mesh_geom.signed_distance(p, tri) for tri in bone_tris) for p in keep]
     first = next((i for i, d in enumerate(dists) if d >= r), None)
-    keep = [start] + (keep[first:] if first is not None else [])
+    if first is not None:
+        keep = [start] + keep[first:]
+    else:
+        # No point in the capped stretch clears by the radius.  Dropping them all (the earlier
+        # behaviour) left a single sphere - a "segment" with zero length that still overlaps bone
+        # wherever it sits.  Build the capped path anyway and let the relaxation try: if it cannot
+        # clear, the honest report is a real segment with residual contact, not a stub.
+        keep = [start] + keep[1:]
     if relax:
         keep = relax_off_bone(keep, bone_tris, r + 0.3)
     pieces = []
