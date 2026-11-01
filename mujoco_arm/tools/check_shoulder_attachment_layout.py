@@ -42,6 +42,7 @@ import frames
 import attachment_regions
 import interference as I
 import mesh_geom
+import shoulder_pads
 
 REGION_DIR = frames.OUTPUT_DIR / 'attachment_regions'
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
@@ -50,10 +51,10 @@ SCAPULA_OBJ = BONE_DIR / '肩胛骨.obj'
 GH_DIR = (frames.OUTPUT_DIR / 'joint_model' / 'SC_connection' / 'AC_compact'
           / 'GH_connection')
 
-PAD_RADIUS_MM = 11.0
-PAD_THICKNESS_MM = 4.0
-BOLT_PITCH_MM = 14.0
-BOLT_HOLE_RADIUS_MM = 1.7
+PAD_RADIUS_MM = shoulder_pads.PAD_RADIUS_MM
+PAD_THICKNESS_MM = shoulder_pads.PAD_THICKNESS_MM
+BOLT_PITCH_MM = shoulder_pads.BOLT_PITCH_MM
+BOLT_HOLE_RADIUS_MM = shoulder_pads.BOLT_HOLE_RADIUS_MM
 
 #: radial clearance between the anatomical head and the socket bore [mm]
 SOCKET_BORE_CLEARANCE_MM = 0.4
@@ -93,41 +94,8 @@ def region_centroid(mid, kind):
     return point, region['bone'], region['n_samples'], area
 
 
-def pad_basis(normal):
-    n = frames.unit(normal)
-    helper = np.array([1.0, 0.0, 0.0]) if abs(n[0]) < 0.9 else np.array([0.0, 1.0, 0.0])
-    x = frames.unit(np.cross(n, helper))
-    y = np.cross(n, x)
-    return np.stack([x, y, n], axis=1)
-
-
-def build_pad(centre_display, normal_source):
-    """Cylinder pad sitting on the bone surface, growing outward along the normal."""
-    mf = I._manifold()
-    centre_source = frames.display_to_source(centre_display)
-    R = pad_basis(normal_source)
-    solid = mf.Manifold.cylinder(PAD_THICKNESS_MM, PAD_RADIUS_MM, PAD_RADIUS_MM, 48)
-    solid = solid.translate([0.0, 0.0, PAD_THICKNESS_MM / 2.0])
-    T = np.c_[R, centre_source]
-    return solid.transform(T)
-
-
-def pad_far_radius(centre_source, normal_source, centre_ref):
-    """Largest distance from `centre_ref` to any point of the pad envelope [mm].
-
-    This is the number a socket bore has to clear: the pad lies *inside* the
-    head radius at its centre, but its rim corners stick out.
-    """
-    c = np.asarray(centre_source, dtype=float)
-    R = pad_basis(normal_source)
-    worst = 0.0
-    for t in (0.0, PAD_THICKNESS_MM):
-        for k in range(72):
-            a = 2.0 * math.pi * k / 72.0
-            p = c + R[:, 2] * t + R[:, 0] * PAD_RADIUS_MM * math.cos(a) \
-                + R[:, 1] * PAD_RADIUS_MM * math.sin(a)
-            worst = max(worst, float(np.linalg.norm(p - centre_ref)))
-    return worst
+BUILD_PAD = shoulder_pads.build_pad
+PAD_FAR_RADIUS = shoulder_pads.pad_far_radius
 
 
 def glenoid_normal(gh, radius, scaps):
@@ -279,7 +247,7 @@ def main(argv=None):
                      'radius_mm': round(r, 2),
                      'polar_from_glenoid_deg': round(theta, 1),
                      'azimuth_deg': round(phi, 1),
-                     'pad_far_radius_mm': round(pad_far_radius(centroid, nrm, gh), 2),
+                     'pad_far_radius_mm': round(PAD_FAR_RADIUS(centroid, nrm, gh), 2),
                      'region_samples': region['n_samples'],
                      'region_area_mm2': round(area, 1)})
 
@@ -293,7 +261,7 @@ def main(argv=None):
                  p['pad_far_radius_mm'] - bore))
 
     for p in pads:
-        p['_solid'] = build_pad(np.asarray(p['centre_display_mm']),
+        p['_solid'] = BUILD_PAD(np.asarray(p['centre_source_mm']),
                                 np.asarray(p['normal_source']))
 
     # ------------------------------------------------ cap-free retention test
@@ -368,7 +336,7 @@ def main(argv=None):
                'radius_mm': round(float(np.linalg.norm(merged - gh)), 2),
                'polar_from_glenoid_deg': round(spherical_coordinates(
                    gh, normal, merged)[1], 1),
-               'pad_far_radius_mm': round(pad_far_radius(merged, merged_normal, gh), 2)}]
+               'pad_far_radius_mm': round(PAD_FAR_RADIUS(merged, merged_normal, gh), 2)}]
     for p in pads:
         if p['id'] not in DELTOID:
             groups.append({'id': p['id'], 'name': p['name'],
@@ -380,7 +348,7 @@ def main(argv=None):
                            'polar_from_glenoid_deg': p['polar_from_glenoid_deg'],
                            'pad_far_radius_mm': p['pad_far_radius_mm']})
     for g in groups:
-        g['_solid'] = build_pad(np.asarray(g['centre_display_mm']),
+        g['_solid'] = BUILD_PAD(np.asarray(g['centre_source_mm']),
                                 np.asarray(g['normal_source']))
 
     print('\n--- grouped layout: %d seats ---' % len(groups))
