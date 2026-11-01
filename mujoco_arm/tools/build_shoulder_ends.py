@@ -53,14 +53,20 @@ def mf():
     return I._manifold()
 
 
-def disc(centre, normal, thickness, radius=PAD_R, holes=True, boss_mm=0.0, boss_r=5.0):
+def disc(centre, normal, thickness, radius=PAD_R, holes=True, boss_mm=0.0, boss_r=5.0,
+         taper_mm=0.0):
     """R11 plate growing outward along `normal`, with the bolt holes and the crimp bore.
 
     `boss_mm` adds a smaller cylinder on the plate's outer face.  5.4.31 needs the tendon segment
     to start 7 mm above the bone while the fitted plate is only 4 mm thick, so the missing 3 mm has
     to be a boss - the same feature 5.9.18's one-sided clamp needs anyway.
+
+    `taper_mm` makes the plate a frustum, `radius` at the bone end shrinking by `taper_mm` at the
+    outer end.  5.9.20 left one seat whose cap intrudes 0.611 mm3 with every plain disc; that is a
+    rim contact, so the rim is what has to move.
     """
-    solid = shoulder_pads.build_pad(centre, normal, radius=radius, thickness=thickness)
+    solid = shoulder_pads.build_pad(centre, normal, radius=radius, thickness=thickness,
+                                    radius_top=None if taper_mm <= 0 else radius - taper_mm)
     if boss_mm > 0.0:
         R0 = shoulder_pads.pad_basis(normal)
         boss = mf().Manifold.cylinder(boss_mm, boss_r, boss_r, 48)
@@ -152,6 +158,8 @@ def main(argv=None):
             clamp_specs[_c['seat']] = _c['found']
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
+    ap.add_argument('--pad-boss-mm', type=float, default=0.0,
+                    help='boss height on the pad; 5.4.31 needs 3 mm so the tendon starts at 7 mm')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_ends'))
     args = ap.parse_args(argv)
     out_dir = Path(args.out)
@@ -221,7 +229,7 @@ def main(argv=None):
             thick = float(spec['pad_thickness_mm'])
             lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=pad_r, thickness=thick)
             lift = 0.0 if lift is None else lift
-            pad = disc_rounded(p, n, lift, thick, pad_r)
+            pad = disc_rounded(p, n, lift, thick, pad_r, boss_mm=args.pad_boss_mm)
         for cand_t in () if spec is not None else sorted(
                 {t_max, round(t_max * 0.7, 2), 1.5, 1.0}, reverse=True):
             done = False
@@ -253,13 +261,13 @@ def main(argv=None):
         if spec is not None:
             cap_r = float(spec['cap_radius_mm'])
             cap_t = float(spec['cap_thickness_mm'])
-            cap = disc_rounded(p, n, lift + thick + 0.2, cap_t, cap_r)
+            cap = disc_rounded(p, n, lift + thick + args.pad_boss_mm + 0.2, cap_t, cap_r)
         for cand_t in () if spec is not None else sorted(
                 {thick, round(thick * 0.6, 2), 1.5, 1.0}, reverse=True):
             done = False
             for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
                 c_c = p + n * (lift + thick + 0.2)
-                c_geom = disc_rounded(p, n, lift + thick + 0.2, cand_t, cand_r)
+                c_geom = disc_rounded(p, n, lift + thick + args.pad_boss_mm + 0.2, cand_t, cand_r)
                 hit = max(max(I.intersection_volume(c_geom, b).__float__()
                               for b in bones.values()),
                           max((I.intersection_volume(c_geom, s).__float__()
