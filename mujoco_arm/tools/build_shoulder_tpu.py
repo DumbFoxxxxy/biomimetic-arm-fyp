@@ -94,8 +94,14 @@ def tube(path, r, segments=16):
     return mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
 
 
-def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000):
-    """8-strut X cells whose centres are inside the envelope, clipped to it."""
+def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000, inset_mm=0.0):
+    """8-strut X cells whose centres are inside the envelope, clipped to it.
+
+    `inset_mm` is how far inside a cell centre must be to count.  Requiring a full strut
+    radius (1 mm) rejects almost every cell on a thin curved belly and leaves disconnected
+    clumps (§5.4.15), so the default is 0: any centre inside counts, and the strut union is
+    intersected with the envelope afterwards, which trims the straddling cells for us.
+    """
     bb = envelope.bounding_box()
     lo = np.array(bb[:3]) - 1.0
     hi = np.array(bb[3:]) + 1.0
@@ -108,7 +114,7 @@ def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000):
         for j in range(ny):
             for k in range(nz):
                 c = lo + np.array([(i + 0.5) * sx, (j + 0.5) * sy, (k + 0.5) * sz])
-                if mesh_geom.signed_distance(c, tri) > -STRUT_R_MM:
+                if mesh_geom.signed_distance(c, tri) >= -inset_mm:
                     skipped += 1
                     continue
                 if cells >= max_cells:
@@ -130,12 +136,123 @@ def lattice(envelope, tri, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000):
     return struts, cells, skipped
 
 
+def swept_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM, max_cells=4000,
+                  max_extent_mm=45.0):
+    """Build the X lattice in a frame that follows the corridor.
+
+    A world-axis grid does not follow a thin curved belly: cells straddle the surface or
+    drop out, and the survivors stay unconnected (§5.4.15).  Here the grid is laid out in
+    the plane perpendicular to the corridor at each station, with the paper's (x, y)
+    spacing in that plane and z between stations, so the cells step *along* the belly and
+    share their corner nodes.
+    """
+    import muscle_sections as MS
+    pts = [np.asarray(p, float) for p in path]
+    # stations spaced z apart along the corridor
+    seg = [np.linalg.norm(b - a) for a, b in zip(pts, pts[1:])]
+    total = float(sum(seg))
+    n_st = max(2, int(np.ceil(total / cell[2])) + 1)
+    stations = []
+    for s in range(n_st):
+        f = s / (n_st - 1.0)
+        # position along the polyline
+        acc, idx = 0.0, 0
+        target = f * total
+        while idx < len(seg) and acc + seg[idx] < target:
+            acc += seg[idx]
+            idx += 1
+        idx = min(idx, len(seg) - 1)
+        w = 0.0 if seg[idx] < 1e-9 else (target - acc) / seg[idx]
+        p = pts[idx] + (pts[idx + 1] - pts[idx]) * np.clip(w, 0, 1)
+        d = pts[min(idx + 1, len(pts) - 1)] - pts[idx]
+        stations.append((p, frames_unit(d)))
+
+    sx, sy, sz = cell
+    pieces, cells, skipped = [], 0, 0
+
+    def extent(p, axis, sign):
+        """How far the envelope reaches from p along axis (bisection)."""
+        lo, hi = 1.0, max_extent_mm
+        if mesh_geom.signed_distance(p + axis * sign * lo, tri) >= 0:
+            return 0.0
+        for _ in range(9):
+            mid = 0.5 * (lo + hi)
+            if mesh_geom.signed_distance(p + axis * sign * mid, tri) < 0:
+                lo = mid
+            else:
+                hi = mid
+        return lo
+
+    for p, (e1, e2, t) in stations:
+        # the grid must be laid out from the section's in-centre, not from the corridor
+        # point: the corridor can sit near one wall, and measuring extents from there
+        # under-reports the section and rejects stations that would fit a cell
+        best = (mesh_geom.signed_distance(p, tri), np.zeros(2))
+        span = 24.0
+        for iu in range(-4, 5):
+            for iv in range(-4, 5):
+                off = np.array([iu * span / 4.0, iv * span / 4.0])
+                d = mesh_geom.signed_distance(p + e1 * off[0] + e2 * off[1], tri)
+                if d < best[0]:
+                    best = (d, off)
+        base = p + e1 * best[1][0] + e2 * best[1][1]
+        ex1, ex2 = extent(base, e1, +1), extent(base, e1, -1)
+        ey1, ey2 = extent(base, e2, +1), extent(base, e2, -1)
+        if ex1 + ex2 < sx or ey1 + ey2 < sy:
+            skipped += 1
+            continue
+        ni = int(np.floor((ex1 + ex2) / sx))
+        nj = int(np.floor((ey1 + ey2) / sy))
+        for i in range(ni):
+            for j in range(nj):
+                du = -ex1 + (i + 0.5) * sx
+                dv = -ey1 + (j + 0.5) * sy
+                c = base + e1 * du + e2 * dv
+                if mesh_geom.signed_distance(c, tri) >= 0:
+                    skipped += 1
+                    continue
+                if cells >= max_cells:
+                    skipped += 1
+                    continue
+                cells += 1
+                for su in (-1, 1):
+                    for sv in (-1, 1):
+                        for st in (-1, 1):
+                            corner = (c + e1 * (su * sx / 2) + e2 * (sv * sy / 2)
+                                      + t * (st * sz / 2))
+                            seg_ = rod(c, corner, r)
+                            if seg_ is not None:
+                                pieces.append(seg_)
+                pieces.append(mf().Manifold.sphere(r, 12).translate(list(c)))
+    if not pieces:
+        return None, cells, skipped
+    struts = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    return struts, cells, skipped
+
+
+def frames_unit(d):
+    t = np.asarray(d, float)
+    n = np.linalg.norm(t)
+    if n < 1e-12:
+        t = np.array([0.0, 0.0, 1.0])
+    else:
+        t = t / n
+    helper = np.array([0.0, 0.0, 1.0]) if abs(t[2]) < 0.9 else np.array([1.0, 0.0, 0.0])
+    e1 = np.cross(helper, t)
+    e1 = e1 / np.linalg.norm(e1)
+    e2 = np.cross(t, e1)
+    return e1, e2, t
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--module', default='teres_major')
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_tpu'))
     ap.add_argument('--all', action='store_true')
+    ap.add_argument('--mode', choices=('world', 'swept'), default='swept',
+                    help='lattice grid: world-axis (the 5.4.15 failure) or swept along the '
+                         'corridor (the 5.4.15 fix)')
     ap.add_argument('--cell', type=float, nargs=3, metavar=('X', 'Y', 'Z'),
                     default=list(CELL_MM),
                     help='lattice cell in mm; default is the paper value 15/10/20')
@@ -161,21 +278,8 @@ def main(argv=None):
         envelope = mf().Manifold(mf().Mesh64(W, G.astype(np.uint32)))
         print('\n=== %s: envelope %.1f mm3 ===' % (key, envelope.volume()))
 
-        struts, cells, skipped = lattice(envelope, tri, cell=tuple(args.cell))
-        if struts is None:
-            print('  no cells landed inside the envelope - cell too coarse')
-            continue
-        clipped = struts ^ envelope
-        print('  lattice: %d cells (%d skipped), raw %.1f mm3, clipped %.1f mm3'
-              % (cells, skipped, struts.volume(), clipped.volume()))
-
         # channel: solid tube minus wire bore, along the searched corridor
-        env_corridors = []
         if merged:
-            seat = ((np.array([attachment_regions.centroid(
-                attachment_regions.load_region(m, 'insertion'))[0] for m in heads]))
-                * np.array([attachment_regions.centroid(
-                    attachment_regions.load_region(m, 'insertion'))[1] for m in heads])[:, None]).sum(0)
             ws = np.array([attachment_regions.centroid(
                 attachment_regions.load_region(m, 'insertion'))[1] for m in heads])
             seat = (np.array([attachment_regions.centroid(
@@ -199,6 +303,21 @@ def main(argv=None):
                                   bone_clear_mm=CHANNEL_OUTER_R_MM * 2.0)
             relaxed[-1] = seat
             channels.append((mid, relaxed))
+
+        if args.mode == 'swept':
+            # follow the longest corridor; for the deltoid this is the dominant branch
+            main_path = max(channels, key=lambda c: float(sum(np.linalg.norm(
+                np.asarray(b) - np.asarray(a)) for a, b in zip(c[1], c[1][1:]))))[1]
+            struts, cells, skipped = swept_lattice(envelope, tri, main_path,
+                                                   cell=tuple(args.cell))
+        else:
+            struts, cells, skipped = lattice(envelope, tri, cell=tuple(args.cell))
+        if struts is None:
+            print('  no cells landed inside the envelope - cell too coarse')
+            continue
+        clipped = struts ^ envelope
+        print('  lattice (%s): %d cells (%d skipped), raw %.1f mm3, clipped %.1f mm3'
+              % (args.mode, cells, skipped, struts.volume(), clipped.volume()))
         wall = None
         for mid, path in channels:
             t = tube(path, CHANNEL_OUTER_R_MM, segments=CHANNEL_SEGMENTS)
@@ -282,7 +401,8 @@ def main(argv=None):
         I.write_report(args.json_out, {'scope': 'X lattice (paper cell 15/10/20, p=2) plus '
                                        'continuous R1.6 channel with R0.85 bore; no end caps, '
                                        'no pads, no surface strands',
-                                       'cell_mm': list(CELL_MM), 'strut_r_mm': STRUT_R_MM,
+                                       'lattice_mode': args.mode,
+                                       'cell_mm': list(args.cell), 'strut_r_mm': STRUT_R_MM,
                                        'channel_outer_r_mm': CHANNEL_OUTER_R_MM,
                                        'bore_r_mm': BORE_R_MM,
                                        'modules': rows})
