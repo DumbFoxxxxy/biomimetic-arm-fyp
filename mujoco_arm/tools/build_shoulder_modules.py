@@ -100,6 +100,62 @@ def point_in(solid, point, half=0.15):
     return float((probe ^ solid).volume()) > 0.5 * (2 * half) ** 3
 
 
+def nearest_points(a, b):
+    """Closest pair of points between two solids, by vertex-to-surface search."""
+    va, fa = mesh_geom.manifold_mesh_to_arrays(a.to_mesh())
+    vb, fb = mesh_geom.manifold_mesh_to_arrays(b.to_mesh())
+    WA, GA = mesh_geom.weld(va, fa)
+    WB, GB = mesh_geom.weld(vb, fb)
+    triA, triB = WA[GA], WB[GB]
+
+    def closest(verts, tri):
+        best = (np.inf, None)
+        for v in verts:
+            d = mesh_geom.point_triangle_distance(v, tri).min()
+            if d < best[0]:
+                best = (float(d), np.asarray(v, float))
+        return best
+
+    da, pa = closest(WA, triB)
+    db, pb = closest(WB, triA)
+    return (pa, pb, da) if da <= db else (pb, pa, db)
+
+
+def bridge(lobes, bone_tris, bone_solids, radius=TUBE_R_MM, offsets=(5.0, 8.0, 12.0)):
+    """Join two lobes with a short arc that goes over the bone between them.
+
+    D18 option A: the lobes are one muscle, split only because the muscle mesh
+    interpenetrated the scapula and the connecting material sat inside it.  The bridge
+    has to clear the ridge, so the arc apex is pushed along the bone's outward normal
+    until the rods are bone-clear; the first offset that works is kept.
+    """
+    a, b, gap = nearest_points(lobes[0], lobes[1])
+    mid = 0.5 * (a + b)
+    picked = None
+    for tri in bone_tris:
+        d, n = mesh_geom.signed_distance_and_normal(mid, tri)
+        if picked is None or abs(d) < abs(picked[0]):
+            picked = (d, n)
+    _, n_out = picked
+    fallback = None
+    for off in offsets:
+        apex = mid + n_out * off
+        pieces = [p for p in (rod(a, apex, radius), rod(apex, b, radius),
+                              mf().Manifold.sphere(radius, 20).translate(list(a)),
+                              mf().Manifold.sphere(radius, 20).translate(list(b)))
+                  if p is not None]
+        solid = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+        clash = sum(I.intersection_volume(solid, s) for s in bone_solids)
+        rec = {'solid': solid, 'apex_source_mm': np.round(apex, 2).tolist(),
+               'offset_mm': off, 'gap_mm': round(gap, 3),
+               'bone_clash_mm3': round(clash, 3)}
+        if clash <= I.HARD_MM3:
+            return rec
+        if fallback is None:
+            fallback = rec
+    return fallback
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
@@ -197,6 +253,37 @@ def main(argv=None):
                 fcomps = [c for c in final.decompose() if c.volume() > 0.5]
             print('  dropped %d debris fragment(s) totalling %.1f mm3 (< %.0f mm3)'
                   % (len(debris), sum(c.volume() for c in debris), DEBRIS_MM3))
+        # a lobe that carries a seat must not be dropped, so try to join it (D18 A).
+        # The attempt is non-destructive: if it does not reduce the piece count we keep
+        # the unbridged part and record the failure rather than shipping a stub.
+        lobe_rows = []
+        guard = 0
+        while len(fcomps) > 1 and guard < 3:
+            guard += 1
+            before = len(fcomps)
+            lobes = sorted(fcomps, key=lambda c: -c.volume())[:2]
+            br = bridge(lobes, bone_tris, list(bones.values()))
+            merged_bridge = br['solid']
+            for c in fcomps:
+                merged_bridge = merged_bridge + c
+            for b in bones.values():
+                merged_bridge = merged_bridge - b
+            trial = [c for c in merged_bridge.decompose() if c.volume() > 0.5]
+            row = {'gap_mm': br['gap_mm'],
+                   'arc_apex_source_mm': br['apex_source_mm'],
+                   'arc_offset_mm': br['offset_mm'],
+                   'bone_clash_mm3': br['bone_clash_mm3'],
+                   'pieces_before': before, 'pieces_after': len(trial),
+                   'accepted': bool(len(trial) < before)}
+            lobe_rows.append(row)
+            print('  bridge attempt: gap %.2f mm, apex %.0f mm out, bone clash '
+                  '%.2f mm3 -> %d piece(s) %s'
+                  % (br['gap_mm'], br['offset_mm'], br['bone_clash_mm3'], len(trial),
+                     'ACCEPTED' if row['accepted'] else 'REJECTED'))
+            if not row['accepted']:
+                break
+            final = merged_bridge
+            fcomps = trial
         added = final.volume() - anatomy.volume()
 
         fv, ff = mesh_geom.manifold_mesh_to_arrays(final.to_mesh())
@@ -265,6 +352,7 @@ def main(argv=None):
                         'trunk': {'volume_untrimmed_mm3': round(raw, 1),
                                   'components_untrimmed': raw_comps,
                                   'trimmed_at_bone_mm3': removed},
+                        'lobe_bridges': lobe_rows,
                         'final': {'volume_mm3': round(final.volume(), 1),
                                   'anatomy_mm3': round(anatomy.volume(), 1),
                                   'added_mm3': round(added, 1),
