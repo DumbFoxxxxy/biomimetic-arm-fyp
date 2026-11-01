@@ -63,7 +63,7 @@ def rod(a, b, r, segments=SEGMENTS):
 
 
 def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
-                pad_thickness_mm=4.0):
+                pad_thickness_mm=4.0, relax=False):
     """Tube of R around the last/first `length_mm` of the corridor, minus the wire bore.
 
     The corridor's end point IS the bone-side seat, so a tube of radius R starting there is
@@ -99,6 +99,8 @@ def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
     dists = [min(mesh_geom.signed_distance(p, tri) for tri in bone_tris) for p in keep]
     first = next((i for i, d in enumerate(dists) if d >= r), None)
     keep = [start] + (keep[first:] if first is not None else [])
+    if relax:
+        keep = relax_off_bone(keep, bone_tris, r + 0.3)
     pieces = []
     for a, b in zip(keep, keep[1:]):
         s = rod(a, b, r)
@@ -119,10 +121,45 @@ def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
     return outer - bore, length, keep
 
 
+def relax_off_bone(path, bone_tris, clear_mm, step_mm=2.0, iterations=40, lam=0.3):
+    """Densify and push the interior of a short path off the bone.
+
+    The grazes left in 5.4.29 are between two consecutive vertices: a straight rod of radius 1.8
+    whose endpoints clear the bone can still cut a convex surface between them.  Densifying to
+    2 mm and pushing every interior point to `clear_mm` is the same treatment 5.9.11 used for the
+    fixture posts.
+    """
+    pts = [np.asarray(p, float) for p in path]
+    dense = [pts[0]]
+    for a, b in zip(pts, pts[1:]):
+        n = max(1, int(np.ceil(np.linalg.norm(b - a) / step_mm)))
+        for k in range(1, n + 1):
+            dense.append(a + (b - a) * (k / float(n)))
+    for _ in range(iterations):
+        moved = list(dense)
+        for i in range(1, len(dense) - 1):
+            best = None
+            for tri in bone_tris:
+                d, nrm = mesh_geom.signed_distance_and_normal(dense[i], tri)
+                if d < clear_mm and (best is None or d < best[0]):
+                    best = (d, nrm)
+            if best is not None:
+                moved[i] = dense[i] + best[1] * (clear_mm - best[0]) * 0.8
+        for i in range(1, len(moved) - 1):
+            moved[i] = moved[i] + lam * (moved[i - 1] + moved[i + 1] - 2.0 * moved[i])
+        dense = moved
+        if all(min(mesh_geom.signed_distance(p, tri) for tri in bone_tris) >= clear_mm
+               for p in dense[1:-1]):
+            break
+    return dense
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_tendons'))
+    ap.add_argument('--relax', action='store_true',
+                    help='densify and push each segment off the bone (the 5.9.11 method)')
     ap.add_argument('--segment-r', type=float, default=SEGMENT_R_MM,
                     help='outer radius of the tendon segment [mm]; R2.5 does not fit the '
                          'short ends, see 5.4.21')
@@ -162,7 +199,8 @@ def main(argv=None):
                           % (m['module'], c['head'], end, L or 0.0, '-', '-', '-'))
                     continue
                 solid, length, keep = build_along(paths[c['head']], L, from_distal=dist,
-                                                  bone_tris=bone_tris, r=args.segment_r)
+                                                  bone_tris=bone_tris, r=args.segment_r,
+                                                  relax=args.relax)
                 bone_hit = max(I.intersection_volume(solid, b).__float__()
                                for b in bones.values())
                 near = {k: round(I.intersection_volume(solid, s), 3)
