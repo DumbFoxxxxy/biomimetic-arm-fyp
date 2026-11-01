@@ -36,6 +36,10 @@ MODULES_DIR = frames.OUTPUT_DIR / 'shoulder_modules'
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
 
 SEGMENT_R_MM = 2.5
+#: Per-end radius overrides.  D21 (=A, 5.4.32) accepts the teres major's 32.0 mm cap and strengthens
+#: just that end: R2.5 fits there because a 32 mm long segment has the span for a bigger section,
+#: while the short ends need R1.8 or they cannot be built at all (5.4.22).
+SEGMENT_R_OVERRIDES = {'FJ1507/distal': 2.5}
 BORE_R_MM = 0.85
 SEGMENTS = 32
 #: a segment shorter than this is just the pad's own boss, not a separate piece
@@ -200,8 +204,9 @@ def main(argv=None):
                     print('%-14s %-8s %-7s %8.1f %9s %8s %8s'
                           % (m['module'], c['head'], end, L or 0.0, '-', '-', '-'))
                     continue
+                r_end = SEGMENT_R_OVERRIDES.get('%s/%s' % (c['head'], end), args.segment_r)
                 solid, length, keep = build_along(paths[c['head']], L, from_distal=dist,
-                                                  bone_tris=bone_tris, r=args.segment_r,
+                                                  bone_tris=bone_tris, r=r_end,
                                                   relax=args.relax,
                                                   pad_thickness_mm=args.standoff_mm)
                 bone_hit = max(I.intersection_volume(solid, b).__float__()
