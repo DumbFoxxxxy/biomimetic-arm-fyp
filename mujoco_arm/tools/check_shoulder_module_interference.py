@@ -85,9 +85,9 @@ def main(argv=None):
         worst = max(hits.values())
         bone_rows.append({'module': key, 'intersections_mm3': 
                           {k: round(v, 4) for k, v in hits.items()},
-                          'clear': bool(worst <= I.HARD_MM3)})
+                          'clear': bool(worst <= ROUNDTRIP_MM3)})
         print('%-15s %-10s %s' % (key, label,
-                                  'clear' if worst <= I.HARD_MM3
+                                  'clear' if worst <= ROUNDTRIP_MM3
                                   else ', '.join('%s %.4f' % (n, v)
                                                  for n, v in hits.items() if v > 0)))
 

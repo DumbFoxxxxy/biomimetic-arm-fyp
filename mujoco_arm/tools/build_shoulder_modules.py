@@ -53,6 +53,13 @@ MODULES = [
     ('infraspinatus', '冈下肌模块', ('FJ1500',), False),
 ]
 
+#: Build order, deepest muscle first.  Each module is trimmed by every module already
+#: built, so the four envelopes come out mutually exclusive by construction and the
+#: channels, the lattice and the interference check all run on disjoint solids.
+#: §5.4.18 measured the overlaps: deltoid/infraspinatus 163.65, teres/infraspinatus
+#: 31.97, subscapularis/infraspinatus 2.13 mm3 - the infraspinatus is always the deep one.
+BUILD_ORDER = ['infraspinatus', 'subscapularis', 'teres_major', 'deltoid']
+
 
 def mf():
     return I._manifold()
@@ -250,9 +257,13 @@ def main(argv=None):
         bone_tris.append(W[G])
 
     modules = []
-    for key, label, heads, merge_distal in MODULES:
+    by_key = {m[0]: m for m in MODULES}
+    built = {}                      # key -> solid, for the priority trim
+    for key in BUILD_ORDER:
+        _, label, heads, merge_distal = by_key[key]
+        deeper = [built[k] for k in BUILD_ORDER if k in built]
         print('\n=== %s (%s) ===' % (label, '+'.join(heads)))
-        # anatomy: each head trimmed by bone
+        # anatomy: each head trimmed by bone, then by every deeper module
         anatomy = None
         head_rows = []
         for mid in heads:
@@ -260,14 +271,18 @@ def main(argv=None):
             trimmed = solid
             for b in bones.values():
                 trimmed = trimmed - b
+            for d in deeper:
+                trimmed = trimmed - d
             comps = len([c for c in trimmed.decompose() if c.volume() > 0.5])
             anatomy = trimmed if anatomy is None else anatomy + trimmed
             head_rows.append({'head': mid, 'anatomy_mm3': round(solid.volume(), 1),
                               'trimmed_mm3': round(trimmed.volume(), 1),
                               'components': comps})
-            print('  %-8s anatomy %9.1f -> trimmed %9.1f mm3 (%d piece%s)'
+            print('  %-8s anatomy %9.1f -> trimmed %9.1f mm3 (%d piece%s)%s'
                   % (mid, solid.volume(), trimmed.volume(), comps,
-                     '' if comps == 1 else 's'))
+                     '' if comps == 1 else 's',
+                     ' [also trimmed by %d deeper module(s)]' % len(deeper)
+                     if deeper else ''))
         seat = shared_seat(heads)
         # the origin side of the single-channel modules: that muscle's own origin pad
         seat_origin = None
@@ -314,6 +329,8 @@ def main(argv=None):
         final = (anatomy + trimmed_trunk)
         for b in bones.values():
             final = final - b
+        for d in deeper:
+            final = final - d
         fcomps = [c for c in final.decompose() if c.volume() > 0.5]
         # debris: fragments far below any muscle scale are trimmed slivers, not parts.
         # Real lobes are kept and reported - dropping one that carries a seat would
@@ -446,6 +463,9 @@ def main(argv=None):
 
         modules.append({'module': key, 'label': label, 'heads': list(heads),
                         'merges_to_one_seat': bool(merge_distal),
+                        'trimmed_by_deeper_modules': [
+                            BUILD_ORDER[j] for j in range(BUILD_ORDER.index(key))
+                            if BUILD_ORDER[j] in built],
                         'seat_source_mm': np.round(seat, 2).tolist(),
                         'heads_anatomy': head_rows,
                         'corridors': corridors,
@@ -473,6 +493,7 @@ def main(argv=None):
                         'one_piece': bool(one),
                         'bone_clear': bool(total_bone <= I.HARD_MM3),
                         'all_channels_fit': bool(all_fit)})
+        built[key] = final
 
     print('\n=== S1 module set ===')
     print('%-15s %10s %8s %9s %6s %6s %s'
