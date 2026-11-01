@@ -92,9 +92,13 @@ def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
         acc += seg
     if len(keep) < 2:
         keep.append(pts[1] if len(pts) > 1 else pts[0])
-    # drop the buried stretch and start on the pad face instead
-    keep = [start] + [p for p in keep
-                      if min(mesh_geom.signed_distance(p, tri) for tri in bone_tris) >= r]
+    # Skip the leading stretch that would bury the tube, then keep everything after it.
+    # Filtering every point instead (the first version) dropped the whole short segment on
+    # eight of nine ends, because the point just outside the pad is only ~2.4 mm from bone -
+    # under the radius but perfectly usable as the second vertex.
+    dists = [min(mesh_geom.signed_distance(p, tri) for tri in bone_tris) for p in keep]
+    first = next((i for i, d in enumerate(dists) if d >= r), None)
+    keep = [start] + (keep[first:] if first is not None else [])
     pieces = []
     for a, b in zip(keep, keep[1:]):
         s = rod(a, b, r)
@@ -119,6 +123,9 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_tendons'))
+    ap.add_argument('--segment-r', type=float, default=SEGMENT_R_MM,
+                    help='outer radius of the tendon segment [mm]; R2.5 does not fit the '
+                         'short ends, see 5.4.21')
     args = ap.parse_args(argv)
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -155,7 +162,7 @@ def main(argv=None):
                           % (m['module'], c['head'], end, L or 0.0, '-', '-', '-'))
                     continue
                 solid, length, keep = build_along(paths[c['head']], L, from_distal=dist,
-                                                  bone_tris=bone_tris)
+                                                  bone_tris=bone_tris, r=args.segment_r)
                 bone_hit = max(I.intersection_volume(solid, b).__float__()
                                for b in bones.values())
                 near = {k: round(I.intersection_volume(solid, s), 3)
@@ -191,7 +198,7 @@ def main(argv=None):
     if args.json_out:
         I.write_report(args.json_out, {
             'scope': 'rigid tendon segments from each bone-side seat to the TPU channel entry',
-            'segment_outer_r_mm': SEGMENT_R_MM, 'bore_r_mm': BORE_R_MM,
+            'segment_outer_r_mm': args.segment_r, 'bore_r_mm': BORE_R_MM,
             'segments': rows,
             'n_needed': len(need),
             'max_length_mm': round(max([r['length_mm'] for r in need], default=0.0), 2),
