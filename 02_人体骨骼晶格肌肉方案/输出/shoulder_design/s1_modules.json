@@ -1,0 +1,708 @@
+{
+  "scope": "one recipe for all four modules: bone-aware corridor relaxation, R3.2 tube, anatomy trimmed by bone, union, trimmed again; no lattice, no end caps, no origin pads",
+  "channel_outer_r_mm": 1.6,
+  "tube_radius_mm": 3.2,
+  "modules": [
+    {
+      "module": "deltoid",
+      "label": "三角肌模块（Y 形，3 通道）",
+      "heads": [
+        "FJ1468",
+        "FJ1513",
+        "FJ1467"
+      ],
+      "merges_to_one_seat": true,
+      "seat_source_mm": [
+        -199.65,
+        -76.11,
+        1227.57
+      ],
+      "heads_anatomy": [
+        {
+          "head": "FJ1468",
+          "anatomy_mm3": 54993.6,
+          "trimmed_mm3": 54341.4,
+          "components": 1
+        },
+        {
+          "head": "FJ1513",
+          "anatomy_mm3": 170265.4,
+          "trimmed_mm3": 169419.1,
+          "components": 1
+        },
+        {
+          "head": "FJ1467",
+          "anatomy_mm3": 93170.2,
+          "trimmed_mm3": 92536.5,
+          "components": 1
+        }
+      ],
+      "corridors": [
+        {
+          "head": "FJ1468",
+          "worst_belly_mm": -5.455,
+          "deepest_belly_mm": -8.479,
+          "length_mm": 165.64,
+          "path_source_mm": [
+            [
+              -116.76,
+              -83.71,
+              1347.18
+            ],
+            [
+              -130.52,
+              -89.49,
+              1338.16
+            ],
+            [
+              -143.05,
+              -96.88,
+              1330.76
+            ],
+            [
+              -153.31,
+              -103.8,
+              1321.94
+            ],
+            [
+              -162.71,
+              -108.21,
+              1311.09
+            ],
+            [
+              -170.92,
+              -109.77,
+              1298.97
+            ],
+            [
+              -178.43,
+              -108.69,
+              1286.77
+            ],
+            [
+              -184.73,
+              -105.57,
+              1274.81
+            ],
+            [
+              -189.47,
+              -101.06,
+              1262.52
+            ],
+            [
+              -193.43,
+              -96.0,
+              1249.99
+            ],
+            [
+              -196.32,
+              -87.24,
+              1238.39
+            ],
+            [
+              -199.65,
+              -76.11,
+              1227.57
+            ]
+          ]
+        },
+        {
+          "head": "FJ1513",
+          "worst_belly_mm": -6.689,
+          "deepest_belly_mm": -12.935,
+          "length_mm": 155.33,
+          "path_source_mm": [
+            [
+              -123.17,
+              -24.3,
+              1320.55
+            ],
+            [
+              -136.92,
+              -19.34,
+              1313.39
+            ],
+            [
+              -149.44,
+              -17.42,
+              1305.96
+            ],
+            [
+              -161.01,
+              -18.11,
+              1298.24
+            ],
+            [
+              -171.79,
+              -20.58,
+              1290.38
+            ],
+            [
+              -181.87,
+              -24.31,
+              1282.44
+            ],
+            [
+              -191.1,
+              -29.62,
+              1274.4
+            ],
+            [
+              -198.76,
+              -37.06,
+              1266.13
+            ],
+            [
+              -203.84,
+              -46.44,
+              1257.27
+            ],
+            [
+              -205.52,
+              -56.55,
+              1247.78
+            ],
+            [
+              -203.73,
+              -66.61,
+              1237.84
+            ],
+            [
+              -199.65,
+              -76.11,
+              1227.57
+            ]
+          ]
+        },
+        {
+          "head": "FJ1467",
+          "worst_belly_mm": -0.007,
+          "deepest_belly_mm": -10.343,
+          "length_mm": 140.95,
+          "path_source_mm": [
+            [
+              -161.26,
+              -63.69,
+              1344.01
+            ],
+            [
+              -170.94,
+              -55.65,
+              1334.8
+            ],
+            [
+              -179.67,
+              -49.14,
+              1323.41
+            ],
+            [
+              -187.7,
+              -46.14,
+              1312.48
+            ],
+            [
+              -194.61,
+              -46.37,
+              1302.2
+            ],
+            [
+              -199.2,
+              -48.5,
+              1291.94
+            ],
+            [
+              -202.21,
+              -51.17,
+              1281.33
+            ],
+            [
+              -205.16,
+              -54.54,
+              1270.82
+            ],
+            [
+              -206.09,
+              -59.33,
+              1260.15
+            ],
+            [
+              -205.46,
+              -65.02,
+              1249.4
+            ],
+            [
+              -203.19,
+              -70.75,
+              1238.55
+            ],
+            [
+              -199.65,
+              -76.11,
+              1227.57
+            ]
+          ]
+        }
+      ],
+      "trunk": {
+        "volume_untrimmed_mm3": 14554.0,
+        "components_untrimmed": 1,
+        "trimmed_at_bone_mm3": {
+          "scapula": 203.22,
+          "clavicle": 0.0,
+          "humerus": 305.7
+        }
+      },
+      "final": {
+        "volume_mm3": 317469.4,
+        "anatomy_mm3": 316162.3,
+        "added_mm3": 1307.1,
+        "added_percent_of_anatomy": 0.413,
+        "components": 1,
+        "fragment_volumes_mm3": [
+          317469.4
+        ],
+        "triangles": 12670,
+        "stl_file": "deltoid.stl",
+        "stl_roundtrip_rel_error": 1.2e-07
+      },
+      "bone_intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0
+      },
+      "channels": [
+        {
+          "head": "FJ1468",
+          "worst_mm": -5.458,
+          "deepest_mm": -8.483,
+          "worst_at_t": 0.818,
+          "worst_to_pad_mm": 30.61,
+          "fits": true
+        },
+        {
+          "head": "FJ1513",
+          "worst_mm": -6.686,
+          "deepest_mm": -12.932,
+          "worst_at_t": 0.818,
+          "worst_to_pad_mm": 28.73,
+          "fits": true
+        },
+        {
+          "head": "FJ1467",
+          "worst_mm": -3.111,
+          "deepest_mm": -10.347,
+          "worst_at_t": 0.182,
+          "worst_to_pad_mm": 101.55,
+          "fits": true
+        }
+      ],
+      "one_piece": true,
+      "bone_clear": true,
+      "all_channels_fit": true
+    },
+    {
+      "module": "teres_major",
+      "label": "大圆肌模块",
+      "heads": [
+        "FJ1507"
+      ],
+      "merges_to_one_seat": false,
+      "seat_source_mm": [
+        -166.49,
+        -74.73,
+        1272.75
+      ],
+      "heads_anatomy": [
+        {
+          "head": "FJ1507",
+          "anatomy_mm3": 37439.2,
+          "trimmed_mm3": 35124.1,
+          "components": 1
+        }
+      ],
+      "corridors": [
+        {
+          "head": "FJ1507",
+          "worst_belly_mm": -1.994,
+          "deepest_belly_mm": -9.142,
+          "length_mm": 105.73,
+          "path_source_mm": [
+            [
+              -107.44,
+              -13.18,
+              1214.41
+            ],
+            [
+              -117.25,
+              -16.95,
+              1218.31
+            ],
+            [
+              -123.78,
+              -21.17,
+              1223.17
+            ],
+            [
+              -128.26,
+              -25.75,
+              1228.75
+            ],
+            [
+              -132.36,
+              -30.54,
+              1234.27
+            ],
+            [
+              -136.72,
+              -35.77,
+              1239.48
+            ],
+            [
+              -141.34,
+              -41.4,
+              1244.89
+            ],
+            [
+              -145.66,
+              -47.89,
+              1250.41
+            ],
+            [
+              -149.42,
+              -55.36,
+              1255.92
+            ],
+            [
+              -153.71,
+              -63.06,
+              1261.33
+            ],
+            [
+              -159.13,
+              -69.9,
+              1266.9
+            ],
+            [
+              -166.49,
+              -74.73,
+              1272.75
+            ]
+          ]
+        }
+      ],
+      "trunk": {
+        "volume_untrimmed_mm3": 3491.0,
+        "components_untrimmed": 1,
+        "trimmed_at_bone_mm3": {
+          "scapula": 233.78,
+          "clavicle": 0.0,
+          "humerus": 64.37
+        }
+      },
+      "final": {
+        "volume_mm3": 35230.3,
+        "anatomy_mm3": 35124.1,
+        "added_mm3": 106.2,
+        "added_percent_of_anatomy": 0.302,
+        "components": 1,
+        "fragment_volumes_mm3": [
+          35230.3
+        ],
+        "triangles": 2702,
+        "stl_file": "teres_major.stl",
+        "stl_roundtrip_rel_error": 2.95e-07
+      },
+      "bone_intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0
+      },
+      "channels": [
+        {
+          "head": "FJ1507",
+          "worst_mm": -3.178,
+          "deepest_mm": -9.141,
+          "worst_at_t": 0.818,
+          "worst_to_pad_mm": 20.73,
+          "fits": true
+        }
+      ],
+      "one_piece": true,
+      "bone_clear": true,
+      "all_channels_fit": true
+    },
+    {
+      "module": "subscapularis",
+      "label": "肩胛下肌模块",
+      "heads": [
+        "FJ1504"
+      ],
+      "merges_to_one_seat": false,
+      "seat_source_mm": [
+        -152.3,
+        -90.72,
+        1311.77
+      ],
+      "heads_anatomy": [
+        {
+          "head": "FJ1504",
+          "anatomy_mm3": 46490.2,
+          "trimmed_mm3": 46179.8,
+          "components": 2
+        }
+      ],
+      "corridors": [
+        {
+          "head": "FJ1504",
+          "worst_belly_mm": -2.041,
+          "deepest_belly_mm": -6.146,
+          "length_mm": 77.84,
+          "path_source_mm": [
+            [
+              -102.23,
+              -39.27,
+              1289.54
+            ],
+            [
+              -105.68,
+              -44.34,
+              1292.47
+            ],
+            [
+              -109.33,
+              -48.58,
+              1295.38
+            ],
+            [
+              -112.68,
+              -52.79,
+              1297.75
+            ],
+            [
+              -114.72,
+              -58.35,
+              1298.93
+            ],
+            [
+              -117.96,
+              -63.94,
+              1300.01
+            ],
+            [
+              -122.1,
+              -69.6,
+              1300.96
+            ],
+            [
+              -126.72,
+              -75.18,
+              1301.96
+            ],
+            [
+              -132.35,
+              -80.06,
+              1303.45
+            ],
+            [
+              -138.76,
+              -83.96,
+              1305.56
+            ],
+            [
+              -145.01,
+              -88.02,
+              1307.93
+            ],
+            [
+              -152.3,
+              -90.72,
+              1311.77
+            ]
+          ]
+        }
+      ],
+      "trunk": {
+        "volume_untrimmed_mm3": 2603.6,
+        "components_untrimmed": 1,
+        "trimmed_at_bone_mm3": {
+          "scapula": 0.0,
+          "clavicle": 0.0,
+          "humerus": 250.6
+        }
+      },
+      "final": {
+        "volume_mm3": 46280.5,
+        "anatomy_mm3": 46179.8,
+        "added_mm3": 100.7,
+        "added_percent_of_anatomy": 0.218,
+        "components": 2,
+        "fragment_volumes_mm3": [
+          46278.4,
+          2.1
+        ],
+        "triangles": 3360,
+        "stl_file": "subscapularis.stl",
+        "stl_roundtrip_rel_error": 1.09e-07
+      },
+      "bone_intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0
+      },
+      "channels": [
+        {
+          "head": "FJ1504",
+          "worst_mm": 3.116,
+          "deepest_mm": -6.146,
+          "worst_at_t": 0.818,
+          "worst_to_pad_mm": 16.36,
+          "fits": false
+        }
+      ],
+      "one_piece": false,
+      "bone_clear": true,
+      "all_channels_fit": false
+    },
+    {
+      "module": "infraspinatus",
+      "label": "冈下肌模块",
+      "heads": [
+        "FJ1500"
+      ],
+      "merges_to_one_seat": false,
+      "seat_source_mm": [
+        -179.8,
+        -66.2,
+        1321.16
+      ],
+      "heads_anatomy": [
+        {
+          "head": "FJ1500",
+          "anatomy_mm3": 106276.9,
+          "trimmed_mm3": 95804.2,
+          "components": 3
+        }
+      ],
+      "corridors": [
+        {
+          "head": "FJ1500",
+          "worst_belly_mm": -6.412,
+          "deepest_belly_mm": -11.914,
+          "length_mm": 123.26,
+          "path_source_mm": [
+            [
+              -88.31,
+              -15.65,
+              1264.75
+            ],
+            [
+              -99.51,
+              -14.95,
+              1271.74
+            ],
+            [
+              -108.59,
+              -17.36,
+              1277.87
+            ],
+            [
+              -115.81,
+              -22.17,
+              1283.4
+            ],
+            [
+              -122.69,
+              -26.61,
+              1289.26
+            ],
+            [
+              -129.87,
+              -30.54,
+              1295.33
+            ],
+            [
+              -137.87,
+              -34.32,
+              1301.17
+            ],
+            [
+              -146.44,
+              -38.33,
+              1306.31
+            ],
+            [
+              -155.12,
+              -43.08,
+              1310.71
+            ],
+            [
+              -163.85,
+              -48.26,
+              1314.78
+            ],
+            [
+              -172.26,
+              -55.14,
+              1318.51
+            ],
+            [
+              -179.8,
+              -66.2,
+              1321.16
+            ]
+          ]
+        }
+      ],
+      "trunk": {
+        "volume_untrimmed_mm3": 4048.4,
+        "components_untrimmed": 1,
+        "trimmed_at_bone_mm3": {
+          "scapula": 147.01,
+          "clavicle": 0.0,
+          "humerus": 350.18
+        }
+      },
+      "final": {
+        "volume_mm3": 95846.3,
+        "anatomy_mm3": 95804.2,
+        "added_mm3": 42.1,
+        "added_percent_of_anatomy": 0.044,
+        "components": 3,
+        "fragment_volumes_mm3": [
+          93585.7,
+          2259.3,
+          1.4
+        ],
+        "triangles": 4072,
+        "stl_file": "infraspinatus.stl",
+        "stl_roundtrip_rel_error": 5.41e-08
+      },
+      "bone_intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0
+      },
+      "channels": [
+        {
+          "head": "FJ1500",
+          "worst_mm": -6.411,
+          "deepest_mm": -11.915,
+          "worst_at_t": 0.818,
+          "worst_to_pad_mm": 24.84,
+          "fits": true
+        }
+      ],
+      "one_piece": false,
+      "bone_clear": true,
+      "all_channels_fit": true
+    }
+  ],
+  "all_modules_pass": false,
+  "not_verified": [
+    "tubes are capsule chains, not lofted bellies",
+    "no lattice, end caps, crimp, bolts or origin pads",
+    "bone interference only; neighbour bellies, fixture pads and the 0-120 deg sweep are not checked",
+    "no muscle force, pennation, contact or printability"
+  ],
+  "frozen": false
+}
