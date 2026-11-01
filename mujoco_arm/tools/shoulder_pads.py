@@ -73,3 +73,32 @@ def pad_far_radius(centre_source, normal_source, centre_ref,
 
 def far_radius_about(centre_source, normal_source, centre_ref):
     return pad_far_radius(centre_source, normal_source, centre_ref)
+
+
+def lift_to_clear(centre_source, normal_source, bone_solid, limit=8.0,
+                  radius=PAD_RADIUS_MM, thickness=PAD_THICKNESS_MM):
+    """Smallest outward offset along the normal with no bone intrusion [mm].
+
+    A flat disc on a curved bone either floats on the high points or digs in at the
+    rim; the lift says how much floating the flat form costs.  Returns
+    (lift, residual_intrusion_at_lift); lift is None when even `limit` is not enough.
+    """
+    import interference as I
+
+    def intrusion(offset):
+        c = np.asarray(centre_source, float) + np.asarray(normal_source, float) * offset
+        return I.intersection_volume(build_pad(c, normal_source, radius=radius,
+                                               thickness=thickness), bone_solid)
+
+    if intrusion(0.0) <= I.HARD_MM3:
+        return 0.0, 0.0
+    lo, hi = 0.0, limit
+    if intrusion(hi) > I.HARD_MM3:
+        return None, float(intrusion(hi))
+    while hi - lo > 0.02:
+        mid = 0.5 * (lo + hi)
+        if intrusion(mid) <= I.HARD_MM3:
+            hi = mid
+        else:
+            lo = mid
+    return hi, 0.0

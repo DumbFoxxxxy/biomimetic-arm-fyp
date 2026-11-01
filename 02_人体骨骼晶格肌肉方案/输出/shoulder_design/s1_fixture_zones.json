@@ -258,294 +258,362 @@
     "no humerus sweep against the clamps (S1-G1)",
     "no clamp force, no fixture compliance (§5.9.4)"
   ],
-  "frame": {
-    "bar_dy_+2": {
-      "bar": {
-        "y_mm": -146.948,
-        "x_span_mm": [
-          -139.1,
-          -53.3
-        ],
-        "z_span_mm": [
-          1265.0,
-          1329.9
-        ],
-        "thickness_mm": 12.0,
-        "height_mm": 64.8900000000001
-      },
-      "carrying": [
-        "medial_mid",
-        "superior_angle",
-        "lateral_upper",
-        "medial_mid/dorsal-pad",
-        "superior_angle/dorsal-pad"
+  "frame_v2": {
+    "node_off_6": {
+      "node_offset_mm": 6.0,
+      "beam_radius_mm": 5.0,
+      "pad_radius_mm": 9.0,
+      "beams": true,
+      "nodes": [
+        {
+          "zone": "medial_mid",
+          "node_source_mm": [
+            -59.29,
+            -15.22,
+            1287.22
+          ]
+        },
+        {
+          "zone": "superior_angle",
+          "node_source_mm": [
+            -62.79,
+            -24.62,
+            1319.93
+          ]
+        },
+        {
+          "zone": "lateral_upper",
+          "node_source_mm": [
+            -133.08,
+            -53.19,
+            1275.04
+          ]
+        }
       ],
       "neutral_bone_hits_mm3": {
-        "scapula": 208.21,
-        "clavicle": 7.83
+        "scapula": 1872.51
       },
       "neutral_belly_hits_mm3": {
-        "FJ1500": 0.3
+        "FJ1504": 6359.66,
+        "FJ1500": 66.63
       },
+      "pad_lift_mm": [
+        {
+          "zone": "medial_mid",
+          "lift_mm": 0.66,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "superior_angle",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "lateral_upper",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        }
+      ],
       "sweeps": [
         {
           "axis": "flexion",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "flexion",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": 1,
-          "first_hit_deg": 37.94,
-          "worst": {
-            "angle_deg": 110.0,
-            "volume_mm3": 1113.000358103331
-          }
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         }
       ],
-      "clears_humerus_0_120": false,
-      "scope": "frame is a box plus straight posts plus flat dorsal pads; no jaws, bolts, rails or elastic; sweep is sampled at 2 deg with a 0.1 deg boundary bisection"
+      "clears_humerus_0_120": true
     },
-    "bar_dy_-6": {
-      "bar": {
-        "y_mm": -154.948,
-        "x_span_mm": [
-          -139.1,
-          -53.3
-        ],
-        "z_span_mm": [
-          1265.0,
-          1329.9
-        ],
-        "thickness_mm": 12.0,
-        "height_mm": 64.8900000000001
-      },
-      "carrying": [
-        "medial_mid",
-        "superior_angle",
-        "lateral_upper",
-        "medial_mid/dorsal-pad",
-        "superior_angle/dorsal-pad"
+    "node_off_8": {
+      "node_offset_mm": 8.0,
+      "beam_radius_mm": 5.0,
+      "pad_radius_mm": 9.0,
+      "beams": true,
+      "nodes": [
+        {
+          "zone": "medial_mid",
+          "node_source_mm": [
+            -59.29,
+            -17.22,
+            1287.22
+          ]
+        },
+        {
+          "zone": "superior_angle",
+          "node_source_mm": [
+            -62.79,
+            -26.62,
+            1319.93
+          ]
+        },
+        {
+          "zone": "lateral_upper",
+          "node_source_mm": [
+            -133.08,
+            -55.19,
+            1275.04
+          ]
+        }
       ],
       "neutral_bone_hits_mm3": {
-        "scapula": 208.09,
-        "clavicle": 8.55
+        "scapula": 1319.42
       },
       "neutral_belly_hits_mm3": {
-        "FJ1500": 0.3
+        "FJ1504": 6076.55,
+        "FJ1500": 65.78
       },
+      "pad_lift_mm": [
+        {
+          "zone": "medial_mid",
+          "lift_mm": 0.66,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "superior_angle",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "lateral_upper",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        }
+      ],
       "sweeps": [
         {
           "axis": "flexion",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "flexion",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": 1,
-          "first_hit_deg": 37.94,
-          "worst": {
-            "angle_deg": 110.0,
-            "volume_mm3": 1112.8220707267324
-          }
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         }
       ],
-      "clears_humerus_0_120": false,
-      "scope": "frame is a box plus straight posts plus flat dorsal pads; no jaws, bolts, rails or elastic; sweep is sampled at 2 deg with a 0.1 deg boundary bisection"
+      "clears_humerus_0_120": true
     },
-    "bar_dy_-14": {
-      "bar": {
-        "y_mm": -162.948,
-        "x_span_mm": [
-          -139.1,
-          -53.3
-        ],
-        "z_span_mm": [
-          1265.0,
-          1329.9
-        ],
-        "thickness_mm": 12.0,
-        "height_mm": 64.8900000000001
-      },
-      "carrying": [
-        "medial_mid",
-        "superior_angle",
-        "lateral_upper",
-        "medial_mid/dorsal-pad",
-        "superior_angle/dorsal-pad"
+    "node_off_12": {
+      "node_offset_mm": 12.0,
+      "beam_radius_mm": 5.0,
+      "pad_radius_mm": 9.0,
+      "beams": true,
+      "nodes": [
+        {
+          "zone": "medial_mid",
+          "node_source_mm": [
+            -59.29,
+            -21.22,
+            1287.22
+          ]
+        },
+        {
+          "zone": "superior_angle",
+          "node_source_mm": [
+            -62.79,
+            -30.62,
+            1319.93
+          ]
+        },
+        {
+          "zone": "lateral_upper",
+          "node_source_mm": [
+            -133.08,
+            -59.19,
+            1275.04
+          ]
+        }
       ],
       "neutral_bone_hits_mm3": {
-        "scapula": 207.98,
-        "clavicle": 9.21
+        "scapula": 921.91
       },
       "neutral_belly_hits_mm3": {
-        "FJ1500": 0.29
+        "FJ1504": 4219.82,
+        "FJ1500": 65.78
       },
+      "pad_lift_mm": [
+        {
+          "zone": "medial_mid",
+          "lift_mm": 0.66,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "superior_angle",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "lateral_upper",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        }
+      ],
       "sweeps": [
         {
           "axis": "flexion",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "flexion",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": 1,
-          "first_hit_deg": 37.88,
-          "worst": {
-            "angle_deg": 110.0,
-            "volume_mm3": 1112.662649920592
-          }
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         }
       ],
-      "clears_humerus_0_120": false,
-      "scope": "frame is a box plus straight posts plus flat dorsal pads; no jaws, bolts, rails or elastic; sweep is sampled at 2 deg with a 0.1 deg boundary bisection"
+      "clears_humerus_0_120": true
     },
-    "bar_dy_-22": {
-      "bar": {
-        "y_mm": -170.948,
-        "x_span_mm": [
-          -139.1,
-          -53.3
-        ],
-        "z_span_mm": [
-          1265.0,
-          1329.9
-        ],
-        "thickness_mm": 12.0,
-        "height_mm": 64.8900000000001
-      },
-      "carrying": [
-        "medial_mid",
-        "superior_angle",
-        "lateral_upper",
-        "medial_mid/dorsal-pad",
-        "superior_angle/dorsal-pad"
+    "pads_only_off_8": {
+      "node_offset_mm": 8.0,
+      "beam_radius_mm": 5.0,
+      "pad_radius_mm": 9.0,
+      "beams": false,
+      "nodes": [
+        {
+          "zone": "medial_mid",
+          "node_source_mm": [
+            -59.29,
+            -17.22,
+            1287.22
+          ]
+        },
+        {
+          "zone": "superior_angle",
+          "node_source_mm": [
+            -62.79,
+            -26.62,
+            1319.93
+          ]
+        },
+        {
+          "zone": "lateral_upper",
+          "node_source_mm": [
+            -133.08,
+            -55.19,
+            1275.04
+          ]
+        }
       ],
       "neutral_bone_hits_mm3": {
-        "scapula": 207.89,
-        "clavicle": 9.83
+        "scapula": 801.7
       },
       "neutral_belly_hits_mm3": {
-        "FJ1500": 0.29
+        "FJ1504": 6.23,
+        "FJ1500": 65.78
       },
+      "pad_lift_mm": [
+        {
+          "zone": "medial_mid",
+          "lift_mm": 0.66,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "superior_angle",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        },
+        {
+          "zone": "lateral_upper",
+          "lift_mm": 0.0,
+          "residual_mm3": 0.0
+        }
+      ],
       "sweeps": [
         {
           "axis": "flexion",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "flexion",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": 1,
-          "first_hit_deg": 37.88,
-          "worst": {
-            "angle_deg": 110.0,
-            "volume_mm3": 1112.5192664644585
-          }
+          "first_hit_deg": null
         },
         {
           "axis": "abduction",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": 1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         },
         {
           "axis": "longitudinal",
           "sign": -1,
-          "first_hit_deg": null,
-          "worst": null
+          "first_hit_deg": null
         }
       ],
-      "clears_humerus_0_120": false,
-      "scope": "frame is a box plus straight posts plus flat dorsal pads; no jaws, bolts, rails or elastic; sweep is sampled at 2 deg with a 0.1 deg boundary bisection"
+      "clears_humerus_0_120": true
     }
   }
 }

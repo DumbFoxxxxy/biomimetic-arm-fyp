@@ -101,30 +101,7 @@ def points_in_solid(solid, points, r=0.05):
     return n
 
 
-def lift_to_clear(centre, normal, bone_solid, limit=8.0):
-    """Smallest outward offset along the normal with no bone intrusion [mm].
-
-    A flat disc tangent at a curved bone either floats on the high points or digs
-    in at the rim; the lift says how much floating the flat form costs.  Returns
-    (lift, residual_intrusion_at_lift).
-    """
-    def intrusion(offset):
-        solid = shoulder_pads.build_pad(np.asarray(centre, float)
-                                        + np.asarray(normal, float) * offset, normal)
-        return I.intersection_volume(solid, bone_solid)
-
-    if intrusion(0.0) <= I.HARD_MM3:
-        return 0.0, 0.0
-    lo, hi = 0.0, limit
-    if intrusion(hi) > I.HARD_MM3:
-        return None, float(intrusion(hi))
-    while hi - lo > 0.02:
-        mid = 0.5 * (lo + hi)
-        if intrusion(mid) <= I.HARD_MM3:
-            hi = mid
-        else:
-            lo = mid
-    return hi, 0.0
+LIFT_TO_CLEAR = shoulder_pads.lift_to_clear
 
 
 def main(argv=None):
@@ -196,7 +173,7 @@ def main(argv=None):
         own_solid = I._manifold().Manifold(I._manifold().Mesh64(
             W, G.astype(np.uint32)))
         own = I.intersection_volume(s['_solid'], own_solid)
-        lift, residual = lift_to_clear(s['centre_source_mm'], s['normal_source'],
+        lift, residual = LIFT_TO_CLEAR(s['centre_source_mm'], s['normal_source'],
                                        own_solid)
         others = {}
         for name, (W2, G2) in bones.items():

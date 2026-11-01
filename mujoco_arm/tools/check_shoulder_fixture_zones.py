@@ -32,6 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import frames
 import interference as I
 import mesh_geom
+import shoulder_pads
 
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
 MUSCLE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / 'muscle'
@@ -216,11 +217,111 @@ def frame_check(rows, bellies, hum, scap, clav, front_y, bar_y_offset=2.0,
                      'boundary bisection'}
 
 
+def frame_v2(rows, bellies, hum, scap, clav, node_offset_mm=8.0, beam_r=5.0,
+             pad_r=9.0, beams=True):
+    """D17-A, second version: the frame hugs the scapula instead of a global plane.
+
+    Round 7 showed the straight-beam version fails because its posts cross the
+    humerus's own y band (-92..-51) and abduction does not change y.  So instead of
+    one plane the three nodes sit `node_offset_mm` anterior of each zone, a triangle
+    of beams joins them, and each node has a short post onto its pad.  The dorsal
+    side keeps pure reaction pads, which have no post to cross anything.
+    """
+    zones = [(r['zone'], np.asarray(r['centre_source_mm'], float))
+             for r in rows if r['side'] == 'anterior' and r['reachable']]
+    nodes = [(name, c - np.array([0.0, node_offset_mm, 0.0])) for name, c in zones]
+    frame = None
+
+    def add(part):
+        nonlocal frame
+        frame = part if frame is None else frame + part
+
+    for (name, c), (_, node) in zip(zones, nodes):
+        pad = mf().Manifold.cylinder(4.0, pad_r, pad_r, 48).translate([0.0, 0.0, 2.0])
+        add(pad.translate([c[0], c[1], c[2]]))
+        post = rod(c, node, 4.0)
+        if post is not None:
+            add(post)
+    for i in range(len(nodes)):
+        if not beams:
+            break
+        a = nodes[i][1]
+        b = nodes[(i + 1) % len(nodes)][1]
+        beam = rod(a, b, beam_r)
+        if beam is not None:
+            add(beam)
+    for r in rows:
+        if r['side'] == 'dorsal' and r['reachable']:
+            c = np.asarray(r['centre_source_mm'], float)
+            n = np.asarray(r['normal_source'], float)
+            pad = mf().Manifold.cylinder(4.0, pad_r, pad_r, 48).translate([0.0, 0.0, 2.0])
+            ex = np.cross(np.array([0.0, 0.0, 1.0]), n)
+            ex = ex / max(np.linalg.norm(ex), 1e-9)
+            ey = np.cross(n, ex)
+            add(pad.transform(np.c_[np.stack([ex, ey, n], axis=1), c]))
+
+    ys = [n[1][1] for n in nodes]
+    print('\n--- D17-A v2: conforming frame, nodes %.0f mm anterior of each zone ---'
+          % node_offset_mm)
+    print('    nodes: %s' % ', '.join('%s y=%.1f' % (n[0], n[1][1]) for n in nodes))
+    print('    node y range %.1f .. %.1f  (humerus y band is -92 .. -51)'
+          % (min(ys), max(ys)))
+    neutral = {}
+    for name, solid in (('scapula', scap), ('clavicle', clav), ('humerus', hum)):
+        v = I.intersection_volume(frame, solid)
+        if v > I.HARD_MM3:
+            neutral[name] = round(v, 2)
+    belly_hits = {}
+    for mid, solid in bellies.items():
+        v = I.intersection_volume(frame, solid)
+        if v > I.HARD_MM3:
+            belly_hits[mid] = round(v, 2)
+    lifts = []
+    for name, c in zones:
+        n = np.asarray([r['normal_source'] for r in rows
+                        if r['zone'] == name and r['side'] == 'anterior'][0], float)
+        lift, resid = shoulder_pads.lift_to_clear(c, n, scap, radius=pad_r)
+        lifts.append({'zone': name, 'lift_mm': None if lift is None else round(lift, 2),
+                      'residual_mm3': round(resid, 2)})
+    print('    neutral: bones %s | bellies %s' % (neutral or 'clear', belly_hits or 'clear'))
+    print('    pad lift needed: %s'
+          % ', '.join('%s %s mm' % (l['zone'], l['lift_mm']) for l in lifts))
+
+    gh = frames.joint_centres('source')['GH']
+    axes = frames.gh_probe_axes()
+    sweeps = []
+    print('    humerus sweep 0-120 deg:')
+    for name in ('flexion', 'abduction', 'longitudinal'):
+        for sign in (+1, -1):
+            angles = [sign * float(a) for a in np.arange(0.0, 120.0 + 1e-9, 2.0)]
+            rep = I.sweep(axes[name], gh, frame, [I.Solid('humerus', hum)], angles,
+                          moving_key='frame', refine=True)
+            hit = rep['first_hit_deg']
+            sweeps.append({'axis': name, 'sign': sign,
+                           'first_hit_deg': None if hit is None else round(hit, 2)})
+            print('      %-12s %s  %s' % (name, '+' if sign > 0 else '-',
+                                          '%.2f' % hit if hit is not None else 'none'))
+    first = [s['first_hit_deg'] for s in sweeps if s['first_hit_deg'] is not None]
+    ok = not first
+    print('    clears 0-120 deg: %s' % ('YES' if ok else 'NO (first %.2f deg)' % min(first)))
+    return {'node_offset_mm': node_offset_mm, 'beam_radius_mm': beam_r,
+            'pad_radius_mm': pad_r, 'beams': bool(beams),
+            'nodes': [{'zone': n[0], 'node_source_mm': np.round(n[1], 2).tolist()}
+                      for n in nodes],
+            'neutral_bone_hits_mm3': neutral,
+            'neutral_belly_hits_mm3': belly_hits,
+            'pad_lift_mm': lifts,
+            'sweeps': sweeps,
+            'clears_humerus_0_120': ok}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--frame', action='store_true',
                     help='also build the D17-A frame and sweep the humerus against it')
+    ap.add_argument('--frame2', action='store_true',
+                    help='build the conforming (v2) frame and sweep the humerus')
     args = ap.parse_args(argv)
 
     GH = frames.joint_centres('source')['GH']
@@ -336,6 +437,15 @@ def main(argv=None):
         for dy in (2.0, -6.0, -14.0, -22.0):
             report['frame']['bar_dy_%+0.0f' % dy] = frame_check(
                 rows, bellies, hum, scap, clav, front_y, bar_y_offset=dy)
+
+    if args.frame2:
+        report['frame_v2'] = {}
+        for off in (6.0, 8.0, 12.0):
+            report['frame_v2']['node_off_%0.0f' % off] = frame_v2(
+                rows, bellies, hum, scap, clav, node_offset_mm=off)
+        # diagnostic: is the costal conflict the routing or the contact pads?
+        report['frame_v2']['pads_only_off_8'] = frame_v2(
+            rows, bellies, hum, scap, clav, node_offset_mm=8.0, beams=False)
 
     if args.json_out:
         I.write_report(args.json_out, report)
