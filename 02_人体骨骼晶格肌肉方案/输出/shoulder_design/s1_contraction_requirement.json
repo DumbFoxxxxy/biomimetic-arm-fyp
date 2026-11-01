@@ -1,0 +1,90 @@
+{
+  "scope": "per-agonist required contraction for the full 0-120 deg plus its moment arm (= d(span)/d(theta)); the achievable contraction is what S1-P0/S1-G3 measure",
+  "axes": [
+    {
+      "axis": "flexion",
+      "agonists": [
+        {
+          "module": "subscapularis",
+          "head": "FJ1504",
+          "required_contraction_pct": 9.36,
+          "moment_arm_mm": 3.5
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1467",
+          "required_contraction_pct": 21.76,
+          "moment_arm_mm": 13.14
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1468",
+          "required_contraction_pct": 34.53,
+          "moment_arm_mm": 24.92
+        }
+      ],
+      "cheapest_usable_pct": 21.76
+    },
+    {
+      "axis": "abduction",
+      "agonists": [
+        {
+          "module": "infraspinatus",
+          "head": "FJ1500",
+          "required_contraction_pct": 15.76,
+          "moment_arm_mm": 8.99
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1468",
+          "required_contraction_pct": 22.75,
+          "moment_arm_mm": 16.08
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1467",
+          "required_contraction_pct": 37.38,
+          "moment_arm_mm": 22.9
+        }
+      ],
+      "cheapest_usable_pct": 22.75
+    },
+    {
+      "axis": "longitudinal",
+      "agonists": [
+        {
+          "module": "deltoid",
+          "head": "FJ1467",
+          "required_contraction_pct": 0.96,
+          "moment_arm_mm": 0.6
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1468",
+          "required_contraction_pct": 5.22,
+          "moment_arm_mm": 3.81
+        },
+        {
+          "module": "deltoid",
+          "head": "FJ1513",
+          "required_contraction_pct": 14.09,
+          "moment_arm_mm": 9.33
+        },
+        {
+          "module": "infraspinatus",
+          "head": "FJ1500",
+          "required_contraction_pct": 24.9,
+          "moment_arm_mm": 14.61
+        }
+      ],
+      "cheapest_usable_pct": 24.9
+    }
+  ],
+  "note": "contraction and moment arm trade off: a muscle whose span barely changes is cheap to contract and useless as a torque source. Do NOT divide the demand by the number of muscles - two muscles on one DOF do not halve each stroke.",
+  "not_verified": [
+    "no achievable contraction is known yet - these are REQUIREMENTS",
+    "the share-by-k idea was wrong and is recorded here as retracted",
+    "chord span, not corridor length",
+    "no series compliance, no tendon stiffness"
+  ]
+}
