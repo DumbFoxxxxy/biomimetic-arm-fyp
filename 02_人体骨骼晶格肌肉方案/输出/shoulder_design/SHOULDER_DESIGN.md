@@ -1,6 +1,6 @@
 # 肩部仿生设计 · 技术文档
 
-**版本**：v0.8.25（草案，未定版）
+**版本**：v0.8.26（草案，未定版）
 **日期**：2026-11-01
 **上游依据**：[肘部交付与验证边界](../anatomical_concept/ELBOW_HANDOFF.md)、[肘部设计思路](../anatomical_concept/肘部设计思路.md)
 **方法论依据**：Yoshimura, Kawaharazuka, Okada, *Advanced Intelligent Systems* 2026（见 §11）
@@ -3399,41 +3399,49 @@ strut diameter"）：muscle–tendon complex 就是同一件连续实体里低�
 
 ## 10. 交付物
 
-| 交付物 | 形式 | 阶段 | 状态 |
-|---|---|---|---|
-| 本技术文档 | Markdown | — | ✅ v0.8.25 |
-| 肱骨近端止点排布证据（4 座 / 轴承冲突 / 压紧分量） | JSON + 工具 | S1 | ✅ `s1_attachment_layout.json` + `check_shoulder_attachment_layout.py` |
-| 起点侧 6 个骨侧座（肩胛 5 + 锁骨 1） | JSON + 工具 | S1 | ✅ `s1_origin_layout.json` + `check_shoulder_origin_layout.py` |
-| L0 裸骨扫掠（D15 关节边界） | JSON + 工具 | S1 | ✅ `s1_gh_bare_sweep.json` + `sweep_gh_bare.py` |
-| 六块肌包络实测（骨修剪 / 截面 / 通道壁 / 相邻干涉） | JSON + 工具 | S1 | ✅ `s1_muscle_envelopes.json` + `check_shoulder_muscle_envelopes.py` |
-| 12 个肌腹端的内切圆与端部过渡判定 | JSON + 工具 | S1 | ✅ `s1_end_caps.json` + `size_shoulder_end_caps.py` |
-| 三角肌 Y 形包络与三通道走法 | JSON + 工具 | S1 | ✅ `s1_deltoid_y.json` + `build_deltoid_y_module.py` |
-| **三角肌 Y 形实体（建成并验收）** | STL + JSON | S1 | ✅ `deltoid_Y_final.stl` + `s1_y_trunk.json` + `build_shoulder_y_trunk.py`（STL 不入库，可重建） |
-| **四个模块成品包络** | STL + JSON | S1 | ✅ `shoulder_modules/*.stl` + `s1_modules.json` + `build_shoulder_modules.py`（2/4 单件，2 块待处理） |
-| **四模块互相干涉 + 修整** | JSON + 工具 | S1 | ✅ `s1_module_interference.json` + `check_shoulder_module_interference.py`（修整后六对全 clear） |
-| **肩部 TPU 生成器（晶格 + 通道）** | STL + JSON + 脚本 | S1 | ✅ `build_shoulder_tpu.py` + `s1_tpu_lattice.json`；大圆肌单件通过，三个壳形模块待改格子取向 |
-| **腱段（端垫→通道入口）** | JSON + 脚本 | S1 | 🔶 `build_shoulder_tendon_segments.py` + `s1_tendon_segments.json`；**外 R1.8／孔 R0.85**；**9 端全部 0/0**（起点外伸 7 mm 后），7 端为真实腱段、2 端为悬空球头 |
-| **端垫 + 端盖（10 座）** | JSON + 脚本 | S1 | ✅ `build_shoulder_ends.py` + `s1_end_pads.json`；**10/10 座全部配出**、对骨 0 侵入、自检 0 不一致；单侧压紧按 §5.9.18 |
-| **肩胛夹具 D17 v3** | JSON + 脚本 | S1 | ✅ `build_shoulder_fixture.py` + `route_shoulder_fixture.py`；三垫全清、不跨窝；**梁/柱/底座对骨与扫掠全部 0 干涉**（外侧柱 0.23 < 噪声底） |
-| **整装干涉（31 件）** | JSON + 工具 | S1 | 🔶 `check_shoulder_assembly.py` + `s1_assembly.json`；白名单外 **15 处意外**，分 A/B/C 三类待改 |
-| 六条力线的通道走法逐条判定 | JSON + 工具 | S1 | ✅ `s1_channel_routes.json` + `check_shoulder_channel_routes.json` |
-| 六条力线的通道路径搜索（外扩量判据） | JSON + 工具 | S1 | ✅ `s1_channel_search.json` + `search_shoulder_channel_paths.py` |
-| 四个夹持区的直杆可达性（D17 依据） | JSON + 工具 | S1 | ✅ `s1_fixture_zones.json` + `check_shoulder_fixture_zones.py` |
-| z 标定样件（4 个 z × 3 件）制造网格 | STL + 摆放参数 | S1-P0 | ✅ 几何已生成（§6.6.1）；STL 由脚本重建，二进制未入库 |
-| z→E 标定曲线与残差 | JSON | S1-P0 | ⬜ 需实测 |
-| S1 选型表（含力臂符号与符号筛查） | Markdown + JSON | S1 | ✅ §5.3 + `s1_line_screen.json` |
-| 三角肌 Y 形分叉包络与通道干涉检查 | JSON | S1 | ⬜ |
-| 肩部 TPU 生成脚本 | Python | S1 | ⬜ |
-| 骨侧/肩胛夹具接口几何 | STEP / OBJ | S1 | ⬜ |
-| 压接滑脱试验记录 | CSV | S1 | ⬜ |
-| 台架试验记录模板 | CSV / JSON | S1 | ⬜ |
+> **本表在 v0.8.26 重写过**：此前多行状态与正文脱节（已建成的仍标 ⬜，
+> 已收口的仍写着旧数字），这种漂移会让整份文档失去可信度。下表每行的状态以正文对应小节为准。
+
+### 10.1 几何 / 解析类（已完成，可复现）
+
+| 交付物 | 形式 | 状态与证据 |
+|---|---|---|
+| 本技术文档 | Markdown | ✅ v0.8.26 |
+| 肱骨近端止点排布（4 座 / 轴承冲突 / 压紧分量） | JSON + 工具 | ✅ `s1_attachment_layout.json` + `check_shoulder_attachment_layout.py` |
+| 起点侧 6 个骨侧座（肩胛 5 + 锁骨 1） | JSON + 工具 | ✅ `s1_origin_layout.json` + `check_shoulder_origin_layout.py` |
+| L0 裸骨扫掠（D15 开放浅窝边界） | JSON + 工具 | ✅ `s1_gh_bare_sweep.json` + `sweep_gh_bare.py` |
+| 六块肌包络（骨修剪 / 截面 / 通道壁 / 相邻干涉） | JSON + 工具 | ✅ `s1_muscle_envelopes.json` + `check_shoulder_muscle_envelopes.py` |
+| 12 个肌腹端的内切圆与端部过渡判定 | JSON + 工具 | ✅ `s1_end_caps.json` + `size_shoulder_end_caps.py` |
+| 三角肌 Y 形包络与三通道走法 | JSON + 工具 | ✅ `s1_deltoid_y.json` + `build_deltoid_y_module.py` |
+| 三角肌 Y 形实体 | STL + JSON | ✅ `s1_y_trunk.json` + `build_shoulder_y_trunk.py`（STL 不入库，可重建） |
+| 四个模块成品包络 | STL + JSON | ✅ `s1_modules.json` + `build_shoulder_modules.py`；**件数 1/1/1/2**（冈下肌两件是 D18 的设计），四块互斥 |
+| 四模块互相干涉 + 优先级修整 | JSON + 工具 | ✅ `s1_module_interference.json` + `check_shoulder_module_interference.py` |
+| 肩部 TPU 生成器（X 晶格 + 连续通道） | STL + JSON + 脚本 | ✅ `build_shoulder_tpu.py`；**四模块全部单件**（13.8 / 9.2 / 4.5 / 9.1 % 材料），通道孔全通；`s1_tpu_lattice.json` + `s1_tpu_deltoid.json` |
+| 腱段（端垫→通道入口） | JSON + 脚本 | ✅ `s1_tendon_segments.json` + `build_shoulder_tendon_segments.py`；**9 端全部为真实端段**，与骨最大 **0.182 mm³**、与邻肌 **0.000**；大圆肌止端 **R2.5**、其余 R1.8 |
+| 端垫 + 端盖（10 座，含 3 mm 凸台） | JSON + 脚本 | ✅ `s1_end_pads.json` + `build_shoulder_ends.py`；**10/10 座全部配出**、对骨 0 侵入、自检 0 不一致 |
+| 单侧压紧解（两个窄缝座） | JSON + 脚本 | ✅ `s1_one_sided_clamp.json` + `fit_one_sided_clamp.py` |
+| 肩胛夹具 D17 v3（垫 / 梁 / 柱 / 底座） | JSON + 脚本 | ✅ `build_shoulder_fixture.py` + `route_shoulder_fixture.py`；**全部 0 干涉**，不跨肩胛下窝 |
+| 整装干涉（27 件） | JSON + 工具 | ✅ `s1_assembly.json` + `check_shoulder_assembly.py`；**19 处白名单内 + 2 处残余 ≤0.352 mm³**（在设计判据 0.5 mm³ 以内） |
+| 六条力线通道走法逐条判定 | JSON + 工具 | ✅ `s1_channel_routes.json` |
+| 六条力线通道路径搜索（外扩量判据） | JSON + 工具 | ✅ `s1_channel_search.json` + `search_shoulder_channel_paths.py` |
+| 四个夹持区直杆可达性（D17 依据） | JSON + 工具 | ✅ `s1_fixture_zones.json` + `check_shoulder_fixture_zones.py` |
+| 力线选型表（力臂符号与符号筛查） | Markdown + JSON | ✅ §5.3 + `s1_line_screen.json` |
+| 带肌腹的 0–120° 扫掠（形变模型） | JSON + 工具 | 🔶 `s1_gh_sweep_deformed.json` + `deform_and_sweep.py`；**已能定量，判据仍不可用**（模型不允许肌腹沿骨面滑动） |
+| 座换位与力臂代价 | JSON + 工具 | ✅ `s1_seat_overrides.json` + `relocate_shoulder_seats.py`（D22） |
+
+### 10.2 待实测 / 待制造
+
+| 交付物 | 形式 | 状态 |
+|---|---|---|
+| z 标定样件（4 个 z × 3 件） | STL + 摆放参数 | ✅ 几何已生成（§6.6.1）；STL 由脚本重建，二进制不入库 |
+| z→E 标定曲线与残差 | JSON | ⬜ **需实物实测**（S1-P0 的唯一缺口） |
+| 压接滑脱试验记录 | CSV | ⬜ 需实物（R2） |
+| 通道通丝检查记录 | CSV | ⬜ 需实物（R15） |
+| 台架试验记录模板 | CSV / JSON | ⬜ 需先定台架（D14） |
+| 骨侧 / 肩胛夹具接口几何导出 | STEP / OBJ | 🔶 实体已由脚本建成，**未导出 STEP** |
 
 **STEP 为分面 BRep，不含原生特征树与配合关系**（沿用肘部口径）。
 TPU 以 OBJ/STL 制造网格单独交付。
-
----
-
----
 
 ## 11. 参考依据
 
@@ -3596,6 +3604,7 @@ Parametric Design and 3D-Printed Flexible Structures.* Advanced Intelligent Syst
 | 2026-11-01 | v0.8.23 | 新增 **§5.4.32 D21 定案**：全表扫描确认**只有大圆肌止端超标**（32.0 mm，其余 6 条力线 0.0–17.3）。实测"沿力线滑动止点"的代价——**弦力臂变化 +0.0%**（滑动 6 mm 与 12 mm 都如此），因为力臂只取决于**力的作用线**、与端点在该线上的位置无关；但那是**假免费**：滑动改变**解剖附着点**，走廊/包络/端垫全要重做，且实际钢丝走弯曲走廊而非弦。**故 D21 取 A：接受 32.0 mm、不动已验证的座、该端刚性腱段用 R2.5（其余 R1.8）**，判据改为"优先 ≤20、允许单端 ≤35 并单独加强"。逐端不同直径**尚未实现**（`--segment-r` 仍是全局参数） |
 | 2026-11-01 | v0.8.24 | 新增 **§5.4.33 逐端直径已实现**（关闭 §5.4.32 的尾巴）：加 `SEGMENT_R_OVERRIDES = {'FJ1507/distal': 2.5}`，**逐端取径**，其余端仍 R1.8。结果——大圆肌止端 **R2.5、27.3 mm、532.4 mm³**（原 R1.8 时 235.9，**截面 2.26 倍**），**与骨 0.000、与邻肌 0.000**；**9 个已建端全部 0/0**。并说明"逐端取径不是可选项"：§5.4.22 实测短端用 R2.5 会退化、九端里八个建不出。未做：R2.5 段与凸台/压接座的匹配、两直径刚度差 |
 | 2026-11-01 | v0.8.25 | 新增 **§5.4.34 退化端段已消除**（关闭 §14.4 第 4 项）：`first is None`（端盖长度内无走廊点离骨 ≥r）时**不再丢掉折线**，而是照常建出并交给松弛；推不开则**如实报"真实端段 + 残余接触"**，而不是报成"长度 0 的球"（那种球其实仍压骨 15.4 mm³）。结果——**冈下肌止点 0.0 球 → 11.4 mm 真实端段（骨 0.028）**、**肩胛下肌止点 0.0 → 9.4 mm（骨 0.182）**；**段长 >0 的端 7/9 → 9/9、退化球 2 → 0、与邻肌最大 0.000、与骨最大 0.182 mm³**。教训：**"长度为 0"在报告里像"不需要"，实际是"建不出来"** |
+| 2026-11-01 | v0.8.26 | **重写 §10 交付物表**：原表多行状态与正文脱节（已建成的仍标 ⬜、已收口的仍写旧数字），例如"肩部 TPU 生成脚本 ⬜"（实际早已交付）、"整装干涉 31 件 15 处意外"（实际 27 件、残余 2 处）、"腱段 2 端悬空球头"（实际 9 端全为真实端段）、"四模块 2/4 单件"（实际 1/1/1/2，冈下肌两件是 D18 设计）。新表分**10.1 几何/解析类（已完成可复现）**与**10.2 待实测/待制造**，每行以正文对应小节为准，并补入单侧压紧解、座换位力臂、带肌腹扫掠等新交付物。**这种漂移会让整份文档失去可信度**，故一并重写而非逐行修补 |
 
 ## 14. S1 现状总表（2026-11-01，第 50 轮盘点）
 
@@ -3643,7 +3652,7 @@ Parametric Design and 3D-Printed Flexible Structures.* Advanced Intelligent Syst
    ✅ **逐端直径已实现**（§5.4.33）：该端 R2.5 实测 0/0，截面 235.9 → 532.4 mm³。
 2. ✅ **端垫 3 mm 凸台——已建成并设为默认**（§5.9.23）：`--pad-boss-mm` 默认 3.0，
    腱段 7 mm 起点与端盖离开贴合面两个需求由同一根凸台满足，整装残余 5 → 2。
-3. **2 处亚 mm³ 整装残余未清**（0.094–0.352，均为端垫贴邻肌）。
+3. 🔶 **2 处亚 mm³ 整装残余**（0.094–0.352，均为端垫贴邻肌）——**在设计判据 0.5 mm³ 以内，按判据已接受**；若要更严需把判据下调后重配。
 4. ✅ **退化端段已消除**（§5.4.34）：9 个端全部为真实端段，段长 >0；与骨最大 0.182 mm³、与邻肌 0.000。
 5. **S1-G1 带肌腹判据**——需要允许滑动的形变模型或软体模型。
 
