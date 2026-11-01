@@ -74,11 +74,23 @@ moment(θ) = (B(θ) − C) × unit(A − B(θ)) · a
 
 ### Step 0 — 前置判断（不产出几何）
 
+**已实现为脚本，不要手写**：
+
+```bash
+python mujoco_arm/tools/frames.py                                  # 坐标系自检（dE=0, dF=0）
+python mujoco_arm/tools/force_line.py --self-test                  # 解析解自检
+python mujoco_arm/tools/force_line.py --muscle FJ1486 --to 150 --step 1 --bone
+```
+
 | 输入 | 输出 | 判据 |
 |---|---|---|
-| 骨/关节中心 C、轴 a、起止点 A/B | 力矩符号表（每个角度） | 区间内符号恒定；穿骨检查 |
+| 关节中心 C、轴 a、起止点 A/B | 力矩符号表（每角度）、符号翻转点、弦长变化 | 区间内符号恒定 |
+| 骨骼网格 | 直线弦首次接触角度、最小间隙 | 目标区间内不接触，或已知接触角 |
 
 **失败即停**，不要带着反号的力线进入建模。
+
+`frames.py` 是坐标换算的唯一入口（`SHIFT / E / F`），不要再在脚本里手写那三行——
+少减一个 `SHIFT` 会让整块肌肉落到 1000 mm 之外。
 
 ### Step 1 — 参数选择
 
