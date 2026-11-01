@@ -25,6 +25,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import build_shoulder_ends as BE
 import check_shoulder_fixture_zones as FZ
 import frames
 import interference as I
@@ -70,10 +71,19 @@ def main(argv=None):
         c = np.asarray(s['centre_source_mm'], float)
         n = np.asarray(s['normal_source'], float)
         lift = float(s['lift_mm'])
+        # build exactly what the ends tool recorded.  The radius and thickness are fitted per
+        # seat (a 4 mm disc on a 2.8 mm blade reaches the far side), so a hard-coded R11 x 4 here
+        # would check a part that is not the design - which is what it did before.
+        pad_t = float(s.get('pad_thickness_mm', shoulder_pads.PAD_THICKNESS_MM))
+        pad_r = float(s.get('pad_radius_mm', shoulder_pads.PAD_RADIUS_MM))
+        cap_t = float(s.get('cap_thickness_mm', pad_t))
+        cap_r = float(s.get('cap_radius_mm', pad_r))
         name = '%s/%s' % (s['head'], s['end'])
-        parts['pad:' + name] = shoulder_pads.build_pad(c + n * lift, n)
-        parts['cap:' + name] = shoulder_pads.build_pad(
-            c + n * (lift + shoulder_pads.PAD_THICKNESS_MM + 0.2), n)
+        # use the same builder the ends tool uses, bolt holes and crimp bore included: a solid
+        # disc of the same nominal size is a bigger part and reported overlaps that the design
+        # does not have (96.97 mm3 on one seat)
+        parts['pad:' + name] = BE.disc(c + n * lift, n, pad_t, radius=pad_r)
+        parts['cap:' + name] = BE.disc(c + n * (lift + pad_t + 0.2), n, cap_t, radius=cap_r)
 
     print('parts: %d' % len(parts))
     kinds = {}

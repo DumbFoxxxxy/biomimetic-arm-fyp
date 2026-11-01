@@ -93,6 +93,25 @@ def nearest_bone(point, bones):
     return best[1], best[2]
 
 
+def blade_thickness(point, normal, bone_key, bone_tris, limit=15.0):
+    """How far the bone extends inward along -normal from the seat [mm], or None.
+
+    A flat pad thicker than this must emerge on the far side - which is what 5.9.12 class B
+    turned out to be: a 4 mm pad on a 2.8 mm scapular blade, not a placement error.
+    """
+    tris = bone_tris[list(SP.BONES).index(bone_key)]
+    p = np.asarray(point, float)
+    n = np.asarray(normal, float)
+    t = 0.3
+    if mesh_geom.signed_distance(p - n * t, tris) > 0.0:
+        return None                     # not on this bone's surface in this direction
+    while t < limit:
+        if mesh_geom.signed_distance(p - n * t, tris) > 0.0:
+            return float(t)
+        t += 0.1
+    return None
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
@@ -116,41 +135,113 @@ def main(argv=None):
             W, G = mesh_geom.weld(V, F)
             modules[key] = mf().Manifold(mf().Mesh64(W, G.astype(np.uint32)))
 
-    seats = []
-    print('%-14s %-8s %-8s %6s %10s %10s %10s'
-          % ('module', 'head', 'end', 'lift', 'pad/bone', 'cap/bone', 'pad/module'))
+    # --- collect the seats, then merge duplicates ---
+    # The deltoid's three heads share one insertion seat (D8).  Building a pad per head put three
+    # coincident pads there, which 5.9.12 measured as six pairs of 1516.19 mm3.  A seat gets one
+    # pad and one cap, and the heads' bores simply converge inside it.
+    raw = []
     for m in design['modules']:
         for c in m['channels']:
             path = next(x['path_source_mm'] for x in m['corridors'] if x['head'] == c['head'])
             for end, p in (('origin', path[0]), ('distal', path[-1])):
-                p = np.asarray(p, float)
-                n = bone_normal(p, bone_tris)
-                bk, bsolid = nearest_bone(p, bones)
-                lift, lift_residual = shoulder_pads.lift_to_clear(p, n, bsolid)
-                if lift is None:
-                    lift = 0.0
-                    print('  %-14s %-8s %-6s lift > 8 mm not enough (residual %.1f mm3)'
-                          % (m['module'], c['head'], end, lift_residual))
-                pad = disc(p + n * lift, n, PAD_T)
-                cap_c = p + n * (lift + PAD_T + 0.2)      # cap sits on the pad's outer face
-                cap = disc(cap_c, n, PAD_T)
-                pad_bone = max(I.intersection_volume(pad, b).__float__()
-                               for b in bones.values())
-                cap_bone = max(I.intersection_volume(cap, b).__float__()
-                               for b in bones.values())
-                seats.append({
-                    'module': m['module'], 'head': c['head'], 'end': end,
-                    'centre_source_mm': np.round(p, 2).tolist(),
-                    'normal_source': np.round(n, 3).tolist(),
-                    'nearest_bone': bk,
-                    'lift_mm': round(lift, 2),
-                    'pad_volume_mm3': round(pad.volume(), 1),
-                    'cap_volume_mm3': round(cap.volume(), 1),
-                    'pad_bone_mm3': round(pad_bone, 3),
-                    'cap_bone_mm3': round(cap_bone, 3),
-                })
-                print('%-14s %-8s %-8s %6.2f %10.3f %10.3f  (%s)'
-                      % (m['module'], c['head'], end, lift, pad_bone, cap_bone, bk))
+                raw.append({'module': m['module'], 'head': c['head'], 'end': end,
+                            'p': np.asarray(p, float)})
+
+    merged = []
+    for r in raw:
+        for g in merged:
+            if np.linalg.norm(r['p'] - g['p']) < 1.0:
+                g['members'].append('%s/%s' % (r['head'], r['end']))
+                break
+        else:
+            merged.append({'p': r['p'], 'module': r['module'],
+                           'members': ['%s/%s' % (r['head'], r['end'])]})
+    print('seats: %d raw -> %d distinct (merged: %s)'
+          % (len(raw), len(merged),
+             '; '.join(', '.join(g['members']) for g in merged if len(g['members']) > 1)))
+
+    seats = []
+    for g in merged:
+        p = g['p']
+        n = bone_normal(p, bone_tris)
+        bk, bsolid = nearest_bone(p, bones)
+        g_module = g['module']
+        # The pad must clear the bones AND the neighbouring modules.  On a 2.8 mm blade with the
+        # opposite-side muscle pressed against the far face even a 2.3 mm disc reaches it, so the
+        # footprint is fitted rather than fixed.
+        blade = blade_thickness(p, n, bk, bone_tris)
+        t_max = PAD_T if blade is None else float(max(1.0, min(PAD_T, blade - 0.5)))
+        pad_r, thick, pad, lift = PAD_R, t_max, None, 0.0
+        for cand_t in sorted({t_max, round(t_max * 0.7, 2), 1.5, 1.0}, reverse=True):
+            done = False
+            for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
+                # the lift is re-solved per candidate: the earlier value was fitted to 4 mm
+                cand_lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=cand_r,
+                                                           thickness=cand_t)
+                cand_lift = 0.0 if cand_lift is None else cand_lift
+                geom = disc(p + n * cand_lift, n, cand_t, radius=cand_r)
+                hit = max(max(I.intersection_volume(geom, b).__float__()
+                              for b in bones.values()),
+                          max((I.intersection_volume(geom, s).__float__()
+                               for k, s in modules.items() if k != g_module), default=0.0))
+                pad_r, thick, pad, lift = cand_r, cand_t, geom, cand_lift
+                if hit <= SURFACE_TOL_MM3:
+                    done = True
+                    break
+            if done:
+                break
+        pad_bone = max(I.intersection_volume(pad, b).__float__() for b in bones.values())
+        pad_mod = max((I.intersection_volume(pad, s).__float__() for k, s in modules.items()
+                       if k != g['module']), default=0.0)
+
+        # The cap must clear bones and the neighbouring modules.  Radius alone was not enough:
+        # the seats that failed are on a thin blade, where the cap's THICKNESS is what reaches the
+        # far side, so both are fitted.
+        cap_r, cap_t, cap, cap_hit = PAD_R, thick, None, None
+        for cand_t in sorted({thick, round(thick * 0.6, 2), 1.5, 1.0}, reverse=True):
+            done = False
+            for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
+                c_c = p + n * (lift + thick + 0.2)
+                c_geom = disc(c_c, n, cand_t, radius=cand_r)
+                hit = max(max(I.intersection_volume(c_geom, b).__float__()
+                              for b in bones.values()),
+                          max((I.intersection_volume(c_geom, s).__float__()
+                               for k, s in modules.items() if k != g['module']), default=0.0))
+                cap_r, cap_t, cap, cap_hit = cand_r, cand_t, c_geom, hit
+                if hit <= SURFACE_TOL_MM3:
+                    done = True
+                    break
+            if done:
+                break
+        cap_bone = max(I.intersection_volume(cap, b).__float__() for b in bones.values())
+        cap_mod = max((I.intersection_volume(cap, s).__float__() for k, s in modules.items()
+                       if k != g['module']), default=0.0)
+
+        seats.append({
+            'module': g['module'], 'heads': g['members'],
+            'head': g['members'][0].split('/')[0], 'end': g['members'][0].split('/')[1],
+            'centre_source_mm': np.round(p, 2).tolist(),
+            'normal_source': np.round(n, 3).tolist(),
+            'nearest_bone': bk,
+            'lift_mm': round(lift, 2),
+            'blade_thickness_mm': None if blade is None else round(blade, 2),
+            'pad_thickness_mm': round(thick, 2),
+            'pad_radius_mm': PAD_R,
+            'cap_radius_mm': round(cap_r, 2),
+            'cap_thickness_mm': round(cap_t, 2),
+            'pad_volume_mm3': round(pad.volume(), 1),
+            'cap_volume_mm3': round(cap.volume(), 1),
+            'pad_bone_mm3': round(pad_bone, 3),
+            'pad_other_module_mm3': round(pad_mod, 3),
+            'cap_bone_mm3': round(cap_bone, 3),
+            'cap_other_module_mm3': round(cap_mod, 3),
+        })
+        r = seats[-1]
+        print('  %-24s lift %4.2f  blade %5s  pad t %4.2f  cap r %4.1f  '
+              'pad/bone %.2f  cap/bone %.2f  cap/mod %.2f'
+              % (','.join(g['members']), r['lift_mm'], r['blade_thickness_mm'],
+                 r['pad_thickness_mm'], r['cap_radius_mm'], r['pad_bone_mm3'],
+                 r['cap_bone_mm3'], r['cap_other_module_mm3']))
 
     print('\n--- neighbouring seats ---')
     print('%-22s %-22s %10s %10s' % ('seat a', 'seat b', 'centres', 'rim gap'))
