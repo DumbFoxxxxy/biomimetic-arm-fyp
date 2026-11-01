@@ -72,3 +72,9 @@ Thumbs.db
 # design.json / manifest.json carry volume, bbox and triangle count instead.
 # ASCII only on purpose: the rest of this file is GBK and must stay one encoding.
 **/shoulder_z_coupons/*/coupon.stl
+# S1 deltoid Y envelope: reproducible with
+#   python mujoco_arm/tools/build_deltoid_y_module.py
+# Same constraint as the z coupons: no new LFS objects can be added from this
+# checkout, so design.json / s1_deltoid_y.json carry volume, component count and
+# triangle count and the binary is regenerated on demand.
+**/shoulder_deltoid_y/*.stl
