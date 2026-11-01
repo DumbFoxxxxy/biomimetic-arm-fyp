@@ -31,6 +31,7 @@ import frames
 import interference as I
 import mesh_geom
 import search_shoulder_channel_paths as SP
+import shoulder_pads
 
 MUSCLE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / 'muscle'
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
@@ -121,13 +122,20 @@ def nearest_points(a, b):
     return (pa, pb, da) if da <= db else (pb, pa, db)
 
 
-def bridge(lobes, bone_tris, bone_solids, radius=TUBE_R_MM, offsets=(5.0, 8.0, 12.0)):
-    """Join two lobes with a short arc that goes over the bone between them.
+def bridge(lobes, bone_tris, bone_solids, radius=TUBE_R_MM, offsets=(4.0, 6.0, 8.0, 12.0, 16.0),
+           sink_mm=4.0):
+    """Join two lobes with an arc that goes over the bone between them.
 
     D18 option A: the lobes are one muscle, split only because the muscle mesh
     interpenetrated the scapula and the connecting material sat inside it.  The bridge
     has to clear the ridge, so the arc apex is pushed along the bone's outward normal
-    until the rods are bone-clear; the first offset that works is kept.
+    until the rods are bone-clear.
+
+    The trick that makes it work: the rod ends must be **inside** each lobe, not spheres
+    sitting on the lobe surface.  The closest-point pair is only 1.47 mm from bone, so a
+    radius-3.2 sphere centred there intersects bone no matter where the apex goes - that
+    is exactly why the first attempt clashed at every offset.  Each end is therefore sunk
+    `sink_mm` into its own lobe, where the material is already bone-clear.
     """
     a, b, gap = nearest_points(lobes[0], lobes[1])
     mid = 0.5 * (a + b)
@@ -137,18 +145,26 @@ def bridge(lobes, bone_tris, bone_solids, radius=TUBE_R_MM, offsets=(5.0, 8.0, 1
         if picked is None or abs(d) < abs(picked[0]):
             picked = (d, n)
     _, n_out = picked
+    va, fa = mesh_geom.manifold_mesh_to_arrays(lobes[0].to_mesh())
+    vb, fb = mesh_geom.manifold_mesh_to_arrays(lobes[1].to_mesh())
+    WA, GA = mesh_geom.weld(va, fa)
+    WB, GB = mesh_geom.weld(vb, fb)
+    _, n_a = mesh_geom.signed_distance_and_normal(a, WA[GA])
+    _, n_b = mesh_geom.signed_distance_and_normal(b, WB[GB])
+    a_in = a - n_a * sink_mm
+    b_in = b - n_b * sink_mm
     fallback = None
     for off in offsets:
         apex = mid + n_out * off
-        pieces = [p for p in (rod(a, apex, radius), rod(apex, b, radius),
-                              mf().Manifold.sphere(radius, 20).translate(list(a)),
-                              mf().Manifold.sphere(radius, 20).translate(list(b)))
+        pieces = [p for p in (rod(a_in, apex, radius), rod(apex, b_in, radius),
+                              mf().Manifold.sphere(radius, 20).translate(list(a_in)),
+                              mf().Manifold.sphere(radius, 20).translate(list(b_in)))
                   if p is not None]
         solid = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
         clash = sum(I.intersection_volume(solid, s) for s in bone_solids)
         rec = {'solid': solid, 'apex_source_mm': np.round(apex, 2).tolist(),
-               'offset_mm': off, 'gap_mm': round(gap, 3),
-               'bone_clash_mm3': round(clash, 3)}
+               'endpoints_sunk_mm': sink_mm, 'offset_mm': off,
+               'gap_mm': round(gap, 3), 'bone_clash_mm3': round(clash, 3)}
         if clash <= I.HARD_MM3:
             return rec
         if fallback is None:
@@ -253,9 +269,28 @@ def main(argv=None):
                 fcomps = [c for c in final.decompose() if c.volume() > 0.5]
             print('  dropped %d debris fragment(s) totalling %.1f mm3 (< %.0f mm3)'
                   % (len(debris), sum(c.volume() for c in debris), DEBRIS_MM3))
-        # a lobe that carries a seat must not be dropped, so try to join it (D18 A).
-        # The attempt is non-destructive: if it does not reduce the piece count we keep
-        # the unbridged part and record the failure rather than shipping a stub.
+        # if the lobes cannot be joined in TPU, they can still be joined by the origin
+        # pad and cap that both of them sit on - that is how every muscle end is captured
+        # anyway (§5.7).  Measure it rather than assume it.
+        pad_rows = []
+        if len(fcomps) > 1:
+            probe = mf().Manifold.sphere(0.25, 12)
+            for c in sorted(fcomps, key=lambda x: -x.volume()):
+                d_o = I.gap(c, probe.translate(list(np.asarray(seat_origin, float))))
+                pad_rows.append({'fragment_mm3': round(c.volume(), 1),
+                                 'distance_to_origin_seat_mm': round(d_o, 2),
+                                 'within_pad_radius': bool(
+                                     d_o <= shoulder_pads.PAD_RADIUS_MM)})
+            all_on_pad = all(r['within_pad_radius'] for r in pad_rows)
+            print('  lobes on the shared origin pad: %s (pad R%.0f)'
+                  % (', '.join('%.1f mm3 at %.2f mm' % (r['fragment_mm3'],
+                                                        r['distance_to_origin_seat_mm'])
+                               for r in pad_rows),
+                     shoulder_pads.PAD_RADIUS_MM))
+            print('  -> join through the pad and cap: %s' % ('YES' if all_on_pad else 'NO'))
+        # A TPU bridge is still attempted, non-destructively: if it does not reduce the
+        # piece count we keep the unbridged part and record the failure rather than
+        # shipping a stub.
         lobe_rows = []
         guard = 0
         while len(fcomps) > 1 and guard < 3:
@@ -353,6 +388,11 @@ def main(argv=None):
                                   'components_untrimmed': raw_comps,
                                   'trimmed_at_bone_mm3': removed},
                         'lobe_bridges': lobe_rows,
+                        'lobe_pad_join': {
+                            'pad_radius_mm': shoulder_pads.PAD_RADIUS_MM,
+                            'fragments': pad_rows,
+                            'joined_by_pad': bool(pad_rows) and all(
+                                r['within_pad_radius'] for r in pad_rows)},
                         'final': {'volume_mm3': round(final.volume(), 1),
                                   'anatomy_mm3': round(anatomy.volume(), 1),
                                   'added_mm3': round(added, 1),
