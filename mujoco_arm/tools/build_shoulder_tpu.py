@@ -425,10 +425,22 @@ def main(argv=None):
             struts, cells, skipped = swept_lattice(envelope, tri, main_path,
                                                    cell=tuple(args.cell))
         elif args.mode == 'structured':
-            main_path = max(channels, key=lambda c: float(sum(np.linalg.norm(
-                np.asarray(b) - np.asarray(a)) for a, b in zip(c[1], c[1][1:]))))[1]
-            struts, cells, skipped = structured_lattice(envelope, tri, main_path,
-                                                        cell=tuple(args.cell))
+            # one transported lattice per corridor, unioned: the deltoid is a Y, and a
+            # sweep along one branch cannot fill the other two
+            parts, cells, skipped = [], 0, 0
+            for mid, cpath in channels:
+                s, c, sk = structured_lattice(envelope, tri, cpath, cell=tuple(args.cell))
+                cells += c
+                skipped += sk
+                if s is not None:
+                    parts.append(s)
+                    print('  branch %-8s %d cells' % (mid, c))
+            if not parts:
+                struts = None
+            elif len(parts) == 1:
+                struts = parts[0]
+            else:
+                struts = mf().Manifold.batch_boolean(parts, mf().OpType.Add)
         else:
             struts, cells, skipped = lattice(envelope, tri, cell=tuple(args.cell))
         if struts is None:

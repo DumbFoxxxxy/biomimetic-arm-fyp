@@ -1,0 +1,155 @@
+{
+  "scope": "envelope-to-envelope overlap between the four S1 modules and module-to-bone; the printed lattice parts are not checked here",
+  "pairs": [
+    {
+      "a": "deltoid",
+      "b": "teres_major",
+      "overlap_mm3": 0.0,
+      "clear": true
+    },
+    {
+      "a": "deltoid",
+      "b": "subscapularis",
+      "overlap_mm3": 0.0024,
+      "clear": false
+    },
+    {
+      "a": "deltoid",
+      "b": "infraspinatus",
+      "overlap_mm3": 163.6526,
+      "clear": false
+    },
+    {
+      "a": "teres_major",
+      "b": "subscapularis",
+      "overlap_mm3": 0.0,
+      "clear": true
+    },
+    {
+      "a": "teres_major",
+      "b": "infraspinatus",
+      "overlap_mm3": 31.9676,
+      "clear": false
+    },
+    {
+      "a": "subscapularis",
+      "b": "infraspinatus",
+      "overlap_mm3": 2.13,
+      "clear": false
+    }
+  ],
+  "module_vs_bone": [
+    {
+      "module": "deltoid",
+      "intersections_mm3": {
+        "scapula": 0.007,
+        "clavicle": 0.0014,
+        "humerus": 0.0013
+      },
+      "clear": false
+    },
+    {
+      "module": "teres_major",
+      "intersections_mm3": {
+        "scapula": 0.0015,
+        "clavicle": 0.0,
+        "humerus": 0.0006
+      },
+      "clear": false
+    },
+    {
+      "module": "subscapularis",
+      "intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0013
+      },
+      "clear": false
+    },
+    {
+      "module": "infraspinatus",
+      "intersections_mm3": {
+        "scapula": 0.0219,
+        "clavicle": 0.0,
+        "humerus": 0.0024
+      },
+      "clear": false
+    }
+  ],
+  "worst_pair_overlap_mm3": 163.6526,
+  "roundtrip_noise_mm3": 0.05,
+  "all_pairs_clear": false,
+  "all_bone_clear": false,
+  "resolved": {
+    "removed_mm3": {
+      "subscapularis<- infraspinatus": 2.13,
+      "teres_major<- infraspinatus": 31.968,
+      "deltoid<- infraspinatus": 163.653
+    },
+    "modules_after": [
+      {
+        "module": "deltoid",
+        "volume_mm3": 317305.8,
+        "components": 1,
+        "worst_bone_mm3": 0.007
+      },
+      {
+        "module": "teres_major",
+        "volume_mm3": 35198.3,
+        "components": 1,
+        "worst_bone_mm3": 0.0015
+      },
+      {
+        "module": "subscapularis",
+        "volume_mm3": 46276.2,
+        "components": 1,
+        "worst_bone_mm3": 0.0013
+      },
+      {
+        "module": "infraspinatus",
+        "volume_mm3": 95844.9,
+        "components": 2,
+        "worst_bone_mm3": 0.0219
+      }
+    ],
+    "pairs_after": [
+      {
+        "a": "deltoid",
+        "b": "teres_major",
+        "overlap_mm3": 0.0
+      },
+      {
+        "a": "deltoid",
+        "b": "subscapularis",
+        "overlap_mm3": 0.0
+      },
+      {
+        "a": "deltoid",
+        "b": "infraspinatus",
+        "overlap_mm3": 0.0
+      },
+      {
+        "a": "teres_major",
+        "b": "subscapularis",
+        "overlap_mm3": 0.0
+      },
+      {
+        "a": "teres_major",
+        "b": "infraspinatus",
+        "overlap_mm3": 0.0
+      },
+      {
+        "a": "subscapularis",
+        "b": "infraspinatus",
+        "overlap_mm3": 0.0
+      }
+    ],
+    "worst_pair_after_mm3": 0.0,
+    "all_pairs_clear_after": true
+  },
+  "not_verified": [
+    "the TPU lattice parts are not checked, only their envelopes",
+    "fixture pads (D17) are not included",
+    "no 0-120 deg sweep"
+  ]
+}
