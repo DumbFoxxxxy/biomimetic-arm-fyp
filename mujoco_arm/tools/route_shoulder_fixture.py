@@ -37,7 +37,11 @@ import mesh_geom
 import search_shoulder_channel_paths as SP
 import shoulder_pads
 
-CLEAR_MM = 4.5          # beam/post radius 4.0 plus a little
+CLEAR_MM = 4.5          # beam clearance: beam radius 4.0 plus a little
+#: The posts need their own, smaller clearance.  Sharing one number made the two requirements
+#: fight: at 4.5 the lateral post cannot leave its pad at all, and at 3.5 the beam sinks back
+#: 17.21 mm3 into the blade it had just been routed around.  The lateral zone is simply tighter.
+POST_CLEAR_MM = 3.5
 STEP_MM = 5.0
 MAX_POST_MM = 95.0
 FAN_DEG = 70.0
@@ -105,10 +109,11 @@ def plan_post(start, heading, obstacles, step=STEP_MM, max_len=MAX_POST_MM):
                         + np.sin(rad) * (np.cos(r2) * perp1 + np.sin(r2) * perp2))
                 cand = frames.unit(cand)
                 nxt = path[-1] + cand * step
-                mid = path[-1] + cand * (step / 2.0)
-                m_end, _ = clear_of(nxt, obstacles, CLEAR_MM)
-                m_mid, _ = clear_of(mid, obstacles, CLEAR_MM)
-                m = min(m_end, m_mid)
+                # Sample along the whole step, not just its ends: a 5 mm step whose endpoints
+                # satisfy 4.5 mm can still graze a bone edge with the side of a radius-4 post,
+                # which is what left 1.1 and 13.6 mm3 of contact in the first routed version.
+                m = min(clear_of(path[-1] + cand * (f * step), obstacles, POST_CLEAR_MM)[0]
+                        for f in (0.2, 0.4, 0.6, 0.8, 1.0))
                 candidates.append((m, float(a) ** 2 + float(b) ** 2, cand, nxt))
         candidates.sort(key=lambda c: (-c[0], c[1]))
         best = candidates[0]
@@ -117,7 +122,8 @@ def plan_post(start, heading, obstacles, step=STEP_MM, max_len=MAX_POST_MM):
         _, _, h, nxt = best
         path.append(nxt)
         total += step
-        if all(clear_of(p, obstacles, CLEAR_MM * 2.0)[0] >= 0.0 for p in [nxt]) and total >= 45.0:
+        if all(clear_of(p, obstacles, POST_CLEAR_MM * 2.0)[0] >= 0.0 for p in [nxt]) \
+                and total >= 45.0:
             return path, 'clear at %.0f mm' % total
     return path, 'reached max %.0f mm' % total
 
@@ -134,9 +140,15 @@ def tube(path, r):
 
 
 def main(argv=None):
+    global CLEAR_MM
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
+    ap.add_argument('--clear-mm', type=float, default=CLEAR_MM,
+                    help='clearance the route must keep from every obstacle [mm]')
+    ap.add_argument('--post-r-mm', type=float, default=FX.POST_R_MM,
+                    help='post radius [mm]; the lateral zone may need a slimmer post')
     args = ap.parse_args(argv)
+    CLEAR_MM = args.clear_mm
 
     gh = frames.joint_centres('source')['GH']
     axes = frames.gh_probe_axes()
@@ -224,7 +236,7 @@ def main(argv=None):
     for tag, key, heading in (('medial_post', 'superior_angle', np.array([1.0, 0.0, -0.2])),
                               ('lateral_post', 'lateral_upper', np.array([-1.0, 0.0, -0.5]))):
         path, why = plan_post(starts[key], heading, obstacles)
-        post = tube(path, FX.POST_R_MM) if len(path) > 1 else None
+        post = tube(path, args.post_r_mm) if len(path) > 1 else None
         base_c = path[-1]
         base = mf().Manifold.cube(list(BASE_SIZE)).translate(list(base_c))
         results[tag] = {
@@ -241,13 +253,17 @@ def main(argv=None):
                                              for b in (scap, clav))), 3),
         }
         r = results[tag]
-        print('%-14s %s  len %.0f mm  post/bone %.2f  post/sweep %.2f  base/sweep %.2f'
+        print('%-14s %s  len %.0f mm  post/bone %.2f  post/sweep %.2f  base/sweep %.2f  '
+              'base/bone %.2f'
               % (tag, why, r['length_mm'], r['post_bone_mm3'], r['post_sweep_mm3'],
-                 r['base_sweep_mm3']))
+                 r['base_sweep_mm3'], r['base_bone_mm3']))
 
-    ok = (beam_ok and all(v['post_bone_mm3'] <= TOL_MM3 and v['post_sweep_mm3'] <= TOL_MM3
+    ok = (beam_ok and all(results[t]['points'] > 1
+                          and v['post_bone_mm3'] <= TOL_MM3
+                          and v['post_sweep_mm3'] <= TOL_MM3
                           and v['base_sweep_mm3'] <= TOL_MM3
-                          for v in results.values()))
+                          and v['base_bone_mm3'] <= TOL_MM3
+                          for t, v in results.items()))
     print('fixture exits all clear: %s' % ('YES' if ok else 'NO'))
 
     if args.json_out:
@@ -255,7 +271,8 @@ def main(argv=None):
             'scope': 'D17 v3 fixture exits routed with obstacle avoidance: beam follows the '
                      'medial border, posts planned by greedy fan search against scapula, clavicle '
                      'and the humerus sweep envelope, base placed at the route end',
-            'clearance_mm': CLEAR_MM, 'step_mm': STEP_MM, 'max_post_mm': MAX_POST_MM,
+            'beam_clearance_mm': CLEAR_MM, 'post_clearance_mm': POST_CLEAR_MM,
+            'post_r_mm': args.post_r_mm, 'step_mm': STEP_MM, 'max_post_mm': MAX_POST_MM,
             'sweep_envelope_mm3': round(envelope.volume(), 1),
             'beam': {'clear': bool(beam_ok), 'points': len(beam_path),
                      'bone_mm3': round(beam_bone, 3), 'sweep_mm3': round(beam_sweep, 3)},
