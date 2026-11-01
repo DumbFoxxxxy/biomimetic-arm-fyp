@@ -64,6 +64,18 @@ MODULES = [
 #: 31.97, subscapularis/infraspinatus 2.13 mm3 - the infraspinatus is always the deep one.
 BUILD_ORDER = ['infraspinatus', 'subscapularis', 'teres_major', 'deltoid']
 
+#: Seat moves that have been decided on measurement (D22).  Only the infraspinatus origin moved:
+#: the deltoid posterior origin was rejected because 17.39 mm cuts its abduction moment arm by
+#: 45.1% (5.9.16), so that one keeps its verified seat and gets a one-sided clamp instead.
+SEAT_OVERRIDES = {}
+_ov_path = frames.OUTPUT_DIR.parent / 'shoulder_design' / 's1_seat_overrides.json'
+if _ov_path.is_file():
+    import json as _json
+    _ov = _json.loads(_ov_path.read_text(encoding='utf-8')).get('overrides', {})
+    for _k in ('FJ1500/origin',):
+        if _k in _ov:
+            SEAT_OVERRIDES[_k] = _ov[_k]
+
 
 def mf():
     return I._manifold()
@@ -319,6 +331,13 @@ def main(argv=None):
         for mid in heads:
             origin = attachment_regions.load_region(mid, 'origin')
             o, _ = attachment_regions.centroid(origin)
+            # D22: the infraspinatus origin moves 6.56 mm onto thicker blade so its end pad and cap
+            # can exist there at all (5.9.15).  The moment arm was measured first and stays within
+            # 18% with no sign flip (5.9.16), so the corridor follows the seat.
+            if mid + '/origin' in SEAT_OVERRIDES:
+                o = np.asarray(SEAT_OVERRIDES[mid + '/origin']['centre_source_mm'], float)
+                print('  %-8s origin seat moved to the D22 override %s'
+                      % (mid, np.round(o, 1)))
             ts = np.linspace(0.0, 1.0, SP.INTERIOR_POINTS)
             start = [o + (seat - o) * t for t in ts]
             relaxed, _ = SP.relax(start, atri, iterations=SP.ITERATIONS,
