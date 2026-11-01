@@ -82,8 +82,21 @@ def main(argv=None):
         # use the same builder the ends tool uses, bolt holes and crimp bore included: a solid
         # disc of the same nominal size is a bigger part and reported overlaps that the design
         # does not have (96.97 mm3 on one seat)
-        parts['pad:' + name] = BE.disc(c + n * lift, n, pad_t, radius=pad_r)
-        parts['cap:' + name] = BE.disc(c + n * (lift + pad_t + 0.2), n, cap_t, radius=cap_r)
+        if s.get('conforming'):
+            # a conforming pad is not a disc: its underside is the bone surface (5.9.28).  Building
+            # a disc here measures a different part - it reported 40.56 mm3 against the deltoid on
+            # a pad that had been cut to clear it (5.9.29).
+            bones_map = {k.split(':', 1)[1]: v for k, v in parts.items() if k.startswith('bone:')}
+            modules_map = {k.split(':', 1)[1]: v for k, v in parts.items()
+                           if k.startswith('module:')}
+            parts['pad:' + name] = BE.conforming_disc(
+                c, n, lift + pad_t, pad_r, bones_map, s['module'], modules_map,
+                boss_mm=float(s.get('pad_boss_mm', 3.0)))
+        else:
+            parts['pad:' + name] = BE.disc(c + n * lift, n, pad_t, radius=pad_r)
+        parts['cap:' + name] = BE.disc(
+            c + n * (lift + pad_t + float(s.get('pad_boss_mm', 0.0)) + 0.2), n, cap_t,
+            radius=cap_r)
 
     print('parts: %d' % len(parts))
     kinds = {}

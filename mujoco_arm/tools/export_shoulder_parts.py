@@ -22,6 +22,7 @@ import build_shoulder_ends as BE
 import frames
 import interference as I
 import mesh_geom
+import search_shoulder_channel_paths as SP
 
 ENDPADS_JSON = frames.OUTPUT_DIR.parent / 'shoulder_design' / 's1_end_pads.json'
 
@@ -55,6 +56,20 @@ def main(argv=None):
 
         pad = BE.disc_rounded(c, n, lift, pad_t, float(s['pad_radius_mm']),
                               boss_mm=args.boss_mm)
+        if s.get('conforming'):
+            # the shape must match the evidence: a conforming pad is cut against the bone (5.9.28)
+            bones_map = {k: SP.load_solid(BE.BONE_DIR / v) for k, v in SP.BONES.items()}
+            modules_map = {}
+            for key in ('deltoid', 'teres_major', 'subscapularis', 'infraspinatus'):
+                f = frames.OUTPUT_DIR / 'shoulder_modules' / ('%s.stl' % key)
+                if f.is_file():
+                    MV, MF_ = mesh_geom.read_stl(str(f))
+                    MW, MG = mesh_geom.weld(MV, MF_)
+                    modules_map[key] = I._manifold().Manifold(
+                        I._manifold().Mesh64(MW, MG.astype(np.uint32)))
+            pad = BE.conforming_disc(c, n, lift + pad_t, float(s['pad_radius_mm']),
+                                     bones_map, s['module'], modules_map,
+                                     boss_mm=args.boss_mm)
         cap = BE.disc_rounded(c, n, lift + pad_t + args.boss_mm + 0.2,
                               float(s['cap_thickness_mm']), float(s['cap_radius_mm']))
         for kind, geom in (('pad', pad), ('cap', cap)):

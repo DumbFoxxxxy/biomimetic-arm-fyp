@@ -142,6 +142,44 @@ def disc_rounded(centre, normal, lift, thickness, radius, boss_mm=0.0):
     return disc(c, n, round(thickness, 2), radius=round(radius, 1), boss_mm=round(boss_mm, 2))
 
 
+def conforming_disc(centre, normal, height, radius, bones, own_module, modules,
+                    boss_mm=0.0):
+    """A pad whose underside is the bone surface instead of a flat face lifted clear of it.
+
+    5.9.28 measured 2 988 mm3 of air under the ten flat pads - a 4.69 mm lift means only one rim
+    point touches the bone.  Subtracting the bones from a prism that spans the whole lift makes the
+    underside conform: the pad now fills what used to be air, no lift is needed to keep it out of
+    the bone, and the load path is the whole footprint.
+
+    `height` is measured from the seat, so the caller passes lift + pad thickness: the part of the
+    prism below the bone surface is removed, and the outer face stays where the flat pad's was.
+    """
+    R = shoulder_pads.pad_basis(normal)
+    c = np.round(np.asarray(centre, float), 2)
+    prism = mf().Manifold.cylinder(round(height, 2), round(radius, 1), round(radius, 1), 64)
+    solid = prism.transform(np.c_[R, c])
+    for k, b in bones.items():
+        solid = solid - b
+    for k, s in modules.items():
+        if k != own_module:
+            solid = solid - s
+    total = round(height, 2) + boss_mm
+    if boss_mm > 0.0:
+        boss = mf().Manifold.cylinder(boss_mm, 5.0, 5.0, 48)
+        boss = boss.translate([0.0, 0.0, round(height, 2) + boss_mm / 2.0])
+        solid = solid + boss.transform(np.c_[R, c])
+    for k in (0, 1):
+        ang = np.pi * k
+        off = R[:, 0] * (BOLT_PITCH / 2.0) * np.cos(ang) + R[:, 1] * (BOLT_PITCH / 2.0) * np.sin(ang)
+        hole = mf().Manifold.cylinder(total * 3.0, BOLT_HOLE_R, BOLT_HOLE_R, 32)
+        hole = hole.translate([0.0, 0.0, -total])
+        solid = solid - hole.transform(np.c_[R, c + off])
+    bore = mf().Manifold.cylinder(total * 3.0, CRIMP_R, CRIMP_R, 32)
+    bore = bore.translate([0.0, 0.0, -total])
+    solid = solid - bore.transform(np.c_[R, c])
+    return solid
+
+
 def main(argv=None):
     # A seat the fitter could not solve can still take a smaller, laterally offset clamp at the
     # same attachment point: 5.9.18 found the deltoid posterior origin needs only a 1.0 mm offset,
@@ -161,6 +199,11 @@ def main(argv=None):
     ap.add_argument('--pad-boss-mm', type=float, default=3.0,
                     help='boss height on the pad; 3 mm is the specified value - 5.4.31 needs the '
                          'tendon to start 7 mm above the bone and the plate is only 4 mm')
+    ap.add_argument('--conforming', action='store_true',
+                    help='pad underside = bone surface (5.9.28); removes the up-to-4.69 mm lift and '
+                         'the 2 988 mm3 of air under the flat pads')
+    ap.add_argument('--conforming-clear-mm', type=float, default=0.0,
+                    help='nominal bedding clearance on the conforming face (not a true offset)')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_ends'))
     args = ap.parse_args(argv)
     out_dir = Path(args.out)
@@ -250,8 +293,18 @@ def main(argv=None):
                     cand_lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=cand_r,
                                                                thickness=cand_t)
                     cand_lift = 0.0 if cand_lift is None else cand_lift
-                    geom = disc_rounded(p, n, cand_lift, cand_t, cand_r,
-                                        boss_mm=args.pad_boss_mm)
+                    if args.conforming:
+                        # 5.9.28: the flat pad floats above the bone (up to 4.69 mm of air), so the
+                        # underside IS the bone surface instead.  The prism spans the same height
+                        # the flat pad occupied (lift + thickness), so the outer face and therefore
+                        # the cap stay exactly where they were - what changes is that the space
+                        # below is now material instead of air.
+                        geom = conforming_disc(p, n, cand_lift + cand_t, cand_r,
+                                              bones, g['module'], modules,
+                                              boss_mm=args.pad_boss_mm)
+                    else:
+                        geom = disc_rounded(p, n, cand_lift, cand_t, cand_r,
+                                            boss_mm=args.pad_boss_mm)
                     hit = max(max(I.intersection_volume(geom, b).__float__()
                                   for b in bones.values()),
                               max((I.intersection_volume(geom, s).__float__()
@@ -304,6 +357,9 @@ def main(argv=None):
             'lift_mm': round(lift, 2),
             'blade_thickness_mm': None if blade is None else round(blade, 2),
             'pad_thickness_mm': round(thick, 2),
+            # the shape must travel with the numbers: a conforming pad is not a flat disc, and a
+            # reader that rebuilds a disc measures a different part (5.9.29)
+            'conforming': bool(args.conforming),
             'pad_footprint_cleared': bool(pad_cleared),
             'cap_footprint_cleared': bool(cap_cleared),
             'pad_radius_mm': round(pad_r, 1),      # the fitted radius, not the constant
@@ -333,9 +389,15 @@ def main(argv=None):
         c = np.asarray(s['centre_source_mm'], float)
         n = np.asarray(s['normal_source'], float)
         lift = float(s['lift_mm'])
-        pad = disc(c + n * lift, n, s['pad_thickness_mm'], radius=s['pad_radius_mm'])
-        cap = disc(c + n * (lift + s['pad_thickness_mm'] + 0.2), n, s['cap_thickness_mm'],
-                   radius=s['cap_radius_mm'])
+        if args.conforming:
+            # rebuild the RECORDED form: a conforming pad is not a flat disc, so measuring a disc
+            # here would report a mismatch that is really a different part.
+            pad = conforming_disc(c, n, lift + s['pad_thickness_mm'], s['pad_radius_mm'],
+                                  bones, s['module'], modules, boss_mm=args.pad_boss_mm)
+        else:
+            pad = disc(c + n * lift, n, s['pad_thickness_mm'], radius=s['pad_radius_mm'])
+        cap = disc(c + n * (lift + s['pad_thickness_mm'] + args.pad_boss_mm + 0.2), n,
+                   s['cap_thickness_mm'], radius=s['cap_radius_mm'])
         pad_bone = max(I.intersection_volume(pad, b).__float__() for b in bones.values())
         cap_bone = max(I.intersection_volume(cap, b).__float__() for b in bones.values())
         pad_mod = max((I.intersection_volume(pad, m).__float__() for k, m in modules.items()
@@ -396,6 +458,8 @@ def main(argv=None):
             'scope': 'R11 x 4 mm end pad and cap at every bone-side seat, on the bone normal, '
                      'with 2xM3 at 14 mm pitch and the r1.4 crimp bore',
             'pad_radius_mm': PAD_R, 'pad_thickness_mm': PAD_T,
+            'conforming': bool(args.conforming),
+            'pad_boss_mm': args.pad_boss_mm,
             'bolt_pitch_mm': BOLT_PITCH, 'bolt_hole_r_mm': BOLT_HOLE_R,
             'seats': seats, 'pairs': pair_rows,
             'closest_pads': worst,
