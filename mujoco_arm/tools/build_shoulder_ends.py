@@ -222,7 +222,15 @@ def main(argv=None):
         # footprint is fitted rather than fixed.
         blade = blade_thickness(p, n, bk, bone_tris)
         t_max = PAD_T if blade is None else float(max(1.0, min(PAD_T, blade - 0.5)))
+        # The pad and the cap have to be fitted TOGETHER.  The cap's height is lift + pad thickness
+        # + boss, so a thinner pad lowers the cap - and whether that helps depends on the seat.  The
+        # first version fixed the pad at the thickest candidate that cleared the bone and fitted the
+        # cap afterwards, so a thinner pad could never be used to bring the cap down; that is what
+        # left the deltoid middle origin with "no cap" (5.9.21).  Now every pad candidate that
+        # clears the bone is carried through to the cap, and the first pair that clears both wins.
         pad_r, thick, pad, lift = PAD_R, t_max, None, 0.0
+        cap_r, cap_t, cap, cap_hit = PAD_R, t_max, None, None
+        pad_cleared = cap_cleared = False
         if spec is not None:
             # verbatim from the solved clamp: no search, no re-fitting
             pad_r = float(spec['pad_radius_mm'])
@@ -230,54 +238,56 @@ def main(argv=None):
             lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=pad_r, thickness=thick)
             lift = 0.0 if lift is None else lift
             pad = disc_rounded(p, n, lift, thick, pad_r, boss_mm=args.pad_boss_mm)
-        for cand_t in () if spec is not None else sorted(
-                {t_max, round(t_max * 0.7, 2), 1.5, 1.0}, reverse=True):
-            done = False
-            for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
-                # the lift is re-solved per candidate: the earlier value was fitted to 4 mm
-                cand_lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=cand_r,
-                                                           thickness=cand_t)
-                cand_lift = 0.0 if cand_lift is None else cand_lift
-                geom = disc_rounded(p, n, cand_lift, cand_t, cand_r)
-                hit = max(max(I.intersection_volume(geom, b).__float__()
-                              for b in bones.values()),
-                          max((I.intersection_volume(geom, s).__float__()
-                               for k, s in modules.items() if k != g_module), default=0.0))
-                pad_r, thick, pad, lift = cand_r, cand_t, geom, cand_lift
-                if hit <= SURFACE_TOL_MM3:
-                    done = True
+            cap_r = float(spec['cap_radius_mm'])
+            cap_t = float(spec['cap_thickness_mm'])
+            cap = disc_rounded(p, n, lift + thick + args.pad_boss_mm + 0.2, cap_t, cap_r)
+            pad_cleared = cap_cleared = pad is not None and cap is not None
+        else:
+            best = None
+            for cand_t in sorted({t_max, round(t_max * 0.7, 2), 2.5, 2.0, 1.5, 1.0}, reverse=True):
+                for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
+                    cand_lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=cand_r,
+                                                               thickness=cand_t)
+                    cand_lift = 0.0 if cand_lift is None else cand_lift
+                    geom = disc_rounded(p, n, cand_lift, cand_t, cand_r,
+                                        boss_mm=args.pad_boss_mm)
+                    hit = max(max(I.intersection_volume(geom, b).__float__()
+                                  for b in bones.values()),
+                              max((I.intersection_volume(geom, s).__float__()
+                                   for k, s in modules.items() if k != g_module), default=0.0))
+                    if hit > SURFACE_TOL_MM3:
+                        continue
+                    # pad clears - now the cap at this pad's height
+                    found_cap = None
+                    for c_t in sorted({cand_t, round(cand_t * 0.6, 2), 1.5, 1.0}, reverse=True):
+                        for c_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
+                            c_geom = disc_rounded(
+                                p, n, cand_lift + cand_t + args.pad_boss_mm + 0.2, c_t, c_r)
+                            c_hit = max(max(I.intersection_volume(c_geom, b).__float__()
+                                            for b in bones.values()),
+                                        max((I.intersection_volume(c_geom, s).__float__()
+                                             for k, s in modules.items() if k != g_module),
+                                            default=0.0))
+                            if c_hit <= SURFACE_TOL_MM3:
+                                found_cap = (c_r, c_t, c_geom, c_hit)
+                                break
+                        if found_cap:
+                            break
+                    if found_cap is not None:
+                        best = (cand_r, cand_t, geom, cand_lift, *found_cap)
+                        break
+                    if best is None:
+                        best = (cand_r, cand_t, geom, cand_lift, PAD_R, cand_t, None, None)
+                if best is not None and best[6] is not None:
                     break
-            if done:
-                break
+            if best is not None:
+                pad_r, thick, pad, lift, cap_r, cap_t, cap, cap_hit = best
         pad_bone = max(I.intersection_volume(pad, b).__float__() for b in bones.values())
         pad_mod = max((I.intersection_volume(pad, s).__float__() for k, s in modules.items()
                        if k != g['module']), default=0.0)
         pad_cleared = pad_bone <= SURFACE_TOL_MM3 and pad_mod <= SURFACE_TOL_MM3
-
-        # The cap must clear bones and the neighbouring modules.  Radius alone was not enough:
-        # the seats that failed are on a thin blade, where the cap's THICKNESS is what reaches the
-        # far side, so both are fitted.
-        cap_r, cap_t, cap, cap_hit = PAD_R, thick, None, None
-        if spec is not None:
-            cap_r = float(spec['cap_radius_mm'])
-            cap_t = float(spec['cap_thickness_mm'])
+        if cap is None:
             cap = disc_rounded(p, n, lift + thick + args.pad_boss_mm + 0.2, cap_t, cap_r)
-        for cand_t in () if spec is not None else sorted(
-                {thick, round(thick * 0.6, 2), 1.5, 1.0}, reverse=True):
-            done = False
-            for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
-                c_c = p + n * (lift + thick + 0.2)
-                c_geom = disc_rounded(p, n, lift + thick + args.pad_boss_mm + 0.2, cand_t, cand_r)
-                hit = max(max(I.intersection_volume(c_geom, b).__float__()
-                              for b in bones.values()),
-                          max((I.intersection_volume(c_geom, s).__float__()
-                               for k, s in modules.items() if k != g['module']), default=0.0))
-                cap_r, cap_t, cap, cap_hit = cand_r, cand_t, c_geom, hit
-                if hit <= SURFACE_TOL_MM3:
-                    done = True
-                    break
-            if done:
-                break
         cap_bone = max(I.intersection_volume(cap, b).__float__() for b in bones.values())
         cap_mod = max((I.intersection_volume(cap, s).__float__() for k, s in modules.items()
                        if k != g['module']), default=0.0)
