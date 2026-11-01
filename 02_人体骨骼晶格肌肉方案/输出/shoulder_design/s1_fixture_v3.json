@@ -1,0 +1,114 @@
+{
+  "scope": "D17 v3 fixture: 3 pads (medial mid, superior angle, lateral upper), a short medial beam, one outward post per group, and two bases; checked against the humerus sweep envelope and the modules",
+  "post_r_mm": 4.0,
+  "beam_r_mm": 4.0,
+  "base_mm": [
+    40.0,
+    30.0,
+    6.0
+  ],
+  "sweep": {
+    "axes": [
+      "flexion",
+      "abduction"
+    ],
+    "step_deg": 30.0,
+    "max_deg": 120.0,
+    "poses": 20,
+    "envelope_mm3": 1844011.3
+  },
+  "pads": [
+    {
+      "zone": "medial_mid",
+      "centre_source_mm": [
+        -59.29,
+        -9.22,
+        1287.22
+      ],
+      "lift_mm": 0.92,
+      "pad_bone_mm3": 0.0
+    },
+    {
+      "zone": "superior_angle",
+      "centre_source_mm": [
+        -62.79,
+        -18.62,
+        1319.93
+      ],
+      "lift_mm": 0.0,
+      "pad_bone_mm3": 0.0
+    },
+    {
+      "zone": "lateral_upper",
+      "centre_source_mm": [
+        -133.08,
+        -47.19,
+        1275.04
+      ],
+      "lift_mm": 0.36,
+      "pad_bone_mm3": 0.0
+    }
+  ],
+  "parts": {
+    "medial_mid_pad": {
+      "bone_mm3": 0.0,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 0.0
+    },
+    "superior_angle_pad": {
+      "bone_mm3": 0.0,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 0.0
+    },
+    "lateral_upper_pad": {
+      "bone_mm3": 0.0,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 0.0
+    },
+    "medial_beam": {
+      "bone_mm3": 866.673,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 3.537
+    },
+    "medial_post": {
+      "bone_mm3": 55.357,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 0.0
+    },
+    "lateral_post": {
+      "bone_mm3": 57.468,
+      "humerus_sweep_mm3": 50.176,
+      "module_mm3": 13.477
+    },
+    "medial_base": {
+      "bone_mm3": 0.0,
+      "humerus_sweep_mm3": 0.0,
+      "module_mm3": 0.0
+    },
+    "lateral_base": {
+      "bone_mm3": 0.0,
+      "humerus_sweep_mm3": 363.968,
+      "module_mm3": 982.92
+    }
+  },
+  "sweep_hits": [
+    "lateral_post",
+    "lateral_base"
+  ],
+  "bone_hits": [
+    "medial_beam",
+    "medial_post",
+    "lateral_post"
+  ],
+  "module_hits": [
+    "medial_beam",
+    "lateral_post",
+    "lateral_base"
+  ],
+  "not_verified": [
+    "no jaws, screws, rails or clamp body",
+    "the wedge gap under each lifted pad is not filled",
+    "single-axis sweeps only, no combined poses",
+    "clamp force and stiffness are not modelled"
+  ]
+}
