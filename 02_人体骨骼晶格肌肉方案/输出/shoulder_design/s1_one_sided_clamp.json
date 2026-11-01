@@ -1,33 +1,59 @@
 {
-  "scope": "search for a laterally offset cap at the deltoid posterior origin, the seat D22 sent to option B (one-sided clamp)",
-  "seat": "FJ1513/origin",
-  "tried": 320,
-  "found": {
-    "offset_mm": 1.0,
-    "offset_dir_deg": 135.0,
-    "offset_source_mm": [
-      -0.63,
-      0.26,
-      0.73
-    ],
-    "pad_radius_mm": 5.0,
-    "pad_thickness_mm": 4.0,
-    "cap_radius_mm": 7.0,
-    "cap_thickness_mm": 4.0,
-    "clamp_centre_source_mm": [
-      -123.8,
-      -24.04,
-      1321.28
-    ]
+  "scope": "one-sided clamp solved per seat at the CORRECTED pad seat height (5.9.19): the pad now starts on the bone, so the lifts and the cap positions all changed",
+  "solved": {
+    "FJ1513/origin": {
+      "offset_mm": 1.0,
+      "offset_dir_deg": 135.0,
+      "offset_source_mm": [
+        -0.63,
+        0.26,
+        0.73
+      ],
+      "pad_radius_mm": 5.0,
+      "pad_thickness_mm": 4.0,
+      "cap_radius_mm": 6.0,
+      "cap_thickness_mm": 4.0,
+      "clamp_centre_source_mm": [
+        -123.8,
+        -24.04,
+        1321.28
+      ]
+    },
+    "FJ1467/origin": null
   },
-  "pad": {
-    "radius_mm": 5.0,
-    "thickness_mm": 4.0,
-    "other_module_mm3": 0.0
-  },
+  "seats": [
+    {
+      "seat": "FJ1513/origin",
+      "tried": 321,
+      "found": {
+        "offset_mm": 1.0,
+        "offset_dir_deg": 135.0,
+        "offset_source_mm": [
+          -0.63,
+          0.26,
+          0.73
+        ],
+        "pad_radius_mm": 5.0,
+        "pad_thickness_mm": 4.0,
+        "cap_radius_mm": 6.0,
+        "cap_thickness_mm": 4.0,
+        "clamp_centre_source_mm": [
+          -123.8,
+          -24.04,
+          1321.28
+        ]
+      }
+    },
+    {
+      "seat": "FJ1467/origin",
+      "tried": 1568,
+      "found": null
+    }
+  ],
   "not_verified": [
     "bosses, screws and the crimp are not modelled",
     "the TPU end thickness the clamp must trap is not modelled",
-    "no clamping force"
+    "no clamping force",
+    "a seat with found=None has no plain-disc cap; a chamfered cap is not searched"
   ]
 }

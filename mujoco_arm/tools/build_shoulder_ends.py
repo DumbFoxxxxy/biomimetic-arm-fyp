@@ -145,7 +145,10 @@ def main(argv=None):
     _clamp_path = frames.OUTPUT_DIR.parent / 'shoulder_design' / 's1_one_sided_clamp.json'
     if _clamp_path.is_file():
         _c = json.loads(_clamp_path.read_text(encoding='utf-8'))
-        if _c.get('found'):
+        # two shapes: one solved seat ('seat' + 'found') or several ('solved': {seat: spec})
+        if _c.get('solved'):
+            clamp_specs.update({k: v for k, v in _c['solved'].items() if v})
+        elif _c.get('found'):
             clamp_specs[_c['seat']] = _c['found']
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')

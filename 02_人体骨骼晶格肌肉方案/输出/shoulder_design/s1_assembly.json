@@ -4,27 +4,27 @@
   "n_parts": 27,
   "contacts": [
     {
-      "a": "cap:FJ1467/origin",
-      "b": "module:deltoid",
-      "overlap_mm3": 64.668,
-      "expected": true
+      "a": "bone:humerus",
+      "b": "cap:FJ1467/origin",
+      "overlap_mm3": 0.611,
+      "expected": false
     },
     {
       "a": "cap:FJ1467/origin",
-      "b": "pad:FJ1467/origin",
-      "overlap_mm3": 372.137,
+      "b": "module:deltoid",
+      "overlap_mm3": 0.148,
       "expected": true
     },
     {
       "a": "cap:FJ1468/distal",
       "b": "module:deltoid",
-      "overlap_mm3": 1302.001,
+      "overlap_mm3": 1319.996,
       "expected": true
     },
     {
       "a": "cap:FJ1468/origin",
       "b": "module:deltoid",
-      "overlap_mm3": 321.013,
+      "overlap_mm3": 422.654,
       "expected": true
     },
     {
@@ -36,7 +36,7 @@
     {
       "a": "cap:FJ1500/distal",
       "b": "module:infraspinatus",
-      "overlap_mm3": 35.151,
+      "overlap_mm3": 35.148,
       "expected": true
     },
     {
@@ -54,49 +54,43 @@
     {
       "a": "cap:FJ1504/origin",
       "b": "module:subscapularis",
-      "overlap_mm3": 32.763,
+      "overlap_mm3": 271.53,
       "expected": true
     },
     {
       "a": "cap:FJ1507/distal",
       "b": "module:teres_major",
-      "overlap_mm3": 453.648,
+      "overlap_mm3": 453.939,
       "expected": true
     },
     {
       "a": "cap:FJ1507/origin",
       "b": "module:teres_major",
-      "overlap_mm3": 1021.116,
+      "overlap_mm3": 1020.277,
       "expected": true
     },
     {
       "a": "cap:FJ1513/origin",
       "b": "module:deltoid",
-      "overlap_mm3": 500.785,
+      "overlap_mm3": 379.56,
       "expected": true
-    },
-    {
-      "a": "cap:FJ1513/origin",
-      "b": "module:infraspinatus",
-      "overlap_mm3": 0.363,
-      "expected": false
     },
     {
       "a": "module:deltoid",
       "b": "pad:FJ1467/origin",
-      "overlap_mm3": 405.415,
+      "overlap_mm3": 405.329,
       "expected": true
     },
     {
       "a": "module:deltoid",
       "b": "pad:FJ1468/distal",
-      "overlap_mm3": 1362.818,
+      "overlap_mm3": 1380.469,
       "expected": true
     },
     {
       "a": "module:deltoid",
       "b": "pad:FJ1468/origin",
-      "overlap_mm3": 546.333,
+      "overlap_mm3": 663.147,
       "expected": true
     },
     {
@@ -108,13 +102,13 @@
     {
       "a": "module:deltoid",
       "b": "pad:FJ1513/origin",
-      "overlap_mm3": 259.223,
+      "overlap_mm3": 238.795,
       "expected": true
     },
     {
       "a": "module:infraspinatus",
       "b": "pad:FJ1500/distal",
-      "overlap_mm3": 593.336,
+      "overlap_mm3": 593.327,
       "expected": true
     },
     {
@@ -124,32 +118,44 @@
       "expected": true
     },
     {
+      "a": "module:infraspinatus",
+      "b": "pad:FJ1513/origin",
+      "overlap_mm3": 0.094,
+      "expected": false
+    },
+    {
       "a": "module:subscapularis",
       "b": "pad:FJ1504/distal",
-      "overlap_mm3": 244.136,
+      "overlap_mm3": 244.035,
       "expected": true
     },
     {
       "a": "module:subscapularis",
       "b": "pad:FJ1504/origin",
-      "overlap_mm3": 843.412,
+      "overlap_mm3": 1285.252,
       "expected": true
     },
     {
       "a": "module:teres_major",
       "b": "pad:FJ1507/distal",
-      "overlap_mm3": 471.081,
+      "overlap_mm3": 482.655,
       "expected": true
     },
     {
       "a": "module:teres_major",
       "b": "pad:FJ1507/origin",
-      "overlap_mm3": 1169.945,
+      "overlap_mm3": 1169.899,
       "expected": true
     }
   ],
-  "n_unexpected": 4,
+  "n_unexpected": 5,
   "unexpected": [
+    {
+      "a": "bone:humerus",
+      "b": "cap:FJ1467/origin",
+      "overlap_mm3": 0.611,
+      "expected": false
+    },
     {
       "a": "cap:FJ1500/distal",
       "b": "module:deltoid",
@@ -163,15 +169,15 @@
       "expected": false
     },
     {
-      "a": "cap:FJ1513/origin",
-      "b": "module:infraspinatus",
-      "overlap_mm3": 0.363,
-      "expected": false
-    },
-    {
       "a": "module:deltoid",
       "b": "pad:FJ1500/distal",
       "overlap_mm3": 0.352,
+      "expected": false
+    },
+    {
+      "a": "module:infraspinatus",
+      "b": "pad:FJ1513/origin",
+      "overlap_mm3": 0.094,
       "expected": false
     }
   ],
