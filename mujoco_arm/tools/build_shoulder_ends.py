@@ -112,6 +112,19 @@ def blade_thickness(point, normal, bone_key, bone_tris, limit=15.0):
     return None
 
 
+def disc_rounded(centre, normal, lift, thickness, radius):
+    """The disc exactly as it will be recorded and re-read by the other tools.
+
+    The fit loops used to measure unrounded values and then store rounded ones, so a candidate
+    that "passed" could still be a part that overlaps 87.95 mm3 - which is precisely the 10x
+    disagreement between this tool and the assembly checker.  Measuring the recorded form removes
+    the gap instead of explaining it.
+    """
+    c = np.round(np.asarray(centre, float) + np.asarray(normal, float) * round(lift, 2), 2)
+    n = np.round(np.asarray(normal, float), 3)
+    return disc(c, n, round(thickness, 2), radius=round(radius, 1))
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
@@ -179,7 +192,7 @@ def main(argv=None):
                 cand_lift, _ = shoulder_pads.lift_to_clear(p, n, bsolid, radius=cand_r,
                                                            thickness=cand_t)
                 cand_lift = 0.0 if cand_lift is None else cand_lift
-                geom = disc(p + n * cand_lift, n, cand_t, radius=cand_r)
+                geom = disc_rounded(p, n, cand_lift, cand_t, cand_r)
                 hit = max(max(I.intersection_volume(geom, b).__float__()
                               for b in bones.values()),
                           max((I.intersection_volume(geom, s).__float__()
@@ -193,6 +206,7 @@ def main(argv=None):
         pad_bone = max(I.intersection_volume(pad, b).__float__() for b in bones.values())
         pad_mod = max((I.intersection_volume(pad, s).__float__() for k, s in modules.items()
                        if k != g['module']), default=0.0)
+        pad_cleared = pad_bone <= SURFACE_TOL_MM3 and pad_mod <= SURFACE_TOL_MM3
 
         # The cap must clear bones and the neighbouring modules.  Radius alone was not enough:
         # the seats that failed are on a thin blade, where the cap's THICKNESS is what reaches the
@@ -202,7 +216,7 @@ def main(argv=None):
             done = False
             for cand_r in (PAD_R, 10.0, 9.0, 8.0, 7.0, 6.0):
                 c_c = p + n * (lift + thick + 0.2)
-                c_geom = disc(c_c, n, cand_t, radius=cand_r)
+                c_geom = disc_rounded(p, n, lift + thick + 0.2, cand_t, cand_r)
                 hit = max(max(I.intersection_volume(c_geom, b).__float__()
                               for b in bones.values()),
                           max((I.intersection_volume(c_geom, s).__float__()
@@ -216,6 +230,7 @@ def main(argv=None):
         cap_bone = max(I.intersection_volume(cap, b).__float__() for b in bones.values())
         cap_mod = max((I.intersection_volume(cap, s).__float__() for k, s in modules.items()
                        if k != g['module']), default=0.0)
+        cap_cleared = cap_bone <= SURFACE_TOL_MM3 and cap_mod <= SURFACE_TOL_MM3
 
         seats.append({
             'module': g['module'], 'heads': g['members'],
@@ -226,7 +241,9 @@ def main(argv=None):
             'lift_mm': round(lift, 2),
             'blade_thickness_mm': None if blade is None else round(blade, 2),
             'pad_thickness_mm': round(thick, 2),
-            'pad_radius_mm': PAD_R,
+            'pad_footprint_cleared': bool(pad_cleared),
+            'cap_footprint_cleared': bool(cap_cleared),
+            'pad_radius_mm': round(pad_r, 1),      # the fitted radius, not the constant
             'cap_radius_mm': round(cap_r, 2),
             'cap_thickness_mm': round(cap_t, 2),
             'pad_volume_mm3': round(pad.volume(), 1),
@@ -242,6 +259,37 @@ def main(argv=None):
               % (','.join(g['members']), r['lift_mm'], r['blade_thickness_mm'],
                  r['pad_thickness_mm'], r['cap_radius_mm'], r['pad_bone_mm3'],
                  r['cap_bone_mm3'], r['cap_other_module_mm3']))
+
+    print('\n--- self-check: rebuild every pad and cap from its RECORDED numbers ---')
+    # The fit loops above report on the candidate they were evaluating, which is not necessarily
+    # what got written down (rounded centre/normal/lift/radius/thickness).  That mismatch is what
+    # made this tool record 8.33 mm3 on a seat the assembly checker measured at 87.95.  Reporting
+    # is done here, from the same numbers the other tools read, so agreement is by construction.
+    mismatches = 0
+    for s in seats:
+        c = np.asarray(s['centre_source_mm'], float)
+        n = np.asarray(s['normal_source'], float)
+        lift = float(s['lift_mm'])
+        pad = disc(c + n * lift, n, s['pad_thickness_mm'], radius=s['pad_radius_mm'])
+        cap = disc(c + n * (lift + s['pad_thickness_mm'] + 0.2), n, s['cap_thickness_mm'],
+                   radius=s['cap_radius_mm'])
+        pad_bone = max(I.intersection_volume(pad, b).__float__() for b in bones.values())
+        cap_bone = max(I.intersection_volume(cap, b).__float__() for b in bones.values())
+        pad_mod = max((I.intersection_volume(pad, m).__float__() for k, m in modules.items()
+                       if k != s['module']), default=0.0)
+        cap_mod = max((I.intersection_volume(cap, m).__float__() for k, m in modules.items()
+                       if k != s['module']), default=0.0)
+        if abs(pad_mod - s['pad_other_module_mm3']) > 0.5 \
+                or abs(cap_mod - s['cap_other_module_mm3']) > 0.5:
+            mismatches += 1
+            print('  %-22s was %.2f/%.2f -> is %.2f/%.2f (pad/cap vs other module)'
+                  % (','.join(s['heads']), s['pad_other_module_mm3'],
+                     s['cap_other_module_mm3'], pad_mod, cap_mod))
+        s['pad_bone_mm3'] = round(pad_bone, 3)
+        s['pad_other_module_mm3'] = round(pad_mod, 3)
+        s['cap_bone_mm3'] = round(cap_bone, 3)
+        s['cap_other_module_mm3'] = round(cap_mod, 3)
+    print('  seats whose recorded numbers did not match what was reported: %d' % mismatches)
 
     print('\n--- neighbouring seats ---')
     print('%-22s %-22s %10s %10s' % ('seat a', 'seat b', 'centres', 'rim gap'))
