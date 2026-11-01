@@ -196,6 +196,11 @@ url = 'https://pypi.tuna.tsinghua.edu.cn/simple/manifold3d/'   # 解析出 *cp31
 
 `scripts/check_tpu_muscle.py` — 纯 numpy（有 scipy 时自动加速），无需 manifold3d / trimesh。
 
+另外，仓库侧还有一个通用的关节扫掠模块 `mujoco_arm/tools/interference.py`
+（阈值 0.001 mm³ / 间隙封顶 3 mm / 首碰细化 0.1°，与项目既有口径一致），
+用于"肌肉装上骨以后，关节转起来会不会撞"。它不属于本 skill 的可移植部分，
+但同一个项目里做 L1–L7 时应当复用它，不要再写一份 `probe()`。
+
 | 检查 | 方法 | 通过 |
 |---|---|---|
 | 连通分量 | 面—边邻接并查集（默认不焊接顶点） | 主分量唯一 |
