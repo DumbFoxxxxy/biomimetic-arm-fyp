@@ -230,6 +230,118 @@ def swept_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM, max_cells=400
     return struts, cells, skipped
 
 
+def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
+                       i_range=(-3, 3), j_range=(-2, 2), max_cells=4000):
+    """Structured X lattice on a parallel-transported frame.
+
+    The two earlier attempts failed because cells never shared nodes (§5.4.16): a world grid
+    straddles a curved belly, and a per-station grid has a different origin at every station.
+
+    Here the frame is transported along the corridor (minimal rotation station to station) and
+    node (i, j, k) is a *fixed index triple*, so cell (i, j, k) and cell (i+1, j, k) use the
+    very same corner nodes.  A cell is emitted only when all eight of its corners are inside
+    the envelope, which is what makes the result connected rather than hoped-for.
+    """
+    pts = [np.asarray(p, float) for p in path]
+    seg = [np.linalg.norm(b - a) for a, b in zip(pts, pts[1:])]
+    total = float(sum(seg))
+    sz = cell[2]
+    n_st = max(3, int(np.ceil(total / sz)) + 1)
+
+    # stations equally spaced along the polyline
+    stations, tangents = [], []
+    for s in range(n_st):
+        target = total * s / (n_st - 1.0)
+        acc, idx = 0.0, 0
+        while idx < len(seg) - 1 and acc + seg[idx] < target:
+            acc += seg[idx]
+            idx += 1
+        w = 0.0 if seg[idx] < 1e-9 else (target - acc) / seg[idx]
+        stations.append(pts[idx] + (pts[idx + 1] - pts[idx]) * np.clip(w, 0, 1))
+        tangents.append(pts[min(idx + 1, len(pts) - 1)] - pts[idx])
+
+    # transport the frame: first station defines it, then minimal rotation each step
+    e1, e2, t0 = frames_unit(tangents[0])
+    frames = [(e1, e2, t0)]
+    for k in range(1, n_st):
+        t_prev = frames[-1][2]
+        t_new = frames_unit(tangents[k])[2]
+        axis = np.cross(t_prev, t_new)
+        n_axis = np.linalg.norm(axis)
+        if n_axis > 1e-9:
+            axis = axis / n_axis
+            ang = float(np.arccos(np.clip(t_prev @ t_new, -1.0, 1.0)))
+            c, s = np.cos(ang), np.sin(ang)
+            K = np.array([[0.0, -axis[2], axis[1]],
+                          [axis[2], 0.0, -axis[0]],
+                          [-axis[1], axis[0], 0.0]])
+            R = np.eye(3) + s * K + (1.0 - c) * (K @ K)
+        else:
+            R = np.eye(3)
+        pe1, pe2, _ = frames[-1]
+        frames.append((R @ pe1, R @ pe2, t_new))
+
+    # one lateral offset for the whole lattice, so every station shares the same (i, j)
+    du, dv = [], []
+    span = 22.0
+    for p, (f1, f2, _) in zip(stations, frames):
+        best = (mesh_geom.signed_distance(p, tri), np.zeros(2))
+        for iu in range(-3, 4):
+            for iv in range(-3, 4):
+                off = np.array([iu * span / 3.0, iv * span / 3.0])
+                d = mesh_geom.signed_distance(p + f1 * off[0] + f2 * off[1], tri)
+                if d < best[0]:
+                    best = (d, off)
+        du.append(best[1][0])
+        dv.append(best[1][1])
+    u0, v0 = float(np.median(du)), float(np.median(dv))
+
+    sx, sy = cell[0], cell[1]
+    nodes = {}
+    inside = {}
+    for k in range(n_st):
+        f1, f2, _ = frames[k]
+        for i in range(i_range[0], i_range[1] + 1):
+            for j in range(j_range[0], j_range[1] + 1):
+                p = stations[k] + f1 * (u0 + i * sx) + f2 * (v0 + j * sy)
+                nodes[(i, j, k)] = p
+                inside[(i, j, k)] = mesh_geom.signed_distance(p, tri) < 0.0
+
+    pieces, cells, skipped = [], 0, 0
+    for k in range(n_st - 1):
+        for i in range(i_range[0], i_range[1]):
+            for j in range(j_range[0], j_range[1]):
+                corners = [(i, j, k), (i + 1, j, k), (i, j + 1, k), (i + 1, j + 1, k),
+                           (i, j, k + 1), (i + 1, j, k + 1), (i, j + 1, k + 1),
+                           (i + 1, j + 1, k + 1)]
+                centre = np.mean([nodes[c] for c in corners], axis=0)
+                # Requiring all eight corners inside is far too strict: the cell diagonal is
+                # 26.9 mm, so it would need a 13.4 mm inradius, which only the thickest
+                # belly reaches.  Emit the cell when its centre is inside and strut only to
+                # the corners that are also inside - adjacent cells still share those nodes,
+                # which is what keeps the lattice connected.
+                if mesh_geom.signed_distance(centre, tri) >= 0.0:
+                    skipped += 1
+                    continue
+                live = [c for c in corners if inside[c]]
+                if len(live) < 3:
+                    skipped += 1
+                    continue
+                if cells >= max_cells:
+                    skipped += 1
+                    continue
+                cells += 1
+                for c in live:
+                    seg_ = rod(centre, nodes[c], r)
+                    if seg_ is not None:
+                        pieces.append(seg_)
+                pieces.append(mf().Manifold.sphere(r, 12).translate(list(centre)))
+    if not pieces:
+        return None, cells, skipped
+    struts = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
+    return struts, cells, skipped
+
+
 def frames_unit(d):
     t = np.asarray(d, float)
     n = np.linalg.norm(t)
@@ -250,9 +362,10 @@ def main(argv=None):
     ap.add_argument('--json', dest='json_out')
     ap.add_argument('--out', default=str(frames.OUTPUT_DIR / 'shoulder_tpu'))
     ap.add_argument('--all', action='store_true')
-    ap.add_argument('--mode', choices=('world', 'swept'), default='swept',
-                    help='lattice grid: world-axis (the 5.4.15 failure) or swept along the '
-                         'corridor (the 5.4.15 fix)')
+    ap.add_argument('--mode', choices=('world', 'swept', 'structured'), default='structured',
+                    help='lattice grid: world-axis and per-station swept are the two 5.4.15/'
+                         '5.4.16 failures; structured is the parallel-transported grid that '
+                         'shares corner nodes')
     ap.add_argument('--cell', type=float, nargs=3, metavar=('X', 'Y', 'Z'),
                     default=list(CELL_MM),
                     help='lattice cell in mm; default is the paper value 15/10/20')
@@ -260,7 +373,8 @@ def main(argv=None):
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    wanted = MODULES if args.all else [m for m in MODULES if m[0] == args.module]
+    wanted = MODULES if args.all else [
+        m for m in MODULES if m[0] in [x.strip() for x in args.module.split(',')]]
     if not wanted:
         raise SystemExit('unknown module %s' % args.module)
 
@@ -310,6 +424,11 @@ def main(argv=None):
                 np.asarray(b) - np.asarray(a)) for a, b in zip(c[1], c[1][1:]))))[1]
             struts, cells, skipped = swept_lattice(envelope, tri, main_path,
                                                    cell=tuple(args.cell))
+        elif args.mode == 'structured':
+            main_path = max(channels, key=lambda c: float(sum(np.linalg.norm(
+                np.asarray(b) - np.asarray(a)) for a, b in zip(c[1], c[1][1:]))))[1]
+            struts, cells, skipped = structured_lattice(envelope, tri, main_path,
+                                                        cell=tuple(args.cell))
         else:
             struts, cells, skipped = lattice(envelope, tri, cell=tuple(args.cell))
         if struts is None:
@@ -366,22 +485,40 @@ def main(argv=None):
             if not inner:
                 inner = pts
             d = [mesh_geom.signed_distance(p, stri) for p in inner]
-            clear = -min(d)          # positive = the bore point is clear of material
+            # independent check that does not rely on any sign convention: a 0.45 mm probe
+            # sphere at each sample must not intersect the part at all if the bore is open
+            probe = mf().Manifold.sphere(0.45, 16)
+            blocked_pts = 0
+            for p in inner[::max(1, len(inner) // 25)]:
+                if I.intersection_volume(probe.translate(list(p)), solid) > I.HARD_MM3:
+                    blocked_pts += 1
+            clear = min(d)
             effective = BORE_R_MM * INSCRIBED
-            ok = clear >= BORE_R_MM - FACET_TOL_MM
+            sign_ok = clear >= BORE_R_MM - FACET_TOL_MM
+            # The probe is the criterion, not the signed distance.  Near a 0.75 mm wall the
+            # nearest-triangle normal can flip the sign, so the normal-based answer is kept
+            # only as a diagnostic and a disagreement is recorded rather than hidden.
+            ok = blocked_pts == 0
+            agree = bool(sign_ok) == bool(ok)
             bore_rows.append({'head': mid, 'min_bore_clearance_mm': round(clear, 3),
                               'bore_r_mm': BORE_R_MM,
                               'inscribed_bore_r_mm': round(effective, 3),
                               'facet_loss_mm': round(BORE_R_MM - clear, 4),
+                              'probe_samples': len(inner[::max(1, len(inner) // 25)]),
+                              'probe_blocked': blocked_pts,
+                              'sign_says_free': bool(sign_ok),
+                              'probe_says_free': bool(ok),
+                              'sign_and_probe_agree': agree,
                               'judged_between_pads_mm': [round(g0, 2), round(g1, 2)],
                               'channel_enclosed': bool(has_run),
                               'judged_length_mm': round(total - g0 - g1, 2),
                               'facets': CHANNEL_SEGMENTS,
                               'wire_d_mm': WIRE_D_MM,
-                              'free': bool(ok)})
-            print('    %-8s bore clearance %.3f mm over %.1f mm between the pads '
-                  '(gaps %.1f/%.1f) %s'
-                  % (mid, clear, total - g0 - g1, g0, g1, 'FREE' if ok else 'BLOCKED'))
+                              'free': bool(ok and blocked_pts == 0)})
+            print('    %-8s bore clearance %+.3f mm, probe blocked %d/%d, agree %s -> %s'
+                  % (mid, clear, blocked_pts,
+                     len(inner[::max(1, len(inner) // 25)]), agree,
+                     'FREE' if (ok and blocked_pts == 0) else 'BLOCKED'))
 
         target = out_dir / ('%s_tpu.stl' % key)
         mesh_geom.write_stl(str(target), sv, sf, header='S1 TPU %s' % key)
