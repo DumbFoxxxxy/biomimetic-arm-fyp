@@ -88,3 +88,81 @@ def segment_min_distance(p0, p1, tri, samples=None):
         p = p0 + (p1 - p0) * t
         best = min(best, float(point_triangle_distance(p, tri).min()))
     return best
+
+
+def edge_census(faces):
+    """(edges, boundary edges, non-manifold edges) of a triangle list."""
+    f = np.asarray(faces, dtype=np.int64)
+    e = np.sort(np.c_[f[:, [0, 1]], f[:, [1, 2]], f[:, [2, 0]]].reshape(-1, 2), axis=1)
+    uniq, counts = np.unique(e, axis=0, return_counts=True)
+    return len(uniq), int((counts == 1).sum()), int((counts > 2).sum())
+
+
+def weld(verts, faces, decimals=4):
+    """Merge coincident vertices and drop degenerate triangles.
+
+    The BodyParts3D OBJ exports carry duplicate vertices per face, so the raw
+    soup reports hundreds of boundary edges and ``manifold3d`` silently returns
+    an EMPTY solid for it - every interference query against such a bone then
+    answers 0.  Welding by rounded position closes all three arm bones exactly
+    (humerus / scapula / clavicle: 0 boundary edges, 0 non-manifold edges), so
+    always weld before building a bone solid.
+
+    Check with ``edge_census``: the welded result must report 0 boundary edges.
+    """
+    V = np.asarray(verts, dtype=float)
+    F = np.asarray(faces, dtype=np.int64)
+    if len(V) == 0 or len(F) == 0:
+        return V, F
+    _, first, inverse = np.unique(np.round(V, decimals), axis=0,
+                                 return_index=True, return_inverse=True)
+    newF = inverse.reshape(-1)[F.reshape(-1)].reshape(F.shape)
+    keep = ((newF[:, 0] != newF[:, 1]) & (newF[:, 1] != newF[:, 2])
+            & (newF[:, 0] != newF[:, 2]))
+    return V[first], newF[keep]
+
+
+# ------------------------------------------------------------------ self test
+def _split_cube(size=10.0):
+    """A cube as a triangle soup with a *separate* vertex copy per triangle."""
+    h = size / 2.0
+    corners = np.array([[-h, -h, -h], [h, -h, -h], [h, h, -h], [-h, h, -h],
+                        [-h, -h, h], [h, -h, h], [h, h, h], [-h, h, h]])
+    quads = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4),
+             (2, 3, 7, 6), (1, 2, 6, 5), (0, 4, 7, 3)]
+    V, F = [], []
+    for a, b, c, d in quads:
+        for tri in ((a, b, c), (a, c, d)):
+            base = len(V)
+            V.extend(corners[list(tri)])
+            F.append((base, base + 1, base + 2))
+    return np.asarray(V, float), np.asarray(F, np.int64)
+
+
+def self_test():
+    ok = True
+
+    def check(name, value, expected, tol=1e-9):
+        nonlocal ok
+        good = abs(value - expected) <= tol
+        print('[%s] %-38s %.6f (expect %.6f)'
+              % ('PASS' if good else 'FAIL', name, value, expected))
+        ok &= good
+
+    V, F = _split_cube(10.0)
+    e, b, n = edge_census(F)
+    check('split cube boundary edges', b, 36)
+    W, G = weld(V, F)
+    check('welded vertex count', len(W), 8)
+    check('welded triangle count', len(G), 12)
+    e2, b2, n2 = edge_census(G)
+    check('welded boundary edges', b2, 0)
+    check('welded non-manifold edges', n2, 0)
+    check('welded volume', abs(signed_volume(W, G)), 1000.0)
+    print('\nRESULT:', 'PASS' if ok else 'FAIL')
+    return 0 if ok else 1
+
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(self_test())
