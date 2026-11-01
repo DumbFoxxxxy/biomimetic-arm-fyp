@@ -1,0 +1,86 @@
+{
+  "scope": "relocation of seats where no pad/cap footprint fits at the bone-side position (5.9.14); candidates are bone surface vertices within radius, scored by local blade thickness then distance, and accepted only when both the pad and the cap clear bones and the neighbouring modules",
+  "radius_mm": 22.0,
+  "overrides": {
+    "FJ1500/origin": {
+      "centre_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "normal_source": [
+        -0.37,
+        0.889,
+        0.268
+      ],
+      "pad_thickness_mm": 2.5,
+      "pad_radius_mm": 11.0,
+      "cap_thickness_mm": 2.5,
+      "cap_radius_mm": 11.0,
+      "lift_mm": 0.0,
+      "blade_thickness_mm": 3.0,
+      "moved_mm": 6.56,
+      "was_centre_source_mm": [
+        -88.31,
+        -15.65,
+        1264.75
+      ],
+      "was_blade_mm": 2.8
+    },
+    "FJ1513/origin": {
+      "centre_source_mm": [
+        -133.97,
+        -26.96,
+        1333.92
+      ],
+      "normal_source": [
+        -0.134,
+        0.819,
+        0.558
+      ],
+      "pad_thickness_mm": 4.0,
+      "pad_radius_mm": 11.0,
+      "cap_thickness_mm": 4.0,
+      "cap_radius_mm": 11.0,
+      "lift_mm": 0.0,
+      "blade_thickness_mm": 15.0,
+      "moved_mm": 17.39,
+      "was_centre_source_mm": [
+        -123.17,
+        -24.3,
+        1320.55
+      ],
+      "was_blade_mm": null
+    }
+  },
+  "rows": [
+    {
+      "seat": "FJ1500/origin",
+      "relocated": true,
+      "moved_mm": 6.56,
+      "blade_mm": 3.0,
+      "pad_thickness_mm": 2.5,
+      "pad_radius_mm": 11.0,
+      "cap_thickness_mm": 2.5,
+      "cap_radius_mm": 11.0,
+      "lift_mm": 0.0,
+      "blade_thickness_mm": 3.0
+    },
+    {
+      "seat": "FJ1513/origin",
+      "relocated": true,
+      "moved_mm": 17.39,
+      "blade_mm": 15.0,
+      "pad_thickness_mm": 4.0,
+      "pad_radius_mm": 11.0,
+      "cap_thickness_mm": 4.0,
+      "cap_radius_mm": 11.0,
+      "lift_mm": 0.0,
+      "blade_thickness_mm": 15.0
+    }
+  ],
+  "not_verified": [
+    "a moved seat changes the channel end: the corridor and the tendon segment must be re-run for any seat that moves",
+    "no screw access check at the new position"
+  ]
+}
