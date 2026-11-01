@@ -40,6 +40,10 @@ CHANNEL_OUTER_R_MM = 1.6
 TUBE_R_MM = 3.2
 #: fragments below this are trimmed slivers, not anatomical lobes [mm3]
 DEBRIS_MM3 = 5.0
+#: how far the corridor is kept from a *neighbouring muscle module* (as opposed to bone).
+#: Half the tube radius is enough for the tube not to bury itself, and a full radius shoves
+#: the corridor out of its own belly.
+MUSCLE_CLEAR_MM = 1.6
 #: how far the end-cap assembly may have to reach from a seat to the channel entry.
 #: The pad+transition+cap stack is about 13 mm (§5.7), so 20 mm leaves margin.
 CAP_REACH_MM = 20.0
@@ -298,6 +302,20 @@ def main(argv=None):
 
         corridors = []
         trunk = None
+        # D20 option A: the deeper modules are obstacles for the corridor, not a blanket
+        # subtraction over the designed channel.  Trimming the finished part by them would
+        # eat the proximal end of the deltoid middle head and stretch its cap from 7.8 to
+        # 29.3 mm (§5.4.19).
+        #
+        # Muscle obstacles are pushed with a *smaller* clearance than bone and in a second
+        # pass: with the full tube radius the anterior head's corridor got shoved out of its
+        # own belly and its enclosed stretch collapsed to 9.8 mm.  Bone is hard, a neighbour
+        # belly only needs the tube to not bury itself in it.
+        muscle_obstacles = []
+        for d in deeper:
+            dv, df = mesh_geom.manifold_mesh_to_arrays(d.to_mesh())
+            DW, DG = mesh_geom.weld(dv, df)
+            muscle_obstacles.append(DW[DG])
         for mid in heads:
             origin = attachment_regions.load_region(mid, 'origin')
             o, _ = attachment_regions.centroid(origin)
@@ -306,6 +324,11 @@ def main(argv=None):
             relaxed, _ = SP.relax(start, atri, iterations=SP.ITERATIONS,
                                   step=SP.STEP_MM, lam=SP.SMOOTHING,
                                   bone_tris=bone_tris, bone_clear_mm=args.bone_clear)
+            if muscle_obstacles:
+                relaxed, _ = SP.relax(relaxed, atri, iterations=SP.ITERATIONS,
+                                      step=SP.STEP_MM, lam=SP.SMOOTHING,
+                                      bone_tris=muscle_obstacles,
+                                      bone_clear_mm=MUSCLE_CLEAR_MM)
             relaxed[-1] = seat
             band = [relaxed[k] for k, t in enumerate(ts) if SP.BAND[0] <= t <= SP.BAND[1]]
             worst, deepest, _ = SP.clearance(band, atri)
@@ -329,8 +352,15 @@ def main(argv=None):
         final = (anatomy + trimmed_trunk)
         for b in bones.values():
             final = final - b
-        for d in deeper:
+        # the trunk was routed clear of the deeper modules, so only the anatomy needs the
+        # subtraction here; doing it to the trunk as well is what shortened the channel
+        trimmed_by_deeper_mm3 = {}
+        for k, d in zip([x for x in BUILD_ORDER if x in built], deeper):
+            before = final.volume()
             final = final - d
+            cut = before - final.volume()
+            if cut > DEBRIS_MM3:
+                trimmed_by_deeper_mm3[k] = round(cut, 3)
         fcomps = [c for c in final.decompose() if c.volume() > 0.5]
         # debris: fragments far below any muscle scale are trimmed slivers, not parts.
         # Real lobes are kept and reported - dropping one that carries a seat would
