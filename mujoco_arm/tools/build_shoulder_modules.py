@@ -37,6 +37,8 @@ BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' 
 
 CHANNEL_OUTER_R_MM = 1.6
 TUBE_R_MM = 3.2
+#: fragments below this are trimmed slivers, not anatomical lobes [mm3]
+DEBRIS_MM3 = 5.0
 
 #: module -> (label, heads).  The deltoid's heads share one distal seat; the others are
 #: single muscles whose distal end is their own insertion seat.
@@ -91,6 +93,13 @@ def shared_seat(heads):
     return (pts * w[:, None]).sum(0) / w.sum()
 
 
+def point_in(solid, point, half=0.15):
+    """Is `point` inside `solid`?  A 0.3 mm probe cube is enough for a seat centre."""
+    probe = mf().Manifold.cube([2 * half] * 3).translate(
+        list(np.asarray(point, float) - half))
+    return float((probe ^ solid).volume()) > 0.5 * (2 * half) ** 3
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
@@ -128,6 +137,14 @@ def main(argv=None):
                   % (mid, solid.volume(), trimmed.volume(), comps,
                      '' if comps == 1 else 's'))
         seat = shared_seat(heads)
+        # the origin side of the single-channel modules: that muscle's own origin pad
+        seat_origin = None
+        if len(heads) == 1:
+            region = attachment_regions.load_region(heads[0], 'origin')
+            seat_origin, _ = attachment_regions.centroid(region)
+        else:
+            region = attachment_regions.load_region(heads[0], 'origin')
+            seat_origin, _ = attachment_regions.centroid(region)
         av, af = mesh_geom.manifold_mesh_to_arrays(anatomy.to_mesh())
         AW, AG = mesh_geom.weld(av, af)
         atri = AW[AG]
@@ -166,6 +183,20 @@ def main(argv=None):
         for b in bones.values():
             final = final - b
         fcomps = [c for c in final.decompose() if c.volume() > 0.5]
+        # debris: fragments far below any muscle scale are trimmed slivers, not parts.
+        # Real lobes are kept and reported - dropping one that carries a seat would
+        # silently delete an attachment.
+        debris = [c for c in fcomps if c.volume() < DEBRIS_MM3]
+        if debris:
+            keep = [c for c in fcomps if c.volume() >= DEBRIS_MM3]
+            if keep:
+                merged_final = keep[0]
+                for c in keep[1:]:
+                    merged_final = merged_final + c
+                final = merged_final
+                fcomps = [c for c in final.decompose() if c.volume() > 0.5]
+            print('  dropped %d debris fragment(s) totalling %.1f mm3 (< %.0f mm3)'
+                  % (len(debris), sum(c.volume() for c in debris), DEBRIS_MM3))
         added = final.volume() - anatomy.volume()
 
         fv, ff = mesh_geom.manifold_mesh_to_arrays(final.to_mesh())
@@ -209,11 +240,16 @@ def main(argv=None):
             print('    fragment volumes: %s' % ', '.join('%.1f' % v for v in frags))
             big = max(fcomps, key=lambda c: c.volume())
             for c in fcomps:
-                if c is big:
-                    continue
+                # a seat sits ON a surface, so point-in-solid is boundary-sensitive and
+                # useless here; the fragment whose surface is nearest the seat is the one
+                # that carries it
+                probe = mf().Manifold.sphere(0.25, 12)
+                d_o = I.gap(c, probe.translate(list(np.asarray(seat_origin, float))))
+                d_s = I.gap(c, probe.translate(list(np.asarray(seat, float))))
                 bb = c.bounding_box()
-                print('    other fragment %.1f mm3 at x %.0f..%.0f y %.0f..%.0f z %.0f..%.0f'
-                      % (c.volume(), bb[0], bb[3], bb[1], bb[4], bb[2], bb[5]))
+                print('    fragment %9.1f mm3  gap to origin seat %6.2f mm, '
+                      'to distal seat %6.2f mm  x %.0f..%.0f y %.0f..%.0f z %.0f..%.0f'
+                      % (c.volume(), d_o, d_s, bb[0], bb[3], bb[1], bb[4], bb[2], bb[5]))
         print('  bone %s | channels %s'
               % ('clear' if total_bone <= I.HARD_MM3
                  else ', '.join('%.1f' % v for v in bone_hits.values()),
