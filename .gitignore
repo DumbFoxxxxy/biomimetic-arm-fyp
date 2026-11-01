@@ -64,3 +64,11 @@ Thumbs.db
 /.deps/
 /_regen/
 /_tmp/
+
+# S1-P0 z-calibration coupons: reproducible with
+#   python mujoco_arm/tools/build_shoulder_z_coupons.py
+# The STL binaries stay out of the repo: this checkout cannot add new LFS
+# objects (the git-lfs filter cannot start, sh.exe fails with Win32 error 5).
+# design.json / manifest.json carry volume, bbox and triangle count instead.
+# ASCII only on purpose: the rest of this file is GBK and must stay one encoding.
+**/shoulder_z_coupons/*/coupon.stl

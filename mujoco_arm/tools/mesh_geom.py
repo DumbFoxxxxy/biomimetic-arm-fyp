@@ -118,12 +118,58 @@ def signed_distance(p, tri):
     return -d if (p - closest[k]) @ n < 0.0 else d
 
 
+def read_stl(path):
+    """Binary STL -> (vertices, triangles), welded by face index (soup, not merged)."""
+    import struct
+    with open(path, 'rb') as fh:
+        fh.read(80)
+        n = struct.unpack('<I', fh.read(4))[0]
+        blob = fh.read(50 * n)
+    if len(blob) != 50 * n:
+        raise ValueError('truncated STL: %s' % path)
+    rec = np.frombuffer(blob, dtype=np.dtype([('n', '<f4', 3), ('v', '<f4', (3, 3)),
+                                              ('a', '<u2')]))
+    tri = rec['v'].astype(float)
+    return tri.reshape(-1, 3), np.arange(len(tri) * 3, dtype=np.int64).reshape(-1, 3)
+
+
 def edge_census(faces):
     """(edges, boundary edges, non-manifold edges) of a triangle list."""
     f = np.asarray(faces, dtype=np.int64)
     e = np.sort(np.c_[f[:, [0, 1]], f[:, [1, 2]], f[:, [2, 0]]].reshape(-1, 2), axis=1)
     uniq, counts = np.unique(e, axis=0, return_counts=True)
     return len(uniq), int((counts == 1).sum()), int((counts > 2).sum())
+
+
+def manifold_mesh_to_arrays(mesh):
+    """(verts, tris) out of a manifold3d Mesh, tolerant of attribute naming."""
+    verts = getattr(mesh, 'vert_properties', None)
+    if verts is None:
+        verts = getattr(mesh, 'verts')
+    tris = getattr(mesh, 'tri_verts', None)
+    if tris is None:
+        tris = getattr(mesh, 'tris')
+    return np.asarray(verts, dtype=float)[:, :3], np.asarray(tris, dtype=np.int64)
+
+
+def write_stl(path, verts, faces, header=''):
+    """Binary STL.  numpy + struct only, so it works in any of the project's Pythons."""
+    import struct
+    v = np.asarray(verts, dtype=float)
+    f = np.asarray(faces, dtype=np.int64)
+    n = np.cross(v[f[:, 1]] - v[f[:, 0]], v[f[:, 2]] - v[f[:, 0]])
+    ln = np.linalg.norm(n, axis=1)
+    ln[ln < 1e-12] = 1.0
+    n = n / ln[:, None]
+    with open(path, 'wb') as fh:
+        fh.write(header.encode('ascii', 'replace')[:80].ljust(80, b' '))
+        fh.write(struct.pack('<I', len(f)))
+        rec = np.zeros(len(f), dtype=np.dtype([('n', '<f4', 3), ('v', '<f4', (3, 3)),
+                                               ('a', '<u2')]))
+        rec['n'] = n
+        rec['v'] = v[f]
+        fh.write(rec.tobytes())
+    return len(f)
 
 
 def weld(verts, faces, decimals=4):
@@ -187,6 +233,22 @@ def self_test():
     check('welded boundary edges', b2, 0)
     check('welded non-manifold edges', n2, 0)
     check('welded volume', abs(signed_volume(W, G)), 1000.0)
+
+    # STL write/read roundtrip on the same cube.  Needs a writable path: this
+    # checkout confines subprocess writes, so a refusal is reported as SKIP and
+    # exercised for real by build_shoulder_z_coupons.py instead.
+    from pathlib import Path
+    path = Path(__file__).resolve().parent / '_selftest_cube.stl'
+    try:
+        write_stl(str(path), W, G)
+    except OSError as exc:
+        print('[SKIP] stl roundtrip (cannot write %s: %s)' % (path.name, exc))
+    else:
+        RV, RF = read_stl(str(path))
+        RW, RG = weld(RV, RF)
+        check('stl roundtrip volume', abs(signed_volume(RW, RG)), 1000.0, tol=0.01)
+        check('stl roundtrip triangles', len(RG), 12)
+        path.unlink(missing_ok=True)
     print('\nRESULT:', 'PASS' if ok else 'FAIL')
     return 0 if ok else 1
 

@@ -1,0 +1,191 @@
+{
+  "scope": "S1-P0 z-calibration coupons; manufacturing geometry only, no measured stiffness, no printing qualification",
+  "decision": "D7 - four z values, monotonic interpolation inside 20-40 mm",
+  "held_fixed_mm": {
+    "x": 15.0,
+    "y": 10.0,
+    "p": 2.0
+  },
+  "z_values_mm": [
+    20.0,
+    25.0,
+    30.0,
+    40.0
+  ],
+  "specimens_per_z": 3,
+  "total_specimens": 12,
+  "cell_source": "same X cell as build_elbow_test_coupons.py, verified by rebuilding C0 and C3 (see --verify-elbow)",
+  "print_orientation": "z vertical, x horizontal; same printer, nozzle, layer height and material batch as the product",
+  "coupons": [
+    {
+      "id": "z20",
+      "stage": "S1-P0",
+      "parameters_mm": {
+        "x": 15.0,
+        "y": 10.0,
+        "z": 20.0,
+        "p": 2.0
+      },
+      "cells": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "strut_diameter_mm": 2.0,
+      "grip_plate_mm": 3.0,
+      "grip_plates": "all four in-plane faces",
+      "material_components": 1,
+      "material_volume_mm3": 20760.618,
+      "stl_roundtrip_volume_mm3": 20760.619,
+      "stl_roundtrip_rel_error": 6.33e-08,
+      "stl_file": "coupon.stl (generated; not committed from this checkout because new LFS objects cannot be added here)",
+      "triangle_count": 14294,
+      "bounding_box_mm": [
+        -3.0,
+        -3.0,
+        -2.0,
+        63.0,
+        33.0,
+        41.0
+      ],
+      "specimens_required": 3,
+      "load_directions": [
+        "x (compression)",
+        "y (contraction)"
+      ],
+      "print_orientation": "z vertical, x horizontal (same convention as the product muscle, §5.8)",
+      "measured": null,
+      "performance_verified": false
+    },
+    {
+      "id": "z25",
+      "stage": "S1-P0",
+      "parameters_mm": {
+        "x": 15.0,
+        "y": 10.0,
+        "z": 25.0,
+        "p": 2.0
+      },
+      "cells": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "strut_diameter_mm": 2.0,
+      "grip_plate_mm": 3.0,
+      "grip_plates": "all four in-plane faces",
+      "material_components": 1,
+      "material_volume_mm3": 24661.823,
+      "stl_roundtrip_volume_mm3": 24661.825,
+      "stl_roundtrip_rel_error": 9.31e-08,
+      "stl_file": "coupon.stl (generated; not committed from this checkout because new LFS objects cannot be added here)",
+      "triangle_count": 15792,
+      "bounding_box_mm": [
+        -3.0,
+        -3.0,
+        -2.0,
+        63.0,
+        33.0,
+        51.0
+      ],
+      "specimens_required": 3,
+      "load_directions": [
+        "x (compression)",
+        "y (contraction)"
+      ],
+      "print_orientation": "z vertical, x horizontal (same convention as the product muscle, §5.8)",
+      "measured": null,
+      "performance_verified": false
+    },
+    {
+      "id": "z30",
+      "stage": "S1-P0",
+      "parameters_mm": {
+        "x": 15.0,
+        "y": 10.0,
+        "z": 30.0,
+        "p": 2.0
+      },
+      "cells": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "strut_diameter_mm": 2.0,
+      "grip_plate_mm": 3.0,
+      "grip_plates": "all four in-plane faces",
+      "material_components": 1,
+      "material_volume_mm3": 28630.774,
+      "stl_roundtrip_volume_mm3": 28630.777,
+      "stl_roundtrip_rel_error": 1.14e-07,
+      "stl_file": "coupon.stl (generated; not committed from this checkout because new LFS objects cannot be added here)",
+      "triangle_count": 17824,
+      "bounding_box_mm": [
+        -3.0,
+        -3.0,
+        -2.0,
+        63.0,
+        33.0,
+        61.0
+      ],
+      "specimens_required": 3,
+      "load_directions": [
+        "x (compression)",
+        "y (contraction)"
+      ],
+      "print_orientation": "z vertical, x horizontal (same convention as the product muscle, §5.8)",
+      "measured": null,
+      "performance_verified": false
+    },
+    {
+      "id": "z40",
+      "stage": "S1-P0",
+      "parameters_mm": {
+        "x": 15.0,
+        "y": 10.0,
+        "z": 40.0,
+        "p": 2.0
+      },
+      "cells": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "strut_diameter_mm": 2.0,
+      "grip_plate_mm": 3.0,
+      "grip_plates": "all four in-plane faces",
+      "material_components": 1,
+      "material_volume_mm3": 36697.685,
+      "stl_roundtrip_volume_mm3": 36697.686,
+      "stl_roundtrip_rel_error": 2.78e-08,
+      "stl_file": "coupon.stl (generated; not committed from this checkout because new LFS objects cannot be added here)",
+      "triangle_count": 15240,
+      "bounding_box_mm": [
+        -3.0,
+        -3.0,
+        -2.0,
+        63.0,
+        33.0,
+        81.0
+      ],
+      "specimens_required": 3,
+      "load_directions": [
+        "x (compression)",
+        "y (contraction)"
+      ],
+      "print_orientation": "z vertical, x horizontal (same convention as the product muscle, §5.8)",
+      "measured": null,
+      "performance_verified": false
+    }
+  ],
+  "pending": [
+    "actual printing",
+    "E_x/E_y",
+    "kink strain",
+    "hysteresis",
+    "60 s residual",
+    "monotonic fit and residual",
+    "z=25 vs z=40 stiffness ratio must land in 0.2-0.5"
+  ],
+  "frozen": false
+}
