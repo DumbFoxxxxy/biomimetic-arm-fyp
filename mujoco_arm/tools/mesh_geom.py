@@ -27,8 +27,10 @@ def signed_volume(verts, faces):
     return float(np.einsum('ij,ij->i', a, np.cross(b, c)).sum() / 6.0)
 
 
-def point_triangle_distance(p, tri):
-    """Distance from point `p` to every triangle in `tri` (m, 3, 3)."""
+def _closest_all(p, tri):
+    """Closest point on every triangle to `p`: (distances, closest points)."""
+    p = np.asarray(p, float)
+    tri = np.asarray(tri, float)
     a, b, c = tri[:, 0], tri[:, 1], tri[:, 2]
     ab, ac = b - a, c - a
     ap = p - a
@@ -73,7 +75,12 @@ def point_triangle_distance(p, tri):
         den = np.where(np.abs(den) < 1e-30, 1e-30, den)
         closest[m] = a[m] + ab[m] * (vb[m] / den)[:, None] + ac[m] * (vc[m] / den)[:, None]
 
-    return np.linalg.norm(p - closest, axis=1)
+    return np.linalg.norm(p - closest, axis=1), closest
+
+
+def point_triangle_distance(p, tri):
+    """Distance from point `p` to every triangle in `tri` (m, 3, 3)."""
+    return _closest_all(np.asarray(p, float), np.asarray(tri, float))[0]
 
 
 def segment_min_distance(p0, p1, tri, samples=None):
@@ -88,6 +95,27 @@ def segment_min_distance(p0, p1, tri, samples=None):
         p = p0 + (p1 - p0) * t
         best = min(best, float(point_triangle_distance(p, tri).min()))
     return best
+
+
+def signed_distance(p, tri):
+    """Signed distance from `p` to a closed triangle mesh.
+
+    Negative inside, positive outside.  The sign comes from the nearest
+    triangle's own normal, so it is reliable except within one triangle of a
+    crease or a very thin wall - which is exactly the regime that has to be
+    reported rather than trusted.
+    """
+    p = np.asarray(p, float)
+    tri = np.asarray(tri, float)
+    dist, closest = _closest_all(p, tri)
+    k = int(np.argmin(dist))
+    d = float(dist[k])
+    n = np.cross(tri[k, 1] - tri[k, 0], tri[k, 2] - tri[k, 0])
+    norm = np.linalg.norm(n)
+    if norm < 1e-12 or d < 1e-12:
+        return d
+    n = n / norm
+    return -d if (p - closest[k]) @ n < 0.0 else d
 
 
 def edge_census(faces):

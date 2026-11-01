@@ -39,6 +39,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import frames
+import attachment_regions
 import interference as I
 import mesh_geom
 
@@ -80,30 +81,16 @@ DELTOID = ('FJ1468', 'FJ1513', 'FJ1467')
 
 # ------------------------------------------------------------------ geometry
 def insertion_region(mid):
-    path = REGION_DIR / ('%s_insertion_humerus.npz' % mid)
-    if not path.is_file():
-        return None
-    with np.load(path) as d:
-        points = d['bone_points_source_mm']
-        weights = d['muscle_face_areas_mm2']
-        keep = d['distances_mm'] <= np.median(d['distances_mm'])
-        tris = d['bone_triangle_indices']
-    return points[keep], weights[keep], tris[keep]
+    return attachment_regions.load_region(mid, 'insertion', 'humerus')
 
 
 def region_centroid(mid, kind):
     """Area-weighted bone-surface centroid of an origin/insertion candidate region."""
-    for bone in ('scapula', 'clavicle', 'humerus'):
-        path = REGION_DIR / ('%s_%s_%s.npz' % (mid, kind, bone))
-        if not path.is_file():
-            continue
-        with np.load(path) as d:
-            points = d['bone_points_source_mm']
-            weights = d['muscle_face_areas_mm2']
-            keep = d['distances_mm'] <= np.median(d['distances_mm'])
-        return ((points[keep] * weights[keep][:, None]).sum(0) / weights[keep].sum(),
-                bone, int(keep.sum()), float(weights[keep].sum()))
-    return None, None, 0, 0.0
+    region = attachment_regions.load_region(mid, kind)
+    if region is None:
+        return None, None, 0, 0.0
+    point, area = attachment_regions.centroid(region)
+    return point, region['bone'], region['n_samples'], area
 
 
 def pad_basis(normal):
@@ -275,9 +262,9 @@ def main(argv=None):
         if region is None:
             print('SKIP', mid)
             continue
-        points, weights, tris = region
-        centroid = (points * weights[:, None]).sum(0) / weights.sum()
-        idx = int(np.argmax(weights))          # largest sample of the region
+        centroid, area = attachment_regions.centroid(region)
+        tris = region['tris']
+        idx = int(np.argmax(region['weights']))   # largest sample of the region
         face = tri[tris[idx]]
         nrm = np.cross(face[1] - face[0], face[2] - face[0])
         nrm = nrm / max(np.linalg.norm(nrm), 1e-12)
@@ -293,8 +280,8 @@ def main(argv=None):
                      'polar_from_glenoid_deg': round(theta, 1),
                      'azimuth_deg': round(phi, 1),
                      'pad_far_radius_mm': round(pad_far_radius(centroid, nrm, gh), 2),
-                     'region_samples': int(len(points)),
-                     'region_area_mm2': round(float(weights.sum()), 1)})
+                     'region_samples': region['n_samples'],
+                     'region_area_mm2': round(area, 1)})
 
     print('\n--- insertion layout in the GH spherical frame (theta from glenoid normal) ---')
     print('%-8s %-10s %7s %7s %8s %9s %10s'
