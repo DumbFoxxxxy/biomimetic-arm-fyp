@@ -74,8 +74,15 @@ def clearance(points, tri):
     return float(max(d)), float(min(d)), d
 
 
-def relax(path, tri, iterations=ITERATIONS, step=STEP_MM, lam=SMOOTHING):
-    """Push interior points into the material, keep the ends pinned."""
+def relax(path, tri, iterations=ITERATIONS, step=STEP_MM, lam=SMOOTHING,
+          bone_tris=None, bone_clear_mm=0.0):
+    """Push interior points into the material, keep the ends pinned.
+
+    `bone_tris` (optional) adds a second constraint: a corridor that is merely *inside
+    the belly* is not enough, because the belly surface includes the bone surface and
+    the part gets trimmed at the bone.  When a point comes within `bone_clear_mm` of any
+    bone, it is also pushed along that bone's outward normal until it clears.
+    """
     p = np.array(path, dtype=float)
     n = len(p)
     history = []
@@ -84,7 +91,17 @@ def relax(path, tri, iterations=ITERATIONS, step=STEP_MM, lam=SMOOTHING):
         for i in range(1, n - 1):
             d, nrm = mesh_geom.signed_distance_and_normal(p[i], tri)
             # -normal walks deeper into the material whichever side we start on
-            moved[i] = p[i] - nrm * step
+            push = -nrm * step
+            if bone_tris:
+                best = None
+                for btri in bone_tris:
+                    db, nb = mesh_geom.signed_distance_and_normal(p[i], btri)
+                    if best is None or db < best[0]:
+                        best = (db, nb)
+                if best[0] < bone_clear_mm:
+                    # +normal points out of the bone, so this increases the clearance
+                    push = push + best[1] * step
+            moved[i] = p[i] + push
         # Laplacian smoothing on the interior, ends fixed
         for i in range(1, n - 1):
             moved[i] = moved[i] + lam * (moved[i - 1] + moved[i + 1] - 2.0 * moved[i])
