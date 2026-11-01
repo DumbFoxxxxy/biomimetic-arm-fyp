@@ -27,6 +27,28 @@ def signed_volume(verts, faces):
     return float(np.einsum('ij,ij->i', a, np.cross(b, c)).sum() / 6.0)
 
 
+def signed_distance_and_normal(p, tri):
+    """(signed distance, outward unit normal at the closest point).
+
+    Negative distance means inside.  The normal is the gradient of the signed
+    distance, so ``-normal`` is the direction that goes deeper into the material -
+    which is what a channel path search needs.
+    """
+    p = np.asarray(p, float)
+    tri = np.asarray(tri, float)
+    dist, closest = _closest_all(p, tri)
+    k = int(np.argmin(dist))
+    d = float(dist[k])
+    n = np.cross(tri[k, 1] - tri[k, 0], tri[k, 2] - tri[k, 0])
+    norm = np.linalg.norm(n)
+    if norm < 1e-12:
+        return d, np.zeros(3)
+    n = n / norm
+    if (p - closest[k]) @ n < 0.0:
+        return -d, n
+    return d, n
+
+
 def _closest_all(p, tri):
     """Closest point on every triangle to `p`: (distances, closest points)."""
     p = np.asarray(p, float)
