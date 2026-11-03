@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5f2eb'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23b84430'/%3E%3C/svg%3E">
+  <title>仿生机械手臂 · 交互模型</title>
+  <link rel="stylesheet" href="./viewer/style.css">
+  <script type="importmap">{"imports":{"three":"./viewer/vendor/three.module.min.js"}}</script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp"><span class="brand-icon" aria-hidden="true">◈</span> 仿生机械手臂 <span class="brand-sub">FYP / 交互模型</span></a>
+    <a class="repo-link" href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">查看项目 ↗</a>
+  </header>
+  <main>
+    <aside>
+      <span class="eyebrow">ANATOMY × MECHANICS</span>
+      <h1>从骨骼到<br>人工肌肉。</h1>
+      <p class="intro">真实解剖骨形、工程关节与异形 TPU 晶格肌肉，组成当前肩部原型。</p>
+      <div class="version"><span class="dot"></span> S1-Y2 <span>当前装配姿态</span></div>
+      <section aria-label="显示方式">
+        <h2>探索结构</h2>
+        <div class="presets">
+          <button type="button" data-preset="assembly" aria-pressed="true" disabled>完整装配</button>
+          <button type="button" data-preset="skeleton" aria-pressed="false" disabled>骨骼结构</button>
+          <button type="button" data-preset="muscles" aria-pressed="false" disabled>肌肉布局</button>
+        </div>
+        <div class="layers">
+          <label><span class="swatch bones"></span><span>解剖骨骼</span><input type="checkbox" data-layer="bones" checked disabled></label>
+          <label><span class="swatch muscles"></span><span>TPU 晶格肌肉</span><input type="checkbox" data-layer="muscles" checked disabled></label>
+          <label><span class="swatch wires"></span><span>钢丝肌腱</span><input type="checkbox" data-layer="wires" checked disabled></label>
+          <label><span class="swatch hardware"></span><span>支架与连接件</span><input type="checkbox" data-layer="hardware" checked disabled></label>
+        </div>
+      </section>
+      <section class="understanding">
+        <h2>当前设计</h2>
+        <p>肩胛骨和锁骨固定，肌腹经端部接口和短肌腱连接肱骨。先通过手拉试验实现实体动作，再测量运动范围。</p>
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/docs/PROJECT_OVERVIEW.md">阅读项目概览 <span>↗</span></a>
+      </section>
+      <p class="scope">此页面用于自由视角查看几何装配，不演示 TPU 形变或钢丝驱动。</p>
+    </aside>
+    <section class="viewport" id="viewport" aria-label="可旋转的肩部三维模型">
+      <div id="canvas-host"></div>
+      <div class="viewport-top"><span class="scene-label">SHOULDER / 01</span><span id="scene-count">正在准备模型</span></div>
+      <div id="loading" role="status"><span class="spinner"></span><strong>加载当前装配</strong><span>首次打开需要载入约 10 MB 几何数据</span></div>
+      <div class="view-tools">
+        <button id="auto-rotate" type="button" aria-pressed="false" disabled>自动旋转</button>
+        <button id="reset-view" type="button" disabled>重置视角</button>
+        <button id="fullscreen" type="button" disabled>全屏</button>
+      </div>
+      <div class="interaction-help"><span><b>拖动</b> 旋转</span><span><b>滚轮 / 双指</b> 缩放</span><span><b>右键拖动</b> 平移</span><span>360° 自由查看</span></div>
+      <noscript>请启用 JavaScript 后查看交互模型。</noscript>
+    </section>
+  </main>
+  <footer><span>真实骨形 · 工程关节 · 钢丝＋TPU 肌肉</span><span>骨骼参考：BodyParts3D / CC BY-SA 2.1 Japan</span></footer>
+  <script type="module" src="./viewer/viewer.js"></script>
+</body>
+</html>
