@@ -64,7 +64,7 @@ metrics_preserved = len(indicator_rows(new_baseline)) == 7 and indicator_rows(ol
 if not metrics_preserved:
     errors.append('Original K1-K7 changed')
 
-docs = [ROOT / 'PROJECT_STATUS.md', baseline, ROOT / 'design/DESIGN_BRIEF.md', ROOT / 'README.md', ROOT / 'RUNNING.md', ROOT / '02_人体骨骼晶格肌肉方案/README.md', D / 'SHOULDER_DESIGN.md', D / 's1_GH_assembly_review/compact_recessed_keepers/README.md', Y / 'README.md', Y / 'print_inspection/README.md', Y / 'vent_experiment/README.md', ROOT / 'design/TPU_PRINTING_REFERENCE.md', ROOT / 'design/PHYSICAL_PROTOTYPE_STAGE.md', ROOT / 'docs/SUPERVISOR_UPDATE_2026-11-04.md']
+docs = [ROOT / 'PROJECT_STATUS.md', baseline, ROOT / 'design/DESIGN_BRIEF.md', ROOT / 'README.md', ROOT / 'RUNNING.md', ROOT / '02_人体骨骼晶格肌肉方案/README.md', D / 'SHOULDER_DESIGN.md', D / 's1_GH_assembly_review/compact_recessed_keepers/README.md', Y / 'README.md', Y / 'print_inspection/README.md', Y / 'vent_experiment/README.md', ROOT / 'design/TPU_PRINTING_REFERENCE.md', ROOT / 'design/PHYSICAL_PROTOTYPE_STAGE.md', ROOT / 'docs/PROJECT_OVERVIEW.md']
 for p in [ACTIVE/'README.md', Y/'transition_stock_comparison/README.md', Y/'vent_experiment/outward_start_revision/README.md', ACTIVE/'free_terminal_kinematics/README.md', ACTIVE/'free_strand_routes/README.md', ACTIVE/'volume_mesh/README.md', D/'SHOULDER_DESIGN_v0.9.16_ARCHIVE.md', ROOT/'reviews/S1_2026-11-03/document_optimization/README.md', ROOT/'reviews/S1_2026-11-03/indexed_boundary_meshing/README.md', D/'s1_tpu_channel_rebuild_revision/infraspinatus/radius_0.9/README.md']:
     if not p.exists():continue
     if p not in docs:docs.append(p)

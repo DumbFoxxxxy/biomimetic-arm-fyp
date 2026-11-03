@@ -261,7 +261,7 @@ TPU本身不主动供能；其变形与恢复受钢丝接触、拮抗肌及外�
 
 第5节体网格失败继续保留为分析研究记录，暂停以修复它为主线；不得据此输出应力／变形或把失败记录改成通过。需要数值预测时，原数值质量及材料标定要求仍然有效。原K1–K7保留为后续比较，不能假定论文性能或25%收缩已经实现。
 
-[单肌肉观察模板](s1_y2_transition_stock/single_muscle_observation_template.json)和[端部测量模板](s1_y2_transition_stock/free_terminal_kinematics/measurement_template.json)目前均未测。完整实施顺序见[实体可动阶段](../../../design/PHYSICAL_PROTOTYPE_STAGE.md)，导师汇报见[2026-11-04进度说明](../../../docs/SUPERVISOR_UPDATE_2026-11-04.md)。
+[单肌肉观察模板](s1_y2_transition_stock/single_muscle_observation_template.json)和[端部测量模板](s1_y2_transition_stock/free_terminal_kinematics/measurement_template.json)目前均未测。完整实施顺序见[实体可动阶段](../../../design/PHYSICAL_PROTOTYPE_STAGE.md)，项目概览见[项目概览](../../../docs/PROJECT_OVERVIEW.md)。
 
 ## 8. 查看、复现与维护
 

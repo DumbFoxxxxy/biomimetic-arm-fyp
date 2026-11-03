@@ -10,7 +10,7 @@
 
 **先做出由钢丝＋TPU晶格肌肉带动的实体可动模型，运动范围通过实物测量。** 完整体网格、有限元预测和全范围收敛暂缓，不是试制前置条件。先单肌肉手拉，再装入骨架做动作与拮抗回拉，随后扩展其他方向及整臂；当前还没有实物通过记录。
 
-实施顺序见[实体可动阶段](design/PHYSICAL_PROTOTYPE_STAGE.md)，明天可用的汇报见[2026-11-04导师进度说明](docs/SUPERVISOR_UPDATE_2026-11-04.md)。
+实施顺序见[实体可动阶段](design/PHYSICAL_PROTOTYPE_STAGE.md)，项目概览见[项目概览](docs/PROJECT_OVERVIEW.md)。
 
 ## 当前采用什么
 

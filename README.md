@@ -2,7 +2,7 @@
 
 **当前优先：完成钢丝＋TPU肌肉驱动的实体可动演示，运动范围留待实测；完整TPU仿真不作为试制前置条件。**
 
-[导师进度说明（2026-11-04）](docs/SUPERVISOR_UPDATE_2026-11-04.md) · [实体可动阶段](design/PHYSICAL_PROTOTYPE_STAGE.md)
+[项目概览](docs/PROJECT_OVERVIEW.md) · [实体可动阶段](design/PHYSICAL_PROTOTYPE_STAGE.md)
 
 以真实解剖骨骼为基础，通过工程关节保证运动，以钢丝和可变形 TPU 晶格肌肉传力。允许短钢丝肌腱连接骨侧接口。
 

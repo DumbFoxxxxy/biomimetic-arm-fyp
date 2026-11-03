@@ -42,4 +42,4 @@
 
 暂不继续以完整有限元、全部动作范围或理论收缩百分比收敛为主线。实物遇到具体的受力、接触或结构问题时，再针对该问题使用计算分析。
 
-当前进度见[PROJECT_STATUS](../PROJECT_STATUS.md)，面向导师的汇报见[2026-11-04进度说明](../docs/SUPERVISOR_UPDATE_2026-11-04.md)，历史计算依据见[肩部技术文件](../02_人体骨骼晶格肌肉方案/输出/shoulder_design/SHOULDER_DESIGN.md)。
+当前进度见[PROJECT_STATUS](../PROJECT_STATUS.md)，项目概览见[项目概览](../docs/PROJECT_OVERVIEW.md)，历史计算依据见[肩部技术文件](../02_人体骨骼晶格肌肉方案/输出/shoulder_design/SHOULDER_DESIGN.md)。
