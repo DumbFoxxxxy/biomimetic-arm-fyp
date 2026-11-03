@@ -1,0 +1,277 @@
+{
+  "scope": "static TPU transition-rib candidate; not validated compliance or stage acceptance",
+  "module": "teres_major",
+  "master_routes": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\routes_upper_origin_edge14p0_candidate.json",
+  "master_sha256": "a2b71a19be86badf3b0b4f0e2abf698deee2d2c35d5a43247e45f8caf489ab8e",
+  "parent_sha256": "cd1b96308c7593f484cff3305fb245891d48f33f2c7633c02d92e72357a6f0f7",
+  "parts": {
+    "TPU": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_connected\\TPU_muscle.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        7713.715723612136,
+        -7.241763902029823,
+        -0.1625431239840495,
+        -14.163773853012028
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 3,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "436caad3ccee92b535106c77317374706397de77035d03f7dcecec4814c34538"
+    },
+    "FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_origin_cap.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        1171.128822730321
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "02ee76674eb46a9d75b3fef33e99f3255e4632714e0641e51e556fb9fbed6bea"
+    },
+    "FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_distal_cap.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        1404.4107330937793
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "acdd4b872284f41723c22c581d06d2d51557ff43235166ee7d23dedaa1210b2d"
+    }
+  },
+  "wire_material_intersections_mm3": {
+    "FJ1507": {
+      "TPU": 0.0,
+      "FJ1507/origin": 0.0,
+      "FJ1507/distal": 0.0
+    }
+  },
+  "wire_bone_intersections_mm3": {
+    "FJ1507": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "nominal_hand_pull_endpoint_intersections_mm3": {
+    "FJ1507": {
+      "TPU": 0.0,
+      "FJ1507/origin": 0.0,
+      "FJ1507/distal": 0.0
+    }
+  },
+  "material_pair_intersections_mm3": [
+    {
+      "a": "TPU",
+      "b": "FJ1507/origin",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "TPU",
+      "b": "FJ1507/distal",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1507/origin",
+      "b": "FJ1507/distal",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "cap_keepout_scope": "actual cap thickness plus explicit 0.15mm fit gap at both faces and radius; actual rigid outlet socket where present",
+  "rigid_origin_outlets": {},
+  "rigid_cap_bone_trim_mm3": {},
+  "fitted_terminal_mouths": true,
+  "removed_nonstructural_lattice_tips": [],
+  "all_part_bone_intersections_mm3": {
+    "TPU": {
+      "scapula": 0.001777965390957835,
+      "clavicle": 0.0,
+      "humerus": 3.011111972325119e-05
+    },
+    "FJ1507/origin": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    },
+    "FJ1507/distal": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "required_wall_mm": 0.75,
+  "wall_guard_scope": "retained active core and connector arclength>=4mm; cap fit housing and actual rigid guide socket excluded explicitly",
+  "dense_core_outer_radius_mm": 1.8,
+  "transition_outer_radius_mm": 3.2,
+  "lumen_radius_mm": 0.86,
+  "conforming_bone_trim_volume_mm3": 48.5858839959263,
+  "bone_intersections_mm3": {
+    "scapula": 0.001777965390957835,
+    "clavicle": 0.0,
+    "humerus": 3.011111972325119e-05
+  },
+  "stage_pass": false,
+  "not_verified": [
+    "external lead accessibility and bone clearance",
+    "neighbour resolution and complete assembly",
+    "fasteners/crimps and installation",
+    "material stroke, friction and deformation",
+    "joint retention and motion"
+  ],
+  "parent_report": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\check.json",
+  "parent_report_sha256": "25b85abd03c1b1d28b8e4522b8e69db17e26ffb4e8a6759789b34729cfa43d88",
+  "original_positive_components": [
+    {
+      "volume_mm3": 5592.319921916018,
+      "bounds_source_mm": [
+        -158.8019384765625,
+        -71.43967025756837,
+        1198.693115386963,
+        -99.98950189590454,
+        -0.8659531402587888,
+        1267.3213731384278
+      ]
+    },
+    {
+      "volume_mm3": 2105.083688204427,
+      "bounds_source_mm": [
+        -170.64293045043945,
+        -86.05367248535157,
+        1260.590332183838,
+        -156.95802444458008,
+        -63.75471466064453,
+        1282.7900354003907
+      ]
+    }
+  ],
+  "transition_ribs": [
+    {
+      "path_source_mm": [
+        [
+          -159.9813818359375,
+          -66.64553421020508,
+          1265.7167016601563
+        ],
+        [
+          -161.9813818359375,
+          -66.64553421020508,
+          1265.7167016601563
+        ],
+        [
+          -160.5952276611328,
+          -65.17300003051758,
+          1264.4918481445313
+        ],
+        [
+          -158.5952276611328,
+          -65.17300003051758,
+          1264.4918481445313
+        ]
+      ],
+      "radius_mm": 1.0,
+      "length_mm": 6.364327904799866,
+      "new_material_mm3": 16.311424669806918,
+      "raw_rib_volume_mm3": 22.740227650638154,
+      "shaped_rib_volume_mm3": 17.250409804853476,
+      "obstacle_intersections_mm3": {
+        "scapula": 0.0,
+        "clavicle": 0.0,
+        "humerus": 0.0,
+        "deltoid:TPU": 0.0,
+        "deltoid:FJ1468/origin": 0.0,
+        "deltoid:FJ1468/distal": 0.0,
+        "deltoid:FJ1513/origin": 0.0,
+        "deltoid:FJ1467/origin": 0.0,
+        "infraspinatus:TPU": 0.0,
+        "infraspinatus:FJ1500/origin": 0.0,
+        "infraspinatus:FJ1500/distal": 0.0,
+        "subscapularis:TPU": 0.0,
+        "subscapularis:FJ1504/origin": 0.0,
+        "subscapularis:FJ1504/distal": 0.0,
+        "teres_major:FJ1507/origin": 0.0,
+        "teres_major:FJ1507/distal": 0.0
+      },
+      "before_components": 2,
+      "after_components": 1
+    }
+  ],
+  "tested_candidates": 13,
+  "unresolved_fragments": [],
+  "added_rib_strength_and_deformation_verified": false,
+  "parent_free_TPU_wall_guard": {
+    "FJ1507": {
+      "missing_mm3": 0.005366612637270056,
+      "bounds_source_mm": [
+        -161.1445072171862,
+        -75.30732268341987,
+        1212.884253491671,
+        -112.33551611200176,
+        -8.294306450344683,
+        1270.5087502766544
+      ]
+    }
+  },
+  "parent_nominal_wall_guard": {
+    "FJ1507": 41.43448741783523
+  },
+  "wall_guard_after_ribs_verified": false,
+  "parent_neighbour_intersections_mm3": {
+    "deltoid": 0.0,
+    "infraspinatus": 0.0,
+    "subscapularis": 0.0
+  },
+  "own_route_records_identical": true,
+  "route_rebinding_parent": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_connected\\check.json",
+  "route_rebinding_parent_sha256": "53d27220fec63b6f3eac466af6900a327dd0f85fe37d497a6d68bd995e32af32",
+  "parent_repaired_TPU_bone_and_neighbour_intersections_mm3": {
+    "scapula": 0.001777965390957835,
+    "clavicle": 0.0,
+    "humerus": 3.011111972325119e-05,
+    "deltoid:TPU": 0.0,
+    "deltoid:FJ1468/origin": 0.0,
+    "deltoid:FJ1468/distal": 0.0,
+    "deltoid:FJ1513/origin": 0.0,
+    "deltoid:FJ1467/origin": 0.0,
+    "infraspinatus:TPU": 0.0,
+    "infraspinatus:FJ1500/origin": 0.0,
+    "infraspinatus:FJ1500/distal": 0.0,
+    "subscapularis:TPU": 0.0,
+    "subscapularis:FJ1504/origin": 0.0,
+    "subscapularis:FJ1504/distal": 0.0,
+    "teres_major:FJ1507/origin": 0.0,
+    "teres_major:FJ1507/distal": 0.0
+  }
+}

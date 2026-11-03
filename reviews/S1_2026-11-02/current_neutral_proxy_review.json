@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-02",
+  "scope": "Current compact candidate, ZERO POSE endpoint straight-chord proxy only; documentation evidence, NOT acceptance",
+  "source_sha256": {
+    "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_port_path_revision/routes_compact_distal_candidate.json": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+    "mujoco_arm/tools/analyze_shoulder_local_actuation.py": "ac4fb87f6d40a100b2e795052d911a90c432c46d7b88ea20ed3a33b5a702c158",
+    "mujoco_arm/tools/frames.py": "7398e74b27d96c7d998aea76711432a705830e90884f09aaffada04a3fe5c78a"
+  },
+  "heads": [
+    "FJ1500",
+    "FJ1504",
+    "FJ1507",
+    "FJ1468",
+    "FJ1513",
+    "FJ1467"
+  ],
+  "origins_source_mm": [
+    [
+      -92.16457605554228,
+      -9.889798156648327,
+      1272.4840716011975
+    ],
+    [
+      -98.3439134265721,
+      -45.178290882933915,
+      1288.1870661559176
+    ],
+    [
+      -114.31184476313017,
+      -6.963508279675165,
+      1213.0899317280637
+    ],
+    [
+      -119.18561180422464,
+      -90.48299913286462,
+      1346.8920935543947
+    ],
+    [
+      -127.10523466693994,
+      -19.431393928449765,
+      1316.8442166561329
+    ],
+    [
+      -163.57552140091303,
+      -64.75974344157927,
+      1351.0320613114643
+    ]
+  ],
+  "insertions_source_mm": [
+    [
+      -184.12353625361376,
+      -59.62001964322287,
+      1321.6728282052645
+    ],
+    [
+      -149.97036063569996,
+      -94.2961598257592,
+      1309.8745419200284
+    ],
+    [
+      -158.83782573581124,
+      -75.29278339813463,
+      1269.3313008501375
+    ],
+    [
+      -207.91521638339947,
+      -79.315194346259,
+      1225.0913254876255
+    ],
+    [
+      -208.03213909457946,
+      -72.61480012965168,
+      1229.0714066955488
+    ],
+    [
+      -206.540987325821,
+      -79.315194346259,
+      1232.763449997649
+    ]
+  ],
+  "GH_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "moment_matrix_mm": [
+    [
+      -9.600138979662443,
+      9.093851137345949,
+      31.493903139253,
+      -9.33754210866528,
+      37.50359776639589,
+      6.450968147745316
+    ],
+    [
+      -4.428632325100562,
+      -0.3585785510085202,
+      -18.79134860669909,
+      -16.432500221175253,
+      -22.910816519787616,
+      13.146074369463602
+    ],
+    [
+      -22.424955231443764,
+      20.835555797760705,
+      2.1033930181011122,
+      5.295545132061451,
+      -20.696327388589356,
+      -3.9614559349601977
+    ]
+  ],
+  "chord_lengths_mm": [
+    115.53821474329783,
+    74.48625179145692,
+    99.06838254720341,
+    151.10621990567884,
+    130.69699584833288,
+    126.67026815824329
+  ],
+  "torque_cone": {
+    "rank": 3,
+    "normalized_positive_margin": 0.005683141738384245,
+    "torque_residual_mm": 2.220446049250313e-15,
+    "strict_positive_span": true,
+    "balanced_weights": [
+      0.005683141738384245,
+      0.008020419709494249,
+      0.005683141738384245,
+      0.42434298090637645,
+      0.005683141738384245,
+      0.5505871741689765
+    ],
+    "strict_separating_plane": null
+  },
+  "direction_tests": [
+    {
+      "axis": "longitudinal",
+      "sign": -1,
+      "unit_torque_direction_feasible": true,
+      "residual": 5.273559366969494e-16
+    },
+    {
+      "axis": "longitudinal",
+      "sign": 1,
+      "unit_torque_direction_feasible": true,
+      "residual": 2.7755575615628914e-17
+    },
+    {
+      "axis": "flexion",
+      "sign": -1,
+      "unit_torque_direction_feasible": true,
+      "residual": 2.7755575615628914e-16
+    },
+    {
+      "axis": "flexion",
+      "sign": 1,
+      "unit_torque_direction_feasible": true,
+      "residual": 2.220446049250313e-16
+    },
+    {
+      "axis": "abduction",
+      "sign": -1,
+      "unit_torque_direction_feasible": true,
+      "residual": 2.220446049250313e-16
+    },
+    {
+      "axis": "abduction",
+      "sign": 1,
+      "unit_torque_direction_feasible": true,
+      "residual": 4.77048955893622e-16
+    }
+  ],
+  "not_verified": [
+    "actual curved wire and distributed TPU forces/contact",
+    "other poses and combined motion",
+    "joint translation, retention and stability",
+    "measured tension capacity, gravity, friction and TPU stroke"
+  ],
+  "actual_drive_range_deg": null,
+  "stage_pass": false
+}

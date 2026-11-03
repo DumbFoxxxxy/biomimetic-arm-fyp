@@ -1,0 +1,55 @@
+{
+  "scope": "Traceable tetrahedralization attempts for current complete TPU bellies.\n\nReads the real STL in Python, records exact and 1e-4mm weld topology, and\nimports the validated boundary into Gmsh without native-path workarounds.\nVolume meshes are analysis inputs only, never calibrated TPU or drive proof.\n",
+  "module": "infraspinatus",
+  "assembly_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/assembly_check.json",
+  "assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "source": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/transition_stock_comparison/infraspinatus/closed_pockets_infilled/TPU_transition_trial.stl",
+    "sha256": "b0dc6d832d274331103d3bc280f312c9c9e9fc80e9e1ea2c4cd49e871213e705",
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "component_volumes_mm3": [
+      8425.673703719202
+    ],
+    "positive_components": 1,
+    "relative_volume_roundtrip_error": 0.0,
+    "no_material_removed_or_added_as_repair": true,
+    "translation_source_mm": [
+      -89.94,
+      -15.0,
+      1271.07
+    ]
+  },
+  "gmsh_version": "4.15.2",
+  "script_sha256": "50cb762e16820b9ba289b4228bf76a4fc7617d6300b8faf6f06face3db248b68",
+  "mode": "preserve",
+  "requested_max_interior_size_mm": 0.8,
+  "input_preprocessing": {
+    "raw_unique_vertices": 40502,
+    "raw_triangles": 81668,
+    "raw_boundary_edges": 0,
+    "raw_nonmanifold_edges": 0,
+    "validation_weld_key_decimals": 4,
+    "validation_weld_key_pitch_mm": 0.0001,
+    "maximum_reassigned_vertex_distance_mm": 0.0,
+    "preprocessed_vertices": 40502,
+    "preprocessed_triangles": 81668,
+    "dropped_degenerate_triangles": 0,
+    "preprocessed_boundary_edges": 0,
+    "preprocessed_nonmanifold_edges": 0,
+    "triangle_area_min_mm2": 7.275957614183426e-12,
+    "triangle_area_p01_mm2": 1.222846933681212e-06,
+    "interpretation": "same rounded-key merge convention as current mesh checks; explicit analysis preprocessing, source STL unchanged"
+  },
+  "original_material_volume_mm3": 8425.673703719194,
+  "geometry_tetrahedralization_pass": false,
+  "numerical_elasticity_mesh_quality_pass": false,
+  "physical_material_model_calibrated": false,
+  "nonlinear_solve_completed": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "error_type": "Exception",
+  "error": "Invalid boundary mesh (overlapping facets) on surface 1 surface 1",
+  "elapsed_s": 0.8666625000041677,
+  "source_bytes_unchanged": true
+}

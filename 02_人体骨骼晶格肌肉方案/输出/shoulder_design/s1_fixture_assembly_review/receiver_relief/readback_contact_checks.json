@@ -1,0 +1,2603 @@
+{
+  "scope": "Full readback and inherited contact rechecks after receiver micro-relief.\n\nRe-evaluates parent contact declarations using current actual meshes, rather\nthan inheriting unchanged pass labels. Geometry is not a preload/load proof.\n",
+  "assembly_sha256": "64f0f0ed4de951086c930a29f51c16f34e0535a078d85ebc5b909497bd139e26",
+  "script_sha256": "2251e01aa4b1d4100243768a4080780d5ae58dcee588d2717e5230f12be1fdf6",
+  "inherited_contact_declaration_sha256": {
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json": "3533754f185b02bcf73fbe1220b5234ac1db2b73324adf95e4d37f419be3d240",
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json": "23d527955ea9053cebd457571b9d984e1a0682cc7d029b248348bd7e19ce3828",
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json": "22f9306ec33b10b3ba35b8e5e55166794da93d5ec34196f362551000da37641d"
+  },
+  "n_instances": 175,
+  "all_source_hashes_match": true,
+  "mesh_census": {
+    "bone:clavicle": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "fixture:medial_frame": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "fixture:lateral_frame": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "tpu:deltoid": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1468/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1468/distal": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1513/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1467/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "stop:FJ1468_stop_blank": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "stop:FJ1513_stop_blank": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "stop:FJ1467_stop_blank": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "tpu:infraspinatus": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1500/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "stop:FJ1500/distal_stop_blank": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "tpu:subscapularis": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1504/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "stop:FJ1504/distal_stop_blank": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "tpu:teres_major": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1507/origin": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "cap:FJ1507/distal": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_cap_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_cap_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_bolt_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_top_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_bottom_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_bolt_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_top_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "GH_bottom_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bone:humerus": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bone:scapula": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:jaw_upper": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:liner_upper": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:jaw_lower": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:liner_lower": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:bolt_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:top_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:bottom_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:bolt_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:top_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:bottom_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "collar:nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "free_terminal:FJ1500": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/tendon_wire": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_bolt": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_inner_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_outer_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_groove_ring": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/muscle_uncrimped_sleeve": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_bolt": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_inner_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_outer_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_groove_ring": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1500/bone_uncrimped_sleeve": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "free_terminal:FJ1504": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/tendon_wire": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_bolt": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_inner_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_outer_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_groove_ring": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/muscle_uncrimped_sleeve": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_bolt": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_inner_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_outer_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_groove_ring": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "link:FJ1504/bone_uncrimped_sleeve": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/front_support": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/backing_plate": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/bolt_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/front_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/back_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/bolt_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/front_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1500/back_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/front_support": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/backing_plate": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/bolt_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/front_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/back_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/bolt_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/front_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "origin:FJ1504/back_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_0/spacer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_0/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_0/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_0/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_0/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_1/spacer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_1/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_1/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_1/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:medial_1/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_0/spacer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_0/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_0/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_0/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_0/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_1/spacer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_1/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_1/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_1/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:lateral_1/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_0/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_0/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_0/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_0/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_1/screw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_1/near_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_1/far_washer": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:foot_1/nut": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:backboard": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "bench:table_interface_patch": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/screw_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/near_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/far_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/screw_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/near_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/far_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/front_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/back_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:medial_mid/moving_jaw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/screw_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/near_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/far_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/screw_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/near_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/far_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/front_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/back_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:superior_angle/moving_jaw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/screw_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/near_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/far_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/screw_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/near_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/far_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/front_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/back_liner": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clamp:lateral_upper/moving_jaw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:liner_posterior": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:liner_anterior": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_screw_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_near_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_far_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_screw_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_near_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_far_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M3_nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:moving_jaw": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_screw_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_near_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_far_washer_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_nut_0": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_screw_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_near_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_far_washer_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:M4_nut_1": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    },
+    "clavicle:fixed_support": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "positive_material_components": 1
+    }
+  },
+  "all_pair_count": 15225,
+  "material_intersections": [
+    {
+      "a": "bone:clavicle",
+      "b": "clavicle:liner_posterior",
+      "volume_mm3": 2.5759331167741106e-09,
+      "compliant": true
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "bone:scapula",
+      "volume_mm3": 1.0314897894589452e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:medial_mid/near_washer_0",
+      "volume_mm3": 3.5832688838522726e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:medial_mid/near_washer_1",
+      "volume_mm3": 1.3282692466969773e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:medial_mid/front_liner",
+      "volume_mm3": 0.00011778222026714398,
+      "compliant": true
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:superior_angle/near_washer_0",
+      "volume_mm3": 2.3784704208095336e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:superior_angle/near_washer_1",
+      "volume_mm3": 5.704787149635226e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "clamp:superior_angle/front_liner",
+      "volume_mm3": 0.00040171337933690964,
+      "compliant": true
+    },
+    {
+      "a": "fixture:lateral_frame",
+      "b": "clamp:lateral_upper/near_washer_0",
+      "volume_mm3": 3.868800467868721e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:lateral_frame",
+      "b": "clamp:lateral_upper/near_washer_1",
+      "volume_mm3": 7.644229337771796e-06,
+      "compliant": false
+    },
+    {
+      "a": "fixture:lateral_frame",
+      "b": "clamp:lateral_upper/front_liner",
+      "volume_mm3": 1.15774320798742e-05,
+      "compliant": true
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "bone:humerus",
+      "volume_mm3": 0.0020131215116190116,
+      "compliant": true
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "bone:scapula",
+      "volume_mm3": 1.8404356594477083,
+      "compliant": true
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "collar:jaw_upper",
+      "volume_mm3": 1.8599227008541136e-09,
+      "compliant": true
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "bone:scapula",
+      "volume_mm3": 0.0012195841499340835,
+      "compliant": true
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "origin:FJ1500/front_support",
+      "volume_mm3": 0.00019129603835099253,
+      "compliant": true
+    },
+    {
+      "a": "tpu:subscapularis",
+      "b": "origin:FJ1504/front_support",
+      "volume_mm3": 2.106512156056526e-05,
+      "compliant": true
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "bone:humerus",
+      "volume_mm3": 3.0111058234088663e-05,
+      "compliant": true
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "bone:scapula",
+      "volume_mm3": 0.0023349033575520263,
+      "compliant": true
+    },
+    {
+      "a": "GH_nut_0",
+      "b": "bone:scapula",
+      "volume_mm3": 2.8995305329157312e-05,
+      "compliant": false
+    },
+    {
+      "a": "GH_bottom_washer_0",
+      "b": "bone:scapula",
+      "volume_mm3": 2.4952151502543805e-05,
+      "compliant": false
+    },
+    {
+      "a": "bone:humerus",
+      "b": "collar:liner_upper",
+      "volume_mm3": 0.0001776459541261046,
+      "compliant": true
+    },
+    {
+      "a": "bone:humerus",
+      "b": "collar:liner_lower",
+      "volume_mm3": 0.00036085050939467126,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "origin:FJ1500/front_support",
+      "volume_mm3": 0.00044895846004983433,
+      "compliant": false
+    },
+    {
+      "a": "bone:scapula",
+      "b": "origin:FJ1500/backing_plate",
+      "volume_mm3": 0.00034063001806142445,
+      "compliant": false
+    },
+    {
+      "a": "bone:scapula",
+      "b": "origin:FJ1504/front_support",
+      "volume_mm3": 0.0008097029726016709,
+      "compliant": false
+    },
+    {
+      "a": "bone:scapula",
+      "b": "origin:FJ1504/backing_plate",
+      "volume_mm3": 7.394809530662135e-05,
+      "compliant": false
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:medial_mid/front_liner",
+      "volume_mm3": 0.0001478201059151803,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:medial_mid/back_liner",
+      "volume_mm3": 1.0531466055992938e-05,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:superior_angle/front_liner",
+      "volume_mm3": 5.6329385336969956e-05,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:superior_angle/back_liner",
+      "volume_mm3": 0.00017433317590684954,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:lateral_upper/front_liner",
+      "volume_mm3": 2.4611324776178318e-05,
+      "compliant": true
+    },
+    {
+      "a": "bone:scapula",
+      "b": "clamp:lateral_upper/back_liner",
+      "volume_mm3": 4.043611211809153e-06,
+      "compliant": true
+    },
+    {
+      "a": "collar:jaw_upper",
+      "b": "collar:liner_upper",
+      "volume_mm3": 0.00012238395687810445,
+      "compliant": true
+    },
+    {
+      "a": "collar:jaw_lower",
+      "b": "collar:liner_lower",
+      "volume_mm3": 0.00017348983129566252,
+      "compliant": true
+    },
+    {
+      "a": "link:FJ1500/tendon_wire",
+      "b": "link:FJ1500/muscle_groove_ring",
+      "volume_mm3": 7.854047228480872e-05,
+      "compliant": false
+    },
+    {
+      "a": "link:FJ1500/tendon_wire",
+      "b": "link:FJ1500/bone_groove_ring",
+      "volume_mm3": 8.840017662205623e-05,
+      "compliant": false
+    },
+    {
+      "a": "link:FJ1504/tendon_wire",
+      "b": "link:FJ1504/muscle_groove_ring",
+      "volume_mm3": 7.688005190741357e-05,
+      "compliant": false
+    },
+    {
+      "a": "link:FJ1504/tendon_wire",
+      "b": "link:FJ1504/bone_groove_ring",
+      "volume_mm3": 8.382734780823636e-05,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_0/screw",
+      "b": "bench:medial_0/near_washer",
+      "volume_mm3": 2.0845166824451105e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_0/far_washer",
+      "b": "bench:medial_0/nut",
+      "volume_mm3": 8.144214583748218e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_0/far_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 2.867071650370086e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_1/screw",
+      "b": "bench:medial_1/near_washer",
+      "volume_mm3": 2.084516682445109e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_1/far_washer",
+      "b": "bench:medial_1/nut",
+      "volume_mm3": 8.144214548221081e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:medial_1/far_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 2.8670714749055233e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_0/screw",
+      "b": "bench:lateral_0/near_washer",
+      "volume_mm3": 2.084516332754002e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_0/far_washer",
+      "b": "bench:lateral_0/nut",
+      "volume_mm3": 8.144214548221068e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_0/far_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 2.8670714936035734e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_1/screw",
+      "b": "bench:lateral_1/near_washer",
+      "volume_mm3": 2.0845163327539946e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_1/far_washer",
+      "b": "bench:lateral_1/nut",
+      "volume_mm3": 8.144214548221129e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:lateral_1/far_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 2.867071572446672e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_0/screw",
+      "b": "bench:foot_0/near_washer",
+      "volume_mm3": 3.971599416300719e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_0/near_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 4.671704171477625e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_0/far_washer",
+      "b": "bench:foot_0/nut",
+      "volume_mm3": 3.135873165047483e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_0/far_washer",
+      "b": "bench:table_interface_patch",
+      "volume_mm3": 4.6717182078502755e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_1/screw",
+      "b": "bench:foot_1/near_washer",
+      "volume_mm3": 3.971599558409265e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_1/near_washer",
+      "b": "bench:backboard",
+      "volume_mm3": 4.671711347127832e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_1/far_washer",
+      "b": "bench:foot_1/nut",
+      "volume_mm3": 3.135874586132953e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:foot_1/far_washer",
+      "b": "bench:table_interface_patch",
+      "volume_mm3": 4.671706755759124e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:backboard",
+      "b": "clavicle:M4_far_washer_0",
+      "volume_mm3": 2.867071506107688e-07,
+      "compliant": false
+    },
+    {
+      "a": "bench:backboard",
+      "b": "clavicle:M4_far_washer_1",
+      "volume_mm3": 2.867071345707045e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/screw_0",
+      "b": "clamp:medial_mid/near_washer_0",
+      "volume_mm3": 8.970207853236703e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_0",
+      "b": "clamp:medial_mid/nut_0",
+      "volume_mm3": 1.0784670949470897e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_0",
+      "b": "clamp:medial_mid/moving_jaw",
+      "volume_mm3": 5.848293477214141e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/screw_1",
+      "b": "clamp:medial_mid/near_washer_1",
+      "volume_mm3": 8.970208207076918e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_1",
+      "b": "clamp:medial_mid/nut_1",
+      "volume_mm3": 1.078467770019114e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_1",
+      "b": "clamp:medial_mid/moving_jaw",
+      "volume_mm3": 3.958569051130593e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/screw_0",
+      "b": "clamp:superior_angle/near_washer_0",
+      "volume_mm3": 6.510073541129625e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_0",
+      "b": "clamp:superior_angle/nut_0",
+      "volume_mm3": 3.557101091208337e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_0",
+      "b": "clamp:superior_angle/moving_jaw",
+      "volume_mm3": 9.362220684772435e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/screw_1",
+      "b": "clamp:superior_angle/near_washer_1",
+      "volume_mm3": 6.510073412781422e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_1",
+      "b": "clamp:superior_angle/nut_1",
+      "volume_mm3": 3.557105505553125e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_1",
+      "b": "clamp:superior_angle/moving_jaw",
+      "volume_mm3": 1.5304806031005414e-06,
+      "compliant": false
+    },
+    {
+      "a": "clamp:superior_angle/back_liner",
+      "b": "clamp:superior_angle/moving_jaw",
+      "volume_mm3": 7.648475457708304e-05,
+      "compliant": true
+    },
+    {
+      "a": "clamp:lateral_upper/screw_0",
+      "b": "clamp:lateral_upper/near_washer_0",
+      "volume_mm3": 1.0130339083799784e-06,
+      "compliant": false
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_0",
+      "b": "clamp:lateral_upper/nut_0",
+      "volume_mm3": 4.2177017440184714e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_0",
+      "b": "clamp:lateral_upper/moving_jaw",
+      "volume_mm3": 1.8829306269770889e-06,
+      "compliant": false
+    },
+    {
+      "a": "clamp:lateral_upper/screw_1",
+      "b": "clamp:lateral_upper/near_washer_1",
+      "volume_mm3": 1.0130328965005202e-06,
+      "compliant": false
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_1",
+      "b": "clamp:lateral_upper/nut_1",
+      "volume_mm3": 4.217685064232403e-07,
+      "compliant": false
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_1",
+      "b": "clamp:lateral_upper/moving_jaw",
+      "volume_mm3": 2.2668482518041954e-06,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_screw_0",
+      "b": "clavicle:M3_near_washer_0",
+      "volume_mm3": 1.2539915285878082e-06,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_near_washer_0",
+      "b": "clavicle:fixed_support",
+      "volume_mm3": 2.422077432410412e-05,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_far_washer_0",
+      "b": "clavicle:M3_nut_0",
+      "volume_mm3": 1.8590092139841486e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_far_washer_0",
+      "b": "clavicle:moving_jaw",
+      "volume_mm3": 1.9007990546089232e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_screw_1",
+      "b": "clavicle:M3_near_washer_1",
+      "volume_mm3": 1.2539915434662657e-06,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_near_washer_1",
+      "b": "clavicle:fixed_support",
+      "volume_mm3": 2.4194782883317e-05,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_far_washer_1",
+      "b": "clavicle:M3_nut_1",
+      "volume_mm3": 1.8590090816029064e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M3_far_washer_1",
+      "b": "clavicle:moving_jaw",
+      "volume_mm3": 1.8823567484420992e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_screw_0",
+      "b": "clavicle:M4_near_washer_0",
+      "volume_mm3": 2.0845162985321618e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_near_washer_0",
+      "b": "clavicle:fixed_support",
+      "volume_mm3": 0.00013003972068752415,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_far_washer_0",
+      "b": "clavicle:M4_nut_0",
+      "volume_mm3": 8.144214619275408e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_screw_1",
+      "b": "clavicle:M4_near_washer_1",
+      "volume_mm3": 2.0845162985310887e-07,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_near_washer_1",
+      "b": "clavicle:fixed_support",
+      "volume_mm3": 0.00013003972067961316,
+      "compliant": false
+    },
+    {
+      "a": "clavicle:M4_far_washer_1",
+      "b": "clavicle:M4_nut_1",
+      "volume_mm3": 8.144214583748279e-07,
+      "compliant": false
+    }
+  ],
+  "rechecked_contact_pairs": [
+    {
+      "a": "fixture:medial_frame",
+      "b": "bench:medial_0/spacer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 9.787843069375413e-07,
+      "normal_probe_overlap_mm3": 4.863115727979798
+    },
+    {
+      "a": "bench:medial_0/spacer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 4.863211464783322
+    },
+    {
+      "a": "bench:medial_0/near_washer",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 9.226038635290479e-07,
+      "normal_probe_overlap_mm3": 2.4050289966616067
+    },
+    {
+      "a": "bench:medial_0/far_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.4050736210537957
+    },
+    {
+      "a": "bench:medial_0/screw",
+      "b": "bench:medial_0/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582506
+    },
+    {
+      "a": "bench:medial_0/nut",
+      "b": "bench:medial_0/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.3663733020927245
+    },
+    {
+      "a": "fixture:medial_frame",
+      "b": "bench:medial_1/spacer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 9.787843069375413e-07,
+      "normal_probe_overlap_mm3": 4.863115782045735
+    },
+    {
+      "a": "bench:medial_1/spacer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 4.863211313957346
+    },
+    {
+      "a": "bench:medial_1/near_washer",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 9.226038635290479e-07,
+      "normal_probe_overlap_mm3": 2.4050288506970077
+    },
+    {
+      "a": "bench:medial_1/far_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.405073470227776
+    },
+    {
+      "a": "bench:medial_1/screw",
+      "b": "bench:medial_1/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582482
+    },
+    {
+      "a": "bench:medial_1/nut",
+      "b": "bench:medial_1/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.3663733020927356
+    },
+    {
+      "a": "fixture:lateral_frame",
+      "b": "bench:lateral_0/spacer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 1.604842886138158e-06,
+      "normal_probe_overlap_mm3": 4.863055182495179
+    },
+    {
+      "a": "bench:lateral_0/spacer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 4.76837158203125e-07,
+      "normal_probe_overlap_mm3": 4.8631649829958645
+    },
+    {
+      "a": "bench:lateral_0/near_washer",
+      "b": "fixture:lateral_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 5.81267016741549e-08,
+      "normal_probe_overlap_mm3": 2.405070567126544
+    },
+    {
+      "a": "bench:lateral_0/far_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.4050735184640017
+    },
+    {
+      "a": "bench:lateral_0/screw",
+      "b": "bench:lateral_0/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582025
+    },
+    {
+      "a": "bench:lateral_0/nut",
+      "b": "bench:lateral_0/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.366373302092744
+    },
+    {
+      "a": "fixture:lateral_frame",
+      "b": "bench:lateral_1/spacer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 1.604842886138158e-06,
+      "normal_probe_overlap_mm3": 4.863055079072074
+    },
+    {
+      "a": "bench:lateral_1/spacer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 4.76837158203125e-07,
+      "normal_probe_overlap_mm3": 4.863165026171543
+    },
+    {
+      "a": "bench:lateral_1/near_washer",
+      "b": "fixture:lateral_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 5.81267016741549e-08,
+      "normal_probe_overlap_mm3": 2.405070514471834
+    },
+    {
+      "a": "bench:lateral_1/far_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.405073561640118
+    },
+    {
+      "a": "bench:lateral_1/screw",
+      "b": "bench:lateral_1/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582067
+    },
+    {
+      "a": "bench:lateral_1/nut",
+      "b": "bench:lateral_1/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.3663733020927427
+    },
+    {
+      "a": "bench:backboard",
+      "b": "bench:table_interface_patch",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        -0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 194.60074415450129
+    },
+    {
+      "a": "bench:foot_0/near_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        -0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 3.9189736770616843
+    },
+    {
+      "a": "bench:foot_0/far_washer",
+      "b": "bench:table_interface_patch",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 3.918973777066398
+    },
+    {
+      "a": "bench:foot_0/screw",
+      "b": "bench:foot_0/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        -0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.2210591666627835
+    },
+    {
+      "a": "bench:foot_0/nut",
+      "b": "bench:foot_0/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.6305005762832714
+    },
+    {
+      "a": "bench:foot_1/near_washer",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        -0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 3.9189736770617785
+    },
+    {
+      "a": "bench:foot_1/far_washer",
+      "b": "bench:table_interface_patch",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 3.918973777066775
+    },
+    {
+      "a": "bench:foot_1/screw",
+      "b": "bench:foot_1/near_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        -0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.2210591666627844
+    },
+    {
+      "a": "bench:foot_1/nut",
+      "b": "bench:foot_1/far_washer",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.05
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.630500576283547
+    },
+    {
+      "a": "clamp:medial_mid/front_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.181627219896524
+    },
+    {
+      "a": "clamp:medial_mid/back_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.02858722058896
+    },
+    {
+      "a": "clamp:medial_mid/front_liner",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.1993610783506305
+    },
+    {
+      "a": "clamp:medial_mid/back_liner",
+      "b": "clamp:medial_mid/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.00012368127147265284,
+      "normal_probe_overlap_mm3": 6.6729785897341
+    },
+    {
+      "a": "clamp:medial_mid/near_washer_0",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4604104680902343
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_0",
+      "b": "clamp:medial_mid/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4604075541266799
+    },
+    {
+      "a": "clamp:medial_mid/screw_0",
+      "b": "clamp:medial_mid/near_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349588078772504
+    },
+    {
+      "a": "clamp:medial_mid/nut_0",
+      "b": "clamp:medial_mid/far_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588145933870487
+    },
+    {
+      "a": "clamp:medial_mid/near_washer_1",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4604070772922224
+    },
+    {
+      "a": "clamp:medial_mid/far_washer_1",
+      "b": "clamp:medial_mid/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4604073017825845
+    },
+    {
+      "a": "clamp:medial_mid/screw_1",
+      "b": "clamp:medial_mid/near_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.014770624659809576,
+        -0.04763995493848398,
+        -0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349588078772559
+    },
+    {
+      "a": "clamp:medial_mid/nut_1",
+      "b": "clamp:medial_mid/far_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.014770624659809576,
+        0.04763995493848398,
+        0.0035019052840188497
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.858814593387607
+    },
+    {
+      "a": "clamp:superior_angle/front_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 6.537295125685084
+    },
+    {
+      "a": "clamp:superior_angle/back_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 6.502142351897524
+    },
+    {
+      "a": "clamp:superior_angle/front_liner",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 6.5657613238479895
+    },
+    {
+      "a": "clamp:superior_angle/back_liner",
+      "b": "clamp:superior_angle/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 5.834635494858627
+    },
+    {
+      "a": "clamp:superior_angle/near_washer_0",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.46003239163668
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_0",
+      "b": "clamp:superior_angle/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4600355766025856
+    },
+    {
+      "a": "clamp:superior_angle/screw_0",
+      "b": "clamp:superior_angle/near_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349581372955464
+    },
+    {
+      "a": "clamp:superior_angle/nut_0",
+      "b": "clamp:superior_angle/far_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588149040135787
+    },
+    {
+      "a": "clamp:superior_angle/near_washer_1",
+      "b": "fixture:medial_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4600377060810614
+    },
+    {
+      "a": "clamp:superior_angle/far_washer_1",
+      "b": "clamp:superior_angle/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4600362943988716
+    },
+    {
+      "a": "clamp:superior_angle/screw_1",
+      "b": "clamp:superior_angle/near_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.027298751067435657,
+        -0.04039723892663492,
+        -0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349581372954233
+    },
+    {
+      "a": "clamp:superior_angle/nut_1",
+      "b": "clamp:superior_angle/far_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.027298751067435657,
+        0.04039723892663492,
+        0.011083378422780343
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588149040136605
+    },
+    {
+      "a": "clamp:lateral_upper/front_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.039023411816712
+    },
+    {
+      "a": "clamp:lateral_upper/back_liner",
+      "b": "bone:scapula",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.036880822182632
+    },
+    {
+      "a": "clamp:lateral_upper/front_liner",
+      "b": "fixture:lateral_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 7.05141937925994
+    },
+    {
+      "a": "clamp:lateral_upper/back_liner",
+      "b": "clamp:lateral_upper/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.002095615861081034,
+      "normal_probe_overlap_mm3": 4.939519930380257
+    },
+    {
+      "a": "clamp:lateral_upper/near_washer_0",
+      "b": "fixture:lateral_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.46083190814229
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_0",
+      "b": "clamp:lateral_upper/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4597579088550212
+    },
+    {
+      "a": "clamp:lateral_upper/screw_0",
+      "b": "clamp:lateral_upper/near_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349585298963042
+    },
+    {
+      "a": "clamp:lateral_upper/nut_0",
+      "b": "clamp:lateral_upper/far_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588149072917707
+    },
+    {
+      "a": "clamp:lateral_upper/near_washer_1",
+      "b": "fixture:lateral_frame",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4597616117138885
+    },
+    {
+      "a": "clamp:lateral_upper/far_washer_1",
+      "b": "clamp:lateral_upper/moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4597579058649475
+    },
+    {
+      "a": "clamp:lateral_upper/screw_1",
+      "b": "clamp:lateral_upper/near_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.012947291287027311,
+        -0.04563858195166647,
+        -0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349585298943108
+    },
+    {
+      "a": "clamp:lateral_upper/nut_1",
+      "b": "clamp:lateral_upper/far_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.012947291287027311,
+        0.04563858195166647,
+        0.015795172862931518
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588149072891607
+    },
+    {
+      "a": "clavicle:liner_posterior",
+      "b": "bone:clavicle",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 6.51085767124589
+    },
+    {
+      "a": "clavicle:liner_anterior",
+      "b": "bone:clavicle",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0008678915837626797,
+      "normal_probe_overlap_mm3": 6.5498709421951
+    },
+    {
+      "a": "clavicle:liner_posterior",
+      "b": "clavicle:fixed_support",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.01998906355947603,
+      "normal_probe_overlap_mm3": 4.025217333615398
+    },
+    {
+      "a": "clavicle:liner_anterior",
+      "b": "clavicle:moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.019793455740249554,
+      "normal_probe_overlap_mm3": 3.8569891307636315
+    },
+    {
+      "a": "clavicle:fixed_support",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 2.697485541602873e-06,
+      "normal_probe_overlap_mm3": 62.88582724207262
+    },
+    {
+      "a": "clavicle:M3_near_washer_0",
+      "b": "clavicle:fixed_support",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4601943652457572
+    },
+    {
+      "a": "clavicle:M3_far_washer_0",
+      "b": "clavicle:moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.4601861681559427
+    },
+    {
+      "a": "clavicle:M3_screw_0",
+      "b": "clavicle:M3_near_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349588247936641
+    },
+    {
+      "a": "clavicle:M3_nut_0",
+      "b": "clavicle:M3_far_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588145432739037
+    },
+    {
+      "a": "clavicle:M3_near_washer_1",
+      "b": "clavicle:fixed_support",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.460194599389675
+    },
+    {
+      "a": "clavicle:M3_far_washer_1",
+      "b": "clavicle:moving_jaw",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.460186161284063
+    },
+    {
+      "a": "clavicle:M3_screw_1",
+      "b": "clavicle:M3_near_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0006071576425703226,
+        -0.049996107290458815,
+        -0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.7349588247936714
+    },
+    {
+      "a": "clavicle:M3_nut_1",
+      "b": "clavicle:M3_far_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0006071576425703226,
+        0.049996107290458815,
+        0.00014358063239658158
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 0.8588145432739145
+    },
+    {
+      "a": "clavicle:M4_near_washer_0",
+      "b": "clavicle:fixed_support",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.405203422464113
+    },
+    {
+      "a": "clavicle:M4_far_washer_0",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0,
+        -0.05,
+        -0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.4050735062156345
+    },
+    {
+      "a": "clavicle:M4_screw_0",
+      "b": "clavicle:M4_near_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582102
+    },
+    {
+      "a": "clavicle:M4_nut_0",
+      "b": "clavicle:M4_far_washer_0",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0,
+        -0.05,
+        -0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.366373302092729
+    },
+    {
+      "a": "clavicle:M4_near_washer_1",
+      "b": "clavicle:fixed_support",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.4052034224626735
+    },
+    {
+      "a": "clavicle:M4_far_washer_1",
+      "b": "bench:backboard",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0,
+        -0.05,
+        -0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 2.405073362488786
+    },
+    {
+      "a": "clavicle:M4_screw_1",
+      "b": "clavicle:M4_near_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.1657463940582107
+    },
+    {
+      "a": "clavicle:M4_nut_1",
+      "b": "clavicle:M4_far_washer_1",
+      "declaration_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json",
+      "translation_source_mm": [
+        -0.0,
+        -0.05,
+        -0.0
+      ],
+      "gap_capped_1mm": 0.0,
+      "normal_probe_overlap_mm3": 1.3663733020927415
+    }
+  ],
+  "rechecked_scapula_M3_bores": [
+    {
+      "zone": "medial_mid",
+      "index": 0,
+      "intersections_mm3": {
+        "fixture:medial_frame": 0.0,
+        "clamp:medial_mid/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    },
+    {
+      "zone": "medial_mid",
+      "index": 1,
+      "intersections_mm3": {
+        "fixture:medial_frame": 0.0,
+        "clamp:medial_mid/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    },
+    {
+      "zone": "superior_angle",
+      "index": 0,
+      "intersections_mm3": {
+        "fixture:medial_frame": 0.0,
+        "clamp:superior_angle/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    },
+    {
+      "zone": "superior_angle",
+      "index": 1,
+      "intersections_mm3": {
+        "fixture:medial_frame": 0.0,
+        "clamp:superior_angle/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    },
+    {
+      "zone": "lateral_upper",
+      "index": 0,
+      "intersections_mm3": {
+        "fixture:lateral_frame": 0.0,
+        "clamp:lateral_upper/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    },
+    {
+      "zone": "lateral_upper",
+      "index": 1,
+      "intersections_mm3": {
+        "fixture:lateral_frame": 0.0,
+        "clamp:lateral_upper/moving_jaw": 0.0,
+        "bone:scapula": 0.0
+      }
+    }
+  ],
+  "dense_path_sha256": "23b6c1e7248c94f1cbb12cabc22e07f60d7332f0734835a1559e86e1f688fd17",
+  "dense_partial_path_samples_clear": true,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "not_verified": [
+    "temporary front liner holding, tools and remaining assembly steps",
+    "minimum wall thickness, preload/friction, material and support strength",
+    "joint movement or flexible actuation; prior blocked accesses remain unverified"
+  ]
+}

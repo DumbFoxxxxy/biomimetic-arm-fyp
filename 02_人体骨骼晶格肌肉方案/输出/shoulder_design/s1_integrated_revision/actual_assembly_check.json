@@ -1,0 +1,932 @@
+{
+  "scope": "actual available manufacturing meshes at zero pose, NOT full assembly or motion acceptance",
+  "n_instances": 41,
+  "sources": {
+    "bone:scapula": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u80a9\u80db\u9aa8.obj",
+      "sha256": "1641b04e55f9d75bdd6f1f4f07ea596e5dea0a8cb6b348bff47281b8a0bc6e5d",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "bone:clavicle": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u9501\u9aa8.obj",
+      "sha256": "9a111cac8351e79dd1315aea90108fe56f78e4bf0159473e6ad727ba91b60e6d",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "bone:humerus": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u80b1\u9aa8.obj",
+      "sha256": "85f5445a11ecb029b027db0b9b34933982836d442b19ff531d1ca35a3bc3a237",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "tpu:deltoid": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_tpu\\deltoid_tpu.stl",
+      "sha256": "57f5970ae321f005beb411a1bbfd049fb68acf82dff553995688fb7d5a4f8778",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "tpu:infraspinatus": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_tpu\\infraspinatus_tpu.stl",
+      "sha256": "fe04b5f5594efbb4d3b56ba3f01edef5a0047e489c35aa452b5290a2e885c899",
+      "translation_source_mm": null,
+      "material_components": 3
+    },
+    "tpu:subscapularis": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_tpu\\subscapularis_tpu.stl",
+      "sha256": "0cea23a231b96e609b904d59dad938eb772e6a11e3514bce8313961dce4c8c3e",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "tpu:teres_major": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_tpu\\teres_major_tpu.stl",
+      "sha256": "cd1b96308c7593f484cff3305fb245891d48f33f2c7633c02d92e72357a6f0f7",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1500/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1500_origin_pad.stl",
+      "sha256": "4e24732834ed8d98b99b368cc76f967e464deeffdbddb718e73cd0d12c09a241",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1500/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1500_origin_cap.stl",
+      "sha256": "46d79e5c7350425ad39d8a885dda63418117a0e1864e761f038330ebe0c7a128",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1500/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1500_distal_pad.stl",
+      "sha256": "3b9e21628b5a5b3ae67c19a9113b3c8d2cf6468c75cbc72ea153bd111f96df19",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1500/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1500_distal_cap.stl",
+      "sha256": "2aa5a8e98069ad88307230e852122958862bd390cdf2aaa1877a4cfdb60480e4",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1504/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1504_origin_pad.stl",
+      "sha256": "188ca449a214895b51115104ffae446c8c65dcbfa4e7aa3ed014d9cca63e2c6a",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1504/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1504_origin_cap.stl",
+      "sha256": "a3249b1dfdf9ca8d23c1c118c758fa4646b19a7b78148c426a948b95d6e8e303",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1504/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1504_distal_pad.stl",
+      "sha256": "0d95ef824fe2d7691ae4ea887ccf69c008af32e68a420bfc35bd329808367663",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1504/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1504_distal_cap.stl",
+      "sha256": "aae7ce0516d13c6bde0bad2f1815fe4bf3781df0f45c793dceb2911df4c6bcf4",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1507_origin_pad.stl",
+      "sha256": "559480998da082e45a79948d78bdd48720cec8f28c9d9153ef19f1bef246e206",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1507_origin_cap.stl",
+      "sha256": "f4750809b7a80a92224d03a89d4fefeca83cf9282408068220f4f43d1bd23bf9",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1507_distal_pad.stl",
+      "sha256": "c56546537b77bc3e295dde0faf99c06ff76dd5ef84232c967a58f428fbe3c914",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1507_distal_cap.stl",
+      "sha256": "c77b8d809d4066656f1f590b36d0ca57c59cf42f872e62f3c072fb76430b9077",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1468/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1468_origin_pad.stl",
+      "sha256": "7db90b37c35eb3066f2861ce8c80cb6ad2fa1cebe0f250541ae9c02f4b370982",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1468/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1468_origin_cap.stl",
+      "sha256": "05041c79016f3daf1ebff1356b64cd17efb84273e9f99cc5d8b2cf9f116540f0",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1468/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1468_distal+FJ1513_distal+FJ1467_distal_pad.stl",
+      "sha256": "c5f983a75c94156bff272d41946596d17c5eac25b18b6bc21d6ef22be20f005f",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1468/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1468_distal+FJ1513_distal+FJ1467_distal_cap.stl",
+      "sha256": "d2f5a1ac7476512778b6388aef424fe96da99406cadfe1e9d19266824ba43a10",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1513/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1513_origin_pad.stl",
+      "sha256": "5b35ab144782c1cd0761e70fcfa85c5965a19d0757168829838a8dd9327ffeed",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1513/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1513_origin_cap.stl",
+      "sha256": "93434a397253be7a467785c9c7451e9cd1288d380402f46020856c88286bee5f",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "pad:FJ1467/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1467_origin_pad.stl",
+      "sha256": "6ddbc578fc59ed3b8c6f36f3a85e146f6a42773428149bc99d20e0b2cbe890a6",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "cap:FJ1467/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts\\FJ1467_origin_cap.stl",
+      "sha256": "dc4be025e85abcedf1d612fa3914b347d63d46cc4b1438627a713f479ea3eba7",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "tendon:FJ1500/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1500_origin_tendon.stl",
+      "sha256": "c813810dd920e41a7fe707354ee8e768767110774ac1eb861d03f7c50d089e23",
+      "translation_source_mm": [
+        -92.64697161431516,
+        -8.777705745528092,
+        1272.7891157291053
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1500/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1500_distal_tendon.stl",
+      "sha256": "e2b3e95e612c185b93ecbaa75e515824c4997a3ff005923a6f4e1bc345db72fa",
+      "translation_source_mm": [
+        -183.63712969549235,
+        -60.363248640068484,
+        1321.6169127513087
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1504/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1504_distal_tendon.stl",
+      "sha256": "a5b2fc91d0cacd578ce4f41a85893ecb3f785af8c2a6e52500420dd0d0161d7c",
+      "translation_source_mm": [
+        -148.8049249449286,
+        -96.07885348487125,
+        1308.9297289412627
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1507_origin_tendon.stl",
+      "sha256": "ffa5263d1e48c63fc73226df5f7b356739c024d2dbc82065e344301107190fde",
+      "translation_source_mm": [
+        -112.57828729376722,
+        -8.529498306545875,
+        1213.4246890410177
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1507_distal_tendon.stl",
+      "sha256": "72909d388a9058a8c03eb4c6a9c7dc5c03cebfe5f88acd7a7d365d9cb3bd8c7b",
+      "translation_source_mm": [
+        -160.11383600416335,
+        -75.19824475699917,
+        1269.8995124021076
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1468/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1468_distal_tendon.stl",
+      "sha256": "69e250f657dca5fa8ece6a9f59bfb27e41a67c7e33d16617360140919de5d350",
+      "translation_source_mm": [
+        -206.49005765057916,
+        -76.95736129826818,
+        1228.792943239464
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1513/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1513_distal_tendon.stl",
+      "sha256": "f9f8514df034ddebe593d37677a5f3242c66567e8c2a9dd1b1291ec577875619",
+      "translation_source_mm": [
+        -206.49005765057916,
+        -76.95736129826818,
+        1228.792943239464
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1467/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1467_origin_tendon.stl",
+      "sha256": "37713c091650e0a682820676dc38af9fa42d6022faac6d85d029ba18085fe366",
+      "translation_source_mm": [
+        -163.23229967624036,
+        -65.5808463404196,
+        1337.5652553111838
+      ],
+      "material_components": 1
+    },
+    "tendon:FJ1467/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_integrated_revision\\tendons\\FJ1467_distal_tendon.stl",
+      "sha256": "ee0829fe2dfd756669a8a661ced467ce62c62178cf863f2aab5a26da60486426",
+      "translation_source_mm": [
+        -206.49005765057916,
+        -76.95736129826818,
+        1228.792943239464
+      ],
+      "material_components": 1
+    },
+    "fixture:lateral_base": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts_fixture\\lateral_base.stl",
+      "sha256": "fb4bdfae852cf94c2f8c526306b10534315e8dd0a1403ec4d76a0963a6175de3",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "fixture:lateral_post": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts_fixture\\lateral_post.stl",
+      "sha256": "cb2cf7fde8c83145abb2a0a38bf3c4352376efa6b0345c04aa6470f186827bfc",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "fixture:medial_base": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts_fixture\\medial_base.stl",
+      "sha256": "b1cc26ad13d7656ea138acb977795963a93c7f952e380fa336c0875ab841c1ce",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "fixture:medial_beam": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts_fixture\\medial_beam.stl",
+      "sha256": "f040177d6630333f755b6dc442edfcba4cd6b17533cc0c52db0178bc41cd911a",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "fixture:medial_post": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\anatomical_concept\\shoulder_parts_fixture\\medial_post.stl",
+      "sha256": "7a4f7eea617834d73be21a56695cce8be46ccaa9d40cc97c3f45635c34c3b4da",
+      "translation_source_mm": null,
+      "material_components": 1
+    }
+  },
+  "contacts": [
+    {
+      "a": "bone:scapula",
+      "b": "tpu:deltoid",
+      "volume_mm3": 30.430639225879617,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:scapula",
+      "b": "tpu:infraspinatus",
+      "volume_mm3": 28.528987094957234,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:scapula",
+      "b": "tpu:teres_major",
+      "volume_mm3": 40.88177300081992,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:deltoid",
+      "volume_mm3": 45.53622677849992,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:infraspinatus",
+      "volume_mm3": 60.424704150588944,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:subscapularis",
+      "volume_mm3": 40.75780301916971,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:teres_major",
+      "volume_mm3": 7.70301718639059,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "cap:FJ1467/origin",
+      "volume_mm3": 0.10165592746351243,
+      "classification": "rigid overlap requires fit verification"
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tendon:FJ1504/distal",
+      "volume_mm3": 0.18186571061954207,
+      "classification": "rigid overlap requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "pad:FJ1468/origin",
+      "volume_mm3": 61.959257534492096,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "cap:FJ1468/origin",
+      "volume_mm3": 62.61209812551949,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "pad:FJ1468/distal",
+      "volume_mm3": 223.05288408251593,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "cap:FJ1468/distal",
+      "volume_mm3": 212.2075084715741,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "pad:FJ1513/origin",
+      "volume_mm3": 52.371520473497036,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "cap:FJ1513/origin",
+      "volume_mm3": 53.71144657899117,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "pad:FJ1467/origin",
+      "volume_mm3": 76.99488698805608,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "tendon:FJ1468/distal",
+      "volume_mm3": 28.282275853152747,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "tendon:FJ1513/distal",
+      "volume_mm3": 14.8279908552983,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "tendon:FJ1467/origin",
+      "volume_mm3": 14.011544604654459,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:deltoid",
+      "b": "tendon:FJ1467/distal",
+      "volume_mm3": 13.754013760200992,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "pad:FJ1500/origin",
+      "volume_mm3": 131.8281517375124,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "cap:FJ1500/origin",
+      "volume_mm3": 158.11680777899193,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "pad:FJ1500/distal",
+      "volume_mm3": 32.73159036132932,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "tendon:FJ1500/origin",
+      "volume_mm3": 4.525896110036959,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "tendon:FJ1500/distal",
+      "volume_mm3": 19.284301800182593,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:infraspinatus",
+      "b": "fixture:lateral_base",
+      "volume_mm3": 57.445949012360934,
+      "classification": "compliant-contact review"
+    },
+    {
+      "a": "tpu:subscapularis",
+      "b": "pad:FJ1504/origin",
+      "volume_mm3": 125.53146825353305,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:subscapularis",
+      "b": "pad:FJ1504/distal",
+      "volume_mm3": 40.09237665679486,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:subscapularis",
+      "b": "tendon:FJ1504/distal",
+      "volume_mm3": 16.402431996797336,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "pad:FJ1507/origin",
+      "volume_mm3": 101.40313834154163,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "cap:FJ1507/origin",
+      "volume_mm3": 25.36924992668114,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "pad:FJ1507/distal",
+      "volume_mm3": 37.01732092092093,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "cap:FJ1507/distal",
+      "volume_mm3": 27.79194431801137,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "tendon:FJ1507/origin",
+      "volume_mm3": 30.680418424238617,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tpu:teres_major",
+      "b": "tendon:FJ1507/distal",
+      "volume_mm3": 117.24576870536472,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1500/origin",
+      "b": "tendon:FJ1500/origin",
+      "volume_mm3": 36.063802895061244,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "cap:FJ1500/origin",
+      "b": "tendon:FJ1500/origin",
+      "volume_mm3": 9.992785581116552,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1500/distal",
+      "b": "tendon:FJ1500/distal",
+      "volume_mm3": 84.50618767510268,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1504/distal",
+      "b": "tendon:FJ1504/distal",
+      "volume_mm3": 76.77925430914985,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1507/origin",
+      "b": "tendon:FJ1507/origin",
+      "volume_mm3": 75.33658790619609,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1507/distal",
+      "b": "tendon:FJ1507/distal",
+      "volume_mm3": 56.71904081624976,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "cap:FJ1507/distal",
+      "b": "tendon:FJ1507/distal",
+      "volume_mm3": 109.24833683128617,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1468/distal",
+      "b": "tendon:FJ1468/distal",
+      "volume_mm3": 84.33314147387011,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1468/distal",
+      "b": "tendon:FJ1513/distal",
+      "volume_mm3": 62.22528949334674,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1468/distal",
+      "b": "tendon:FJ1467/distal",
+      "volume_mm3": 61.86849017728639,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "cap:FJ1468/distal",
+      "b": "tendon:FJ1468/distal",
+      "volume_mm3": 0.11530183760290372,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "pad:FJ1467/origin",
+      "b": "tendon:FJ1467/origin",
+      "volume_mm3": 40.707028443247424,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "cap:FJ1467/origin",
+      "b": "tendon:FJ1467/origin",
+      "volume_mm3": 1.8896885488777577,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tendon:FJ1468/distal",
+      "b": "tendon:FJ1513/distal",
+      "volume_mm3": 14.48004919201252,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tendon:FJ1468/distal",
+      "b": "tendon:FJ1467/distal",
+      "volume_mm3": 15.807661659720889,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "tendon:FJ1513/distal",
+      "b": "tendon:FJ1467/distal",
+      "volume_mm3": 39.56505320257385,
+      "classification": "same-module connection requires fit verification"
+    },
+    {
+      "a": "fixture:lateral_base",
+      "b": "fixture:lateral_post",
+      "volume_mm3": 36.325894776877846,
+      "classification": "rigid overlap requires fit verification"
+    },
+    {
+      "a": "fixture:medial_base",
+      "b": "fixture:medial_post",
+      "volume_mm3": 32.19454283200786,
+      "classification": "rigid overlap requires fit verification"
+    },
+    {
+      "a": "fixture:medial_beam",
+      "b": "fixture:medial_post",
+      "volume_mm3": 288.11416902852824,
+      "classification": "rigid overlap requires fit verification"
+    }
+  ],
+  "wire_probes": [
+    {
+      "head": "FJ1500",
+      "end": "origin",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.19249580148193307
+        },
+        {
+          "part": "pad:FJ1500/origin",
+          "volume_mm3": 1.596738748577257
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "pad:FJ1500/origin",
+          "volume_mm3": 1.0909115246956231
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1500",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.6117840447093208
+        },
+        {
+          "part": "pad:FJ1500/distal",
+          "volume_mm3": 3.278470662792006
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.31196747844676365
+        },
+        {
+          "part": "pad:FJ1500/distal",
+          "volume_mm3": 2.827163468391895
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1504",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.5458027365535465
+        },
+        {
+          "part": "pad:FJ1504/distal",
+          "volume_mm3": 3.367525022532844
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.2989364091303696
+        },
+        {
+          "part": "pad:FJ1504/distal",
+          "volume_mm3": 2.2882036119378424
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1507",
+      "end": "origin",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 1.2396930793980028
+        },
+        {
+          "part": "pad:FJ1507/origin",
+          "volume_mm3": 3.3367180361872832
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.5672070058550676
+        },
+        {
+          "part": "pad:FJ1507/origin",
+          "volume_mm3": 2.263896160259696
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1507",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 2.333158603936764
+        },
+        {
+          "part": "pad:FJ1507/distal",
+          "volume_mm3": 1.261591575150895
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 1.812726084575758
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 2.333158603937819
+        },
+        {
+          "part": "pad:FJ1507/distal",
+          "volume_mm3": 0.6385995319196903
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 1.8127260845755484
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1468",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.8902708477973296
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 3.125259198906055
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.20326786106862854
+        },
+        {
+          "part": "tendon:FJ1513/distal",
+          "volume_mm3": 0.531133122587432
+        },
+        {
+          "part": "tendon:FJ1467/distal",
+          "volume_mm3": 0.5349850342767909
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.17694331338837793
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 3.037654397470644
+        },
+        {
+          "part": "tendon:FJ1513/distal",
+          "volume_mm3": 0.2755168530545291
+        },
+        {
+          "part": "tendon:FJ1467/distal",
+          "volume_mm3": 0.2984156724447942
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1513",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.8998659582538605
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 2.551738837695517
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.31456334120033846
+        },
+        {
+          "part": "tendon:FJ1468/distal",
+          "volume_mm3": 0.5320480730948519
+        },
+        {
+          "part": "tendon:FJ1467/distal",
+          "volume_mm3": 1.1281385520791203
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.2592033776658049
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 1.7584892605660134
+        },
+        {
+          "part": "tendon:FJ1468/distal",
+          "volume_mm3": 0.275915516686062
+        },
+        {
+          "part": "tendon:FJ1467/distal",
+          "volume_mm3": 1.1062108066013625
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1467",
+      "end": "origin",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.6916436303299828
+        },
+        {
+          "part": "pad:FJ1467/origin",
+          "volume_mm3": 1.8709774812274722
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.32990023797672463
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.25085952646272686
+        },
+        {
+          "part": "pad:FJ1467/origin",
+          "volume_mm3": 1.1236589868980515
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    },
+    {
+      "head": "FJ1467",
+      "end": "distal",
+      "own_tendon_overlap_mm3": 0.0,
+      "material_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.7527258610153269
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 2.5571318341896014
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.3084399551266521
+        },
+        {
+          "part": "tendon:FJ1468/distal",
+          "volume_mm3": 0.5349826951133367
+        },
+        {
+          "part": "tendon:FJ1513/distal",
+          "volume_mm3": 1.1260876119566563
+        }
+      ],
+      "known_centreline_hits": [
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.28157743606329494
+        },
+        {
+          "part": "pad:FJ1468/distal",
+          "volume_mm3": 1.7589669637751462
+        },
+        {
+          "part": "tendon:FJ1468/distal",
+          "volume_mm3": 0.29859315473939246
+        },
+        {
+          "part": "tendon:FJ1513/distal",
+          "volume_mm3": 1.1020390024561821
+        }
+      ],
+      "scope": "0.6mm nominal wire; separate known tendon centreline from exploratory straight port extensions"
+    }
+  ],
+  "missing": [
+    "three fixture contact pads not exported",
+    "fixture jaws/bolts/rails",
+    "muscle fasteners/crimps",
+    "GH2mm liner",
+    "actual hand-pull lead route"
+  ],
+  "not_verified": [
+    "attachment and retention",
+    "flexible deformation",
+    "wire minimum bend radius and friction",
+    "moving paths"
+  ],
+  "stage_pass": false
+}

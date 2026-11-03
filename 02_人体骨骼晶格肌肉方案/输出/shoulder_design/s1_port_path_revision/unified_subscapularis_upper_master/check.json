@@ -1,0 +1,181 @@
+{
+  "scope": "static monolithic TPU candidate from master paths; not physical drive or stage acceptance",
+  "module": "subscapularis",
+  "master_routes": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\routes_upper_origin_candidate.json",
+  "master_sha256": "83cd80c3a89154528976333c15c91238751e88ee42601e5c9a5956551f4959f9",
+  "parent_sha256": "0cea23a231b96e609b904d59dad938eb772e6a11e3514bce8313961dce4c8c3e",
+  "parts": {
+    "TPU": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_fitted\\TPU_muscle.stl",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        6236.701532598378,
+        -4.527289405161618,
+        -3.3594681749384656,
+        -5.055892413196774
+      ],
+      "roundtrip_relative_error": 1.3062125608019592e-08,
+      "removed_positive_debris": [],
+      "export_passes": 2,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 3,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "8c151a8e54989efddc1b5b4ba6ba6c56e929b1146849e53df7be7cfb81fc6b40"
+    },
+    "FJ1504/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_fitted\\FJ1504_origin_cap.stl",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        1419.5524755036486
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "c0e329c3b6f208d897027e8f91429eb193c5e03d6b7fbf5497657acaed2ae5bc"
+    },
+    "FJ1504/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_fitted\\FJ1504_distal_cap.stl",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        717.1584412451535
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "d4f25c67dc3964b8d75f240a5f73cf14f366c7c69cfc955d9a5340da8bf11027"
+    }
+  },
+  "wire_material_intersections_mm3": {
+    "FJ1504": {
+      "TPU": 0.0,
+      "FJ1504/origin": 0.0,
+      "FJ1504/distal": 0.0
+    }
+  },
+  "missing_0_75mm_wall_guard_mm3": {
+    "FJ1504": 0.0018779556651679992
+  },
+  "wire_bone_intersections_mm3": {
+    "FJ1504": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "nominal_hand_pull_endpoint_intersections_mm3": {
+    "FJ1504": {
+      "TPU": 0.0,
+      "FJ1504/origin": 0.0,
+      "FJ1504/distal": 0.0,
+      "bone:scapula": 0.0,
+      "bone:clavicle": 0.0,
+      "bone:humerus": 0.0
+    }
+  },
+  "material_pair_intersections_mm3": [
+    {
+      "a": "TPU",
+      "b": "FJ1504/origin",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "TPU",
+      "b": "FJ1504/distal",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1504/origin",
+      "b": "FJ1504/distal",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "cap_keepout_scope": "actual cap thickness plus explicit 0.15mm fit gap at both faces and radius; actual rigid outlet socket where present",
+  "rigid_origin_outlets": {},
+  "rigid_cap_bone_trim_mm3": {},
+  "fitted_terminal_mouths": true,
+  "removed_nonstructural_lattice_tips": [],
+  "all_part_bone_intersections_mm3": {
+    "TPU": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0002700646017566163
+    },
+    "FJ1504/origin": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    },
+    "FJ1504/distal": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "free_TPU_wall_guard_outside_assigned_cap_housings": {
+    "FJ1504": {
+      "missing_mm3": 0.0018779556660135524,
+      "bounds_source_mm": [
+        -148.54145367293046,
+        -96.95018384302689,
+        1288.204537782024,
+        -99.39093110347166,
+        -42.916876361894616,
+        1309.4994383239746
+      ]
+    }
+  },
+  "required_wall_mm": 0.75,
+  "wall_guard_scope": "retained active core and connector arclength>=4mm; cap fit housing and actual rigid guide socket excluded explicitly",
+  "dense_core_outer_radius_mm": 1.8,
+  "transition_outer_radius_mm": 3.2,
+  "lumen_radius_mm": 0.86,
+  "conforming_bone_trim_volume_mm3": 40.75869472418187,
+  "bone_intersections_mm3": {
+    "scapula": 0.0,
+    "clavicle": 0.0,
+    "humerus": 0.0002700646017566163
+  },
+  "stage_pass": false,
+  "not_verified": [
+    "external lead accessibility and bone clearance",
+    "neighbour resolution and complete assembly",
+    "fasteners/crimps and installation",
+    "material stroke, friction and deformation",
+    "joint retention and motion"
+  ],
+  "own_route_records_identical": true,
+  "route_rebinding_parent": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_fitted\\check.json",
+  "route_rebinding_parent_sha256": "6b703177e34b485b5ee20b848d523518d88d26d41c9c053b548cf5186aae7379",
+  "parent_unchanged_neighbour_intersections_mm3": {
+    "deltoid": 0.0,
+    "infraspinatus": 0.0,
+    "teres_major": 0.0
+  }
+}

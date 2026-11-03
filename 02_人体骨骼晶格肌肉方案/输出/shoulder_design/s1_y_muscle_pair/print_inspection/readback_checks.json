@@ -1,0 +1,167 @@
+{
+  "scope": "Independently replay source crops and check unchanged current-muscle meshes.",
+  "source_sha256": "2163fdc427179ddcb4da447a2460196c8893b65490f2bb288a60b0aa5e71df7e",
+  "assembly_sha256": "9ea550acfcff8ffce478efb4d4b35c751cd14fbd162c26d8b4426e4bf984b239",
+  "script_sha256": "b90b0ba2a937daf598ec64396d652ede9d60c2637a5ae4cf0823e22cee571afa",
+  "routes_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_port_path_revision/routes_compact_distal_candidate.json",
+  "routes_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "specimens": [
+    {
+      "module": "infraspinatus",
+      "region": "narrow",
+      "source_sha256": "1203d7f0280430e2c8530b39e840a7e093341b0950ff14355b2b76bc56717db4",
+      "readback_boundary_edges": 0,
+      "readback_nonmanifold_edges": 0,
+      "replay_extra_material_mm3": 8.209317942167951e-05,
+      "replay_missing_material_mm3": 0.00010932728834165895,
+      "report_volume_limit_mm3": 0.009795168333210352,
+      "inverse_rotation_orthogonality_error": 2.220446049250313e-16,
+      "candidate_positive_component_volumes_mm3": [
+        979.5168060866902
+      ],
+      "candidate_enclosed_void_shell_volumes_mm3": [],
+      "whole_source_enclosed_void_shell_volumes_mm3": [
+        -13.118109313575818
+      ],
+      "crop_replay_consistent": true,
+      "printing_or_drive_verified": false
+    },
+    {
+      "module": "infraspinatus",
+      "region": "broad",
+      "source_sha256": "1203d7f0280430e2c8530b39e840a7e093341b0950ff14355b2b76bc56717db4",
+      "readback_boundary_edges": 0,
+      "readback_nonmanifold_edges": 0,
+      "replay_extra_material_mm3": 0.00025699513954466206,
+      "replay_missing_material_mm3": 7.414548541353015e-05,
+      "report_volume_limit_mm3": 0.018257041235678943,
+      "inverse_rotation_orthogonality_error": 1.1102230246251565e-16,
+      "candidate_positive_component_volumes_mm3": [
+        1825.7001439009457,
+        0.003948570330183236
+      ],
+      "candidate_enclosed_void_shell_volumes_mm3": [],
+      "whole_source_enclosed_void_shell_volumes_mm3": [
+        -13.118109313575818
+      ],
+      "crop_replay_consistent": true,
+      "printing_or_drive_verified": false
+    },
+    {
+      "module": "subscapularis",
+      "region": "narrow",
+      "source_sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63",
+      "readback_boundary_edges": 0,
+      "readback_nonmanifold_edges": 0,
+      "replay_extra_material_mm3": 8.504882036586177e-05,
+      "replay_missing_material_mm3": 0.00012284359924067084,
+      "report_volume_limit_mm3": 0.013130327504441626,
+      "inverse_rotation_orthogonality_error": 2.220446049250313e-16,
+      "candidate_positive_component_volumes_mm3": [
+        1313.2890989162795
+      ],
+      "candidate_enclosed_void_shell_volumes_mm3": [
+        -0.1752477485142102,
+        -0.08113851822131138
+      ],
+      "whole_source_enclosed_void_shell_volumes_mm3": [
+        -0.08113843127997188,
+        -0.17524780440637408,
+        -2.5361932668510847
+      ],
+      "crop_replay_consistent": true,
+      "printing_or_drive_verified": false
+    },
+    {
+      "module": "subscapularis",
+      "region": "broad",
+      "source_sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63",
+      "readback_boundary_edges": 0,
+      "readback_nonmanifold_edges": 0,
+      "replay_extra_material_mm3": 0.00017500738569776526,
+      "replay_missing_material_mm3": 0.0002472015346120625,
+      "report_volume_limit_mm3": 0.020077543933869933,
+      "inverse_rotation_orthogonality_error": 2.220446049250313e-16,
+      "candidate_positive_component_volumes_mm3": [
+        2007.7543201915867
+      ],
+      "candidate_enclosed_void_shell_volumes_mm3": [],
+      "whole_source_enclosed_void_shell_volumes_mm3": [
+        -0.08113843127997188,
+        -0.17524780440637408,
+        -2.5361932668510847
+      ],
+      "crop_replay_consistent": true,
+      "printing_or_drive_verified": false
+    }
+  ],
+  "whole_source_void_audits": [
+    {
+      "module": "infraspinatus",
+      "empty_volume_mm3": 13.118109313575818,
+      "bounds_source_mm": [
+        -123.08436721801758,
+        -26.870003700256348,
+        1280.291360206604,
+        -113.25398963928222,
+        -19.772698879241943,
+        1288.773498840332
+      ],
+      "overlaps_nominal_wire_mm3": 0.0,
+      "overlaps_nominal_routed_lumen_mm3": 0.0,
+      "cavity_filled_in_design": false,
+      "physical_printability_verified": false
+    },
+    {
+      "module": "subscapularis",
+      "empty_volume_mm3": 0.08113843127997188,
+      "bounds_source_mm": [
+        -132.1358246612549,
+        -82.76156188964845,
+        1304.0535250091552,
+        -129.8579163360596,
+        -80.97272064208985,
+        1304.87745098114
+      ],
+      "overlaps_nominal_wire_mm3": 0.0,
+      "overlaps_nominal_routed_lumen_mm3": 0.0,
+      "cavity_filled_in_design": false,
+      "physical_printability_verified": false
+    },
+    {
+      "module": "subscapularis",
+      "empty_volume_mm3": 0.17524780440637408,
+      "bounds_source_mm": [
+        -129.85892150878908,
+        -79.30607177734376,
+        1303.069704093933,
+        -128.28936813354494,
+        -77.47434951782228,
+        1303.659734764099
+      ],
+      "overlaps_nominal_wire_mm3": 0.0,
+      "overlaps_nominal_routed_lumen_mm3": 0.0,
+      "cavity_filled_in_design": false,
+      "physical_printability_verified": false
+    },
+    {
+      "module": "subscapularis",
+      "empty_volume_mm3": 2.5361932668510847,
+      "bounds_source_mm": [
+        -127.08483360290528,
+        -77.83443786621095,
+        1299.441608467102,
+        -117.3591446685791,
+        -62.49747421264649,
+        1303.203378715515
+      ],
+      "overlaps_nominal_wire_mm3": 0.0,
+      "overlaps_nominal_routed_lumen_mm3": 0.0,
+      "cavity_filled_in_design": false,
+      "physical_printability_verified": false
+    }
+  ],
+  "errors": [],
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

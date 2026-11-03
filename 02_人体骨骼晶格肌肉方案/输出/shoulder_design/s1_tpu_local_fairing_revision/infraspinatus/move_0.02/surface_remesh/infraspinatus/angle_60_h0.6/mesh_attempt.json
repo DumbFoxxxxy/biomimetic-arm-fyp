@@ -1,0 +1,59 @@
+{
+  "scope": "Research surface reparametrization following bundled Gmsh tutorial t13.\n\nReplaces the analysis triangulation, not the selected manufacturing surface.\nSurface approximation and complete component/contact validation remain gates.\n",
+  "module": "infraspinatus",
+  "assembly_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/candidate_assembly.json",
+  "assembly_sha256": "3c6488c6acd34e3eefaa4a2bb4de09f45e14cd85da8d9a7c2f08ef531d4045a0",
+  "source": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/TPU_analysis_surface.obj",
+    "sha256": "5abd6974718f1a0e417a4047e3a14d38dea6a8f2a51bc21b6dee797f292a6e8a",
+    "translation_source_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "import_convention": "indexed_float64_obj_no_bucket_weld",
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "volume_mm3": 8426.198117147143
+  },
+  "script_sha256": "5307ed2592f5a34fb1f44c513e681d1c5493cf5b789297eb561a5190c8acd617",
+  "boundary_loader_sha256": "3ed4ec0587da208d2b67bba868ca9219d34b98fa703b02bac8db3a8c4d12a515",
+  "reference_tutorial": ".deps/gmsh_vendor/share/doc/gmsh/tutorials/python/t13.py",
+  "reference_tutorial_sha256": "827032fa51ef556f5475239f1480a61e353765239baf898e4603bde074d95eee",
+  "input_preprocessing": {
+    "raw_unique_vertices": 39768,
+    "raw_triangles": 80200,
+    "raw_boundary_edges": 0,
+    "raw_nonmanifold_edges": 0,
+    "validation_weld_key_decimals": null,
+    "validation_weld_key_pitch_mm": null,
+    "maximum_reassigned_vertex_distance_mm": 0.0,
+    "preprocessed_vertices": 39768,
+    "preprocessed_triangles": 80200,
+    "dropped_degenerate_triangles": 0,
+    "preprocessed_boundary_edges": 0,
+    "preprocessed_nonmanifold_edges": 0,
+    "triangle_area_min_mm2": 5.097500983279692e-07,
+    "triangle_area_p01_mm2": 1.871418589081351e-05,
+    "interpretation": "explicit indexed float64 OBJ: no welding, snapping or triangle deletion; exact-coordinate census is diagnostic only"
+  },
+  "gmsh_version": "4.15.2",
+  "classification_angle_deg": 60.0,
+  "mesh_size_mm": 0.6,
+  "geometry_tetrahedralization_pass": false,
+  "numerical_elasticity_mesh_quality_pass": false,
+  "analysis_surface_approximation_verified": false,
+  "manufacturing_geometry_replaced": false,
+  "adopted_as_current": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "classified_entity_counts": {
+    "0": 6035,
+    "1": 9422,
+    "2": 4153
+  },
+  "error_type": "Exception",
+  "error": "Wrong topology of boundary mesh for parametrization",
+  "elapsed_s": 4.676129100000253,
+  "source_bytes_unchanged": true
+}

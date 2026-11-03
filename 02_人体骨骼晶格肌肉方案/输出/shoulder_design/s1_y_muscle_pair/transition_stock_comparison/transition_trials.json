@@ -1,0 +1,285 @@
+{
+  "scope": "Explicit design alternatives for classified closed transition pockets.\n\nInfill is a recorded material change, not export cleanup. Only closed voids\ninside the R3.3 retained transition region and outside routed lumens/end\ninterfaces qualify; collisions and readback must be checked independently.\n",
+  "assembly_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/assembly_check.json",
+  "assembly_sha256": "9ea550acfcff8ffce478efb4d4b35c751cd14fbd162c26d8b4426e4bf984b239",
+  "routes_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_port_path_revision/routes_compact_distal_candidate.json",
+  "routes_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "outward_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/vent_experiment/outward_start_revision/outward_trials.json",
+  "outward_sha256": "fbcac0fe427891ac1750926f415f9f25c67ad473ddfc6f75f29702a80320b15c",
+  "script_sha256": "32b51f9377606f2b5312f3e0aceae6cbec19ac92e85ec53246d580d4aea7e5ab",
+  "dependency_sha256": {
+    "build_shoulder_Y_vent_candidates.py": "5731ac4fbf3ddb8dcc5498f0b69f797222fc5ecb9687a2cac051d5080ce768b8",
+    "build_shoulder_Y_print_inspection.py": "cc4b2a95169b94b8a0267bb346dcf9aa7d617c60fa794ca77d7b5836f9ac3c4e"
+  },
+  "results": [
+    {
+      "module": "infraspinatus",
+      "variant": "closed_pockets_infilled",
+      "parent_TPU": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_y_muscle_pair\\infraspinatus\\conforming_15_10_30_surface\\TPU_Y_muscle.stl",
+        "translation_source_mm": [
+          -89.94,
+          -15.0,
+          1271.07
+        ],
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "signed_component_volumes_mm3": [
+          8425.673703719202,
+          -13.11810931357586
+        ],
+        "roundtrip_relative_error": 0.0,
+        "removed_positive_debris": [],
+        "export_passes": 1,
+        "positive_material_components": 1,
+        "enclosed_void_shells": 1,
+        "mesh_checks_pass": true,
+        "cavity_printability_verified": false,
+        "sha256": "1203d7f0280430e2c8530b39e840a7e093341b0950ff14355b2b76bc56717db4"
+      },
+      "precursor_mesh": null,
+      "explicit_infill_changes": [
+        {
+          "empty_volume_infilled_mm3": 13.118109313575971,
+          "bounds_source_mm": [
+            -123.08436721801758,
+            -26.870003700256348,
+            1280.291360206604,
+            -113.25398963928222,
+            -19.772698879241943,
+            1288.773498840332
+          ],
+          "outside_R3_3_transition_region_mm3": 0.0,
+          "nominal_lumen_intersection_mm3": 0.0,
+          "terminal_interface_intersection_mm3": 0.0,
+          "rationale": "closed non-route pocket in retained transition stock; intentionally replace void with TPU",
+          "stiffness_and_deformation_effect_unverified": true
+        }
+      ],
+      "mesh": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/transition_stock_comparison/infraspinatus/closed_pockets_infilled/TPU_transition_trial.stl",
+        "sha256": "b0dc6d832d274331103d3bc280f312c9c9e9fc80e9e1ea2c4cd49e871213e705",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          8425.673703719202
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 0.0,
+        "no_material_removed_or_added_as_repair": true,
+        "translation_source_mm": [
+          -89.94,
+          -15.0,
+          1271.07
+        ]
+      },
+      "source_closed_void_volume_mm3": 13.118109313575818,
+      "remaining_closed_void_volume_mm3": 0,
+      "added_material_signed_mm3": 13.118109303863454,
+      "removed_material_signed_mm3": -9.671143603036605e-09,
+      "volume_change_percent": 0.15593489001485195,
+      "no_outer_material_removal_by_design": true,
+      "no_export_mesh_simplification": true,
+      "adopted_as_current": false,
+      "stage_pass": false
+    },
+    {
+      "module": "subscapularis",
+      "variant": "closed_pockets_infilled",
+      "parent_TPU": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_y_muscle_pair\\subscapularis\\conforming_6_8_10_surface\\TPU_Y_muscle.stl",
+        "translation_source_mm": [
+          -102.23,
+          -39.27,
+          1289.54
+        ],
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "signed_component_volumes_mm3": [
+          7729.187240179091,
+          -0.08113843127997844,
+          -0.17524780440639148,
+          -2.5361932668512974
+        ],
+        "roundtrip_relative_error": 2.412975322456003e-07,
+        "removed_positive_debris": [],
+        "export_passes": 2,
+        "positive_material_components": 1,
+        "enclosed_void_shells": 3,
+        "mesh_checks_pass": true,
+        "cavity_printability_verified": false,
+        "sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63"
+      },
+      "precursor_mesh": null,
+      "explicit_infill_changes": [
+        {
+          "empty_volume_infilled_mm3": 0.081138431279919,
+          "bounds_source_mm": [
+            -132.1358246612549,
+            -82.76156188964845,
+            1304.0535250091552,
+            -129.8579163360596,
+            -80.97272064208985,
+            1304.87745098114
+          ],
+          "outside_R3_3_transition_region_mm3": 0.0,
+          "nominal_lumen_intersection_mm3": 0.0,
+          "terminal_interface_intersection_mm3": 0.0,
+          "rationale": "closed non-route pocket in retained transition stock; intentionally replace void with TPU",
+          "stiffness_and_deformation_effect_unverified": true
+        },
+        {
+          "empty_volume_infilled_mm3": 0.17524780440639157,
+          "bounds_source_mm": [
+            -129.85892150878908,
+            -79.30607177734376,
+            1303.069704093933,
+            -128.28936813354494,
+            -77.47434951782228,
+            1303.659734764099
+          ],
+          "outside_R3_3_transition_region_mm3": 0.0,
+          "nominal_lumen_intersection_mm3": 0.0,
+          "terminal_interface_intersection_mm3": 0.0,
+          "rationale": "closed non-route pocket in retained transition stock; intentionally replace void with TPU",
+          "stiffness_and_deformation_effect_unverified": true
+        },
+        {
+          "empty_volume_infilled_mm3": 2.536193266851298,
+          "bounds_source_mm": [
+            -127.08483360290528,
+            -77.83443786621095,
+            1299.441608467102,
+            -117.3591446685791,
+            -62.49747421264649,
+            1303.203378715515
+          ],
+          "outside_R3_3_transition_region_mm3": 0.0,
+          "nominal_lumen_intersection_mm3": 0.0,
+          "terminal_interface_intersection_mm3": 0.0,
+          "rationale": "closed non-route pocket in retained transition stock; intentionally replace void with TPU",
+          "stiffness_and_deformation_effect_unverified": true
+        }
+      ],
+      "mesh": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/transition_stock_comparison/subscapularis/closed_pockets_infilled/TPU_transition_trial.stl",
+        "sha256": "8fde92078241748651a65d6905a1e31d2599b2deb35021e11288431d848817c6",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          7729.187240179091
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 3.5301048099018013e-16,
+        "no_material_removed_or_added_as_repair": true,
+        "translation_source_mm": [
+          -102.23,
+          -39.27,
+          1289.54
+        ]
+      },
+      "source_closed_void_volume_mm3": 2.7925795025374307,
+      "remaining_closed_void_volume_mm3": 0,
+      "added_material_signed_mm3": 2.792552613768304,
+      "removed_material_signed_mm3": -2.688876908591138e-05,
+      "volume_change_percent": 0.036143371199358926,
+      "no_outer_material_removal_by_design": true,
+      "no_export_mesh_simplification": true,
+      "adopted_as_current": false,
+      "stage_pass": false
+    },
+    {
+      "module": "subscapularis",
+      "variant": "bounded_0_8mm_vents_plus_residual_infill",
+      "parent_TPU": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_y_muscle_pair\\subscapularis\\conforming_6_8_10_surface\\TPU_Y_muscle.stl",
+        "translation_source_mm": [
+          -102.23,
+          -39.27,
+          1289.54
+        ],
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "signed_component_volumes_mm3": [
+          7729.187240179091,
+          -0.08113843127997844,
+          -0.17524780440639148,
+          -2.5361932668512974
+        ],
+        "roundtrip_relative_error": 2.412975322456003e-07,
+        "removed_positive_debris": [],
+        "export_passes": 2,
+        "positive_material_components": 1,
+        "enclosed_void_shells": 3,
+        "mesh_checks_pass": true,
+        "cavity_printability_verified": false,
+        "sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63"
+      },
+      "precursor_mesh": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/vent_experiment/outward_start_revision/diameter_0.8/TPU_vent_trial.stl",
+        "sha256": "5e1f5db485bf557e0ba133c78d7d7e72158497043f3353187e9321115e5f5488",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          7725.728713280755,
+          -0.08113843127997854
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 2.773520305997455e-11,
+        "no_material_removed_or_added_as_repair": true,
+        "translation_source_mm": [
+          -102.23,
+          -39.27,
+          1289.54
+        ]
+      },
+      "explicit_infill_changes": [
+        {
+          "empty_volume_infilled_mm3": 0.08113843127993367,
+          "bounds_source_mm": [
+            -132.1358246612549,
+            -82.76156188964845,
+            1304.0535250091552,
+            -129.8579163360596,
+            -80.97272064208985,
+            1304.87745098114
+          ],
+          "outside_R3_3_transition_region_mm3": 0.0,
+          "nominal_lumen_intersection_mm3": 0.0,
+          "terminal_interface_intersection_mm3": 0.0,
+          "rationale": "closed non-route pocket in retained transition stock; intentionally replace void with TPU",
+          "stiffness_and_deformation_effect_unverified": true
+        }
+      ],
+      "mesh": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y_muscle_pair/transition_stock_comparison/subscapularis/bounded_0_8mm_vents_plus_residual_infill/TPU_transition_trial.stl",
+        "sha256": "2b89403174dc211b37be427ed46c19ca1526f5a2931c56ee8b0a2f090b36b0a0",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          7725.728713280755
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 3.53168510904148e-16,
+        "no_material_removed_or_added_as_repair": true,
+        "translation_source_mm": [
+          -102.23,
+          -39.27,
+          1289.54
+        ]
+      },
+      "source_closed_void_volume_mm3": 2.7925795025374307,
+      "remaining_closed_void_volume_mm3": 0,
+      "added_material_signed_mm3": 0.08111196686848376,
+      "removed_material_signed_mm3": 0.7470593626625747,
+      "volume_change_percent": -0.008619122178526591,
+      "no_outer_material_removal_by_design": false,
+      "no_export_mesh_simplification": true,
+      "adopted_as_current": false,
+      "stage_pass": false
+    }
+  ],
+  "adopted_as_current": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

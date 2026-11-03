@@ -47,6 +47,9 @@ BOLT_HOLE_R = shoulder_pads.BOLT_HOLE_RADIUS_MM
 CRIMP_R = 1.4
 #: the pad sits on the bone surface; a few hundredths of a mm3 of graze is surface curvature
 SURFACE_TOL_MM3 = 0.5
+# Embed the boss slightly into its pad: exact coplanar faces can separate after
+# arbitrary rotations. The top remains at pad_height + requested boss height.
+BOSS_JOIN_OVERLAP_MM = 0.01
 
 
 def mf():
@@ -69,8 +72,10 @@ def disc(centre, normal, thickness, radius=PAD_R, holes=True, boss_mm=0.0, boss_
                                     radius_top=None if taper_mm <= 0 else radius - taper_mm)
     if boss_mm > 0.0:
         R0 = shoulder_pads.pad_basis(normal)
-        boss = mf().Manifold.cylinder(boss_mm, boss_r, boss_r, 48)
-        boss = boss.translate([0.0, 0.0, thickness + boss_mm / 2.0])
+        boss = mf().Manifold.cylinder(boss_mm + BOSS_JOIN_OVERLAP_MM, boss_r, boss_r, 48)
+        # Manifold.cylinder spans 0..height, not -height/2..height/2.
+        # Its bottom must meet the pad's outer face without an air gap.
+        boss = boss.translate([0.0, 0.0, thickness - BOSS_JOIN_OVERLAP_MM])
         solid = solid + boss.transform(np.c_[R0, np.asarray(centre, float)])
     if not holes:
         return solid
@@ -165,8 +170,8 @@ def conforming_disc(centre, normal, height, radius, bones, own_module, modules,
             solid = solid - s
     total = round(height, 2) + boss_mm
     if boss_mm > 0.0:
-        boss = mf().Manifold.cylinder(boss_mm, 5.0, 5.0, 48)
-        boss = boss.translate([0.0, 0.0, round(height, 2) + boss_mm / 2.0])
+        boss = mf().Manifold.cylinder(boss_mm + BOSS_JOIN_OVERLAP_MM, 5.0, 5.0, 48)
+        boss = boss.translate([0.0, 0.0, round(height, 2) - BOSS_JOIN_OVERLAP_MM])
         solid = solid + boss.transform(np.c_[R, c])
     for k in (0, 1):
         ang = np.pi * k

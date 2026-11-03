@@ -2,6 +2,44 @@
 
 本项目直接使用两套方案的实际目录，不需要目录联接、符号链接或恢复旧文件夹。源码实际保留在 `mujoco_arm/`。
 
+## 当前肩部研究模型
+
+当前选择为S1-Y2：紧凑GH骨架＋两块共形Y肌腹，共191对象，指针位于[design/S1_CURRENT_CANDIDATE.json](design/S1_CURRENT_CANDIDATE.json)。这是研究起点，未制造定版，实际TPU驱动范围未知。[结构与复现](02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y2_transition_stock/README.md)区分裸骨范围、名义安装和真实紧固。
+
+使用装有MuJoCo／Pillow的Python环境，在根目录运行：
+
+```powershell
+python mujoco_arm/tools/view_shoulder_manufactured.py
+python mujoco_arm/tools/view_shoulder_bare_GH_motion.py
+```
+
+第一条查看191对象零位实际网格；第二条只看102对象裸骨阶段的规定GH旋转，89对象未装，不显示肌肉、抱箍或肌腱。空格暂停／继续，0回零，1到受检端点，鼠标调整视角。显示使用mocap、DOF=0，无动力学步进，不是钢丝／TPU驱动。
+
+```powershell
+python mujoco_arm/tools/view_shoulder_manufactured.py --check
+python mujoco_arm/tools/view_shoulder_bare_GH_motion.py --check
+python mujoco_arm/tools/view_shoulder_bare_GH_motion.py --render
+```
+
+默认入口核对指针中的报告哈希；数据更改后应重新验证并同步指针，不能靠更换图片忽略哈希错误。正屈曲／外展120°为裸骨采样上限，部分末端间隙为0，不能视为最大驱动范围或制造间隙合格。几何生成依赖numpy／scipy／manifold3d及`.deps`，复算步骤见分支README。
+
+## 历史模型与肩胛装入步骤
+
+父级模型可显式选择，例如原187对象：
+
+```powershell
+python mujoco_arm/tools/view_shoulder_manufactured.py --report '02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_front_liner_keepers/assembly_check.json'
+```
+
+历史57对象肩胛装入查看保留原187对象输入，不自动升级为当前191模型的完整装配证明：
+
+```powershell
+python mujoco_arm/tools/view_shoulder_scapula_insertion.py
+python mujoco_arm/tools/view_shoulder_scapula_insertion.py --render
+```
+
+该步骤不含GH／肱骨／锁骨骨段／肌腹，三前衬垫及名义M2保持件在场。空格播放／暂停，0就位，1取出20 mm；单骨mocap平移，无动力学或整肩驱动验收含义。依据见[父级步骤说明](02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_front_liner_keepers/README.md)。
+
 ## 当前肘部
 
 在项目根目录执行（使用已安装所需依赖的Python环境）：

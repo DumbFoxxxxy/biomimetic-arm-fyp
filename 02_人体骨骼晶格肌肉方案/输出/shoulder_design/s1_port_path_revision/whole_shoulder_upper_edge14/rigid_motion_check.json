@@ -1,0 +1,1518 @@
+{
+  "scope": "actual rigid components, fixed GH single-axis contiguous paths; not shoulder motion acceptance",
+  "assembly_sha256": "629546c7590ad4040934c7d2ed62b61d3a73a4d8a84491b1000254aee202677a",
+  "moving_keys": [
+    "bone:humerus",
+    "cap:FJ1468/distal",
+    "cap:FJ1500/distal",
+    "cap:FJ1504/distal",
+    "cap:FJ1507/distal",
+    "stop:FJ1467_stop_blank",
+    "stop:FJ1468_stop_blank",
+    "stop:FJ1513_stop_blank"
+  ],
+  "fixed_keys": [
+    "bone:clavicle",
+    "bone:scapula",
+    "cap:FJ1467/origin",
+    "cap:FJ1468/origin",
+    "cap:FJ1500/origin",
+    "cap:FJ1504/origin",
+    "cap:FJ1507/origin",
+    "cap:FJ1513/origin",
+    "fixture:lateral_frame",
+    "fixture:medial_frame"
+  ],
+  "GH_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "axes_source": {
+    "longitudinal": [
+      -0.17258506979557828,
+      0.014177871716920615,
+      -0.9848925736532052
+    ],
+    "flexion": [
+      -0.9849915762148533,
+      0.0,
+      0.17260241825008904
+    ],
+    "abduction": [
+      0.0,
+      0.9998964030731843,
+      0.014393857068490468
+    ]
+  },
+  "step_deg": 1.0,
+  "boundary_step_deg": 0.1,
+  "intersection_threshold_mm3": 0.001,
+  "gap_note": "surface gap capped at2mm, zero when surfaces contact/intersect; report volume threshold separately",
+  "results": [
+    {
+      "axis": "flexion",
+      "sign": 1,
+      "last_sample_clear_deg": 24.8,
+      "first_hit_deg": 24.9,
+      "last_sample_minimum_gap": {
+        "moving": "cap:FJ1504/distal",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "cap:FJ1504/distal",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.002381286520872026
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 25.0,
+          "hits": [
+            {
+              "moving": "cap:FJ1504/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.0065244968353271445
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 24.1,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.2,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.3,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.4,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.5,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.6,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.7,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.8,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.9,
+          "hits": [
+            {
+              "moving": "cap:FJ1504/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.002381286520872026
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "flexion",
+      "sign": -1,
+      "last_sample_clear_deg": -51.6,
+      "first_hit_deg": -51.7,
+      "last_sample_minimum_gap": {
+        "moving": "bone:humerus",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.001085247404879211
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -25.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -26.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -27.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -28.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -29.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -30.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -31.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -32.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -33.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -34.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -35.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -36.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -37.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -39.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -40.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -41.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -42.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -43.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -44.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -45.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -46.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -47.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -48.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -49.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -50.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -52.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.0022279185650988416
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -51.1,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.2,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.3,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.4,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.5,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.6,
+          "hits": []
+        },
+        {
+          "angle_deg": -51.7,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.001085247404879211
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "abduction",
+      "sign": 1,
+      "last_sample_clear_deg": 54.1,
+      "first_hit_deg": 54.2,
+      "last_sample_minimum_gap": {
+        "moving": "cap:FJ1500/distal",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "cap:FJ1500/distal",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.006824361259243658
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 25.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 26.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 27.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 28.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 29.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 30.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 31.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 32.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 33.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 34.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 35.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 36.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 37.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 38.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 39.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 40.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 41.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 42.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 43.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 44.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 45.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 46.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 47.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 48.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 49.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 50.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 51.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 52.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 53.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 54.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 55.0,
+          "hits": [
+            {
+              "moving": "cap:FJ1500/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.7555089276358922
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 54.1,
+          "hits": []
+        },
+        {
+          "angle_deg": 54.2,
+          "hits": [
+            {
+              "moving": "cap:FJ1500/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.006824361259243658
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "abduction",
+      "sign": -1,
+      "last_sample_clear_deg": -25.0,
+      "first_hit_deg": -25.1,
+      "last_sample_minimum_gap": {
+        "moving": "bone:humerus",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.003316854059524317
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -25.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -26.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.46690023363217625
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -25.1,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.003316854059524317
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "longitudinal",
+      "sign": 1,
+      "last_sample_clear_deg": 80.3,
+      "first_hit_deg": 80.4,
+      "last_sample_minimum_gap": {
+        "moving": "cap:FJ1500/distal",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "cap:FJ1500/distal",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.0011963924438173127
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 25.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 26.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 27.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 28.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 29.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 30.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 31.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 32.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 33.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 34.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 35.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 36.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 37.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 38.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 39.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 40.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 41.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 42.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 43.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 44.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 45.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 46.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 47.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 48.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 49.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 50.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 51.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 52.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 53.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 54.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 55.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 56.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 57.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 58.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 59.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 60.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 61.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 62.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 63.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 64.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 65.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 66.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 67.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 68.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 69.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 70.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 71.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 72.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 73.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 74.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 75.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 76.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 77.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 78.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 79.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 80.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 81.0,
+          "hits": [
+            {
+              "moving": "cap:FJ1500/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.12617618061467925
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 80.1,
+          "hits": []
+        },
+        {
+          "angle_deg": 80.2,
+          "hits": []
+        },
+        {
+          "angle_deg": 80.3,
+          "hits": []
+        },
+        {
+          "angle_deg": 80.4,
+          "hits": [
+            {
+              "moving": "cap:FJ1500/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.0011963924438173127
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "longitudinal",
+      "sign": -1,
+      "last_sample_clear_deg": -38.4,
+      "first_hit_deg": -38.5,
+      "last_sample_minimum_gap": {
+        "moving": "cap:FJ1504/distal",
+        "fixed": "bone:scapula",
+        "gap_capped_2mm": 0.0
+      },
+      "endpoint_hits": [
+        {
+          "moving": "cap:FJ1504/distal",
+          "fixed": "bone:scapula",
+          "volume_mm3": 0.0024759282834532154
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -2.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -3.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -4.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -5.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -6.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -7.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -8.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -9.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -10.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -11.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -12.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -13.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -14.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -15.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -16.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -17.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -18.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -19.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -20.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -21.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -22.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -23.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -24.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -25.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -26.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -27.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -28.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -29.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -30.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -31.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -32.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -33.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -34.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -35.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -36.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -37.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -39.0,
+          "hits": [
+            {
+              "moving": "cap:FJ1504/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.07177325049471711
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -38.1,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.2,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.3,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.4,
+          "hits": []
+        },
+        {
+          "angle_deg": -38.5,
+          "hits": [
+            {
+              "moving": "cap:FJ1504/distal",
+              "fixed": "bone:scapula",
+              "volume_mm3": 0.0024759282834532154
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stage_pass": false,
+  "assumptions": [
+    "scapula and clavicle fixed; nominal GH centre enforced",
+    "humerus-side caps and stop blanks move with humerus as an ideal installed rigid group",
+    "within-group contacts retained in zero-pose report, not independently moving pairs"
+  ],
+  "not_verified": [
+    "joint retention/translation and real cap fastening",
+    "TPU deformation or cable drive",
+    "combined GH/SC/AC motion, K1-K7 acceptance",
+    "physical hysteresis and return motion"
+  ]
+}

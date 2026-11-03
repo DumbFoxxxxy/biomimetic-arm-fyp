@@ -52,6 +52,8 @@ def load_stl(path):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--json', dest='json_out')
+    ap.add_argument('--manufactured-parts', type=Path,
+                    help='read the actual exported pad/cap STLs instead of rebuilding them')
     args = ap.parse_args(argv)
 
     parts = {}
@@ -79,6 +81,15 @@ def main(argv=None):
         cap_t = float(s.get('cap_thickness_mm', pad_t))
         cap_r = float(s.get('cap_radius_mm', pad_r))
         name = '%s/%s' % (s['head'], s['end'])
+        if args.manufactured_parts is not None:
+            prefix = ','.join(s['heads']).replace('/', '_').replace(',', '+')
+            for kind in ('pad', 'cap'):
+                source = args.manufactured_parts / (prefix + '_' + kind + '.stl')
+                actual = load_stl(source)
+                if len(actual.decompose()) != 1 or actual.volume() <= 0:
+                    raise ValueError('Manufactured part is not one positive solid: ' + str(source))
+                parts[kind + ':' + name] = actual
+            continue
         # use the same builder the ends tool uses, bolt holes and crimp bore included: a solid
         # disc of the same nominal size is a bigger part and reported overlaps that the design
         # does not have (96.97 mm3 on one seat)
@@ -151,18 +162,19 @@ def main(argv=None):
 
     if args.json_out:
         I.write_report(args.json_out, {
-            'scope': 'pairwise interference over bones, modules, 12 end pads, 12 caps and the '
-                     'fixture parts at the zero pose; expected joints are listed explicitly',
+            'scope': 'zero-pose pairwise check of 3 bones, 4 muscle envelopes, 10 pads and '
+                     '10 caps; excludes tendons, fixture, screws, wire and liner',
+            'manufactured_parts': str(args.manufactured_parts) if args.manufactured_parts else None,
             'noise_floor_mm3': NOISE_MM3,
             'n_parts': len(parts),
             'contacts': rows,
             'n_unexpected': len(unexpected),
             'unexpected': unexpected,
             'allow_list': ['pad <-> its own module (the pad is the TPU end pad)',
-                           'cap <-> its own pad'],
+                           'cap <-> its own pad', 'cap <-> its own module'],
             'not_verified': ['zero pose only; the sweep is in 5.4.24 and 5.9.10',
                              'the fixture is checked separately in 5.9.10 / 5.9.11',
-                             'pads are flat discs, not the conforming underside',
+                             'envelopes are not a verified deformed TPU state',
                              'no screws modelled'],
         })
         print('\nreport written:', args.json_out)

@@ -75,6 +75,7 @@ def main(argv=None):
         for kind, geom in (('pad', pad), ('cap', cap)):
             if args.simplify > 0:
                 geom = I.clean_solid(geom, eps=args.simplify)
+            components = len(geom.decompose())
             V, F = mesh_geom.manifold_mesh_to_arrays(geom.to_mesh())
             target = out / ('%s_%s.stl' % (name, kind))
             mesh_geom.write_stl(str(target), V, F, header='S1 %s %s' % (kind, name))
@@ -82,10 +83,15 @@ def main(argv=None):
             RW, RG = mesh_geom.weld(RV, RF)
             rt = abs(mesh_geom.signed_volume(RW, RG) - geom.volume()) / geom.volume()
             e, bnd, nm = mesh_geom.edge_census(RG)
+            rt_solid = I._manifold().Manifold(
+                I._manifold().Mesh64(RW, RG.astype(np.uint32)))
+            roundtrip_components = len(rt_solid.decompose())
             rows.append({'seat': ','.join(s['heads']), 'part': kind,
                          'file': target.name, 'volume_mm3': round(geom.volume(), 1),
                          'triangles': int(len(F)),
                          'boundary_edges': int(bnd), 'nonmanifold_edges': int(nm),
+                         'material_components': components,
+                         'roundtrip_material_components': roundtrip_components,
                          'roundtrip_rel_error': float('%.2e' % rt)})
             print('%-34s %-10s %10.1f %10d%s'
                   % (name, kind, geom.volume(), len(F),
@@ -93,12 +99,18 @@ def main(argv=None):
                      % (bnd, nm)))
 
     bad = [r for r in rows if r['boundary_edges'] or r['nonmanifold_edges']]
+    disconnected = [r for r in rows if r['material_components'] != 1
+                    or r['roundtrip_material_components'] != 1]
+    roundtrip_bad = [r for r in rows if r['roundtrip_rel_error'] > 1e-5]
     print('\nfiles written: %d (%d pads, %d caps)'
           % (len(rows), sum(1 for r in rows if r['part'] == 'pad'),
              sum(1 for r in rows if r['part'] == 'cap')))
     print('watertight: %d / %d' % (len(rows) - len(bad), len(rows)))
     if bad:
         print('  not watertight:', [r['file'] for r in bad])
+    print('single connected material: %d / %d' % (len(rows)-len(disconnected), len(rows)))
+    if disconnected:
+        print('  disconnected:', [r['file'] for r in disconnected])
 
     if args.json_out:
         I.write_report(args.json_out, {
@@ -107,9 +119,12 @@ def main(argv=None):
             'boss_mm': args.boss_mm, 'out_dir': str(out),
             'parts': rows, 'n_files': len(rows),
             'n_not_watertight': len(bad),
+            'n_disconnected': len(disconnected),
+            'n_roundtrip_failures': len(roundtrip_bad),
+            'manufacturing_mesh_checks_pass': not (bad or disconnected or roundtrip_bad),
         })
         print('\nreport written:', args.json_out)
-    return 0
+    return 1 if bad or disconnected or roundtrip_bad else 0
 
 
 if __name__ == '__main__':

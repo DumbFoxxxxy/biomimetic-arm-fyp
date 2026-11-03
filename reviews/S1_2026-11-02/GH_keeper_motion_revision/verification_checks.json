@@ -1,0 +1,88 @@
+{
+  "scope": "Finite bare-bone motion and current research-candidate consistency only. Not whole-shoulder actuation, strength, manufacture or full assembly acceptance.",
+  "checks": {
+    "source191_hashes_match": true,
+    "only_parent_scapula_changed": true,
+    "four_new_keeper_objects": true,
+    "generator_matches": true,
+    "generation_dependencies_match": true,
+    "parent_report_matches": true,
+    "pointer_assembly_sha_matches": true,
+    "pointer_bare_sha_matches": true,
+    "pointer_keeper_sha_matches": true,
+    "report_sources_match": true,
+    "no_rigid_overlap_over_threshold": true,
+    "no_wire_overlap_over_threshold": true,
+    "five_meshes_valid": true,
+    "all11_staged_paths_clear": true,
+    "all_reaction_probes_hit": true,
+    "all_side_exit_probes_hit": true,
+    "finite52_ball_probes_hit": true,
+    "bare_positive_flexion_abduction_to120": true,
+    "all_bare_return_paths_clear": true,
+    "default_view_metadata_matches": true,
+    "mocap_geometry_checks": true,
+    "viewer_source_matches": true,
+    "historical_brief_unchanged": true,
+    "original_K_metrics_unchanged": true,
+    "links_valid": true,
+    "six_scripts_parse": true
+  },
+  "source_objects": 191,
+  "pair_count": 18145,
+  "changed_parent_sources": [
+    "bone:scapula"
+  ],
+  "new_objects": [
+    "GH_keeper:0/screw",
+    "GH_keeper:0/nut",
+    "GH_keeper:1/screw",
+    "GH_keeper:1/nut"
+  ],
+  "links_checked": 155,
+  "broken_links": [],
+  "current_bare_endpoint_ranges": [
+    {
+      "axis": "longitudinal",
+      "sign": 1,
+      "last_clear_deg": 120.0,
+      "endpoint_gap_mm": 0.27061081068831994
+    },
+    {
+      "axis": "longitudinal",
+      "sign": -1,
+      "last_clear_deg": -120.0,
+      "endpoint_gap_mm": 0.2669853940116303
+    },
+    {
+      "axis": "flexion",
+      "sign": 1,
+      "last_clear_deg": 120.0,
+      "endpoint_gap_mm": 0.0
+    },
+    {
+      "axis": "flexion",
+      "sign": -1,
+      "last_clear_deg": -39.6,
+      "endpoint_gap_mm": 0.06356276574209675
+    },
+    {
+      "axis": "abduction",
+      "sign": 1,
+      "last_clear_deg": 120.0,
+      "endpoint_gap_mm": 0.27102460442252413
+    },
+    {
+      "axis": "abduction",
+      "sign": -1,
+      "last_clear_deg": -39.1,
+      "endpoint_gap_mm": 0.0
+    }
+  ],
+  "nominal_installation_steps": 11,
+  "installation_pose_samples": 4322,
+  "motion_display_objects": 102,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "checks_pass": true
+}

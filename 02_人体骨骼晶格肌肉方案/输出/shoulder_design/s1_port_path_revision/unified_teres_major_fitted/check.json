@@ -1,0 +1,179 @@
+{
+  "scope": "static monolithic TPU candidate from master paths; not physical drive or stage acceptance",
+  "module": "teres_major",
+  "master_routes": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\routes_outlet_candidate.json",
+  "master_sha256": "f1d2e13529fc22df846976abf1eeacc6e1099cc72ea91c130cfb4fd17923ac2e",
+  "parent_sha256": "cd1b96308c7593f484cff3305fb245891d48f33f2c7633c02d92e72357a6f0f7",
+  "parts": {
+    "TPU": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\TPU_muscle.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        5592.319921916018,
+        2105.083688204425,
+        -7.241698715615223,
+        -0.16254272029045827,
+        -14.163785052644092
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 2,
+      "enclosed_void_shells": 3,
+      "mesh_checks_pass": false,
+      "cavity_printability_verified": false,
+      "sha256": "98134122f4a46f4f29dca64f235289e04c91b4c3850aadff6d85d28c20fd44a2"
+    },
+    "FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_origin_cap.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        1171.128822730321
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "02ee76674eb46a9d75b3fef33e99f3255e4632714e0641e51e556fb9fbed6bea"
+    },
+    "FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_distal_cap.stl",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        1404.4107330937793
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "acdd4b872284f41723c22c581d06d2d51557ff43235166ee7d23dedaa1210b2d"
+    }
+  },
+  "wire_material_intersections_mm3": {
+    "FJ1507": {
+      "TPU": 0.0,
+      "FJ1507/origin": 0.0,
+      "FJ1507/distal": 0.0
+    }
+  },
+  "missing_0_75mm_wall_guard_mm3": {
+    "FJ1507": 41.43448741783523
+  },
+  "wire_bone_intersections_mm3": {
+    "FJ1507": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "nominal_hand_pull_endpoint_intersections_mm3": {
+    "FJ1507": {
+      "TPU": 0.0,
+      "FJ1507/origin": 0.0,
+      "FJ1507/distal": 0.0,
+      "bone:scapula": 0.0,
+      "bone:clavicle": 0.0,
+      "bone:humerus": 0.0
+    }
+  },
+  "material_pair_intersections_mm3": [
+    {
+      "a": "TPU",
+      "b": "FJ1507/origin",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "TPU",
+      "b": "FJ1507/distal",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1507/origin",
+      "b": "FJ1507/distal",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "cap_keepout_scope": "actual cap thickness plus explicit 0.15mm fit gap at both faces and radius; actual rigid outlet socket where present",
+  "rigid_origin_outlets": {},
+  "rigid_cap_bone_trim_mm3": {},
+  "fitted_terminal_mouths": true,
+  "removed_nonstructural_lattice_tips": [],
+  "all_part_bone_intersections_mm3": {
+    "TPU": {
+      "scapula": 0.0016223989929212384,
+      "clavicle": 0.0,
+      "humerus": 3.0111119721141766e-05
+    },
+    "FJ1507/origin": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    },
+    "FJ1507/distal": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "free_TPU_wall_guard_outside_assigned_cap_housings": {
+    "FJ1507": {
+      "missing_mm3": 0.005366612637270056,
+      "bounds_source_mm": [
+        -161.1445072171862,
+        -75.30732268341987,
+        1212.884253491671,
+        -112.33551611200176,
+        -8.294306450344683,
+        1270.5087502766544
+      ]
+    }
+  },
+  "required_wall_mm": 0.75,
+  "wall_guard_scope": "retained active core and connector arclength>=4mm; cap fit housing and actual rigid guide socket excluded explicitly",
+  "dense_core_outer_radius_mm": 1.8,
+  "transition_outer_radius_mm": 3.2,
+  "lumen_radius_mm": 0.86,
+  "conforming_bone_trim_volume_mm3": 48.5858839959263,
+  "bone_intersections_mm3": {
+    "scapula": 0.0016223989929212384,
+    "clavicle": 0.0,
+    "humerus": 3.0111119721141766e-05
+  },
+  "unchanged_neighbour_intersections_mm3": {
+    "deltoid": 0.0,
+    "infraspinatus": 0.0,
+    "subscapularis": 0.0
+  },
+  "stage_pass": false,
+  "not_verified": [
+    "external lead accessibility and bone clearance",
+    "neighbour resolution and complete assembly",
+    "fasteners/crimps and installation",
+    "material stroke, friction and deformation",
+    "joint retention and motion"
+  ]
+}

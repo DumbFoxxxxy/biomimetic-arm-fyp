@@ -1,0 +1,249 @@
+# 肩部 S1 技术方案与验证依据
+
+版本：v0.9.6 · 2026-11-02 · 技术审查稿，未定版。
+
+**最新集成几何候选是187对象前衬垫定位保持版（原175对象接收部版及父级保留）；尚未选为新S1基线，预测驱动范围与实测驱动范围均未知。** 本文件按结构和证据组织；历史候选的角度不能转移给最新候选。
+
+## 1. 目标、范围与当前决策
+
+采用“真实解剖外形＋工程关节＋异形TPU晶格肌肉”的路线。钢丝在肌腹内传力，允许短钢丝肌腱跨关节；TPU的变形、恢复和传力必须参与工作。长期目标是整条机械手臂，现阶段聚焦肩部S1，肘部既有候选独立保留。
+
+S1理想运动模型固定锁骨与肩胛骨，只研究GH（盂肱关节）运动。首轮采用手拉钢丝，不以电机或外部Bowden导管为前提。**固定骨骼是模型假设，已有肩胛三夹区及锁骨抱夹几何候选，但实际预紧／摩擦、完整安装和工作台适配尚未确认，不能视为实物约束已成立。**
+
+| 项目 | 决策状态 |
+|---|---|
+| 解剖骨形＋工程关节＋钢丝／TPU肌肉 | 已确定路线；工程改骨需记录 |
+| 必要时重设计S1 | 用户已授权；保留历史输入和失败证据 |
+| GH机械保持球铰、60 mm骨干抱箍、两块肩袖肌自由末端 | 已形成比较候选，尚未定版 |
+| 四肌肉模块／六路内部主动钢丝 | 当前布局候选，不是最终数量要求 |
+| 打印机、喷嘴、材料品牌和切片工艺 | 未确定；TPU95A仅为起始材料候选 |
+| 制造、装配、承载、驱动及整臂性能 | 尚未验收 |
+
+## 2. 最新候选：结构与实际传力关系
+
+### 2.1 最新几何入口及其近端支承父级
+
+- [187对象前衬垫定位保持候选](s1_front_liner_keepers/README.md)、[完整源清单](s1_front_liner_keepers/assembly_check.json)、[独立保持／分步放置检查](s1_front_liner_keepers/readback_retention_checks.json)。改三前衬垫和两支架，新增12名义五金，骨／肌／钢丝不变。
+- [含保持件的0.1 mm装入复核](s1_front_liner_keepers/insertion_review/selected_path_dense_check.json)、[仅衬垫实网格细节](s1_front_liner_keepers/part_detail.png)。步骤场景57对象，未证明真实保持力或整肩驱动。
+
+以下175对象为接收部父级，缺少本轮保持件；当前查看默认已指187对象：
+
+- [175对象接收部修订及装入审查](s1_fixture_assembly_review/README.md)、[完整装配源清单](s1_fixture_assembly_review/receiver_relief/assembly_check.json)、[新支架下90对接触回读](s1_fixture_assembly_review/receiver_relief/readback_contact_checks.json)。只修改两接收部，骨／肌／钢丝及其他173个源文件保持不变。
+- [0.1 mm往返细查](s1_fixture_assembly_review/selected_path_dense_check.json)、[单步骤MuJoCo三姿态图](s1_fixture_assembly_review/scapula_insertion_demo.png)。步骤场景45对象、mocap骨平移；不是整肩驱动。
+
+以下175对象锁骨支承版为修订父级，本轮不继承其全部装配路径：
+
+- [175对象锁骨支承候选](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/README.md)、[装配报告](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/assembly_check.json)、[独立回读／接触／分步路径](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/readback_contact_checks.json)。本轮补锁骨抱夹及可拆背板支承，不修改骨／肌源文件。
+- [175对象实际网格静态图](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/available_parts.png)：DOF=0，未验证夹紧力和驱动。
+
+下列155对象是原肩胛夹持父级；本轮没有重算其所有旧装配步骤：
+
+- [155对象肩胛夹持候选](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/README.md)、[装配报告](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/assembly_check.json)、[独立接触／拆卸路径检查](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/readback_contact_checks.json)。本轮补三夹区双面衬垫、固定／浮动爪及骨外M3，不修改骨骼／肌腹源文件。
+- [155对象实际网格静态图](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/available_parts.png)：DOF=0，未验证夹紧力和真实运动。
+
+以下122／92对象解释历史台架及保持不变的肌肉父级，不能直接转移被改型支架的装配路径：
+
+- [122对象台架接口候选](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/README.md)、[装配报告](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/assembly_check.json)、[独立回读／螺钉路径检查](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/readback_access_checks.json)。本轮补了支架到公共背板／局部台面的连接，尚缺骨侧夹爪。
+- [122对象实际网格静态图](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/available_parts.png)：DOF=0。
+
+以下92对象报告解释保持不变的肌肉／近端支承父级，不能把它与新增台架接口混为一次检查：
+
+- [92对象配合报告](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/assembly_check.json)：对象、文件哈希、装配变换、归属意图、相交与主动线检查。
+- [结构参数、装配建议及修改量](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/README.md)。该目录直接下的初版有已知硬件占位，**应使用其fit_revision结果**。
+- [孔路／接触独立审查](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/mount_contact_checks.json)、[核验汇总](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/verification_checks.json)。
+- [实际网格MuJoCo静态图](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/available_parts.png)：DOF=0，不是驱动动画或变形结果。
+
+187是最新名义对象数，包含钢丝路由网格、局部台面和名义五金；不等于187件TPU打印件，也不代表全部已有可编辑CAD。可编辑设计参数位于生成脚本与JSON，本轮没有新的SolidWorks原生特征树及装配配合交付。
+
+### 2.2 骨骼、关节与肌肉布局
+
+GH保持关节以已有工程球头／保持盖为对照，独立工程肩胛采用GH局部差分，避免把旧AC连接结构带入。球头名义半径16 mm、窝内半径16.4 mm；有限脱出检查不等于任意姿态防脱或承载证明。原始骨形保留，工程修订不能称为完全未改动的人体关节。
+
+| 模块 | 参考编号 | 当前连接方式与边界 |
+|---|---|---|
+| 三角肌 | FJ1468／FJ1513／FJ1467 | 三路主动线，共享远端；局部已为抱箍让位，原肩胛软接触未解决 |
+| 冈下肌 | FJ1500 | 近端前支承／背板穿骨夹持；远端自由盖经肌腱连接抱箍 |
+| 肩胛下肌 | FJ1504 | 同上；近端支承高度与螺钉长度独立设计 |
+| 大圆肌 | FJ1507 | 保留此前接口候选，本轮未完成同等程度的近端紧固完善 |
+
+以上编号用于参考模型与路径追溯，功能分组不能代替力矩与实际肌肉行为验证。两块肩袖肌的完整连接不代表四模块全部固定、全臂布局冻结或整肩驱动完成。
+
+### 2.3 两块肩袖肌的名义力链
+
+手拉入口 → 肌腹内部主动钢丝／终端止挡 → 自由端盖 → M2销及带槽环 → 回折钢丝肌腱 → 骨干抱箍 → 肱骨；反力经近端盖、TPU端垫、前支承、穿骨M3与背板传到肩胛骨。GH关节提供对应约束反力。肩胛／锁骨夹具几何见2.6–2.7节；实际夹紧、工作台适配和反力闭环仍未验证。
+
+TPU本身不主动供能；其变形与恢复受钢丝接触、拮抗肌及外载影响。两个远端盖与对应止挡不属于肱骨刚体，必须求解柔性肌腹、接触和肌腱约束下的自由末端平衡。不能将端盖固定在空间或直接绑到肱骨上，借此得到运动范围。
+
+内部TPU钢丝通道与外部Bowden导管不同。手拉方案仍需落实入口方向、夹持长度、安全行程及反力；只有实际选用外部导管时，才加入其固定与反力结构。
+
+### 2.4 关键名义参数
+
+| 参数 | 冈下肌FJ1500 | 肩胛下肌FJ1504 |
+|---|---:|---:|
+| 原近端盖内面至骨前面，两轴 | 6.174／5.717 mm | 15.192／15.157 mm |
+| 两轴处原骨片厚度 | 2.745／2.667 mm | 1.775／2.445 mm |
+| TPU夹持端垫厚度 | 2.5 mm | 4 mm |
+| 穿骨螺钉候选 | 2×M3×20 | 2×M3×30 |
+| 孔心距／穿孔直径 | 14／3.4 mm | 14／3.4 mm |
+
+60 mm抱箍站位相对GH定义，细节见[抱箍比较](s1_retained_joint_comparison/shaft_collar/README.md)。两条肌腱采用名义0.6 mm钢丝，采样弯曲半径2.55 mm；含眼环及尾段的中心线长度约95.418／92.130 mm，仅为几何路径，不是最终裁线尺寸或钢丝允许弯曲半径。双孔套及主动线止挡均为未压接候选，不能视为可靠终端固定。
+
+### 2.5 支架到台面的名义连接
+
+两支架基座高度不同，新增公共XZ背板、四个隔套、四组M4×60及两组M6×35连接局部台面接口片。两支架只修改基座孔座，不移动骨侧连接点；局部导出差值单列记录。主体背板225×148×6 mm，两支脚及斜撑联合成一件；18 mm厚局部台面片代表假设的外部支承，不是已选定的工作台。
+
+新增30对象并替换两支架，形成122对象。新增材料／五金对全部对象无超0.001 mm³相交，六路主动线相交为0。独立回读检查7381对材料，无超阈值刚性相交；33对有限接触探针均遇到材料，六条螺钉轴杆孔路清。
+
+螺钉抽出以1 mm采样、首界0.1 mm：仅台架场景六根均可沿轴抽出至70／45 mm；完整未变形场景外侧第二M4抽出7.7 mm碰肩胛。因此当前需先连接台架再安装骨骼；尚未验证骨骼夹持安装、工具空间、螺母／垫圈进入或完整装配顺序。详见[台架候选说明](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/README.md)。该122对象阶段尚无骨侧夹垫／夹爪及锁骨支承，后续候选见2.6–2.7节；几何增加仍不代表真实反力闭环已验证。
+
+### 2.6 肩胛三处接触靴与骨外夹爪
+
+在内侧缘中段、上角、外侧缘上部，以骨面局部PCA及实际前后交点建立候选夹持坐标。中心射线骨片厚约1.862／3.717／8.441 mm；不是新的关节坐标。两面TPU衬垫、独立浮动爪和固定爪配合，六枚M3位于骨外，不新增骨孔；固定爪和连杆联合进改型支架，33对象新增、2支架替换，合成155对象。
+
+刚性后爪及接收部按20 mm抽出路径开敞，解决骨形倒扣和零位净空不能保证拆卸的问题。实际回读155对象、11935对检查无超0.001 mm³刚性相交，36对有限法向接触均遇材料，六个M3孔轴及孔径包络不入骨；六主动线相交为0。三浮动爪在移除本区五金后，沿各自方向20 mm的1 mm采样均清；首界检查精度0.1 mm。
+
+六枚M3在未装肌肉的受检场景可沿轴清出，但外侧两枚在完整场景16.0／22.3 mm碰三角肌，早于所需30.1 mm，当前需先装夹具再装肌腹。骨骼装入、螺母／垫圈进入、工具、衬垫实际保持和整套顺序未验收。不能据此宣称带肌肉原位维护或肩胛已实现真实六自由度固定。详见[结构与路径说明](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/README.md)。该155对象阶段尚无锁骨支承，新增候选见2.7节；预紧／摩擦／骨片承压及驱动仍未知。
+
+### 2.7 锁骨抱夹与背板支承
+
+以SC→AC参考轴15 mm站位、±6 mm范围的截面质心轨迹拟合夹具坐标，质心XY分量拟合RMS约0.133 mm，不重新定义关节中心。两半夹体、双TPU衬垫、骨外M3×20、支承及两组M4×20连接背板；新增20对象、背板加两孔替换，合成175对象。锁骨不钻孔，原骨／肌腹／钢丝不变。
+
+刚性壳壁名义3 mm、夹体轴向12 mm；衬垫外包偏置1 mm，额外0.02 mm模型间隙不等于制造公差。骨／衬垫相关内面沿受检方向作20 mm连续开敞，解决零位配合留下的拆卸倒扣。主杆模型长约153.049 mm、R5，两R3.5下侧斜撑接46×6×28 mm法兰，材料和支承受力未验收。
+
+175对象、15225对零位回读无超0.001 mm³刚性相交，六主动线相交为0，21对有限接触和四紧固孔路通过。两M3／两M4所需20.1 mm清出均清；取下抱夹五金后，前半夹体20 mm抽出清。取下前夹体／衬垫后，未装肌肉时锁骨20 mm候选路径清；完整固定未变形肌腹场景0.6 mm就接触三角肌，当前需先骨／夹具、后肌腹。支承在移除骨骼和指定五金等前置条件下，可离开背板30 mm。不能将这些分步证据拼成完整装配或带肌原位维护通过。详见[结构与路径说明](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/README.md)。
+
+S1固定锁骨的几何连接已有候选，但夹紧、滑移、工具、松衬垫保持、整体骨架装入与工作台实际适配仍未验收，不宣称真实六自由度固定。深层失败归档曾遇Windows长路径限制，初版共面残差以明确标识的短路径复算保留，未伪称原运行快照。
+
+### 2.8 肩胛整骨装入的局部修订
+
+原175对象的1 mm粗采样漏过起步0.1–0.7 mm刚性穿透，峰值约0.040747 mm³；到1 mm后净空不能算从零位可达。针对实测首限，以两局部骨块沿归一化[0,−1,0.3]作连续接收开敞，内侧／外侧分别移除约0.242427／0.061515 mm³。未移骨、改锚点或裁肌腹；微量读回新增差值单独记录，不说严格几何零误差。
+
+该步骤固定44对象、移动肩胛1对象，三片前衬垫需预置；130对象尚未装入，包括GH五金、肱骨、锁骨骨段、肌腹、浮动爪／后衬垫等。骨沿源[0,−0.9578263,0.2873479]取出20 mm（Y约−19.157、Z约+5.747 mm），反向装入；去／回程各独立201姿态、0.1 mm步长，均未超0.001 mm³判据，最大残差约0.00014782 mm³、最小间隙含0。它不证明严格零相交、正制造间隙或数学连续性，也不计入肩胛动作或K指标。
+
+175对象15225对零位、90对父级接触及六肩胛M3孔路已按新支架重查，六主动线保持净空。三前衬垫实际定位保持和手部操作未验证，随骨带衬垫的9方向均起步受阻，不能把该操作当替代。其他骨架／GH／五金安装与完整顺序仍待检查。
+
+[MuJoCo查看脚本](../../../mujoco_arm/tools/view_shoulder_scapula_insertion.py)只做45对象步骤的骨mocap平移（nq=0、nmocap=1），无动力学步进，显示场景关闭碰撞；验收依据来自独立实体细查。当前175对象完整静态查看与此部分步骤分开，详见[审查与复现](s1_fixture_assembly_review/README.md)。
+
+### 2.9 三前衬垫的定位柱与M2保持
+
+三片前衬垫分别增加Ø6.6主柱（侧装M2螺母腔）及Ø2小销，对应孔Ø6.8／2.2；主柱从骨侧插入，背侧M2×6通过OD9／ID6.8×2.8隔套、OD9／ID2.2×0.5垫圈固定。每区4件名义五金，共12新增对象，改三衬垫／两支架，合成187对象。原骨／肌／钢丝和其余170父级源文件不变。
+
+螺母位于接收部背侧3 mm范围内，先从侧槽放入柱，再装衬垫；安装后框架包围侧槽。名义TPU屋面1.65 mm、柱孔径向间隙0.1 mm、螺母每侧轴向间隙0.05 mm都不是打印／承载验收。模型螺钉无螺纹，夹紧与真实位置仍未知。
+
+187对象17391对零位无超阈值刚性相交，六主动线净空；102对父级／新承靠探针均遇材料。侧装螺母、衬垫与暂持螺母、隔套／垫圈／螺钉分步路径共3396姿态、0.1 mm独立往返均清。两处旧衬垫入口在细查中曾起步受阻，已按衬垫自身方向开敞并保留失败，不拿该倒扣当止退。名义金属组不动时，三衬垫沿−n刚性探针均于0.1 mm遇捕获螺母；这只说明所选方向有几何捕获，不是TPU拉出强度或任意逃逸证明。
+
+全部12保持件加入骨装入场景后，57对象、130尚未安装，肩胛20 mm往返402姿态仍在原0.001 mm³判据内，峰值约0.00014782 mm³、间隙含0。当前已有保持结构候选，仍需打印验证衬垫定位／嵌母抗拔、实际拧紧和手／工具操作；GH、后夹爪及余下五金安装未完成。详见[结构与复现](s1_front_liner_keepers/README.md)。
+
+## 3. 肌肉／近端支承父级已验证内容与继承边界
+
+| 检查 | 已有证据 | 不能据此推出 |
+|---|---|---|
+| 92对象实际文件回读 | 文件／变换有记录；回读网格单正材料实体、零边界／非流形边 | 已切片、已制造或具有足够强度 |
+| 四个M3骨孔 | 孔轴通畅；R1.5 mm轴杆探针对骨相交为0 | 螺钉可实际装入、预紧可靠或薄骨安全 |
+| 盖—TPU—支承—骨—背板 | 8处法向推进0.05 mm均进入材料；记录名义间隙 | 真实接触压力、摩擦、防转或夹持力 |
+| 零位材料相交 | 未检出超过0.001 mm³的刚性／钢丝相交 | 所有相交严格为0或全姿态无干涉 |
+| 六路内部主动钢丝 | 对92对象均未超上述体积阈值 | 能顺利穿线、变形中不卡线或摩擦可接受 |
+| 自由末端约束保护 | 旧刚性脚本拒绝此结构 | 新自由末端运动已经求解 |
+
+接触间隙：支承／TPU、支承／骨、背板／骨记录为0；盖／TPU约0.0009／0.00295 mm。这是名义网格读回结果，不是打印公差。检查报告的`stage_pass=false`、`actual_drive_range_deg=null`保持不变。
+
+**未解决项必须保留：**
+
+- 三角肌／工程肩胛约1.84044 mm³材料重叠，属于待分析的柔性接触，尚未批准为合法接触；不能只因TPU柔软就认定通过。
+- 通道壁布尔／导出差值仍存在：基础近端改型约0.009927／0.004769 mm³，冈下肌后续硬件让位另约0.006874 mm³。体积差值不能代替最小壁厚、打印通孔或受压卡线检查。
+- 肩胛夹垫／夹爪及锁骨支承均有几何候选，但工具、完整装配、真实预紧和滑移仍未验证；实际工作台适配与承载也未确认。
+- 螺钉预紧、薄骨承压、抱箍防滑、卡扣安装与疲劳、压接握持、钢丝寿命均未验证。
+- 柔性末端／肌腱平衡、张力容量、摩擦、重力、拮抗恢复、重复往返与联合路径未验证。
+
+工程修改已有体积记录：最新四穿孔相对父肩胛移除约86.626 mm³；冈下肌五金配合额外移除约88.897、增加约15.427 mm³，并用满径R1绕行肋连接存活节点。端垫改型也改变了旧闭腔的填充／开口状态；不得写成所有原空腔完全保留。具体原点、微量清理及修改前后对照见近端支承说明和JSON，不将数值清理作为删掉工作结构的理由。
+
+## 4. 候选谱系与证据适用范围
+
+| 候选 | 比较目的 | 适用的运动证据 | 与最新候选的关系 |
+|---|---|---|---|
+| [24对象紧凑端盖](s1_port_path_revision/whole_shoulder_compact_distal/README.md) | 开放浅窝／紧凑接口 | 固定中心的条件刚性探针 | 历史几何对照，非最新结构 |
+| [34对象GH独立保持](s1_retained_joint_comparison/GH_only_candidate/README.md) | 比较机械保持与原接口 | 重新计算的刚性探针、26方向有限脱出探针 | 有工程改骨，不转移防脱／性能结论 |
+| [46对象抱箍配合](s1_retained_joint_comparison/shaft_collar/README.md) | 比较40／50／60 mm接口；60 mm局部让位 | 保留旧远端盖时，刚性范围与34对象一致 | 还没有自由肌腱末端 |
+| [72对象肌腱连接](s1_retained_joint_comparison/shaft_collar/station_60/tendon_links/README.md) | 两块肩袖肌自由端、卡扣、肌腱及五金 | 零位及局部保持几何；驱动范围未知 | 自由端约束改变，不继承旧刚体范围 |
+| [92对象近端配合](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/README.md) | 补足近端支承、背板及四穿孔 | 零位、孔路及名义接触；驱动范围未知 | 肌肉／近端支承父级，未定版 |
+| [122对象台架接口](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/README.md) | 补基座孔座、公共背板、隔套及局部台面接口 | 全体零位、孔路、接触及螺钉抽出路径 | 历史台架父级，骨侧夹持仍缺，未定版 |
+| [155对象肩胛夹持](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/README.md) | 补三夹区衬垫、双面爪和骨外M3；接收部开敞 | 全体零位、有限接触、孔路及选定拆卸路径 | 肩胛夹持父级；其工具、预紧和驱动未验收 |
+| [175对象锁骨支承](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/bench_mount_candidate/scapula_clamp_candidate/clavicle_mount_candidate/README.md) | 补锁骨抱夹、支承、M4背板接口 | 全体零位、有限接触、孔路及分步拆卸 | 锁骨支承父级；整体装入、工具、夹紧和驱动未验收 |
+| [175对象接收部修订](s1_fixture_assembly_review/README.md) | 消除整骨装入起步隐蔽干涉，仅局部改两支架 | 0.1 mm条件步骤往返、全体零位及90对接触 | 接收部父级；当时未含保持件，余下安装及驱动未验收 |
+| [187对象前衬垫保持](s1_front_liner_keepers/README.md) | 补定位柱／销、侧装螺母和背侧M2 | 全体零位、102接触、分步放置及含保持件装入 | 最新候选；实际夹紧/打印、余下安装与驱动未验收 |
+
+### 4.1 历史刚性范围比较
+
+| 探针方向 | 24对象 | 34／46对象 |
+|---|---:|---:|
+| 屈曲轴＋／－ | +120°（检查上限）／−51.6° | +114.2°／−64.2° |
+| 外展轴＋／－ | +61.1°／−25.0° | +61.1°／−42.6° |
+| 长轴＋／－ | +79.3°／−47.0° | +68.1°／−47.0° |
+
+这些数值是末个未超0.001 mm³相交阈值的采样姿态；常规1°、边界0.1°，间隙查询封顶2 mm。24对象正屈曲末端间隙约1.9022 mm，其余五边界为0；34对象边界间隙记录为0。不能将阈值允许的小重叠称为正制造间隙。24对象主要外展／轴旋首限是远端盖与肩胛，具体首限见[24对象路径报告](s1_port_path_revision/whole_shoulder_compact_distal/rigid_motion_check.json)及[34对象路径报告](s1_retained_joint_comparison/GH_only_candidate/rigid_motion_check.json)。
+
+长轴正负尚未映射为解剖内／外旋。固定GH、固定SC／AC、理想刚性骨侧安装的单轴探针不包含柔性肌腹求解，也不是完整往返、联合动作或数学全姿态证明。34对象26方向直线脱出探针在0.9 mm内遇到保持材料，只是有限几何证据。
+
+### 4.2 历史零位力矩代理
+
+[当前紧凑端点代理](../../../reviews/S1_2026-11-02/current_neutral_proxy_review.json)以六路近／远端inner_face计算`Mᵢ=(Bᵢ−GH)×(Aᵢ−Bᵢ)/|Aᵢ−Bᵢ|`，零位秩3，严格正张力方向覆盖为真，归一化正余量约0.00568314。它属于24对象端点条件，不是72／92对象的已验证力矩能力。
+
+[旧点位审查](S1_LOCAL_ACTUATION_REVIEW.md)使用更早的`s1_modules.json`，零位不满足完整正张力覆盖；两个结论输入不同，不能互相覆盖。两者都没有真实弯曲传力、TPU分布载荷、张力上限、重力和摩擦，不能给出实际驱动力或驱动范围。
+
+## 5. 论文方法、晶格方向与标定
+
+依据本地AIS2026全文§2.3、§4.4：[论文文本](../../../knowledge_base/fulltext/Advanced_Intelligent_Systems_2026_Yoshimura_Accelerating_Musculoskeletal_Robotics_Through___426b72.txt)。参考单元`(x,y,z,p)=(15,10,30,2) mm`，x为外部压缩方向、y为收缩方向、z为非承载方向尺寸、p为杆直径。内部三维晶格、连续通道壁、外表面网格和端部过渡应整体考虑。
+
+最新装配仍使用原肌腹轴向体系：一般单元10/8/10 mm、三角肌12/10/12 mm，杆半径1 mm，局部Z沿中心线。生成器已增加独立Y沿中心线模式，默认Z在受检案例中与原脚本几何对称差为0；**增加Y模式没有自动替换最新装配的肌腹**，不能宣称已复制论文收缩行为。
+
+[方向／通道样件](s1_actuation_calibration/axis_coupons/README.md)比较两组尺寸×Y／Z加载×裸格／连续通道，共8类、20对象，全部完成网格回读。采用相同2×2×2核心及成对一致的打印轴，只在相对两端夹持；不同标距与截面积需归一化，不直接比较同一位移下的力。24份测量记录为空，尚未打印或测力。
+
+TPU95A、FDM与Prusa XL来自论文参考，不是本项目已选工艺。Table S2具体工艺参数本地缺失，见[打印参考](../../../design/TPU_PRINTING_REFERENCE.md)。旧25%、13 mm行程或论文性能不作为当前肌肉能力，裸格响应也不能直接转移到异形整肌腹。
+
+## 6. 目标／底线／最新实际范围
+
+| 编号／动作 | 原目标 | 原底线 | 187对象最新候选实际范围 | 当前限制与验证状态 |
+|---|---:|---:|---|---|
+| K1 肘屈曲 | 145° | 116° | S1不适用；肘驱动未知 | 肘部候选独立保留，未随本轮复验 |
+| K2 GH屈曲 | 120° | 96° | 未知 | 自由末端／肌腱／柔性平衡未求解，未实测 |
+| K3 GH外展 | 120° | 96° | 未知 | 同上；历史刚性61.1°不足以代表本结构 |
+| K4 GH内旋 | 70° | 56° | 未知 | 长轴正负映射及真实驱动待验证 |
+| K5 GH外旋 | 90° | 72° | 未知 | 同上 |
+| K6 肩胛上回旋 | 50° | 36° | S1固定，不验收 | 后续肩胛机构阶段重新验证 |
+| K7 联合抬升 | 170° | 132° | 未知 | 未完成联合路径及实际肱骨方向测量 |
+
+原指标不降低。后续分别报告关节限位、骨段姿态、实体干涉、最小间隙、柔性预测和实测驱动；联合抬升按实际肱骨方向测量，不简单相加关节角。常规采样≤1°，边界0.1°，若有滑移则细化至0.1 mm；从零位连续可达的去程／回程与联合路径均需验证，不把穿过碰撞区后的姿态算可达。
+
+## 7. 下一阶段工作与完成判据
+
+| 顺序 | 工作 | 完成时必须提供的证据 |
+|---|---|---|
+| 1 | 完善GH／后衬垫／夹爪／五金与完整安装顺序，实测三前衬垫保持；补其余模块固定 | 实际接触与紧固对象、安装路径、反力归属、重新导出后的配合检查 |
+| 2 | 完成通道壁检查并确定可试验的工艺与终端 | 壁厚／孔路记录、实际切片与试样、压接／卡扣／抱箍试验；未测项保持未知 |
+| 3 | 标定方向样件及一对真实异形肌肉 | 输入位移、实际缩短、张力、恢复、滞后、卡线／损伤和重复性；不以假定百分比代填 |
+| 4 | 建立自由末端、固定长度肌腱及柔性接触模型 | 真实约束归属、力矩与行程、姿态平衡、与实测对照；不得借用旧刚体范围 |
+| 5 | 在保持GH上验证拮抗驱动，再扩大布局 | 单轴／往返／联合动作范围、首限、间隙及失败记录，随后才评估整肩与整臂 |
+
+数字准备可并行，但没有样件数据时只能报告模型假设和预测，不能关闭性能验收项。当前可行性判断是：已形成可继续研究的几何候选，尚不足以确认稳定、可重复的三轴肩部驱动。
+
+## 8. 查看、复现与文档维护
+
+从项目根目录、已安装项目依赖的Python环境执行；下列查看命令读取现有网格，不重新生成设计：
+
+```powershell
+python mujoco_arm/tools/view_shoulder_manufactured.py --report '02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/fit_revision/assembly_check.json'
+```
+
+重新生成会写入候选输出，应先保存需要保留的结果；步骤及环境见[近端候选复现](s1_retained_joint_comparison/shaft_collar/station_60/origin_mounts/README.md)与[运行说明](../../../RUNNING.md)。任何新导出都要重新核对哈希、对象变换与对应检查，不能只替换图片或单个STL。
+
+[PROJECT_STATUS](../../../PROJECT_STATUS.md)说明当前进度，[CURRENT_BASELINE](../../../design/CURRENT_BASELINE.md)保留有效规格，[DESIGN_BRIEF](../../../design/DESIGN_BRIEF.md)保留任务书及历史。本文件解释当前结构和证据边界；子报告只在其输入与约束范围内有效。
+
+v0.8.37全文见[历史主文档](SHOULDER_DESIGN_v0.8.37_ARCHIVE.md)，此前整理前v0.9.0及其他入口见[逐字节快照](../../../reviews/S1_2026-11-02/document_optimization_before/SHA256.json)。本轮新增独立台架接口候选，父92对象保留；更新前v0.9.1及入口见[台架前文档快照](../../../reviews/S1_2026-11-02/document_before_bench_mount/SHA256.json)。未修改任何实测记录或原验收指标。
+
+2026-11-02肩胛夹持更新：本轮生成独立155对象候选，父122／92对象均保留；更新前v0.9.2及入口见[文档快照](../../../reviews/S1_2026-11-02/document_before_scapula_clamps/SHA256.json)。没有新增实测性能或继承旧角度。
+
+2026-11-02锁骨支承更新：本轮形成175对象独立候选，父155对象保留；更新前v0.9.3及入口见[文档快照](../../../reviews/S1_2026-11-02/document_before_clavicle_mount/SHA256.json)。没有新增实测性能，旧角度不转移。
+
+2026-11-02接收部装入修订：原175对象锁骨支承版保留；更新前v0.9.4及入口见[文档快照](../../../reviews/S1_2026-11-02/document_before_scapula_insertion/SHA256.json)。原粗采样失败和独立细查保留，不把有条件单步骤提升为完整安装或驱动通过。
+
+2026-11-02前衬垫保持更新：187对象独立保存，原175对象不覆盖；更新前v0.9.5见[文档快照](../../../reviews/S1_2026-11-02/document_before_front_liner_keepers/SHA256.json)。此前装入查看默认已切换到当前57对象含保持件步骤，旧175步骤可显式选择历史目录。未新增实测力学或驱动结果。

@@ -1,0 +1,327 @@
+{
+  "scope": "static monolithic TPU candidate from master paths; not physical drive or stage acceptance",
+  "module": "infraspinatus",
+  "master_routes": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\routes_compact_distal_candidate.json",
+  "master_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "parent_sha256": "fe04b5f5594efbb4d3b56ba3f01edef5a0047e489c35aa452b5290a2e885c899",
+  "parts": {
+    "TPU": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\TPU_muscle.stl",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        10397.051884309198,
+        -59.81084888730442
+      ],
+      "roundtrip_relative_error": 2.988305988355614e-07,
+      "removed_positive_debris": [],
+      "export_passes": 2,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 1,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "30549959052ed2f3ff6a58312addda5681c7d637bf553e80bf1083ea359daa87"
+    },
+    "FJ1500/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_origin_cap.stl",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        886.7764203017812
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "a32e0d0289bd1552514c2e2f8dc7114c9264ca60b6c1ff81b26f6bbdffde5006"
+    },
+    "FJ1500/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_distal_cap.stl",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        148.34105404705818
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "ccf4a3afeb9550571ce5f1f791b4621b08f6f2eeef91399f8692e587bd8a72fc"
+    },
+    "FJ1500/distal_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_distal_stop_blank.stl",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "signed_component_volumes_mm3": [
+        10.612917896602681
+      ],
+      "roundtrip_relative_error": 0.0,
+      "removed_positive_debris": [],
+      "export_passes": 1,
+      "positive_material_components": 1,
+      "enclosed_void_shells": 0,
+      "mesh_checks_pass": true,
+      "cavity_printability_verified": false,
+      "sha256": "005037c7c526291cd46fbb07c9380e3ba61bb7505f5653499c45d8cf8c318591",
+      "kind": "stop_blank",
+      "attachment_body": "humerus"
+    }
+  },
+  "wire_material_intersections_mm3": {
+    "FJ1500": {
+      "TPU": 0.0,
+      "FJ1500/origin": 0.0,
+      "FJ1500/distal": 0.0,
+      "FJ1500/distal_stop_blank": 0.0
+    }
+  },
+  "missing_0_75mm_wall_guard_mm3": {
+    "FJ1500": 7.768730421106717
+  },
+  "wire_bone_intersections_mm3": {
+    "FJ1500": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "nominal_hand_pull_endpoint_intersections_mm3": {
+    "FJ1500": {
+      "TPU": 0.0,
+      "FJ1500/origin": 0.0,
+      "FJ1500/distal": 0.0,
+      "FJ1500/distal_stop_blank": 0.0,
+      "bone:scapula": 0.0,
+      "bone:clavicle": 0.0,
+      "bone:humerus": 0.0
+    }
+  },
+  "material_pair_intersections_mm3": [
+    {
+      "a": "TPU",
+      "b": "FJ1500/origin",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "TPU",
+      "b": "FJ1500/distal",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "TPU",
+      "b": "FJ1500/distal_stop_blank",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1500/origin",
+      "b": "FJ1500/distal",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1500/origin",
+      "b": "FJ1500/distal_stop_blank",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "FJ1500/distal",
+      "b": "FJ1500/distal_stop_blank",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "cap_keepout_scope": "actual cap thickness plus explicit 0.15mm fit gap at both faces and radius; actual rigid outlet socket where present",
+  "rigid_origin_outlets": {},
+  "rigid_cap_bone_trim_mm3": {},
+  "origin_stack_revisions": {
+    "FJ1500/distal": {
+      "reduction_mm": 4.0,
+      "pad_material_removed_mm3": 8.29913915367797e-12,
+      "pad_outer_plane_source_mm": [
+        -184.01394091131684,
+        -59.78681255467476,
+        1321.6598287577292
+      ],
+      "bone_seat_moved": false
+    }
+  },
+  "attachment_revisions": {},
+  "compact_distal_terminals": {
+    "FJ1500/distal": {
+      "inner_face_source_mm": [
+        -184.12353625361376,
+        -59.62001964322287,
+        1321.6728282052645
+      ],
+      "outer_face_source_mm": [
+        -185.76746638806767,
+        -57.11812597144449,
+        1321.8678199182928
+      ],
+      "normal_source": [
+        -0.5479767114846323,
+        0.8339645572594586,
+        0.0649972376760969
+      ],
+      "tangent_source": [
+        -0.1494955088083031,
+        -0.021185535824897378,
+        -0.9885354145997798
+      ],
+      "bolt_inner_source_mm": [
+        -184.87101379765528,
+        -59.72594732234735,
+        1316.7301511322655
+      ],
+      "thickness_mm": 3.0,
+      "outer_radius_mm": 3.2,
+      "bolt_pitch_from_wire_mm": 5.0,
+      "bolt_hole_radius_mm": 1.7,
+      "wire_bore_radius_mm": 0.86,
+      "stop_counterbore_radius_mm": 1.4,
+      "stop_counterbore_depth_mm": 2.6,
+      "stop_outer_radius_mm": 1.25,
+      "stop_length_mm": 2.5,
+      "nominal_shoulder_thickness_mm": 0.4,
+      "nominal_axial_stop_gap_mm": 0.05,
+      "fixation_verified": false,
+      "crimp_grip_verified": false
+    }
+  },
+  "compact_stop_capture_inward_mm3": {
+    "FJ1500": {
+      "0": 0.0,
+      "0.04": 0.0,
+      "0.06": 0.02568290657194215
+    }
+  },
+  "compact_bone_mounting_holes_implemented": false,
+  "fitted_terminal_mouths": true,
+  "removed_nonstructural_lattice_tips": [
+    {
+      "volume_mm3": 19.85230019995958,
+      "bounds_source_mm": [
+        -100.71442802814474,
+        -20.838512420654297,
+        1255.8677978515625,
+        -91.54399871826172,
+        -14.894676409292465,
+        1259.3088189606603
+      ],
+      "protected_material_intersection_mm3": 0.0,
+      "source_lattice_fraction": 0.999999999999905,
+      "reason": "detached original lattice cut-off; no attachment, active channel or transition"
+    },
+    {
+      "volume_mm3": 9.460999921569202,
+      "bounds_source_mm": [
+        -90.93064988748188,
+        -17.253137588500977,
+        1263.1514892578125,
+        -86.70511627197266,
+        -14.819313295755201,
+        1266.778448123482
+      ],
+      "protected_material_intersection_mm3": 0.0,
+      "source_lattice_fraction": 0.9999999999999989,
+      "reason": "detached original lattice cut-off; no attachment, active channel or transition"
+    },
+    {
+      "volume_mm3": 0.14887094936849216,
+      "bounds_source_mm": [
+        -111.11853790283203,
+        -31.41906947627393,
+        1262.6511243267385,
+        -110.2737045288086,
+        -30.016941719262178,
+        1266.20492487692
+      ],
+      "protected_material_intersection_mm3": 0.0,
+      "source_lattice_fraction": 1.0000000000000342,
+      "reason": "detached original lattice cut-off; no attachment, active channel or transition"
+    }
+  ],
+  "all_part_bone_intersections_mm3": {
+    "TPU": {
+      "scapula": 0.0018987622026118626,
+      "clavicle": 0.0,
+      "humerus": 7.24654173767915e-05
+    },
+    "FJ1500/origin": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    },
+    "FJ1500/distal": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    },
+    "FJ1500/distal_stop_blank": {
+      "scapula": 0.0,
+      "clavicle": 0.0,
+      "humerus": 0.0
+    }
+  },
+  "free_TPU_wall_guard_outside_assigned_cap_housings": {
+    "FJ1500": {
+      "missing_mm3": 0.008315991847025288,
+      "bounds_source_mm": [
+        -182.56069636457747,
+        -60.48978688075405,
+        1271.3527758629423,
+        -91.19943805852532,
+        -10.067734924587516,
+        1322.0339373824906
+      ]
+    }
+  },
+  "required_wall_mm": 0.75,
+  "wall_guard_scope": "retained active core and connector arclength>=4mm; cap fit housing and actual rigid guide socket excluded explicitly",
+  "dense_core_outer_radius_mm": 1.8,
+  "transition_outer_radius_mm": 3.2,
+  "lumen_radius_mm": 0.86,
+  "conforming_bone_trim_volume_mm3": 544.2794608213027,
+  "bone_intersections_mm3": {
+    "scapula": 0.0018987622026118626,
+    "clavicle": 0.0,
+    "humerus": 7.24654173767915e-05
+  },
+  "unchanged_neighbour_intersections_mm3": {
+    "deltoid": 0.0,
+    "subscapularis": 0.0,
+    "teres_major": 0.0
+  },
+  "stage_pass": false,
+  "not_verified": [
+    "external lead accessibility and bone clearance",
+    "neighbour resolution and complete assembly",
+    "fasteners/crimps and installation",
+    "material stroke, friction and deformation",
+    "joint retention and motion"
+  ]
+}

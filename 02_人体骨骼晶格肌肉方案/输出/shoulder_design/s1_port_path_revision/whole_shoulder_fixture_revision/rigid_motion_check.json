@@ -1,0 +1,335 @@
+{
+  "scope": "actual rigid components, fixed GH single-axis contiguous paths; not shoulder motion acceptance",
+  "assembly_sha256": "57b8ffe2b416103a588c3b7f244993990f3175a31d9e39cff0df56247e0dfee0",
+  "moving_keys": [
+    "bone:humerus",
+    "cap:FJ1468/distal",
+    "cap:FJ1500/distal",
+    "cap:FJ1504/distal",
+    "cap:FJ1507/distal",
+    "stop:FJ1467_stop_blank",
+    "stop:FJ1468_stop_blank",
+    "stop:FJ1513_stop_blank"
+  ],
+  "fixed_keys": [
+    "bone:clavicle",
+    "bone:scapula",
+    "cap:FJ1467/origin",
+    "cap:FJ1468/origin",
+    "cap:FJ1500/origin",
+    "cap:FJ1504/origin",
+    "cap:FJ1507/origin",
+    "cap:FJ1513/origin",
+    "fixture:lateral_frame",
+    "fixture:medial_frame"
+  ],
+  "GH_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "axes_source": {
+    "longitudinal": [
+      -0.17258506979557828,
+      0.014177871716920615,
+      -0.9848925736532052
+    ],
+    "flexion": [
+      -0.9849915762148533,
+      0.0,
+      0.17260241825008904
+    ],
+    "abduction": [
+      0.0,
+      0.9998964030731843,
+      0.014393857068490468
+    ]
+  },
+  "step_deg": 1.0,
+  "boundary_step_deg": 0.1,
+  "intersection_threshold_mm3": 0.001,
+  "results": [
+    {
+      "axis": "flexion",
+      "sign": 1,
+      "last_sample_clear_deg": 0.1,
+      "first_hit_deg": 0.2,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.0011412661678129798
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.005958272409127167
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 0.1,
+          "hits": []
+        },
+        {
+          "angle_deg": 0.2,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0011412661678129798
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "flexion",
+      "sign": -1,
+      "last_sample_clear_deg": 0.0,
+      "first_hit_deg": -0.1,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.0011257295849402178
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.015882492705932633
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -0.1,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0011257295849402178
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "abduction",
+      "sign": 1,
+      "last_sample_clear_deg": 0.0,
+      "first_hit_deg": 0.1,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.0017435205570976245
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.016474162904426253
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 0.1,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0017435205570976245
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "abduction",
+      "sign": -1,
+      "last_sample_clear_deg": -0.1,
+      "first_hit_deg": -0.2,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.0017173106184126589
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.008130734740548833
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -0.1,
+          "hits": []
+        },
+        {
+          "angle_deg": -0.2,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0017173106184126589
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "longitudinal",
+      "sign": 1,
+      "last_sample_clear_deg": 0.1,
+      "first_hit_deg": 0.2,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.001458402779613346
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": 1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.007278204843880568
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": 0.1,
+          "hits": []
+        },
+        {
+          "angle_deg": 0.2,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.001458402779613346
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "longitudinal",
+      "sign": -1,
+      "last_sample_clear_deg": -0.3,
+      "first_hit_deg": -0.4,
+      "endpoint_hits": [
+        {
+          "moving": "bone:humerus",
+          "fixed": "cap:FJ1467/origin",
+          "volume_mm3": 0.0012332047201472364
+        }
+      ],
+      "coarse_samples": [
+        {
+          "angle_deg": 0.0,
+          "hits": []
+        },
+        {
+          "angle_deg": -1.0,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0029908137576747746
+            }
+          ]
+        }
+      ],
+      "boundary_samples": [
+        {
+          "angle_deg": -0.1,
+          "hits": []
+        },
+        {
+          "angle_deg": -0.2,
+          "hits": []
+        },
+        {
+          "angle_deg": -0.3,
+          "hits": []
+        },
+        {
+          "angle_deg": -0.4,
+          "hits": [
+            {
+              "moving": "bone:humerus",
+              "fixed": "cap:FJ1467/origin",
+              "volume_mm3": 0.0012332047201472364
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stage_pass": false,
+  "assumptions": [
+    "scapula and clavicle fixed; nominal GH centre enforced",
+    "humerus-side caps and stop blanks move with humerus as an ideal installed rigid group",
+    "within-group contacts retained in zero-pose report, not independently moving pairs"
+  ],
+  "not_verified": [
+    "joint retention/translation and real cap fastening",
+    "TPU deformation or cable drive",
+    "combined GH/SC/AC motion, K1-K7 acceptance",
+    "physical hysteresis and return motion"
+  ]
+}

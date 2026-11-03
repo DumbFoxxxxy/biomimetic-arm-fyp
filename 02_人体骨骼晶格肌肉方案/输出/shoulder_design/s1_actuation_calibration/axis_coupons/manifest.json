@@ -1,0 +1,743 @@
+{
+  "scope": "Separate two-platen y/z coupons, with and without an integrated wire tube.\n\nSame 2x2x2 core and same print axes for each pair, no orthogonal grip frame.\nThe specimens are BCC-inspired, not author CAD or calibrated full muscles.\nP0 is platen compression; P1 is a hand-wire assembly candidate with an actual\npressure washer and uncrimped stop. Neither has measured TPU performance.\n",
+  "script_sha256": "7d7cdb89f4d8aa26cf912edb192d05b8b7d79eb2c76ed675420d47f9f351e4ef",
+  "cell_geometry_script_sha256": "13c41da7eb9c665f01e76b485a07d6a715c328beef414768a8be17b79258f58b",
+  "cell_is_author_CAD": false,
+  "material_candidate": "TPU95A; actual printer, filament and slicing not selected",
+  "specimens_per_variant": 3,
+  "geometry_variants": 8,
+  "suggested_total_samples": 24,
+  "coupons": [
+    {
+      "name": "reference_15_10_30_y_bare",
+      "cell_xyz_mm": [
+        15.0,
+        10.0,
+        30.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "y",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 20.0,
+      "nominal_gauge_area_mm2": 1800.0,
+      "grip_faces_only": [
+        "y-",
+        "y+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": false,
+      "channel_outer_radius_mm": null,
+      "channel_bore_radius_mm": null,
+      "experiment": "P0 two-platen compression; use nominal stress/strain for axis comparison",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_y_bare\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            14930.952614751832
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "cf7b1df5ee3628974c5a8d95c4723686c0a8a83cb1fc3333f612d02ecce32cda"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": null,
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "reference_15_10_30_y_tube",
+      "cell_xyz_mm": [
+        15.0,
+        10.0,
+        30.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "y",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 20.0,
+      "nominal_gauge_area_mm2": 1800.0,
+      "grip_faces_only": [
+        "y-",
+        "y+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": true,
+      "channel_outer_radius_mm": 1.8,
+      "channel_bore_radius_mm": 0.86,
+      "experiment": "P1 hand-wire compression assembly, not a stiffness material test",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "pressure_washer": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_y_tube\\pressure_washer.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            215.1010974342283
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "5846889f1781b42f2b32d8eec63091d133274bdfdcc0bea384a776be648eda61"
+        },
+        "uncrimped_stop": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_y_tube\\uncrimped_stop.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.506571216515116
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "a2202dd87b1e1e5404320fdcb2597eab01cedfc838c62b5bdbddedb88967db40"
+        },
+        "nominal_wire_NOT_print": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_y_tube\\nominal_wire_NOT_print.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.846487789847743
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "6e11f4edaa550402ae3a17f2fa58880e4393b7fd4dc14b63d418ff9f4fc0d5c6"
+        },
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_y_tube\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            15030.351262940781
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "294b5b62122ba5dea252fa25a2ddb607645e17f9c378fd9379b89920133d6be9"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": {
+        "0.0": 0.0,
+        "0.04": 0.0,
+        "0.06": 0.025426061796841395
+      },
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "reference_15_10_30_z_bare",
+      "cell_xyz_mm": [
+        15.0,
+        10.0,
+        30.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "z",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 60.0,
+      "nominal_gauge_area_mm2": 600.0,
+      "grip_faces_only": [
+        "z-",
+        "z+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": false,
+      "channel_outer_radius_mm": null,
+      "channel_bore_radius_mm": null,
+      "experiment": "P0 two-platen compression; use nominal stress/strain for axis comparison",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_z_bare\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            7291.461533606474
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "eac92db2ddfdd4bbd57b71eb735f2e5d719a9937d9cbd4577643efe7277cf0e7"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": null,
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "reference_15_10_30_z_tube",
+      "cell_xyz_mm": [
+        15.0,
+        10.0,
+        30.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "z",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 60.0,
+      "nominal_gauge_area_mm2": 600.0,
+      "grip_faces_only": [
+        "z-",
+        "z+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": true,
+      "channel_outer_radius_mm": 1.8,
+      "channel_bore_radius_mm": 0.86,
+      "experiment": "P1 hand-wire compression assembly, not a stiffness material test",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "pressure_washer": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_z_tube\\pressure_washer.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            215.1010662643524
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "42f2eec66ba1ce487c5b5b3bf1895d745cbb136d4f434a4949d193ae371b6b6d"
+        },
+        "uncrimped_stop": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_z_tube\\uncrimped_stop.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.50656179882702
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "93a4191bf24ce78e88bf2b87dfaa0904773b91e48798618e7c4a80f28a89e80c"
+        },
+        "nominal_wire_NOT_print": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_z_tube\\nominal_wire_NOT_print.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            21.97113737102701
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "6b220d6e8a96a5dd3839380262204e35ddbd3e58a0cc408957bbb5bb8c938be4"
+        },
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\reference_15_10_30_z_tube\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            7631.560082793738
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "7fb0a31f7013c8b5e610e62120fcb5b099e26b861c4f772763c70800bfe71df0"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": {
+        "0.0": 0.0,
+        "0.04": 0.0,
+        "0.06": 0.025430957190411465
+      },
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "candidate_10_8_10_y_bare",
+      "cell_xyz_mm": [
+        10.0,
+        8.0,
+        10.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "y",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 16.0,
+      "nominal_gauge_area_mm2": 400.0,
+      "grip_faces_only": [
+        "y-",
+        "y+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": false,
+      "channel_outer_radius_mm": null,
+      "channel_bore_radius_mm": null,
+      "experiment": "P0 two-platen compression; use nominal stress/strain for axis comparison",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_y_bare\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            4199.0091951639715
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "eccfc3c335e09876bfaf4900d453c896a41d62953cf465f0dd4ee1cfde8a4963"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": null,
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "candidate_10_8_10_y_tube",
+      "cell_xyz_mm": [
+        10.0,
+        8.0,
+        10.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "y",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 16.0,
+      "nominal_gauge_area_mm2": 400.0,
+      "grip_faces_only": [
+        "y-",
+        "y+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": true,
+      "channel_outer_radius_mm": 1.8,
+      "channel_bore_radius_mm": 0.86,
+      "experiment": "P1 hand-wire compression assembly, not a stiffness material test",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "pressure_washer": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_y_tube\\pressure_washer.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            215.10104022045297
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "a7bf78ea54403a74c763c2878fa5a0a8880a8c09c6a9dc58723cd1b43d0be6dd"
+        },
+        "uncrimped_stop": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_y_tube\\uncrimped_stop.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.506581072445442
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "2aecd9af05f176238a11feb17ec840051f9d742b3c8807de7f95f7dfa942993b"
+        },
+        "nominal_wire_NOT_print": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_y_tube\\nominal_wire_NOT_print.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            9.734048202353735
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "f24e210edc126522e152cb8bd52d4f644c6585ec9838f60c59baadc38771b5a5"
+        },
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_y_tube\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            4250.459621824262
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "7a5aad45bbfa9b8e1a8dfcc3402369b39ef53323b16cc6769df37e7518eded4d"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": {
+        "0.0": 0.0,
+        "0.04": 0.0,
+        "0.06": 0.025426119956226862
+      },
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "candidate_10_8_10_z_bare",
+      "cell_xyz_mm": [
+        10.0,
+        8.0,
+        10.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "z",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 20.0,
+      "nominal_gauge_area_mm2": 320.0,
+      "grip_faces_only": [
+        "z-",
+        "z+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": false,
+      "channel_outer_radius_mm": null,
+      "channel_bore_radius_mm": null,
+      "experiment": "P0 two-platen compression; use nominal stress/strain for axis comparison",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_z_bare\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            3678.004744020361
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "56dc62e7c24fe9474d54c44acf3088d5b936100f2661a6f7abf18d7886e9c294"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": null,
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    },
+    {
+      "name": "candidate_10_8_10_z_tube",
+      "cell_xyz_mm": [
+        10.0,
+        8.0,
+        10.0
+      ],
+      "strut_diameter_mm": 2.0,
+      "cell_count_xyz": [
+        2,
+        2,
+        2
+      ],
+      "paper_load_axis": "z",
+      "print_axes": "unchanged XYZ for both load-axis variants; intended +Z up",
+      "gauge_length_mm": 20.0,
+      "nominal_gauge_area_mm2": 320.0,
+      "grip_faces_only": [
+        "z-",
+        "z+"
+      ],
+      "orthogonal_grip_faces": false,
+      "continuous_channel": true,
+      "channel_outer_radius_mm": 1.8,
+      "channel_bore_radius_mm": 0.86,
+      "experiment": "P1 hand-wire compression assembly, not a stiffness material test",
+      "coordinate_frame": "standalone coupon millimetres, NOT anatomical source coordinates",
+      "sources": {
+        "pressure_washer": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_z_tube\\pressure_washer.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            215.10104229202858
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "5f9a7632f477c326e400e82a8f57439488ac7b891d7e660b29a224c2acb16dbf"
+        },
+        "uncrimped_stop": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_z_tube\\uncrimped_stop.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.50658117489661
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "a024c233eb1a24a21cbca1cda76892882bab427ced02e22362a8aca7b9a86cc3"
+        },
+        "nominal_wire_NOT_print": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_z_tube\\nominal_wire_NOT_print.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            10.846507877490694
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "3bcaf9c4cc963251e8a92b7d417c1eb471053dcabfff30b19cc05a7e3e876b34"
+        },
+        "TPU": {
+          "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_actuation_calibration\\axis_coupons\\candidate_10_8_10_z_tube\\TPU.stl",
+          "translation_source_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_component_volumes_mm3": [
+            3750.378344517941
+          ],
+          "roundtrip_relative_error": 0.0,
+          "removed_positive_debris": [],
+          "export_passes": 1,
+          "positive_material_components": 1,
+          "enclosed_void_shells": 0,
+          "mesh_checks_pass": true,
+          "cavity_printability_verified": false,
+          "sha256": "c165570c426b7ed02c9bea8e7f00566d27be754bfcf670c309fadc7938164964"
+        }
+      },
+      "material_intersections": [],
+      "nominal_stop_capture": {
+        "0.0": 0.0,
+        "0.04": 0.0,
+        "0.06": 0.025426116839676823
+      },
+      "measured_shortening_mm": null,
+      "measured_force_N": null,
+      "calibrated_force_model": false,
+      "stage_pass": false
+    }
+  ],
+  "material_or_muscle_calibration_transferred": false,
+  "not_verified": [
+    "physical printing, supports, channel openness and effective load transfer",
+    "compression, hysteresis, recovery and strain limits; no universal 25% assumption",
+    "P1 cap is wire-preloaded pressure contact, not a tensile specimen or full anatomical muscle"
+  ],
+  "stage_pass": false
+}

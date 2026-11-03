@@ -1,0 +1,265 @@
+{
+  "scope": "Measure actual proximal M3 axes before designing bone reaction mounts.\n\nRayHit.distance is a normalized segment parameter, not millimetres. The\npositions are independently projected to verify depth. No holes are drilled\nand no unbuilt spacer/backplate is counted as an existing connection.\n",
+  "source_sha256": "9b243b1b6b6664d7f29b6788b83b4006c820164ac5fa0bcd316ec6ca203f4a0f",
+  "bone_source": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_retained_joint_comparison/GH_only_candidate/scapula_GH_only.stl",
+    "sha256": "037273906ea0993fffef198c5c4ef58821eabfdfcc2e9338d3787b1d2e58ae35",
+    "translation_source_mm": [
+      -140.0,
+      -70.0,
+      1100.0
+    ],
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "volume_mm3": 79327.54290427815,
+    "positive_components": 1,
+    "export_volume_change_mm3": 1.039169728755951e-05,
+    "simplification_tolerance_mm": 0.01,
+    "simplification_added_mm3": 0.1285635699916368,
+    "simplification_removed_mm3": 0.08147716973801371,
+    "local_added_seam_rounding": [
+      {
+        "edge_source_mm": [
+          [
+            -151.38829899061585,
+            -56.23071401677179,
+            1347.0039267843754
+          ],
+          [
+            -151.045,
+            -55.4076,
+            1346.87
+          ]
+        ],
+        "radius_mm": 0.1,
+        "extension_mm": 0.1,
+        "added_mm3": 0.016847507387865335
+      },
+      {
+        "edge_source_mm": [
+          [
+            -151.045,
+            -55.4076,
+            1346.87
+          ],
+          [
+            -148.8948725022507,
+            -55.84885679856422,
+            1346.8985541500365
+          ]
+        ],
+        "radius_mm": 0.1,
+        "extension_mm": 0.1,
+        "added_mm3": 0.035383305308641866
+      }
+    ]
+  },
+  "routes_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "script_sha256": "d4ab75e120ca64c56b23e0c5cda657b9305cd2a9f2477273cdfcb2d4a8836706",
+  "bolt_hole_radius_mm": 1.7,
+  "bolt_pitch_mm": 14.0,
+  "ray_length_mm": 60.0,
+  "rows": [
+    {
+      "head": "FJ1500",
+      "origin_cap_key": "cap:FJ1500/origin",
+      "holes": [
+        {
+          "sign": -1,
+          "axis_point_source_mm": [
+            -92.16457605554228,
+            -11.756650474399391,
+            1279.2305419690051
+          ],
+          "normal_source": [
+            -0.38688279226822475,
+            0.8887307553655085,
+            0.2459254958604219
+          ],
+          "bone_crossings": [
+            {
+              "source_position_mm": [
+                -89.77604828088997,
+                -17.24347525906583,
+                1277.7122529959702
+              ],
+              "depth_from_ray_start_mm": 11.6737761988555,
+              "position_along_cap_normal_mm": -6.173776198855535,
+              "surface_normal": [
+                -0.368775167630593,
+                0.8731141123177402,
+                0.31886771961211835
+              ]
+            },
+            {
+              "source_position_mm": [
+                -88.71415982829076,
+                -19.68280041245264,
+                1277.0372541346283
+              ],
+              "depth_from_ray_start_mm": 14.41850528430674,
+              "position_along_cap_normal_mm": -8.918505284306779,
+              "surface_normal": [
+                0.3603330225226761,
+                -0.8859438963830899,
+                -0.2919991872269876
+              ]
+            }
+          ],
+          "cap_inner_to_bone_front_mm": 6.173776198855535,
+          "bone_stock_mm": 2.7447290854512403
+        },
+        {
+          "sign": 1,
+          "axis_point_source_mm": [
+            -92.16457605554228,
+            -8.022945838897263,
+            1265.7376012333898
+          ],
+          "normal_source": [
+            -0.38688279226822475,
+            0.8887307553655085,
+            0.2459254958604219
+          ],
+          "bone_crossings": [
+            {
+              "source_position_mm": [
+                -89.95274226185563,
+                -13.103876698296325,
+                1264.3316293645348
+              ],
+              "depth_from_ray_start_mm": 11.217064283782303,
+              "position_along_cap_normal_mm": -5.717064283782316,
+              "surface_normal": [
+                -0.387381944192059,
+                0.8866533080612613,
+                0.25254928354284156
+              ]
+            },
+            {
+              "source_position_mm": [
+                -88.92085761542037,
+                -15.474278379642444,
+                1263.6757026900564
+              ],
+              "depth_from_ray_start_mm": 13.884240666545484,
+              "position_along_cap_normal_mm": -8.384240666545494,
+              "surface_normal": [
+                0.3824848251340621,
+                -0.8790732801003343,
+                -0.28449169892249077
+              ]
+            }
+          ],
+          "cap_inner_to_bone_front_mm": 5.717064283782316,
+          "bone_stock_mm": 2.6671763827631807
+        }
+      ],
+      "existing_fixation_verified": false,
+      "required": "actual front support and blade load-spreading/backing connection; nominal M3 holes alone do not close the reaction path"
+    },
+    {
+      "head": "FJ1504",
+      "origin_cap_key": "cap:FJ1504/origin",
+      "holes": [
+        {
+          "sign": -1,
+          "axis_point_source_mm": [
+            -98.3439134265721,
+            -43.61580936560207,
+            1281.3636761254418
+          ],
+          "normal_source": [
+            0.5397342463094319,
+            -0.8205959559630435,
+            -0.18790747834476515
+          ],
+          "bone_crossings": [
+            {
+              "source_position_mm": [
+                -106.54353370105368,
+                -31.149349651992107,
+                1284.2183587395207
+              ],
+              "depth_from_ray_start_mm": 22.1919585065216,
+              "position_along_cap_normal_mm": -15.191958506521585,
+              "surface_normal": [
+                0.6024759364986952,
+                -0.7894417754706453,
+                -0.11749225115630021
+              ]
+            },
+            {
+              "source_position_mm": [
+                -107.50142204470107,
+                -29.693004596187443,
+                1284.551845792494
+              ],
+              "depth_from_ray_start_mm": 23.966699224193658,
+              "position_along_cap_normal_mm": -16.966699224193643,
+              "surface_normal": [
+                -0.5892421738980627,
+                0.7897957195969469,
+                0.17034195550781348
+              ]
+            }
+          ],
+          "cap_inner_to_bone_front_mm": 15.191958506521585,
+          "bone_stock_mm": 1.7747407176720564
+        },
+        {
+          "sign": 1,
+          "axis_point_source_mm": [
+            -98.3439134265721,
+            -46.74077240026576,
+            1295.0104561863934
+          ],
+          "normal_source": [
+            0.5397342463094319,
+            -0.8205959559630435,
+            -0.18790747834476515
+          ],
+          "bone_crossings": [
+            {
+              "source_position_mm": [
+                -106.5248859753686,
+                -34.30266413626218,
+                1297.8586466293077
+              ],
+              "depth_from_ray_start_mm": 22.157408677948375,
+              "position_along_cap_normal_mm": -15.157408677948377,
+              "surface_normal": [
+                0.5164473825922217,
+                -0.8204599255764313,
+                -0.2452093218798182
+              ]
+            },
+            {
+              "source_position_mm": [
+                -107.8442983512459,
+                -32.29666865367838,
+                1298.317997604613
+              ],
+              "depth_from_ray_start_mm": 24.60196798634708,
+              "position_along_cap_normal_mm": -17.601967986347084,
+              "surface_normal": [
+                -0.5265006459982134,
+                0.8440689452618345,
+                0.10170882659847177
+              ]
+            }
+          ],
+          "cap_inner_to_bone_front_mm": 15.157408677948377,
+          "bone_stock_mm": 2.4445593083987056
+        }
+      ],
+      "existing_fixation_verified": false,
+      "required": "actual front support and blade load-spreading/backing connection; nominal M3 holes alone do not close the reaction path"
+    }
+  ],
+  "not_verified": [
+    "support geometry, fastener access and complete reaction path",
+    "blade bearing strength, preload, printed materials and pull tests"
+  ],
+  "stage_pass": false
+}

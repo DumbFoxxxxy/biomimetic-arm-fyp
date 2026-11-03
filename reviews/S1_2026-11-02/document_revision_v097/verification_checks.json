@@ -1,0 +1,60 @@
+{
+  "scope": "Documentation and evidence consistency only; no geometry regeneration, new capture test or performance validation.",
+  "documents_checked": [
+    "PROJECT_STATUS.md",
+    "design/CURRENT_BASELINE.md",
+    "design/DESIGN_BRIEF.md",
+    "README.md",
+    "RUNNING.md",
+    "02_人体骨骼晶格肌肉方案/README.md",
+    "02_人体骨骼晶格肌肉方案/输出/shoulder_design/SHOULDER_DESIGN.md",
+    "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_GH_assembly_review/README.md"
+  ],
+  "local_link_count": 115,
+  "broken_links": [],
+  "snapshot_hashes_match": true,
+  "historical_brief_unchanged": true,
+  "assembly_reports": {
+    "s1_front_liner_keepers/assembly_check.json": {
+      "report_sha256": "f8192b6ef78a76ab5790cb128ae7042bb8172dc997c158b57ce3a009db6cf869",
+      "source_count": 187,
+      "source_hash_mismatches": []
+    },
+    "s1_GH_assembly_review/retained_depth_6/assembly_check.json": {
+      "report_sha256": "44b8da3d4c166d25d37e7aadc12f46dca86a6f55aadc3cab1855b5b61119b11b",
+      "source_count": 187,
+      "source_hash_mismatches": []
+    }
+  },
+  "changed_GH_source_keys": [
+    "GH_cap_0",
+    "GH_cap_1"
+  ],
+  "parent_axial_audit_matches_assembly_hash": true,
+  "parent_axial_cases": [
+    {
+      "name": "actual_humerus_open_caps",
+      "samples": 251,
+      "entire_sampled_path_clear": true
+    },
+    {
+      "name": "actual_humerus_closed_caps",
+      "samples": 251,
+      "entire_sampled_path_clear": true
+    },
+    {
+      "name": "diagnostic_ball_closed_caps",
+      "samples": 251,
+      "entire_sampled_path_clear": true
+    }
+  ],
+  "experimental_new_intersections": [
+    {
+      "a": "tpu:subscapularis",
+      "b": "GH_cap_1",
+      "volume_mm3": 6.658132283596707
+    }
+  ],
+  "original_GH_reports_unchanged": true,
+  "checks_pass": true
+}

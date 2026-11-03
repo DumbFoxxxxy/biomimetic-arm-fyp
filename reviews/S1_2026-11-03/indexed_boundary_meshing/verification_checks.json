@@ -1,0 +1,232 @@
+{
+  "scope": "Independent readback, collapse replay, interface and meshing evidence audit.",
+  "script_sha256": "4b4d5b292a4726cdfe9b1154f7ee5613af113e7562b22c48523c8433bbc38147",
+  "selected_assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "selected_source_count": 191,
+  "candidate_pointer_unchanged": true,
+  "legacy_loader_checks": [
+    {
+      "module": "infraspinatus",
+      "legacy_STL_vertices_faces_unchanged": true,
+      "source_sha256": "b0dc6d832d274331103d3bc280f312c9c9e9fc80e9e1ea2c4cd49e871213e705"
+    },
+    {
+      "module": "subscapularis",
+      "legacy_STL_vertices_faces_unchanged": true,
+      "source_sha256": "8fde92078241748651a65d6905a1e31d2599b2deb35021e11288431d848817c6"
+    }
+  ],
+  "independent_candidate_checks": [
+    {
+      "branch": "s1_tpu_edge_collapse_revision",
+      "module": "infraspinatus",
+      "revision_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/infraspinatus/epsilon_0.001/surface_revision.json",
+      "revision_report_sha256": "6cbb4b6dcd2a1b3d6a1dd2afdb9cbe89048b233ed6b87f96cf4b713e8e4a529d",
+      "mesh_sha256": "bd873840b9e85e0d831cb04553df3a58bbee593af639796eb0794daed9dc13dd",
+      "independent": {
+        "replay_matches_exact_export": true,
+        "maximum_original_cluster_displacement_mm": 0.0007653675173129535,
+        "surviving_guarded_face_reversals": 0,
+        "operations": 734
+      },
+      "triangles": 80200,
+      "added_material_signed_mm3": 0.001004086270888344,
+      "removed_original_material_signed_mm3": 0.0013248801869077623,
+      "protected_original_stock_loss_signed_mm3": 0.0008658729328146734,
+      "nominal_lumen_overlap_before_mm3": 0.01997961586241528,
+      "nominal_lumen_overlap_after_mm3": 0.020451569273381928,
+      "rigid_objects_checked": 177,
+      "rigid_hits_over_threshold": [],
+      "undeformed_soft_hits_over_threshold": [],
+      "active_wire_hits_over_threshold": [],
+      "positive_components": 1,
+      "adopted_as_current": false
+    },
+    {
+      "branch": "s1_tpu_edge_collapse_revision",
+      "module": "subscapularis",
+      "revision_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/subscapularis/epsilon_0.001/surface_revision.json",
+      "revision_report_sha256": "1dead05163b80445c1753df0f6ce6df6c68f311fd107c1b681726e9af8519475",
+      "mesh_sha256": "10e50d5d65825d98e6e68dd7d591cfcf593c865c83cc7bd3caa9ca9d2897fee0",
+      "independent": {
+        "replay_matches_exact_export": true,
+        "maximum_original_cluster_displacement_mm": 0.0008213078658873463,
+        "surviving_guarded_face_reversals": 0,
+        "operations": 293
+      },
+      "triangles": 84686,
+      "added_material_signed_mm3": 0.00036139635681727033,
+      "removed_original_material_signed_mm3": 0.0008073204800551286,
+      "protected_original_stock_loss_signed_mm3": 5.112879886956396e-05,
+      "nominal_lumen_overlap_before_mm3": 0.013782825140321022,
+      "nominal_lumen_overlap_after_mm3": 0.013973004523615135,
+      "rigid_objects_checked": 177,
+      "rigid_hits_over_threshold": [],
+      "undeformed_soft_hits_over_threshold": [],
+      "active_wire_hits_over_threshold": [],
+      "positive_components": 1,
+      "adopted_as_current": false
+    },
+    {
+      "branch": "s1_tpu_local_fairing_revision",
+      "module": "infraspinatus",
+      "revision_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/surface_revision.json",
+      "revision_report_sha256": "7058a051a2a4759b495206953202eb3338cbb2efd9884d187f2188acb925e284",
+      "mesh_sha256": "5abd6974718f1a0e417a4047e3a14d38dea6a8f2a51bc21b6dee797f292a6e8a",
+      "independent": {
+        "maximum_displacement_from_edge_collapse_input_mm": 0.020000000000111522,
+        "changed_vertex_count": 1193,
+        "reversed_faces_from_input": 144
+      },
+      "triangles": 80200,
+      "added_material_signed_mm3": 0.6410162076372238,
+      "removed_original_material_signed_mm3": 0.11660255636721635,
+      "protected_original_stock_loss_signed_mm3": 0.04877307023618383,
+      "nominal_lumen_overlap_before_mm3": 0.01997961586241528,
+      "nominal_lumen_overlap_after_mm3": 0.03507826599940915,
+      "rigid_objects_checked": 177,
+      "rigid_hits_over_threshold": [],
+      "undeformed_soft_hits_over_threshold": [],
+      "active_wire_hits_over_threshold": [],
+      "positive_components": 1,
+      "adopted_as_current": false
+    },
+    {
+      "branch": "s1_tpu_local_fairing_revision",
+      "module": "subscapularis",
+      "revision_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/subscapularis/move_0.02/surface_revision.json",
+      "revision_report_sha256": "d3883f8956e7d89b98ddc0ebe16b11ce31f05f74808abeefae9dcff4fb0557a1",
+      "mesh_sha256": "38312ebedd7e84f22f0063dac504829a2df68c9f9a5d0c61c2ca9533e5245ff3",
+      "independent": {
+        "maximum_displacement_from_edge_collapse_input_mm": 0.020000000000081928,
+        "changed_vertex_count": 288,
+        "reversed_faces_from_input": 42
+      },
+      "triangles": 84686,
+      "added_material_signed_mm3": 0.300783532652005,
+      "removed_original_material_signed_mm3": 0.007680904943577776,
+      "protected_original_stock_loss_signed_mm3": 0.0053112417389455414,
+      "nominal_lumen_overlap_before_mm3": 0.013782825140321022,
+      "nominal_lumen_overlap_after_mm3": 0.01442076320515148,
+      "rigid_objects_checked": 177,
+      "rigid_hits_over_threshold": [],
+      "undeformed_soft_hits_over_threshold": [],
+      "active_wire_hits_over_threshold": [],
+      "positive_components": 1,
+      "adopted_as_current": false
+    }
+  ],
+  "captured_mesh_attempts": [
+    {
+      "module": "infraspinatus",
+      "branch": "s1_tpu_surface_global_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/infraspinatus/candidate_assembly_obj64.json",
+      "assembly_sha256": "f0bb1abc4ec1fc0677f4cd515df0ab574f55ac399832cae193fc5de97aac5e8b",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/infraspinatus/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "b4ef9fc0d1cb9dbad66f3f8e7918274694ae88b5905ebeb3dc18221556c9f75c",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/infraspinatus/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "250fa1a3520432e67d1cae9bf533e4a5b016510fb5d16abe335483399b358103",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "HXT 3D mesh failed",
+      "error_type": "Exception",
+      "input_indexed_boundary_preserved": true
+    },
+    {
+      "module": "subscapularis",
+      "branch": "s1_tpu_surface_global_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/subscapularis/candidate_assembly_obj64.json",
+      "assembly_sha256": "e062a7248cae6d8e377541504a38624407811661be0f03860945f0332bbe5bf6",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/subscapularis/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "0067147617f8794718f676162368afd1ee3c84347f31310c7c915c9d7ad6d858",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_surface_global_revision/subscapularis/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "7f38218f1a02a3e5961943f9bb77e4c631e9db475f01e98d07c9193d2a445fdf",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "exception: access violation reading 0x0000000000000020",
+      "error_type": "OSError",
+      "input_indexed_boundary_preserved": true
+    },
+    {
+      "module": "infraspinatus",
+      "branch": "s1_tpu_edge_collapse_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/infraspinatus/epsilon_0.001/candidate_assembly.json",
+      "assembly_sha256": "ec90c4129758da0e2c94af5933f4de51b7db2db6a5b5c71b9944325bc3b7b07a",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/infraspinatus/epsilon_0.001/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "4a3ee4509d16fabfac60aeaccea81cf732bd4564bc4fc5650b748348fc87c3c5",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/infraspinatus/epsilon_0.001/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "5d7b666ec2610a6b8e83d46ebd461d3c6738cb6e538d1fb96791d1d08e2fb36a",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "HXT 3D mesh failed",
+      "error_type": "Exception",
+      "input_indexed_boundary_preserved": true
+    },
+    {
+      "module": "subscapularis",
+      "branch": "s1_tpu_edge_collapse_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/subscapularis/epsilon_0.001/candidate_assembly.json",
+      "assembly_sha256": "eb04b95604ceeb1d67797d54322042057ba8a86dedf391bd1a6aac9ca652411c",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/subscapularis/epsilon_0.001/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "d9d6056aa2a6f1c6d883fe96306d0bff06c862ecb0abb3b8c8f6961039eed80b",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_edge_collapse_revision/subscapularis/epsilon_0.001/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "a5556a938bebc409f343ab2921f8d0718d8d589252103934ed609a05515e17be",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "HXT 3D mesh failed",
+      "error_type": "Exception",
+      "input_indexed_boundary_preserved": true
+    },
+    {
+      "module": "infraspinatus",
+      "branch": "s1_tpu_local_fairing_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/candidate_assembly.json",
+      "assembly_sha256": "3c6488c6acd34e3eefaa4a2bb4de09f45e14cd85da8d9a7c2f08ef531d4045a0",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "d86720bd542d5ef4e216816b950b1cb1b73fe08ecb569aa6109f04fc63273442",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/volume_mesh/infraspinatus/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "b380f1b3381f1ab3d5d82c9856f0790832ec76ee361b58b1be78b86f6ce96273",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "HXT 3D mesh failed",
+      "error_type": "Exception",
+      "input_indexed_boundary_preserved": true
+    },
+    {
+      "module": "subscapularis",
+      "branch": "s1_tpu_local_fairing_revision",
+      "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/subscapularis/move_0.02/candidate_assembly.json",
+      "assembly_sha256": "001462e04643f2e51396f349983ac16a2c0a9db356f493704218258ed48a4066",
+      "attempt": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/subscapularis/move_0.02/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "attempt_sha256": "94be10134a546806972c43d8a93fe3dbaf6cdb7f13a8aa20a65d038ece7aec05",
+      "engine_log": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/subscapularis/move_0.02/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06_algorithm10/engine_stdout.txt",
+      "engine_log_sha256": "691549040de76c96e21883bbde0b6fa3decdbfdd12d1c1293d7a01865d0f7753",
+      "process_exit_code": 2,
+      "geometry_pass": false,
+      "numerical_quality_pass": false,
+      "error": "HXT 3D mesh failed",
+      "error_type": "Exception",
+      "input_indexed_boundary_preserved": true
+    }
+  ],
+  "remeshing": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_tpu_local_fairing_revision/infraspinatus/move_0.02/surface_remesh/infraspinatus/angle_60_h0.6/mesh_attempt.json",
+    "sha256": "3b6b0ca3d315746b6c28139e70ab6f3fe35f2bec05d0e0295c8d88a48ea4b48b",
+    "error": "Wrong topology of boundary mesh for parametrization",
+    "classified_entity_counts": {
+      "0": 6035,
+      "1": 9422,
+      "2": 4153
+    }
+  },
+  "complete_accepted_TPU_volume_mesh": false,
+  "adopted_as_current": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "errors": []
+}

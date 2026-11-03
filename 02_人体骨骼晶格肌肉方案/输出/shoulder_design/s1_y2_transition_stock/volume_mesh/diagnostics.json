@@ -1,0 +1,813 @@
+{
+  "scope": "Mesher control test and localized diagnostics of complete-muscle failures.\n\nA successful cube control only validates the import/volume API path. It\ndoes not promote failed complete TPU models to elasticity-ready status.\n",
+  "script_sha256": "1381bce4a5b406f30e0a774c2b64bfd9d8a5e3f4522ab2303f2dff73baeb0e61",
+  "mesher_script_sha256": "ffb7c1b04a2bf969b115662289eb69204ed8aeb94f2f680a67fe8493a31514e8",
+  "control": {
+    "passed": true,
+    "expected_volume_mm3": 1000.0,
+    "metrics": {
+      "tetra_count": 12,
+      "negative_or_zero_volume_count": 0,
+      "volume_mm3": 1000.0000000000001,
+      "minimum_volume_mm3": 55.555555555555536,
+      "mean_ratio_min": 0.5974095099722101,
+      "mean_ratio_quantiles": [
+        0.5974095099722101,
+        0.600872753508281,
+        0.7441697473458226
+      ],
+      "mean_ratio_below_0_05_count": 0
+    },
+    "proves_complete_muscle_mesh_quality": false
+  },
+  "localized_failures": [
+    {
+      "engine_point_local_mm": [
+        -89.7901,
+        -44.2198,
+        50.0609
+      ],
+      "source_coordinate_point_mm": [
+        -179.7301,
+        -59.2198,
+        1321.1308999999999
+      ],
+      "localization_radius_mm": 0.2,
+      "selected_surface_faces": 109,
+      "candidate_unique_edges": 180,
+      "strict_nonadjacent_segment_facet_crossings": [
+        {
+          "edge_vertex_indices": [
+            2566,
+            2570
+          ],
+          "face_index": 5146,
+          "edge_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.7901382446289,
+              -44.2197151184082,
+              50.06096649169922
+            ],
+            [
+              -89.791259765625,
+              -44.21372604370117,
+              50.06808090209961
+            ]
+          ],
+          "intersection": {
+            "t": 0.999518904729082,
+            "u": 0.9981728445548105,
+            "v": 0.0005480852820993223,
+            "point_local_mm": [
+              -89.79012673922267,
+              -44.219754617284,
+              50.06092745346686
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2566,
+            2576
+          ],
+          "face_index": 5161,
+          "edge_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79876708984375,
+              -44.17844009399414,
+              50.11087417602539
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.79875183105469,
+              -44.178531646728516,
+              50.11076736450195
+            ],
+            [
+              -89.80332946777344,
+              -44.143898010253906,
+              50.15376663208008
+            ],
+            [
+              -89.79414367675781,
+              -44.1983757019043,
+              50.08631134033203
+            ]
+          ],
+          "intersection": {
+            "t": 0.9993453118801322,
+            "u": 0.0015592064009804026,
+            "v": 0.000609240806057931,
+            "point_local_mm": [
+              -89.79875616105953,
+              -44.17848973554901,
+              50.11081950962732
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2566,
+            2579
+          ],
+          "face_index": 5159,
+          "edge_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79411315917969,
+              -44.19851303100586,
+              50.08614730834961
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.7940902709961,
+              -44.19864273071289,
+              50.08599090576172
+            ],
+            [
+              -89.80332946777344,
+              -44.143898010253906,
+              50.15376663208008
+            ]
+          ],
+          "intersection": {
+            "t": 0.9995613848400655,
+            "u": 0.9980044857502003,
+            "v": 0.0019589264076980313,
+            "point_local_mm": [
+              -89.79410787861082,
+              -44.198537484590766,
+              50.086121529602934
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2567,
+            2568
+          ],
+          "face_index": 5151,
+          "edge_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.791259765625,
+              -44.21372604370117,
+              50.06808090209961
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79411315917969,
+              -44.19851303100586,
+              50.08614730834961
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ]
+          ],
+          "intersection": {
+            "t": 0.999604076810456,
+            "u": 0.2826880623700273,
+            "v": 0.7172048298009662,
+            "point_local_mm": [
+              -89.7912555699363,
+              -44.21374165746282,
+              50.068064794460994
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2567,
+            2568
+          ],
+          "face_index": 5155,
+          "edge_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.791259765625,
+              -44.21372604370117,
+              50.06808090209961
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.790771484375,
+              -44.21634292602539,
+              50.06497573852539
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ],
+            [
+              -89.79187774658203,
+              -44.21042251586914,
+              50.07200241088867
+            ]
+          ],
+          "intersection": {
+            "t": 0.9999448265143568,
+            "u": 0.13523021331157478,
+            "v": 0.5191910479076816,
+            "point_local_mm": [
+              -89.79125918093894,
+              -44.21372821954153,
+              50.068078657435514
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2567,
+            2571
+          ],
+          "face_index": 5145,
+          "edge_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.7901382446289,
+              -44.2197151184082,
+              50.06096649169922
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ],
+            [
+              -89.78902435302734,
+              -44.22564697265625,
+              50.053924560546875
+            ]
+          ],
+          "intersection": {
+            "t": 0.9987210182659706,
+            "u": 0.9989634603887895,
+            "v": 0.0005555329481601297,
+            "point_local_mm": [
+              -89.79012612537144,
+              -44.21975789684999,
+              50.06092355713173
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2567,
+            2578
+          ],
+          "face_index": 5151,
+          "edge_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.7940902709961,
+              -44.19864273071289,
+              50.08599090576172
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79411315917969,
+              -44.19851303100586,
+              50.08614730834961
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ]
+          ],
+          "intersection": {
+            "t": 0.9995031249976563,
+            "u": 0.9927583074870957,
+            "v": 0.007152358694354181,
+            "point_local_mm": [
+              -89.79408359909054,
+              -44.19866982016576,
+              50.08596179199205
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2569,
+            2570
+          ],
+          "face_index": 5146,
+          "edge_points_local_mm": [
+            [
+              -89.790771484375,
+              -44.21634292602539,
+              50.06497573852539
+            ],
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.7901382446289,
+              -44.2197151184082,
+              50.06096649169922
+            ],
+            [
+              -89.791259765625,
+              -44.21372604370117,
+              50.06808090209961
+            ]
+          ],
+          "intersection": {
+            "t": 0.7629268823218669,
+            "u": 0.8650562443677947,
+            "v": 0.13427954383021037,
+            "point_local_mm": [
+              -89.79028254807956,
+              -44.21893312425715,
+              50.06189951433329
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2569,
+            2581
+          ],
+          "face_index": 5149,
+          "edge_points_local_mm": [
+            [
+              -89.790771484375,
+              -44.21634292602539,
+              50.06497573852539
+            ],
+            [
+              -89.79187774658203,
+              -44.21042251586914,
+              50.07200241088867
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.791259765625,
+              -44.21372604370117,
+              50.06808090209961
+            ],
+            [
+              -89.7940902709961,
+              -44.19864273071289,
+              50.08599090576172
+            ]
+          ],
+          "intersection": {
+            "t": 0.6067207126392152,
+            "u": 0.9352534306845154,
+            "v": 0.06472016369993998,
+            "point_local_mm": [
+              -89.79144267656962,
+              -44.21275089055627,
+              50.069238966189126
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2570,
+            2573
+          ],
+          "face_index": 5141,
+          "edge_points_local_mm": [
+            [
+              -89.79013061523438,
+              -44.2197380065918,
+              50.060943603515625
+            ],
+            [
+              -89.78902435302734,
+              -44.22564697265625,
+              50.053924560546875
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.7806625366211,
+              -44.2531623840332,
+              50.02739715576172
+            ],
+            [
+              -89.78903198242188,
+              -44.22560119628906,
+              50.053977966308594
+            ],
+            [
+              -89.7901382446289,
+              -44.2197151184082,
+              50.06096649169922
+            ]
+          ],
+          "intersection": {
+            "t": 0.42932836821044973,
+            "u": 0.4322480902146235,
+            "v": 0.5672876261224177,
+            "point_local_mm": [
+              -89.78965566548622,
+              -44.22227489335006,
+              50.05793012925145
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2575,
+            2584
+          ],
+          "face_index": 5166,
+          "edge_points_local_mm": [
+            [
+              -89.79875183105469,
+              -44.178531646728516,
+              50.11076736450195
+            ],
+            [
+              -89.80332946777344,
+              -44.143898010253906,
+              50.15376663208008
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.804443359375,
+              -44.14493179321289,
+              50.15373992919922
+            ],
+            [
+              -89.79876708984375,
+              -44.17844009399414,
+              50.11087417602539
+            ]
+          ],
+          "intersection": {
+            "t": 0.0019191059593257913,
+            "u": 0.0005590539452476541,
+            "v": 0.9988630335503333,
+            "point_local_mm": [
+              -89.7987606160246,
+              -44.17846518111036,
+              50.11084988465261
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            2578,
+            2584
+          ],
+          "face_index": 5165,
+          "edge_points_local_mm": [
+            [
+              -89.7940902709961,
+              -44.19864273071289,
+              50.08599090576172
+            ],
+            [
+              -89.80332946777344,
+              -44.143898010253906,
+              50.15376663208008
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -89.78207397460938,
+              -44.25426483154297,
+              50.027374267578125
+            ],
+            [
+              -89.79875183105469,
+              -44.178531646728516,
+              50.11076736450195
+            ],
+            [
+              -89.79411315917969,
+              -44.19851303100586,
+              50.08614730834961
+            ]
+          ],
+          "intersection": {
+            "t": 0.0019751615247177315,
+            "u": 5.7471426034551095e-05,
+            "v": 0.9995350367991899,
+            "point_local_mm": [
+              -89.79410851990208,
+              -44.198534601047356,
+              50.08612477376865
+            ]
+          }
+        }
+      ],
+      "open_patch": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/infraspinatus/validated_manifold_h0.8_facetangle1e-06_algorithm10/failure_patch_OPEN.stl",
+      "interpretation": "local floating-point intersection diagnostic; open patch is not a replacement muscle or full self-intersection proof",
+      "module": "infraspinatus",
+      "native_stdout_sha256": "7977edd56ba94fdb044583e80d233a29b6559b168c5e278d88e7e692cefe8b49",
+      "port_context": {
+        "origin": {
+          "distance_to_inner_face_point_mm": 111.6587837064107,
+          "normal_offset_mm": 2.000000005650376,
+          "in_plane_radius_mm": 111.64087055721308
+        },
+        "distal": {
+          "distance_to_inner_face_point_mm": 4.444788415329868,
+          "normal_offset_mm": -2.1089555891667064,
+          "in_plane_radius_mm": 3.912601484942354
+        }
+      },
+      "distal_interface_frame_coordinates_mm": [
+        -0.12956263266556645,
+        -3.910455715666639,
+        -2.1089555891667064
+      ],
+      "engine_point_inside_any_Y2_infill_bounds": false
+    },
+    {
+      "engine_point_local_mm": [
+        -44.3809,
+        -51.5083,
+        20.1229
+      ],
+      "source_coordinate_point_mm": [
+        -146.61090000000002,
+        -90.7783,
+        1309.6629
+      ],
+      "localization_radius_mm": 0.2,
+      "selected_surface_faces": 68,
+      "candidate_unique_edges": 114,
+      "strict_nonadjacent_segment_facet_crossings": [
+        {
+          "edge_vertex_indices": [
+            3971,
+            3978
+          ],
+          "face_index": 7998,
+          "edge_points_local_mm": [
+            [
+              -44.38088989257814,
+              -51.50830078125001,
+              20.122817993164062
+            ],
+            [
+              -44.33975219726564,
+              -51.54339981079102,
+              20.22454833984375
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -44.38087081909181,
+              -51.50831604003907,
+              20.12286949157715
+            ],
+            [
+              -44.35717391967775,
+              -51.5290756225586,
+              20.174623489379883
+            ],
+            [
+              -44.378017425537124,
+              -51.51492309570313,
+              20.1346492767334
+            ]
+          ],
+          "intersection": {
+            "t": 0.000897105974140309,
+            "u": 0.0007346638925119668,
+            "v": 0.00014793947171758663,
+            "point_local_mm": [
+              -44.380852987705914,
+              -51.508332268799094,
+              20.12290925606582
+            ]
+          }
+        },
+        {
+          "edge_vertex_indices": [
+            3972,
+            3976
+          ],
+          "face_index": 7985,
+          "edge_points_local_mm": [
+            [
+              -44.38087081909181,
+              -51.50831604003907,
+              20.12286949157715
+            ],
+            [
+              -44.35717391967775,
+              -51.5290756225586,
+              20.174623489379883
+            ]
+          ],
+          "facet_points_local_mm": [
+            [
+              -44.38088989257814,
+              -51.50830078125001,
+              20.122817993164062
+            ],
+            [
+              -44.04040908813478,
+              -51.1478500366211,
+              20.049060821533203
+            ],
+            [
+              -44.33975219726564,
+              -51.54339981079102,
+              20.22454833984375
+            ]
+          ],
+          "intersection": {
+            "t": 0.0007569524323286148,
+            "u": 9.297424359101648e-07,
+            "v": 0.000891988533800834,
+            "point_local_mm": [
+              -44.38085288166616,
+              -51.508331754055554,
+              20.122908666891668
+            ]
+          }
+        }
+      ],
+      "open_patch": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/subscapularis/validated_manifold_h0.8_facetangle1e-06_algorithm10/failure_patch_OPEN.stl",
+      "interpretation": "local floating-point intersection diagnostic; open patch is not a replacement muscle or full self-intersection proof",
+      "module": "subscapularis",
+      "native_stdout_sha256": "bcaa3550365279f5b4e6f99c70a3947cf8d92d2a9e6b16d9b0a860ca1b90ede3",
+      "port_context": {
+        "origin": {
+          "distance_to_inner_face_point_mm": 69.78735031260764,
+          "normal_offset_mm": 7.332367670513065,
+          "in_plane_radius_mm": 69.40108535173663
+        },
+        "distal": {
+          "distance_to_inner_face_point_mm": 4.868891641721075,
+          "normal_offset_mm": -0.9321068210729816,
+          "in_plane_radius_mm": 4.778836960279202
+        }
+      },
+      "distal_interface_frame_coordinates_mm": [
+        -0.04116636388648562,
+        4.7786596471620495,
+        -0.9321068210729816
+      ],
+      "engine_point_inside_any_Y2_infill_bounds": false
+    }
+  ],
+  "attempts": [
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/infraspinatus/analysis_simplify_e0.005_h0.8/mesh_attempt.json",
+      "sha256": "5fc2c7a8ddfda2eb385ec9631c33d95116b3f9ac4375171c9df8c9b8694c9278",
+      "module": "infraspinatus",
+      "mode": "analysis_simplify",
+      "gmsh_algorithm_3d": 1,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "Invalid boundary mesh (overlapping facets) on surface 1 surface 1"
+    },
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/infraspinatus/analysis_simplify_e0.005_h0.8_facetangle1e-06/mesh_attempt.json",
+      "sha256": "1c7c112b4229e7e367b7d611ecaa8c2b8e44f49a4648e2c7fe53e066ed0e36f5",
+      "module": "infraspinatus",
+      "mode": "analysis_simplify",
+      "gmsh_algorithm_3d": 1,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "PLC Error:  A segment and a facet intersect at point"
+    },
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/infraspinatus/preserve_h0.8/mesh_attempt.json",
+      "sha256": "462f2c7c46e1a16ea9256ee57752adb498f6d4804977ad53e21e8771a1bc1645",
+      "module": "infraspinatus",
+      "mode": "preserve",
+      "gmsh_algorithm_3d": 1,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "Invalid boundary mesh (overlapping facets) on surface 1 surface 1"
+    },
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/infraspinatus/validated_manifold_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "sha256": "ba4c9a1cd1cd2cb3651aaa7dfb62830b2d81e25d3d427cbab2931c33616d60c9",
+      "module": "infraspinatus",
+      "mode": "validated_manifold",
+      "gmsh_algorithm_3d": 10,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "HXT 3D mesh failed"
+    },
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/subscapularis/preserve_h0.8_facetangle1e-06/mesh_attempt.json",
+      "sha256": "b2ab6fc4d3a9a58f53d29f8db7e066a4e45e6636980ca00a8ba676e5f0f04e1e",
+      "module": "subscapularis",
+      "mode": "preserve",
+      "gmsh_algorithm_3d": 1,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "Invalid boundary mesh (overlapping facets) on surface 1 surface 1"
+    },
+    {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/volume_mesh/subscapularis/validated_manifold_h0.8_facetangle1e-06_algorithm10/mesh_attempt.json",
+      "sha256": "047f766e760e5a70f1294494ce335c5e80df8a1398a5b6d0fc1baffdcd4503d6",
+      "module": "subscapularis",
+      "mode": "validated_manifold",
+      "gmsh_algorithm_3d": 10,
+      "geometry_pass": false,
+      "elasticity_quality_pass": false,
+      "error": "HXT 3D mesh failed"
+    }
+  ],
+  "complete_muscle_meshes_ready_for_elasticity": false,
+  "physical_material_calibrated": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

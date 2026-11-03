@@ -39,7 +39,7 @@ MUSCLE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入
 BONE_DIR = frames.PROJECT_ROOT / '02_人体骨骼晶格肌肉方案' / '输入' / '骨骼'
 MODULES_DIR = frames.OUTPUT_DIR / 'shoulder_modules'
 
-#: paper cell (x, y, z) and strut diameter p, §6.6
+#: Historical candidate, not the AIS2026 reference (15,10,30).
 CELL_MM = (15.0, 10.0, 20.0)
 STRUT_R_MM = 1.0
 #: elbow channel: outer R1.6, wire bore R0.85, wall 0.75 (§5.7)
@@ -250,8 +250,18 @@ def swept_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM, max_cells=400
     return struts, cells, skipped
 
 
+def path_cell_dimensions(cell,path_axis='z'):
+    """Two transverse pitches and one centreline pitch in paper coordinates."""
+    if len(cell)!=3 or any(not np.isfinite(v) or v<=0 for v in cell):
+        raise ValueError('Cell dimensions must be three positive finite values')
+    if path_axis=='z':return cell[0],cell[1],cell[2]
+    if path_axis=='y':return cell[0],cell[2],cell[1]
+    raise ValueError('Only y and z centreline mappings are supported')
+
+
 def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
-                       i_range=(-3, 3), j_range=(-2, 2), max_cells=4000):
+                       i_range=(-3, 3), j_range=(-2, 2), max_cells=4000,path_axis='z',
+                       initial_transverse_axis=None,frame_record=None):
     """Structured X lattice on a parallel-transported frame.
 
     The two earlier attempts failed because cells never shared nodes (§5.4.16): a world grid
@@ -265,7 +275,7 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
     pts = [np.asarray(p, float) for p in path]
     seg = [np.linalg.norm(b - a) for a, b in zip(pts, pts[1:])]
     total = float(sum(seg))
-    sz = cell[2]
+    sx,sy,sz=path_cell_dimensions(cell,path_axis)
     n_st = max(3, int(np.ceil(total / sz)) + 1)
 
     # stations equally spaced along the polyline
@@ -282,6 +292,15 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
 
     # transport the frame: first station defines it, then minimal rotation each step
     e1, e2, t0 = frames_unit(tangents[0])
+    if initial_transverse_axis is not None:
+        seed=np.asarray(initial_transverse_axis,float)
+        seed=seed-t0*float(seed@t0)
+        if not np.all(np.isfinite(seed)) or np.linalg.norm(seed)<1e-9:
+            raise ValueError('Initial transverse axis must have a finite component normal to the path')
+        e1=seed/np.linalg.norm(seed);e2=np.cross(t0,e1)
+    # For paper-y along the centreline, paper-z is -transport_e2. The
+    # paper basis [e1,t0,-e2] remains right-handed; node indices become x,z,y.
+    if path_axis=='y':e2=-e2
     frames = [(e1, e2, t0)]
     for k in range(1, n_st):
         t_prev = frames[-1][2]
@@ -315,8 +334,16 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
         du.append(best[1][0])
         dv.append(best[1][1])
     u0, v0 = float(np.median(du)), float(np.median(dv))
+    if frame_record is not None:
+        frame_record.update(path_axis=path_axis,requested_cell_xyz_mm=list(cell),
+                            transverse_and_path_pitches_mm=[sx,sy,sz],
+                            path_length_mm=total,station_spacing_mm=total/(n_st-1),
+                            grid_offset_transverse_mm=[u0,v0],
+                            stations=[dict(centre_source_mm=p.tolist(),
+                                           paper_basis_columns_source=np.column_stack([f1,t,f2]).tolist()
+                                           if path_axis=='y' else np.column_stack([f1,f2,t]).tolist())
+                                      for p,(f1,f2,t) in zip(stations,frames)])
 
-    sx, sy = cell[0], cell[1]
     nodes = {}
     inside = {}
     for k in range(n_st):
@@ -328,6 +355,7 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
                 inside[(i, j, k)] = mesh_geom.signed_distance(p, tri) < 0.0
 
     pieces, cells, skipped = [], 0, 0
+    emitted_centres=[];emitted_nodes=set()
     for k in range(n_st - 1):
         for i in range(i_range[0], i_range[1]):
             for j in range(j_range[0], j_range[1]):
@@ -351,11 +379,16 @@ def structured_lattice(envelope, tri, path, cell=CELL_MM, r=STRUT_R_MM,
                     skipped += 1
                     continue
                 cells += 1
+                if frame_record is not None:
+                    emitted_centres.append(centre.tolist());emitted_nodes.update(live)
                 for c in live:
                     seg_ = rod(centre, nodes[c], r)
                     if seg_ is not None:
                         pieces.append(seg_)
                 pieces.append(mf().Manifold.sphere(r, 12).translate(list(centre)))
+    if frame_record is not None:
+        frame_record['cell_centres_source_mm']=emitted_centres
+        frame_record['live_corner_nodes_source_mm']=[nodes[c].tolist() for c in sorted(emitted_nodes)]
     if not pieces:
         return None, cells, skipped
     struts = union_all(pieces)
@@ -386,13 +419,21 @@ def main(argv=None):
                     help='lattice grid: world-axis and per-station swept are the two 5.4.15/'
                          '5.4.16 failures; structured is the parallel-transported grid that '
                          'shares corner nodes')
+    ap.add_argument('--path-axis',choices=('z','y'),default='z',
+                    help='historical z, or AIS2026 contraction coordinate y along the centreline; '
+                         'y requires structured mode and a separate output directory')
     ap.add_argument('--root-boss-mm', type=float, default=0.0,
                     help='radius of a densified boss at a shared insertion seat [mm]; the three '
                          'deltoid branches are on independent grids and need one to connect (R11)')
     ap.add_argument('--cell', type=float, nargs=3, metavar=('X', 'Y', 'Z'),
                     default=list(CELL_MM),
-                    help='lattice cell in mm; default is the paper value 15/10/20')
+                    help='candidate cell in mm; historical default 15/10/20, AIS2026 reference 15/10/30')
     args = ap.parse_args(argv)
+    path_cell_dimensions(args.cell,args.path_axis)
+    if args.path_axis=='y' and args.mode!='structured':
+        ap.error('The y mapping is implemented only for the connected structured grid')
+    if args.path_axis=='y' and Path(args.out).resolve()==(frames.OUTPUT_DIR/'shoulder_tpu').resolve():
+        ap.error('Choose a separate --out directory for the y-mapped candidate; preserve existing parts')
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -452,7 +493,7 @@ def main(argv=None):
             # sweep along one branch cannot fill the other two
             parts, cells, skipped = [], 0, 0
             for mid, cpath in channels:
-                s, c, sk = structured_lattice(envelope, tri, cpath, cell=tuple(args.cell))
+                s, c, sk = structured_lattice(envelope, tri, cpath, cell=tuple(args.cell),path_axis=args.path_axis)
                 cells += c
                 skipped += sk
                 if s is not None:
@@ -608,10 +649,13 @@ def main(argv=None):
                      'stl_file': target.name})
 
     if args.json_out:
-        I.write_report(args.json_out, {'scope': 'X lattice (paper cell 15/10/20, p=2) plus '
+        I.write_report(args.json_out, {'scope': 'BCC-inspired lattice with candidate cell dimensions plus '
                                        'continuous R1.6 channel with R0.85 bore; no end caps, '
                                        'no pads, no surface strands',
                                        'lattice_mode': args.mode,
+                                       'centreline_paper_axis':args.path_axis if args.mode=='structured' else None,
+                                       'paper_basis_in_transport_frame':(['e1','tangent','-e2'] if args.path_axis=='y' else ['e1','e2','tangent']) if args.mode=='structured' else None,
+                                       'AIS2026_reference_cell_mm':[15.,10.,30.],
                                        'cell_mm': list(args.cell), 'strut_r_mm': STRUT_R_MM,
                                        'channel_outer_r_mm': CHANNEL_OUTER_R_MM,
                                        'bore_r_mm': BORE_R_MM,

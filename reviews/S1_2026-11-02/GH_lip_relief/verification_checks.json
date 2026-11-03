@@ -1,0 +1,51 @@
+{
+  "scope": "Source/hash/mesh consistency and documentary review; selected axial and placement evidence only. Not full assembly or drive acceptance.",
+  "checks": {
+    "all187_source_hashes_match": true,
+    "only_two_GH_caps_changed": true,
+    "generator_sha_matches": true,
+    "generation_dependencies_match": true,
+    "audit_source_sha_matches": true,
+    "staged_source_sha_matches": true,
+    "no_over_threshold_rigid_overlap": true,
+    "no_over_threshold_wire_overlap": true,
+    "historical_brief_unchanged": true,
+    "local_links_valid": true,
+    "three_scripts_parse": true,
+    "both_caps_single_connected_valid_mesh": true,
+    "staged_failures_preserved": true
+  },
+  "documentation_links_checked": 127,
+  "broken_links": [],
+  "object_count": 187,
+  "full_pair_count": 17391,
+  "changed_sources": [
+    "GH_cap_0",
+    "GH_cap_1"
+  ],
+  "axial_results": [
+    {
+      "name": "actual_humerus_open_caps",
+      "sample_count": 251,
+      "path_clear": true,
+      "first_hit_mm": null
+    },
+    {
+      "name": "actual_humerus_closed_caps",
+      "sample_count": 12,
+      "path_clear": false,
+      "first_hit_mm": 1.1
+    },
+    {
+      "name": "diagnostic_ball_closed_caps",
+      "sample_count": 12,
+      "path_clear": false,
+      "first_hit_mm": 1.1
+    }
+  ],
+  "selected_assembly_paths": 10,
+  "selected_paths_clear": 1,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "checks_pass": true
+}

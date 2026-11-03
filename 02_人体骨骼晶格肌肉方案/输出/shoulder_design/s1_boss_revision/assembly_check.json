@@ -1,0 +1,154 @@
+{
+  "scope": "zero-pose pairwise check of 3 bones, 4 muscle envelopes, 10 pads and 10 caps; excludes tendons, fixture, screws, wire and liner",
+  "manufactured_parts": "D:\\XJTLU\\PSP\\02_人体骨骼晶格肌肉方案\\输出\\shoulder_design\\s1_boss_revision\\parts",
+  "noise_floor_mm3": 0.05,
+  "n_parts": 27,
+  "contacts": [
+    {
+      "a": "bone:humerus",
+      "b": "cap:FJ1467/origin",
+      "overlap_mm3": 0.102,
+      "expected": false
+    },
+    {
+      "a": "cap:FJ1467/origin",
+      "b": "module:deltoid",
+      "overlap_mm3": 0.294,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1468/distal",
+      "b": "module:deltoid",
+      "overlap_mm3": 1216.192,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1468/origin",
+      "b": "module:deltoid",
+      "overlap_mm3": 275.699,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1500/distal",
+      "b": "module:deltoid",
+      "overlap_mm3": 0.242,
+      "expected": false
+    },
+    {
+      "a": "cap:FJ1500/origin",
+      "b": "module:infraspinatus",
+      "overlap_mm3": 887.221,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1504/origin",
+      "b": "module:subscapularis",
+      "overlap_mm3": 2.025,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1507/distal",
+      "b": "module:teres_major",
+      "overlap_mm3": 412.717,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1507/origin",
+      "b": "module:teres_major",
+      "overlap_mm3": 623.732,
+      "expected": true
+    },
+    {
+      "a": "cap:FJ1513/origin",
+      "b": "module:deltoid",
+      "overlap_mm3": 403.527,
+      "expected": true
+    },
+    {
+      "a": "module:deltoid",
+      "b": "pad:FJ1467/origin",
+      "overlap_mm3": 518.959,
+      "expected": true
+    },
+    {
+      "a": "module:deltoid",
+      "b": "pad:FJ1468/distal",
+      "overlap_mm3": 1741.758,
+      "expected": true
+    },
+    {
+      "a": "module:deltoid",
+      "b": "pad:FJ1468/origin",
+      "overlap_mm3": 704.652,
+      "expected": true
+    },
+    {
+      "a": "module:deltoid",
+      "b": "pad:FJ1513/origin",
+      "overlap_mm3": 441.684,
+      "expected": true
+    },
+    {
+      "a": "module:infraspinatus",
+      "b": "pad:FJ1500/distal",
+      "overlap_mm3": 1071.745,
+      "expected": true
+    },
+    {
+      "a": "module:infraspinatus",
+      "b": "pad:FJ1500/origin",
+      "overlap_mm3": 1122.47,
+      "expected": true
+    },
+    {
+      "a": "module:subscapularis",
+      "b": "pad:FJ1504/distal",
+      "overlap_mm3": 803.312,
+      "expected": true
+    },
+    {
+      "a": "module:subscapularis",
+      "b": "pad:FJ1504/origin",
+      "overlap_mm3": 1321.529,
+      "expected": true
+    },
+    {
+      "a": "module:teres_major",
+      "b": "pad:FJ1507/distal",
+      "overlap_mm3": 709.895,
+      "expected": true
+    },
+    {
+      "a": "module:teres_major",
+      "b": "pad:FJ1507/origin",
+      "overlap_mm3": 1870.892,
+      "expected": true
+    }
+  ],
+  "n_unexpected": 2,
+  "unexpected": [
+    {
+      "a": "bone:humerus",
+      "b": "cap:FJ1467/origin",
+      "overlap_mm3": 0.102,
+      "expected": false
+    },
+    {
+      "a": "cap:FJ1500/distal",
+      "b": "module:deltoid",
+      "overlap_mm3": 0.242,
+      "expected": false
+    }
+  ],
+  "allow_list": [
+    "pad <-> its own module (the pad is the TPU end pad)",
+    "cap <-> its own pad",
+    "cap <-> its own module"
+  ],
+  "not_verified": [
+    "zero pose only; the sweep is in 5.4.24 and 5.9.10",
+    "the fixture is checked separately in 5.9.10 / 5.9.11",
+    "envelopes are not a verified deformed TPU state",
+    "no screws modelled"
+  ]
+}

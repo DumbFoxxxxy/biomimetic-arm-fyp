@@ -1,0 +1,411 @@
+{
+  "scope": "Crop source-faithful inspection segments; no mechanical or printing pass.\n\nSegments have flat artificial cuts, no grips and no load calibration. They\ntest fabrication details only, never substitute for whole-muscle tests.\n",
+  "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y_muscle_pair/assembly_check.json",
+  "assembly_sha256": "9ea550acfcff8ffce478efb4d4b35c751cd14fbd162c26d8b4426e4bf984b239",
+  "generation_sha256": "bead1960d236ea78ed2cc7bc738fc1294c4c64d0b6d4d1818f919acc2f950e10",
+  "script_sha256": "cc4b2a95169b94b8a0267bb346dcf9aa7d617c60fa794ca77d7b5836f9ac3c4e",
+  "source_meshes_unchanged": true,
+  "specimens": [
+    {
+      "module": "infraspinatus",
+      "region": "narrow",
+      "station": 9,
+      "selection_rule": "minimum/maximum mapped X*Z grid span among nonterminal stations",
+      "nominal_mapped_section_area_proxy_mm2": 168.94654551824505,
+      "mapped_X_Y_Z_span_mm": [
+        10.10949659638618,
+        5.474742054852084e-14,
+        16.711667480914727
+      ],
+      "source_mesh": "02_人体骨骼晶格肌肉方案\\输出\\shoulder_design\\s1_y_muscle_pair\\infraspinatus\\conforming_15_10_30_surface\\TPU_Y_muscle.stl",
+      "source_sha256": "1203d7f0280430e2c8530b39e840a7e093341b0950ff14355b2b76bc56717db4",
+      "cut_planes_in_source": {
+        "centre_mm": [
+          -165.17619927576254,
+          -48.40604622915365,
+          1315.294150995302
+        ],
+        "normal": [
+          -0.6915380652716506,
+          -0.6505515721218823,
+          0.31393909646632023
+        ],
+        "half_separation_mm": 9.666058791062245
+      },
+      "source_to_candidate_affine": [
+        [
+          -0.6232925478101572,
+          0.7570687990103496,
+          0.19583981568963402,
+          -322.7906716937809
+        ],
+        [
+          -0.3650773947051025,
+          -0.0602452120485453,
+          -0.9290258394149005,
+          1160.3844858487753
+        ],
+        [
+          -0.6915380652716506,
+          -0.6505515721218823,
+          0.31393909646632023,
+          -548.9724573105045
+        ]
+      ],
+      "candidate_to_source_affine": [
+        [
+          -0.6232925478101572,
+          -0.3650773947051025,
+          -0.6915380652716506,
+          -157.19822623540804
+        ],
+        [
+          0.7570687990103496,
+          -0.0602452120485453,
+          -0.6505515721218823,
+          -42.85253959620519
+        ],
+        [
+          0.19583981568963402,
+          -0.9290258394149005,
+          0.31393909646632023,
+          1313.5863538934848
+        ]
+      ],
+      "print_candidate_axis": "local station Y to +Z, unselected manufacturing orientation",
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y_muscle_pair/print_inspection/infraspinatus_narrow.stl",
+        "sha256": "379d47cc2e436e3f1347233ba4a94fefbec48e94e372619f442cffe4a29df69a",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          979.5168060866902
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 2.7803856014922304e-08,
+        "no_material_removed_or_added_as_repair": true
+      },
+      "dimensions_mm": [
+        14.003155708312988,
+        19.936214447021484,
+        19.332117080688477
+      ],
+      "downward_surface_area_beyond_45deg_mm2": 250.15348689171532,
+      "downward_surface_fraction_excluding_bottom": 0.1238356540190483,
+      "overhang_interpretation": "triangle-normal diagnostic only; not support, bridging or slicer analysis",
+      "single_material_component": true,
+      "geometry_readback_usable": true,
+      "print_process_verified": false,
+      "channel_threading_verified": false,
+      "mechanical_calibration_usable": false,
+      "exclusions": [
+        "artificial section cuts replace whole-muscle boundary conditions",
+        "no grips or load transfer interfaces",
+        "cropped channel has artificial openings",
+        "no actual slicing or material test"
+      ]
+    },
+    {
+      "module": "infraspinatus",
+      "region": "broad",
+      "station": 1,
+      "selection_rule": "minimum/maximum mapped X*Z grid span among nonterminal stations",
+      "nominal_mapped_section_area_proxy_mm2": 776.1883372355371,
+      "mapped_X_Y_Z_span_mm": [
+        17.452665583642897,
+        6.635164971229481e-14,
+        44.4739133696002
+      ],
+      "source_mesh": "02_人体骨骼晶格肌肉方案\\输出\\shoulder_design\\s1_y_muscle_pair\\infraspinatus\\conforming_15_10_30_surface\\TPU_Y_muscle.stl",
+      "source_sha256": "1203d7f0280430e2c8530b39e840a7e093341b0950ff14355b2b76bc56717db4",
+      "cut_planes_in_source": {
+        "centre_mm": [
+          -108.22077540599498,
+          -17.892975690684594,
+          1280.9385377682095
+        ],
+        "normal": [
+          -0.8324183116399615,
+          -0.30563135273439884,
+          0.46224369186849634
+        ],
+        "half_separation_mm": 9.666058791062245
+      },
+      "source_to_candidate_affine": [
+        [
+          -0.3140478234739123,
+          0.9474517653297996,
+          0.06090252001965879,
+          -94.71742720188423
+        ],
+        [
+          -0.4565673214519129,
+          -0.0944702524564637,
+          -0.8846590599677582,
+          1081.2064948152947
+        ],
+        [
+          -0.8324183116399615,
+          -0.30563135273439884,
+          0.46224369186849634,
+          -677.9933094761617
+        ]
+      ],
+      "candidate_to_source_affine": [
+        [
+          -0.3140478234739123,
+          -0.4565673214519129,
+          -0.8324183116399615,
+          -100.47629456090624
+        ],
+        [
+          0.9474517653297996,
+          -0.0944702524564637,
+          -0.30563135273439884,
+          -15.333968187380094
+        ],
+        [
+          0.06090252001965879,
+          -0.8846590599677582,
+          0.46224369186849634,
+          1275.6657817751077
+        ]
+      ],
+      "print_candidate_axis": "local station Y to +Z, unselected manufacturing orientation",
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y_muscle_pair/print_inspection/infraspinatus_broad.stl",
+        "sha256": "9ce2870e32426658377a9a5297e49fe342423cff003163ed608fbf42e7378abc",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          1825.7001439009457,
+          0.003948570330183236
+        ],
+        "positive_components": 2,
+        "relative_volume_roundtrip_error": 1.703267138669876e-08,
+        "no_material_removed_or_added_as_repair": true
+      },
+      "dimensions_mm": [
+        20.455230712890625,
+        54.11790466308594,
+        19.332117080688477
+      ],
+      "downward_surface_area_beyond_45deg_mm2": 824.0114356586712,
+      "downward_surface_fraction_excluding_bottom": 0.1983167732413868,
+      "overhang_interpretation": "triangle-normal diagnostic only; not support, bridging or slicer analysis",
+      "single_material_component": false,
+      "geometry_readback_usable": false,
+      "print_process_verified": false,
+      "channel_threading_verified": false,
+      "mechanical_calibration_usable": false,
+      "exclusions": [
+        "artificial section cuts replace whole-muscle boundary conditions",
+        "no grips or load transfer interfaces",
+        "cropped channel has artificial openings",
+        "no actual slicing or material test"
+      ]
+    },
+    {
+      "module": "subscapularis",
+      "region": "narrow",
+      "station": 5,
+      "selection_rule": "minimum/maximum mapped X*Z grid span among nonterminal stations",
+      "nominal_mapped_section_area_proxy_mm2": 198.06327611142757,
+      "mapped_X_Y_Z_span_mm": [
+        7.301651205780386,
+        4.475540164016937e-14,
+        27.12581997269739
+      ],
+      "source_mesh": "02_人体骨骼晶格肌肉方案\\输出\\shoulder_design\\s1_y_muscle_pair\\subscapularis\\conforming_6_8_10_surface\\TPU_Y_muscle.stl",
+      "source_sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63",
+      "cut_planes_in_source": {
+        "centre_mm": [
+          -128.6639986377297,
+          -78.37335944395815,
+          1305.1537715373847
+        ],
+        "normal": [
+          -0.7047665744024562,
+          -0.674468198306651,
+          0.21999255686956157
+        ],
+        "half_separation_mm": 8.117863953677094
+      },
+      "source_to_candidate_affine": [
+        [
+          -0.4866056852600657,
+          0.6852252036234645,
+          0.5419237283896726,
+          -717.927824163752
+        ],
+        [
+          -0.5162547652831972,
+          0.27488010075696967,
+          -0.8111238792750644,
+          1014.4471915265152
+        ],
+        [
+          -0.7047665744024562,
+          -0.674468198306651,
+          0.21999255686956157,
+          -422.5446754630248
+        ]
+      ],
+      "candidate_to_source_affine": [
+        [
+          -0.4866056852600657,
+          -0.5162547652831972,
+          -0.7047665744024562,
+          -123.42992754882425
+        ],
+        [
+          0.6852252036234645,
+          0.27488010075696967,
+          -0.674468198306651,
+          -71.90205268349052
+        ],
+        [
+          0.5419237283896726,
+          -0.8111238792750644,
+          0.21999255686956157,
+          1304.861148042917
+        ]
+      ],
+      "print_candidate_axis": "local station Y to +Z, unselected manufacturing orientation",
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y_muscle_pair/print_inspection/subscapularis_narrow.stl",
+        "sha256": "776ebf6b95d3f8b9d234120ac70f6b88d5c5b3216a7a208389e6e38ea3a67317",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          1313.2890989162795,
+          -0.1752477485142102,
+          -0.08113851822131138
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 2.8784216143764134e-08,
+        "no_material_removed_or_added_as_repair": true
+      },
+      "dimensions_mm": [
+        10.906508445739746,
+        30.426677703857422,
+        16.235727310180664
+      ],
+      "downward_surface_area_beyond_45deg_mm2": 171.69746074460062,
+      "downward_surface_fraction_excluding_bottom": 0.0719043832610418,
+      "overhang_interpretation": "triangle-normal diagnostic only; not support, bridging or slicer analysis",
+      "single_material_component": true,
+      "geometry_readback_usable": true,
+      "print_process_verified": false,
+      "channel_threading_verified": false,
+      "mechanical_calibration_usable": false,
+      "exclusions": [
+        "artificial section cuts replace whole-muscle boundary conditions",
+        "no grips or load transfer interfaces",
+        "cropped channel has artificial openings",
+        "no actual slicing or material test"
+      ]
+    },
+    {
+      "module": "subscapularis",
+      "region": "broad",
+      "station": 1,
+      "selection_rule": "minimum/maximum mapped X*Z grid span among nonterminal stations",
+      "nominal_mapped_section_area_proxy_mm2": 525.1564463516979,
+      "mapped_X_Y_Z_span_mm": [
+        14.533489248997373,
+        5.84425824562463e-14,
+        36.134230215082525
+      ],
+      "source_mesh": "02_人体骨骼晶格肌肉方案\\输出\\shoulder_design\\s1_y_muscle_pair\\subscapularis\\conforming_6_8_10_surface\\TPU_Y_muscle.stl",
+      "source_sha256": "96bac584b31ff77cad3c0959390b9ca4b80c37ce19d8121e2dea667877a54e63",
+      "cut_planes_in_source": {
+        "centre_mm": [
+          -112.52924986325398,
+          -53.259638639211644,
+          1298.565101929187
+        ],
+        "normal": [
+          -0.31848369554502287,
+          -0.9115783326569304,
+          0.25998669024085796
+        ],
+        "half_separation_mm": 8.117863953677094
+      },
+      "source_to_candidate_affine": [
+        [
+          -0.6744845133928766,
+          0.41063725052573335,
+          0.6135533307495288,
+          -848.7359522809162
+        ],
+        [
+          -0.666062141894553,
+          0.020049735935338014,
+          -0.7456267371974825,
+          894.8009808741878
+        ],
+        [
+          -0.31848369554502287,
+          -0.9115783326569304,
+          0.25998669024085796,
+          -413.88084290117615
+        ]
+      ],
+      "candidate_to_source_affine": [
+        [
+          -0.6744845133928766,
+          -0.666062141894553,
+          -0.31848369554502287,
+          -108.28049824528063
+        ],
+        [
+          0.41063725052573335,
+          0.020049735935338014,
+          -0.9115783326569304,
+          -46.702734204732565
+        ],
+        [
+          0.6135533307495288,
+          -0.7456267371974825,
+          0.25998669024085796,
+          1295.53581675913
+        ]
+      ],
+      "print_candidate_axis": "local station Y to +Z, unselected manufacturing orientation",
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y_muscle_pair/print_inspection/subscapularis_broad.stl",
+        "sha256": "c61222cbaa412cefcd54d6818a39136c14e004f1c86462277d113a6aac6cba49",
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "component_volumes_mm3": [
+          2007.7543201915867
+        ],
+        "positive_components": 1,
+        "relative_volume_roundtrip_error": 3.64563546574141e-08,
+        "no_material_removed_or_added_as_repair": true
+      },
+      "dimensions_mm": [
+        17.84848403930664,
+        44.38931655883789,
+        16.235727310180664
+      ],
+      "downward_surface_area_beyond_45deg_mm2": 512.3726753063353,
+      "downward_surface_fraction_excluding_bottom": 0.13047148785969945,
+      "overhang_interpretation": "triangle-normal diagnostic only; not support, bridging or slicer analysis",
+      "single_material_component": true,
+      "geometry_readback_usable": true,
+      "print_process_verified": false,
+      "channel_threading_verified": false,
+      "mechanical_calibration_usable": false,
+      "exclusions": [
+        "artificial section cuts replace whole-muscle boundary conditions",
+        "no grips or load transfer interfaces",
+        "cropped channel has artificial openings",
+        "no actual slicing or material test"
+      ]
+    }
+  ],
+  "actual_drive_range_deg": null,
+  "stage_pass": false
+}

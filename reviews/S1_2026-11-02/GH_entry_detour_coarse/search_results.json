@@ -1,0 +1,984 @@
+{
+  "scope": "Finite two-leg route for cap 1, avoiding the humerus after axial release.",
+  "assembly_source": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_GH_assembly_review/assembly_entries/assembly_check.json",
+  "assembly_sha256": "b8b27fbe3607c5320f75e67f2e2df41c6467cc43ee0dbb84b716c2a60659ac60",
+  "script_sha256": "77173c5c865e6981a5aaf89c66d740368c9ffa8e71b2382fc503c61a38941543",
+  "moving_keys": [
+    "GH_cap_1",
+    "GH_top_washer_1"
+  ],
+  "fixed_keys": [
+    "GH_bottom_washer_0",
+    "GH_bottom_washer_1",
+    "GH_cap_0",
+    "GH_nut_0",
+    "GH_nut_1",
+    "GH_top_washer_0",
+    "bench:backboard",
+    "bench:foot_0/far_washer",
+    "bench:foot_0/near_washer",
+    "bench:foot_0/nut",
+    "bench:foot_0/screw",
+    "bench:foot_1/far_washer",
+    "bench:foot_1/near_washer",
+    "bench:foot_1/nut",
+    "bench:foot_1/screw",
+    "bench:lateral_0/far_washer",
+    "bench:lateral_0/near_washer",
+    "bench:lateral_0/nut",
+    "bench:lateral_0/screw",
+    "bench:lateral_0/spacer",
+    "bench:lateral_1/far_washer",
+    "bench:lateral_1/near_washer",
+    "bench:lateral_1/nut",
+    "bench:lateral_1/screw",
+    "bench:lateral_1/spacer",
+    "bench:medial_0/far_washer",
+    "bench:medial_0/near_washer",
+    "bench:medial_0/nut",
+    "bench:medial_0/screw",
+    "bench:medial_0/spacer",
+    "bench:medial_1/far_washer",
+    "bench:medial_1/near_washer",
+    "bench:medial_1/nut",
+    "bench:medial_1/screw",
+    "bench:medial_1/spacer",
+    "bench:table_interface_patch",
+    "bone:humerus",
+    "bone:scapula",
+    "clamp:lateral_upper/back_liner",
+    "clamp:lateral_upper/far_washer_0",
+    "clamp:lateral_upper/far_washer_1",
+    "clamp:lateral_upper/front_liner",
+    "clamp:lateral_upper/moving_jaw",
+    "clamp:lateral_upper/near_washer_0",
+    "clamp:lateral_upper/near_washer_1",
+    "clamp:lateral_upper/nut_0",
+    "clamp:lateral_upper/nut_1",
+    "clamp:lateral_upper/screw_0",
+    "clamp:lateral_upper/screw_1",
+    "clamp:medial_mid/back_liner",
+    "clamp:medial_mid/far_washer_0",
+    "clamp:medial_mid/far_washer_1",
+    "clamp:medial_mid/front_liner",
+    "clamp:medial_mid/moving_jaw",
+    "clamp:medial_mid/near_washer_0",
+    "clamp:medial_mid/near_washer_1",
+    "clamp:medial_mid/nut_0",
+    "clamp:medial_mid/nut_1",
+    "clamp:medial_mid/screw_0",
+    "clamp:medial_mid/screw_1",
+    "clamp:superior_angle/back_liner",
+    "clamp:superior_angle/far_washer_0",
+    "clamp:superior_angle/far_washer_1",
+    "clamp:superior_angle/front_liner",
+    "clamp:superior_angle/moving_jaw",
+    "clamp:superior_angle/near_washer_0",
+    "clamp:superior_angle/near_washer_1",
+    "clamp:superior_angle/nut_0",
+    "clamp:superior_angle/nut_1",
+    "clamp:superior_angle/screw_0",
+    "clamp:superior_angle/screw_1",
+    "clavicle:M4_far_washer_0",
+    "clavicle:M4_far_washer_1",
+    "clavicle:M4_near_washer_0",
+    "clavicle:M4_near_washer_1",
+    "clavicle:M4_nut_0",
+    "clavicle:M4_nut_1",
+    "clavicle:M4_screw_0",
+    "clavicle:M4_screw_1",
+    "clavicle:fixed_support",
+    "fixture:lateral_frame",
+    "fixture:medial_frame",
+    "liner_keeper:lateral_upper/nut",
+    "liner_keeper:lateral_upper/screw",
+    "liner_keeper:lateral_upper/spacer",
+    "liner_keeper:lateral_upper/washer",
+    "liner_keeper:medial_mid/nut",
+    "liner_keeper:medial_mid/screw",
+    "liner_keeper:medial_mid/spacer",
+    "liner_keeper:medial_mid/washer",
+    "liner_keeper:superior_angle/nut",
+    "liner_keeper:superior_angle/screw",
+    "liner_keeper:superior_angle/spacer",
+    "liner_keeper:superior_angle/washer"
+  ],
+  "not_yet_installed_keys": [
+    "GH_bolt_0",
+    "GH_bolt_1",
+    "bone:clavicle",
+    "cap:FJ1467/origin",
+    "cap:FJ1468/distal",
+    "cap:FJ1468/origin",
+    "cap:FJ1500/origin",
+    "cap:FJ1504/origin",
+    "cap:FJ1507/distal",
+    "cap:FJ1507/origin",
+    "cap:FJ1513/origin",
+    "clavicle:M3_far_washer_0",
+    "clavicle:M3_far_washer_1",
+    "clavicle:M3_near_washer_0",
+    "clavicle:M3_near_washer_1",
+    "clavicle:M3_nut_0",
+    "clavicle:M3_nut_1",
+    "clavicle:M3_screw_0",
+    "clavicle:M3_screw_1",
+    "clavicle:liner_anterior",
+    "clavicle:liner_posterior",
+    "clavicle:moving_jaw",
+    "collar:bolt_0",
+    "collar:bolt_1",
+    "collar:bottom_washer_0",
+    "collar:bottom_washer_1",
+    "collar:jaw_lower",
+    "collar:jaw_upper",
+    "collar:liner_lower",
+    "collar:liner_upper",
+    "collar:nut_0",
+    "collar:nut_1",
+    "collar:top_washer_0",
+    "collar:top_washer_1",
+    "free_terminal:FJ1500",
+    "free_terminal:FJ1504",
+    "link:FJ1500/bone_bolt",
+    "link:FJ1500/bone_groove_ring",
+    "link:FJ1500/bone_inner_washer",
+    "link:FJ1500/bone_nut",
+    "link:FJ1500/bone_outer_washer",
+    "link:FJ1500/bone_uncrimped_sleeve",
+    "link:FJ1500/muscle_bolt",
+    "link:FJ1500/muscle_groove_ring",
+    "link:FJ1500/muscle_inner_washer",
+    "link:FJ1500/muscle_nut",
+    "link:FJ1500/muscle_outer_washer",
+    "link:FJ1500/muscle_uncrimped_sleeve",
+    "link:FJ1500/tendon_wire",
+    "link:FJ1504/bone_bolt",
+    "link:FJ1504/bone_groove_ring",
+    "link:FJ1504/bone_inner_washer",
+    "link:FJ1504/bone_nut",
+    "link:FJ1504/bone_outer_washer",
+    "link:FJ1504/bone_uncrimped_sleeve",
+    "link:FJ1504/muscle_bolt",
+    "link:FJ1504/muscle_groove_ring",
+    "link:FJ1504/muscle_inner_washer",
+    "link:FJ1504/muscle_nut",
+    "link:FJ1504/muscle_outer_washer",
+    "link:FJ1504/muscle_uncrimped_sleeve",
+    "link:FJ1504/tendon_wire",
+    "origin:FJ1500/back_washer_0",
+    "origin:FJ1500/back_washer_1",
+    "origin:FJ1500/backing_plate",
+    "origin:FJ1500/bolt_0",
+    "origin:FJ1500/bolt_1",
+    "origin:FJ1500/front_support",
+    "origin:FJ1500/front_washer_0",
+    "origin:FJ1500/front_washer_1",
+    "origin:FJ1500/nut_0",
+    "origin:FJ1500/nut_1",
+    "origin:FJ1504/back_washer_0",
+    "origin:FJ1504/back_washer_1",
+    "origin:FJ1504/backing_plate",
+    "origin:FJ1504/bolt_0",
+    "origin:FJ1504/bolt_1",
+    "origin:FJ1504/front_support",
+    "origin:FJ1504/front_washer_0",
+    "origin:FJ1504/front_washer_1",
+    "origin:FJ1504/nut_0",
+    "origin:FJ1504/nut_1",
+    "stop:FJ1467_stop_blank",
+    "stop:FJ1468_stop_blank",
+    "stop:FJ1500/distal_stop_blank",
+    "stop:FJ1504/distal_stop_blank",
+    "stop:FJ1513_stop_blank",
+    "tpu:deltoid",
+    "tpu:infraspinatus",
+    "tpu:subscapularis",
+    "tpu:teres_major"
+  ],
+  "attempts": [
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.7273921623466807,
+        -0.5609265419413834,
+        0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.4
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.6811510058884755,
+        -0.7068284869989676,
+        -0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.3849227724601627,
+        -0.593319543932566,
+        -0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.8849842279393794,
+        0.019836581528839242,
+        0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.9549695059778709,
+        0.0,
+        -0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.46554659906725987,
+        -0.019836581528839242,
+        -0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.7177810302282527,
+        0.593319543932566,
+        0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.6693798211181637,
+        0.7068284869989677,
+        -0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.37531164034173453,
+        0.5609265419413834,
+        -0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.21560440682121565,
+        -0.6869919054701283,
+        0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.00832348457368732,
+        -0.9996064325855949,
+        0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.20383322205090382,
+        -0.7266650685278068,
+        -0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 3.1
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.29658719166028213,
+        0.02805316262920408,
+        0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 5.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.29658719166028213,
+        -0.02805316262920408,
+        -0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 15.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        0.20383322205090382,
+        0.7266650685278068,
+        0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.00832348457368732,
+        0.9996064325855949,
+        -0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.21560440682121565,
+        0.6869919054701283,
+        -0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.37531164034173453,
+        -0.5609265419413834,
+        0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.6693798211181637,
+        -0.7068284869989677,
+        0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.7177810302282527,
+        -0.593319543932566,
+        -0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 2.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.46554659906725987,
+        0.019836581528839242,
+        0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.4
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.9549695059778709,
+        0.0,
+        0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 1.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.8849842279393794,
+        -0.019836581528839242,
+        -0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 3.1
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.3849227724601627,
+        0.593319543932566,
+        0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.6811510058884755,
+        0.7068284869989676,
+        0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 5.0,
+      "direction_source": [
+        -0.7273921623466807,
+        0.5609265419413834,
+        -0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.7273921623466807,
+        -0.5609265419413834,
+        0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.6811510058884755,
+        -0.7068284869989676,
+        -0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.3849227724601627,
+        -0.593319543932566,
+        -0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.8849842279393794,
+        0.019836581528839242,
+        0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.9549695059778709,
+        0.0,
+        -0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.46554659906725987,
+        -0.019836581528839242,
+        -0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.7177810302282527,
+        0.593319543932566,
+        0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.6693798211181637,
+        0.7068284869989677,
+        -0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.37531164034173453,
+        0.5609265419413834,
+        -0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.21560440682121565,
+        -0.6869919054701283,
+        0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.5
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.00832348457368732,
+        -0.9996064325855949,
+        0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.4
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.20383322205090382,
+        -0.7266650685278068,
+        -0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.5
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.29658719166028213,
+        0.02805316262920408,
+        0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 10.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.29658719166028213,
+        -0.02805316262920408,
+        -0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 10.3
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        0.20383322205090382,
+        0.7266650685278068,
+        0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.00832348457368732,
+        0.9996064325855949,
+        -0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.21560440682121565,
+        0.6869919054701283,
+        -0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.37531164034173453,
+        -0.5609265419413834,
+        0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 3.3
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.6693798211181637,
+        -0.7068284869989677,
+        0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 4.0
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.7177810302282527,
+        -0.593319543932566,
+        -0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 13.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.46554659906725987,
+        0.019836581528839242,
+        0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 3.5
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.9549695059778709,
+        0.0,
+        0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 4.1
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.8849842279393794,
+        -0.019836581528839242,
+        -0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 15.3
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.3849227724601627,
+        0.593319543932566,
+        0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.6811510058884755,
+        0.7068284869989676,
+        0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 10.0,
+      "direction_source": [
+        -0.7273921623466807,
+        0.5609265419413834,
+        -0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.7273921623466807,
+        -0.5609265419413834,
+        0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.6811510058884755,
+        -0.7068284869989676,
+        -0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.3849227724601627,
+        -0.593319543932566,
+        -0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.8849842279393794,
+        0.019836581528839242,
+        0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.9549695059778709,
+        0.0,
+        -0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.46554659906725987,
+        -0.019836581528839242,
+        -0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.7177810302282527,
+        0.593319543932566,
+        0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.6693798211181637,
+        0.7068284869989677,
+        -0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.37531164034173453,
+        0.5609265419413834,
+        -0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.21560440682121565,
+        -0.6869919054701283,
+        0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.00832348457368732,
+        -0.9996064325855949,
+        0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.3
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.20383322205090382,
+        -0.7266650685278068,
+        -0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.4
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.29658719166028213,
+        0.02805316262920408,
+        0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 15.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.29658719166028213,
+        -0.02805316262920408,
+        -0.9545936610985675
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 5.3
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        0.20383322205090382,
+        0.7266650685278068,
+        0.6560563205776047
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.4
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.00832348457368732,
+        0.9996064325855949,
+        -0.026789914857127888
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 0.4
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.21560440682121565,
+        0.6869919054701283,
+        -0.6939429815033754
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 13.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.37531164034173453,
+        -0.5609265419413834,
+        0.7379041856295965
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 6.5
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.6693798211181637,
+        -0.7068284869989677,
+        0.2287447158877454
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 10.8
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.7177810302282527,
+        -0.593319543932566,
+        -0.3643656287743402
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 7.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.46554659906725987,
+        0.019836581528839242,
+        0.88480103646535
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 6.4
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.9549695059778709,
+        0.0,
+        0.29670396467250204
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 10.8
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.8849842279393794,
+        -0.019836581528839242,
+        -0.46519826561563
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 12.2
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.3849227724601627,
+        0.593319543932566,
+        0.7069698565209366
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 6.5
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.6811510058884755,
+        0.7068284869989676,
+        0.1908580549619746
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 10.8
+    },
+    {
+      "axial_release_mm": 15.0,
+      "direction_source": [
+        -0.7273921623466807,
+        0.5609265419413834,
+        -0.3952999578830001
+      ],
+      "entire_sampled_path_clear": false,
+      "first_hit_mm": 13.2
+    }
+  ],
+  "selected": null,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

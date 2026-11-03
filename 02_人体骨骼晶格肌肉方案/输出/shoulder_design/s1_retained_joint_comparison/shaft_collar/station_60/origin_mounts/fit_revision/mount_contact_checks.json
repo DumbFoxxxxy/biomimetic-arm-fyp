@@ -1,0 +1,702 @@
+{
+  "scope": "Readback/contact probes for the fitted proximal mounts, not strength tests.",
+  "assembly_sha256": "01884c90c9a4606aa717580d00aee29c8c985d66d02ce27b75c5e827bdda8f73",
+  "script_sha256": "cf405592b1bee4e207eb5ed3b6c0391e85638e486c3e738044cc936f527092ca",
+  "generation_dependency_sha256": {
+    "mujoco_arm/tools/fit_shoulder_origin_mounts.py": "da4351279ff438a1eb9d9e28364a6255b00481d414883a3626467e763af6e104",
+    "mujoco_arm/tools/build_shoulder_origin_mounts.py": "c1084f494804f4305223f84d2be6cb29ede525b6fe9f56cfc4d2a023f290516a",
+    "mujoco_arm/tools/fit_shoulder_deltoid_to_collar.py": "1d65c643735435015df23009f8077cabbf9f7da1e32e93ce6ce3025ed45ded96",
+    "mujoco_arm/tools/build_shoulder_unified_muscle.py": "55067e8684adb217b4f2c5199dd6cf8c47b26250b6916490ac47b7a630c49dd4"
+  },
+  "readback_part_count": 92,
+  "mesh_census": {
+    "bone:clavicle": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "fixture:medial_frame": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "fixture:lateral_frame": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "tpu:deltoid": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1468/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1468/distal": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1513/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1467/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "stop:FJ1468_stop_blank": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "stop:FJ1513_stop_blank": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "stop:FJ1467_stop_blank": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "tpu:infraspinatus": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1500/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "stop:FJ1500/distal_stop_blank": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "tpu:subscapularis": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1504/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "stop:FJ1504/distal_stop_blank": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "tpu:teres_major": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1507/origin": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "cap:FJ1507/distal": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_cap_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_cap_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_bolt_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_nut_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_top_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_bottom_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_bolt_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_nut_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_top_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "GH_bottom_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "bone:humerus": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "bone:scapula": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:jaw_upper": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:liner_upper": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:jaw_lower": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:liner_lower": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:bolt_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:top_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:bottom_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:nut_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:bolt_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:top_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:bottom_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "collar:nut_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "free_terminal:FJ1500": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/tendon_wire": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_bolt": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_nut": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_inner_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_outer_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_groove_ring": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/muscle_uncrimped_sleeve": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_bolt": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_nut": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_inner_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_outer_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_groove_ring": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1500/bone_uncrimped_sleeve": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "free_terminal:FJ1504": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/tendon_wire": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_bolt": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_nut": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_inner_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_outer_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_groove_ring": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/muscle_uncrimped_sleeve": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_bolt": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_nut": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_inner_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_outer_washer": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_groove_ring": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "link:FJ1504/bone_uncrimped_sleeve": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/front_support": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/backing_plate": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/bolt_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/nut_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/front_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/back_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/bolt_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/nut_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/front_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1500/back_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/front_support": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/backing_plate": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/bolt_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/nut_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/front_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/back_washer_0": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/bolt_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/nut_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/front_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    },
+    "origin:FJ1504/back_washer_1": {
+      "boundary": 0,
+      "nonmanifold": 0,
+      "positive_components": 1
+    }
+  },
+  "proximal_contact_checks": [
+    {
+      "head": "FJ1500",
+      "actual_bone_hole_checks": [
+        {
+          "sign": -1,
+          "remaining_axis_crossings": 0,
+          "M3_shaft_probe_bone_intersection_mm3": 0.0
+        },
+        {
+          "sign": 1,
+          "remaining_axis_crossings": 0,
+          "M3_shaft_probe_bone_intersection_mm3": 0.0
+        }
+      ],
+      "contact_geometry": [
+        {
+          "a": "cap:FJ1500/origin",
+          "b": "tpu:infraspinatus",
+          "nominal_material_intersection_mm3": 0.0,
+          "nominal_gap_capped_1mm": 0.0009021854098982298,
+          "probe_translation_source_mm": [
+            0.019344139613411238,
+            -0.04443653776827543,
+            -0.012296274793021096
+          ],
+          "interference_at_0_05mm_mm3": 17.259440172367825
+        },
+        {
+          "a": "origin:FJ1500/front_support",
+          "b": "tpu:infraspinatus",
+          "nominal_material_intersection_mm3": 0.00019129603838293377,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            -0.019344139613411238,
+            0.04443653776827543,
+            0.012296274793021096
+          ],
+          "interference_at_0_05mm_mm3": 15.837881252897565
+        },
+        {
+          "a": "origin:FJ1500/front_support",
+          "b": "bone:scapula",
+          "nominal_material_intersection_mm3": 0.00044895846012097095,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            0.019344139613411238,
+            -0.04443653776827543,
+            -0.012296274793021096
+          ],
+          "interference_at_0_05mm_mm3": 3.6056225218204165
+        },
+        {
+          "a": "origin:FJ1500/backing_plate",
+          "b": "bone:scapula",
+          "nominal_material_intersection_mm3": 0.000340630018091785,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            -0.019344139613411238,
+            0.04443653776827543,
+            0.012296274793021096
+          ],
+          "interference_at_0_05mm_mm3": 3.6407131836918936
+        }
+      ],
+      "closed_void_changes_from_72_object_parent": [
+        {
+          "old_enclosed_void_mm3": 59.81084888730436,
+          "material_now_in_old_void_mm3": 7.381470773579491,
+          "added_outside_proximal_terminal_zone_mm3": 0.000716192891333338,
+          "bounds_source_mm": [
+            -123.08436721801758,
+            -26.870003700256348,
+            1269.3358764123916,
+            -96.06964487075805,
+            -14.27038288116455,
+            1288.773498840332
+          ]
+        }
+      ],
+      "interpretation": "normal contact geometry only; bolt preload, deformation, friction and load capacity unverified"
+    },
+    {
+      "head": "FJ1504",
+      "actual_bone_hole_checks": [
+        {
+          "sign": -1,
+          "remaining_axis_crossings": 0,
+          "M3_shaft_probe_bone_intersection_mm3": 0.0
+        },
+        {
+          "sign": 1,
+          "remaining_axis_crossings": 0,
+          "M3_shaft_probe_bone_intersection_mm3": 0.0
+        }
+      ],
+      "contact_geometry": [
+        {
+          "a": "cap:FJ1504/origin",
+          "b": "tpu:subscapularis",
+          "nominal_material_intersection_mm3": 0.0,
+          "nominal_gap_capped_1mm": 0.0029503659713058903,
+          "probe_translation_source_mm": [
+            -0.026986712315471596,
+            0.041029797798152176,
+            0.009395373917238258
+          ],
+          "interference_at_0_05mm_mm3": 16.622272452778155
+        },
+        {
+          "a": "origin:FJ1504/front_support",
+          "b": "tpu:subscapularis",
+          "nominal_material_intersection_mm3": 2.1065120998422574e-05,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            0.026986712315471596,
+            -0.041029797798152176,
+            -0.009395373917238258
+          ],
+          "interference_at_0_05mm_mm3": 16.197632105460023
+        },
+        {
+          "a": "origin:FJ1504/front_support",
+          "b": "bone:scapula",
+          "nominal_material_intersection_mm3": 0.0008097029725750536,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            -0.026986712315471596,
+            0.041029797798152176,
+            0.009395373917238258
+          ],
+          "interference_at_0_05mm_mm3": 3.6058286033821743
+        },
+        {
+          "a": "origin:FJ1504/backing_plate",
+          "b": "bone:scapula",
+          "nominal_material_intersection_mm3": 7.394809510750108e-05,
+          "nominal_gap_capped_1mm": 0.0,
+          "probe_translation_source_mm": [
+            0.026986712315471596,
+            -0.041029797798152176,
+            -0.009395373917238258
+          ],
+          "interference_at_0_05mm_mm3": 3.690344948478074
+        }
+      ],
+      "closed_void_changes_from_72_object_parent": [
+        {
+          "old_enclosed_void_mm3": 4.527351417597072,
+          "material_now_in_old_void_mm3": -1.0306573771533685e-12,
+          "added_outside_proximal_terminal_zone_mm3": -1.1753228911050433e-12,
+          "bounds_source_mm": [
+            -132.7512154388428,
+            -83.04443313598634,
+            1299.441608467102,
+            -117.3591446685791,
+            -62.49747421264649,
+            1304.9153728866577
+          ]
+        },
+        {
+          "old_enclosed_void_mm3": 3.3594688879448804,
+          "material_now_in_old_void_mm3": 1.3581381227267659e-05,
+          "added_outside_proximal_terminal_zone_mm3": 0.0,
+          "bounds_source_mm": [
+            -102.66918445706368,
+            -41.428508062362674,
+            1287.730831899643,
+            -99.78464935302735,
+            -39.09651454210282,
+            1290.5389278316497
+          ]
+        },
+        {
+          "old_enclosed_void_mm3": 5.05589293330036,
+          "material_now_in_old_void_mm3": 9.320397256121628e-06,
+          "added_outside_proximal_terminal_zone_mm3": 0.0,
+          "bounds_source_mm": [
+            -104.86689851760865,
+            -41.44007040977478,
+            1288.6931152129173,
+            -101.3783416557312,
+            -38.421268482208255,
+            1291.6533687496185
+          ]
+        }
+      ],
+      "interpretation": "normal contact geometry only; bolt preload, deformation, friction and load capacity unverified"
+    }
+  ],
+  "free_terminal_constraints_required": [
+    {
+      "head": "FJ1500",
+      "cap_key": "free_terminal:FJ1500",
+      "neutral_pin_centre_source_mm": [
+        -188.4328624223054,
+        -54.30517770016087,
+        1317.1526331771602
+      ],
+      "bone_pin_centre_source_mm": [
+        -192.24622872389446,
+        -62.24780776567726,
+        1260.1135459380866
+      ],
+      "required": "actual flexible muscle deformation/contact and fixed-length routed tendon constraints"
+    },
+    {
+      "head": "FJ1504",
+      "cap_key": "free_terminal:FJ1504",
+      "neutral_pin_centre_source_mm": [
+        -148.42570720645085,
+        -97.98282942193248,
+        1302.7140591798664
+      ],
+      "bone_pin_centre_source_mm": [
+        -174.11397937709202,
+        -90.19641164353263,
+        1256.5338588393824
+      ],
+      "required": "actual flexible muscle deformation/contact and fixed-length routed tendon constraints"
+    }
+  ],
+  "not_verified": [
+    "all real clamp/preload/tool and force-capacity tests",
+    "nonlinear flexible body and tendon motion",
+    "existing fixture bone jaws/pads and bench attachment"
+  ],
+  "stage_pass": false
+}

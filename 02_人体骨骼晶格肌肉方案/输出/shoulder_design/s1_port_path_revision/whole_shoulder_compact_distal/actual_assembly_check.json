@@ -1,0 +1,946 @@
+{
+  "scope": "actual available manufacturing meshes at zero pose, NOT full assembly or motion acceptance",
+  "n_instances": 24,
+  "sources": {
+    "bone:scapula": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u80a9\u80db\u9aa8.obj",
+      "sha256": "1641b04e55f9d75bdd6f1f4f07ea596e5dea0a8cb6b348bff47281b8a0bc6e5d",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "bone:clavicle": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u9501\u9aa8.obj",
+      "sha256": "9a111cac8351e79dd1315aea90108fe56f78e4bf0159473e6ad727ba91b60e6d",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "bone:humerus": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u5165\\\u9aa8\u9abc\\\u80b1\u9aa8.obj",
+      "sha256": "85f5445a11ecb029b027db0b9b34933982836d442b19ff531d1ca35a3bc3a237",
+      "translation_source_mm": null,
+      "material_components": 1
+    },
+    "fixture:medial_frame": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\fixture_revision\\medial_frame.stl",
+      "sha256": "eaee430e94437ab1ff4b3efab80596460ac75afba583c950fefc458c52f4daf4",
+      "translation_source_mm": [
+        -21.98303508758545,
+        -2.7768239974975586,
+        1316.5336303710938
+      ],
+      "material_components": 1
+    },
+    "fixture:lateral_frame": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\fixture_revision\\lateral_frame.stl",
+      "sha256": "2a7b62697888f167549238e6e4464950ae01e6cdcccc621dfe7cb47ad17044d7",
+      "translation_source_mm": [
+        -137.5175437927246,
+        -17.502834796905518,
+        1266.09716796875
+      ],
+      "material_components": 1
+    },
+    "tpu:deltoid": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_upper_origin_edge14p0\\TPU_muscle.stl",
+      "sha256": "bce5e96242ad9dc195494bd3f77725827b71b3ba76ffbb7159dfb7c77627306e",
+      "translation_source_mm": [
+        -116.76,
+        -83.71,
+        1347.18
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1468/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_upper_origin_edge14p0\\FJ1468_origin_cap.stl",
+      "sha256": "8e6d424ec6e3fc7fc42d590b4b16d1b746dffdc68b58f1ac9ef6a7524615e924",
+      "translation_source_mm": [
+        -116.76,
+        -83.71,
+        1347.18
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1468/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_upper_origin_edge14p0\\FJ1468_distal_cap.stl",
+      "sha256": "89f94c4103ac4efe73a145863186c38c76c88861d8d0ad2a7a1dd14163078a8c",
+      "translation_source_mm": [
+        -116.76,
+        -83.71,
+        1347.18
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1513/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_upper_origin_edge14p0\\FJ1513_origin_cap.stl",
+      "sha256": "696215d27ba0491dea075e157d3b5730fb976ff54ecf01222b5193566320302a",
+      "translation_source_mm": [
+        -116.76,
+        -83.71,
+        1347.18
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1467/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_upper_origin_edge14p0\\FJ1467_origin_cap.stl",
+      "sha256": "69881fde8b3abe0c1d64482f72dcd5c08e72078d43852f5a039618426136e25e",
+      "translation_source_mm": [
+        -116.76,
+        -83.71,
+        1347.18
+      ],
+      "material_components": 1
+    },
+    "stop:FJ1468_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\triplex_terminal\\FJ1468_stop_blank.stl",
+      "sha256": "ac56c0ca6a7fe877c13856e007d85da32e01a46aa11bdad9300ad854a412a656",
+      "translation_source_mm": [
+        -199.65,
+        -76.11,
+        1227.57
+      ],
+      "material_components": 1
+    },
+    "stop:FJ1513_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\triplex_terminal\\FJ1513_stop_blank.stl",
+      "sha256": "a935dbe7d2804587d106f965fb5e340f6d2518371937045e0373ddd6a4fab96a",
+      "translation_source_mm": [
+        -199.65,
+        -76.11,
+        1227.57
+      ],
+      "material_components": 1
+    },
+    "stop:FJ1467_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\triplex_terminal\\FJ1467_stop_blank.stl",
+      "sha256": "76b3943b2bc5b559c1af4ece6948f56d3953de021ca94ed483f6bb9c067004cc",
+      "translation_source_mm": [
+        -199.65,
+        -76.11,
+        1227.57
+      ],
+      "material_components": 1
+    },
+    "tpu:infraspinatus": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\TPU_muscle.stl",
+      "sha256": "30549959052ed2f3ff6a58312addda5681c7d637bf553e80bf1083ea359daa87",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1500/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_origin_cap.stl",
+      "sha256": "a32e0d0289bd1552514c2e2f8dc7114c9264ca60b6c1ff81b26f6bbdffde5006",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1500/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_distal_cap.stl",
+      "sha256": "ccf4a3afeb9550571ce5f1f791b4621b08f6f2eeef91399f8692e587bd8a72fc",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "material_components": 1
+    },
+    "stop:FJ1500/distal_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\FJ1500_distal_stop_blank.stl",
+      "sha256": "005037c7c526291cd46fbb07c9380e3ba61bb7505f5653499c45d8cf8c318591",
+      "translation_source_mm": [
+        -89.94,
+        -15.0,
+        1271.07
+      ],
+      "material_components": 1
+    },
+    "tpu:subscapularis": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_compact_distal_fitted\\TPU_muscle.stl",
+      "sha256": "285fd9dfd1cdca821e246955ebaf9b0ae404a9fd0b55b46c4f7cd2bf3791e3db",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1504/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_compact_distal_fitted\\FJ1504_origin_cap.stl",
+      "sha256": "c0e329c3b6f208d897027e8f91429eb193c5e03d6b7fbf5497657acaed2ae5bc",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1504/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_compact_distal_fitted\\FJ1504_distal_cap.stl",
+      "sha256": "a893b266514b26b9fcc3058b2987d63bd7ea7fc94870a7032b14982db407b48a",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "material_components": 1
+    },
+    "stop:FJ1504/distal_stop_blank": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_compact_distal_fitted\\FJ1504_distal_stop_blank.stl",
+      "sha256": "1a3cb823d49f4bab6465f5f1a1c21b1105a672a3d87624d04026b5f1f2350098",
+      "translation_source_mm": [
+        -102.23,
+        -39.27,
+        1289.54
+      ],
+      "material_components": 1
+    },
+    "tpu:teres_major": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_connected\\TPU_muscle.stl",
+      "sha256": "436caad3ccee92b535106c77317374706397de77035d03f7dcecec4814c34538",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1507/origin": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_origin_cap.stl",
+      "sha256": "02ee76674eb46a9d75b3fef33e99f3255e4632714e0641e51e556fb9fbed6bea",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "material_components": 1
+    },
+    "cap:FJ1507/distal": {
+      "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_fitted\\FJ1507_distal_cap.stl",
+      "sha256": "acdd4b872284f41723c22c581d06d2d51557ff43235166ee7d23dedaa1210b2d",
+      "translation_source_mm": [
+        -107.44,
+        -13.18,
+        1214.41
+      ],
+      "material_components": 1
+    }
+  },
+  "contacts": [],
+  "wire_probes": [],
+  "master_wire_probes": [
+    {
+      "head": "FJ1468",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    },
+    {
+      "head": "FJ1513",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    },
+    {
+      "head": "FJ1467",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    },
+    {
+      "head": "FJ1500",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    },
+    {
+      "head": "FJ1504",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    },
+    {
+      "head": "FJ1507",
+      "all_material_intersections_mm3": [
+        {
+          "part": "bone:scapula",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:clavicle",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "bone:humerus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:medial_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "fixture:lateral_frame",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:deltoid",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1468/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1513/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1467/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1468_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1513_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1467_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:infraspinatus",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1500/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1500/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:subscapularis",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1504/distal",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "stop:FJ1504/distal_stop_blank",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "tpu:teres_major",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/origin",
+          "volume_mm3": 0.0
+        },
+        {
+          "part": "cap:FJ1507/distal",
+          "volume_mm3": 0.0
+        }
+      ],
+      "material_hits": [],
+      "scope": "complete nominal master steel path, all available parts"
+    }
+  ],
+  "replaced_modules": [
+    "deltoid",
+    "infraspinatus",
+    "subscapularis",
+    "teres_major"
+  ],
+  "input_mesh_checks": {
+    "deltoid": {
+      "TPU": true,
+      "FJ1468/origin": true,
+      "FJ1468/distal": true,
+      "FJ1513/origin": true,
+      "FJ1467/origin": true
+    },
+    "infraspinatus": {
+      "TPU": true,
+      "FJ1500/origin": true,
+      "FJ1500/distal": true,
+      "FJ1500/distal_stop_blank": true
+    },
+    "subscapularis": {
+      "TPU": true,
+      "FJ1504/origin": true,
+      "FJ1504/distal": true,
+      "FJ1504/distal_stop_blank": true
+    },
+    "teres_major": {
+      "TPU": true,
+      "FJ1507/origin": true,
+      "FJ1507/distal": true
+    }
+  },
+  "fixture_input_sha256": "c292d7d121f1eed5b959ae82ebf18af831d74f834997d7f21ef404e1b321f3fa",
+  "nonzero_material_pair_intersections_mm3": [
+    {
+      "a": "bone:scapula",
+      "b": "tpu:deltoid",
+      "volume_mm3": 0.0003046726213527602
+    },
+    {
+      "a": "bone:scapula",
+      "b": "tpu:infraspinatus",
+      "volume_mm3": 0.001898762202470341
+    },
+    {
+      "a": "bone:scapula",
+      "b": "tpu:teres_major",
+      "volume_mm3": 0.001777965390881928
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:deltoid",
+      "volume_mm3": 0.002013121511583519
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:infraspinatus",
+      "volume_mm3": 7.24654173045922e-05
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:subscapularis",
+      "volume_mm3": 8.308418100913882e-05
+    },
+    {
+      "a": "bone:humerus",
+      "b": "tpu:teres_major",
+      "volume_mm3": 3.0111119858406393e-05
+    }
+  ],
+  "unified_report_sha256": {
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_deltoid_compact_master\\check.json": "89412599e9dfcf3a98c3fe6510fdc5a8fba4f569d134b258ecbc6b57790b7b2b",
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_infraspinatus_compact_distal_fitted\\check.json": "875a6e4370835b6524b70a565de4f831ab0d4d582b354bf203125f09e06adb7d",
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_subscapularis_compact_distal_fitted\\check.json": "bff31898bcfe6f19db7415f9103378320beeeed5f435d721b8ecfd6cfea0b9c8",
+    "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848\\\u8f93\u51fa\\shoulder_design\\s1_port_path_revision\\unified_teres_major_compact_master\\check.json": "5a70c2d29534f2159d0c378af82bc6acf08a79398f9e301b32511c0c42949d7b"
+  },
+  "missing": [
+    "three fixture contact pads not exported",
+    "fixture jaws/bolts/rails",
+    "muscle fasteners/crimps",
+    "GH2mm liner",
+    "upstream conduit routing and reaction mounts"
+  ],
+  "not_verified": [
+    "attachment and retention",
+    "flexible deformation",
+    "wire minimum bend radius and friction",
+    "moving paths"
+  ],
+  "stage_pass": false
+}

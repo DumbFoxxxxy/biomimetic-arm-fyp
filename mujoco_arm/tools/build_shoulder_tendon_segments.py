@@ -41,6 +41,10 @@ SEGMENT_R_MM = 2.5
 #: while the short ends need R1.8 or they cannot be built at all (5.4.22).
 SEGMENT_R_OVERRIDES = {'FJ1507/distal': 2.5}
 BORE_R_MM = 0.85
+# The posterior deltoid distal bend otherwise leaves a zero-thickness material
+# pinch after STL quantization. A measured local radial overcut removes it;
+# the larger 1.704mm bore is recorded per part, not hidden by a weaker check.
+BORE_R_OVERRIDES = {'FJ1513/distal': 0.852}
 SEGMENTS = 32
 #: a segment shorter than this is just the pad's own boss, not a separate piece
 MIN_SEGMENT_MM = 1.0
@@ -66,8 +70,30 @@ def rod(a, b, r, segments=SEGMENTS):
     return cyl.transform(np.c_[np.stack([x, y, z], axis=1), a])
 
 
+def open_ended_tube(points, r, bore_r=0.85):
+    """Swept tube with bores extended past both rounded outer end caps."""
+    pts=[np.asarray(p,float) for p in points]
+    if not 0 < bore_r < r or len(pts)<2:
+        raise ValueError('Need a positive wall and at least two path vertices')
+    pts=[pts[0]]+[b for a,b in zip(pts,pts[1:]) if np.linalg.norm(b-a)>1e-6]
+    if len(pts)<2:raise ValueError('Zero-length tube')
+    pieces=[rod(a,b,r) for a,b in zip(pts,pts[1:])]
+    pieces += [mf().Manifold.sphere(r,SEGMENTS).translate(list(p)) for p in pts]
+    outer=mf().Manifold.batch_boolean(pieces,mf().OpType.Add)
+    bore_pieces=[rod(a,b,bore_r) for a,b in zip(pts,pts[1:])]
+    bore_pieces += [mf().Manifold.sphere(bore_r,SEGMENTS).translate(list(p)) for p in pts]
+    first=(pts[1]-pts[0])/np.linalg.norm(pts[1]-pts[0])
+    last=(pts[-1]-pts[-2])/np.linalg.norm(pts[-1]-pts[-2])
+    # Concentric small end spheres alone leave an enclosed cavity in the
+    # larger end spheres. Drill right through the rounded external envelope.
+    bore_pieces += [rod(pts[0]-first*(r+1),pts[0],bore_r),
+                    rod(pts[-1],pts[-1]+last*(r+1),bore_r)]
+    bore=mf().Manifold.batch_boolean(bore_pieces,mf().OpType.Add)
+    return outer-bore
+
+
 def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
-                pad_thickness_mm=4.0, relax=False):
+                pad_thickness_mm=4.0, relax=False, bore_r=BORE_R_MM):
     """Tube of R around the last/first `length_mm` of the corridor, minus the wire bore.
 
     The corridor's end point IS the bone-side seat, so a tube of radius R starting there is
@@ -112,24 +138,9 @@ def build_along(path, length_mm, from_distal, bone_tris, r=SEGMENT_R_MM,
         keep = [start] + keep[1:]
     if relax:
         keep = relax_off_bone(keep, bone_tris, r + 0.3)
-    pieces = []
-    for a, b in zip(keep, keep[1:]):
-        s = rod(a, b, r)
-        if s is not None:
-            pieces.append(s)
-    for p in keep:
-        pieces.append(mf().Manifold.sphere(r, SEGMENTS).translate(list(p)))
-    outer = mf().Manifold.batch_boolean(pieces, mf().OpType.Add)
-    bore_pieces = []
-    for a, b in zip(keep, keep[1:]):
-        s = rod(a, b, BORE_R_MM)
-        if s is not None:
-            bore_pieces.append(s)
-    for p in keep:
-        bore_pieces.append(mf().Manifold.sphere(BORE_R_MM, SEGMENTS).translate(list(p)))
-    bore = mf().Manifold.batch_boolean(bore_pieces, mf().OpType.Add)
+    solid = open_ended_tube(keep,r,bore_r)
     length = float(sum(np.linalg.norm(b - a) for a, b in zip(keep, keep[1:])))
-    return outer - bore, length, keep
+    return solid, length, keep
 
 
 def relax_off_bone(path, bone_tris, clear_mm, step_mm=2.0, iterations=40, lam=0.3):
@@ -212,10 +223,51 @@ def main(argv=None):
                           % (m['module'], c['head'], end, L or 0.0, '-', '-', '-'))
                     continue
                 r_end = SEGMENT_R_OVERRIDES.get('%s/%s' % (c['head'], end), args.segment_r)
+                bore_end = BORE_R_OVERRIDES.get('%s/%s' % (c['head'], end), BORE_R_MM)
                 solid, length, keep = build_along(paths[c['head']], L, from_distal=dist,
                                                   bone_tris=bone_tris, r=r_end,
                                                   relax=args.relax,
-                                                  pad_thickness_mm=args.standoff_mm)
+                                                  pad_thickness_mm=args.standoff_mm,bore_r=bore_end)
+                # A calculated solid is not a manufacturing deliverable until its
+                # actual mesh and centreline have been exported and read back.
+                # Small parts must be tessellated near the origin. Float32 STL
+                # at source Z~1300mm collapses close vertices. Store the exact
+                # placement explicitly instead of rounding global geometry.
+                translation = np.asarray(keep[0],float)
+                solid = I.clean_solid(solid.translate(-translation))
+                V, F = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh())
+                filename = '%s_%s_tendon.stl' % (c['head'], end)
+                removed_micro_shell_mm3 = 0.0
+                for attempt in range(3):
+                    V, F = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh())
+                    mesh_geom.write_stl(str(out_dir / filename), V, F, header='S1 tendon ' + filename)
+                    RV, RF = mesh_geom.read_stl(str(out_dir / filename))
+                    RW, RG = mesh_geom.weld(RV, RF)
+                    _, boundary, nonmanifold = mesh_geom.edge_census(RG)
+                    restored = mf().Manifold(mf().Mesh64(RW, RG.astype(np.uint32)))
+                    relative_error = abs(restored.volume()-solid.volume()) / solid.volume()
+                    pieces = restored.decompose()
+                    if not boundary and not nonmanifold and len(pieces)==1 and relative_error<=1e-5:
+                        break
+                    if attempt<2 and (boundary or nonmanifold):
+                        # Repeat the same fixed-tolerance repair after float32
+                        # roundtrip; do not relax the acceptance threshold.
+                        solid=I.clean_solid(restored,eps=1e-3)
+                        continue
+                    # Float32 STL can leave sub-micron sliver shells. Remove
+                    # only explicitly recorded minute shells, never real parts
+                    # or a large sealed lumen (the original endpoint defect).
+                    pieces = sorted(pieces,key=lambda p:abs(p.volume()),reverse=True)
+                    micro = sum(abs(p.volume()) for p in pieces[1:])
+                    if (attempt<2 and not boundary and not nonmanifold and len(pieces)>1
+                            and micro<1e-3 and micro/max(1,restored.volume())<1e-5):
+                        removed_micro_shell_mm3 += micro
+                        solid=pieces[0]
+                        continue
+                    raise ValueError('Invalid exported tendon mesh: ' + filename)
+                else:
+                    raise ValueError('Tendon mesh repair did not converge: ' + filename)
+                solid = restored.translate(translation)
                 bone_hit = max(I.intersection_volume(solid, b).__float__()
                                for b in bones.values())
                 near = {k: round(I.intersection_volume(solid, s), 3)
@@ -223,6 +275,16 @@ def main(argv=None):
                 worst_near = max(near.values()) if near else 0.0
                 rows.append({'module': m['module'], 'head': c['head'], 'end': end,
                              'length_mm': round(length, 2), 'built': True,
+                             'file': filename, 'path_source_mm': [p.tolist() for p in keep],
+                             'coordinate_frame': 'local_mm',
+                             'translation_source_mm': translation.tolist(),
+                             'outer_radius_mm': r_end,
+                             'bore_radius_mm': bore_end,
+                             'boundary_edges': int(boundary), 'nonmanifold_edges': int(nonmanifold),
+                             'material_components': len(restored.decompose()),
+                             'roundtrip_relative_error': relative_error,
+                             'removed_micro_shell_absolute_mm3': removed_micro_shell_mm3,
+                             'stl_cleanup_passes': attempt+1,
                              'volume_mm3': round(solid.volume(), 1),
                              'bone_intersection_mm3': round(bone_hit, 4),
                              'neighbour_intersections_mm3': near,

@@ -1,0 +1,626 @@
+{
+  "scope": "Independent dense-curve, endpoint, geometry and export checks of route witnesses.",
+  "audit_sha256": "66eeb4adcf331720893578b777a9214bf0e8af68c39915654c5099a0b21105a7",
+  "assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "script_sha256": "fd1ee1665823274f974344e1c67df8acd489d9fa68714452813fdc6b142ec73c",
+  "dense_curve_checks": [
+    {
+      "head": "FJ1500",
+      "case": "neutral",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169240151,
+        "quadrature_difference_mm": -1.1070255823142361e-11,
+        "dense_sampled_minimum_radius_mm": 238.8501225019698,
+        "polynomial_critical_minimum_radius_mm": 238.85012250196152
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "cap_eye_only:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169240353,
+        "quadrature_difference_mm": -9.052314453583676e-12,
+        "dense_sampled_minimum_radius_mm": 77.63299105175554,
+        "polynomial_critical_minimum_radius_mm": 77.63299105175554
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "cap_eye_only:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169235543,
+        "quadrature_difference_mm": -5.714895223718486e-11,
+        "dense_sampled_minimum_radius_mm": 0.8979934015877162,
+        "polynomial_critical_minimum_radius_mm": 0.8979934015877165
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "bone_eye_only:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169240353,
+        "quadrature_difference_mm": -9.052314453583676e-12,
+        "dense_sampled_minimum_radius_mm": 77.63299105225046,
+        "polynomial_critical_minimum_radius_mm": 77.63299105224716
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "bone_eye_only:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.7292716923715,
+        "quadrature_difference_mm": -4.108358098164899e-11,
+        "dense_sampled_minimum_radius_mm": 46.85172264941158,
+        "polynomial_critical_minimum_radius_mm": 46.85172264940621
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "same_signed_eyes:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169240151,
+        "quadrature_difference_mm": -1.1070255823142361e-11,
+        "dense_sampled_minimum_radius_mm": 238.8501225019698,
+        "polynomial_critical_minimum_radius_mm": 238.85012250196152
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "same_signed_eyes:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.729271692184575,
+        "quadrature_difference_mm": -2.2800605847805855e-10,
+        "dense_sampled_minimum_radius_mm": 0.49332190722715463,
+        "polynomial_critical_minimum_radius_mm": 0.49332180476060444
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "opposite_signed_eyes:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.729271692404495,
+        "quadrature_difference_mm": -8.08597633294994e-12,
+        "dense_sampled_minimum_radius_mm": 7.982391637327334,
+        "polynomial_critical_minimum_radius_mm": 7.9823916373273365
+      }
+    },
+    {
+      "head": "FJ1500",
+      "case": "opposite_signed_eyes:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 36.72927169240451,
+        "quadrature_difference_mm": -8.071765478234738e-12,
+        "dense_sampled_minimum_radius_mm": 7.982391637588196,
+        "polynomial_critical_minimum_radius_mm": 7.982391637584718
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "neutral",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.4409708134963,
+        "quadrature_difference_mm": -1.5976695522113005e-09,
+        "dense_sampled_minimum_radius_mm": 17.132289677685414,
+        "polynomial_critical_minimum_radius_mm": 17.132289677685407
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "cap_eye_only:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081392874,
+        "quadrature_difference_mm": -1.1652190323729883e-09,
+        "dense_sampled_minimum_radius_mm": 0.34953191613377443,
+        "polynomial_critical_minimum_radius_mm": 0.34953191613377443
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "cap_eye_only:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081370603,
+        "quadrature_difference_mm": -1.3879457583243493e-09,
+        "dense_sampled_minimum_radius_mm": 1.5797506253395661,
+        "polynomial_critical_minimum_radius_mm": 1.5797506253395663
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "bone_eye_only:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081392874,
+        "quadrature_difference_mm": -1.1652190323729883e-09,
+        "dense_sampled_minimum_radius_mm": 0.3495319161338407,
+        "polynomial_critical_minimum_radius_mm": 0.3495319161338545
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "bone_eye_only:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081375818,
+        "quadrature_difference_mm": -1.335791921519558e-09,
+        "dense_sampled_minimum_radius_mm": 0.3435845892348681,
+        "polynomial_critical_minimum_radius_mm": 0.34358458923484164
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "same_signed_eyes:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081389393,
+        "quadrature_difference_mm": -1.2000356264252332e-09,
+        "dense_sampled_minimum_radius_mm": 0.39659245141577915,
+        "polynomial_critical_minimum_radius_mm": 0.39659245141579486
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "same_signed_eyes:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.44097081356921,
+        "quadrature_difference_mm": -1.524753656667599e-09,
+        "dense_sampled_minimum_radius_mm": 0.38177434162058377,
+        "polynomial_critical_minimum_radius_mm": 0.38177434162025287
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "opposite_signed_eyes:1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.440970814000906,
+        "quadrature_difference_mm": -1.0930634175565501e-09,
+        "dense_sampled_minimum_radius_mm": 0.33128513505983165,
+        "polynomial_critical_minimum_radius_mm": 0.33128513505983165
+      }
+    },
+    {
+      "head": "FJ1504",
+      "case": "opposite_signed_eyes:-1",
+      "metrics": {
+        "dense_subdivisions": 32768,
+        "dense_length_mm": 33.440970814000906,
+        "quadrature_difference_mm": -1.0930563121291925e-09,
+        "dense_sampled_minimum_radius_mm": 0.33128513505979906,
+        "polynomial_critical_minimum_radius_mm": 0.3312851350598764
+      }
+    }
+  ],
+  "clamped_endpoint_checks": [
+    {
+      "head": "FJ1500",
+      "case": "neutral",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        9.425664344468416e-16,
+        1.0892958453684546e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "cap_eye_only:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        2.7245741644605975e-15,
+        6.036438896220727e-16
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "cap_eye_only:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        2.904148853056467e-15,
+        2.822245288950323e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "bone_eye_only:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        7.355227538141662e-16,
+        1.0810431491176357e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "bone_eye_only:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        1.1545285247712184e-15,
+        1.458686876118044e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "same_signed_eyes:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        9.425664344468416e-16,
+        1.0892958453684546e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "same_signed_eyes:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        4.775249788392736e-16,
+        5.302695275805846e-16
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "opposite_signed_eyes:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        5.539658462587276e-15,
+        2.9444793819363074e-15
+      ]
+    },
+    {
+      "head": "FJ1500",
+      "case": "opposite_signed_eyes:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        2.472116684044177e-15,
+        6.304625695252333e-15
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "neutral",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        1.9774751980957545e-15,
+        4.996003610813204e-16
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "cap_eye_only:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        5.617607826891398e-15,
+        2.3228349215299048e-14
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "cap_eye_only:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        1.270089802549268e-14,
+        9.42055475210265e-15
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "bone_eye_only:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        5.674369320219082e-15,
+        9.047562003394838e-15
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "bone_eye_only:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        1.3855231950161881e-14,
+        5.725457920326222e-15
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "same_signed_eyes:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        2.1617228319518852e-14,
+        2.5697241530248302e-14
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "same_signed_eyes:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        2.442017501943964e-14,
+        1.8969875019326465e-14
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "opposite_signed_eyes:1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        4.4838786642199886e-15,
+        1.1980638835024279e-14
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "case": "opposite_signed_eyes:-1",
+      "endpoint_and_tangent_errors": [
+        0.0,
+        0.0,
+        3.28312677995079e-14,
+        1.8901934182595307e-14
+      ]
+    }
+  ],
+  "first_failure_classifications": [
+    {
+      "head": "FJ1500",
+      "pattern": "cap_eye_only",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "cap_eye_only",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "bone_eye_only",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "bone_eye_only",
+      "sign": -1,
+      "category": "rigid_route_or_eye_package_interference",
+      "route_reason": null,
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "same_signed_eyes",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "same_signed_eyes",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "opposite_signed_eyes",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1500",
+      "pattern": "opposite_signed_eyes",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "retained straight-lead family has no positive-handle length solution",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "cap_eye_only",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "cap_eye_only",
+      "sign": -1,
+      "category": "rigid_route_or_eye_package_interference",
+      "route_reason": null,
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "bone_eye_only",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "bone_eye_only",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "same_signed_eyes",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "same_signed_eyes",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "opposite_signed_eyes",
+      "sign": 1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "opposite_signed_eyes",
+      "sign": -1,
+      "category": "declared_route_family",
+      "route_reason": "candidate curve radius not above 0.3mm wire radius",
+      "failure_is_not_a_global_motion_or_routing_infeasibility_claim": true
+    }
+  ],
+  "diagnostic_export_checks": [
+    {
+      "head": "FJ1500",
+      "label": "neutral",
+      "scene_sha256": "df9a8a8c9766af35c8b13bde7950b7bb865861b0da1724ea3eeef8ed5a8eb008",
+      "verified_changed_sources": [
+        "link:FJ1500/tendon_wire",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_uncrimped_sleeve"
+      ],
+      "parts_in_context": 191,
+      "changed_vs_context_pairs": 940,
+      "readback_rigid_hits": [],
+      "readback_undeformed_TPU_hits": [],
+      "full_wire_polyline_length_error_mm": -1.1599050182553583e-05
+    },
+    {
+      "head": "FJ1500",
+      "label": "prescribed_eye_witness",
+      "scene_sha256": "134570ede1c46793ac3007ea0e0bdb1841837065697c993a40b36ef412a17e80",
+      "verified_changed_sources": [
+        "link:FJ1500/tendon_wire",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_uncrimped_sleeve"
+      ],
+      "parts_in_context": 191,
+      "changed_vs_context_pairs": 940,
+      "readback_rigid_hits": [],
+      "readback_undeformed_TPU_hits": [],
+      "full_wire_polyline_length_error_mm": -6.721469911497024e-05
+    },
+    {
+      "head": "FJ1504",
+      "label": "neutral",
+      "scene_sha256": "e20b9d7005a76b3c7fb8eb315cc4d61a417b89ddec5882514b33be57cfdfaddf",
+      "verified_changed_sources": [
+        "link:FJ1504/tendon_wire",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_uncrimped_sleeve"
+      ],
+      "parts_in_context": 191,
+      "changed_vs_context_pairs": 940,
+      "readback_rigid_hits": [],
+      "readback_undeformed_TPU_hits": [],
+      "full_wire_polyline_length_error_mm": -2.617602346788317e-05
+    },
+    {
+      "head": "FJ1504",
+      "label": "prescribed_eye_witness",
+      "scene_sha256": "64b18f597e3b3946526f3844fbe5bacf3890172f85808c950642f0bc9501fe11",
+      "verified_changed_sources": [
+        "link:FJ1504/tendon_wire",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_uncrimped_sleeve"
+      ],
+      "parts_in_context": 191,
+      "changed_vs_context_pairs": 940,
+      "readback_rigid_hits": [],
+      "readback_undeformed_TPU_hits": [],
+      "full_wire_polyline_length_error_mm": -8.477069964385464e-05
+    }
+  ],
+  "independent_first_rigid_boundary_replays": [
+    {
+      "head": "FJ1500",
+      "pattern": "bone_eye_only",
+      "sign": -1,
+      "phiA_deg": -0.0,
+      "phiB_deg": -5.2,
+      "hits_over_threshold": [
+        {
+          "a": "link:FJ1500/tendon_wire",
+          "b": "collar:jaw_upper",
+          "volume_mm3": 0.0011300820493797383
+        }
+      ]
+    },
+    {
+      "head": "FJ1504",
+      "pattern": "cap_eye_only",
+      "sign": -1,
+      "phiA_deg": -14.6,
+      "phiB_deg": -0.0,
+      "hits_over_threshold": [
+        {
+          "a": "link:FJ1504/tendon_wire",
+          "b": "free_terminal:FJ1504",
+          "volume_mm3": 0.0010161248674118827
+        }
+      ]
+    }
+  ],
+  "all_dense_curves_and_exports_match": true,
+  "stage_pass": false,
+  "actual_drive_range_deg": null,
+  "not_verified": [
+    "global shortest route or all curve families",
+    "installed length and bending stiffness/allowable radius",
+    "TPU/cap/humerus equilibrium and driven motion"
+  ]
+}

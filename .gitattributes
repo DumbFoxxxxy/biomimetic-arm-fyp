@@ -27,3 +27,6 @@
 *.npz filter=lfs diff=lfs merge=lfs -text
 *.bmp filter=lfs diff=lfs merge=lfs -text
 *.ply filter=lfs diff=lfs merge=lfs -text
+# Native mesher logs can exceed the ordinary Git per-file size limit.
+engine_stdout.txt filter=lfs diff=lfs merge=lfs -text
+gmsh_log.txt filter=lfs diff=lfs merge=lfs -text
