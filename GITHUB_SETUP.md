@@ -1,6 +1,6 @@
 # GitHub 备份与克隆
 
-私有仓库：[DumbFoxxxxy/biomimetic-arm-fyp](https://github.com/DumbFoxxxxy/biomimetic-arm-fyp)。
+公开仓库：[DumbFoxxxxy/biomimetic-arm-fyp](https://github.com/DumbFoxxxxy/biomimetic-arm-fyp)。
 包含两套方案、源码、设计与历史记录、原始输入、CAD和制造网格；大文件通过Git LFS保存。
 排除临时依赖、缓存和环境文件。文献及模型保留原授权，本仓库未为第三方素材另授许可。
 

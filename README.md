@@ -19,6 +19,15 @@
 | [设计任务书](design/DESIGN_BRIEF.md) | 当前入口与历史设计记录 |
 | [运行说明](RUNNING.md) | 环境、依赖及查看方式 |
 
+## 360° 交互模型
+
+[![当前肩部模型预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)
+
+[打开交互模型](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)：拖动旋转、滚轮缩放、右键平移，可切换骨骼、肌肉、钢丝和连接件。
+首次部署完成后链接生效；[本地查看与部署说明](docs/GITHUB_MODEL_VIEWER.md)。
+
+当前展示 S1-Y2 肩部完整装配，共 191 对象。网页展示静态几何，不包含 TPU 变形或钢丝驱动仿真；桌面 MuJoCo 入口见下方快速复现。
+
 ## 方案与目录
 
 | 目录 | 用途 |
