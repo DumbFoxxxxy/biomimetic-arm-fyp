@@ -1,0 +1,59 @@
+{
+  "scope": "Nominal tool approach review for the late-installed collar group 0.\n\nStraight envelopes stop before head/nut engagement. They do not establish\nreal socket fit, hand access, tightening torque or grip.\n",
+  "assembly_sha256": "9e48b6be6cdd837170f09875ae53901dd7332bae90e621edc6ad07c97996f1c7",
+  "script_sha256": "bf4c356cabcbf7e84d8e5aa88b6abc5c19b058bad292da15a22b7b88c327990f",
+  "frame_sha256": "262667342ccf73eb979d96659f23f9328406b5b0eb41ba12920d602505c63d59",
+  "tool_sources": {
+    "tool:collar_front_driver": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_teres_assembly_order/tool_reference/collar_front_driver.obj",
+      "sha256": "32d6c2bae8a3f1b967fc0351d3bf4d825462422d3891af78e7c7c68b5f99c366",
+      "translation_source_mm": [
+        -162.36764876508894,
+        -76.02966788682818,
+        1315.5998062770147
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        175.58128981452936
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "tool:collar_rear_socket": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_teres_assembly_order/tool_reference/collar_rear_socket.obj",
+      "sha256": "f3b1388bdbd72c7c0cb62a8c6d65e035c51e9a9c676431031a9323f138e5e896",
+      "translation_source_mm": [
+        -162.36764876508894,
+        -76.02966788682818,
+        1315.5998062770147
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        947.2025314526949
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "tool_checks": [
+    {
+      "tool": "tool:collar_front_driver",
+      "hits": []
+    },
+    {
+      "tool": "tool:collar_rear_socket",
+      "hits": [
+        {
+          "target": "collar:jaw_lower",
+          "volume_mm3": 0.4119852338269271
+        },
+        {
+          "target": "cap:FJ1507/distal_B",
+          "volume_mm3": 3.0134854997455984
+        }
+      ]
+    }
+  ],
+  "nominal_straight_tool_approach_pass": false,
+  "actual_tool_engagement_verified": false,
+  "operator_hand_space_verified": false,
+  "stage_pass": false
+}

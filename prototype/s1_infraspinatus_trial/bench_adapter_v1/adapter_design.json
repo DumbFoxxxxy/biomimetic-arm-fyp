@@ -1,0 +1,278 @@
+{
+  "scope": "Bench-only integral proximal saddle; does not revise the shoulder assembly.\n\nExtends the actual front support backwards to a vice block. Retains the\ntwo M3 cap axes, provides rear nut/tool wells, and leaves the distal end free.\n",
+  "script_sha256": "5882ad1c1de533b7e2b77eb84f9476045aa83bd028222b480ddbfa8516ca6fb1",
+  "current_assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "source_selection_sha256": "1b931fbbc94c778f803bae304c271836f78bd709a3f19e7c98cbdf565ce80eb1",
+  "trial_source_sha256": "052e403f503626a3c3ca40aa3034f7c22125df0d81e322157116ca597248c496",
+  "route_source_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "local_basis_columns_source": [
+    [
+      0.0,
+      -0.9221288982819819,
+      -0.38688279226822475
+    ],
+    [
+      0.26669318825015204,
+      -0.3728704705503262,
+      0.8887307553655085
+    ],
+    [
+      -0.9637814811153869,
+      -0.10317900534913413,
+      0.2459254958604219
+    ]
+  ],
+  "local_origin_source_mm": [
+    -92.16457605554228,
+    -9.889798156648327,
+    1272.4840716011975
+  ],
+  "original_front_support_loss_mm3": 2.83495099663633e-07,
+  "new_adapter": {
+    "file": "prototype/s1_infraspinatus_trial/bench_adapter_v1/integral_saddle_and_grip.stl",
+    "sha256": "26ca4e6710195b9f386c5c7b187810900a56fb47bd504ec6923e3b3359b073e4",
+    "translation_source_mm": [
+      -92.16457605554228,
+      -9.889798156648327,
+      1272.4840716011975
+    ],
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "volume_mm3": 23011.876173339686,
+    "components_mm3": [
+      23011.876173339686
+    ],
+    "roundtrip_relative_volume_error": 2.1961444652574055e-09
+  },
+  "print_pose_candidate": {
+    "file": "prototype/s1_infraspinatus_trial/bench_adapter_v1/print_pose_candidate.stl",
+    "sha256": "341575cf9f1fd3065d3ce80fbe86819be734db882c5f993b9f61a52e73232b7d",
+    "translation_source_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "volume_mm3": 23011.87587311586,
+    "components_mm3": [
+      23011.87587311586
+    ],
+    "roundtrip_relative_volume_error": 1.3046475121702363e-08
+  },
+  "source_to_print_affine": [
+    [
+      0.0,
+      0.26669318825015204,
+      -0.9637814811153869,
+      1229.0341250250872
+    ],
+    [
+      -0.9221288982819819,
+      -0.3728704705503262,
+      -0.10317900534913413,
+      42.618408159387585
+    ],
+    [
+      -0.38688279226822475,
+      0.8887307553655085,
+      0.2459254958604219,
+      -283.8037970294279
+    ]
+  ],
+  "print_to_source_affine": [
+    [
+      0.0,
+      -0.9221288982819819,
+      -0.38688279226822475,
+      -70.4991396885217
+    ],
+    [
+      0.26669318825015204,
+      -0.3728704705503262,
+      0.8887307553655085,
+      -59.6587204571168
+    ],
+    [
+      -0.9637814811153869,
+      -0.10317900534913413,
+      0.2459254958604219,
+      1258.7122438330139
+    ]
+  ],
+  "print_roundtrip_added_signed_mm3": 0.0005614568109045768,
+  "print_roundtrip_removed_signed_mm3": 0.0008616837412114871,
+  "export_surface_tolerance_mm": null,
+  "export_surface_added_signed_mm3": 0.0013164225606046894,
+  "export_surface_removed_signed_mm3": 0.0013669605871570085,
+  "construction_parameters": {
+    "stem_radius_mm": 11.0,
+    "stem_z_interval_mm": [
+      -42.0,
+      -10.5
+    ],
+    "post_radius_mm": 3.5,
+    "post_z_interval_mm": [
+      -11.0,
+      -4.3
+    ],
+    "grip_dimensions_mm": [
+      34.0,
+      28.0,
+      18.0
+    ],
+    "grip_lower_local_mm": [
+      -17.0,
+      -14.0,
+      -56.0
+    ],
+    "grip_flat_faces": "local X=+-17 or Y=+-14; vice not selected or modelled",
+    "tpu_relief": "no TPU subtraction; broad stem behind full-belly minimum local Z",
+    "active_line_guard_radius_mm": 1.2
+  },
+  "nut_and_tool_wells": [
+    {
+      "index": 0,
+      "axis_local_mm": [
+        -7.0,
+        0.0,
+        0.0
+      ],
+      "inherited_bore_diameter_mm": 3.4,
+      "added_bore_diameter_mm": 3.5,
+      "rear_access_diameter_mm": 9.0,
+      "washer_front_z_mm": -11.26850128502275,
+      "adapter_bearing_z_mm": -11.248501285022751,
+      "nominal_axial_gap_mm": 0.02
+    },
+    {
+      "index": 1,
+      "axis_local_mm": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "inherited_bore_diameter_mm": 3.4,
+      "added_bore_diameter_mm": 3.5,
+      "rear_access_diameter_mm": 9.0,
+      "washer_front_z_mm": -11.268502375695745,
+      "adapter_bearing_z_mm": -11.248502375695745,
+      "nominal_axial_gap_mm": 0.02
+    }
+  ],
+  "contacts": [
+    {
+      "key": "tpu:infraspinatus",
+      "volume_mm3": 0.00019129603809621483
+    },
+    {
+      "key": "cap:FJ1500/origin",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "stop:FJ1500/distal_stop_blank",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "free_terminal:FJ1500",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/tendon_wire",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_bolt",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_nut",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_inner_washer",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_outer_washer",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_groove_ring",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/muscle_uncrimped_sleeve",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_bolt",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_nut",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_inner_washer",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_outer_washer",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_groove_ring",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "link:FJ1500/bone_uncrimped_sleeve",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/bolt_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/nut_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/front_washer_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/back_washer_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/bolt_1",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/nut_1",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/front_washer_1",
+      "volume_mm3": 0.0
+    },
+    {
+      "key": "origin:FJ1500/back_washer_1",
+      "volume_mm3": 0.0
+    }
+  ],
+  "intersections_over_0_001_mm3": [],
+  "active_wire_overlap_mm3": 0.0,
+  "active_line_1_2mm_radius_guard_overlap_mm3": 0.0,
+  "distal_end_constraints_added": false,
+  "geometric_checks_pass": true,
+  "not_verified": [
+    "actual vice and tool fit, screw torque, preload and fastening",
+    "strength, print direction, slicing and material",
+    "active steel terminal gripping and wire friction",
+    "TPU deformation, recovery or arm drive"
+  ],
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

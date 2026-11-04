@@ -1,0 +1,118 @@
+{
+  "scope": "Run actual PrusaSlicer offline probes and record positive extrusion roles.\n\nRaw G-code is stored in ignored tmp only, with heating disabled. It is NOT\na manufacturing handoff. Printer, material and paper Table S2 are unknown.\n",
+  "orientation": "paper_z_up",
+  "support_enabled": true,
+  "slicer_path": ".deps\\prusaslicer-2.9.6\\PrusaSlicer-2.9.6\\prusa-slicer-console.exe",
+  "slicer_sha256": "7fd50b52d1cc3da87dbcb71e45e764412dd45688bea028f351333e86d9769704",
+  "version": "PrusaSlicer 2.9.6 project-local portable",
+  "release_archive_url": "https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.9.6/PrusaSlicer-2.9.6.zip",
+  "release_archive_sha256": "5aaf22e42f95accecfa122d23a835911f289ecc2ff606db3e83d637ddcc0a209",
+  "input_file": "prototype/s1_infraspinatus_trial/slicing_probe/paper_z_up/full_muscle.obj",
+  "input_sha256": "4da7bbee574ca3085e24f40e3f29f2d986fd5801e7859b2397efc481d3aede99",
+  "profile": "prototype/s1_infraspinatus_trial/slicing_probe/support_analysis.ini",
+  "profile_sha256": "98677373099cedadd65242ded5d4cd5464eba3f3911c4af8655a332b6847d991",
+  "command": [
+    "D:\\XJTLU\\PSP\\.deps\\prusaslicer-2.9.6\\PrusaSlicer-2.9.6\\prusa-slicer-console.exe",
+    "--datadir",
+    "D:\\XJTLU\\PSP\\tmp\\s1_slicing_probe\\paper_z_up\\with_support\\slicer_datadir",
+    "--load",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\support_analysis.ini",
+    "--threads",
+    "2",
+    "--dont-arrange",
+    "--center",
+    "180,180",
+    "--export-gcode",
+    "--save",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\paper_z_up\\with_support\\effective_config.ini",
+    "--output",
+    "D:\\XJTLU\\PSP\\tmp\\s1_slicing_probe\\paper_z_up\\with_support\\ANALYSIS_ONLY_NOT_FOR_PRINTING.gcode",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\paper_z_up\\full_muscle.obj"
+  ],
+  "elapsed_s": 21.502850599999874,
+  "exit_code": 0,
+  "analysis_slicing_completed": true,
+  "import_info": "[full_muscle.obj]\nsize_x = 30.718185\nsize_y = 131.357986\nsize_z = 54.455566\nmin_x = -15.359093\nmin_y = -65.678993\nmin_z = 0.000000\nmax_x = 15.359093\nmax_y = 65.678993\nmax_z = 54.455566\nnumber_of_facets = 81668\nmanifold = yes\nnumber_of_parts =  1\nvolume = 8425.639648\n",
+  "warnings": [],
+  "raw_gcode_file": "tmp/s1_slicing_probe/paper_z_up/with_support/ANALYSIS_ONLY_NOT_FOR_PRINTING.gcode",
+  "raw_gcode_stored_in_ignored_tmp": true,
+  "raw_gcode_sha256": "67e63890eda5303690f397acb506d298b2d0c84da6f6bbe6f85816e7ef89459a",
+  "slicer_instance_translation_mm": [
+    180.0,
+    180.0,
+    0.0
+  ],
+  "gcode_summary": {
+    "extrusion_Z_count": 272,
+    "min_extrusion_Z_mm": 0.2,
+    "max_extrusion_Z_mm": 54.4,
+    "roles": {
+      "Support material interface": {
+        "segments": 26220,
+        "xy_length_mm": 15873.058320879332,
+        "filament_mm": 552.6469199999964,
+        "volume_mm3": 1329.2716201742116
+      },
+      "Support material": {
+        "segments": 99273,
+        "xy_length_mm": 117537.34795646073,
+        "filament_mm": 3978.497349999897,
+        "volume_mm3": 9569.407567301378
+      },
+      "External perimeter": {
+        "segments": 150259,
+        "xy_length_mm": 56337.31106663651,
+        "filament_mm": 1930.4349099998428,
+        "volume_mm3": 4643.240100671496
+      },
+      "Overhang perimeter": {
+        "segments": 3403,
+        "xy_length_mm": 1147.0262322912665,
+        "filament_mm": 59.92612000000003,
+        "volume_mm3": 144.13921029932615
+      },
+      "Perimeter": {
+        "segments": 91056,
+        "xy_length_mm": 32929.58264177173,
+        "filament_mm": 1218.008720000006,
+        "volume_mm3": 2929.6542983009067
+      },
+      "Bridge infill": {
+        "segments": 324,
+        "xy_length_mm": 249.35266343962954,
+        "filament_mm": 16.101839999999992,
+        "volume_mm3": 38.7294639126662
+      },
+      "Solid infill": {
+        "segments": 4396,
+        "xy_length_mm": 2424.77746483245,
+        "filament_mm": 85.33311000000013,
+        "volume_mm3": 205.2501828549148
+      },
+      "Top solid infill": {
+        "segments": 412,
+        "xy_length_mm": 269.7469645735033,
+        "filament_mm": 9.642349999999997,
+        "volume_mm3": 23.19256969130838
+      }
+    },
+    "minimum_reported_width_mm": 0.288134,
+    "maximum_reported_width_mm": 0.810004,
+    "command_counts": {
+      "G21": 1,
+      "G90": 1,
+      "M83": 1,
+      "M107": 1187,
+      "G1": 455937,
+      "M106": 1185
+    },
+    "volume_note": "Positive XY extrusion only, 1.75mm assumed filament; not measured material, mass or mechanical performance"
+  },
+  "actual_printer_and_material_selected": false,
+  "support_removal_verified": false,
+  "printability_verified": false,
+  "actual_drive_range_deg": null,
+  "stage_pass": false,
+  "summary_parser_note": "Replayed unchanged G-code with leading-dot decimals accepted.",
+  "summary_parser_sha256": "8c81bfcfdc941572ebc87804b90d26d222801f63b50e6193f12978502300ab65"
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "Full zero-pose source audit for a mechanical working shoulder candidate.\n\nEvery distinct source pair is tested; no adjacent-bone/contact pair is omitted.\nOwn wire reference geometry alone is omitted from its identical route probe.\nThis is a sampled neutral-pose audit, not motion, assembly, FE or physical proof.\n",
+  "assembly_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_deltoid_distal_mount/assembly_check.json",
+  "assembly_sha256": "74c653e420ba59d2161a228a12aeb5a949d29fcc567bc917382c8f8be7e23e32",
+  "local_verification_sha256": "52bea8a6dbf5868e334f85067bf94048307a91bf17c7bf484335d5439ee00827",
+  "routes_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "script_sha256": "95e5567689e5ca2b51ca9e22cccd8c964c8562d090a26b33cd83ed9bbfdd9076",
+  "sources_checked": 244,
+  "all_source_hashes_match": true,
+  "neutral_pose_pairs": 29646,
+  "excluded_source_pairs": [],
+  "intersection_volume_threshold_mm3": 0.001,
+  "neutral_pose_intersections": [],
+  "six_active_wire_corridors": [
+    {
+      "head": "FJ1500",
+      "distinct_source_probes": 244,
+      "identical_wire_self_references": [],
+      "hits": []
+    },
+    {
+      "head": "FJ1504",
+      "distinct_source_probes": 244,
+      "identical_wire_self_references": [],
+      "hits": []
+    },
+    {
+      "head": "FJ1507",
+      "distinct_source_probes": 243,
+      "identical_wire_self_references": [
+        "wire_active:FJ1507/reference"
+      ],
+      "hits": []
+    },
+    {
+      "head": "FJ1468",
+      "distinct_source_probes": 244,
+      "identical_wire_self_references": [],
+      "hits": []
+    },
+    {
+      "head": "FJ1513",
+      "distinct_source_probes": 244,
+      "identical_wire_self_references": [],
+      "hits": []
+    },
+    {
+      "head": "FJ1467",
+      "distinct_source_probes": 244,
+      "identical_wire_self_references": [],
+      "hits": []
+    }
+  ],
+  "missing_body_owners": [],
+  "stale_body_owners": [],
+  "neutral_pose_source_and_wire_pass": true,
+  "original_stop_blanks_are_unverified_references": [
+    "stop:FJ1467_stop_blank",
+    "stop:FJ1468_stop_blank",
+    "stop:FJ1513_stop_blank"
+  ],
+  "complete_assembly_verified": false,
+  "driven_motion_verified": false,
+  "physical_hardware_strength_verified": false,
+  "S1_frozen": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

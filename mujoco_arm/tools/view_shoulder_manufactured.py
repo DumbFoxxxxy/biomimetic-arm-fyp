@@ -28,6 +28,7 @@ def main():
     ap.add_argument('--azimuth',type=float,help='Optional inspection camera azimuth in degrees')
     ap.add_argument('--elevation',type=float,help='Optional inspection camera elevation in degrees')
     ap.add_argument('--distance',type=float,help='Optional inspection camera distance in metres')
+    ap.add_argument('--lookat',type=float,nargs=3,metavar=('X','Y','Z'),help='Optional camera target in source metres')
     args=ap.parse_args();DEST=args.report.parent
     if selection and args.report.resolve()==selected_report.resolve() and hashlib.sha256(args.report.read_bytes()).hexdigest()!=selection['assembly_sha256']:
         raise ValueError('Current research-candidate selection is stale; update its verified report hashes')
@@ -83,6 +84,7 @@ def main():
         if args.azimuth is not None:cam.azimuth=args.azimuth
         if args.elevation is not None:cam.elevation=args.elevation
         if args.distance is not None:cam.distance=args.distance
+        if args.lookat is not None:cam.lookat[:]=args.lookat
     if args.check:return
     if args.render:
         from PIL import Image,ImageDraw

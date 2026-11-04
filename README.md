@@ -1,8 +1,8 @@
 # 仿生右臂：人体骨骼＋工程关节＋异形 TPU 晶格肌肉
 
-**当前优先：完成钢丝＋TPU肌肉驱动的实体可动演示，运动范围留待实测；完整TPU仿真不作为试制前置条件。**
+**当前优先：完成骨架、关节、肌肉固定及钢丝传力的机械结构；打印准备暂缓。最终实现钢丝＋TPU肌肉驱动，运动范围可后续实测。**
 
-[项目概览](docs/PROJECT_OVERVIEW.md) · [实体可动阶段](design/PHYSICAL_PROTOTYPE_STAGE.md)
+[项目概览](docs/PROJECT_OVERVIEW.md) · [机械结构阶段](design/MECHANICAL_DESIGN_STAGE.md)
 
 以真实解剖骨骼为基础，通过工程关节保证运动，以钢丝和可变形 TPU 晶格肌肉传力。允许短钢丝肌腱连接骨侧接口。
 
@@ -27,6 +27,8 @@
 首次部署完成后链接生效；[本地查看与部署说明](docs/GITHUB_MODEL_VIEWER.md)。
 
 当前展示 S1-Y2 肩部完整装配，共 191 对象。网页展示静态几何，不包含 TPU 变形或钢丝驱动仿真；桌面 MuJoCo 入口见下方快速复现。
+
+肩部与肘部的[本地合体展示准备](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_preview/README.md)已开始；当前为接口待整合的空间预览。S1机械结构及共用肱骨接口确定后，再更新GitHub中的整体展示。
 
 ## 方案与目录
 

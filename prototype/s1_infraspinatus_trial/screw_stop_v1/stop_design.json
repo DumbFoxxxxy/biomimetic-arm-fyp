@@ -1,0 +1,473 @@
+{
+  "scope": "Reusable METAL screw-stop candidate for the current FJ1500 active wire.\n\nRetains the existing counterbore and cap. Radial M2x0.4 screw is a smooth\nclearance envelope with a flat point, not an explicitly threaded solid.\nFirst-touch cable state does not establish clamping force or grip.\n",
+  "source_assembly": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y2_transition_stock/assembly_check.json",
+  "source_assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "script_sha256": "1f7e4769c55ffb6787d862ce4dc39d397c945171e5ba78eddb4eec36d2f54a86",
+  "source_route": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_port_path_revision/routes_compact_distal_candidate.json",
+  "source_route_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "bench_source_sha256": "bfac9fa076c5a40cd82550df98e9f3f49c182fbd65cddbecb6671e4334d6a7b6",
+  "local_origin_source_mm": [
+    -184.12353625361376,
+    -59.62001964322287,
+    1321.6728282052645
+  ],
+  "local_basis_columns_source": [
+    [
+      0.1494955088083031,
+      0.8230264980646945,
+      -0.5479767114846325
+    ],
+    [
+      0.021185535824897368,
+      0.5514111807960074,
+      0.8339645572594587
+    ],
+    [
+      0.9885354145997798,
+      -0.13628313606796114,
+      0.06499723767609691
+    ]
+  ],
+  "nominal_dimensions": {
+    "stub_diameter_mm": 2.5,
+    "stub_z_interval_mm": [
+      0.45,
+      3.05
+    ],
+    "head_stock_diameter_mm": 4.0,
+    "head_ear_side_flat_local_x_mm": -1.5,
+    "head_local_X_width_mm": 3.5,
+    "head_z_interval_mm": [
+      3.05,
+      7.05
+    ],
+    "through_bore_mm": 0.8,
+    "radial_thread": "M2x0.4; envelope only, tool and thread engagement unverified",
+    "radial_port_envelope_mm": 2.1,
+    "radial_thread_axis_local_z_mm": 5.05,
+    "radial_thread_axis_local_direction": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "set_screw_nominal_length_mm": 3.0,
+    "nominal_screw_tip_x_mm": 0.3,
+    "first_touch": true,
+    "nominal_screw_cylinder_axis_span_in_stock_mm": 1.4,
+    "axis_span_is_not_effective_thread_engagement": true,
+    "actual_thread_engagement_verified": false,
+    "flat_point_nominal_diameter_mm": 0.9,
+    "socket_nominal_AF_mm": 0.9,
+    "socket_nominal_depth_mm": 0.8,
+    "axial_seating_gap_mm": 0.05
+  },
+  "alternatives": {
+    "untrimmed_4mm_head_cap_overlap_mm3": 0.24126474283949728,
+    "round_3p6_head_cap_gap_mm": 0.006894846862892605,
+    "selected": "4mm stock with ear-side X=-1.5mm flat",
+    "comparison": "neutral source geometry only; no strength ranking"
+  },
+  "body_to_cap_gap_capped_2mm": 0.049996998417460456,
+  "exposed_head_excluding_bearing_z_3p05_to_3p25_gap_capped_2mm": 0.24999798379433047,
+  "components": {
+    "body": {
+      "file": "prototype/s1_infraspinatus_trial/screw_stop_v1/METAL_stop_body_envelope.stl",
+      "sha256": "0dbf9fcb07c1fc6aab646862c8f554e2c5530d619f28d746d07925446bd3c1e9",
+      "translation_source_mm": [
+        -184.12353625361376,
+        -59.62001964322287,
+        1321.6728282052645
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_mm3": 49.90038048875892,
+      "components_mm3": [
+        49.90038048875892
+      ],
+      "roundtrip_relative_volume_error": 1.5840288337125976e-08
+    },
+    "set_screw": {
+      "file": "prototype/s1_infraspinatus_trial/screw_stop_v1/M2x3_flat_point_NOT_PRINT.stl",
+      "sha256": "3dbbd15443e7290ca44bfeb1dd30b06f348167127481cb44688efb6510eb490c",
+      "translation_source_mm": [
+        -184.12353625361376,
+        -59.62001964322287,
+        1321.6728282052645
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_mm3": 8.425810813815572,
+      "components_mm3": [
+        8.425810813815572
+      ],
+      "roundtrip_relative_volume_error": 3.4070176760916414e-08
+    },
+    "active_wire": {
+      "file": "prototype/s1_infraspinatus_trial/screw_stop_v1/active_wire_extended_NOT_PRINT.stl",
+      "sha256": "ee67ea52bf3ddd61114c9f3ac9e77eb3755e9245c3c32819b3a083ff827f6c35",
+      "translation_source_mm": [
+        -184.12353625361376,
+        -59.62001964322287,
+        1321.6728282052645
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_mm3": 37.41886557522716,
+      "components_mm3": [
+        37.41886557522716
+      ],
+      "roundtrip_relative_volume_error": 1.0560749222468027e-07
+    }
+  },
+  "extended_active_wire_path_source_mm": [
+    [
+      -95.06619699755397,
+      -3.224317491407014,
+      1274.3285128201505
+    ],
+    [
+      -93.13178303621285,
+      -7.667971268234556,
+      1273.0988853408485
+    ],
+    [
+      -92.16457605554228,
+      -9.889798156648327,
+      1272.4840716011975
+    ],
+    [
+      -91.39081047100584,
+      -11.667259667379344,
+      1271.9922206094766
+    ],
+    [
+      -91.8516988779435,
+      -11.255043489738496,
+      1272.2549607089015
+    ],
+    [
+      -92.2727418945787,
+      -10.966948867904362,
+      1272.490938146552
+    ],
+    [
+      -92.59587030261982,
+      -10.984070234567838,
+      1272.6611482312194
+    ],
+    [
+      -92.80184889045321,
+      -11.369109027531588,
+      1272.752625539455
+    ],
+    [
+      -92.95077824297856,
+      -11.94988671343045,
+      1272.8053377703307
+    ],
+    [
+      -93.11685015010256,
+      -12.53639805939015,
+      1272.867458566152
+    ],
+    [
+      -93.3590135236823,
+      -13.0083023777366,
+      1272.9747840795292
+    ],
+    [
+      -93.69957316503384,
+      -13.370143923251305,
+      1273.136619071638
+    ],
+    [
+      -94.13882381600135,
+      -13.708367037795437,
+      1273.3478415061516
+    ],
+    [
+      -94.66287139303262,
+      -14.077592512893716,
+      1273.6026515691117
+    ],
+    [
+      -95.236840115312,
+      -14.457298795415412,
+      1273.890297068101
+    ],
+    [
+      -95.86729520967222,
+      -14.771545156397934,
+      1274.2142596166154
+    ],
+    [
+      -96.573475887537,
+      -14.961770781174275,
+      1274.5831303008188
+    ],
+    [
+      -97.33599936597236,
+      -15.05483753964513,
+      1274.9846057162356
+    ],
+    [
+      -98.12723398381257,
+      -15.09768436295014,
+      1275.4025432879037
+    ],
+    [
+      -98.93024650839178,
+      -15.119812229376825,
+      1275.8272035133634
+    ],
+    [
+      -99.73745178526369,
+      -15.134543775325083,
+      1276.254250722032
+    ],
+    [
+      -100.54585042243596,
+      -15.14716721215221,
+      1276.6819763567376
+    ],
+    [
+      -100.75,
+      -15.15,
+      1276.79
+    ],
+    [
+      -109.52,
+      -18.37,
+      1281.66
+    ],
+    [
+      -116.57,
+      -23.45,
+      1286.25
+    ],
+    [
+      -123.65,
+      -27.65,
+      1291.4
+    ],
+    [
+      -131.18,
+      -31.14,
+      1296.98
+    ],
+    [
+      -139.38,
+      -34.18,
+      1302.5
+    ],
+    [
+      -148.0,
+      -38.09,
+      1307.0
+    ],
+    [
+      -156.09,
+      -42.54,
+      1311.11
+    ],
+    [
+      -164.33,
+      -47.61,
+      1314.91
+    ],
+    [
+      -171.54233984259417,
+      -54.3948745555804,
+      1318.1842021984035
+    ],
+    [
+      -171.97210342331877,
+      -54.611260127924375,
+      1318.3064758571545
+    ],
+    [
+      -172.40187022337028,
+      -54.82763954032031,
+      1318.4287501702731
+    ],
+    [
+      -172.83164519970273,
+      -55.04400338218213,
+      1318.551026133265
+    ],
+    [
+      -173.26143662204245,
+      -55.26033612194441,
+      1318.6733053796015
+    ],
+    [
+      -173.6912587796822,
+      -55.47661120261356,
+      1318.7955906862462
+    ],
+    [
+      -174.12113572138344,
+      -55.69278438926761,
+      1318.9178866519953
+    ],
+    [
+      -174.55110613024365,
+      -55.90878528088333,
+      1319.0402005519027
+    ],
+    [
+      -174.98122899521357,
+      -56.12450771082786,
+      1319.162543286509
+    ],
+    [
+      -175.41158903845576,
+      -56.339800996399894,
+      1319.2849302193745
+    ],
+    [
+      -175.84229996404298,
+      -56.55446549106484,
+      1319.4073815499976
+    ],
+    [
+      -176.27350277723477,
+      -56.768257140087464,
+      1319.5299217544411
+    ],
+    [
+      -176.70535617233284,
+      -56.98090589960552,
+      1319.6525776271678
+    ],
+    [
+      -177.1380168903714,
+      -57.19215101204079,
+      1319.7753746637427
+    ],
+    [
+      -177.5716103978059,
+      -57.40179172628274,
+      1319.8983319759932
+    ],
+    [
+      -178.00619601935404,
+      -57.60974567546876,
+      1320.02145656003
+    ],
+    [
+      -178.44173466191208,
+      -57.81610079287574,
+      1320.1447383353952
+    ],
+    [
+      -178.878069631014,
+      -58.021143435643516,
+      1320.2681476407256
+    ],
+    [
+      -179.31492990742746,
+      -58.22534811518181,
+      1320.3916365499051
+    ],
+    [
+      -179.73931819239294,
+      -58.45106441722309,
+      1320.5129727525855
+    ],
+    [
+      -180.162483144404,
+      -58.67893394779618,
+      1320.6340907775923
+    ],
+    [
+      -180.5862859156194,
+      -58.905735477945676,
+      1320.7553136738788
+    ],
+    [
+      -181.01093069097257,
+      -59.131095544457615,
+      1320.876680144143
+    ],
+    [
+      -181.43651472868441,
+      -59.35482790494021,
+      1320.998209981029
+    ],
+    [
+      -181.86302787671323,
+      -59.57693776348728,
+      1321.1199034324115
+    ],
+    [
+      -182.29036955676642,
+      -59.79759353306178,
+      1321.241743961205
+    ],
+    [
+      -182.71837538958226,
+      -60.01707998771354,
+      1321.3637029912597
+    ],
+    [
+      -183.14684436987193,
+      -60.23574945570196,
+      1321.4857449124586
+    ],
+    [
+      -183.57555954212913,
+      -60.453984200482324,
+      1321.6078309675884
+    ],
+    [
+      -184.12353625361376,
+      -59.62001964322287,
+      1321.6728282052645
+    ],
+    [
+      -185.76746638806767,
+      -57.11812597144449,
+      1321.8678199182928
+    ],
+    [
+      -188.53474878106505,
+      -52.90660495728422,
+      1322.1960559685572
+    ]
+  ],
+  "added_tail_length_mm": 5.05,
+  "internal_route_and_anchors_unchanged": true,
+  "static_conflicts_over_0_001_mm3": [],
+  "static_internal_intersections": [
+    {
+      "a": "stop_body",
+      "b": "set_screw",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "stop_body",
+      "b": "active_wire",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "set_screw",
+      "b": "active_wire",
+      "volume_mm3": 0.0
+    }
+  ],
+  "screw_catalog_sources": [
+    "https://www.pts-uk.com/products/socket-screws/socket-set-screw-flat-point/metric-a2/a9130203",
+    "https://www.del-screw.co.jp/en/imo/hirasaki/fe.html"
+  ],
+  "static_geometry_pass": true,
+  "grip_force_N": null,
+  "tightening_torque_Nm": null,
+  "not_verified": [
+    "custom metal body manufacture/material/thread fit and physical tool access",
+    "clamping torque, grip, steel strand damage, loosening and repeatability",
+    "printed cap bearing, loaded TPU motion or full-arm actuation"
+  ],
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

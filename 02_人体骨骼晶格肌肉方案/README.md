@@ -1,8 +1,8 @@
 # 方案二：人体骨骼＋工程关节＋异形TPU晶格肌肉
 
-**当前优先：完成钢丝＋TPU肌肉驱动的实体可动演示，运动范围留待实测；完整TPU仿真不作为试制前置条件。**
+**当前优先：完成骨架、关节、肌肉固定及钢丝传力的机械结构；打印准备暂缓。最终实现钢丝＋TPU肌肉驱动，运动范围可后续实测。**
 
-[项目概览](../docs/PROJECT_OVERVIEW.md) · [实体可动阶段](../design/PHYSICAL_PROTOTYPE_STAGE.md)
+[项目概览](../docs/PROJECT_OVERVIEW.md) · [机械结构阶段](../design/MECHANICAL_DESIGN_STAGE.md)
 
 当前状态（2026-11-03）：当前推进肩部S1。当前研究起点为S1-Y2：紧凑GH骨架＋两块共形Y肌腹，共191对象（历史方案保留），尚未定版；肘部候选与试验准备独立保留。预测及实测TPU驱动范围未知，当前入口见[PROJECT_STATUS](../PROJECT_STATUS.md)。
 

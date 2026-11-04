@@ -1,0 +1,90 @@
+{
+  "assembly_sha256": "c87031b5564f2b872e18a052e028bcfb4fa768af0892970168c7e4531398509f",
+  "study_sha256": "15643cad4d1cdfed2e13a6093c568d0db9b3e28b34a3274d48b5b99bc7bc1aa1",
+  "script_sha256": "a94d1b592713a80b0bcaebb436f2e80bb87d071c7d59a04ab89607fc96f2ce0e",
+  "thickness": [
+    {
+      "bolt": 0,
+      "samples": 1152,
+      "minimum_original_mm": 1.9904827305635764,
+      "minimum_candidate_mm": 1.9904827305635764,
+      "worst_loss": {
+        "depth_mm": 0.25,
+        "angle_deg": 0,
+        "original_mm": 3.991216759966694,
+        "candidate_mm": 3.991216759966694
+      },
+      "zero_contiguous_samples": 0
+    },
+    {
+      "bolt": 1,
+      "samples": 1152,
+      "minimum_original_mm": 1.9904790475431673,
+      "minimum_candidate_mm": 0.0,
+      "worst_loss": {
+        "depth_mm": 1.25,
+        "angle_deg": 140,
+        "original_mm": 5.430698967107069,
+        "candidate_mm": 0.0
+      },
+      "zero_contiguous_samples": 828
+    }
+  ],
+  "fastener_stages": [
+    {
+      "keys": [
+        "collar:bolt_0",
+        "collar:top_washer_0"
+      ],
+      "clear": true,
+      "hits": [],
+      "first_collision_from_entry_mm": null
+    },
+    {
+      "keys": [
+        "collar:nut_0",
+        "collar:bottom_washer_0"
+      ],
+      "clear": true,
+      "hits": [],
+      "first_collision_from_entry_mm": null
+    },
+    {
+      "keys": [
+        "collar:bolt_1",
+        "collar:top_washer_1"
+      ],
+      "clear": false,
+      "hits": [
+        {
+          "moving": "collar:bolt_1",
+          "target": "tpu:deltoid",
+          "volume_mm3": 29.51845366940738
+        },
+        {
+          "moving": "collar:top_washer_1",
+          "target": "tpu:deltoid",
+          "volume_mm3": 1.6241066147269203
+        }
+      ],
+      "first_collision_from_entry_mm": 20.0
+    },
+    {
+      "keys": [
+        "collar:nut_1",
+        "collar:bottom_washer_1"
+      ],
+      "clear": false,
+      "hits": [
+        {
+          "moving": "collar:bottom_washer_1",
+          "target": "tpu:deltoid",
+          "volume_mm3": 0.0012949860408055585
+        }
+      ],
+      "first_collision_from_entry_mm": 18.25
+    }
+  ],
+  "upper_jaw_and_liner_preinstallation_verified": false,
+  "whole_shoulder_assembly_verified": false
+}

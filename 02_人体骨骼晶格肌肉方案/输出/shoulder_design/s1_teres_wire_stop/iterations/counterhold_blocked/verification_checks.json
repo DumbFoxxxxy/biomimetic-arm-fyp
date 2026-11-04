@@ -1,0 +1,819 @@
+{
+  "scope": "Independent teres stop bearing, wire entry, placement and paired-tool check.\n\nFirst-touch is a geometry state, never a measured grip or torque capacity.\nCounterhold and driver shapes are nominal approach envelopes, not real tools.\n",
+  "assembly_sha256": "08345f4f97408b4920a5174cbecf97ff5c8814d9cb161ef0cd41a035a24ab69c",
+  "verifier_sha256": "7b30ad2a861366f6c4588b1b919bafb243377c73f17e7a8dd2362b5a0518d1a6",
+  "parent_204_sources_unchanged": true,
+  "topology": [
+    {
+      "key": "stop:FJ1507/M2x3",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components_over_1e_8_mm3": 1
+    },
+    {
+      "key": "stop:FJ1507/hex_body",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components_over_1e_8_mm3": 1
+    },
+    {
+      "key": "wire_active:FJ1507/reference",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components_over_1e_8_mm3": 1
+    }
+  ],
+  "bearing_shift_mm": 0.08,
+  "bearing_probe_mm3": 0.4404497403238825,
+  "screw_first_contact_shift_mm": 0.05,
+  "screw_wire_contact_probe_mm3": 0.00950801180822873,
+  "stop_to_cap_min_gap_capped_2mm": 0.05160900458597419,
+  "axial_feed": {
+    "step_mm": 0.5,
+    "poses": 50,
+    "screw_backoff_mm": 0.3,
+    "hits": []
+  },
+  "radial_screw_to_first_touch": {
+    "step_mm": 0.1,
+    "poses": 8,
+    "hits": []
+  },
+  "tools": [
+    {
+      "tool": "driver",
+      "hits": []
+    },
+    {
+      "tool": "counterhold_final",
+      "hits": [
+        {
+          "key": "tpu:teres_major",
+          "volume_mm3": 30.14908988900288
+        },
+        {
+          "key": "wire_active:FJ1507/reference",
+          "volume_mm3": 0.24639562338530374
+        }
+      ]
+    }
+  ],
+  "counterhold_approach": {
+    "step_mm": 0.5,
+    "poses": 82,
+    "hits": [
+      {
+        "way": "in",
+        "offset_mm": 20.0,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 3.46226537422035
+      },
+      {
+        "way": "in",
+        "offset_mm": 19.5,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 2.077006585574728
+      },
+      {
+        "way": "in",
+        "offset_mm": 19.0,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 0.9877708479570781
+      },
+      {
+        "way": "in",
+        "offset_mm": 18.5,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 0.26396121153958096
+      },
+      {
+        "way": "in",
+        "offset_mm": 16.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.012736123356151373
+      },
+      {
+        "way": "in",
+        "offset_mm": 15.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.1612844612940782
+      },
+      {
+        "way": "in",
+        "offset_mm": 15.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.6203227648595453
+      },
+      {
+        "way": "in",
+        "offset_mm": 14.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 1.5063936061743792
+      },
+      {
+        "way": "in",
+        "offset_mm": 14.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 2.6095049528249343
+      },
+      {
+        "way": "in",
+        "offset_mm": 13.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 3.734504952825165
+      },
+      {
+        "way": "in",
+        "offset_mm": 13.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 4.859504952825107
+      },
+      {
+        "way": "in",
+        "offset_mm": 12.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 5.963734167370118
+      },
+      {
+        "way": "in",
+        "offset_mm": 12.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 6.920486856190293
+      },
+      {
+        "way": "in",
+        "offset_mm": 11.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 7.621245847146649
+      },
+      {
+        "way": "in",
+        "offset_mm": 11.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.018136925464265357
+      },
+      {
+        "way": "in",
+        "offset_mm": 11.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 8.160525669619028
+      },
+      {
+        "way": "in",
+        "offset_mm": 11.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.10611704290268045
+      },
+      {
+        "way": "in",
+        "offset_mm": 10.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 8.724852225672691
+      },
+      {
+        "way": "in",
+        "offset_mm": 10.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.22367558431015028
+      },
+      {
+        "way": "in",
+        "offset_mm": 10.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 9.473470967567607
+      },
+      {
+        "way": "in",
+        "offset_mm": 10.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338538334
+      },
+      {
+        "way": "in",
+        "offset_mm": 9.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 10.458292024324885
+      },
+      {
+        "way": "in",
+        "offset_mm": 9.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338529242
+      },
+      {
+        "way": "in",
+        "offset_mm": 9.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 11.581585656651525
+      },
+      {
+        "way": "in",
+        "offset_mm": 9.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852021
+      },
+      {
+        "way": "in",
+        "offset_mm": 8.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 12.706585656651015
+      },
+      {
+        "way": "in",
+        "offset_mm": 8.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338530646
+      },
+      {
+        "way": "in",
+        "offset_mm": 8.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 13.83161994359599
+      },
+      {
+        "way": "in",
+        "offset_mm": 8.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338523466
+      },
+      {
+        "way": "in",
+        "offset_mm": 7.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 14.96614655205884
+      },
+      {
+        "way": "in",
+        "offset_mm": 7.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338525256
+      },
+      {
+        "way": "in",
+        "offset_mm": 7.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 15.972856527267998
+      },
+      {
+        "way": "in",
+        "offset_mm": 7.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338524487
+      },
+      {
+        "way": "in",
+        "offset_mm": 6.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 16.856803693251692
+      },
+      {
+        "way": "in",
+        "offset_mm": 6.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233853273
+      },
+      {
+        "way": "in",
+        "offset_mm": 6.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 17.64601094833685
+      },
+      {
+        "way": "in",
+        "offset_mm": 6.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852703
+      },
+      {
+        "way": "in",
+        "offset_mm": 5.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 18.594338105953224
+      },
+      {
+        "way": "in",
+        "offset_mm": 5.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338518967
+      },
+      {
+        "way": "in",
+        "offset_mm": 5.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 19.69758695046969
+      },
+      {
+        "way": "in",
+        "offset_mm": 5.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338528415
+      },
+      {
+        "way": "in",
+        "offset_mm": 4.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 20.917681316246018
+      },
+      {
+        "way": "in",
+        "offset_mm": 4.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338524879
+      },
+      {
+        "way": "in",
+        "offset_mm": 4.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 22.221187445721984
+      },
+      {
+        "way": "in",
+        "offset_mm": 4.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338528878
+      },
+      {
+        "way": "in",
+        "offset_mm": 3.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 23.572723270070533
+      },
+      {
+        "way": "in",
+        "offset_mm": 3.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338525633
+      },
+      {
+        "way": "in",
+        "offset_mm": 3.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 24.938407892131735
+      },
+      {
+        "way": "in",
+        "offset_mm": 3.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338517523
+      },
+      {
+        "way": "in",
+        "offset_mm": 2.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 26.281106551417874
+      },
+      {
+        "way": "in",
+        "offset_mm": 2.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338532955
+      },
+      {
+        "way": "in",
+        "offset_mm": 2.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 27.5582905860338
+      },
+      {
+        "way": "in",
+        "offset_mm": 2.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852451
+      },
+      {
+        "way": "in",
+        "offset_mm": 1.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 28.720330782043636
+      },
+      {
+        "way": "in",
+        "offset_mm": 1.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233853174
+      },
+      {
+        "way": "in",
+        "offset_mm": 1.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 29.68569350380692
+      },
+      {
+        "way": "in",
+        "offset_mm": 1.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338523835
+      },
+      {
+        "way": "in",
+        "offset_mm": 0.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 30.229891077251857
+      },
+      {
+        "way": "in",
+        "offset_mm": 0.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338537424
+      },
+      {
+        "way": "in",
+        "offset_mm": 0.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 30.14908988900288
+      },
+      {
+        "way": "in",
+        "offset_mm": 0.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338530374
+      },
+      {
+        "way": "out",
+        "offset_mm": 0.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 30.14908988900288
+      },
+      {
+        "way": "out",
+        "offset_mm": 0.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338530374
+      },
+      {
+        "way": "out",
+        "offset_mm": 0.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 30.229891077251857
+      },
+      {
+        "way": "out",
+        "offset_mm": 0.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338537424
+      },
+      {
+        "way": "out",
+        "offset_mm": 1.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 29.68569350380692
+      },
+      {
+        "way": "out",
+        "offset_mm": 1.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338523835
+      },
+      {
+        "way": "out",
+        "offset_mm": 1.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 28.720330782043636
+      },
+      {
+        "way": "out",
+        "offset_mm": 1.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233853174
+      },
+      {
+        "way": "out",
+        "offset_mm": 2.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 27.5582905860338
+      },
+      {
+        "way": "out",
+        "offset_mm": 2.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852451
+      },
+      {
+        "way": "out",
+        "offset_mm": 2.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 26.281106551417874
+      },
+      {
+        "way": "out",
+        "offset_mm": 2.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338532955
+      },
+      {
+        "way": "out",
+        "offset_mm": 3.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 24.938407892131735
+      },
+      {
+        "way": "out",
+        "offset_mm": 3.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338517523
+      },
+      {
+        "way": "out",
+        "offset_mm": 3.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 23.572723270070533
+      },
+      {
+        "way": "out",
+        "offset_mm": 3.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338525633
+      },
+      {
+        "way": "out",
+        "offset_mm": 4.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 22.221187445721984
+      },
+      {
+        "way": "out",
+        "offset_mm": 4.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338528878
+      },
+      {
+        "way": "out",
+        "offset_mm": 4.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 20.917681316246018
+      },
+      {
+        "way": "out",
+        "offset_mm": 4.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338524879
+      },
+      {
+        "way": "out",
+        "offset_mm": 5.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 19.69758695046969
+      },
+      {
+        "way": "out",
+        "offset_mm": 5.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338528415
+      },
+      {
+        "way": "out",
+        "offset_mm": 5.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 18.594338105953224
+      },
+      {
+        "way": "out",
+        "offset_mm": 5.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338518967
+      },
+      {
+        "way": "out",
+        "offset_mm": 6.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 17.64601094833685
+      },
+      {
+        "way": "out",
+        "offset_mm": 6.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852703
+      },
+      {
+        "way": "out",
+        "offset_mm": 6.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 16.856803693251692
+      },
+      {
+        "way": "out",
+        "offset_mm": 6.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233853273
+      },
+      {
+        "way": "out",
+        "offset_mm": 7.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 15.972856527267998
+      },
+      {
+        "way": "out",
+        "offset_mm": 7.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338524487
+      },
+      {
+        "way": "out",
+        "offset_mm": 7.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 14.96614655205884
+      },
+      {
+        "way": "out",
+        "offset_mm": 7.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338525256
+      },
+      {
+        "way": "out",
+        "offset_mm": 8.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 13.83161994359599
+      },
+      {
+        "way": "out",
+        "offset_mm": 8.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338523466
+      },
+      {
+        "way": "out",
+        "offset_mm": 8.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 12.706585656651015
+      },
+      {
+        "way": "out",
+        "offset_mm": 8.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338530646
+      },
+      {
+        "way": "out",
+        "offset_mm": 9.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 11.581585656651525
+      },
+      {
+        "way": "out",
+        "offset_mm": 9.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.2463956233852021
+      },
+      {
+        "way": "out",
+        "offset_mm": 9.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 10.458292024324885
+      },
+      {
+        "way": "out",
+        "offset_mm": 9.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338529242
+      },
+      {
+        "way": "out",
+        "offset_mm": 10.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 9.473470967567607
+      },
+      {
+        "way": "out",
+        "offset_mm": 10.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.24639562338538334
+      },
+      {
+        "way": "out",
+        "offset_mm": 10.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 8.724852225672691
+      },
+      {
+        "way": "out",
+        "offset_mm": 10.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.22367558431015028
+      },
+      {
+        "way": "out",
+        "offset_mm": 11.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 8.160525669619028
+      },
+      {
+        "way": "out",
+        "offset_mm": 11.0,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.10611704290268045
+      },
+      {
+        "way": "out",
+        "offset_mm": 11.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 7.621245847146649
+      },
+      {
+        "way": "out",
+        "offset_mm": 11.5,
+        "key": "wire_active:FJ1507/reference",
+        "volume_mm3": 0.018136925464265357
+      },
+      {
+        "way": "out",
+        "offset_mm": 12.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 6.920486856190293
+      },
+      {
+        "way": "out",
+        "offset_mm": 12.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 5.963734167370118
+      },
+      {
+        "way": "out",
+        "offset_mm": 13.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 4.859504952825107
+      },
+      {
+        "way": "out",
+        "offset_mm": 13.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 3.734504952825165
+      },
+      {
+        "way": "out",
+        "offset_mm": 14.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 2.6095049528249343
+      },
+      {
+        "way": "out",
+        "offset_mm": 14.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 1.5063936061743792
+      },
+      {
+        "way": "out",
+        "offset_mm": 15.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.6203227648595453
+      },
+      {
+        "way": "out",
+        "offset_mm": 15.5,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.1612844612940782
+      },
+      {
+        "way": "out",
+        "offset_mm": 16.0,
+        "key": "tpu:teres_major",
+        "volume_mm3": 0.012736123356151373
+      },
+      {
+        "way": "out",
+        "offset_mm": 18.5,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 0.26396121153958096
+      },
+      {
+        "way": "out",
+        "offset_mm": 19.0,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 0.9877708479570781
+      },
+      {
+        "way": "out",
+        "offset_mm": 19.5,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 2.077006585574728
+      },
+      {
+        "way": "out",
+        "offset_mm": 20.0,
+        "key": "fixture:lateral_frame",
+        "volume_mm3": 3.46226537422035
+      }
+    ]
+  },
+  "simultaneous_tools_overlap_mm3": 0.0,
+  "counterhold_flat_probe_mm3": [
+    0.14999999999967595,
+    0.14999999999906466
+  ],
+  "geometry_checks_pass": false,
+  "actual_tool_engagement_verified": false,
+  "physical_grip_verified": false,
+  "grip_force_N": null,
+  "tightening_torque_Nm": null,
+  "complete_module_installation_verified": false,
+  "TPU_deformation_verified": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}

@@ -1,0 +1,101 @@
+{
+  "scope": "Run actual PrusaSlicer offline probes and record positive extrusion roles.\n\nRaw G-code is stored in ignored tmp only, with heating disabled. It is NOT\na manufacturing handoff. Printer, material and paper Table S2 are unknown.\n",
+  "orientation": "paper_y_up",
+  "support_enabled": false,
+  "slicer_path": ".deps\\prusaslicer-2.9.6\\PrusaSlicer-2.9.6\\prusa-slicer-console.exe",
+  "slicer_sha256": "7fd50b52d1cc3da87dbcb71e45e764412dd45688bea028f351333e86d9769704",
+  "version": "PrusaSlicer 2.9.6 project-local portable",
+  "release_archive_url": "https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.9.6/PrusaSlicer-2.9.6.zip",
+  "release_archive_sha256": "5aaf22e42f95accecfa122d23a835911f289ecc2ff606db3e83d637ddcc0a209",
+  "input_file": "prototype/s1_infraspinatus_trial/slicing_probe/paper_y_up/full_muscle.obj",
+  "input_sha256": "18cc084517879b23fffdb3dc0f863f0fa64e09c229dc738900559c3b058f94f6",
+  "profile": "prototype/s1_infraspinatus_trial/slicing_probe/no_support_analysis.ini",
+  "profile_sha256": "48b4b130fe089f33d3e60ab394a45aff77a70548380d347c4622aca6e63be2ef",
+  "command": [
+    "D:\\XJTLU\\PSP\\.deps\\prusaslicer-2.9.6\\PrusaSlicer-2.9.6\\prusa-slicer-console.exe",
+    "--datadir",
+    "D:\\XJTLU\\PSP\\tmp\\s1_slicing_probe\\paper_y_up\\no_support\\slicer_datadir",
+    "--load",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\no_support_analysis.ini",
+    "--threads",
+    "2",
+    "--dont-arrange",
+    "--center",
+    "180,180",
+    "--export-gcode",
+    "--save",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\paper_y_up\\no_support\\effective_config.ini",
+    "--output",
+    "D:\\XJTLU\\PSP\\tmp\\s1_slicing_probe\\paper_y_up\\no_support\\ANALYSIS_ONLY_NOT_FOR_PRINTING.gcode",
+    "D:\\XJTLU\\PSP\\prototype\\s1_infraspinatus_trial\\slicing_probe\\paper_y_up\\full_muscle.obj"
+  ],
+  "elapsed_s": 17.104529000000184,
+  "exit_code": 0,
+  "analysis_slicing_completed": true,
+  "import_info": "[full_muscle.obj]\nsize_x = 30.718185\nsize_y = 54.455566\nsize_z = 131.357986\nmin_x = -15.359093\nmin_y = -27.227783\nmin_z = 0.000000\nmax_x = 15.359093\nmax_y = 27.227783\nmax_z = 131.357986\nnumber_of_facets = 81668\nmanifold = yes\nnumber_of_parts =  1\nvolume = 8425.640625\n",
+  "warnings": [
+    "print warning: Detected print stability issues:"
+  ],
+  "raw_gcode_file": "tmp/s1_slicing_probe/paper_y_up/no_support/ANALYSIS_ONLY_NOT_FOR_PRINTING.gcode",
+  "raw_gcode_stored_in_ignored_tmp": true,
+  "raw_gcode_sha256": "baffa67afab86a384829d740c6a704bbb4f9fd76e060bd0cd1a3ccd0352f8fe9",
+  "slicer_instance_translation_mm": [
+    180.0,
+    180.0,
+    0.0
+  ],
+  "gcode_summary": {
+    "extrusion_Z_count": 656,
+    "min_extrusion_Z_mm": 0.2,
+    "max_extrusion_Z_mm": 131.2,
+    "roles": {
+      "External perimeter": {
+        "segments": 108255,
+        "xy_length_mm": 55242.737832394276,
+        "filament_mm": 1901.3873599999788,
+        "volume_mm3": 4573.372555131641
+      },
+      "Overhang perimeter": {
+        "segments": 6584,
+        "xy_length_mm": 1535.219529634737,
+        "filament_mm": 80.20776000000086,
+        "volume_mm3": 192.9222713948082
+      },
+      "Perimeter": {
+        "segments": 72705,
+        "xy_length_mm": 36116.48277750081,
+        "filament_mm": 1344.4368900000195,
+        "volume_mm3": 3233.7496841424863
+      },
+      "Solid infill": {
+        "segments": 1030,
+        "xy_length_mm": 693.8470843044566,
+        "filament_mm": 24.356020000000022,
+        "volume_mm3": 58.58309346299418
+      },
+      "Top solid infill": {
+        "segments": 8,
+        "xy_length_mm": 3.6439116055722547,
+        "filament_mm": 0.13666,
+        "volume_mm3": 0.3287058210928044
+      }
+    },
+    "minimum_reported_width_mm": 0.149399,
+    "maximum_reported_width_mm": 0.81888,
+    "command_counts": {
+      "G21": 1,
+      "G90": 1,
+      "M83": 1,
+      "M107": 2139,
+      "G1": 232186,
+      "M106": 2137
+    },
+    "volume_note": "Positive XY extrusion only, 1.75mm assumed filament; not measured material, mass or mechanical performance"
+  },
+  "actual_printer_and_material_selected": false,
+  "support_removal_verified": false,
+  "printability_verified": false,
+  "actual_drive_range_deg": null,
+  "stage_pass": false,
+  "summary_parser_note": "Refreshed from unchanged raw G-code after accepting leading-dot decimals such as E.00352 and Z.2."
+}

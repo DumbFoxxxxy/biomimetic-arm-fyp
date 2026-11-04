@@ -1,0 +1,208 @@
+{
+  "scope": "Independent readback, interface contact and staged placement checks.\n\nThis is a nominal mechanical assembly check, not preload, strength, threads\nor TPU-driven movement. Original unresolved shoulder contacts stay recorded.\n",
+  "assembly_sha256": "5150946ec36d2b4cf93d939726e8c4e1f197306c1d2521053f6573db2d5cf46b",
+  "verifier_sha256": "ea4e331791fa14b7f58c82b65723160fd342cc2efc9ae10e46e2c4db3e0960dd",
+  "current_pointer_unchanged": true,
+  "current_191_sources_unchanged": true,
+  "unchanged_source_count": 189,
+  "exact_topology": [
+    {
+      "key": "bone:scapula",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/back_washer_0",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/back_washer_1",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/backing_plate",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/bolt_0",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/bolt_1",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/front_washer_0",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/front_washer_1",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/nut_0",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1507/nut_1",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "tpu:teres_major",
+      "exact_boundary_edges": 0,
+      "exact_nonmanifold_edges": 0,
+      "exact_degenerate_faces": 0,
+      "positive_components": 1
+    }
+  ],
+  "cap_contact_probe_mm3": 1.368653707350117,
+  "cap_contact_area_proxy_mm2": 68.43268536750585,
+  "contact_area_proxy_is_not_pressure_or_capacity": true,
+  "separate_rear_foot_contacts": [
+    {
+      "index": 0,
+      "normal_shift_mm": 0.02,
+      "overlap_mm3": 0.4796894918624159
+    },
+    {
+      "index": 1,
+      "normal_shift_mm": 0.02,
+      "overlap_mm3": 0.40092875209870066
+    }
+  ],
+  "placement_stages": [
+    {
+      "name": "rear_plate",
+      "moving": [
+        "origin:FJ1507/backing_plate"
+      ],
+      "step_mm": 0.5,
+      "poses": 122,
+      "hits": []
+    },
+    {
+      "name": "front_bolt_washer_0",
+      "moving": [
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/front_washer_0"
+      ],
+      "step_mm": 0.5,
+      "poses": 142,
+      "hits": []
+    },
+    {
+      "name": "front_bolt_washer_1",
+      "moving": [
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_1"
+      ],
+      "step_mm": 0.5,
+      "poses": 142,
+      "hits": []
+    },
+    {
+      "name": "rear_washer_nut_0",
+      "moving": [
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/nut_0"
+      ],
+      "step_mm": 0.5,
+      "poses": 142,
+      "hits": []
+    },
+    {
+      "name": "rear_washer_nut_1",
+      "moving": [
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/nut_1"
+      ],
+      "step_mm": 0.5,
+      "poses": 142,
+      "hits": []
+    }
+  ],
+  "tool_approaches": [
+    {
+      "index": 0,
+      "side": "front",
+      "straight_approach_hits": []
+    },
+    {
+      "index": 0,
+      "side": "rear",
+      "straight_approach_hits": []
+    },
+    {
+      "index": 1,
+      "side": "front",
+      "straight_approach_hits": []
+    },
+    {
+      "index": 1,
+      "side": "rear",
+      "straight_approach_hits": []
+    }
+  ],
+  "active_wire_replay": [
+    {
+      "head": "FJ1500",
+      "hits": []
+    },
+    {
+      "head": "FJ1504",
+      "hits": []
+    },
+    {
+      "head": "FJ1507",
+      "hits": []
+    },
+    {
+      "head": "FJ1468",
+      "hits": []
+    },
+    {
+      "head": "FJ1513",
+      "hits": []
+    },
+    {
+      "head": "FJ1467",
+      "hits": []
+    }
+  ],
+  "unexpected_added_TPU_outside_contact_patch_signed_mm3": 0.0005807420710718267,
+  "original_TPU_removed_signed_mm3": 3.1196311565272176e-14,
+  "geometry_checks_pass": true,
+  "physical_preload_verified": false,
+  "complete_shoulder_assembly_verified": false,
+  "actual_drive_range_deg": null,
+  "stage_pass": false
+}

@@ -1,0 +1,2976 @@
+{
+  "scope": "Find continuous rigid anterior-cap approaches without changing sources.\n\nAll current source objects remain present, including existing wire references.\nThe six complete planned routes are checked separately: a route conflict means\nthe cap must precede that wire, whose actual feeding is still unverified. This\nchecks a bounded corridor only. Never skip a blocked interval.\n",
+  "assembly_sha256": "d328d2ab5bd347512409025d0b58d9e484b30e4c17d81a7b5bbe9403b61a01fd",
+  "verification_report": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_anterior_mount/iterations/normal_cap_entry/verification_checks.json",
+  "verification_sha256": "c5de00c868f66276d8262a1a32857aa670bfbe177f156e7c9a6ab4846d856643",
+  "script_sha256": "71f6fe1fe30aa0408d0c5f1908b24344e055b8f31a53e7c38744c2feb5a0fca6",
+  "routes_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "fixed_keys": [
+    "GH_bolt_0",
+    "GH_bolt_1",
+    "GH_bottom_washer_0",
+    "GH_bottom_washer_1",
+    "GH_cap_0",
+    "GH_cap_1",
+    "GH_keeper:0/nut",
+    "GH_keeper:0/screw",
+    "GH_keeper:1/nut",
+    "GH_keeper:1/screw",
+    "GH_nut_0",
+    "GH_nut_1",
+    "GH_top_washer_0",
+    "GH_top_washer_1",
+    "bench:backboard",
+    "bench:foot_0/far_washer",
+    "bench:foot_0/near_washer",
+    "bench:foot_0/nut",
+    "bench:foot_0/screw",
+    "bench:foot_1/far_washer",
+    "bench:foot_1/near_washer",
+    "bench:foot_1/nut",
+    "bench:foot_1/screw",
+    "bench:lateral_0/far_washer",
+    "bench:lateral_0/near_washer",
+    "bench:lateral_0/nut",
+    "bench:lateral_0/screw",
+    "bench:lateral_0/spacer",
+    "bench:lateral_1/far_washer",
+    "bench:lateral_1/near_washer",
+    "bench:lateral_1/nut",
+    "bench:lateral_1/screw",
+    "bench:lateral_1/spacer",
+    "bench:medial_0/far_washer",
+    "bench:medial_0/near_washer",
+    "bench:medial_0/nut",
+    "bench:medial_0/screw",
+    "bench:medial_0/spacer",
+    "bench:medial_1/far_washer",
+    "bench:medial_1/near_washer",
+    "bench:medial_1/nut",
+    "bench:medial_1/screw",
+    "bench:medial_1/spacer",
+    "bench:table_interface_patch",
+    "bone:clavicle",
+    "bone:humerus",
+    "bone:scapula",
+    "cap:FJ1467/origin",
+    "cap:FJ1468/distal",
+    "cap:FJ1500/origin",
+    "cap:FJ1504/origin",
+    "cap:FJ1507/distal_A",
+    "cap:FJ1507/distal_B",
+    "cap:FJ1507/origin",
+    "cap:FJ1513/origin_A",
+    "cap:FJ1513/origin_B",
+    "clamp:lateral_upper/back_liner",
+    "clamp:lateral_upper/far_washer_0",
+    "clamp:lateral_upper/far_washer_1",
+    "clamp:lateral_upper/front_liner",
+    "clamp:lateral_upper/moving_jaw",
+    "clamp:lateral_upper/near_washer_0",
+    "clamp:lateral_upper/near_washer_1",
+    "clamp:lateral_upper/nut_0",
+    "clamp:lateral_upper/nut_1",
+    "clamp:lateral_upper/screw_0",
+    "clamp:lateral_upper/screw_1",
+    "clamp:medial_mid/back_liner",
+    "clamp:medial_mid/far_washer_0",
+    "clamp:medial_mid/far_washer_1",
+    "clamp:medial_mid/front_liner",
+    "clamp:medial_mid/moving_jaw",
+    "clamp:medial_mid/near_washer_0",
+    "clamp:medial_mid/near_washer_1",
+    "clamp:medial_mid/nut_0",
+    "clamp:medial_mid/nut_1",
+    "clamp:medial_mid/screw_0",
+    "clamp:medial_mid/screw_1",
+    "clamp:superior_angle/back_liner",
+    "clamp:superior_angle/far_washer_0",
+    "clamp:superior_angle/far_washer_1",
+    "clamp:superior_angle/front_liner",
+    "clamp:superior_angle/moving_jaw",
+    "clamp:superior_angle/near_washer_0",
+    "clamp:superior_angle/near_washer_1",
+    "clamp:superior_angle/nut_0",
+    "clamp:superior_angle/nut_1",
+    "clamp:superior_angle/screw_0",
+    "clamp:superior_angle/screw_1",
+    "clavicle:M3_far_washer_0",
+    "clavicle:M3_far_washer_1",
+    "clavicle:M3_near_washer_0",
+    "clavicle:M3_near_washer_1",
+    "clavicle:M3_nut_0",
+    "clavicle:M3_nut_1",
+    "clavicle:M3_screw_0",
+    "clavicle:M3_screw_1",
+    "clavicle:M4_far_washer_0",
+    "clavicle:M4_far_washer_1",
+    "clavicle:M4_near_washer_0",
+    "clavicle:M4_near_washer_1",
+    "clavicle:M4_nut_0",
+    "clavicle:M4_nut_1",
+    "clavicle:M4_screw_0",
+    "clavicle:M4_screw_1",
+    "clavicle:fixed_support",
+    "clavicle:liner_anterior",
+    "clavicle:liner_posterior",
+    "clavicle:moving_jaw",
+    "collar:bolt_0",
+    "collar:bolt_1",
+    "collar:bottom_washer_0",
+    "collar:bottom_washer_1",
+    "collar:jaw_lower",
+    "collar:jaw_upper",
+    "collar:liner_lower",
+    "collar:liner_upper",
+    "collar:nut_0",
+    "collar:nut_1",
+    "collar:top_washer_0",
+    "collar:top_washer_1",
+    "distal:FJ1507/bolt_0",
+    "distal:FJ1507/bolt_1",
+    "distal:FJ1507/front_washer_0",
+    "distal:FJ1507/front_washer_1",
+    "fixture:lateral_frame",
+    "fixture:medial_frame",
+    "free_terminal:FJ1500",
+    "free_terminal:FJ1504",
+    "liner_keeper:lateral_upper/nut",
+    "liner_keeper:lateral_upper/screw",
+    "liner_keeper:lateral_upper/spacer",
+    "liner_keeper:lateral_upper/washer",
+    "liner_keeper:medial_mid/nut",
+    "liner_keeper:medial_mid/screw",
+    "liner_keeper:medial_mid/spacer",
+    "liner_keeper:medial_mid/washer",
+    "liner_keeper:superior_angle/nut",
+    "liner_keeper:superior_angle/screw",
+    "liner_keeper:superior_angle/spacer",
+    "liner_keeper:superior_angle/washer",
+    "link:FJ1500/bone_bolt",
+    "link:FJ1500/bone_groove_ring",
+    "link:FJ1500/bone_inner_washer",
+    "link:FJ1500/bone_nut",
+    "link:FJ1500/bone_outer_washer",
+    "link:FJ1500/bone_uncrimped_sleeve",
+    "link:FJ1500/muscle_bolt",
+    "link:FJ1500/muscle_groove_ring",
+    "link:FJ1500/muscle_inner_washer",
+    "link:FJ1500/muscle_nut",
+    "link:FJ1500/muscle_outer_washer",
+    "link:FJ1500/muscle_uncrimped_sleeve",
+    "link:FJ1500/tendon_wire",
+    "link:FJ1504/bone_bolt",
+    "link:FJ1504/bone_groove_ring",
+    "link:FJ1504/bone_inner_washer",
+    "link:FJ1504/bone_nut",
+    "link:FJ1504/bone_outer_washer",
+    "link:FJ1504/bone_uncrimped_sleeve",
+    "link:FJ1504/muscle_bolt",
+    "link:FJ1504/muscle_groove_ring",
+    "link:FJ1504/muscle_inner_washer",
+    "link:FJ1504/muscle_nut",
+    "link:FJ1504/muscle_outer_washer",
+    "link:FJ1504/muscle_uncrimped_sleeve",
+    "link:FJ1504/tendon_wire",
+    "origin:FJ1468/front_support",
+    "origin:FJ1500/back_washer_0",
+    "origin:FJ1500/back_washer_1",
+    "origin:FJ1500/backing_plate",
+    "origin:FJ1500/bolt_0",
+    "origin:FJ1500/bolt_1",
+    "origin:FJ1500/front_support",
+    "origin:FJ1500/front_washer_0",
+    "origin:FJ1500/front_washer_1",
+    "origin:FJ1500/nut_0",
+    "origin:FJ1500/nut_1",
+    "origin:FJ1504/back_washer_0",
+    "origin:FJ1504/back_washer_1",
+    "origin:FJ1504/backing_plate",
+    "origin:FJ1504/bolt_0",
+    "origin:FJ1504/bolt_1",
+    "origin:FJ1504/front_support",
+    "origin:FJ1504/front_washer_0",
+    "origin:FJ1504/front_washer_1",
+    "origin:FJ1504/nut_0",
+    "origin:FJ1504/nut_1",
+    "origin:FJ1507/back_washer_0",
+    "origin:FJ1507/back_washer_1",
+    "origin:FJ1507/backing_plate",
+    "origin:FJ1507/bolt_0",
+    "origin:FJ1507/bolt_1",
+    "origin:FJ1507/front_washer_0",
+    "origin:FJ1507/front_washer_1",
+    "origin:FJ1507/nut_0",
+    "origin:FJ1507/nut_1",
+    "origin:FJ1513/back_washer_0",
+    "origin:FJ1513/back_washer_1",
+    "origin:FJ1513/backing_plate",
+    "origin:FJ1513/bolt_0",
+    "origin:FJ1513/bolt_1",
+    "origin:FJ1513/front_support",
+    "origin:FJ1513/nut_0",
+    "origin:FJ1513/nut_1",
+    "stop:FJ1467_stop_blank",
+    "stop:FJ1468_stop_blank",
+    "stop:FJ1500/distal_stop_blank",
+    "stop:FJ1504/distal_stop_blank",
+    "stop:FJ1507/M2x3",
+    "stop:FJ1507/hex_body",
+    "stop:FJ1513_stop_blank",
+    "tpu:deltoid",
+    "tpu:infraspinatus",
+    "tpu:subscapularis",
+    "tpu:teres_major",
+    "wire_active:FJ1507/reference"
+  ],
+  "later_installed_keys": [
+    "origin:FJ1468/back_washer_0",
+    "origin:FJ1468/back_washer_1",
+    "origin:FJ1468/backing_plate",
+    "origin:FJ1468/bolt_0",
+    "origin:FJ1468/bolt_1",
+    "origin:FJ1468/front_washer_0",
+    "origin:FJ1468/front_washer_1",
+    "origin:FJ1468/nut_0",
+    "origin:FJ1468/nut_1"
+  ],
+  "angle_step_deg": 15.0,
+  "coarse_step_mm": 0.5,
+  "corridor_length_mm": 12.0,
+  "rows": [
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.0,
+        -0.04246961780073557,
+        0.9990977587623042
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.2436894733654272,
+        0.04609251445089238,
+        0.9687574106464812
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.4707719118368963,
+        0.13151351801417366,
+        0.8723978459424171
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.6657720225040499,
+        0.2079720926611536,
+        0.7165858097429837
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.06106775238987582
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.8154008700778406,
+        0.2702577128834092,
+        0.5119396348236082
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7110086870904608
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.9094614958694771,
+        0.31412571659464805,
+        0.2724056198112514
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.0780611609637956
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.9415438236737927,
+        0.336586571837253,
+        0.014307611980329626
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.3403675203753167
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.9094614958694771,
+        0.33610960844475885,
+        -0.24476543596260508
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.2401299964286805
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.8154008700778407,
+        0.31272733068414477,
+        -0.4871581239386959
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.709469358955402
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.6657720225040499,
+        0.26803320214375564,
+        -0.6963517908352297
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.734646497766406
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.4707719118368963,
+        0.20507305382307928,
+        -0.8580902339620875
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.6329142126232306
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -0.24368947336542746,
+        0.12813751578360533,
+        -0.9613512457055886
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.311044486375443
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        -1.15305862991907e-16,
+        0.04246961780073561,
+        -0.9990977587623042
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.5562670865783446
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.24368947336542726,
+        -0.04609251445089241,
+        -0.9687574106464812
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.492613901152961
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.4707719118368965,
+        -0.1315135180141737,
+        -0.872397845942417
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.931541816683232
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.6657720225040498,
+        -0.20797209266115355,
+        -0.7165858097429838
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.836545735339755
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.8154008700778406,
+        -0.27025771288340916,
+        -0.5119396348236085
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.629784997350121
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.9094614958694771,
+        -0.31412571659464805,
+        -0.2724056198112513
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2545076398597084
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.9415438236737927,
+        -0.336586571837253,
+        -0.01430761198032975
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.741827044734539
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.9094614958694772,
+        -0.33610960844475885,
+        0.24476543596260453
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.14767385331649494
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.8154008700778406,
+        -0.31272733068414477,
+        0.48715812393869623
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.011530473261965194
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.66577202250405,
+        -0.2680332021437557,
+        0.6963517908352296
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.4707719118368968,
+        -0.20507305382307944,
+        0.8580902339620872
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 0.0,
+      "direction_source": [
+        0.24368947336542715,
+        -0.12813751578360522,
+        0.9613512457055887
+      ],
+      "poses_checked": 25,
+      "first_collision": null,
+      "clear_to_12mm": true
+    },
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.087193684855392,
+        -0.28449210733972097,
+        0.9547049293801427
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.25261756217711395
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.32257964077384016,
+        -0.19894765656664554,
+        0.9253984035564684
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.2745611412133225
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.5419244327901305,
+        -0.1164373031173416,
+        0.8323222113988403
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.3092441249445626
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.7302800758127606,
+        -0.0425839912245731,
+        0.6818193415871203
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.04619106964786809
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.8748104440421555,
+        0.01757929795453625,
+        0.4841463159812254
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.6179674969290017
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.9656660317312088,
+        0.05995253568696654,
+        0.25277422460607657
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.8629381130763647
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.9966551807248691,
+        0.08164805584633886,
+        0.0034706931284310422
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.042684825642048
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.9656660317312088,
+        0.08118734458733431,
+        -0.24677465477507557
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.9078945781020367
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.8748104440421556,
+        0.05860179862089268,
+        -0.48090801219480944
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.371630534678934
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.7302800758127606,
+        0.015430585580247486,
+        -0.682973577746284
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.395710093304224
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.5419244327901305,
+        -0.04538424770968413,
+        -0.8392009170663016
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.280165005425677
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.3225796407738404,
+        -0.11969827086145705,
+        -0.9389433951580881
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.982555536109083
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        -0.08719368485539211,
+        -0.2024471060070081,
+        -0.9754037269719272
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.290398152392169
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.14819227106305624,
+        -0.28799155678008365,
+        -0.9460972011482529
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.328199512260598
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.36753706307934664,
+        -0.3705019102293876,
+        -0.8530210089906247
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.843790518237363
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.5558927061019764,
+        -0.44435522212215595,
+        -0.7025181391789049
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.7622146178301827
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.7004230743313714,
+        -0.5045185113012653,
+        -0.5048451135730101
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.549170210234698
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.7912786620204247,
+        -0.5468917490336956,
+        -0.27347302219786096
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.1874157959814535
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.8222678110140851,
+        -0.568587269193068,
+        -0.02416949072021561
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.6939556433145107
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.7912786620204248,
+        -0.5681265579340634,
+        0.2260758571832906
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.12878348424025202
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.7004230743313714,
+        -0.5455410119676218,
+        0.4602092146030253
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.32734052407678155
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.5558927061019766,
+        -0.5023697989269766,
+        0.6622747801544994
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.27821234414396173
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.36753706307934697,
+        -0.44155496563704516,
+        0.8185021194745168
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.2538083934374175
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 15.0,
+      "direction_source": [
+        0.14819227106305613,
+        -0.36724094248527195,
+        0.9182445975663037
+      ],
+      "poses_checked": 3,
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.2452260988769779
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.16844526418226627,
+        -0.507126929908941,
+        0.8452505367852178
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.3555829713041973
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.37948653875157756,
+        -0.43042987356571405,
+        0.8189750245572517
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.3642610695983704
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.5761456992211866,
+        -0.3564531144631514,
+        0.7355251936259218
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.3780707787933268
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.7450207487997185,
+        -0.29023804648171797,
+        0.6005880120618319
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.4142436830096952
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.8746031319376107,
+        -0.23629711707877485,
+        0.42335922579433877
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.8529550359228266
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.9560620233690298,
+        -0.198306311451532,
+        0.2159166837231547
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.8811088745198223
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.9838461342601069,
+        -0.17885464022071124,
+        -0.007602747724578533
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.920179261058078
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.9560620233690298,
+        -0.17926770263528635,
+        -0.2319665886790238
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.6958354427535465
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.8746031319376109,
+        -0.19951734917432207,
+        -0.4418848141579133
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.137225427890119
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.7450207487997185,
+        -0.23822359989030617,
+        -0.6230518440011313
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.164676418524684
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.5761456992211866,
+        -0.2927486877620481,
+        -0.7631214445175348
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.006183274534628
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.3794865387515778,
+        -0.35937681815805655,
+        -0.85254810390789
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.7537580351455118
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        -0.16844526418226638,
+        -0.43356739410003536,
+        -0.8852375431192868
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.1647542282527317
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.04259601038704511,
+        -0.5102644504432624,
+        -0.8589620308913207
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.38970170529777
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.23925517085665418,
+        -0.584241209545825,
+        -0.7755121999599908
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.041898477306688
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.4081302204351859,
+        -0.6504562775272584,
+        -0.640575018395901
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.9813999126250648
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.5377126035730783,
+        -0.7043972069302016,
+        -0.4633462321284082
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.77435545310434
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.6191714950044973,
+        -0.7423880125574445,
+        -0.25590369005722374
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4356479845732517
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.6469556058955744,
+        -0.7618396837882653,
+        -0.032384258609490714
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.9765038023447965
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.6191714950044974,
+        -0.7614266213736901,
+        0.19197958234495419
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.4843997171017322
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.5377126035730783,
+        -0.7411769748346544,
+        0.4018978078238445
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.38185304415967425
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.4081302204351861,
+        -0.7024707241186703,
+        0.5830648376670622
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.36659367491563893
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.23925517085665446,
+        -0.6479456362469285,
+        0.7231344381834655
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.35665526533773406
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 30.0,
+      "direction_source": [
+        0.042596010387045,
+        -0.5813175058509198,
+        0.8125610975738211
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.3528984110968548
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.23821757712407995,
+        -0.6952018902717437,
+        0.678193716950937
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7091584070416961
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.41053205624455213,
+        -0.6325790060002778,
+        0.656739851054678
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7228148618667822
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.5711035883761049,
+        -0.5721772351249214,
+        0.5886033494202504
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7447825130313022
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.7089894889609764,
+        -0.5181128585121839,
+        0.47842760203314727
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7733416868184922
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.8147930617415321,
+        -0.47407027408261704,
+        0.3337209040037684
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0106362162015345
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.8813039680814486,
+        -0.4430509111812835,
+        0.16434477766369068
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.7086453994342534
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.9039895996281299,
+        -0.4271686881279881,
+        -0.018158073884292757
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.5400400767414566
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.8813039680814486,
+        -0.42750595217719844,
+        -0.20135038290740945
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.1595931384880935
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.8147930617415322,
+        -0.44403971934131603,
+        -0.3727478962853382
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.5223032184901135
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.7089894889609764,
+        -0.4756432407114484,
+        -0.5206701567291571
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.5539029173051353
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.5711035883761049,
+        -0.5201627885335095,
+        -0.6350365066427129
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.3601292981496083
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.41053205624455225,
+        -0.5745644291954571,
+        -0.7080530682787263
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 3.1731554408762754
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.23821757712408004,
+        -0.6351407807891417,
+        -0.7347438836272765
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.7201964574129596
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.06590309800360777,
+        -0.6977636650606077,
+        -0.7132900177310175
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.2197109135900845
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.0946684341279451,
+        -0.7581654359359642,
+        -0.6451535160965899
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.0547952034281383
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.23255433471281636,
+        -0.8122298125487014,
+        -0.5349777687094868
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.006209306144097
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.33835790749337213,
+        -0.8562723969782683,
+        -0.39027107068010813
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.826138983909304
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.40486881383328865,
+        -0.887291759879602,
+        -0.22089494434003004
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.5371919020381928
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.4275544453799699,
+        -0.9031739829328973,
+        -0.03839209279204678
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.1503100672039202
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.40486881383328865,
+        -0.902836718883687,
+        0.1448002162310696
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.8183831436032651
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.33835790749337213,
+        -0.8863029517195694,
+        0.31619772960899895
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7514288566315407
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.23255433471281653,
+        -0.8546994303494371,
+        0.46411999005281745
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7270641299845431
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        0.09466843412794532,
+        -0.810179882527376,
+        0.5784863399663732
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7111737307708689
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 45.0,
+      "direction_source": [
+        -0.06590309800360786,
+        -0.7557782418654282,
+        0.6515029016023869
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7050808383330649
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.2917557558580472,
+        -0.8358999906879713,
+        0.4649191160745591
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0131908073679547
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.4136004925407608,
+        -0.7916189245621573,
+        0.4497489420166476
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0261291791312261
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.5271417117764954,
+        -0.7489084227805166,
+        0.40156915966461554
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0471934691270222
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.6246417671100721,
+        -0.7106791354570267,
+        0.3236631415648988
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0746630472087402
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.6994561908969676,
+        -0.6795363253458988,
+        0.22134005410521101
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.141390894246548
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.7464865037927859,
+        -0.6576023234902795,
+        0.10157304659903259
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.407482672225113
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.7625276676949437,
+        -0.646371895868977,
+        -0.02747595731642832
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.8901948137589768
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.7464865037927859,
+        -0.6466103775652241,
+        -0.1570124812878957
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.3094377461883404
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.6994561908969676,
+        -0.658301516445531,
+        -0.27820882527594115
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.5488625393650395
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.6246417671100721,
+        -0.6806485807157256,
+        -0.382805658724208
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.5839237793726753
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.5271417117764954,
+        -0.7121286548760638,
+        -0.463674880287637
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.4301550153076916
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.4136004925407609,
+        -0.7505964238958008,
+        -0.5153053861593876
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.207237569837286
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.29175575585804725,
+        -0.7934303728872357,
+        -0.5341786426877454
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.9518198753310563
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.16991101917533352,
+        -0.8377114390130497,
+        -0.5190084686298339
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.8062709607532783
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.0563697999395989,
+        -0.8804219407946904,
+        -0.4708286862778017
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.833043272682907
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.041130255393977744,
+        -0.9186512281181803,
+        -0.3929226681780851
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.787616485845855
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.1159446791808732,
+        -0.9497940382293081,
+        -0.2905995807183974
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.6574605704543104
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.16297499207669147,
+        -0.9717280400849275,
+        -0.17083257321221879
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.446270100678817
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.1790161559788493,
+        -0.98295846770623,
+        -0.041783569296758014
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.1954277868406376
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.16297499207669153,
+        -0.9827199860099829,
+        0.08775295467470916
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.083711982429711
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.1159446791808732,
+        -0.971028847129676,
+        0.20894929866275502
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.05419699588862
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        0.041130255393977855,
+        -0.9486817828594813,
+        0.3135461321110217
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.030807275706643
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.05636979993959873,
+        -0.9172017086991433,
+        0.3944153536744506
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0155015181642293
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 60.0,
+      "direction_source": [
+        -0.16991101917533358,
+        -0.8787339396794062,
+        0.44604585954620135
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.0095038116393478
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 0,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.32541126197947196,
+        -0.9196328881288626,
+        0.21996104575286624
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.250013931040649
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 15,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.388482738777448,
+        -0.8967113216272531,
+        0.21210838582545088
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.257543228847222
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 30,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.44725599866218557,
+        -0.8746027390533057,
+        0.18716869530225044
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2699669438389158
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 45,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.49772574109994405,
+        -0.8548138037732744,
+        0.1468415728776337
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2863291754319937
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 60,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.5364525365487832,
+        -0.838693099023732,
+        0.09387524530111749
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3053910928592773
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 75,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.5607972178979201,
+        -0.8273392241926354,
+        0.03187928026604644
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3257366142146814
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 90,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.5691007353448991,
+        -0.8215259270865584,
+        -0.034921399663615654
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3564080627485975
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 105,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.5607972178979201,
+        -0.8216493742963525,
+        -0.10197443854400559
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4001980276560226
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 120,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.5364525365487832,
+        -0.8277011530986766,
+        -0.16471028258581066
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.44572561641677
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 135,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.49772574109994405,
+        -0.8392688447691894,
+        -0.21885358769346636
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.457056971286765
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 150,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.44725599866218557,
+        -0.85556413023706,
+        -0.26071457709992807
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4288893033860168
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 165,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.38848273877744804,
+        -0.8754765127268853,
+        -0.28744049355570117
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4093626823110492
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 180,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.325411261979472,
+        -0.8976489962787518,
+        -0.2972100100209901
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4103497731191235
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 195,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.2623397851814959,
+        -0.9205705627803613,
+        -0.28935735009357477
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4206893457241545
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 210,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.20356652529675834,
+        -0.9426791453543089,
+        -0.26441765957037433
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.4285572466133016
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 225,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.15309678285899986,
+        -0.96246808063434,
+        -0.2240905371457576
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.408980175867285
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 240,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.11436998741016069,
+        -0.9785887853838824,
+        -0.17112420956924146
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3668514375755256
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 255,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.09002530606102377,
+        -0.989942660214979,
+        -0.1091282445341703
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3325451596020497
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 270,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.08172178861404475,
+        -0.995755957321056,
+        -0.04232756460450828
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.3118461095431604
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 285,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.09002530606102374,
+        -0.9956325101112619,
+        0.024725474275881544
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2920001735224296
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 300,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.11436998741016069,
+        -0.9895807313089378,
+        0.08746131831768686
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.274504924477243
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 315,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.1530967828589998,
+        -0.978013039638425,
+        0.14160462342534244
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2606944639653535
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 330,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.20356652529675823,
+        -0.9617177541705545,
+        0.18346561283180407
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2516245093002287
+      },
+      "clear_to_12mm": false
+    },
+    {
+      "azimuth_deg": 345,
+      "elevation_deg": 75.0,
+      "direction_source": [
+        -0.2623397851814959,
+        -0.9418053716807291,
+        0.2101915292875773
+      ],
+      "poses_checked": 2,
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.2479791921730632
+      },
+      "clear_to_12mm": false
+    }
+  ],
+  "selected": {
+    "azimuth_deg": 0,
+    "elevation_deg": 0.0,
+    "direction_source": [
+      0.0,
+      -0.04246961780073557,
+      0.9990977587623042
+    ],
+    "poses_checked": 25,
+    "first_collision": null,
+    "clear_to_12mm": true
+  },
+  "selected_fine_step_mm": 0.1,
+  "selected_fine_roundtrip_poses": 242,
+  "selected_fine_hits": [],
+  "planned_wire_corridor_hits": [
+    {
+      "head": "FJ1468",
+      "samples": [
+        {
+          "offset_mm": 0.7000000000000001,
+          "volume_mm3": 0.02383920774105297
+        },
+        {
+          "offset_mm": 0.8,
+          "volume_mm3": 0.10499813633892016
+        },
+        {
+          "offset_mm": 0.9,
+          "volume_mm3": 0.20410489255609446
+        },
+        {
+          "offset_mm": 1.0,
+          "volume_mm3": 0.30464457540225176
+        },
+        {
+          "offset_mm": 1.1,
+          "volume_mm3": 0.3967415136023197
+        },
+        {
+          "offset_mm": 1.2000000000000002,
+          "volume_mm3": 0.6117885379164113
+        },
+        {
+          "offset_mm": 1.3,
+          "volume_mm3": 0.8758443334996375
+        },
+        {
+          "offset_mm": 1.4000000000000001,
+          "volume_mm3": 1.116398665308342
+        },
+        {
+          "offset_mm": 1.5,
+          "volume_mm3": 1.324993760421146
+        },
+        {
+          "offset_mm": 1.6,
+          "volume_mm3": 1.4945170126116003
+        },
+        {
+          "offset_mm": 1.7000000000000002,
+          "volume_mm3": 1.5766391053631676
+        },
+        {
+          "offset_mm": 1.8,
+          "volume_mm3": 1.5511867651873368
+        },
+        {
+          "offset_mm": 1.9000000000000001,
+          "volume_mm3": 1.525041435327006
+        },
+        {
+          "offset_mm": 2.0,
+          "volume_mm3": 1.4983139890194015
+        },
+        {
+          "offset_mm": 2.1,
+          "volume_mm3": 1.4711318406665854
+        },
+        {
+          "offset_mm": 2.2,
+          "volume_mm3": 1.4444985175357143
+        },
+        {
+          "offset_mm": 2.3000000000000003,
+          "volume_mm3": 1.4196713453262153
+        },
+        {
+          "offset_mm": 2.4000000000000004,
+          "volume_mm3": 1.3970680969214102
+        },
+        {
+          "offset_mm": 2.5,
+          "volume_mm3": 1.3765633053728528
+        },
+        {
+          "offset_mm": 2.6,
+          "volume_mm3": 1.3572147500992444
+        },
+        {
+          "offset_mm": 2.7,
+          "volume_mm3": 1.3385324892459023
+        },
+        {
+          "offset_mm": 2.8000000000000003,
+          "volume_mm3": 1.3205519500004486
+        },
+        {
+          "offset_mm": 2.9000000000000004,
+          "volume_mm3": 1.3033015944445066
+        },
+        {
+          "offset_mm": 3.0,
+          "volume_mm3": 1.2868076967741948
+        },
+        {
+          "offset_mm": 3.1,
+          "volume_mm3": 1.2710924390921525
+        },
+        {
+          "offset_mm": 3.2,
+          "volume_mm3": 1.2561648849427172
+        },
+        {
+          "offset_mm": 3.3000000000000003,
+          "volume_mm3": 1.2419167981144998
+        },
+        {
+          "offset_mm": 3.4000000000000004,
+          "volume_mm3": 1.2282907276556734
+        },
+        {
+          "offset_mm": 3.5,
+          "volume_mm3": 1.2152965531848787
+        },
+        {
+          "offset_mm": 3.6,
+          "volume_mm3": 1.2029683169895817
+        },
+        {
+          "offset_mm": 3.7,
+          "volume_mm3": 1.1913549843904025
+        },
+        {
+          "offset_mm": 3.8000000000000003,
+          "volume_mm3": 1.1805240118617137
+        },
+        {
+          "offset_mm": 3.9000000000000004,
+          "volume_mm3": 1.1705648660025187
+        },
+        {
+          "offset_mm": 4.0,
+          "volume_mm3": 1.161613291818584
+        },
+        {
+          "offset_mm": 4.1000000000000005,
+          "volume_mm3": 1.1537149242935791
+        },
+        {
+          "offset_mm": 4.2,
+          "volume_mm3": 1.146847916349706
+        },
+        {
+          "offset_mm": 4.3,
+          "volume_mm3": 1.140983257617921
+        },
+        {
+          "offset_mm": 4.4,
+          "volume_mm3": 1.1360809343174936
+        },
+        {
+          "offset_mm": 4.5,
+          "volume_mm3": 1.132101427243096
+        },
+        {
+          "offset_mm": 4.6000000000000005,
+          "volume_mm3": 1.1289912433058187
+        },
+        {
+          "offset_mm": 4.7,
+          "volume_mm3": 1.1266888968435813
+        },
+        {
+          "offset_mm": 4.800000000000001,
+          "volume_mm3": 1.1251196408072415
+        },
+        {
+          "offset_mm": 4.9,
+          "volume_mm3": 1.1241917226221916
+        },
+        {
+          "offset_mm": 5.0,
+          "volume_mm3": 1.123789350242649
+        },
+        {
+          "offset_mm": 5.1000000000000005,
+          "volume_mm3": 1.1237613457470923
+        },
+        {
+          "offset_mm": 5.2,
+          "volume_mm3": 1.1237741865974402
+        },
+        {
+          "offset_mm": 5.300000000000001,
+          "volume_mm3": 1.1237789507020368
+        },
+        {
+          "offset_mm": 5.4,
+          "volume_mm3": 1.1237772503325316
+        },
+        {
+          "offset_mm": 5.5,
+          "volume_mm3": 1.1237672695296232
+        },
+        {
+          "offset_mm": 5.6000000000000005,
+          "volume_mm3": 1.1237231166971873
+        },
+        {
+          "offset_mm": 5.7,
+          "volume_mm3": 1.1237212640678909
+        },
+        {
+          "offset_mm": 5.800000000000001,
+          "volume_mm3": 1.1237212640668859
+        },
+        {
+          "offset_mm": 5.9,
+          "volume_mm3": 1.1237212640665366
+        },
+        {
+          "offset_mm": 6.0,
+          "volume_mm3": 1.1237212640673142
+        },
+        {
+          "offset_mm": 6.1000000000000005,
+          "volume_mm3": 1.1237212640661434
+        },
+        {
+          "offset_mm": 6.2,
+          "volume_mm3": 1.1237212640661811
+        },
+        {
+          "offset_mm": 6.300000000000001,
+          "volume_mm3": 1.1237212640670793
+        },
+        {
+          "offset_mm": 6.4,
+          "volume_mm3": 1.1237212640671501
+        },
+        {
+          "offset_mm": 6.5,
+          "volume_mm3": 1.1237212640666219
+        },
+        {
+          "offset_mm": 6.6000000000000005,
+          "volume_mm3": 1.1237212640672347
+        },
+        {
+          "offset_mm": 6.7,
+          "volume_mm3": 1.1237212640666217
+        },
+        {
+          "offset_mm": 6.800000000000001,
+          "volume_mm3": 1.123721264066677
+        },
+        {
+          "offset_mm": 6.9,
+          "volume_mm3": 1.123721264066328
+        },
+        {
+          "offset_mm": 7.0,
+          "volume_mm3": 1.1237212640666938
+        },
+        {
+          "offset_mm": 7.1000000000000005,
+          "volume_mm3": 1.1237212640666574
+        },
+        {
+          "offset_mm": 7.2,
+          "volume_mm3": 1.1237212640671308
+        },
+        {
+          "offset_mm": 7.300000000000001,
+          "volume_mm3": 1.1237212640661747
+        },
+        {
+          "offset_mm": 7.4,
+          "volume_mm3": 1.1237212640658159
+        },
+        {
+          "offset_mm": 7.5,
+          "volume_mm3": 1.1237212640663872
+        },
+        {
+          "offset_mm": 7.6000000000000005,
+          "volume_mm3": 1.1237212640663345
+        },
+        {
+          "offset_mm": 7.7,
+          "volume_mm3": 1.1237212640671888
+        },
+        {
+          "offset_mm": 7.800000000000001,
+          "volume_mm3": 1.1237212640669683
+        },
+        {
+          "offset_mm": 7.9,
+          "volume_mm3": 1.1237212640660996
+        },
+        {
+          "offset_mm": 8.0,
+          "volume_mm3": 1.123721264066379
+        },
+        {
+          "offset_mm": 8.1,
+          "volume_mm3": 1.1237212640673047
+        },
+        {
+          "offset_mm": 8.200000000000001,
+          "volume_mm3": 1.1237212640666587
+        },
+        {
+          "offset_mm": 8.3,
+          "volume_mm3": 1.1237212640665004
+        },
+        {
+          "offset_mm": 8.4,
+          "volume_mm3": 1.1237212640662255
+        },
+        {
+          "offset_mm": 8.5,
+          "volume_mm3": 1.1237529936125763
+        },
+        {
+          "offset_mm": 8.6,
+          "volume_mm3": 1.1237601851585124
+        },
+        {
+          "offset_mm": 8.700000000000001,
+          "volume_mm3": 1.12376151640328
+        },
+        {
+          "offset_mm": 8.8,
+          "volume_mm3": 1.1237583151159083
+        },
+        {
+          "offset_mm": 8.9,
+          "volume_mm3": 1.1237494913995216
+        },
+        {
+          "offset_mm": 9.0,
+          "volume_mm3": 1.1237253480300098
+        },
+        {
+          "offset_mm": 9.1,
+          "volume_mm3": 1.1237214739666348
+        },
+        {
+          "offset_mm": 9.200000000000001,
+          "volume_mm3": 1.1237213913157598
+        },
+        {
+          "offset_mm": 9.3,
+          "volume_mm3": 1.123721277377604
+        },
+        {
+          "offset_mm": 9.4,
+          "volume_mm3": 1.1237211304663743
+        },
+        {
+          "offset_mm": 9.5,
+          "volume_mm3": 1.1237209571816287
+        },
+        {
+          "offset_mm": 9.600000000000001,
+          "volume_mm3": 1.1237207722859732
+        },
+        {
+          "offset_mm": 9.700000000000001,
+          "volume_mm3": 1.1237206129407549
+        },
+        {
+          "offset_mm": 9.8,
+          "volume_mm3": 1.1237205429026453
+        },
+        {
+          "offset_mm": 9.9,
+          "volume_mm3": 1.1237205902598124
+        },
+        {
+          "offset_mm": 10.0,
+          "volume_mm3": 1.1237207574579775
+        },
+        {
+          "offset_mm": 10.100000000000001,
+          "volume_mm3": 1.1237210280788676
+        },
+        {
+          "offset_mm": 10.200000000000001,
+          "volume_mm3": 1.123721359194129
+        },
+        {
+          "offset_mm": 10.3,
+          "volume_mm3": 1.1237216028552515
+        },
+        {
+          "offset_mm": 10.4,
+          "volume_mm3": 1.123721682252312
+        },
+        {
+          "offset_mm": 10.5,
+          "volume_mm3": 1.123721563182374
+        },
+        {
+          "offset_mm": 10.600000000000001,
+          "volume_mm3": 1.1237213045730894
+        },
+        {
+          "offset_mm": 10.700000000000001,
+          "volume_mm3": 1.1237210833147975
+        },
+        {
+          "offset_mm": 10.8,
+          "volume_mm3": 0.9914206789879484
+        },
+        {
+          "offset_mm": 10.9,
+          "volume_mm3": 0.7794264470064999
+        },
+        {
+          "offset_mm": 11.0,
+          "volume_mm3": 0.5427146742951878
+        },
+        {
+          "offset_mm": 11.100000000000001,
+          "volume_mm3": 0.3108056388996234
+        },
+        {
+          "offset_mm": 11.200000000000001,
+          "volume_mm3": 0.11277693030084036
+        }
+      ]
+    }
+  ],
+  "cap_must_precede_wires": [
+    "FJ1468"
+  ],
+  "physical_wire_feeding_verified": false,
+  "local_cap_entry_pass": true,
+  "whole_assembly_verified": false,
+  "stage_pass": false
+}

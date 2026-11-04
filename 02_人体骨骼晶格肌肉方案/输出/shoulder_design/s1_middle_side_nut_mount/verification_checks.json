@@ -1,0 +1,4117 @@
+{
+  "scope": "Independent middle nut slots, stock, contacts and conditional local assembly.\n\nNo complete muscle placement, physical threading or driven-ROM claim. A\nclear local cap path may require subsequent wire feeding, recorded explicitly.\n",
+  "assembly_sha256": "84120d4c815d43c73194523e6c448a012b67e21df0e3fd447ea836ab56b7022c",
+  "verifier_sha256": "72fee224d9771296ca38255f6e48d579e1d3c4ea4f8f8f882ae7cb619a1ad130",
+  "topology": [
+    {
+      "key": "bone:scapula",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "cap:FJ1467/origin",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/bolt_0",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/bolt_1",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/front_support",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/front_washer_0",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/front_washer_1",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/nut_0",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "origin:FJ1467/nut_1",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    },
+    {
+      "key": "tpu:deltoid",
+      "boundary": 0,
+      "nonmanifold": 0,
+      "repeated": 0,
+      "zero_area": 0,
+      "positive_components": 1
+    }
+  ],
+  "topology_pass": true,
+  "unchanged_parent_rows": 224,
+  "post_slot_stock_and_capture": [
+    {
+      "index": 0,
+      "roof_witness_missing_parent_mm3": 0.0,
+      "roof_witness_missing_after_mm3": 0.0,
+      "floor_witness_missing_after_mm3": 0.0,
+      "nut_up_0p2mm_bone_overlap_mm3": 0.8588145987220817,
+      "nut_down_0p2mm_bone_overlap_mm3": 0.858814598719711,
+      "nut_rotation_probes": [
+        {
+          "angle_deg": -5.0,
+          "overlap_mm3": 0.03402584068775116
+        },
+        {
+          "angle_deg": 5.0,
+          "overlap_mm3": 0.03402584068767833
+        }
+      ],
+      "sideways_0p3mm_after_bolt_overlap_mm3": 1.1943336912299718,
+      "nut_entry_start_bone_overlap_mm3": 0.0
+    },
+    {
+      "index": 1,
+      "roof_witness_missing_parent_mm3": 0.0,
+      "roof_witness_missing_after_mm3": 0.0,
+      "floor_witness_missing_after_mm3": 0.0,
+      "nut_up_0p2mm_bone_overlap_mm3": 0.8588145987221045,
+      "nut_down_0p2mm_bone_overlap_mm3": 0.8588145987206235,
+      "nut_rotation_probes": [
+        {
+          "angle_deg": -5.0,
+          "overlap_mm3": 0.03402584068774245
+        },
+        {
+          "angle_deg": 5.0,
+          "overlap_mm3": 0.03402584068770942
+        }
+      ],
+      "sideways_0p3mm_after_bolt_overlap_mm3": 1.1943336912299358,
+      "nut_entry_start_bone_overlap_mm3": 0.0
+    }
+  ],
+  "nominal_nut_roof_floor_antirotation_pass": true,
+  "contact_probe_shifts_mm": {
+    "front": 0.02,
+    "cap": 0.1
+  },
+  "contact_probes": {
+    "front_bone_mm3": 1.75084782497529,
+    "front_TPU_mm3": 3.3023420098876644,
+    "cap_TPU_mm3": 18.464358384494847,
+    "cap_TPU_gap_capped_2mm": 0.029999404140691265
+  },
+  "nominal_contact_chain_present": true,
+  "cap_direction_search": [
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        -0.26921476147301193,
+        0.3428908131688364,
+        0.8999718342534079
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.57570908401457
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.33354767696659704,
+        0.33239496371514776,
+        0.8821901922414419
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.616284755934482
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.39349641058446394,
+        0.30505078762313403,
+        0.8672396392160869
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.654229090180591
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.44497555520052146,
+        0.26272174530507836,
+        0.8561390306590637
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.687274502388568
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.4844768921824942,
+        0.20829249104290637,
+        0.8496448546989105
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.717186414396064
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.5093084706941066,
+        0.14547228856598943,
+        0.8481996786951784
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.744749156810176
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.517778059695916,
+        0.07854223085783635,
+        0.8519019890042556
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.758435862985941
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.5093084706941066,
+        0.01206349074410766,
+        0.8604994792969356
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.744753620664884
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.48447689218249423,
+        -0.04943351549775833,
+        0.8734062448177966
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.717189852419725
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.44497555520052146,
+        -0.10175786852098671,
+        0.8897427108260305
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.687276182530386
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.39349641058446394,
+        -0.14134375013712608,
+        0.9083955741604628
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.654231129906716
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.3335476769665971,
+        -0.16549344793279896,
+        0.9280936730101659
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.61628703049578
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -0.269214761473012,
+        -0.17256119991249308,
+        0.9474946144911801
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.575711437267987
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        -0.20488184597942682,
+        -0.1620653504588045,
+        0.9652762565031461
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.535284354734872
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        -0.14493311236155992,
+        -0.1347211743667907,
+        0.980226809528501
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.497745978027675
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        -0.09345396774550244,
+        -0.0923921320487351,
+        0.9913274180855243
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.465613930572964
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        -0.053952630763529685,
+        -0.037962877786563154,
+        0.9978215940456775
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.441022332424499
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        -0.029121052251917273,
+        0.024857324690353913,
+        0.9992667700494096
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.425591700168928
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        -0.020651463250107943,
+        0.09178738239850691,
+        0.9955644597403324
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.420333754737769
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        -0.029121052251917245,
+        0.15826612251223549,
+        0.9869669694476524
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.425591669241252
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        -0.053952630763529685,
+        0.2197631287541017,
+        0.9740602039267914
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.44102138832951
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        -0.09345396774550235,
+        0.27208748177733,
+        0.9577237379185575
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.465612272543535
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        -0.1449331123615598,
+        0.3116733633934693,
+        0.9390708745841253
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.497743944450251
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 75.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        -0.20488184597942685,
+        0.33582306118914235,
+        0.9193727757344221
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 13.53528208383347
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        -0.24137135188227554,
+        0.5742450883627009,
+        0.7822930710301841
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.756157746454583
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.36565300099372755,
+        0.5539686642503813,
+        0.7479415765238148
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.827205895368158
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.48146506110337023,
+        0.501143772478637,
+        0.7190593259548257
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.9506534149458
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.58091513170321,
+        0.4193703421244511,
+        0.6976145969693174
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.205084374091081
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.6572258548308798,
+        0.31422109732947856,
+        0.6850688124085621
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.487759286868464
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.705196780814662,
+        0.19286178535915338,
+        0.6822769467574861
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.674266502271305
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.721558770324465,
+        0.0635628427685078,
+        0.689429261046434
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.737992611538097
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.705196780814662,
+        -0.06486422118151147,
+        0.7060383368763722
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.674240171444726
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.6572258548308798,
+        -0.1836673143184683,
+        0.730972293177286
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.487748898912404
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.58091513170321,
+        -0.28475020217647384,
+        0.7625319220325792
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 12.205118703146095
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.48146506110337023,
+        -0.3612242529953753,
+        0.7985664868905163
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.950691753232242
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.3656530009937277,
+        -0.4078778865912086,
+        0.8366202917059627
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.827223118423623
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -0.2413713518822756,
+        -0.42153173493319296,
+        0.8741000325676318
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.75617120887321
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        -0.11708970277082349,
+        -0.4012553108208733,
+        0.9084515270740011
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.688535656606572
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        -0.0012776426611807723,
+        -0.34843041904912897,
+        0.9373337776429903
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.625922769779608
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        0.09817242793865877,
+        -0.26665698869494325,
+        0.9587785066284985
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.572450783478542
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        0.17448315106632872,
+        -0.1615077438999708,
+        0.9713242911892538
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.531619393508612
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        0.2224540770501109,
+        -0.04014843192964539,
+        0.9741161568403298
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.50605051184844
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        0.2388160665599139,
+        0.08915051066100008,
+        0.9669638425513819
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.49735346427259
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        0.22245407705011094,
+        0.21757757461101915,
+        0.9503547667214437
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.506076204809027
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        0.17448315106632872,
+        0.33638066774797637,
+        0.9254208104205298
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.53167095109586
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        0.09817242793865888,
+        0.4374635556059817,
+        0.8938611815652366
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.572490018690806
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        -0.0012776426611806058,
+        0.5139376064248831,
+        0.8578266167072996
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.625921518793627
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 60.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        -0.11708970277082355,
+        0.5605912400207166,
+        0.8197728118918531
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 11.688522664152437
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        -0.19707888354578107,
+        0.7664655097695253,
+        0.6113023278166789
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.699849539781676
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.3728396772732906,
+        0.737790315793454,
+        0.5627219783979867
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.804810659346236
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.5366226633667153,
+        0.6630846374189623,
+        0.5218763079314641
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 9.142815430082821
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.6772663019879704,
+        0.5474395431703011,
+        0.4915488813587429
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 9.643493038125145
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.7851859615896194,
+        0.3987360551079622,
+        0.4738064626823119
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 10.076757073744199
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.85302709571548,
+        0.22710807019926085,
+        0.46985816841423655
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 10.350505663880472
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.8761664431876497,
+        0.044251751987069696,
+        0.47997306828402153
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 10.444130098461805
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.85302709571548,
+        -0.13737154362680432,
+        0.5034618485812034
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 10.350505651070394
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.7851859615896194,
+        -0.30538448919296257,
+        0.5387237877455737
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 10.076732025948923
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.6772663019879704,
+        -0.4483372801255927,
+        0.5833558428961907
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 9.643508648363833
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.5366226633667153,
+        -0.5564879199632923,
+        0.6343164132324982
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 9.14287405833919
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.3728396772732908,
+        -0.6224661213285049,
+        0.6881326201024012
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.804859941473088
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -0.19707888354578115,
+        -0.6417755788323246,
+        0.7411369779432027
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.699876863162665
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        -0.02131808981827149,
+        -0.6131003848562533,
+        0.7897173273618949
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.628972222744517
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        0.14246489627515335,
+        -0.5383947064817616,
+        0.8305629978284175
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.56350125350783
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        0.28310853489640825,
+        -0.4227496122331005,
+        0.8608904244011386
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.507755025298257
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        0.39102819449805726,
+        -0.2740461241707618,
+        0.8786328430775696
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.465273155285658
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        0.4588693286239178,
+        -0.10241813926206011,
+        0.8825811373456449
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.438697243862462
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        0.48200867609608755,
+        0.08043817895013088,
+        0.87246623747586
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.429653359344725
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        0.45886932862391794,
+        0.26206147456400464,
+        0.8489774571786783
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.438690124754714
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        0.39102819449805726,
+        0.4300744201301635,
+        0.8137155180143077
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.465259443376072
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        0.28310853489640836,
+        0.5730272110627933,
+        0.7690834628636909
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.507739990592126
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        0.14246489627515357,
+        0.6811778509004928,
+        0.7181228925273835
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.563485649494801
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 45.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        -0.021318089818271574,
+        0.7471560522657056,
+        0.6643066856574804
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 8.628946016970874
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        -0.13935581498389565,
+        0.9064525733297004,
+        0.3986523411873287
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.429823521054129
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.3546179456933779,
+        0.871332776571348,
+        0.33915380738637396
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.592761730103157
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.5552103179324999,
+        0.7798373801183598,
+        0.2891282819639497
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 5.085024113735776
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.727462893027734,
+        0.638201644035715,
+        0.25198492180650434
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 5.766830032863619
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.8596369426471795,
+        0.45607780967332523,
+        0.2302549855264631
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 6.318158793777795
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.9427250237372162,
+        0.24587731536912016,
+        0.225419332370893
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 6.666953389968017
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.9710648208811041,
+        0.021924977437190626,
+        0.23780750411105164
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 6.7863359043205165
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.9427250237372162,
+        -0.20051722239114006,
+        0.2665752673152688
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 6.666961144268597
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.8596369426471797,
+        -0.40629021580068664,
+        0.3097621464621537
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 6.318179196204155
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.727462893027734,
+        -0.5813709133465395,
+        0.36442502710753844
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 5.766840331346888
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.5552103179324999,
+        -0.713827854825481,
+        0.4268387242701214
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 5.085070257371396
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.3546179456933782,
+        -0.7946343185711665,
+        0.49274984763178376
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.592823076932321
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -0.13935581498389576,
+        -0.8182834776183237,
+        0.5576666630587099
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.429842722649995
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        0.07590631572558668,
+        -0.7831636808599712,
+        0.6171651968596648
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.384585095417641
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        0.27649868796470867,
+        -0.691668284406983,
+        0.6671907222820891
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.343719044133549
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        0.4487512630599427,
+        -0.5500325483243383,
+        0.7043340824395343
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.308971985205492
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        0.5809253126793883,
+        -0.36790871396194863,
+        0.7260640187195756
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.282525663215142
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        0.664013393769425,
+        -0.15770821965774323,
+        0.7308996718751456
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.265996072329404
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        0.6923531909133127,
+        0.06624411827418611,
+        0.718511500134987
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.260373329643469
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        0.664013393769425,
+        0.2886863181025165,
+        0.6897437369307698
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.265990720100065
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        0.5809253126793883,
+        0.4944593115120638,
+        0.6465568577838849
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.282515356476589
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        0.4487512630599428,
+        0.6695400090579162,
+        0.5918939771385003
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.308957472806583
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        0.27649868796470894,
+        0.8019969505368575,
+        0.5294802799759174
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.343701329026829
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 30.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        0.07590631572558659,
+        0.8828034142825434,
+        0.4635691566142548
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.384565397135663
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        -0.07213587792723086,
+        0.984666392001161,
+        0.15883485631020525
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.0032667810862427563
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.3122295871483255,
+        0.945495348571401,
+        0.09247286487954703
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.197800519544558
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.5359613068596172,
+        0.8434454941048958,
+        0.036676641387669545
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.7858224364130602
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.7280840900969298,
+        0.6854713575381788,
+        -0.004751393742074866
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.5935771589346657
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.8755050866805514,
+        0.4823386152136679,
+        -0.028987988378659152
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.2312745229078694
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.9681777993180244,
+        0.2478904278280496,
+        -0.03438145865046652
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.6350545976056536
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.9997867357920035,
+        -0.0018959480922946144,
+        -0.02056424847160429
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.773293554682108
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.9681777993180244,
+        -0.2499979838198973,
+        0.011522022118257425
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.6350323085328347
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.8755050866805515,
+        -0.47950793562792166,
+        0.0596907268034888
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.231302509306374
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.7280840900969298,
+        -0.6747850795837801,
+        0.12065924796233968
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.5936124860040726
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.5359613068596172,
+        -0.8225216010376191,
+        0.19027268163307942
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.785891797837712
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.31222958714832577,
+        -0.9126495001985044,
+        0.2637869873526854
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.19787258240701766
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -0.07213587792723097,
+        -0.9390267096820183,
+        0.3361922866745012
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.003271502810921213
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        0.16795783129386382,
+        -0.8998556662522583,
+        0.4025542781051594
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.618179671050788
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        0.39168955100515557,
+        -0.7978058117857529,
+        0.45835050159703694
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.521751968520906
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        0.5838123342424679,
+        -0.6398316752190362,
+        0.4997785367267813
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.44108134837676
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        0.7312333308260897,
+        -0.4366989328945256,
+        0.5240151313633656
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.380197266076576
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        0.8239060434635627,
+        -0.20225074550890687,
+        0.5294086016351729
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.342257609481702
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        0.8555149799375418,
+        0.04753563041143713,
+        0.5155913914563107
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.329421994983205
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        0.8239060434635628,
+        0.29563766613903947,
+        0.48350512086644915
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.342244532397077
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        0.7312333308260897,
+        0.5251476179470645,
+        0.4353364161812176
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.380172247175577
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        0.5838123342424681,
+        0.7204247619029227,
+        0.37436789502236684
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.441042848747536
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        0.3916895510051559,
+        0.8681612833567615,
+        0.3047544613516272
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.521705092787004
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 15.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        0.1679578312938637,
+        0.9582891825176473,
+        0.23124015563202094
+      ],
+      "first_collision": {
+        "offset_mm": 1.0,
+        "target": "tpu:deltoid",
+        "volume_mm3": 4.618127946870133
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 0,
+      "direction_source": [
+        0.0,
+        0.9957768232958937,
+        -0.0918069615374478
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.005517090556314524
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 15,
+      "direction_source": [
+        -0.248563298222904,
+        0.9552239750712543,
+        -0.1605099505501863
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.23485706141785512
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 30,
+      "direction_source": [
+        -0.48018741844218926,
+        0.8495741915277658,
+        -0.21827445168816456
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.8699528575806921
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 45,
+      "direction_source": [
+        -0.6790875596418686,
+        0.6860273308193943,
+        -0.2611639096591811
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.7350879662477912
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 60,
+      "direction_source": [
+        -0.8317090058972083,
+        0.4757288412294491,
+        -0.2862554787806916
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.416247960080514
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 75,
+      "direction_source": [
+        -0.9276508578647726,
+        0.23301021728879875,
+        -0.29183921008284364
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.849159248518966
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 90,
+      "direction_source": [
+        -0.9603748368843786,
+        -0.025587667892492342,
+        -0.27753458150494786
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.9993127272768274
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 105,
+      "direction_source": [
+        -0.9276508578647726,
+        -0.2824417957925308,
+        -0.24431642984507143
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.8490896412371085
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 120,
+      "direction_source": [
+        -0.8317090058972084,
+        -0.5200479820664444,
+        -0.1944485172432438
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 2.416164680006525
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 135,
+      "direction_source": [
+        -0.6790875596418686,
+        -0.7222137577824556,
+        -0.13132925953265734
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 1.735060300091704
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 150,
+      "direction_source": [
+        -0.48018741844218926,
+        -0.8751618594202583,
+        -0.05926012981678323
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.870010077042585
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 165,
+      "direction_source": [
+        -0.24856329822290427,
+        -0.9684691266119249,
+        0.01684747981410957
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.23491750977544096
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 180,
+      "direction_source": [
+        -1.1761199699721158e-16,
+        -0.9957768232958937,
+        0.09180696153744777
+      ],
+      "first_collision": {
+        "offset_mm": 0.5,
+        "target": "tpu:deltoid",
+        "volume_mm3": 0.0055183818246072255
+      },
+      "clear": false
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 195,
+      "direction_source": [
+        0.24856329822290404,
+        -0.9552239750712543,
+        0.1605099505501863
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 210,
+      "direction_source": [
+        0.48018741844218943,
+        -0.8495741915277657,
+        0.21827445168816462
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 225,
+      "direction_source": [
+        0.6790875596418685,
+        -0.6860273308193944,
+        0.2611639096591811
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 240,
+      "direction_source": [
+        0.8317090058972083,
+        -0.4757288412294494,
+        0.2862554787806916
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 255,
+      "direction_source": [
+        0.9276508578647726,
+        -0.23301021728879864,
+        0.2918392100828436
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 270,
+      "direction_source": [
+        0.9603748368843786,
+        0.02558766789249222,
+        0.27753458150494786
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 285,
+      "direction_source": [
+        0.9276508578647727,
+        0.2824417957925303,
+        0.24431642984507151
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 300,
+      "direction_source": [
+        0.8317090058972083,
+        0.5200479820664448,
+        0.19444851724324375
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 315,
+      "direction_source": [
+        0.6790875596418687,
+        0.7222137577824554,
+        0.1313292595326574
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 330,
+      "direction_source": [
+        0.48018741844218976,
+        0.8751618594202579,
+        0.05926012981678341
+      ],
+      "first_collision": null,
+      "clear": true
+    },
+    {
+      "elevation_deg": 0.0,
+      "azimuth_deg": 345,
+      "direction_source": [
+        0.24856329822290393,
+        0.968469126611925,
+        -0.01684747981410968
+      ],
+      "first_collision": null,
+      "clear": true
+    }
+  ],
+  "selected_cap_entry": {
+    "elevation_deg": 0.0,
+    "azimuth_deg": 195,
+    "direction_source": [
+      0.24856329822290404,
+      -0.9552239750712543,
+      0.1605099505501863
+    ],
+    "first_collision": null,
+    "clear": true
+  },
+  "cap_direction_step_deg": 15.0,
+  "cap_coarse_step_mm": 0.5,
+  "cap_must_precede_wires": [
+    "FJ1467"
+  ],
+  "cap_entry_wire_corridor_hits": [
+    {
+      "head": "FJ1467",
+      "samples": [
+        {
+          "offset_mm": 1.2000000000000002,
+          "volume_mm3": 0.05329635268964074
+        },
+        {
+          "offset_mm": 1.3,
+          "volume_mm3": 0.13520180688075248
+        },
+        {
+          "offset_mm": 1.4000000000000001,
+          "volume_mm3": 0.2244117866976921
+        },
+        {
+          "offset_mm": 1.5,
+          "volume_mm3": 0.30994763902891936
+        },
+        {
+          "offset_mm": 1.6,
+          "volume_mm3": 0.38178770706010345
+        },
+        {
+          "offset_mm": 1.7000000000000002,
+          "volume_mm3": 0.4213957135004323
+        },
+        {
+          "offset_mm": 1.8,
+          "volume_mm3": 0.4213957245604218
+        },
+        {
+          "offset_mm": 1.9000000000000001,
+          "volume_mm3": 0.4213957353384073
+        },
+        {
+          "offset_mm": 2.0,
+          "volume_mm3": 0.42139574570170785
+        },
+        {
+          "offset_mm": 2.1,
+          "volume_mm3": 0.42139575540659396
+        },
+        {
+          "offset_mm": 2.2,
+          "volume_mm3": 0.4213957641042788
+        },
+        {
+          "offset_mm": 2.3000000000000003,
+          "volume_mm3": 0.421395773714912
+        },
+        {
+          "offset_mm": 2.4000000000000004,
+          "volume_mm3": 0.4213957833611031
+        },
+        {
+          "offset_mm": 2.5,
+          "volume_mm3": 0.4213957900754569
+        },
+        {
+          "offset_mm": 2.6,
+          "volume_mm3": 0.4213957917868347
+        },
+        {
+          "offset_mm": 2.7,
+          "volume_mm3": 0.4213957871701842
+        },
+        {
+          "offset_mm": 2.8000000000000003,
+          "volume_mm3": 0.42139577555472657
+        },
+        {
+          "offset_mm": 2.9000000000000004,
+          "volume_mm3": 0.4213957567575405
+        },
+        {
+          "offset_mm": 3.0,
+          "volume_mm3": 0.42139573467559455
+        },
+        {
+          "offset_mm": 3.1,
+          "volume_mm3": 0.42139571327714964
+        },
+        {
+          "offset_mm": 3.2,
+          "volume_mm3": 0.4213956929241626
+        },
+        {
+          "offset_mm": 3.3000000000000003,
+          "volume_mm3": 0.42139567237277537
+        },
+        {
+          "offset_mm": 3.4000000000000004,
+          "volume_mm3": 0.4213956507255817
+        },
+        {
+          "offset_mm": 3.5,
+          "volume_mm3": 0.421395627312923
+        },
+        {
+          "offset_mm": 3.6,
+          "volume_mm3": 0.4213956012353743
+        },
+        {
+          "offset_mm": 3.7,
+          "volume_mm3": 0.42139557278840367
+        },
+        {
+          "offset_mm": 3.8000000000000003,
+          "volume_mm3": 0.4213955437895859
+        },
+        {
+          "offset_mm": 3.9000000000000004,
+          "volume_mm3": 0.4213955157249979
+        },
+        {
+          "offset_mm": 4.0,
+          "volume_mm3": 0.4213954887563888
+        },
+        {
+          "offset_mm": 4.1000000000000005,
+          "volume_mm3": 0.4213954628124204
+        },
+        {
+          "offset_mm": 4.2,
+          "volume_mm3": 0.4213954376735317
+        },
+        {
+          "offset_mm": 4.3,
+          "volume_mm3": 0.42139541305543426
+        },
+        {
+          "offset_mm": 4.4,
+          "volume_mm3": 0.4213953912956796
+        },
+        {
+          "offset_mm": 4.5,
+          "volume_mm3": 0.4213953746101346
+        },
+        {
+          "offset_mm": 4.6000000000000005,
+          "volume_mm3": 0.421395363824313
+        },
+        {
+          "offset_mm": 4.7,
+          "volume_mm3": 0.4213953599417842
+        },
+        {
+          "offset_mm": 4.800000000000001,
+          "volume_mm3": 0.42139536507741987
+        },
+        {
+          "offset_mm": 4.9,
+          "volume_mm3": 0.42139537887472245
+        },
+        {
+          "offset_mm": 5.0,
+          "volume_mm3": 0.4213953986261505
+        },
+        {
+          "offset_mm": 5.1000000000000005,
+          "volume_mm3": 0.4213954234346163
+        },
+        {
+          "offset_mm": 5.2,
+          "volume_mm3": 0.4213954524699578
+        },
+        {
+          "offset_mm": 5.300000000000001,
+          "volume_mm3": 0.42139548338795935
+        },
+        {
+          "offset_mm": 5.4,
+          "volume_mm3": 0.42139551155600213
+        },
+        {
+          "offset_mm": 5.5,
+          "volume_mm3": 0.4213955344551376
+        },
+        {
+          "offset_mm": 5.6000000000000005,
+          "volume_mm3": 0.421395551137609
+        },
+        {
+          "offset_mm": 5.7,
+          "volume_mm3": 0.4213955613656384
+        },
+        {
+          "offset_mm": 5.800000000000001,
+          "volume_mm3": 0.42139556521258326
+        },
+        {
+          "offset_mm": 5.9,
+          "volume_mm3": 0.42139556378415294
+        },
+        {
+          "offset_mm": 6.0,
+          "volume_mm3": 0.42139556094694375
+        },
+        {
+          "offset_mm": 6.1000000000000005,
+          "volume_mm3": 0.4213955627831937
+        },
+        {
+          "offset_mm": 6.2,
+          "volume_mm3": 0.42139557269806993
+        },
+        {
+          "offset_mm": 6.300000000000001,
+          "volume_mm3": 0.4213955920325052
+        },
+        {
+          "offset_mm": 6.4,
+          "volume_mm3": 0.42139562009980974
+        },
+        {
+          "offset_mm": 6.5,
+          "volume_mm3": 0.42139564873972835
+        },
+        {
+          "offset_mm": 6.6000000000000005,
+          "volume_mm3": 0.42139566804883416
+        },
+        {
+          "offset_mm": 6.7,
+          "volume_mm3": 0.42139567598998595
+        },
+        {
+          "offset_mm": 6.800000000000001,
+          "volume_mm3": 0.4213956727439045
+        },
+        {
+          "offset_mm": 6.9,
+          "volume_mm3": 0.42139566089555286
+        },
+        {
+          "offset_mm": 7.0,
+          "volume_mm3": 0.4213956463410359
+        },
+        {
+          "offset_mm": 7.1000000000000005,
+          "volume_mm3": 0.42139564021821324
+        },
+        {
+          "offset_mm": 7.2,
+          "volume_mm3": 0.42139564335357216
+        },
+        {
+          "offset_mm": 7.300000000000001,
+          "volume_mm3": 0.4213956530258858
+        },
+        {
+          "offset_mm": 7.4,
+          "volume_mm3": 0.4213956683345556
+        },
+        {
+          "offset_mm": 7.5,
+          "volume_mm3": 0.42139568635454705
+        },
+        {
+          "offset_mm": 7.6000000000000005,
+          "volume_mm3": 0.42139570112338903
+        },
+        {
+          "offset_mm": 7.7,
+          "volume_mm3": 0.42139570853840147
+        },
+        {
+          "offset_mm": 7.800000000000001,
+          "volume_mm3": 0.4213957069409846
+        },
+        {
+          "offset_mm": 7.9,
+          "volume_mm3": 0.4213956994947922
+        },
+        {
+          "offset_mm": 8.0,
+          "volume_mm3": 0.4213956892823058
+        },
+        {
+          "offset_mm": 8.1,
+          "volume_mm3": 0.42139567956172314
+        },
+        {
+          "offset_mm": 8.200000000000001,
+          "volume_mm3": 0.4213956727547555
+        },
+        {
+          "offset_mm": 8.3,
+          "volume_mm3": 0.4213956698342749
+        },
+        {
+          "offset_mm": 8.4,
+          "volume_mm3": 0.4213956714907039
+        },
+        {
+          "offset_mm": 8.5,
+          "volume_mm3": 0.42139567725175214
+        },
+        {
+          "offset_mm": 8.6,
+          "volume_mm3": 0.42139568621699597
+        },
+        {
+          "offset_mm": 8.700000000000001,
+          "volume_mm3": 0.4213956973256442
+        },
+        {
+          "offset_mm": 8.8,
+          "volume_mm3": 0.4213957081667074
+        },
+        {
+          "offset_mm": 8.9,
+          "volume_mm3": 0.42139571775600737
+        },
+        {
+          "offset_mm": 9.0,
+          "volume_mm3": 0.4213957227128309
+        },
+        {
+          "offset_mm": 9.1,
+          "volume_mm3": 0.4213957226030703
+        },
+        {
+          "offset_mm": 9.200000000000001,
+          "volume_mm3": 0.42138944993884514
+        },
+        {
+          "offset_mm": 9.3,
+          "volume_mm3": 0.3705075874443478
+        },
+        {
+          "offset_mm": 9.4,
+          "volume_mm3": 0.2907237507576378
+        },
+        {
+          "offset_mm": 9.5,
+          "volume_mm3": 0.2019257431867915
+        },
+        {
+          "offset_mm": 9.600000000000001,
+          "volume_mm3": 0.11507338798223897
+        },
+        {
+          "offset_mm": 9.700000000000001,
+          "volume_mm3": 0.04116177627171539
+        }
+      ]
+    }
+  ],
+  "local_stages": [
+    {
+      "name": "side_nut_0_before_muscle",
+      "moving": [
+        "origin:FJ1467/nut_0"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        -0.9603748368843786,
+        -0.025587667892492342,
+        -0.27753458150494786
+      ],
+      "step_mm": 0.1,
+      "poses": 262,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    },
+    {
+      "name": "side_nut_1_before_muscle",
+      "moving": [
+        "origin:FJ1467/nut_1"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1467/nut_0",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        -0.9603748368843786,
+        -0.025587667892492342,
+        -0.27753458150494786
+      ],
+      "step_mm": 0.1,
+      "poses": 202,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    },
+    {
+      "name": "front_support_before_muscle",
+      "moving": [
+        "origin:FJ1467/front_support"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1467/nut_0",
+        "origin:FJ1467/nut_1",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        -0.27871162996779136,
+        0.08816909571137686,
+        0.9563190042460388
+      ],
+      "step_mm": 0.5,
+      "poses": 62,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    },
+    {
+      "name": "middle_cap_before_wire",
+      "moving": [
+        "cap:FJ1467/origin"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1467/front_support",
+        "origin:FJ1467/nut_0",
+        "origin:FJ1467/nut_1",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:deltoid",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        0.24856329822290404,
+        -0.9552239750712543,
+        0.1605099505501863
+      ],
+      "step_mm": 0.1,
+      "poses": 242,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    },
+    {
+      "name": "front_screw_0",
+      "moving": [
+        "origin:FJ1467/bolt_0",
+        "origin:FJ1467/front_washer_0"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1467/origin",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1467/front_support",
+        "origin:FJ1467/nut_0",
+        "origin:FJ1467/nut_1",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:deltoid",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        -0.27871162996779136,
+        0.08816909571137686,
+        0.9563190042460388
+      ],
+      "step_mm": 0.5,
+      "poses": 122,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    },
+    {
+      "name": "front_screw_1",
+      "moving": [
+        "origin:FJ1467/bolt_1",
+        "origin:FJ1467/front_washer_1"
+      ],
+      "already_installed": [
+        "GH_bolt_0",
+        "GH_bolt_1",
+        "GH_bottom_washer_0",
+        "GH_bottom_washer_1",
+        "GH_cap_0",
+        "GH_cap_1",
+        "GH_keeper:0/nut",
+        "GH_keeper:0/screw",
+        "GH_keeper:1/nut",
+        "GH_keeper:1/screw",
+        "GH_nut_0",
+        "GH_nut_1",
+        "GH_top_washer_0",
+        "GH_top_washer_1",
+        "bench:backboard",
+        "bench:foot_0/far_washer",
+        "bench:foot_0/near_washer",
+        "bench:foot_0/nut",
+        "bench:foot_0/screw",
+        "bench:foot_1/far_washer",
+        "bench:foot_1/near_washer",
+        "bench:foot_1/nut",
+        "bench:foot_1/screw",
+        "bench:lateral_0/far_washer",
+        "bench:lateral_0/near_washer",
+        "bench:lateral_0/nut",
+        "bench:lateral_0/screw",
+        "bench:lateral_0/spacer",
+        "bench:lateral_1/far_washer",
+        "bench:lateral_1/near_washer",
+        "bench:lateral_1/nut",
+        "bench:lateral_1/screw",
+        "bench:lateral_1/spacer",
+        "bench:medial_0/far_washer",
+        "bench:medial_0/near_washer",
+        "bench:medial_0/nut",
+        "bench:medial_0/screw",
+        "bench:medial_0/spacer",
+        "bench:medial_1/far_washer",
+        "bench:medial_1/near_washer",
+        "bench:medial_1/nut",
+        "bench:medial_1/screw",
+        "bench:medial_1/spacer",
+        "bench:table_interface_patch",
+        "bone:clavicle",
+        "bone:humerus",
+        "bone:scapula",
+        "cap:FJ1467/origin",
+        "cap:FJ1468/distal",
+        "cap:FJ1468/origin",
+        "cap:FJ1500/origin",
+        "cap:FJ1504/origin",
+        "cap:FJ1507/distal_A",
+        "cap:FJ1507/distal_B",
+        "cap:FJ1507/origin",
+        "cap:FJ1513/origin_A",
+        "cap:FJ1513/origin_B",
+        "clamp:lateral_upper/back_liner",
+        "clamp:lateral_upper/far_washer_0",
+        "clamp:lateral_upper/far_washer_1",
+        "clamp:lateral_upper/front_liner",
+        "clamp:lateral_upper/moving_jaw",
+        "clamp:lateral_upper/near_washer_0",
+        "clamp:lateral_upper/near_washer_1",
+        "clamp:lateral_upper/nut_0",
+        "clamp:lateral_upper/nut_1",
+        "clamp:lateral_upper/screw_0",
+        "clamp:lateral_upper/screw_1",
+        "clamp:medial_mid/back_liner",
+        "clamp:medial_mid/far_washer_0",
+        "clamp:medial_mid/far_washer_1",
+        "clamp:medial_mid/front_liner",
+        "clamp:medial_mid/moving_jaw",
+        "clamp:medial_mid/near_washer_0",
+        "clamp:medial_mid/near_washer_1",
+        "clamp:medial_mid/nut_0",
+        "clamp:medial_mid/nut_1",
+        "clamp:medial_mid/screw_0",
+        "clamp:medial_mid/screw_1",
+        "clamp:superior_angle/back_liner",
+        "clamp:superior_angle/far_washer_0",
+        "clamp:superior_angle/far_washer_1",
+        "clamp:superior_angle/front_liner",
+        "clamp:superior_angle/moving_jaw",
+        "clamp:superior_angle/near_washer_0",
+        "clamp:superior_angle/near_washer_1",
+        "clamp:superior_angle/nut_0",
+        "clamp:superior_angle/nut_1",
+        "clamp:superior_angle/screw_0",
+        "clamp:superior_angle/screw_1",
+        "clavicle:M3_far_washer_0",
+        "clavicle:M3_far_washer_1",
+        "clavicle:M3_near_washer_0",
+        "clavicle:M3_near_washer_1",
+        "clavicle:M3_nut_0",
+        "clavicle:M3_nut_1",
+        "clavicle:M3_screw_0",
+        "clavicle:M3_screw_1",
+        "clavicle:M4_far_washer_0",
+        "clavicle:M4_far_washer_1",
+        "clavicle:M4_near_washer_0",
+        "clavicle:M4_near_washer_1",
+        "clavicle:M4_nut_0",
+        "clavicle:M4_nut_1",
+        "clavicle:M4_screw_0",
+        "clavicle:M4_screw_1",
+        "clavicle:fixed_support",
+        "clavicle:liner_anterior",
+        "clavicle:liner_posterior",
+        "clavicle:moving_jaw",
+        "collar:bolt_0",
+        "collar:bolt_1",
+        "collar:bottom_washer_0",
+        "collar:bottom_washer_1",
+        "collar:jaw_lower",
+        "collar:jaw_upper",
+        "collar:liner_lower",
+        "collar:liner_upper",
+        "collar:nut_0",
+        "collar:nut_1",
+        "collar:top_washer_0",
+        "collar:top_washer_1",
+        "distal:FJ1507/bolt_0",
+        "distal:FJ1507/bolt_1",
+        "distal:FJ1507/front_washer_0",
+        "distal:FJ1507/front_washer_1",
+        "fixture:lateral_frame",
+        "fixture:medial_frame",
+        "free_terminal:FJ1500",
+        "free_terminal:FJ1504",
+        "liner_keeper:lateral_upper/nut",
+        "liner_keeper:lateral_upper/screw",
+        "liner_keeper:lateral_upper/spacer",
+        "liner_keeper:lateral_upper/washer",
+        "liner_keeper:medial_mid/nut",
+        "liner_keeper:medial_mid/screw",
+        "liner_keeper:medial_mid/spacer",
+        "liner_keeper:medial_mid/washer",
+        "liner_keeper:superior_angle/nut",
+        "liner_keeper:superior_angle/screw",
+        "liner_keeper:superior_angle/spacer",
+        "liner_keeper:superior_angle/washer",
+        "link:FJ1500/bone_bolt",
+        "link:FJ1500/bone_groove_ring",
+        "link:FJ1500/bone_inner_washer",
+        "link:FJ1500/bone_nut",
+        "link:FJ1500/bone_outer_washer",
+        "link:FJ1500/bone_uncrimped_sleeve",
+        "link:FJ1500/muscle_bolt",
+        "link:FJ1500/muscle_groove_ring",
+        "link:FJ1500/muscle_inner_washer",
+        "link:FJ1500/muscle_nut",
+        "link:FJ1500/muscle_outer_washer",
+        "link:FJ1500/muscle_uncrimped_sleeve",
+        "link:FJ1500/tendon_wire",
+        "link:FJ1504/bone_bolt",
+        "link:FJ1504/bone_groove_ring",
+        "link:FJ1504/bone_inner_washer",
+        "link:FJ1504/bone_nut",
+        "link:FJ1504/bone_outer_washer",
+        "link:FJ1504/bone_uncrimped_sleeve",
+        "link:FJ1504/muscle_bolt",
+        "link:FJ1504/muscle_groove_ring",
+        "link:FJ1504/muscle_inner_washer",
+        "link:FJ1504/muscle_nut",
+        "link:FJ1504/muscle_outer_washer",
+        "link:FJ1504/muscle_uncrimped_sleeve",
+        "link:FJ1504/tendon_wire",
+        "origin:FJ1467/bolt_0",
+        "origin:FJ1467/front_support",
+        "origin:FJ1467/front_washer_0",
+        "origin:FJ1467/nut_0",
+        "origin:FJ1467/nut_1",
+        "origin:FJ1468/back_washer_0",
+        "origin:FJ1468/back_washer_1",
+        "origin:FJ1468/backing_plate",
+        "origin:FJ1468/bolt_0",
+        "origin:FJ1468/bolt_1",
+        "origin:FJ1468/front_support",
+        "origin:FJ1468/front_washer_0",
+        "origin:FJ1468/front_washer_1",
+        "origin:FJ1468/nut_0",
+        "origin:FJ1468/nut_1",
+        "origin:FJ1500/back_washer_0",
+        "origin:FJ1500/back_washer_1",
+        "origin:FJ1500/backing_plate",
+        "origin:FJ1500/bolt_0",
+        "origin:FJ1500/bolt_1",
+        "origin:FJ1500/front_support",
+        "origin:FJ1500/front_washer_0",
+        "origin:FJ1500/front_washer_1",
+        "origin:FJ1500/nut_0",
+        "origin:FJ1500/nut_1",
+        "origin:FJ1504/back_washer_0",
+        "origin:FJ1504/back_washer_1",
+        "origin:FJ1504/backing_plate",
+        "origin:FJ1504/bolt_0",
+        "origin:FJ1504/bolt_1",
+        "origin:FJ1504/front_support",
+        "origin:FJ1504/front_washer_0",
+        "origin:FJ1504/front_washer_1",
+        "origin:FJ1504/nut_0",
+        "origin:FJ1504/nut_1",
+        "origin:FJ1507/back_washer_0",
+        "origin:FJ1507/back_washer_1",
+        "origin:FJ1507/backing_plate",
+        "origin:FJ1507/bolt_0",
+        "origin:FJ1507/bolt_1",
+        "origin:FJ1507/front_washer_0",
+        "origin:FJ1507/front_washer_1",
+        "origin:FJ1507/nut_0",
+        "origin:FJ1507/nut_1",
+        "origin:FJ1513/back_washer_0",
+        "origin:FJ1513/back_washer_1",
+        "origin:FJ1513/backing_plate",
+        "origin:FJ1513/bolt_0",
+        "origin:FJ1513/bolt_1",
+        "origin:FJ1513/front_support",
+        "origin:FJ1513/nut_0",
+        "origin:FJ1513/nut_1",
+        "stop:FJ1467_stop_blank",
+        "stop:FJ1468_stop_blank",
+        "stop:FJ1500/distal_stop_blank",
+        "stop:FJ1504/distal_stop_blank",
+        "stop:FJ1507/M2x3",
+        "stop:FJ1507/hex_body",
+        "stop:FJ1513_stop_blank",
+        "tpu:deltoid",
+        "tpu:infraspinatus",
+        "tpu:subscapularis",
+        "tpu:teres_major",
+        "wire_active:FJ1507/reference"
+      ],
+      "direction_source": [
+        -0.27871162996779136,
+        0.08816909571137686,
+        0.9563190042460388
+      ],
+      "step_mm": 0.5,
+      "poses": 122,
+      "hits": [],
+      "conditional_on_prior_stages": true
+    }
+  ],
+  "poses": 1012,
+  "all_objects_accounted_for": true,
+  "local_approaches_geometry_pass": true,
+  "tool_shaft_envelope_hits": [],
+  "real_tool_engagement_verified": false,
+  "static_fit_stock_contact_pass": true,
+  "whole_module_installation_verified": false,
+  "muscle_placement_transition_verified": false,
+  "physical_wire_feeding_verified": false,
+  "manual_nut_retention_before_bolts_verified": false,
+  "real_threads_preload_strength_verified": false,
+  "driven_motion_verified": false,
+  "stage_pass": false,
+  "actual_drive_range_deg": null
+}
