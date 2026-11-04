@@ -89,10 +89,14 @@ async function start() {
   };
   new ResizeObserver(resize).observe(host);
   resize();
-  const metaResponse = await fetch(new URL(shoulder ? './shoulder.json' : './scene.json', import.meta.url));
+  const metaUrl = new URL(shoulder ? './shoulder.json' : './scene.json', import.meta.url);
+  metaUrl.search = new URL(import.meta.url).search;
+  const metaResponse = await fetch(metaUrl, { cache: 'no-cache' });
   if (!metaResponse.ok) throw new Error(`Model manifest: HTTP ${metaResponse.status}`);
   manifest = await metaResponse.json();
-  const binaryResponse = await fetch(new URL(manifest.mesh_file, import.meta.url));
+  const binaryUrl = new URL(manifest.mesh_file, import.meta.url);
+  binaryUrl.searchParams.set('sha', manifest.mesh_sha256);
+  const binaryResponse = await fetch(binaryUrl);
   if (!binaryResponse.ok) throw new Error(`Model geometry: HTTP ${binaryResponse.status}`);
   const buffer = await binaryResponse.arrayBuffer();
   if (buffer.byteLength !== manifest.mesh_bytes) throw new Error('Model byte count differs from exported manifest');

@@ -21,12 +21,12 @@
 
 ## 360° 交互模型
 
-[![原版仿生肘部模型预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)
+[![原版仿生肘部模型预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?v=original-elbow-2)
 
-[打开交互模型](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)：拖动旋转、滚轮缩放、右键平移，可切换骨骼、肌肉、钢丝和连接件。
+[打开交互模型](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?v=original-elbow-2)：拖动旋转、滚轮缩放、右键平移，可切换骨骼、肌肉、钢丝和连接件。
 首次部署完成后链接生效；[本地查看与部署说明](docs/GITHUB_MODEL_VIEWER.md)。
 
-网页默认展示原版仿生肘部，保留原版屈肌、伸肌、附着点和钢丝走线。可切换到独立的 [S1 肩部视图](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=shoulder)。两个视图都支持旋转和按图层查看。
+网页默认展示原版仿生肘部，保留原版屈肌、伸肌、附着点和钢丝走线。可切换到独立的 [S1 肩部视图](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=shoulder&v=original-elbow-2)。两个视图都支持旋转和按图层查看。
 
 修正版装配和验证范围见[肩肘组合记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/README.md)。
 
