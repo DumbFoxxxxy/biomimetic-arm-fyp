@@ -30,10 +30,9 @@ def main():
             page.wait_for_function('window.__armViewer.renderer.info.render.frame > 2')
             get=lambda expression:page.evaluate('() => {const v=window.__armViewer;return '+expression+';}')
             state=get('({parts:v.manifest.part_count,triangles:v.manifest.triangle_count,rendered:v.renderer.info.render.triangles,meshes:Object.values(v.layers).reduce((s,g)=>s+g.children.length,0)})')
-            assert state['parts']==state['meshes']==329 and state['rendered']==state['triangles']==978488,state
+            assert state['parts']==state['meshes']==96 and state['rendered']==state['triangles']==682744,state
             keys=set(get('v.manifest.parts.map(p=>p.key)'))
-            assert {'bone:humerus','bone:forearm','tpu:flexor_relocated','tpu:extensor_relocated',
-                    'extensor:dual_key_guide','extensor:retention_pin'} <= keys
+            assert {'bone:humerus','bone:forearm','tpu:elbow_flexor','tpu:elbow_extensor'} <= keys
             checks['full_scene']=state
             before=get('v.camera.position.toArray()');box=page.locator('canvas').bounding_box()
             x=box['x']+box['width']*.5;y=box['y']+box['height']*.45
@@ -70,6 +69,12 @@ def main():
             assert page.locator('canvas').bounding_box()['width']>=300
             checks['mobile_no_horizontal_overflow']=True
             page.screenshot(path=str(DEST/'mobile.png'),full_page=True)
+            page.locator('#shoulder-view').click()
+            page.wait_for_function('window.__armViewer?.ready === true',timeout=90000)
+            assert get('v.manifest.part_count')==191
+            assert 'bone:scapula' in get('v.manifest.parts.map(p=>p.key)')
+            assert 'bone:forearm' not in get('v.manifest.parts.map(p=>p.key)')
+            checks['separate_shoulder_scene']=True
             assert not errors and not bad_responses,(errors,bad_responses)
             browser.close()
     finally:server.shutdown();server.server_close()

@@ -18,8 +18,9 @@
     <aside>
       <span class="eyebrow">ANATOMY × MECHANICS</span>
       <h1>从骨骼到<br>人工肌肉。</h1>
-      <p class="intro">从肩胛和锁骨，经共用肱骨、肘关节到前臂，查看解剖骨形、工程关节和 TPU 晶格肌肉。</p>
-      <div class="version"><span class="dot"></span> S1 肩肘组合 <span>机械候选 · 零位</span></div>
+      <p class="intro">分别查看原版仿生肘部与 S1 肩部，观察骨骼、工程关节和 TPU 晶格肌肉。</p>
+      <div class="version"><span class="dot"></span> <span id="model-name">原版肘部</span></div>
+      <nav aria-label="选择模型"><a id="elbow-view" href="./" aria-current="page">原版肘部</a> · <a id="shoulder-view" href="?model=shoulder">S1 肩部</a></nav>
       <section aria-label="显示方式">
         <h2>探索结构</h2>
         <div class="presets">
@@ -36,15 +37,15 @@
       </section>
       <section class="understanding">
         <h2>当前设计</h2>
-        <p>肩部和肘部共用一根肱骨。肘部由屈肌和伸肌拮抗布置，钢丝经导向件和远端转子走线。</p>
+        <p>肘部沿用原版屈肌和伸肌的异形晶格、附着位置和钢丝走线。肩部单独展示。</p>
         <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/docs/PROJECT_OVERVIEW.md">阅读项目概览 <span>↗</span></a>
       </section>
       <p class="scope">此页面用于自由视角查看几何装配，不演示 TPU 形变或钢丝驱动。</p>
     </aside>
-    <section class="viewport" id="viewport" aria-label="可旋转的肩肘前臂三维模型">
+    <section class="viewport" id="viewport" aria-label="可旋转的仿生机械臂三维模型">
       <div id="canvas-host"></div>
-      <div class="viewport-top"><span class="scene-label">SHOULDER / ELBOW / FOREARM</span><span id="scene-count">正在准备模型</span></div>
-      <div id="loading" role="status"><span class="spinner"></span><strong>加载当前装配</strong><span>首次打开需要载入约 14 MB 几何数据</span></div>
+      <div class="viewport-top"><span class="scene-label" id="scene-label">ORIGINAL ELBOW</span><span id="scene-count">正在准备模型</span></div>
+      <div id="loading" role="status"><span class="spinner"></span><strong>加载当前装配</strong><span>正在载入模型几何</span></div>
       <div class="view-tools">
         <button id="auto-rotate" type="button" aria-pressed="false" disabled>自动旋转</button>
         <button id="reset-view" type="button" disabled>重置视角</button>

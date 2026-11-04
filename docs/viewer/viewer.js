@@ -48,12 +48,19 @@ function showError(error) {
 }
 
 async function start() {
+  const shoulder = new URLSearchParams(location.search).get('model') === 'shoulder';
+  if (shoulder) {
+    document.querySelector('#model-name').textContent = 'S1-Y2 肩部';
+    document.querySelector('#scene-label').textContent = 'S1 SHOULDER';
+    document.querySelector('#elbow-view').removeAttribute('aria-current');
+    document.querySelector('#shoulder-view').setAttribute('aria-current', 'page');
+  }
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.35;
-  renderer.domElement.setAttribute('aria-label', '拖动旋转，滚轮缩放，右键平移肩肘前臂模型');
+  renderer.domElement.setAttribute('aria-label', '拖动旋转，滚轮缩放，右键平移当前模型');
   renderer.domElement.tabIndex = 0;
   host.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
@@ -82,7 +89,7 @@ async function start() {
   };
   new ResizeObserver(resize).observe(host);
   resize();
-  const metaResponse = await fetch(new URL('./scene.json', import.meta.url));
+  const metaResponse = await fetch(new URL(shoulder ? './shoulder.json' : './scene.json', import.meta.url));
   if (!metaResponse.ok) throw new Error(`Model manifest: HTTP ${metaResponse.status}`);
   manifest = await metaResponse.json();
   const binaryResponse = await fetch(new URL(manifest.mesh_file, import.meta.url));

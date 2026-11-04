@@ -1,0 +1,1951 @@
+{
+  "schema_version": 1,
+  "candidate": "S1-Y2 shoulder",
+  "scope": "Separate static neutral assembly. Motion and driven performance are outside this display.",
+  "assembly_source": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y2_transition_stock/assembly_check.json",
+  "assembly_sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2",
+  "exporter_sha256": "563b4ff5f32b788d796abaf98b05434620e83390eb3e983342d6f97014236411",
+  "mesh_file": "shoulder.bin",
+  "mesh_sha256": "0701966465d3fcb23d2644ec2e42acd998d80b03e27049c6ea9eac9de095382d",
+  "mesh_bytes": 9921792,
+  "units": "m",
+  "source_origin_mm": [
+    -95.4205,
+    -8.886819333712808,
+    1199.6
+  ],
+  "bounds_m": [
+    [
+      -0.1454205,
+      -0.14288681933371283,
+      -0.17039999999999986
+    ],
+    [
+      0.1454205,
+      0.14288681933371283,
+      0.1704000000000001
+    ]
+  ],
+  "part_count": 191,
+  "triangle_count": 691026,
+  "decimated": false,
+  "maximum_coordinate_roundtrip_error_mm": 7.448792305186913e-06,
+  "category_counts": {
+    "bones": 3,
+    "muscles": 4,
+    "wires": 2,
+    "hardware": 182
+  },
+  "parts": [
+    {
+      "key": "bone:clavicle",
+      "category": "bones",
+      "vertex_count": 575,
+      "triangle_count": 1146,
+      "position_byte_offset": 0,
+      "index_byte_offset": 6900,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.44819636522287e-06
+    },
+    {
+      "key": "fixture:medial_frame",
+      "category": "hardware",
+      "vertex_count": 11268,
+      "triangle_count": 22572,
+      "position_byte_offset": 13776,
+      "index_byte_offset": 148992,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.431619902797948e-06
+    },
+    {
+      "key": "fixture:lateral_frame",
+      "category": "hardware",
+      "vertex_count": 3350,
+      "triangle_count": 6724,
+      "position_byte_offset": 284424,
+      "index_byte_offset": 324624,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7247637058035465e-06
+    },
+    {
+      "key": "tpu:deltoid",
+      "category": "muscles",
+      "vertex_count": 136983,
+      "triangle_count": 279486,
+      "position_byte_offset": 364968,
+      "index_byte_offset": 2008764,
+      "index_component_bytes": 4,
+      "maximum_coordinate_roundtrip_error_mm": 7.448792305186913e-06
+    },
+    {
+      "key": "cap:FJ1468/origin",
+      "category": "hardware",
+      "vertex_count": 604,
+      "triangle_count": 1220,
+      "position_byte_offset": 5362596,
+      "index_byte_offset": 5369844,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.433891141550575e-06
+    },
+    {
+      "key": "cap:FJ1468/distal",
+      "category": "hardware",
+      "vertex_count": 789,
+      "triangle_count": 1594,
+      "position_byte_offset": 5377164,
+      "index_byte_offset": 5386632,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.705501572248693e-06
+    },
+    {
+      "key": "cap:FJ1513/origin",
+      "category": "hardware",
+      "vertex_count": 608,
+      "triangle_count": 1220,
+      "position_byte_offset": 5396196,
+      "index_byte_offset": 5403492,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7121774404402785e-06
+    },
+    {
+      "key": "cap:FJ1467/origin",
+      "category": "hardware",
+      "vertex_count": 400,
+      "triangle_count": 808,
+      "position_byte_offset": 5410812,
+      "index_byte_offset": 5415612,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.433891141550575e-06
+    },
+    {
+      "key": "stop:FJ1468_stop_blank",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 5420460,
+      "index_byte_offset": 5421996,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7101104410908192e-06
+    },
+    {
+      "key": "stop:FJ1513_stop_blank",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 5423532,
+      "index_byte_offset": 5425068,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6997795105353504e-06
+    },
+    {
+      "key": "stop:FJ1467_stop_blank",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 5426604,
+      "index_byte_offset": 5428140,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7101104410908192e-06
+    },
+    {
+      "key": "tpu:infraspinatus",
+      "category": "muscles",
+      "vertex_count": 40502,
+      "triangle_count": 81668,
+      "position_byte_offset": 5429676,
+      "index_byte_offset": 5915700,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.419586139922885e-06
+    },
+    {
+      "key": "cap:FJ1500/origin",
+      "category": "hardware",
+      "vertex_count": 456,
+      "triangle_count": 920,
+      "position_byte_offset": 6405708,
+      "index_byte_offset": 6411180,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724098182611435e-06
+    },
+    {
+      "key": "stop:FJ1500/distal_stop_blank",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 6416700,
+      "index_byte_offset": 6418236,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7126541146959013e-06
+    },
+    {
+      "key": "tpu:subscapularis",
+      "category": "muscles",
+      "vertex_count": 42017,
+      "triangle_count": 85282,
+      "position_byte_offset": 6419772,
+      "index_byte_offset": 6923976,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.722906052883168e-06
+    },
+    {
+      "key": "cap:FJ1504/origin",
+      "category": "hardware",
+      "vertex_count": 288,
+      "triangle_count": 584,
+      "position_byte_offset": 7435668,
+      "index_byte_offset": 7439124,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6978722167679834e-06
+    },
+    {
+      "key": "stop:FJ1504/distal_stop_blank",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 7442628,
+      "index_byte_offset": 7444164,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.707091550397834e-06
+    },
+    {
+      "key": "tpu:teres_major",
+      "category": "muscles",
+      "vertex_count": 31545,
+      "triangle_count": 63402,
+      "position_byte_offset": 7445700,
+      "index_byte_offset": 7824240,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7172629974158156e-06
+    },
+    {
+      "key": "cap:FJ1507/origin",
+      "category": "hardware",
+      "vertex_count": 288,
+      "triangle_count": 584,
+      "position_byte_offset": 8204652,
+      "index_byte_offset": 8208108,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 9.262560059231095e-07
+    },
+    {
+      "key": "cap:FJ1507/distal",
+      "category": "hardware",
+      "vertex_count": 2245,
+      "triangle_count": 4502,
+      "position_byte_offset": 8211612,
+      "index_byte_offset": 8238552,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7172629974158156e-06
+    },
+    {
+      "key": "GH_cap_0",
+      "category": "hardware",
+      "vertex_count": 374,
+      "triangle_count": 748,
+      "position_byte_offset": 8265564,
+      "index_byte_offset": 8270052,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.720285315922389e-06
+    },
+    {
+      "key": "GH_cap_1",
+      "category": "hardware",
+      "vertex_count": 905,
+      "triangle_count": 1810,
+      "position_byte_offset": 8274540,
+      "index_byte_offset": 8285400,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7033776184580702e-06
+    },
+    {
+      "key": "GH_bolt_0",
+      "category": "hardware",
+      "vertex_count": 258,
+      "triangle_count": 512,
+      "position_byte_offset": 8296260,
+      "index_byte_offset": 8299356,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.414817898565573e-06
+    },
+    {
+      "key": "GH_nut_0",
+      "category": "hardware",
+      "vertex_count": 60,
+      "triangle_count": 120,
+      "position_byte_offset": 8302428,
+      "index_byte_offset": 8303148,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.118221206914299e-06
+    },
+    {
+      "key": "GH_top_washer_0",
+      "category": "hardware",
+      "vertex_count": 96,
+      "triangle_count": 192,
+      "position_byte_offset": 8303868,
+      "index_byte_offset": 8305020,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.720498853443388e-06
+    },
+    {
+      "key": "GH_bottom_washer_0",
+      "category": "hardware",
+      "vertex_count": 96,
+      "triangle_count": 192,
+      "position_byte_offset": 8306172,
+      "index_byte_offset": 8307324,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.445190242094668e-06
+    },
+    {
+      "key": "GH_bolt_1",
+      "category": "hardware",
+      "vertex_count": 258,
+      "triangle_count": 512,
+      "position_byte_offset": 8308476,
+      "index_byte_offset": 8311572,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6597252867087704e-06
+    },
+    {
+      "key": "GH_nut_1",
+      "category": "hardware",
+      "vertex_count": 60,
+      "triangle_count": 120,
+      "position_byte_offset": 8314644,
+      "index_byte_offset": 8315364,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.718924973528104e-06
+    },
+    {
+      "key": "GH_top_washer_1",
+      "category": "hardware",
+      "vertex_count": 96,
+      "triangle_count": 192,
+      "position_byte_offset": 8316084,
+      "index_byte_offset": 8317236,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.705453763269695e-06
+    },
+    {
+      "key": "GH_bottom_washer_1",
+      "category": "hardware",
+      "vertex_count": 96,
+      "triangle_count": 192,
+      "position_byte_offset": 8318388,
+      "index_byte_offset": 8319540,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7154634369152006e-06
+    },
+    {
+      "key": "bone:humerus",
+      "category": "bones",
+      "vertex_count": 1605,
+      "triangle_count": 3206,
+      "position_byte_offset": 8320692,
+      "index_byte_offset": 8339952,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.4243546310803765e-06
+    },
+    {
+      "key": "bone:scapula",
+      "category": "bones",
+      "vertex_count": 16183,
+      "triangle_count": 32428,
+      "position_byte_offset": 8359188,
+      "index_byte_offset": 8553384,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.414817898565573e-06
+    },
+    {
+      "key": "collar:jaw_upper",
+      "category": "hardware",
+      "vertex_count": 1336,
+      "triangle_count": 2680,
+      "position_byte_offset": 8747952,
+      "index_byte_offset": 8763984,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:liner_upper",
+      "category": "hardware",
+      "vertex_count": 146,
+      "triangle_count": 288,
+      "position_byte_offset": 8780064,
+      "index_byte_offset": 8781816,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "collar:jaw_lower",
+      "category": "hardware",
+      "vertex_count": 1108,
+      "triangle_count": 2224,
+      "position_byte_offset": 8783544,
+      "index_byte_offset": 8796840,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:liner_lower",
+      "category": "hardware",
+      "vertex_count": 138,
+      "triangle_count": 272,
+      "position_byte_offset": 8810184,
+      "index_byte_offset": 8811840,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:bolt_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 8813472,
+      "index_byte_offset": 8816544,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "collar:top_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8819592,
+      "index_byte_offset": 8821128,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "collar:bottom_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8822664,
+      "index_byte_offset": 8824200,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:nut_0",
+      "category": "hardware",
+      "vertex_count": 76,
+      "triangle_count": 152,
+      "position_byte_offset": 8825736,
+      "index_byte_offset": 8826648,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "collar:bolt_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 8827560,
+      "index_byte_offset": 8830632,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:top_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8833680,
+      "index_byte_offset": 8835216,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:bottom_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8836752,
+      "index_byte_offset": 8838288,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "collar:nut_1",
+      "category": "hardware",
+      "vertex_count": 76,
+      "triangle_count": 152,
+      "position_byte_offset": 8839824,
+      "index_byte_offset": 8840736,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.671646028879927e-06
+    },
+    {
+      "key": "free_terminal:FJ1500",
+      "category": "hardware",
+      "vertex_count": 767,
+      "triangle_count": 1538,
+      "position_byte_offset": 8841648,
+      "index_byte_offset": 8850852,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.414817898565573e-06
+    },
+    {
+      "key": "link:FJ1500/tendon_wire",
+      "category": "wires",
+      "vertex_count": 2752,
+      "triangle_count": 5500,
+      "position_byte_offset": 8860080,
+      "index_byte_offset": 8893104,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_bolt",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 8926104,
+      "index_byte_offset": 8929176,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 8932224,
+      "index_byte_offset": 8933520,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_inner_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8934816,
+      "index_byte_offset": 8936352,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_outer_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8937888,
+      "index_byte_offset": 8939424,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_groove_ring",
+      "category": "hardware",
+      "vertex_count": 1824,
+      "triangle_count": 3648,
+      "position_byte_offset": 8940960,
+      "index_byte_offset": 8962848,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "link:FJ1500/muscle_uncrimped_sleeve",
+      "category": "hardware",
+      "vertex_count": 216,
+      "triangle_count": 436,
+      "position_byte_offset": 8984736,
+      "index_byte_offset": 8987328,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "link:FJ1500/bone_bolt",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 8989944,
+      "index_byte_offset": 8993016,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "link:FJ1500/bone_nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 8996064,
+      "index_byte_offset": 8997360,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6759376514927666e-06
+    },
+    {
+      "key": "link:FJ1500/bone_inner_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 8998656,
+      "index_byte_offset": 9000192,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6759376514927666e-06
+    },
+    {
+      "key": "link:FJ1500/bone_outer_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9001728,
+      "index_byte_offset": 9003264,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.655433650218143e-06
+    },
+    {
+      "key": "link:FJ1500/bone_groove_ring",
+      "category": "hardware",
+      "vertex_count": 1824,
+      "triangle_count": 3648,
+      "position_byte_offset": 9004800,
+      "index_byte_offset": 9026688,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "link:FJ1500/bone_uncrimped_sleeve",
+      "category": "hardware",
+      "vertex_count": 216,
+      "triangle_count": 436,
+      "position_byte_offset": 9048576,
+      "index_byte_offset": 9051168,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "free_terminal:FJ1504",
+      "category": "hardware",
+      "vertex_count": 1385,
+      "triangle_count": 2774,
+      "position_byte_offset": 9053784,
+      "index_byte_offset": 9070404,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/tendon_wire",
+      "category": "wires",
+      "vertex_count": 2808,
+      "triangle_count": 5612,
+      "position_byte_offset": 9087048,
+      "index_byte_offset": 9120744,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_bolt",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9154416,
+      "index_byte_offset": 9157488,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9160536,
+      "index_byte_offset": 9161832,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_inner_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9163128,
+      "index_byte_offset": 9164664,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_outer_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9166200,
+      "index_byte_offset": 9167736,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_groove_ring",
+      "category": "hardware",
+      "vertex_count": 1824,
+      "triangle_count": 3648,
+      "position_byte_offset": 9169272,
+      "index_byte_offset": 9191160,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/muscle_uncrimped_sleeve",
+      "category": "hardware",
+      "vertex_count": 212,
+      "triangle_count": 428,
+      "position_byte_offset": 9213048,
+      "index_byte_offset": 9215592,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/bone_bolt",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9218160,
+      "index_byte_offset": 9221232,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/bone_nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9224280,
+      "index_byte_offset": 9225576,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6554336640959306e-06
+    },
+    {
+      "key": "link:FJ1504/bone_inner_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9226872,
+      "index_byte_offset": 9228408,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/bone_outer_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9229944,
+      "index_byte_offset": 9231480,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "link:FJ1504/bone_groove_ring",
+      "category": "hardware",
+      "vertex_count": 1824,
+      "triangle_count": 3648,
+      "position_byte_offset": 9233016,
+      "index_byte_offset": 9254904,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "link:FJ1504/bone_uncrimped_sleeve",
+      "category": "hardware",
+      "vertex_count": 212,
+      "triangle_count": 428,
+      "position_byte_offset": 9276792,
+      "index_byte_offset": 9279336,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "origin:FJ1500/front_support",
+      "category": "hardware",
+      "vertex_count": 1989,
+      "triangle_count": 3982,
+      "position_byte_offset": 9281904,
+      "index_byte_offset": 9305772,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7126089841299503e-06
+    },
+    {
+      "key": "origin:FJ1500/backing_plate",
+      "category": "hardware",
+      "vertex_count": 366,
+      "triangle_count": 736,
+      "position_byte_offset": 9329664,
+      "index_byte_offset": 9334056,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.708169285521201e-06
+    },
+    {
+      "key": "origin:FJ1500/bolt_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9338472,
+      "index_byte_offset": 9341544,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1500/nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9344592,
+      "index_byte_offset": 9345888,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1500/front_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9347184,
+      "index_byte_offset": 9348720,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.671646028879927e-06
+    },
+    {
+      "key": "origin:FJ1500/back_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9350256,
+      "index_byte_offset": 9351792,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6597252867087704e-06
+    },
+    {
+      "key": "origin:FJ1500/bolt_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9353328,
+      "index_byte_offset": 9356400,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1500/nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9359448,
+      "index_byte_offset": 9360744,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1500/front_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9362040,
+      "index_byte_offset": 9363576,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.671646028879927e-06
+    },
+    {
+      "key": "origin:FJ1500/back_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9365112,
+      "index_byte_offset": 9366648,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6597252867087704e-06
+    },
+    {
+      "key": "origin:FJ1504/front_support",
+      "category": "hardware",
+      "vertex_count": 987,
+      "triangle_count": 1978,
+      "position_byte_offset": 9368184,
+      "index_byte_offset": 9380028,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7131237529131056e-06
+    },
+    {
+      "key": "origin:FJ1504/backing_plate",
+      "category": "hardware",
+      "vertex_count": 354,
+      "triangle_count": 712,
+      "position_byte_offset": 9391896,
+      "index_byte_offset": 9396144,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7131237529131056e-06
+    },
+    {
+      "key": "origin:FJ1504/bolt_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9400416,
+      "index_byte_offset": 9403488,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9406536,
+      "index_byte_offset": 9407832,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/front_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9409128,
+      "index_byte_offset": 9410664,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/back_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9412200,
+      "index_byte_offset": 9413736,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/bolt_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9415272,
+      "index_byte_offset": 9418344,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9421392,
+      "index_byte_offset": 9422688,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/front_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9423984,
+      "index_byte_offset": 9425520,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "origin:FJ1504/back_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9427056,
+      "index_byte_offset": 9428592,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6597252867087704e-06
+    },
+    {
+      "key": "bench:medial_0/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9430128,
+      "index_byte_offset": 9431664,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_0/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9433200,
+      "index_byte_offset": 9436272,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.414817898565573e-06
+    },
+    {
+      "key": "bench:medial_0/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9439320,
+      "index_byte_offset": 9440856,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_0/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9442392,
+      "index_byte_offset": 9443928,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_0/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9445464,
+      "index_byte_offset": 9446760,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.307529359401599e-06
+    },
+    {
+      "key": "bench:medial_1/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9448056,
+      "index_byte_offset": 9449592,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_1/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9451128,
+      "index_byte_offset": 9454200,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.414817898565573e-06
+    },
+    {
+      "key": "bench:medial_1/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9457248,
+      "index_byte_offset": 9458784,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_1/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9460320,
+      "index_byte_offset": 9461856,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.396936313464053e-06
+    },
+    {
+      "key": "bench:medial_1/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9463392,
+      "index_byte_offset": 9464688,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.307529359401599e-06
+    },
+    {
+      "key": "bench:lateral_0/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9465984,
+      "index_byte_offset": 9467520,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "bench:lateral_0/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9469056,
+      "index_byte_offset": 9472128,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.19480886190604e-06
+    },
+    {
+      "key": "bench:lateral_0/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9475176,
+      "index_byte_offset": 9476712,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.0040741838543994e-06
+    },
+    {
+      "key": "bench:lateral_0/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9478248,
+      "index_byte_offset": 9479784,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.0040741838543994e-06
+    },
+    {
+      "key": "bench:lateral_0/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9481320,
+      "index_byte_offset": 9482616,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 2.646446325971219e-06
+    },
+    {
+      "key": "bench:lateral_1/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9483912,
+      "index_byte_offset": 9485448,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719329927376336e-06
+    },
+    {
+      "key": "bench:lateral_1/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9486984,
+      "index_byte_offset": 9490056,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.19480886190604e-06
+    },
+    {
+      "key": "bench:lateral_1/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9493104,
+      "index_byte_offset": 9494640,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.0040741838543994e-06
+    },
+    {
+      "key": "bench:lateral_1/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9496176,
+      "index_byte_offset": 9497712,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.0040741838543994e-06
+    },
+    {
+      "key": "bench:lateral_1/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9499248,
+      "index_byte_offset": 9500544,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 2.646446325971219e-06
+    },
+    {
+      "key": "bench:foot_0/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9501840,
+      "index_byte_offset": 9504912,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.616333010825201e-06
+    },
+    {
+      "key": "bench:foot_0/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9507960,
+      "index_byte_offset": 9509496,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "bench:foot_0/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9511032,
+      "index_byte_offset": 9512568,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "bench:foot_0/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9514104,
+      "index_byte_offset": 9515400,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.5958290095505774e-06
+    },
+    {
+      "key": "bench:foot_1/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9516696,
+      "index_byte_offset": 9519768,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.715038304763496e-06
+    },
+    {
+      "key": "bench:foot_1/near_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9522816,
+      "index_byte_offset": 9524352,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "bench:foot_1/far_washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9525888,
+      "index_byte_offset": 9527424,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724415553740812e-06
+    },
+    {
+      "key": "bench:foot_1/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9528960,
+      "index_byte_offset": 9530256,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6554336640959306e-06
+    },
+    {
+      "key": "bench:backboard",
+      "category": "hardware",
+      "vertex_count": 808,
+      "triangle_count": 1660,
+      "position_byte_offset": 9531552,
+      "index_byte_offset": 9541248,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.937980745469474e-06
+    },
+    {
+      "key": "bench:table_interface_patch",
+      "category": "hardware",
+      "vertex_count": 136,
+      "triangle_count": 276,
+      "position_byte_offset": 9551208,
+      "index_byte_offset": 9552840,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.596565238492502e-06
+    },
+    {
+      "key": "clamp:medial_mid/screw_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9554496,
+      "index_byte_offset": 9557568,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7148995546409935e-06
+    },
+    {
+      "key": "clamp:medial_mid/near_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9560616,
+      "index_byte_offset": 9562152,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6921387613908507e-06
+    },
+    {
+      "key": "clamp:medial_mid/far_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9563688,
+      "index_byte_offset": 9565224,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.702659803761499e-06
+    },
+    {
+      "key": "clamp:medial_mid/nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9566760,
+      "index_byte_offset": 9568056,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.618051774845199e-06
+    },
+    {
+      "key": "clamp:medial_mid/screw_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9569352,
+      "index_byte_offset": 9572424,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7047907380793887e-06
+    },
+    {
+      "key": "clamp:medial_mid/near_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9575472,
+      "index_byte_offset": 9577008,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.718530705576484e-06
+    },
+    {
+      "key": "clamp:medial_mid/far_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9578544,
+      "index_byte_offset": 9580080,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.668622641783692e-06
+    },
+    {
+      "key": "clamp:medial_mid/nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9581616,
+      "index_byte_offset": 9582912,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.697350162146229e-06
+    },
+    {
+      "key": "clamp:medial_mid/front_liner",
+      "category": "hardware",
+      "vertex_count": 510,
+      "triangle_count": 1020,
+      "position_byte_offset": 9584208,
+      "index_byte_offset": 9590328,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.703472889471371e-06
+    },
+    {
+      "key": "clamp:medial_mid/back_liner",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 252,
+      "position_byte_offset": 9596448,
+      "index_byte_offset": 9597984,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7165791555437977e-06
+    },
+    {
+      "key": "clamp:medial_mid/moving_jaw",
+      "category": "hardware",
+      "vertex_count": 372,
+      "triangle_count": 748,
+      "position_byte_offset": 9599496,
+      "index_byte_offset": 9603960,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7243248762752756e-06
+    },
+    {
+      "key": "clamp:superior_angle/screw_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9608448,
+      "index_byte_offset": 9611520,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.318840505865509e-06
+    },
+    {
+      "key": "clamp:superior_angle/near_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9614568,
+      "index_byte_offset": 9616104,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.339064050926325e-06
+    },
+    {
+      "key": "clamp:superior_angle/far_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9617640,
+      "index_byte_offset": 9619176,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.372986610132415e-06
+    },
+    {
+      "key": "clamp:superior_angle/nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9620712,
+      "index_byte_offset": 9622008,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 4.703863631938532e-06
+    },
+    {
+      "key": "clamp:superior_angle/screw_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9623304,
+      "index_byte_offset": 9626376,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.716804489184433e-06
+    },
+    {
+      "key": "clamp:superior_angle/near_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9629424,
+      "index_byte_offset": 9630960,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.669333406564057e-06
+    },
+    {
+      "key": "clamp:superior_angle/far_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9632496,
+      "index_byte_offset": 9634032,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.687719976608328e-06
+    },
+    {
+      "key": "clamp:superior_angle/nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9635568,
+      "index_byte_offset": 9636864,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7163420119057378e-06
+    },
+    {
+      "key": "clamp:superior_angle/front_liner",
+      "category": "hardware",
+      "vertex_count": 793,
+      "triangle_count": 1586,
+      "position_byte_offset": 9638160,
+      "index_byte_offset": 9647676,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.439006133314052e-06
+    },
+    {
+      "key": "clamp:superior_angle/back_liner",
+      "category": "hardware",
+      "vertex_count": 448,
+      "triangle_count": 892,
+      "position_byte_offset": 9657192,
+      "index_byte_offset": 9662568,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.9570287308806655e-06
+    },
+    {
+      "key": "clamp:superior_angle/moving_jaw",
+      "category": "hardware",
+      "vertex_count": 468,
+      "triangle_count": 940,
+      "position_byte_offset": 9667920,
+      "index_byte_offset": 9673536,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.430084464354891e-06
+    },
+    {
+      "key": "clamp:lateral_upper/screw_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9679176,
+      "index_byte_offset": 9682248,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.705262319186886e-06
+    },
+    {
+      "key": "clamp:lateral_upper/near_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9685296,
+      "index_byte_offset": 9686832,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.651931368420236e-06
+    },
+    {
+      "key": "clamp:lateral_upper/far_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9688368,
+      "index_byte_offset": 9689904,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.5932366665436533e-06
+    },
+    {
+      "key": "clamp:lateral_upper/nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9691440,
+      "index_byte_offset": 9692736,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.69930193422352e-06
+    },
+    {
+      "key": "clamp:lateral_upper/screw_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9694032,
+      "index_byte_offset": 9697104,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.698643016858405e-06
+    },
+    {
+      "key": "clamp:lateral_upper/near_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9700152,
+      "index_byte_offset": 9701688,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.71815576938328e-06
+    },
+    {
+      "key": "clamp:lateral_upper/far_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9703224,
+      "index_byte_offset": 9704760,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719065264085053e-06
+    },
+    {
+      "key": "clamp:lateral_upper/nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9706296,
+      "index_byte_offset": 9707592,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.685054247859476e-06
+    },
+    {
+      "key": "clamp:lateral_upper/front_liner",
+      "category": "hardware",
+      "vertex_count": 687,
+      "triangle_count": 1374,
+      "position_byte_offset": 9708888,
+      "index_byte_offset": 9717132,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.719662577950089e-06
+    },
+    {
+      "key": "clamp:lateral_upper/back_liner",
+      "category": "hardware",
+      "vertex_count": 385,
+      "triangle_count": 766,
+      "position_byte_offset": 9725376,
+      "index_byte_offset": 9729996,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7174763684033607e-06
+    },
+    {
+      "key": "clamp:lateral_upper/moving_jaw",
+      "category": "hardware",
+      "vertex_count": 463,
+      "triangle_count": 930,
+      "position_byte_offset": 9734592,
+      "index_byte_offset": 9740148,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7251609297239696e-06
+    },
+    {
+      "key": "clavicle:liner_posterior",
+      "category": "hardware",
+      "vertex_count": 173,
+      "triangle_count": 342,
+      "position_byte_offset": 9745728,
+      "index_byte_offset": 9747804,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.448429178991134e-06
+    },
+    {
+      "key": "clavicle:liner_anterior",
+      "category": "hardware",
+      "vertex_count": 157,
+      "triangle_count": 310,
+      "position_byte_offset": 9749856,
+      "index_byte_offset": 9751740,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.369612836649608e-06
+    },
+    {
+      "key": "clavicle:M3_screw_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9753600,
+      "index_byte_offset": 9756672,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.362048387582476e-06
+    },
+    {
+      "key": "clavicle:M3_near_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9759720,
+      "index_byte_offset": 9761256,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7252018691980027e-06
+    },
+    {
+      "key": "clavicle:M3_far_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9762792,
+      "index_byte_offset": 9764328,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.388513273420827e-06
+    },
+    {
+      "key": "clavicle:M3_nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9765864,
+      "index_byte_offset": 9767160,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.363276599559043e-06
+    },
+    {
+      "key": "clavicle:M3_screw_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9768456,
+      "index_byte_offset": 9771528,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.362048387582476e-06
+    },
+    {
+      "key": "clavicle:M3_near_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9774576,
+      "index_byte_offset": 9776112,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.4127421978431585e-06
+    },
+    {
+      "key": "clavicle:M3_far_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9777648,
+      "index_byte_offset": 9779184,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.388513273420827e-06
+    },
+    {
+      "key": "clavicle:M3_nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9780720,
+      "index_byte_offset": 9782016,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.395196927051373e-06
+    },
+    {
+      "key": "clavicle:moving_jaw",
+      "category": "hardware",
+      "vertex_count": 755,
+      "triangle_count": 1514,
+      "position_byte_offset": 9783312,
+      "index_byte_offset": 9792372,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.434656695837205e-06
+    },
+    {
+      "key": "clavicle:M4_screw_0",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9801456,
+      "index_byte_offset": 9804528,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.447554933870393e-06
+    },
+    {
+      "key": "clavicle:M4_near_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9807576,
+      "index_byte_offset": 9809112,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.762101517621133e-06
+    },
+    {
+      "key": "clavicle:M4_far_washer_0",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9810648,
+      "index_byte_offset": 9812184,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.762101517621133e-06
+    },
+    {
+      "key": "clavicle:M4_nut_0",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9813720,
+      "index_byte_offset": 9815016,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.5893389078475195e-06
+    },
+    {
+      "key": "clavicle:M4_screw_1",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9816312,
+      "index_byte_offset": 9819384,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.447554933870393e-06
+    },
+    {
+      "key": "clavicle:M4_near_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9822432,
+      "index_byte_offset": 9823968,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.762101517621133e-06
+    },
+    {
+      "key": "clavicle:M4_far_washer_1",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9825504,
+      "index_byte_offset": 9827040,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.762101517621133e-06
+    },
+    {
+      "key": "clavicle:M4_nut_1",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9828576,
+      "index_byte_offset": 9829872,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 6.5893389078475195e-06
+    },
+    {
+      "key": "clavicle:fixed_support",
+      "category": "hardware",
+      "vertex_count": 1510,
+      "triangle_count": 3040,
+      "position_byte_offset": 9831168,
+      "index_byte_offset": 9849288,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.420977443661769e-06
+    },
+    {
+      "key": "liner_keeper:medial_mid/nut",
+      "category": "hardware",
+      "vertex_count": 76,
+      "triangle_count": 152,
+      "position_byte_offset": 9867528,
+      "index_byte_offset": 9868440,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.722268951400487e-06
+    },
+    {
+      "key": "liner_keeper:medial_mid/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9869352,
+      "index_byte_offset": 9872424,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6969690919708142e-06
+    },
+    {
+      "key": "liner_keeper:medial_mid/washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9875472,
+      "index_byte_offset": 9877008,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.721987704152774e-06
+    },
+    {
+      "key": "liner_keeper:medial_mid/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9878544,
+      "index_byte_offset": 9880080,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.703812354038938e-06
+    },
+    {
+      "key": "liner_keeper:superior_angle/nut",
+      "category": "hardware",
+      "vertex_count": 76,
+      "triangle_count": 152,
+      "position_byte_offset": 9881616,
+      "index_byte_offset": 9882528,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.661382835806748e-06
+    },
+    {
+      "key": "liner_keeper:superior_angle/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9883440,
+      "index_byte_offset": 9886512,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7146796749709665e-06
+    },
+    {
+      "key": "liner_keeper:superior_angle/washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9889560,
+      "index_byte_offset": 9891096,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.101965820988099e-06
+    },
+    {
+      "key": "liner_keeper:superior_angle/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9892632,
+      "index_byte_offset": 9894168,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.0850196542959765e-06
+    },
+    {
+      "key": "liner_keeper:lateral_upper/nut",
+      "category": "hardware",
+      "vertex_count": 76,
+      "triangle_count": 152,
+      "position_byte_offset": 9895704,
+      "index_byte_offset": 9896616,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.724486302703056e-06
+    },
+    {
+      "key": "liner_keeper:lateral_upper/screw",
+      "category": "hardware",
+      "vertex_count": 256,
+      "triangle_count": 508,
+      "position_byte_offset": 9897528,
+      "index_byte_offset": 9900600,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.712204488248716e-06
+    },
+    {
+      "key": "liner_keeper:lateral_upper/washer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9903648,
+      "index_byte_offset": 9905184,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7228735511041222e-06
+    },
+    {
+      "key": "liner_keeper:lateral_upper/spacer",
+      "category": "hardware",
+      "vertex_count": 128,
+      "triangle_count": 256,
+      "position_byte_offset": 9906720,
+      "index_byte_offset": 9908256,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.6613669179841324e-06
+    },
+    {
+      "key": "GH_keeper:0/screw",
+      "category": "hardware",
+      "vertex_count": 141,
+      "triangle_count": 278,
+      "position_byte_offset": 9909792,
+      "index_byte_offset": 9911484,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.430623782944679e-06
+    },
+    {
+      "key": "GH_keeper:0/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9913152,
+      "index_byte_offset": 9914448,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 7.351328129567847e-06
+    },
+    {
+      "key": "GH_keeper:1/screw",
+      "category": "hardware",
+      "vertex_count": 145,
+      "triangle_count": 286,
+      "position_byte_offset": 9915744,
+      "index_byte_offset": 9917484,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.679339444229157e-06
+    },
+    {
+      "key": "GH_keeper:1/nut",
+      "category": "hardware",
+      "vertex_count": 108,
+      "triangle_count": 216,
+      "position_byte_offset": 9919200,
+      "index_byte_offset": 9920496,
+      "index_component_bytes": 2,
+      "maximum_coordinate_roundtrip_error_mm": 3.7116365120271055e-06
+    }
+  ]
+}

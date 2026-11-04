@@ -1,4 +1,4 @@
-"""Export the corrected shoulder-elbow candidate for the static browser viewer."""
+"""Export separate shoulder and original elbow assemblies for the web viewer."""
 from pathlib import Path
 import hashlib
 import json
@@ -8,8 +8,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'mujoco_arm/tools'))
 import mesh_geom
-from audit_s1_extensor_guide_body import load_relocated_assembly
-from build_s1_teres_origin_mount import A, load_component
+from build_s1_teres_origin_mount import A
 
 def sha(path):
     with path.open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
@@ -19,42 +18,50 @@ def read(path):return json.loads(path.read_text(encoding='utf8'))
 def category(key):
     if key.startswith('bone:'):return 'bones'
     if key.startswith('tpu:'):return 'muscles'
-    if key.startswith(('tendon:','wire:')) or key.endswith('/tendon_wire'):return 'wires'
+    if key.startswith(('tendon:','wire:','wire_active:')) or key.endswith('/tendon_wire'):return 'wires'
     return 'hardware'
 
+def load_parts(sources):
+    parts = []
+    for key, row in sources.items():
+        path = ROOT/row['file']
+        if sha(path) != row['sha256']:
+            raise ValueError(f'Mesh source changed: {key}')
+        vertices, faces = (mesh_geom.load_obj(str(path)) if path.suffix.lower() == '.obj'
+                           else mesh_geom.read_stl(path))
+        unique, inverse = np.unique(vertices, axis=0, return_inverse=True)
+        parts.append((key, unique+np.array(row['translation_source_mm'] or [0, 0, 0]), inverse[faces]))
+    return parts
+
+
 def main():
-    base=ROOT/'02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus'
-    assembly_file=base/'extensor_late_reaction_audit.json'
-    bridge_file=base/'elbow_relocated_bridge_screen.json'
-    audit=read(assembly_file)
-    if sha(bridge_file)!=audit['bridge_sha256']:raise ValueError('Assembly report changed')
-    joint=next(row['combined_key_and_seat'] for row in audit['planar_bearing_trials']
-               if row.get('combined_key_and_seat', {}).get('sources'))
-    pin=joint['retention_and_tool']['transverse_pin_trials']['selected']
-    guide_file=base/'extensor_guide_body_audit.json'
-    guide_audit=read(guide_file)
-    channels=read(base/'elbow_relocated_channel_cores/channel_core_check.json')
-    parts_by_key=load_relocated_assembly(
-        base, read(bridge_file), channels, joint['sources']['tpu'],
-        pin['axial_fit']['blind_thread_trial']['cap_source'])
-    stop=next(row['source'] for row in guide_audit['detachable_guide']['assembly_readback']
-              ['washer_tongue_trials'] if 'source' in row)
-    for key, source in {
-        'extensor:dual_key_guide':joint['sources']['guide'],
-        'extensor:late_reaction_seat':joint['sources']['seat'],
-        'extensor:retention_pin':pin['sources']['pin'],
-        'elbow:FJ1477_proximal_nut_washer_right':stop,
-    }.items():
-        parts_by_key[key]=load_component(source)
-    for channel in channels['channels']:
-        label=channel['label']
-        start,end=channels['choice'][f'{label}_endpoints_source_mm']
-        middle=[guide_audit['guide_source_mm']] if label=='extensor' else channel['path_source_mm']
-        parts_by_key[f'wire:elbow_{label}']=A.D.outer_envelope(np.array([start,*middle,end]),.3)
-    source_parts=[]
-    for key,solid in parts_by_key.items():
-        vertices,faces=mesh_geom.manifold_mesh_to_arrays(solid.to_mesh64())
-        source_parts.append((key,vertices,faces))
+    integration = ROOT/'02_人体骨骼晶格肌肉方案/输出/integration_review'
+    base = integration/'s1_elbow_shared_humerus'
+    assembly = base/'assembly_check.json'
+    baseline = read(base/'anatomical_elbow_baseline.json')
+    if sha(assembly) != baseline['original_assembly_sha256']:
+        raise ValueError('Original elbow source changed')
+    elbow_sources = {key: source for key, source in read(assembly)['sources'].items()
+                     if key.startswith(('elbow:', 'tpu:elbow_')) or key == 'bone:forearm'}
+    preview = read(integration/'s1_elbow_preview/integration_audit.json')
+    elbow_sources['bone:humerus'] = preview['original_elbow_humerus']
+    parts = load_parts(elbow_sources)
+    for label, row in baseline['muscles'].items():
+        if elbow_sources[f'tpu:elbow_{label}'] != row['display_source']:
+            raise ValueError(f'Elbow muscle source changed: {label}')
+        cable = A.D.outer_envelope(np.array(row['wire_path_source_mm']), .3)
+        vertices, faces = mesh_geom.manifold_mesh_to_arrays(cable.to_mesh64())
+        parts.append((f'wire:elbow_{label}', vertices, faces))
+    write_scene(parts, 'scene', 'Original anatomical elbow', assembly)
+
+    selection = read(ROOT/'design/S1_CURRENT_CANDIDATE.json')
+    shoulder = ROOT/selection['assembly_report']
+    if sha(shoulder) != selection['assembly_sha256']:
+        raise ValueError('Shoulder source changed')
+    write_scene(load_parts(read(shoulder)['sources']), 'shoulder', 'S1-Y2 shoulder', shoulder)
+
+
+def write_scene(source_parts, stem, candidate, assembly_file):
     lower=np.min([v.min(axis=0) for _,v,_ in source_parts],axis=0)
     upper=np.max([v.max(axis=0) for _,v,_ in source_parts],axis=0)
     pivot=(lower+upper)/2
@@ -71,16 +78,15 @@ def main():
             vertex_count=len(vertices),triangle_count=len(faces),position_byte_offset=position_offset,
             index_byte_offset=index_offset,index_component_bytes=indices.dtype.itemsize,
             maximum_coordinate_roundtrip_error_mm=error))
-    mesh_file=destination/'scene.bin';mesh_file.write_bytes(binary)
-    manifest=dict(schema_version=1,candidate='S1 shoulder-elbow mechanical candidate',scope='Static neutral pose with nominal elbow cable paths. Motion and driven performance are outside this display.',
+    mesh_file=destination/f'{stem}.bin';mesh_file.write_bytes(binary)
+    manifest=dict(schema_version=1,candidate=candidate,scope='Separate static neutral assembly. Motion and driven performance are outside this display.',
         assembly_source=assembly_file.relative_to(ROOT).as_posix(),assembly_sha256=sha(assembly_file),
-        bridge_sha256=sha(bridge_file),guide_audit_sha256=sha(guide_file),
-        exporter_sha256=sha(Path(__file__)),mesh_file='scene.bin',mesh_sha256=sha(mesh_file),mesh_bytes=len(binary),units='m',
+        exporter_sha256=sha(Path(__file__)),mesh_file=mesh_file.name,mesh_sha256=sha(mesh_file),mesh_bytes=len(binary),units='m',
         source_origin_mm=pivot.tolist(),bounds_m=[((lower-pivot)*.001).tolist(),((upper-pivot)*.001).tolist()],
         part_count=len(parts),triangle_count=sum(p['triangle_count'] for p in parts),
         decimated=False,maximum_coordinate_roundtrip_error_mm=maximum_error,
         category_counts={name:sum(p['category']==name for p in parts) for name in ['bones','muscles','wires','hardware']},parts=parts)
-    (destination/'scene.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
+    (destination/f'{stem}.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
     print(json.dumps({k:manifest[k] for k in ['part_count','triangle_count','mesh_bytes','maximum_coordinate_roundtrip_error_mm','category_counts']},indent=2))
 
 if __name__=='__main__':main()
