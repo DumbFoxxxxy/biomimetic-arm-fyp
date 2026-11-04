@@ -30,7 +30,10 @@ def main():
             page.wait_for_function('window.__armViewer.renderer.info.render.frame > 2')
             get=lambda expression:page.evaluate('() => {const v=window.__armViewer;return '+expression+';}')
             state=get('({parts:v.manifest.part_count,triangles:v.manifest.triangle_count,rendered:v.renderer.info.render.triangles,meshes:Object.values(v.layers).reduce((s,g)=>s+g.children.length,0)})')
-            assert state['parts']==state['meshes']==191 and state['rendered']==state['triangles']==691026,state
+            assert state['parts']==state['meshes']==329 and state['rendered']==state['triangles']==978488,state
+            keys=set(get('v.manifest.parts.map(p=>p.key)'))
+            assert {'bone:humerus','bone:forearm','tpu:flexor_relocated','tpu:extensor_relocated',
+                    'extensor:dual_key_guide','extensor:retention_pin'} <= keys
             checks['full_scene']=state
             before=get('v.camera.position.toArray()');box=page.locator('canvas').bounding_box()
             x=box['x']+box['width']*.5;y=box['y']+box['height']*.45

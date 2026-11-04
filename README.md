@@ -21,14 +21,14 @@
 
 ## 360° 交互模型
 
-[![当前肩部模型预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)
+[![肩部、肘部与前臂模型预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)
 
 [打开交互模型](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/)：拖动旋转、滚轮缩放、右键平移，可切换骨骼、肌肉、钢丝和连接件。
 首次部署完成后链接生效；[本地查看与部署说明](docs/GITHUB_MODEL_VIEWER.md)。
 
-当前展示 S1-Y2 肩部完整装配，共 191 对象。网页展示静态几何，不包含 TPU 变形或钢丝驱动仿真；桌面 MuJoCo 入口见下方快速复现。
+网页展示 S1 肩肘机械候选的零位装配，共 329 个对象。可查看肩部、共用肱骨、肘部与前臂，也可单独显示骨骼、肌肉和钢丝。驱动和 TPU 变形仍待验证。
 
-肩部与肘部的[本地合体展示准备](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_preview/README.md)已开始；当前为接口待整合的空间预览。S1机械结构及共用肱骨接口确定后，再更新GitHub中的整体展示。
+修正版装配和验证范围见[肩肘组合记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/README.md)。
 
 ## 方案与目录
 

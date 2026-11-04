@@ -8,7 +8,7 @@ README 使用实际模型截图作入口；点击进入独立网页后，可以�
 
 ## 模型与能力边界
 
-当前为 S1-Y2 肩部静态装配，191 对象、691,026 三角形。骨骼和肌肉的原始制造模型不因网页导出而改变；所有源三角形保留，仅为浏览器转换坐标和存储格式。
+当前展示肩部、共用肱骨、肘部和前臂的零位机械候选，共 329 个对象、978,488 个三角形。
 
 这不是整臂运动仿真，也不计算 TPU 变形、接触、强度或实际驱动范围。桌面 MuJoCo 查看方式见 [运行说明](../RUNNING.md)。
 
@@ -36,7 +36,7 @@ GitHub Pages 不提供 Git LFS 文件。网页模型 scene.bin 和预览图 prev
 python tools/build_web_model.py
 ```
 
-导出器读取 design/S1_CURRENT_CANDIDATE.json，校验当前装配与全部源文件的 SHA256；输出 docs/viewer/scene.json 与 scene.bin。清单记录源文件、哈希、对象数量及坐标转换误差，未进行三角形简化。
+在装有项目几何依赖的 Python 环境运行导出器。它根据修正版肩肘装配记录读取已校验的零件，加入名义钢丝走线，再生成 docs/viewer/scene.json 和 scene.bin。清单记录装配报告哈希、对象数量和坐标转换误差。
 
 浏览器交互检查（需要 Playwright 和脚本指定的本机 Chrome）：
 

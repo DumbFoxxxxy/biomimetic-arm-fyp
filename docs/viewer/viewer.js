@@ -53,7 +53,7 @@ async function start() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.35;
-  renderer.domElement.setAttribute('aria-label', '拖动旋转，滚轮缩放，右键平移当前肩部模型');
+  renderer.domElement.setAttribute('aria-label', '拖动旋转，滚轮缩放，右键平移肩肘前臂模型');
   renderer.domElement.tabIndex = 0;
   host.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
