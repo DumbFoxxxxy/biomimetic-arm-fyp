@@ -59,7 +59,7 @@ def main():
             page.get_by_role('button',name='完整装配',exact=True).click();page.get_by_role('button',name='重置视角',exact=True).click();page.wait_for_timeout(400)
             assert max(abs(x) for x in get('v.controls.target.toArray()'))<1e-8
             checks['reset_view']=True
-            page.screenshot(path=str(ROOT/'docs/viewer/preview.png'),full_page=True)
+            page.locator('#viewport').screenshot(path=str(ROOT/'docs/viewer/preview.png'))
             if not page.get_by_role('button',name='全屏',exact=True).is_disabled():
                 page.get_by_role('button',name='全屏',exact=True).click();page.wait_for_timeout(200)
                 assert page.evaluate('document.fullscreenElement?.id')=='viewport'
@@ -75,6 +75,10 @@ def main():
             assert 'bone:scapula' in get('v.manifest.parts.map(p=>p.key)')
             assert 'bone:forearm' not in get('v.manifest.parts.map(p=>p.key)')
             checks['separate_shoulder_scene']=True
+            page.set_viewport_size({'width':1440,'height':960})
+            page.get_by_role('button',name='重置视角',exact=True).click()
+            page.wait_for_function('window.__armViewer.renderer.info.render.frame > 2')
+            page.locator('#viewport').screenshot(path=str(ROOT/'docs/viewer/shoulder-preview.png'))
             assert not errors and not bad_responses,(errors,bad_responses)
             browser.close()
     finally:server.shutdown();server.server_close()
