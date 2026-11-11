@@ -1,0 +1,144 @@
+{
+  "generator": {
+    "file": "tools/study_s1_series_elbow_balanced_drive.py",
+    "sha256": "2e36d4949ecef017dfa46a07a1fb17e69be808d7c22d36a4aba4e501aa39d158"
+  },
+  "start": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_start.json",
+    "sha256": "d1b6d27d2d395e44e5ce2b2a5198858e81a2bd83974f0a39aaf13b4428f07928"
+  },
+  "baseline": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.json",
+    "sha256": "d44d2203e96ff4bde159ce6a7be51c3ed402940caccece0dd0e1ba53f8ba3d1f"
+  },
+  "cases": {
+    "shoulder_low": {
+      "shoulder_increment_fraction": 0.25,
+      "elbow_input_peak_N": 0.0,
+      "rail_friction_N": 0.15,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_shoulder_low.csv",
+        "sha256": "c99275af5c843198045b3534d02e3c7a014cc881223d683edc3747cc19e855c1"
+      },
+      "sampled_frames": 401,
+      "clear_frames": 401,
+      "clear_peak_flexion_projection_deg": 1.7560620525398438,
+      "clear_peak_elbow_deg": 0.0,
+      "terminal_shoulder_offset_deg": 0.374426793927681,
+      "terminal_elbow_deg": -1.700165844895026e-09
+    },
+    "shoulder_high": {
+      "shoulder_increment_fraction": 0.6,
+      "elbow_input_peak_N": 0.0,
+      "rail_friction_N": 0.15,
+      "first_collision": {
+        "time_s": 0.7200000000000001,
+        "GH_delta_deg": 3.16205043641044,
+        "flexion_projection_deg": 2.746282425107231,
+        "elbow_deg": -3.008462674213145e-09,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 0.06996734106746362
+          }
+        ]
+      },
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_shoulder_high.csv",
+        "sha256": "32c6148cbe3972250c5b91128d170aff009deac7183876ab2efe750ecdc32bb6"
+      },
+      "sampled_frames": 401,
+      "clear_frames": 72,
+      "clear_peak_flexion_projection_deg": 2.651816588024446,
+      "clear_peak_elbow_deg": 0.0,
+      "terminal_shoulder_offset_deg": 0.8626691231504217,
+      "terminal_elbow_deg": -1.6886532291798637e-09
+    },
+    "combined_low": {
+      "shoulder_increment_fraction": 0.25,
+      "elbow_input_peak_N": 25.0,
+      "rail_friction_N": 0.15,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_combined_low.csv",
+        "sha256": "723d4d7f01d4510e2b2dceebe94e6287ddcb38556fc78136120eb2f2397402d7"
+      },
+      "sampled_frames": 401,
+      "clear_frames": 401,
+      "clear_peak_flexion_projection_deg": 3.5590926207148272,
+      "clear_peak_elbow_deg": 99.8029336384027,
+      "terminal_shoulder_offset_deg": 1.492032094473489,
+      "terminal_elbow_deg": -1.6845861631571587e-09
+    },
+    "combined_high": {
+      "shoulder_increment_fraction": 0.6,
+      "elbow_input_peak_N": 25.0,
+      "rail_friction_N": 0.15,
+      "first_collision": {
+        "time_s": 2.37,
+        "GH_delta_deg": 6.181595053642295,
+        "flexion_projection_deg": 4.144879953630348,
+        "elbow_deg": 0.896909594947529,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 0.03718180385202407
+          }
+        ]
+      },
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_combined_high.csv",
+        "sha256": "f91d7dee29ef25af82c6dae7b15cdf1cd0e9eddb56d017de317fc5da82abad02"
+      },
+      "sampled_frames": 401,
+      "clear_frames": 237,
+      "clear_peak_flexion_projection_deg": 4.145784672109967,
+      "clear_peak_elbow_deg": 99.98408596517346,
+      "terminal_shoulder_offset_deg": 1.9923773993170606,
+      "terminal_elbow_deg": -1.7186772465032698e-09
+    },
+    "combined_low_zero_rail_friction": {
+      "shoulder_increment_fraction": 0.25,
+      "elbow_input_peak_N": 25.0,
+      "rail_friction_N": 0.0,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_combined_low_zero_rail_friction.csv",
+        "sha256": "d4a834caa21254b0b10bbbd3ca3dcfacc9d425c99318ebea1f34c5930295a65a"
+      },
+      "sampled_frames": 401,
+      "clear_frames": 401,
+      "clear_peak_flexion_projection_deg": 3.5614221737494534,
+      "clear_peak_elbow_deg": 100.32147427549256,
+      "terminal_shoulder_offset_deg": 1.4902321529995513,
+      "terminal_elbow_deg": -1.617530123441547e-09
+    }
+  },
+  "entry_sample_count": 113,
+  "entry_intersections": [],
+  "entry_step_upper_deg": 0.1,
+  "sample_period_s": 0.01,
+  "shoulder_channels": [
+    "FJ1507",
+    "FJ1468",
+    "FJ1513",
+    "FJ1467"
+  ],
+  "preload_N": [
+    4.476608255493977,
+    0.0,
+    2.180437573280459,
+    8.052994219425438
+  ],
+  "full_flexion_increment_N": [
+    -2.2136378085660176,
+    -0.0,
+    -2.180437573280459,
+    -6.425372686516992
+  ],
+  "full_increment_neutral_flexion_moment_Nm": 0.22581418912690887,
+  "scope": "Slerp entry is a geometric check with elbow held at neutral. After initialization the joint motion is solved under forces, gravity and the existing constraints. The optimized flexion increment has zero off-axis torque only at the start. Rigid audit is independent and only samples until first overlap. Zero friction refers to the elbow slider; wire friction, wire geometry and TPU contact are absent."
+}

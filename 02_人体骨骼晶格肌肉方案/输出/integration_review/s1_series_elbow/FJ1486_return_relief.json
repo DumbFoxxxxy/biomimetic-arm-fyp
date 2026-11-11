@@ -1,0 +1,66 @@
+{
+  "generator": {
+    "file": "tools/build_s1_series_elbow_flexor_relief.py",
+    "sha256": "83ab076ee58198208db7c5a780a691e4e279037de440c0d638ee3aaff19e8039"
+  },
+  "reference_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/timed_elbow_muscle_geometry.json",
+    "sha256": "287b5cb0ff3a1fe4642f92f21986b51b1a528e470e78b177d8c91b0187a1725d"
+  },
+  "original": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/mechanical_yoke_reanchored_pair/paired_swivel_support/captive_keepers/continuous_channel_candidate/FJ1486/TPU_muscle.obj",
+    "sha256": "1f72df05bec9763c988bdf64fb23fd8f93adf5cd1cf732841c96c03250b08ddb",
+    "translation_source_mm": [
+      -140.0,
+      -86.0,
+      1100.0
+    ],
+    "source_elbow_geom": "FJ1486_TPU_muscle",
+    "mesh_scale_m_per_file_unit": [
+      0.001,
+      0.001,
+      0.001
+    ]
+  },
+  "fitting_frame_count": 12,
+  "checked_frame_count": 123,
+  "additional_frames_outside_fit": 111,
+  "baseline_contact_count": 42,
+  "baseline_peak_overlap_mm3": 3.1341511662331487,
+  "protected_channel_radius_mm": 1.6500000000000001,
+  "protected_end_span_mm": 8.0,
+  "trials": [
+    {
+      "margin_mm": 0.1,
+      "removed_mm3": 6.23430247816367,
+      "protected_loss_mm3": 6.706577719914106e-08,
+      "positive_pieces_mm3": [
+        27108.67350816057
+      ],
+      "humerus_overlap_frames": 0,
+      "max_remaining_overlap_mm3": 0.0
+    }
+  ],
+  "selected": {
+    "margin_mm": 0.1,
+    "removed_mm3": 6.23430247816367,
+    "protected_loss_mm3": 6.706577719914106e-08,
+    "positive_pieces_mm3": [
+      27108.67350816057
+    ],
+    "humerus_overlap_frames": 0,
+    "max_remaining_overlap_mm3": 0.0,
+    "mesh": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1486_return_relief_TPU.obj",
+      "sha256": "255f3cd0e827acc8c578f1f74b250061a7658bd9e1b9cb28b09e507eb7896868",
+      "translation_source_mm": [
+        -140.0,
+        -86.0,
+        1100.0
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "scope": "The contact is mapped in the humerus frame using the prior geometric interpolation. This is a subtractive TPU candidate. The same recorded pose sequence is rechecked. The local tube wall and end stock are guarded. Stiffness and contact mechanics are not inferred."
+}

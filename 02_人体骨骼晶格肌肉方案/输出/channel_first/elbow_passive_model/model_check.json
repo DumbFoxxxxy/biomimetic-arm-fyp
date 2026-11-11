@@ -1,0 +1,1124 @@
+{
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_mount_candidate/assembly.json",
+    "sha256": "bc3937d8405bf39851dccd1a4819d1859c3fc2b41ea46217371d58da8fd6696d"
+  },
+  "parent_pads": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/scapular_pad_dynamic_screen.json",
+    "sha256": "69742fa3305681d06b04e8b634d2d899bb4a4367e33c7c3aadf07af5a115e7ae"
+  },
+  "endpoint_report": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/arm_girdle_equivalent_drive_geometry_mass_check.json",
+    "sha256": "fbed4ca3b0d5ed3a3e82d8896098f7c8bef45cbac9f378bcfbc0ee5754254d08"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_passive_model/model.xml",
+    "sha256": "7e8fda87cc08b5714eb00ad3ad03f34c7b42187f46ba8409f8b728b888a3c65b"
+  },
+  "pivots": [
+    {
+      "head": "FJ1486",
+      "body": "FJ1486_distal_pivot",
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/mechanical_yoke_reanchored_pair/cap_swivel_flexor/screen.json",
+        "sha256": "39e1d07a6f90a1e012057a68579113bf3c2efcbee561fc7a87516f777e8ba63a"
+      },
+      "centre_source_mm": [
+        -206.71456489573103,
+        -83.59042604636164,
+        1004.4169038191093
+      ],
+      "axis_source": [
+        -0.9788767548668222,
+        0.10880110838696208,
+        0.17309713341117955
+      ],
+      "assumed_mass_kg": 0.005322888738564571,
+      "stiffness_Nm_per_rad": 0.02,
+      "damping_Nms_per_rad": 0.001
+    },
+    {
+      "head": "FJ1477",
+      "body": "FJ1477_distal_pivot",
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/mechanical_yoke_reanchored_pair/cap_swivel_study/screen.json",
+        "sha256": "26a5869a4dc534657549e25b1c0759d66ddf23dae0eadd547910d66fb663dc16"
+      },
+      "centre_source_mm": [
+        -215.27287978287325,
+        -42.10690620433809,
+        1083.7123686571222
+      ],
+      "axis_source": [
+        -0.9788767548668222,
+        0.10880110838696208,
+        0.17309713341117955
+      ],
+      "assumed_mass_kg": 0.005322888738564573,
+      "stiffness_Nm_per_rad": 0.02,
+      "damping_Nms_per_rad": 0.001
+    }
+  ],
+  "ports": [
+    {
+      "head": "FJ1486",
+      "role": "origin",
+      "owner": "humerus",
+      "source_position_mm": [
+        -190.57320238918075,
+        -97.42401676293763,
+        1197.0549591832978
+      ]
+    },
+    {
+      "head": "FJ1486",
+      "role": "distal",
+      "owner": "FJ1486_distal_pivot",
+      "source_position_mm": [
+        -204.4450712279192,
+        -83.77686505943915,
+        1017.368241162649
+      ]
+    },
+    {
+      "head": "FJ1477",
+      "role": "origin",
+      "owner": "humerus",
+      "source_position_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ]
+    },
+    {
+      "head": "FJ1477",
+      "role": "distal",
+      "owner": "FJ1477_distal_pivot",
+      "source_position_mm": [
+        -213.0033861150614,
+        -42.29334521741559,
+        1096.6637060006617
+      ]
+    }
+  ],
+  "geom_owners": [
+    {
+      "geom": "mesh_000",
+      "source_key": "thorax_reference:FJ3153",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_001",
+      "source_key": "thorax_reference:FJ3154",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_002",
+      "source_key": "thorax_reference:FJ3155",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_003",
+      "source_key": "thorax_reference:FJ3156",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_004",
+      "source_key": "thorax_reference:FJ3158",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_005",
+      "source_key": "thorax_reference:FJ3160",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_006",
+      "source_key": "thorax_reference:FJ3163",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_007",
+      "source_key": "thorax_reference:FJ3166",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_008",
+      "source_key": "thorax_reference:FJ3169",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_009",
+      "source_key": "thorax_reference:FJ3171",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_010",
+      "source_key": "thorax_reference:FJ3173",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_011",
+      "source_key": "thorax_reference:FJ3174",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_012",
+      "source_key": "thorax_reference:FJ3175",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_013",
+      "source_key": "thorax_reference:FJ3178",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_014",
+      "source_key": "thorax_reference:FJ3290",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_015",
+      "source_key": "thorax_reference:FJ3333",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_016",
+      "source_key": "thorax_reference:FJ3334",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_017",
+      "source_key": "thorax_reference:FJ3335",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_018",
+      "source_key": "thorax_reference:FJ3336",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_019",
+      "source_key": "thorax_reference:FJ3337",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_020",
+      "source_key": "thorax_reference:FJ3338",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_021",
+      "source_key": "thorax_reference:FJ3339",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_022",
+      "source_key": "thorax_reference:FJ3340",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_023",
+      "source_key": "thorax_reference:FJ3341",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_024",
+      "source_key": "thorax_reference:FJ3342",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_025",
+      "source_key": "thorax_reference:FJ3343",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_026",
+      "source_key": "thorax_reference:FJ3344",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_027",
+      "source_key": "thorax_reference:FJ3345",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_028",
+      "source_key": "thorax_reference:FJ3346",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_029",
+      "source_key": "thorax_reference:FJ3347",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_030",
+      "source_key": "thorax_reference:FJ3348",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_031",
+      "source_key": "thorax_reference:FJ3228",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_032",
+      "source_key": "thorax_reference:FJ3239",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_033",
+      "source_key": "thorax_reference:FJ3229",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_034",
+      "source_key": "thorax_reference:FJ3242",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_035",
+      "source_key": "thorax_reference:FJ3230",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_036",
+      "source_key": "thorax_reference:FJ3245",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_037",
+      "source_key": "thorax_reference:FJ3232",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_038",
+      "source_key": "thorax_reference:FJ3251",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_039",
+      "source_key": "thorax_reference:FJ3231",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_040",
+      "source_key": "thorax_reference:FJ3248",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_041",
+      "source_key": "thorax_reference:FJ3233",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_042",
+      "source_key": "thorax_reference:FJ3254",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_043",
+      "source_key": "thorax_reference:FJ3234",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_044",
+      "source_key": "thorax_reference:FJ3255",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_045",
+      "source_key": "thorax_reference:FJ3235",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_046",
+      "source_key": "thorax_reference:FJ3236",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_047",
+      "source_key": "thorax_reference:FJ3330",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_048",
+      "source_key": "thorax_reference:FJ3225",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_049",
+      "source_key": "thorax_reference:FJ3331",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_050",
+      "source_key": "thorax_reference:FJ3226",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_051",
+      "source_key": "thorax_reference:FJ3332",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_052",
+      "source_key": "thorax_reference:FJ3227",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_053",
+      "source_key": "bone:clavicle",
+      "owner": "clavicle"
+    },
+    {
+      "geom": "mesh_054",
+      "source_key": "bone:scapula",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_055",
+      "source_key": "bone:humerus",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_056",
+      "source_key": "bone:forearm",
+      "owner": "forearm"
+    },
+    {
+      "geom": "mesh_057",
+      "source_key": "GH_cap_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_058",
+      "source_key": "GH_cap_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_059",
+      "source_key": "GH_bolt_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_060",
+      "source_key": "GH_nut_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_061",
+      "source_key": "GH_top_washer_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_062",
+      "source_key": "GH_bottom_washer_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_063",
+      "source_key": "GH_bolt_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_064",
+      "source_key": "GH_nut_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_065",
+      "source_key": "GH_top_washer_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_066",
+      "source_key": "GH_bottom_washer_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_067",
+      "source_key": "GH_keeper:0/screw",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_068",
+      "source_key": "GH_keeper:0/nut",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_069",
+      "source_key": "GH_keeper:1/screw",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_070",
+      "source_key": "GH_keeper:1/nut",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_071",
+      "source_key": "elbow:elbow_bearing_bush",
+      "owner": "forearm"
+    },
+    {
+      "geom": "mesh_072",
+      "source_key": "elbow:elbow_spacer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_073",
+      "source_key": "elbow:elbow_spacer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_074",
+      "source_key": "elbow:elbow_shoulder_pin",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_075",
+      "source_key": "elbow:elbow_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_076",
+      "source_key": "elbow:elbow_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_077",
+      "source_key": "elbow:elbow_retaining_nut",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_078",
+      "source_key": "SC:SC_cap_left",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_079",
+      "source_key": "SC:SC_cap_right",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_080",
+      "source_key": "SC:SC_bolt_left",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_081",
+      "source_key": "SC:SC_nut_left",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_082",
+      "source_key": "SC:SC_top_washer_left",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_083",
+      "source_key": "SC:SC_bottom_washer_left",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_084",
+      "source_key": "SC:SC_bolt_right",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_085",
+      "source_key": "SC:SC_nut_right",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_086",
+      "source_key": "SC:SC_top_washer_right",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_087",
+      "source_key": "SC:SC_bottom_washer_right",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_088",
+      "source_key": "AC:AC_cap_left",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_089",
+      "source_key": "AC:AC_cap_right",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_090",
+      "source_key": "AC:AC_bolt_left",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_091",
+      "source_key": "AC:AC_nut_left",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_092",
+      "source_key": "AC:AC_top_washer_left",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_093",
+      "source_key": "AC:AC_bottom_washer_left",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_094",
+      "source_key": "AC:AC_bolt_right",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_095",
+      "source_key": "AC:AC_nut_right",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_096",
+      "source_key": "AC:AC_top_washer_right",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_097",
+      "source_key": "AC:AC_bottom_washer_right",
+      "owner": "scapula"
+    },
+    {
+      "geom": "elbow_interface_0",
+      "source_key": "elbow:FJ1486_proximal_rigid_cap",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_1",
+      "source_key": "elbow:FJ1486_proximal_nut_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_2",
+      "source_key": "elbow:FJ1486_proximal_nut_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_3",
+      "source_key": "elbow:FJ1486_proximal_nut_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_4",
+      "source_key": "elbow:FJ1486_proximal_nut_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_5",
+      "source_key": "elbow:FJ1486_distal_bolt_left",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_6",
+      "source_key": "elbow:FJ1486_distal_head_washer_left",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_7",
+      "source_key": "elbow:FJ1486_distal_nut_washer_left",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_8",
+      "source_key": "elbow:FJ1486_distal_nut_left",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_9",
+      "source_key": "elbow:FJ1486_distal_bolt_right",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_10",
+      "source_key": "elbow:FJ1486_distal_head_washer_right",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_11",
+      "source_key": "elbow:FJ1486_distal_nut_washer_right",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_12",
+      "source_key": "elbow:FJ1486_distal_nut_right",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_13",
+      "source_key": "elbow:FJ1486_active_wire_crimp_barrel",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_14",
+      "source_key": "elbow:FJ1477_proximal_rigid_cap",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_15",
+      "source_key": "elbow:FJ1477_proximal_nut_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_16",
+      "source_key": "elbow:FJ1477_proximal_nut_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_17",
+      "source_key": "elbow:FJ1477_proximal_nut_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_18",
+      "source_key": "elbow:FJ1477_proximal_nut_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_19",
+      "source_key": "elbow:FJ1477_distal_bolt_left",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_20",
+      "source_key": "elbow:FJ1477_distal_head_washer_left",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_21",
+      "source_key": "elbow:FJ1477_distal_nut_washer_left",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_22",
+      "source_key": "elbow:FJ1477_distal_nut_left",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_23",
+      "source_key": "elbow:FJ1477_distal_bolt_right",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_24",
+      "source_key": "elbow:FJ1477_distal_head_washer_right",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_25",
+      "source_key": "elbow:FJ1477_distal_nut_washer_right",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_26",
+      "source_key": "elbow:FJ1477_distal_nut_right",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_27",
+      "source_key": "elbow:FJ1477_active_wire_crimp_barrel",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_28",
+      "source_key": "elbow:FJ1486_proximal_bolt_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_29",
+      "source_key": "elbow:FJ1486_proximal_head_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_30",
+      "source_key": "elbow:FJ1486_proximal_bolt_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_31",
+      "source_key": "elbow:FJ1486_proximal_head_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_32",
+      "source_key": "elbow:FJ1477_proximal_bolt_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_33",
+      "source_key": "elbow:FJ1477_proximal_head_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_34",
+      "source_key": "elbow:FJ1477_proximal_bolt_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_35",
+      "source_key": "elbow:FJ1477_proximal_head_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_36",
+      "source_key": "elbow:FJ1486_bone_adapter",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_37",
+      "source_key": "elbow:FJ1477_bone_adapter",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_38",
+      "source_key": "elbow:FJ1486_bone_0_bolt",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_39",
+      "source_key": "elbow:FJ1486_bone_0_front_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_40",
+      "source_key": "elbow:FJ1486_bone_0_back_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_41",
+      "source_key": "elbow:FJ1486_bone_0_nut",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_42",
+      "source_key": "elbow:FJ1486_bone_1_bolt",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_43",
+      "source_key": "elbow:FJ1486_bone_1_front_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_44",
+      "source_key": "elbow:FJ1486_bone_1_back_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_45",
+      "source_key": "elbow:FJ1486_bone_1_nut",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_46",
+      "source_key": "elbow:FJ1477_bone_0_bolt",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_47",
+      "source_key": "elbow:FJ1477_bone_0_front_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_48",
+      "source_key": "elbow:FJ1477_bone_0_back_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_49",
+      "source_key": "elbow:FJ1477_bone_0_nut",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_50",
+      "source_key": "elbow:FJ1477_bone_1_bolt",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_51",
+      "source_key": "elbow:FJ1477_bone_1_front_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_52",
+      "source_key": "elbow:FJ1477_bone_1_back_washer",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_53",
+      "source_key": "elbow:FJ1477_bone_1_nut",
+      "owner": "humerus"
+    },
+    {
+      "geom": "elbow_interface_54",
+      "source_key": "elbow:bone_0_bolt",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_55",
+      "source_key": "elbow:bone_0_front_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_56",
+      "source_key": "elbow:bone_0_back_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_57",
+      "source_key": "elbow:bone_0_nut",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_58",
+      "source_key": "elbow:bone_1_bolt",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_59",
+      "source_key": "elbow:bone_1_front_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_60",
+      "source_key": "elbow:bone_1_back_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_61",
+      "source_key": "elbow:bone_1_nut",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_62",
+      "source_key": "elbow:FJ1486_cap_rotor",
+      "owner": "FJ1486_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_63",
+      "source_key": "elbow:FJ1486_pin_-1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_64",
+      "source_key": "elbow:FJ1486_pin_1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_65",
+      "source_key": "elbow:FJ1486_washer_-1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_66",
+      "source_key": "elbow:FJ1486_washer_1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_67",
+      "source_key": "elbow:FJ1477_cap_rotor",
+      "owner": "FJ1477_distal_pivot"
+    },
+    {
+      "geom": "elbow_interface_68",
+      "source_key": "elbow:FJ1477_pin_-1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_69",
+      "source_key": "elbow:FJ1477_pin_1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_70",
+      "source_key": "elbow:FJ1477_washer_-1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_71",
+      "source_key": "elbow:FJ1477_washer_1",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_72",
+      "source_key": "elbow:paired_bone_frame",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_73",
+      "source_key": "elbow:FJ1486_keeper",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_74",
+      "source_key": "elbow:FJ1486_keeper_bolt",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_75",
+      "source_key": "elbow:FJ1486_keeper_front_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_76",
+      "source_key": "elbow:FJ1486_keeper_back_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_77",
+      "source_key": "elbow:FJ1486_keeper_nut",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_78",
+      "source_key": "elbow:FJ1477_keeper",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_79",
+      "source_key": "elbow:FJ1477_keeper_bolt",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_80",
+      "source_key": "elbow:FJ1477_keeper_front_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_81",
+      "source_key": "elbow:FJ1477_keeper_back_washer",
+      "owner": "forearm"
+    },
+    {
+      "geom": "elbow_interface_82",
+      "source_key": "elbow:FJ1477_keeper_nut",
+      "owner": "forearm"
+    }
+  ],
+  "neutral_origins_m": {
+    "clavicle": [
+      -0.0113849841185,
+      -0.13054010854,
+      1.3170222426
+    ],
+    "scapula": [
+      -0.1457250955645,
+      -0.0708233231057,
+      1.3499116008865
+    ],
+    "humerus": [
+      -0.1623676487647,
+      -0.07602966788668,
+      1.3155998062814
+    ],
+    "forearm": [
+      -0.2098690463479,
+      -0.07212742580915,
+      1.0445232075164
+    ],
+    "thorax": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "FJ1486_distal_pivot": [
+      -0.20671456489573103,
+      -0.08359042604636165,
+      1.0044169038191093
+    ],
+    "FJ1477_distal_pivot": [
+      -0.21527287978287324,
+      -0.04210690620433809,
+      1.0837123686571222
+    ]
+  },
+  "pads": [
+    {
+      "candidate_index": 4,
+      "rib_point_m": [
+        -0.1066222522761363,
+        -0.02668603489654805,
+        1.2227801041911628
+      ],
+      "scapula_local_point_m": [
+        0.03386603030665998,
+        0.04819448566427311,
+        -0.12600009374265464
+      ],
+      "normal_source": [
+        -0.779229548760208,
+        0.6037046106535932,
+        0.16835098281434568
+      ],
+      "rest_thickness_m": 0.008720501025706411,
+      "contact_radius_m": 0.012,
+      "stiffness_N_per_m": 10000.0,
+      "nominal_preload_N": 20.0
+    },
+    {
+      "candidate_index": 5,
+      "rib_point_m": [
+        -0.0599479,
+        -0.0264318,
+        1.30782
+      ],
+      "scapula_local_point_m": [
+        0.0848256111090891,
+        0.052545406510063966,
+        -0.035508296704420905
+      ],
+      "normal_source": [
+        -0.09042995060980323,
+        0.774871078801231,
+        0.6256174831877104
+      ],
+      "rest_thickness_m": 0.011956075350053894,
+      "contact_radius_m": 0.012,
+      "stiffness_N_per_m": 10000.0,
+      "nominal_preload_N": 14.331849913396658
+    },
+    {
+      "candidate_index": 9,
+      "rib_point_m": [
+        -0.0943393226071182,
+        -0.0129442264484485,
+        1.204592690347178
+      ],
+      "scapula_local_point_m": [
+        0.048713517044583016,
+        0.060809252425638935,
+        -0.14362565240152425
+      ],
+      "normal_source": [
+        -0.6197163379910084,
+        0.6795252632171952,
+        0.3926793565704925
+      ],
+      "rest_thickness_m": 0.004851675943932067,
+      "contact_radius_m": 0.012,
+      "stiffness_N_per_m": 10000.0,
+      "nominal_preload_N": 5.396129096385493
+    }
+  ],
+  "nq": 15,
+  "nv": 12,
+  "geoms": 184,
+  "generator": {
+    "file": "tools/build_channel_first_elbow_passive_model.py",
+    "sha256": "feaa9d166cd8fc051b3251efa4ff7ca945ec035082650d1a56db246b158b0a0a"
+  },
+  "scope": "Two passive cap hinges restored. Bore-to-bore endpoint force surrogate, not the complete bent cable channel. Cap inertia uses assumed densities1200/7800kg/m3; base segment masses remain provisional inclusive estimates. No prescribed swivel angle, mechanical stop, rigid collision response, friction or manufacturing approval."
+}

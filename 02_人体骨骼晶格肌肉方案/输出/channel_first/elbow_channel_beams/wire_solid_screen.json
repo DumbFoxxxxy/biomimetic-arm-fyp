@@ -1,0 +1,38 @@
+{
+  "response": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_channel_beams/short_response.json",
+    "sha256": "9446a69baf667cef884c07506aab0fcadf5f09e4212e747a499214567d287190"
+  },
+  "model_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_channel_beams/model_check.json",
+    "sha256": "24af8c1ec4179e281622b1abf0f045e0d73c24a26e6357f00b34fbbde7765c9d"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_mount_candidate/assembly.json",
+    "sha256": "bc3937d8405bf39851dccd1a4819d1859c3fc2b41ea46217371d58da8fd6696d"
+  },
+  "checked_states": {
+    "FJ1486": 115,
+    "FJ1477": 115
+  },
+  "first_interferences": {
+    "FJ1486": null,
+    "FJ1477": null
+  },
+  "wire_radius_mm": 0.3,
+  "rigid_obstacles": 181,
+  "threshold_mm3": 0.001,
+  "rigid_cross_body_pairs": 12638,
+  "rigid_states_checked": 39,
+  "first_rigid_interference": {
+    "time_s": 0.05401999999999814,
+    "hits": [
+      {
+        "left": "bone:humerus",
+        "right": "elbow:FJ1477_cap_rotor",
+        "overlap_mm3": 0.0021700213986619588
+      }
+    ]
+  },
+  "scope": "Saved2ms centerline capsule checks against moving181 rigid parts, including caps and fasteners. No end-zone or adjacent-body exclusions. Stops per channel at first overlap. Elastic tube wall and original lattice not contact-solved; actual terminal tails and motor supply outside beam are absent. No continuous-motion acceptance."
+}

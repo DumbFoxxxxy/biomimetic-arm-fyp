@@ -1,0 +1,168 @@
+{
+  "original_sha256": "8267684aa621ff919821764ceace7c09c031ae71c2a9a495ea5d5900b2a67816",
+  "baseline_sha256": "a4ee1475c4b9143f8d38cf79c3a1e42caa0a748c77148ec07187328bfefff75a",
+  "input_reports_sha256": {
+    "anatomical_elbow_shoulder_clearance.json": "f97451ae15cf97910db22be068ba6eb8ee6da126e5df6412d18be940ea17fefc",
+    "anatomical_elbow_cap_relief.json": "b093f73719e3c7d2e832540d230fc55f5f63adda3c4a23df99feeb3c524e07ac",
+    "anatomical_elbow_adapter_bridge.json": "edf59435da81fa7a9edf93ac0a4844a8107bebb6ef76c80bc1a5e1ce9f65da0d",
+    "anatomical_elbow_adapter_bridge_flexor.json": "f32287c3420346982065fcc951503f8c839890a8b3cbd8a57151617c679f387f",
+    "anatomical_elbow_interface_assembly.json": "34607be7d39adc11714feb328d27a55b103bab64bc2ea62d057b4d92e274ceda",
+    "anatomical_elbow_adapter_shoulder_relief.json": "eb95085ba4068a818bc0e2f20b414d068a98808fc7d7431da8c642d0c6c09bcc",
+    "anatomical_elbow_interface_with_shoulder_relief.json": "fe2003e08064e17c61fe9eae338f48b7acae6fdece4d04e61286e1e869d28d27",
+    "routes_compact_distal_candidate.json": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51"
+  },
+  "changed_sources": {
+    "tpu:deltoid": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/deltoid_original_elbow_bolt_relief.obj",
+      "sha256": "4940891d81701c1f784d5947e8f7d6a76b3f107e31db3a12a5c09a657d37389c",
+      "translation_source_mm": [
+        -181.640948466142,
+        -97.85692431579858,
+        1266.9450154633973
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        47551.67416342194,
+        -2.167132053452342e-06,
+        -8.13824689875468,
+        -81.99400107946747,
+        -1.2091664123511925e-06,
+        -0.003251333783078761,
+        -0.8643600076142351,
+        -5.551822377214844e-06,
+        -0.46239286933991275,
+        -4.2902554246160296e-05,
+        -0.004956256627929999,
+        -1.440583013222861,
+        -1.3188374190270302
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_proximal_rigid_cap": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/anatomical_elbow_matched_cap.obj",
+      "sha256": "573798fb31f4e99d84db4a8bbe18dc088e28d83169a7cacd7cae9c9c16172f0c",
+      "translation_source_mm": [
+        -184.43154625406595,
+        -48.88776233630702,
+        1281.7660266550477
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        1438.0136344937616
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_bone_adapter": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/anatomical_elbow_shoulder_relief_FJ1477.obj",
+      "sha256": "a87bcafcce1cb8dd4d3d1b51838b4f27eb4606aa219aac01052a40e183afde77",
+      "translation_source_mm": [
+        -205.72665495887364,
+        -62.30033239843095,
+        1268.3290786308025
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4423.228996451679
+      ],
+      "roundtrip_relative_volume_error": 2.353017683105475e-07
+    },
+    "elbow:FJ1486_bone_adapter": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/anatomical_elbow_shoulder_relief_FJ1486.obj",
+      "sha256": "b8fa07a72009529cbcc9a5857f7f45d3a72c6a1ff2043f5c07679d311271398d",
+      "translation_source_mm": [
+        -193.3734165817978,
+        -107.16626014525316,
+        1212.9400935659587
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4566.690345051741
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "omitted_original_left_fasteners": [
+    "elbow:FJ1477_proximal_bolt_left",
+    "elbow:FJ1477_proximal_head_washer_left",
+    "elbow:FJ1477_proximal_nut_left",
+    "elbow:FJ1477_proximal_nut_washer_left"
+  ],
+  "tested_pairs": 1274,
+  "threshold_mm3": 0.001,
+  "overlaps": [
+    {
+      "left": "tpu:deltoid",
+      "right": "elbow:FJ1477_proximal_rigid_cap",
+      "before_mm3": 92.3895336405009,
+      "after_mm3": 4.702967068529547e-05
+    },
+    {
+      "left": "tpu:deltoid",
+      "right": "elbow:FJ1486_bone_adapter",
+      "before_mm3": 168.19869319182584,
+      "after_mm3": 9.495048568833788e-06
+    },
+    {
+      "left": "tpu:deltoid",
+      "right": "tpu:elbow_extensor",
+      "before_mm3": 445.4222853825635,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "tpu:deltoid",
+      "right": "elbow:FJ1477_bone_adapter",
+      "before_mm3": 241.6759044058696,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "tpu:deltoid",
+      "right": "elbow:FJ1477_bone_0_bolt",
+      "before_mm3": 0.3475007369350258,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "cap:FJ1468/distal",
+      "right": "elbow:FJ1486_bone_adapter",
+      "before_mm3": 9.69620297880707,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "link:FJ1500/tendon_wire",
+      "right": "elbow:FJ1477_bone_adapter",
+      "before_mm3": 2.3568797189409847,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "link:FJ1500/bone_bolt",
+      "right": "elbow:FJ1477_bone_adapter",
+      "before_mm3": 2.1120206645408075,
+      "after_mm3": 0.0
+    },
+    {
+      "left": "link:FJ1500/bone_uncrimped_sleeve",
+      "right": "elbow:FJ1477_bone_adapter",
+      "before_mm3": 8.022582051356116,
+      "after_mm3": 0.0
+    }
+  ],
+  "provisional": true,
+  "scope": "Neutral pairs involving at least one changed solid; original elbow TPU collision proxies. Replacement left fastener and movement not covered.",
+  "bolt_relief_trials": [
+    {
+      "cutter_padding_mm": 0.2,
+      "removed_mm3": 1.0828952907829168,
+      "protected_region_removed_mm3": {
+        "FJ1468": 1.1264939600807696e-08,
+        "FJ1513": 3.7735954006625763e-13,
+        "FJ1467": 3.316489306199188e-08,
+        "cap:FJ1468/origin": 0.0,
+        "cap:FJ1468/distal": 0.0,
+        "cap:FJ1467/origin": 0.0,
+        "cap:FJ1513/origin_A": 0.0,
+        "cap:FJ1513/origin_B": 0.0
+      },
+      "readback_bolt_gap_mm": 0.15445896603789194,
+      "readback_bolt_overlap_mm3": 0.0
+    }
+  ]
+}

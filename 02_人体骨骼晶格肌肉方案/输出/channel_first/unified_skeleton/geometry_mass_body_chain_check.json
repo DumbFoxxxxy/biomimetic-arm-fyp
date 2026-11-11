@@ -1,0 +1,629 @@
+{
+  "reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/assembly.json",
+    "sha256": "5ad334f0f374238a7d66e27335670e1dc892c931f2b5cbd674c11a61665acc94"
+  },
+  "anatomical_definition": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/joint_model/definition.json",
+    "sha256": "b8f2f8f5355fe7ee2909293e082237d5fc0729e13c71fb5afb8c14a8e7a78658"
+  },
+  "elbow_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/anatomical_elbow_rigid_motion.json",
+    "sha256": "cf4ada743bef0bab97eb6b3e5aca9ce67e21d108f985c06edefd974ad8765e5f"
+  },
+  "generated_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/geometry_mass_body_chain.xml",
+    "sha256": "8e2329af60b4a36bc0bad9abf1bfd81a2437e3cd309f8bde8d00ad54d2a4ec73"
+  },
+  "bodies": [
+    {
+      "body": "clavicle",
+      "parent": "thorax",
+      "joint": "SC",
+      "type": "ball",
+      "joint_centre_source_mm": [
+        -11.384984118525308,
+        -130.54010854012165,
+        1317.0222425955965
+      ],
+      "assumed_mass_kg": 0.2,
+      "centre_of_mass_local_m": [
+        -0.06613633909650746,
+        0.02730379094911389,
+        0.019868613588972586
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.00020526025375831332,
+          0.00021884732372889809,
+          7.470187837802715e-05
+        ],
+        [
+          0.00021884732372889809,
+          0.00032014077378293097,
+          -5.7217122974539526e-05
+        ],
+        [
+          7.470187837802715e-05,
+          -5.7217122974539526e-05,
+          0.00048140756923980915
+        ]
+      ],
+      "geometry_volume_m3": 2.724762209063361e-05
+    },
+    {
+      "body": "scapula",
+      "parent": "clavicle",
+      "joint": "AC",
+      "type": "ball",
+      "joint_centre_source_mm": [
+        -145.72509556484013,
+        -70.82332310584692,
+        1349.9116008821043
+      ],
+      "assumed_mass_kg": 0.3,
+      "centre_of_mass_local_m": [
+        0.025746528547049306,
+        0.02770454150022,
+        -0.05205524691387108
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.0006438436428169591,
+          -0.0001508448387633028,
+          0.00016795933483215565
+        ],
+        [
+          -0.0001508448387633028,
+          0.000674827955220966,
+          0.00020076138169676793
+        ],
+        [
+          0.00016795933483215565,
+          0.00020076138169676793,
+          0.0004026057341453054
+        ]
+      ],
+      "geometry_volume_m3": 7.941127337104045e-05
+    },
+    {
+      "body": "humerus",
+      "parent": "scapula",
+      "joint": "GH",
+      "type": "ball",
+      "joint_centre_source_mm": [
+        -162.36764876508894,
+        -76.02966788682818,
+        1315.5998062770147
+      ],
+      "assumed_mass_kg": 0.6,
+      "centre_of_mass_local_m": [
+        -0.03095184677499239,
+        0.006214133086075475,
+        -0.13724505024122
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.005223862770289274,
+          5.5155430982345836e-05,
+          -0.0008680472833287215
+        ],
+        [
+          5.5155430982345836e-05,
+          0.005429412240715687,
+          0.0002661486945951925
+        ],
+        [
+          -0.0008680472833287215,
+          0.0002661486945951925,
+          0.0002812391851879408
+        ]
+      ],
+      "geometry_volume_m3": 0.00012132894457005603
+    },
+    {
+      "body": "forearm",
+      "parent": "humerus",
+      "joint": "elbow",
+      "type": "hinge",
+      "joint_centre_source_mm": [
+        -209.86904634828838,
+        -72.12742580930231,
+        1044.5232075118065
+      ],
+      "assumed_mass_kg": 0.4,
+      "centre_of_mass_local_m": [
+        -0.02428737936410142,
+        -0.01253418102238991,
+        -0.10570348766086293
+      ],
+      "inertia_tensor_kg_m2": [
+        [
+          0.002530691055011635,
+          -0.00011223424155814082,
+          -0.00044456369434788277
+        ],
+        [
+          -0.00011223424155814082,
+          0.0025234480187410653,
+          -0.0005446909265388946
+        ],
+        [
+          -0.00044456369434788277,
+          -0.0005446909265388946,
+          0.00027806815362516404
+        ]
+      ],
+      "geometry_volume_m3": 8.007854772398692e-05
+    }
+  ],
+  "geom_owners": [
+    {
+      "geom": "mesh_000",
+      "source_key": "thorax_reference:FJ3153",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_001",
+      "source_key": "thorax_reference:FJ3154",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_002",
+      "source_key": "thorax_reference:FJ3155",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_003",
+      "source_key": "thorax_reference:FJ3156",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_004",
+      "source_key": "thorax_reference:FJ3158",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_005",
+      "source_key": "thorax_reference:FJ3160",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_006",
+      "source_key": "thorax_reference:FJ3163",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_007",
+      "source_key": "thorax_reference:FJ3166",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_008",
+      "source_key": "thorax_reference:FJ3169",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_009",
+      "source_key": "thorax_reference:FJ3171",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_010",
+      "source_key": "thorax_reference:FJ3173",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_011",
+      "source_key": "thorax_reference:FJ3174",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_012",
+      "source_key": "thorax_reference:FJ3175",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_013",
+      "source_key": "thorax_reference:FJ3178",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_014",
+      "source_key": "thorax_reference:FJ3290",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_015",
+      "source_key": "thorax_reference:FJ3333",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_016",
+      "source_key": "thorax_reference:FJ3334",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_017",
+      "source_key": "thorax_reference:FJ3335",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_018",
+      "source_key": "thorax_reference:FJ3336",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_019",
+      "source_key": "thorax_reference:FJ3337",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_020",
+      "source_key": "thorax_reference:FJ3338",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_021",
+      "source_key": "thorax_reference:FJ3339",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_022",
+      "source_key": "thorax_reference:FJ3340",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_023",
+      "source_key": "thorax_reference:FJ3341",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_024",
+      "source_key": "thorax_reference:FJ3342",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_025",
+      "source_key": "thorax_reference:FJ3343",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_026",
+      "source_key": "thorax_reference:FJ3344",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_027",
+      "source_key": "thorax_reference:FJ3345",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_028",
+      "source_key": "thorax_reference:FJ3346",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_029",
+      "source_key": "thorax_reference:FJ3347",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_030",
+      "source_key": "thorax_reference:FJ3348",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_031",
+      "source_key": "thorax_reference:FJ3228",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_032",
+      "source_key": "thorax_reference:FJ3239",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_033",
+      "source_key": "thorax_reference:FJ3229",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_034",
+      "source_key": "thorax_reference:FJ3242",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_035",
+      "source_key": "thorax_reference:FJ3230",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_036",
+      "source_key": "thorax_reference:FJ3245",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_037",
+      "source_key": "thorax_reference:FJ3232",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_038",
+      "source_key": "thorax_reference:FJ3251",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_039",
+      "source_key": "thorax_reference:FJ3231",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_040",
+      "source_key": "thorax_reference:FJ3248",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_041",
+      "source_key": "thorax_reference:FJ3233",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_042",
+      "source_key": "thorax_reference:FJ3254",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_043",
+      "source_key": "thorax_reference:FJ3234",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_044",
+      "source_key": "thorax_reference:FJ3255",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_045",
+      "source_key": "thorax_reference:FJ3235",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_046",
+      "source_key": "thorax_reference:FJ3236",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_047",
+      "source_key": "thorax_reference:FJ3330",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_048",
+      "source_key": "thorax_reference:FJ3225",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_049",
+      "source_key": "thorax_reference:FJ3331",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_050",
+      "source_key": "thorax_reference:FJ3226",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_051",
+      "source_key": "thorax_reference:FJ3332",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_052",
+      "source_key": "thorax_reference:FJ3227",
+      "owner": "thorax"
+    },
+    {
+      "geom": "mesh_053",
+      "source_key": "bone:clavicle",
+      "owner": "clavicle"
+    },
+    {
+      "geom": "mesh_054",
+      "source_key": "bone:scapula",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_055",
+      "source_key": "bone:humerus",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_056",
+      "source_key": "bone:forearm",
+      "owner": "forearm"
+    },
+    {
+      "geom": "mesh_057",
+      "source_key": "GH_cap_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_058",
+      "source_key": "GH_cap_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_059",
+      "source_key": "GH_bolt_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_060",
+      "source_key": "GH_nut_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_061",
+      "source_key": "GH_top_washer_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_062",
+      "source_key": "GH_bottom_washer_0",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_063",
+      "source_key": "GH_bolt_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_064",
+      "source_key": "GH_nut_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_065",
+      "source_key": "GH_top_washer_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_066",
+      "source_key": "GH_bottom_washer_1",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_067",
+      "source_key": "GH_keeper:0/screw",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_068",
+      "source_key": "GH_keeper:0/nut",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_069",
+      "source_key": "GH_keeper:1/screw",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_070",
+      "source_key": "GH_keeper:1/nut",
+      "owner": "scapula"
+    },
+    {
+      "geom": "mesh_071",
+      "source_key": "elbow:elbow_bearing_bush",
+      "owner": "forearm"
+    },
+    {
+      "geom": "mesh_072",
+      "source_key": "elbow:elbow_spacer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_073",
+      "source_key": "elbow:elbow_spacer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_074",
+      "source_key": "elbow:elbow_shoulder_pin",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_075",
+      "source_key": "elbow:elbow_washer_left",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_076",
+      "source_key": "elbow:elbow_washer_right",
+      "owner": "humerus"
+    },
+    {
+      "geom": "mesh_077",
+      "source_key": "elbow:elbow_retaining_nut",
+      "owner": "humerus"
+    }
+  ],
+  "neutral_body_origins_m": {
+    "clavicle": [
+      -0.0113849841185,
+      -0.13054010854,
+      1.3170222426
+    ],
+    "scapula": [
+      -0.1457250955645,
+      -0.0708233231057,
+      1.3499116008865
+    ],
+    "humerus": [
+      -0.1623676487647,
+      -0.07602966788668,
+      1.3155998062814
+    ],
+    "forearm": [
+      -0.2098690463479,
+      -0.07212742580915,
+      1.0445232075164
+    ]
+  },
+  "nq": 13,
+  "nv": 10,
+  "geom_count": 78,
+  "gravity_smoke_test_seconds": 0.1,
+  "initial_qpos": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "final_qpos": [
+    0.9883267357555419,
+    -0.05873532941401422,
+    -0.14057138782533912,
+    0.0003307480620690097,
+    0.9951034352656724,
+    0.036450369828294894,
+    0.09178762647781283,
+    0.003944019194706211,
+    0.9985847693524679,
+    0.022755142412064874,
+    0.04786700928083052,
+    -0.004405829501238226,
+    -0.0037794624354138577
+  ],
+  "final_qvel": [
+    -2.201547434504351,
+    -5.453009841312235,
+    0.12518569257373682,
+    1.839466768914224,
+    3.996548396190683,
+    0.27527039147906784,
+    0.7059884294493858,
+    1.6360179756144124,
+    -0.07576373892611128,
+    0.05457231032763236
+  ],
+  "finite_gravity_steps": true,
+  "limitations": [
+    "SC and AC are ideal spherical research joints, replacing historical fixed bench conditions",
+    "geometry uses the selected unified bone candidate and explicitly assigned GH/elbow context",
+    "thorax is mathematically grounded; physical base and thoracic assembly are pending",
+    "mass and damping are assumed; centre of mass and inertia use uniform-density bone geometry",
+    "geoms are visual only; anatomical mesh convex hulls are not collision representations",
+    "no muscles, cables, guide reactions, or range acceptance yet"
+  ]
+}

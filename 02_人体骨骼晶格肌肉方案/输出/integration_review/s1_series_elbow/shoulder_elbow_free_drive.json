@@ -1,0 +1,188 @@
+{
+  "generator": {
+    "file": "tools/simulate_s1_series_elbow_free_drive.py",
+    "sha256": "c11fa198fc4b68a0570bef3e448353ad24e7407e2b041cf277245b7063fab99d"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.xml",
+    "sha256": "49487a93385ac50c4d7f5ca716459f2a6ab579d679af82fc4e71ffd9606dab34"
+  },
+  "shoulder_endpoints": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/gh_endpoint_geometry.json",
+    "sha256": "fe8981f10ef49943a8c61e48bede56122371d4bd0afb28ae77577eabe77ba11a"
+  },
+  "elbow": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider.json",
+    "sha256": "fd278509dd2fbb917cc8c17557c0be4e4f1695d85a74c2919c0efa834696664f"
+  },
+  "geometry_assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly_FJ1504_local_interface_bidirectional.json",
+    "sha256": "1b00e2424632e002ad79bd073fffeb14dd1b6b6595f1595c929220c99e66df0b"
+  },
+  "dof": 7,
+  "qpos_count": 8,
+  "audited_cross_body_pairs": 17819,
+  "sample_step_s": 0.01,
+  "neutral_shoulder_balance": {
+    "channels": [
+      "FJ1507",
+      "FJ1468",
+      "FJ1513",
+      "FJ1467"
+    ],
+    "influence_Nm_per_N": [
+      [
+        0.03447795125335807,
+        -0.011518700635882244,
+        0.0386780855786978,
+        0.006199606687036872
+      ],
+      [
+        -0.014826727284988106,
+        -0.01456763236924482,
+        -0.022330530669461113,
+        0.014817025323895238
+      ],
+      [
+        0.005018802807842708,
+        0.006954608128173139,
+        -0.023102293772711602,
+        -0.004309201202499973
+      ]
+    ],
+    "required_moment_Nm": [
+      0.007331111206038582,
+      0.47689339548657544,
+      -1.5202524800644846e-11
+    ],
+    "residual_moment_Nm": [
+      0.12132501360870265,
+      -0.1397722695589319,
+      -0.09183041160576803
+    ],
+    "required_norm_Nm": 0.4769497414300909,
+    "residual_norm_Nm": 0.20661285236037807,
+    "fitted_input_N": [
+      1.0360553358532499e-15,
+      2.2861990422033065,
+      8.769097707338532e-16,
+      24.999999999999996
+    ],
+    "input_bound_N": [
+      0.0,
+      25.0
+    ]
+  },
+  "results": {
+    "gravity": {
+      "commands_N": {},
+      "samples": 201,
+      "first_rigid_interference": {
+        "time_s": 0.28,
+        "elevation_deg": 9.212991611253381,
+        "elbow_deg": -6.834975617549004e-09,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 12.719693214078337
+          }
+        ]
+      },
+      "model_peak_elevation_deg": 16.81949952483628,
+      "model_peak_elbow_deg": 0.0,
+      "final_elevation_deg": 10.600301555923691,
+      "final_elbow_deg": -6.064738007548318e-09,
+      "model_peak_carriage_mm": 5.188619671118334e-08,
+      "trajectory": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/free_drive_gravity.csv",
+        "sha256": "0b741ac597c2b1ba36133096f64efe613913c535bd936420af1b009043c5e767"
+      }
+    },
+    "shoulder": {
+      "commands_N": {
+        "FJ1468": 10.0,
+        "FJ1467": 10.0
+      },
+      "samples": 201,
+      "first_rigid_interference": {
+        "time_s": 0.28,
+        "elevation_deg": 9.221317247551948,
+        "elbow_deg": -7.115218444199928e-09,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 14.063726542383717
+          }
+        ]
+      },
+      "model_peak_elevation_deg": 18.427543700663758,
+      "model_peak_elbow_deg": 0.0,
+      "final_elevation_deg": 9.822814468864774,
+      "final_elbow_deg": -5.796970083796029e-09,
+      "model_peak_carriage_mm": 5.145581033144698e-08,
+      "trajectory": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/free_drive_shoulder.csv",
+        "sha256": "1733b97c6de0127ae1926467f859628f42c92c8d6da01d90dca0b1caae214fcd"
+      }
+    },
+    "elbow": {
+      "commands_N": {
+        "FJ1486": 25.0
+      },
+      "samples": 201,
+      "first_rigid_interference": {
+        "time_s": 0.28,
+        "elevation_deg": 9.212995268786148,
+        "elbow_deg": -2.2309790328100318e-10,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 12.718726700645696
+          }
+        ]
+      },
+      "model_peak_elevation_deg": 17.358282132654562,
+      "model_peak_elbow_deg": 99.63506719970412,
+      "final_elevation_deg": 10.43512704479179,
+      "final_elbow_deg": -5.745815182826999e-09,
+      "model_peak_carriage_mm": 50.042418435564265,
+      "trajectory": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/free_drive_elbow.csv",
+        "sha256": "c411c21e6b104d5f8ebb06c106fc3be4751b43bc912632730c97d2debd502743"
+      }
+    },
+    "combined": {
+      "commands_N": {
+        "FJ1468": 10.0,
+        "FJ1467": 10.0,
+        "FJ1486": 25.0
+      },
+      "samples": 201,
+      "first_rigid_interference": {
+        "time_s": 0.28,
+        "elevation_deg": 9.221320824002705,
+        "elbow_deg": -5.03351722236917e-10,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 14.062693017943499
+          }
+        ]
+      },
+      "model_peak_elevation_deg": 19.2636917632462,
+      "model_peak_elbow_deg": 100.37986884916845,
+      "final_elevation_deg": 9.673485953618767,
+      "final_elbow_deg": -5.78857799534537e-09,
+      "model_peak_carriage_mm": 50.336042928924435,
+      "trajectory": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/free_drive_combined.csv",
+        "sha256": "9442e5fcd4aeeb3bc9841eb927f2907a8ff503064d4addbff94a6aa98d1362da"
+      }
+    }
+  },
+  "scope": "Fixed shoulder girdle with free GH ball joint, elbow hinge, two cap swivels and one series slider. Four S1 endpoint force surrogates and two elbow channels. The two Y muscles and external supply are excluded. The elbow extension stop uses original contact. Other rigid intersections are identified by an independent sampling audit, not solved by dynamics. Peaks after a first intersection are diagnostic only. TPU and wire geometry are not checked."
+}

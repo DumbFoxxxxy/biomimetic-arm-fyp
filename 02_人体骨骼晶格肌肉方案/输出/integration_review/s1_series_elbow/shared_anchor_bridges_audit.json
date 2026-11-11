@@ -1,0 +1,99 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_elbow_shared_anchor_bridges.py",
+    "sha256": "9e18210c3e70fb915f6282d61303e1913fca3781c6e27f67005e39ccb1e1aa67"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly_shared_anchors.json",
+    "sha256": "7d23501a27ff8e78b5e00e6b5daae1b845f78acfbedd45b93d99859cef2244eb"
+  },
+  "previous": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly.json",
+    "sha256": "0afda561a40d5da98489501e6ab31c1dac5035f384cb6eb1e35bd1956dc0ce43"
+  },
+  "solid_count": 234,
+  "neutral_new_support_interferences": [],
+  "remaining_neutral_cross_body_interferences": [
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "cap:FJ1504/origin",
+      "overlap_mm3": 631.9462505009265
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/nut_1",
+      "overlap_mm3": 43.626548130146844
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/bolt_1",
+      "overlap_mm3": 41.227942009696314
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/bolt_0",
+      "overlap_mm3": 29.372293215912308
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/back_washer_1",
+      "overlap_mm3": 13.557789973939249
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/backing_plate",
+      "overlap_mm3": 10.327210017380475
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/bolt_1",
+      "overlap_mm3": 6.078218091430745
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_washer_0",
+      "overlap_mm3": 6.040552755323569
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_washer_1",
+      "overlap_mm3": 4.1368885718235795
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_support",
+      "overlap_mm3": 0.023950067586861024
+    }
+  ],
+  "new_support_dynamic_cases": [
+    {
+      "held_GH_flexion_deg": 0.0,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case2.csv",
+        "sha256": "ea6a598a26f2e581c2dd78a38348732e8c9ee014d3ce9875417be5164d4e1a66"
+      },
+      "trace_peak_elbow_deg": 97.51180924817025,
+      "poses_checked": 1601,
+      "shoulder_fixed_hits_mm3": {},
+      "first_moving_interference": null
+    },
+    {
+      "held_GH_flexion_deg": 30.0,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/held_flexion_030.csv",
+        "sha256": "bf5c3430260f9ec4d840fe87cd039750538fee4d8ce1d8cef47ec28ea7623100"
+      },
+      "trace_peak_elbow_deg": 117.60238684464073,
+      "poses_checked": 1601,
+      "shoulder_fixed_hits_mm3": {},
+      "first_moving_interference": null
+    }
+  ],
+  "new_support_material_neutral_flexible_overlaps_mm3": {
+    "elbow:FJ1477_bone_adapter": {},
+    "elbow:FJ1486_bone_adapter": {}
+  },
+  "unchecked_flexible_sources": {},
+  "threshold_mm3": 0.001,
+  "scope": "Readback assessment. Dynamic solid checks target changed humeral supports against the elbow and spring at two held GH poses. They do not clear the overall arm, TPU, free terminal links, hardware installation or strength."
+}

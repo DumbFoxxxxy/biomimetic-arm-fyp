@@ -1,0 +1,300 @@
+{
+  "generator": {
+    "file": "tools/build_s1_infraspinatus_front_mount.py",
+    "sha256": "f6bdb6557fe6ee81bf9b0d0f4968dd19d93b91237f19646c1bc496c3344a9865"
+  },
+  "parent": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly_FJ1504_local_interface.json",
+    "sha256": "deb1df5c47ba78dcd9acf5da4c738bff0d31f45a941589575e09a5cc744835b2"
+  },
+  "trials": [
+    {
+      "boss_radius_mm": 3.4,
+      "boss_floor_from_cap_mm": -6.7,
+      "fixed_hits_mm3": {},
+      "soft_overlap_mm3": 0.00019075679860086067,
+      "wire_overlap_mm3": 0.0,
+      "components": [
+        80227.58274318594
+      ]
+    }
+  ],
+  "selected": {
+    "boss_radius_mm": 3.4,
+    "boss_floor_from_cap_mm": -6.7,
+    "fixed_hits_mm3": {},
+    "soft_overlap_mm3": 0.00019075679860086067,
+    "wire_overlap_mm3": 0.0,
+    "components": [
+      80227.58274318594
+    ],
+    "sources": {
+      "bone:scapula": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1500_front_bone_scapula.obj",
+        "sha256": "f06d2aebf89bbe811107b33622991cf2e963f19ebd2bb63570712489c1e2df3f",
+        "translation_source_mm": [
+          -92.16457605554228,
+          -9.889798156648327,
+          1272.4840716011975
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 7.853881518595344e-14
+      },
+      "origin:FJ1500/bolt_0": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1500_front_bolt_0.obj",
+        "sha256": "4485de107c0a3690ce820f0d70c96bb84a7ee47113d9e46b1b1768e749199fe8",
+        "translation_source_mm": [
+          -92.16457605554228,
+          -9.889798156648327,
+          1272.4840716011975
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          88.762475640959
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "origin:FJ1500/bolt_1": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1500_front_bolt_1.obj",
+        "sha256": "d83e6172e677290ba80e52b6c30c3f47f88d6eadec2328335b76f20690ec151b",
+        "translation_source_mm": [
+          -92.16457605554228,
+          -9.889798156648327,
+          1272.4840716011975
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          88.76247564095277
+        ],
+        "roundtrip_relative_volume_error": 1.921197615895983e-15
+      }
+    },
+    "screw_tip_mm": -6.25,
+    "nominal_engagement_length_mm": 3.75
+  },
+  "superseded_FJ1500_parts": [
+    "origin:FJ1500/back_washer_0",
+    "origin:FJ1500/backing_plate",
+    "origin:FJ1500/bolt_0",
+    "origin:FJ1500/bolt_1",
+    "origin:FJ1500/front_nut_1",
+    "origin:FJ1500/front_support",
+    "origin:FJ1500/nut_0"
+  ],
+  "neutral_overlaps": [],
+  "neutral_pairs_checked": 20690,
+  "shoulder_axis_probes": [
+    {
+      "joint": "SC",
+      "axis_source": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.01554470080284576
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -0.0
+    },
+    {
+      "joint": "SC",
+      "axis_source": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "direction": 1.0,
+      "first_hit": null,
+      "last_sample_clear_deg": 10.0,
+      "prior_last_sample_clear_deg": 10.0
+    },
+    {
+      "joint": "SC",
+      "axis_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.02990202559600156
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -0.0625
+    },
+    {
+      "joint": "SC",
+      "axis_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "direction": 1.0,
+      "first_hit": null,
+      "last_sample_clear_deg": 10.0,
+      "prior_last_sample_clear_deg": 10.0
+    },
+    {
+      "joint": "SC",
+      "axis_source": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.010094286871753408
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -1.25
+    },
+    {
+      "joint": "SC",
+      "axis_source": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "direction": 1.0,
+      "first_hit": {
+        "angle_deg": 1.75,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3342",
+            "right": "bone:scapula",
+            "overlap_mm3": 0.026244057171607382
+          }
+        ]
+      },
+      "last_sample_clear_deg": 1.6875,
+      "prior_last_sample_clear_deg": 0.5625
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.005132013371057792
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -0.0
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "direction": 1.0,
+      "first_hit": null,
+      "last_sample_clear_deg": 10.0,
+      "prior_last_sample_clear_deg": 10.0
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.0037495292814188515
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -0.0625
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "direction": 1.0,
+      "first_hit": null,
+      "last_sample_clear_deg": 10.0,
+      "prior_last_sample_clear_deg": 10.0
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "direction": -1.0,
+      "first_hit": {
+        "angle_deg": -0.0625,
+        "pairs": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.007476047991891938
+          }
+        ]
+      },
+      "last_sample_clear_deg": -0.0,
+      "prior_last_sample_clear_deg": -0.0
+    },
+    {
+      "joint": "AC",
+      "axis_source": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "direction": 1.0,
+      "first_hit": null,
+      "last_sample_clear_deg": 10.0,
+      "prior_last_sample_clear_deg": 10.0
+    }
+  ],
+  "added_stock_mm3": 815.7165421457715,
+  "removed_reference_bone_mm3": 4.554173037934199e-08,
+  "readback_new_bone_TPU_overlap_mm3": 0.00019076019774773436,
+  "readback_new_bone_wire_overlap_mm3": 0.0,
+  "scope": "Integrated scapula and FJ1500 front saddle, nominal blind bore and screw core. Neutral and individual SC/AC angle probes, not motion acceptance. Screw strength, thread retention, assembly and flexible shoulder response remain open."
+}

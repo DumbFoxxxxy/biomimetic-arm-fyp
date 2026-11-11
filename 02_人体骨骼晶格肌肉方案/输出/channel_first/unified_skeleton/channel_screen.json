@@ -1,0 +1,78 @@
+{
+  "skeleton": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/assembly.json",
+    "sha256": "5ad334f0f374238a7d66e27335670e1dc892c931f2b5cbd674c11a61665acc94"
+  },
+  "guides": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/minimal_shoulder_conduits.json",
+    "sha256": "063b11e1136bd132245d33fbb300afd5f8481e51051c34988b9f2b293ff807eb"
+  },
+  "cervical_context": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/endpoint_neutral_clearance.json",
+    "sha256": "841c2a40a3cdd7afe9482a25697c29caab65966dec41526cf40fec8d155695ab"
+  },
+  "checked_obstacles": 85,
+  "channels": [
+    {
+      "id": "FJ1507",
+      "material_overlap_mm3": {},
+      "wire_overlap_mm3": {},
+      "material_gap_mm_capped2": 1.9787052766309812,
+      "nearest_part": "bone:scapula"
+    },
+    {
+      "id": "FJ1468",
+      "material_overlap_mm3": {},
+      "wire_overlap_mm3": {},
+      "material_gap_mm_capped2": 1.1228748812501137,
+      "nearest_part": "bone:scapula"
+    },
+    {
+      "id": "FJ1513",
+      "material_overlap_mm3": {},
+      "wire_overlap_mm3": {},
+      "material_gap_mm_capped2": 2.0,
+      "nearest_part": null
+    },
+    {
+      "id": "FJ1467",
+      "material_overlap_mm3": {},
+      "wire_overlap_mm3": {},
+      "material_gap_mm_capped2": 1.0779939091998563,
+      "nearest_part": "bone:scapula"
+    }
+  ],
+  "bone_pair_checks": [
+    {
+      "left": "bone:clavicle",
+      "right": "bone:scapula",
+      "overlap_mm3": 0.0
+    },
+    {
+      "left": "bone:clavicle",
+      "right": "bone:humerus",
+      "overlap_mm3": 0.0
+    },
+    {
+      "left": "bone:clavicle",
+      "right": "bone:forearm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "left": "bone:scapula",
+      "right": "bone:humerus",
+      "overlap_mm3": 0.0
+    },
+    {
+      "left": "bone:scapula",
+      "right": "bone:forearm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "left": "bone:humerus",
+      "right": "bone:forearm",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "scope": "Neutral exported guide material and nominal wire against unified anatomy, cervical context and listed GH/elbow joint parts. End attachments absent; no moving or soft contact proof. Prior dynamic results do not transfer."
+}

@@ -1,0 +1,104 @@
+{
+  "generator": {
+    "file": "tools/refine_elbow_short_guide_relief.py",
+    "sha256": "39c5629ef41522c3079c68e653a3a1bb9ff268e595b273d27355fcf9b471d335"
+  },
+  "parent": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_slider_short_guides.json",
+    "sha256": "cce7aa99ec82d063ddbe5b8846e755b82b4035e6dc46de147e0c7c32c9c87774"
+  },
+  "source_lattice": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_short_guides_rail_relief_r5.5.obj",
+    "sha256": "dea1456752721be30c627fbb03e7afb1ba633bf739ad185d03b0529ad53cbc37",
+    "translation_source_mm": [
+      -183.93312959805814,
+      -44.82430660082491,
+      1266.354794480843
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "back_mapped_local_cut_count": 31,
+  "candidates": [
+    {
+      "allowance_mm": 0.2,
+      "added_cut_mm3": 14.879915002649092,
+      "protected_guide_removed_mm3": 3.4287227899899844e-13,
+      "component_volumes_mm3": [
+        29179.42445234351
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_short_guides_mapped_relief_0.2.obj",
+        "sha256": "c8fd54ecd406a6e3d11d721bf0f609e28e86a3f230d32a5b1e54691752a9109b",
+        "translation_source_mm": [
+          -183.93312959805814,
+          -44.82430660082491,
+          1266.354794480843
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "rechecked_poses": 44,
+      "additional_cut_fit_poses": 24,
+      "held_out_poses": 48,
+      "remaining_shaft_contacts": [
+        {
+          "case": "2",
+          "frame": 366,
+          "shaft_overlap_mm3": 0.028363941294870264,
+          "geometry_status": "Error.NoError"
+        },
+        {
+          "case": "4",
+          "frame": 366,
+          "shaft_overlap_mm3": 0.028363941294870264,
+          "geometry_status": "Error.NoError"
+        }
+      ]
+    },
+    {
+      "allowance_mm": 0.4,
+      "added_cut_mm3": 17.945190657294546,
+      "protected_guide_removed_mm3": 3.4287227899899844e-13,
+      "component_volumes_mm3": [
+        29176.308664363438,
+        0.05051232542598713
+      ]
+    },
+    {
+      "allowance_mm": 0.7,
+      "added_cut_mm3": 22.83085692304486,
+      "protected_guide_removed_mm3": 3.419841005792983e-13,
+      "component_volumes_mm3": [
+        29171.468032926576,
+        0.005416889075876549,
+        6.060745859986366e-05
+      ]
+    },
+    {
+      "allowance_mm": 1.0,
+      "added_cut_mm3": 28.8563139590185,
+      "protected_guide_removed_mm3": 3.4376045741869857e-13,
+      "component_volumes_mm3": [
+        29165.44805338714
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_short_guides_mapped_relief_1.obj",
+        "sha256": "1a2b61f523d82949a613209e1a5444e81ed37c1c5ae77b69678073df8a12b97d",
+        "translation_source_mm": [
+          -183.93312959805814,
+          -44.82430660082491,
+          1266.354794480843
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "rechecked_poses": 44,
+      "additional_cut_fit_poses": 24,
+      "held_out_poses": 48,
+      "remaining_shaft_contacts": []
+    }
+  ],
+  "selected_allowance_mm": 1.0,
+  "scope": "Extensor rail A only. Pullback uses an imposed map, and sampled contact changes do not establish a physical TPU deformation, strength, or material capability. Rigid cap trim and all other previous components retain their separate verification scope."
+}

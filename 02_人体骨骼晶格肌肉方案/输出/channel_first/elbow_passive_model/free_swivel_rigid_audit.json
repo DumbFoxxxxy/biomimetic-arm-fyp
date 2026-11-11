@@ -1,0 +1,37 @@
+{
+  "source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_passive_model/free_swivel_response.json",
+    "sha256": "ac99297abeac18b1dcd5fddaa019e0b276d5b6075f5689f0466a15988f681beb"
+  },
+  "model_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_passive_model/model_check.json",
+    "sha256": "910c2616c737d2b79dbc1ff89beba9fbf48b9e27e2c5a366dc13364819745ac5"
+  },
+  "cross_body_pairs": 12638,
+  "rigid_parts": 181,
+  "saved_interval_s": 0.005,
+  "trials": [
+    {
+      "torsion_Nm_per_rad": 0.02,
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_sample_joint_step_deg": 0.9726438153674852
+    },
+    {
+      "torsion_Nm_per_rad": 0.2,
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_sample_joint_step_deg": 0.6632340255255189
+    },
+    {
+      "torsion_Nm_per_rad": 2.0,
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_sample_joint_step_deg": 0.09060628579514797
+    }
+  ],
+  "scope": "All cross-body rigid solids, including original passive cap packs; no whole adjacent pair exclusions. Same-body assembly fit separate. Stops at first >0.001mm3 overlap. Deforming muscle and full cable route not checked. Simulation has no rigid collision response, so overlap rejects physical motion interpretation."
+}

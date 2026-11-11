@@ -1,0 +1,73 @@
+{
+  "route_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "tested_pose_count": 363,
+  "trials": [
+    {
+      "padding_mm": 0.2,
+      "removed_mm3": 15.431671009427244,
+      "protected_stock_loss_mm3": {
+        "FJ1468": 0.0,
+        "FJ1513": 0.0,
+        "FJ1467": 0.0,
+        "cap:FJ1468/origin": 0.0,
+        "cap:FJ1468/distal": 0.0,
+        "cap:FJ1467/origin": 0.0,
+        "cap:FJ1513/origin_A": 0.0,
+        "cap:FJ1513/origin_B": 0.0
+      },
+      "peak_readback_overlap_mm3": 0.0,
+      "min_readback_clearance_mm": 0.14475150886920812,
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/deltoid_anatomical_elbow_cam_phase_relief.obj",
+        "sha256": "e3359cbc788376be1a5d4e618e38d4d45d573c65939ebe6ca522ca1bb3e102a8",
+        "translation_source_mm": [
+          -195.436832634258,
+          -37.43503551414491,
+          1232.6302998546157
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          47506.2175363675,
+          -2.167132053452342e-06,
+          -8.13824689875468,
+          -81.9940010794673,
+          -1.2091664123511925e-06,
+          -0.003251333783078761,
+          -0.8643600076142351,
+          -5.551822377214844e-06,
+          -0.46239286933991275,
+          -4.2902554246160296e-05,
+          -0.004956256627929999,
+          -1.440583013222861,
+          -1.3188374190270302
+        ],
+        "roundtrip_relative_volume_error": 1.5346239385589907e-16
+      }
+    }
+  ],
+  "cutter_capture_threshold_mm3": 1e-07,
+  "near_capture_axis_translation_mm": 0.15,
+  "scope": "Shoulder-side subtractive pocket against prescribed elbow TPU interpolations. No coupled shoulder motion, contact response or load verification.",
+  "phase_report_sha256": {
+    "-0.25": "b7bb064327bb141dc631064ed568e83bdf64b3f842643bb886064dd314db7fe6",
+    "0.0": "db1d71c7168be8e74782f864dd3e2a16cc9f3e37a319517a3edbdedb81655096",
+    "0.25": "3d4239e86d42771243b11edb218e9bca521985bc36e9a61b6ba4943d8dbdb43c"
+  },
+  "phase_readback": {
+    "-0.25": {
+      "minimum_gap_mm": 0.14475150886920812,
+      "minimum_gap_elbow_deg": 0,
+      "peak_overlap_mm3": 0.0
+    },
+    "0.0": {
+      "minimum_gap_mm": 0.1719936938445462,
+      "minimum_gap_elbow_deg": 0,
+      "peak_overlap_mm3": 0.0
+    },
+    "0.25": {
+      "minimum_gap_mm": 0.1608454999535438,
+      "minimum_gap_elbow_deg": 109,
+      "peak_overlap_mm3": 0.0
+    }
+  }
+}

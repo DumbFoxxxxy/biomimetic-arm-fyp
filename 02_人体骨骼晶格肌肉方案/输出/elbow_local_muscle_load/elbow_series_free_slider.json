@@ -1,0 +1,153 @@
+{
+  "generator": {
+    "file": "tools/simulate_elbow_series_slider.py",
+    "sha256": "0db87be9214069fdf4be85000875836e94c714cd7db6378f39f914b87189c436"
+  },
+  "local_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider.xml",
+    "sha256": "7d522bb8942744533a1659484adcdf6b4fdf9e1eeac0927ca03555e80b1d5c67"
+  },
+  "guide": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_guide.json",
+    "sha256": "d34ab00a4c4846372e9fdf613a09301f4143647e6d79d0a8f5f5579fb628337e"
+  },
+  "guide_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_guide_audit.json",
+    "sha256": "fac75a12e0031f1b37b35b1517d1b87736560aeffa813690a601dbbaa78c7642"
+  },
+  "stop": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_local_stop_response.json",
+    "sha256": "b5b335d8cfb1f478fb003dac18d4e8319246121b044bd0840c2672eec1eac20d"
+  },
+  "carriage_mass_kg": 0.006255548456715843,
+  "return_stiffness_N_per_m": 73.0,
+  "return_damping_Ns_per_m": 0.2,
+  "muscle_stiffness_N_per_m": [
+    200.0,
+    151.53
+  ],
+  "muscle_damping_Ns_per_m": 1.0,
+  "cases": [
+    {
+      "slider_preload_N": 0.0,
+      "rail_frictionloss_N": 0.0,
+      "flexor_peak_force_N": 25.0,
+      "extensor_peak_force_N": 0.0,
+      "elbow_peak_deg": 98.88433818634472,
+      "elbow_final_deg": -2.0803929179854838e-09,
+      "carriage_peak_mm": 50.48774675361525,
+      "carriage_at_loading_start_mm": 0.2742552827100678,
+      "carriage_final_mm": 0.2742552827647974,
+      "peak_FJ1477_span_growth_mm": 24.918650065057196,
+      "peak_series_return_force_N": 3.6875445441529,
+      "upper_limit_overshoot_mm": 0.0015739595682837115,
+      "lower_limit_overshoot_mm": 0.0,
+      "upper_limit_overshoot_steps": 7825,
+      "lower_limit_overshoot_steps": 0,
+      "elbow_stop_contact_min_distance_mm": -0.0017288364068893229,
+      "max_saved_angle_step_deg": 0.7147108186456279,
+      "max_saved_carriage_step_mm": 0.4122907731678431,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case0.csv",
+        "sha256": "05af3b1462f94ca89659c07a0f1e4a3dc37c0ffd6ba5e76ebc32d834f839fd0f"
+      }
+    },
+    {
+      "slider_preload_N": 0.25,
+      "rail_frictionloss_N": 0.0,
+      "flexor_peak_force_N": 25.0,
+      "extensor_peak_force_N": 0.0,
+      "elbow_peak_deg": 98.0307728074661,
+      "elbow_final_deg": -2.1229698196098613e-09,
+      "carriage_peak_mm": 49.44820011394686,
+      "carriage_at_loading_start_mm": -6.767016013392953e-06,
+      "carriage_final_mm": -2.9912457107277398e-05,
+      "peak_FJ1477_span_growth_mm": 25.36287947236354,
+      "peak_series_return_force_N": 3.8597614909096483,
+      "upper_limit_overshoot_mm": 0.0,
+      "lower_limit_overshoot_mm": 0.008316740678543889,
+      "upper_limit_overshoot_steps": 0,
+      "lower_limit_overshoot_steps": 91732,
+      "elbow_stop_contact_min_distance_mm": -0.002441650089286118,
+      "max_saved_angle_step_deg": 0.7135692647271767,
+      "max_saved_carriage_step_mm": 0.41070097441242837,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case1.csv",
+        "sha256": "6910d49bcbf162d9e6da734c07bf9fb1d9e1495031fa51816912f0c4a3c523af"
+      }
+    },
+    {
+      "slider_preload_N": 0.25,
+      "rail_frictionloss_N": 0.15,
+      "flexor_peak_force_N": 25.0,
+      "extensor_peak_force_N": 0.0,
+      "elbow_peak_deg": 97.51180924817025,
+      "elbow_final_deg": -2.1229283573309545e-09,
+      "carriage_peak_mm": 49.190096905449735,
+      "carriage_at_loading_start_mm": -1.2680989701395447e-05,
+      "carriage_final_mm": -2.4556577018234285e-06,
+      "peak_FJ1477_span_growth_mm": 25.479422773066556,
+      "peak_series_return_force_N": 3.8409161259310354,
+      "upper_limit_overshoot_mm": 0.0,
+      "lower_limit_overshoot_mm": 0.006989641957275802,
+      "upper_limit_overshoot_steps": 0,
+      "lower_limit_overshoot_steps": 91198,
+      "elbow_stop_contact_min_distance_mm": -0.0016253648276653998,
+      "max_saved_angle_step_deg": 0.7088041271082872,
+      "max_saved_carriage_step_mm": 0.4082461024598274,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case2.csv",
+        "sha256": "ea6a598a26f2e581c2dd78a38348732e8c9ee014d3ce9875417be5164d4e1a66"
+      }
+    },
+    {
+      "slider_preload_N": 0.25,
+      "rail_frictionloss_N": 0.5,
+      "flexor_peak_force_N": 25.0,
+      "extensor_peak_force_N": 0.0,
+      "elbow_peak_deg": 96.72025366211382,
+      "elbow_final_deg": -2.122934009720982e-09,
+      "carriage_peak_mm": 48.86665601712486,
+      "carriage_at_loading_start_mm": -6.147515309358958e-06,
+      "carriage_final_mm": -4.901639968839519e-07,
+      "peak_FJ1477_span_growth_mm": 25.297924494392554,
+      "peak_series_return_force_N": 3.8173024452266753,
+      "upper_limit_overshoot_mm": 0.0,
+      "lower_limit_overshoot_mm": 0.003840013861517956,
+      "upper_limit_overshoot_steps": 0,
+      "lower_limit_overshoot_steps": 89556,
+      "elbow_stop_contact_min_distance_mm": -0.002046986918586306,
+      "max_saved_angle_step_deg": 0.6943423753274871,
+      "max_saved_carriage_step_mm": 0.4006306288613821,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case3.csv",
+        "sha256": "5110e4bda8cf7c38c9484665da1dcb38e23d8e2cc82ea8680e5c402e6a29fc3b"
+      }
+    },
+    {
+      "slider_preload_N": 0.25,
+      "rail_frictionloss_N": 0.15,
+      "flexor_peak_force_N": 25.0,
+      "extensor_peak_force_N": 5.0,
+      "elbow_peak_deg": 97.51180924817025,
+      "elbow_final_deg": -2.122992936199933e-09,
+      "carriage_peak_mm": 50.49457930305512,
+      "carriage_at_loading_start_mm": -1.2680989701395447e-05,
+      "carriage_final_mm": -1.2331808425931905e-05,
+      "peak_FJ1477_span_growth_mm": 25.479422773066556,
+      "peak_series_return_force_N": 3.9384855455350176,
+      "upper_limit_overshoot_mm": 0.006972455767105534,
+      "lower_limit_overshoot_mm": 0.006163472286727909,
+      "upper_limit_overshoot_steps": 9584,
+      "lower_limit_overshoot_steps": 66788,
+      "elbow_stop_contact_min_distance_mm": -0.0025707613840707895,
+      "max_saved_angle_step_deg": 0.7797258367069446,
+      "max_saved_carriage_step_mm": 0.4942419000243774,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case4.csv",
+        "sha256": "e3018da324e13cc5775c05a366a289ed6aad9402cadc0362ef7e17fb7fa5ff00"
+      }
+    }
+  ],
+  "scope": "Unilateral imposed force along endpoint chords; active steel routing and flexibility are unresolved. The slider and three hinges are free to move. Slider travel bounds use software limits, and the original stop face pair is retained at the elbow. Passive springs, damping and rail frictionloss are hypotheses. Return spring is applied by the simulation script. No collision solver for added guide meshes, physical spring design, or TPU validation."
+}

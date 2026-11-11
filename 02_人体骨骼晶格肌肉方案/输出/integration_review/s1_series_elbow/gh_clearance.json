@@ -1,0 +1,499 @@
+{
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly.json",
+    "sha256": "0afda561a40d5da98489501e6ab31c1dac5035f384cb6eb1e35bd1956dc0ce43"
+  },
+  "bare_s1_motion": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_y2_transition_stock/bare_motion_review/bare_joint_motion_checks.json",
+    "sha256": "3d134a72ea2ea8f8fae147695d2e32890d642d78ae62365d2d66962aef734484"
+  },
+  "trace": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_free_slider_case2.csv",
+    "sha256": "ea6a598a26f2e581c2dd78a38348732e8c9ee014d3ce9875417be5164d4e1a66"
+  },
+  "shared_humerus": {
+    "centre_source_mm": [
+      -162.36764876508894,
+      -76.02966788682818,
+      1315.5998062770147
+    ],
+    "proximal_comparison_min_z_mm": 1275.5998062770147,
+    "added_in_GH_region_mm3": 5.567279970364325e-11,
+    "removed_in_GH_region_mm3": 6.390177276216491e-11
+  },
+  "source_differences": [
+    "bone:clavicle",
+    "bone:humerus",
+    "bone:scapula"
+  ],
+  "rigid_count": 246,
+  "pairs_neutral_with_new_components": 13664,
+  "gh_cross_body_pairs": 15008,
+  "neutral_new_part_overlaps": [
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "cap:FJ1504/origin",
+      "overlap_mm3": 631.9462505009265,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "bone:humerus",
+      "right": "collar:jaw_upper",
+      "overlap_mm3": 114.43900134180649,
+      "owners": [
+        "humerus",
+        "humerus"
+      ]
+    },
+    {
+      "left": "bone:humerus",
+      "right": "collar:jaw_lower",
+      "overlap_mm3": 108.13273041171526,
+      "owners": [
+        "humerus",
+        "humerus"
+      ]
+    },
+    {
+      "left": "bone:humerus",
+      "right": "collar:liner_upper",
+      "overlap_mm3": 63.704420199264774,
+      "owners": [
+        "humerus",
+        "humerus"
+      ]
+    },
+    {
+      "left": "bone:humerus",
+      "right": "collar:liner_lower",
+      "overlap_mm3": 56.33392488995563,
+      "owners": [
+        "humerus",
+        "humerus"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "collar:bolt_0",
+      "overlap_mm3": 48.58606414542797,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 48.58606414542791
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/nut_1",
+      "overlap_mm3": 43.626548130146844,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/bolt_1",
+      "overlap_mm3": 41.227942009696314,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "collar:jaw_upper",
+      "overlap_mm3": 37.351738853053305,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 37.35173885305334
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/bolt_0",
+      "overlap_mm3": 29.372293215912308,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_bolt",
+      "right": "collar:jaw_upper",
+      "overlap_mm3": 17.65340119283555,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 17.65340119283555
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_bolt",
+      "right": "collar:jaw_lower",
+      "overlap_mm3": 17.52521176928229,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 17.52521176928229
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/back_washer_1",
+      "overlap_mm3": 13.557789973939249,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_back_washer",
+      "right": "collar:jaw_lower",
+      "overlap_mm3": 12.224707888443682,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 12.224707888443682
+    },
+    {
+      "left": "thorax_reference:FJ3342",
+      "right": "origin:FJ1500/backing_plate",
+      "overlap_mm3": 10.327210017380475,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "cap:FJ1468/distal",
+      "overlap_mm3": 9.696202965877298,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 9.696202965877298
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_bolt",
+      "right": "collar:liner_upper",
+      "overlap_mm3": 8.12452560206501,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 8.12452560206501
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_bolt",
+      "right": "collar:liner_lower",
+      "overlap_mm3": 7.077043118818484,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 7.077043118818484
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/bolt_1",
+      "overlap_mm3": 6.078218091430745,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_washer_0",
+      "overlap_mm3": 6.040552755323569,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "collar:top_washer_0",
+      "overlap_mm3": 5.423960006717615,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 5.423960006717615
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_washer_1",
+      "overlap_mm3": 4.1368885718235795,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "link:FJ1500/bone_bolt",
+      "overlap_mm3": 2.112020664540752,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 2.1120206645407507
+    },
+    {
+      "left": "elbow:FJ1477_bone_1_nut",
+      "right": "collar:jaw_lower",
+      "overlap_mm3": 1.1939660941744414,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 1.1939660941744414
+    },
+    {
+      "left": "elbow:FJ1477_bone_0_back_washer",
+      "right": "collar:jaw_lower",
+      "overlap_mm3": 0.5640144601561358,
+      "owners": [
+        "humerus",
+        "humerus"
+      ],
+      "previous_elbow_overlap_mm3": 0.5640144601561358
+    },
+    {
+      "left": "thorax_reference:FJ3340",
+      "right": "origin:FJ1504/front_support",
+      "overlap_mm3": 0.023950067586861024,
+      "owners": [
+        "thorax",
+        "scapula"
+      ]
+    }
+  ],
+  "intersection_threshold_mm3": 0.001,
+  "angle_step_deg": 1.0,
+  "boundary_resolution_deg": 0.1,
+  "samples": {
+    "neutral": {
+      "trace_index": 0,
+      "elbow_deg": 0.0,
+      "carriage_mm": 0.0,
+      "gh_neutral_hits": [],
+      "motion": [
+        {
+          "axis": "longitudinal",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 82.25,
+          "first_new_pair": {
+            "angle_deg": 82.3125,
+            "hits": [
+              {
+                "left": "bone:scapula",
+                "right": "elbow:FJ1477_proximal_bolt_left",
+                "overlap_mm3": 0.001730546891442461
+              }
+            ]
+          }
+        },
+        {
+          "axis": "longitudinal",
+          "direction": -1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": -120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "flexion",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "flexion",
+          "direction": -1,
+          "screened_limit_deg": 39.6,
+          "last_deg_before_new_pair": -39.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": -1,
+          "screened_limit_deg": 39.1,
+          "last_deg_before_new_pair": -9.0625,
+          "first_new_pair": {
+            "angle_deg": -9.125,
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3330",
+                "right": "elbow:elbow_shoulder_pin",
+                "overlap_mm3": 0.455566777360806
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "elbow_flexed": {
+      "trace_index": 737,
+      "elbow_deg": 97.51180924817025,
+      "carriage_mm": 49.132958207868576,
+      "gh_neutral_hits": [],
+      "motion": [
+        {
+          "axis": "longitudinal",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 85.875,
+          "first_new_pair": {
+            "angle_deg": 85.9375,
+            "hits": [
+              {
+                "left": "bone:scapula",
+                "right": "elbow:FJ1477_bone_adapter",
+                "overlap_mm3": 0.0011461321836834237
+              }
+            ]
+          }
+        },
+        {
+          "axis": "longitudinal",
+          "direction": -1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": -62.625,
+          "first_new_pair": {
+            "angle_deg": -62.6875,
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3348",
+                "right": "bone:forearm",
+                "overlap_mm3": 0.046265537492549566
+              }
+            ]
+          }
+        },
+        {
+          "axis": "flexion",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "flexion",
+          "direction": -1,
+          "screened_limit_deg": 39.6,
+          "last_deg_before_new_pair": -39.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": -1,
+          "screened_limit_deg": 39.1,
+          "last_deg_before_new_pair": -9.0625,
+          "first_new_pair": {
+            "angle_deg": -9.125,
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3330",
+                "right": "elbow:elbow_shoulder_pin",
+                "overlap_mm3": 0.455566777360806
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "return_at_45": {
+      "trace_index": 1135,
+      "elbow_deg": 44.97070393006694,
+      "carriage_mm": 22.09273097917276,
+      "gh_neutral_hits": [],
+      "motion": [
+        {
+          "axis": "longitudinal",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 85.875,
+          "first_new_pair": {
+            "angle_deg": 85.9375,
+            "hits": [
+              {
+                "left": "bone:scapula",
+                "right": "elbow:FJ1477_bone_adapter",
+                "overlap_mm3": 0.0011461321836834237
+              }
+            ]
+          }
+        },
+        {
+          "axis": "longitudinal",
+          "direction": -1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": -120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "flexion",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "flexion",
+          "direction": -1,
+          "screened_limit_deg": 39.6,
+          "last_deg_before_new_pair": -39.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": 1,
+          "screened_limit_deg": 120.0,
+          "last_deg_before_new_pair": 120.0,
+          "first_new_pair": null
+        },
+        {
+          "axis": "abduction",
+          "direction": -1,
+          "screened_limit_deg": 39.1,
+          "last_deg_before_new_pair": -9.0625,
+          "first_new_pair": {
+            "angle_deg": -9.125,
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3330",
+                "right": "elbow:elbow_shoulder_pin",
+                "overlap_mm3": 0.455566777360806
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "scope": "Prescribed single GH axes at three elbow states, with SC and AC held neutral. Initial overlaps are listed and never treated as a clearance pass; additional pairs are tracked separately. No K acceptance, shoulder actuation, or flexible collision inference."
+}

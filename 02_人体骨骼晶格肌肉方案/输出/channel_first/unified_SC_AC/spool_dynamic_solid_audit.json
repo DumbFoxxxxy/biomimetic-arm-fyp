@@ -1,0 +1,45 @@
+{
+  "source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/spool_drive_dynamic_screen.json",
+    "sha256": "0576da12be386c1a6eb61a064f3c5807345b8dac9b8a14611caeb842bf25e2c6"
+  },
+  "reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/assembly.json",
+    "sha256": "30b4cee88fe256274379ce4341a33ad0ab873f1595c0425e8bdc8660692bd99b"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/scapular_pad_equivalent_drive.xml",
+    "sha256": "8c2d515fd4ceb54c5a96ec3d02fbf71495042447d33333b958485ef8f97e0fb6"
+  },
+  "cross_body_pairs": 2478,
+  "collider_count": 98,
+  "threshold_mm3": 0.001,
+  "trials": [
+    {
+      "trial": "hold",
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_recorded_joint_rotvec_step_deg": 0.011678337623906541,
+      "sampled_rigid_clear": true
+    },
+    {
+      "trial": "flexor_cycle",
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_recorded_joint_rotvec_step_deg": 0.04643129529236527,
+      "sampled_rigid_clear": true
+    },
+    {
+      "trial": "flexor_release",
+      "checked_states": 400,
+      "available_states": 400,
+      "first_interference": null,
+      "max_recorded_joint_rotvec_step_deg": 0.24247565628655995,
+      "sampled_rigid_clear": true
+    }
+  ],
+  "saved_sample_interval_s": 0.01,
+  "scope": "Independent full rigid cross-body Boolean audit at recorded force-driven states; stops at first overlap. Visual pad envelopes excluded as deformable conditional contact law, not rigid parts. Same-body mounting fit separate. No actual cables, supply conduits, lattice or rigid collision response in simulated dynamics; an overlap invalidates that trial as a physical motion prediction."
+}

@@ -1,0 +1,178 @@
+{
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC/geometry_mass_body_chain.xml",
+    "sha256": "86c266dca3c44974e367c6ad947db9f3efc36371954fd06547bd6db5183a82b8"
+  },
+  "body_chain_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC/geometry_mass_body_chain_check.json",
+    "sha256": "7c78ffb752ffaf5f8cbcac521f837f81ea85c7686e9ac238c4cd9b38acce2a9e"
+  },
+  "reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC/assembly.json",
+    "sha256": "49bbcc8b9c43645f5da0a793e5143c459c7a9074fa3ec321b80ce6ada81d5c72"
+  },
+  "tested_cross_body_pairs": 1748,
+  "baseline_interferences": [],
+  "small_angle_probes": [
+    {
+      "joint": "SC",
+      "local_axis": 0,
+      "direction": -1,
+      "last_clear_sample_deg": 0.0,
+      "first_interference": {
+        "angle_deg": -1,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3342",
+            "right": "bone:scapula",
+            "overlap_mm3": 6.390105132739329
+          },
+          {
+            "left": "thorax_reference:FJ3344",
+            "right": "bone:scapula",
+            "overlap_mm3": 93.00995516808665
+          }
+        ]
+      }
+    },
+    {
+      "joint": "SC",
+      "local_axis": 0,
+      "direction": 1,
+      "last_clear_sample_deg": 10,
+      "first_interference": null
+    },
+    {
+      "joint": "SC",
+      "local_axis": 1,
+      "direction": -1,
+      "last_clear_sample_deg": 0.0,
+      "first_interference": {
+        "angle_deg": -1,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3344",
+            "right": "bone:scapula",
+            "overlap_mm3": 5.206102378560496
+          }
+        ]
+      }
+    },
+    {
+      "joint": "SC",
+      "local_axis": 1,
+      "direction": 1,
+      "last_clear_sample_deg": 10,
+      "first_interference": null
+    },
+    {
+      "joint": "SC",
+      "local_axis": 2,
+      "direction": -1,
+      "last_clear_sample_deg": -8,
+      "first_interference": {
+        "angle_deg": -9,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3336",
+            "right": "bone:clavicle",
+            "overlap_mm3": 1.0990362172574892
+          }
+        ]
+      }
+    },
+    {
+      "joint": "SC",
+      "local_axis": 2,
+      "direction": 1,
+      "last_clear_sample_deg": 1,
+      "first_interference": {
+        "angle_deg": 2,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3342",
+            "right": "bone:scapula",
+            "overlap_mm3": 1.497289714943347
+          },
+          {
+            "left": "thorax_reference:FJ3344",
+            "right": "bone:scapula",
+            "overlap_mm3": 0.2202825989619282
+          }
+        ]
+      }
+    },
+    {
+      "joint": "GH",
+      "local_axis": 0,
+      "direction": -1,
+      "last_clear_sample_deg": -10,
+      "first_interference": null
+    },
+    {
+      "joint": "GH",
+      "local_axis": 0,
+      "direction": 1,
+      "last_clear_sample_deg": 10,
+      "first_interference": null
+    },
+    {
+      "joint": "GH",
+      "local_axis": 1,
+      "direction": -1,
+      "last_clear_sample_deg": -9,
+      "first_interference": {
+        "angle_deg": -10,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3348",
+            "right": "bone:humerus",
+            "overlap_mm3": 0.10455686425954505
+          },
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 173.1165885638961
+          },
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_washer_left",
+            "overlap_mm3": 7.318252040421911
+          }
+        ]
+      }
+    },
+    {
+      "joint": "GH",
+      "local_axis": 1,
+      "direction": 1,
+      "last_clear_sample_deg": 10,
+      "first_interference": null
+    },
+    {
+      "joint": "GH",
+      "local_axis": 2,
+      "direction": -1,
+      "last_clear_sample_deg": -10,
+      "first_interference": null
+    },
+    {
+      "joint": "GH",
+      "local_axis": 2,
+      "direction": 1,
+      "last_clear_sample_deg": 10,
+      "first_interference": null
+    },
+    {
+      "joint": "elbow",
+      "local_axis": 0,
+      "direction": 1,
+      "last_clear_sample_deg": 30,
+      "first_interference": null
+    }
+  ],
+  "sampling_deg": 1.0,
+  "threshold_mm3": 0.001,
+  "status": "sampled_small_angle_only",
+  "scope": "All cross-rigid-body solid pairs included, including adjacent bones and joint hardware. Same-body pairs do not change under these poses; internal assembly fit remains a separate task. No licensed contact regions assumed. No K-range or force-drive acceptance. Boundaries not yet refined; paths are outgoing probes only, not final outward/return validation."
+}

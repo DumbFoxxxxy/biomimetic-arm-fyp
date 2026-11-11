@@ -1,0 +1,57 @@
+{
+  "response": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial15_bend15/short_response.json",
+    "sha256": "f6289d6a73786ef57b275291336939cc5d61f22bba379b48e5e6f83f936433cb"
+  },
+  "model_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial15_bend15/model_check.json",
+    "sha256": "2374ade0c65103678ab14fcba44524f82d997a2a5f18ac483f220ea87e758ee4"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_reaction_mount/assembly.json",
+    "sha256": "916223ac87b51c29357276e28b6d0bdfbe153edcb953a61574d468403097210b"
+  },
+  "checked_states": {
+    "FJ1486": 109,
+    "FJ1477": 33
+  },
+  "first_interferences": {
+    "FJ1486": null,
+    "FJ1477": {
+      "time_s": 0.04801999999999838,
+      "hits": [
+        {
+          "target": "bone:scapula",
+          "overlap_mm3": 0.0036920495464276143
+        }
+      ]
+    }
+  },
+  "wire_radius_mm": 0.3,
+  "rigid_obstacles": 235,
+  "threshold_mm3": 0.001,
+  "rigid_cross_body_pairs": 20279,
+  "rigid_states_checked": 109,
+  "first_rigid_interference": null,
+  "external_wall_states_checked": {
+    "FJ1486_supply": 109,
+    "FJ1477_supply": 27
+  },
+  "external_wall_first_intersections": {
+    "FJ1486_supply": null,
+    "FJ1477_supply": {
+      "time_s": 0.03601999999999887,
+      "contacts": [
+        {
+          "target": "bone:scapula",
+          "overlap_mm3": 0.0691309930170757
+        }
+      ],
+      "interpretation": "Flexible outer envelope contact requires force/contact and lumen review. No wall reaction was solved; not automatically a physical failure or a pass."
+    }
+  },
+  "neutral_geometry_state_included": true,
+  "status": "geometric_interference",
+  "broadphase": "Per-pose world AABBs, 1e-8mm conservative overlap epsilon; exact solid intersections decide all admitted pairs.",
+  "scope": "Saved adaptive poses: centerline capsule checks against all listed moving rigid parts, including caps and fasteners. No end-zone or adjacent-body exclusions. Stops per channel at first overlap. Elastic tube wall and original lattice not contact-solved; actual terminal tails and motor supply outside beam are absent. No continuous-motion acceptance."
+}

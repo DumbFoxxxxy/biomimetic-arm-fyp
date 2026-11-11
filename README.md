@@ -6,14 +6,15 @@
 
 以真实解剖骨骼为基础，通过工程关节保证运动，以钢丝和可变形 TPU 晶格肌肉传力。允许短钢丝肌腱连接骨侧接口。
 
-**当前状态（2026-11-03）：正在推进肩部S1，当前研究起点为S1-Y2：紧凑GH骨架＋两块共形Y肌腹，共191对象（历史方案保留），尚未定版。** 肘部候选独立保留；最新肩部结构的预测及实测驱动范围均未知。
+**当前状态（2026-11-11）**：肩部 S1 与串联滑块肘部已有 MuJoCo 组合回放。当前优先验证 TPU 肌腹和局部钢丝传力。整臂供线留到集成阶段，最终胸廓通过底座立在桌面。
 
-**当前研究进展：191对象版裸骨正屈曲／外展达到120°检查上限，11步名义放置和有限保持有证据；实际紧固、强度和钢丝／TPU驱动仍未知。** 两块肩袖肌已采用共形Y格与菱形表面网格，其余189源不变；实际变形与打印待验。详见技术文件第2–6节。
+肩先于肘 0.30 s 释放的等效模型完成 801 帧刚性筛查。肘屈曲预测峰值为 100.10°，释放后回到约 0°。两条肘部内线已完成随动几何检查，屈肌回程局部让位也已导出并复核。实际负载、柔性接触及实物驱动范围待验证。
 
 
 | 入口 | 内容 |
 |---|---|
 | [PROJECT_STATUS](PROJECT_STATUS.md) | 唯一当前状态入口 |
+| [肩肘组合、时序和内线验证](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md) | 最新组合模型、检查与 MuJoCo 回放 |
 | [肩部 S1 技术方案](02_人体骨骼晶格肌肉方案/输出/shoulder_design/SHOULDER_DESIGN.md) | 传力链、证据、限制及待讨论方向 |
 | [当前有效规格](design/CURRENT_BASELINE.md) | 用户要求、比较指标与验收边界 |
 | [设计任务书](design/DESIGN_BRIEF.md) | 当前入口与历史设计记录 |
@@ -28,7 +29,7 @@
 
 两个视图均可拖动旋转、缩放和平移，也可切换骨骼、肌肉、钢丝和连接件图层。肘部沿用原版屈肌、伸肌、附着点和走线。 [本地查看与部署说明](docs/GITHUB_MODEL_VIEWER.md)
 
-修正版装配和验证范围见[肩肘组合记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/README.md)。
+组合动态轨迹可本地查看。`python tools/view_s1_series_elbow_start_pose.py --case timed`。[肩肘组合与验证记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md)
 
 ## 方案与目录
 
@@ -80,4 +81,4 @@ python mujoco_arm/anatomical_concept/view_paired_swivel.py --keepers --motion  #
 
 ---
 
-<sub>文献依据与方法来源见 [knowledge_base](knowledge_base/README.md)；人体模型来自 BodyParts3D（CC BY-SA 2.1 Japan）。</sub>
+文献依据与方法来源见 [knowledge_base](knowledge_base/README.md)。BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International. 本项目包含源解剖网格以及加装工程关节、固定和让位结构的派生网格。历史下载包标有 CC BY-SA 2.1 Japan。[BodyParts3D 授权说明](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html)

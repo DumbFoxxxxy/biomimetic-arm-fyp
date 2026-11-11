@@ -1,5 +1,97 @@
 # 项目进度
 
+## 2026-11-08 胸骨双端头与完整外供线零位几何
+
+新增build/audit/render_channel_first_thorax_*，235刚体与244显示共同模型加载。起初原胸骨含小片导致连通门槛失败；微桥首版碰FJ3341，按邻件裁出让位后保留原片且正材料连通、导出重载清，失败fit_history保留。固定模块上胸骨7阶段687姿态清，原14解剖接合重叠未当通过。
+
+screen_channel_first_thorax_elbow_supply进程92418正常结束，两路各选一无中间固定导向的零位曲线；扫掠真实中空参考壳体重载检查235刚体清。新增build_channel_first_external_sheaths、render_channel_first_external_supply与view_channel_first_supply_geometry；239源指纹／0DOF加载检查通过，neutral_whole和frame_close实际图已查看。外通道／驱动力未接294DOF，未改变原肌腹，原指标和主骨架指针保持，全目标active。
+
+## 2026-11-08 外供线近端接口及后装顺序
+
+新增build_channel_first_elbow_supply_interface/model、describe_channel_first_elbow_ports、render_channel_first_elbow_supply和audit_channel_first_elbow_supply_installation。生成208刚体候选并精确回读复核，复杂孔网格失败有诊断记录；现版单侧耳／矩形槽未放宽原导出门槛。压板旋转54路线失败，bone0后装版本18阶段562姿态通过，包含原骨螺栓／前垫45mm与后螺母／垫35mm插回；临时停放压板也参与端头装入检查。此前口头662误加100，已明确更正562。
+
+动力学53758及独立审查46569均正常结束，1012姿态两钢丝及16364跨体对无超阈值相交；新模型215显示几何、预测肘峰1.62235°。实际端口坐标、参考尖端非固定语义、crimp/防拔出及全供线缺项已记录，四张实际MuJoCo图中检查了屈肌145°、伸肌55°视图。查看器扩展folder/result-name并重建1012帧（未启动GUI）。全目标active，未切主指针或发布。
+
+## 2026-11-08 2s收放线及安装筛查
+
+最终：缓冲组独立实体审查84605正常结束，1012帧两钢丝及14156跨体对均清。重新生成汇总／CSV，回放重建1012帧通过（GUI未启动），将默认回放设为buffer_k1e6。保留零缓冲三失败组。当前局部模型预测峰值1.62714°、最终0.02864°，不当完整运动范围；更新PROJECT_STATUS、CYCLE_REVIEW和计划，目标active。
+
+后续：缓冲组计算8473已正常结束，预测肘最大1.62714°、最终0.02864°，接触记录无压入；独立实体审查84605已启动并以实际会话句柄确认仍运行。最硬旧组的优化审查53124正常结束，五项输出与原完整审查逐项相同，记录宽阶段等价对照；汇总已加入缓冲组并明确pending。
+
+三组计算进程27756/41491/70401正常结束；独立实体审查23013/59488/4876正常结束，钢丝各1011帧清，刚体均在1.37002s止挡数值压入超阈值。新增summarize_channel_first_elbow_cycles、view_channel_first_elbow_cycle和audit_channel_first_elbow_stop_installation；查看器已重建1011姿态（GUI未启动），后续自动按审查失败截断。2s原始响应、CSV/JSON汇总及CYCLE_REVIEW保留。新增保守接触缓冲计算8473及最硬组宽阶段缓存审查等价复核53124，均已用实际会话句柄确认运行；不重启已有任务。完整全局通道仍未完成。
+
+## 2026-11-08 实体伸展止挡候选建立并重算
+
+build/audit_channel_first_elbow_extension_stop和build_channel_first_elbow_stop_model新增。零位各新增对象均单体、导出回读及实体配合完成；几何0–30°去回程清、反向−0.1°止挡相交。294DOF实际接触模型关闭肘软件限位，进程74033计算正常结束；审查进程86028正常结束，111帧两钢丝及14156刚体对无超阈值重叠。肘最大1.779°、警告空、无饱和、端约束误差0.0953mm。渲染两方向并检查55°图，保存README和复现命令；原肌腹、K目标及主骨架入口保持。还须装配路径／工具空间、接触敏感性、完整周期及全局供线，不作为项目完成。
+
+## 2026-11-08 弯曲钢丝通道梁与刚体审查完成
+
+新增build/simulate/audit_channel_first_elbow_channel_beams。294DOF接原曲线，无预设通道变形；0.2s短时计算有限、无警告和饱和。初次2ms采样局部2.05°，改为0.5°旋转触发／最长2ms，115帧重新计算审查。钢丝清但刚体在0.05402s相交，定位肘负伸展而非伸肌端盖大幅转动；保留失败，不计作运动通过。原TCU肌腹与指标未改。下一步真实肘伸展止挡／接触及再次动态验证，整体目标仍未完成。
+
+## 2026-11-08 被动端盖三组加密动力学审查完成
+
+进程77548正常完成，三组各400帧均通过181刚体12638跨体对独立检查，记录最大关节步长≤1°。数值警告为空、无饱和或支承越界。新增阶段README，保留10ms不足样本作历史，明确孔口代理与真实通道区别。下一步实际通道／端部TPU反力及终端固定，全目标仍未完成。
+
+## 2026-11-08 12DOF孔口—被动端盖模型已计算
+
+新增build_channel_first_elbow_passive_model、simulate_channel_first_elbow_passive及独立audit工具。184几何体、12自由度，实际孔口及枢轴坐标核对；三组2s卷线响应完成。10ms初版实体审查通过但软组采样步长1.61°，已保留历史、5ms重新计算（软组0.973°）；当前5ms刚体审查仍在实际进程77548运行，不将未结束对照当通过。原肌腹与孔位不改，下一步通道和真实TPU端部反力。
+
+## 2026-11-08 原肘部接口与骨孔安装座生成
+
+新增restore_channel_first_elbow_interfaces和build_channel_first_elbow_mount_seats。恢复83原端部件、记录四处穿骨，按原安装设计补凸台及通孔。单体回读、实际螺栓轴核对、180对象骨接口检查及两关节保护域检查完成，183对象静态加载。原肌腹／端点／线不变，不采用凸轮移位。下一步被动端盖关节与钢丝端部模型；整体目标未完成。
+
+## 2026-11-08 实体锚点／骨侧支承审查完成
+
+新增audit_channel_first_anchor_supports，对新骨架27路54端点在各自允许骨群内精确投影，并核对当前装配骨件存在性。完整坐标／间隙／关节区与未设计接口保存JSON，写入锚点说明。明确三条颈部起端无实际骨侧支承、肘部端垫中心不是骨孔、关节区不能直接钻孔；未改源坐标或模型。下一步补实际连接及全局钢丝，目标继续active。
+
+## 2026-11-08 自由动力学与回放完成
+
+扩展scapular_pads和spool_drive的独立新骨架输出，并保存全关节自由状态。完成5×2s参数试算、3×4s卷线试算，新增unified_dynamics独立刚体审查及spool_result可旋转回放。三组1200帧实体审查清，400帧回放重建核对通过。记录肩带漂移／耦合及真实通道缺项；没有把回放规定姿态当驱动证据，源状态来自受力积分。整体目标active，下一步实体支承、钢丝通道和锚点。
+
+## 2026-11-08 接触约束协调搜索完成
+
+新增study_channel_first_contact_following_paths：SC六方向、AC三分量反解三垫高度，有限足印／单边压缩、2478实体对、正张力分配及接受姿态回程复核。记录首个失败、肱骨方向和跨距，文档明确逆运动学非驱动验证。未改原指标、源模型或主选择。下一步实际支承结构及动态卷线／钢丝通道。
+
+## 2026-11-08 新骨面支承验证与接触失活定位
+
+扩展支承方向脚本--unified-sc-ac，直接读取新骨架和27端点模型、重投影接触候选；新增unified_pad_engagement检查骨侧有限平面压缩律。12候选中立分配与三垫激活六路径完成，输出首次失活角、端点接触与力矩缺口。更新支承说明，不将中立反力方向可行当作全程支承通过。下一步SC/AC与胸壁接触约束联合路径、真实支承和通道；原指标及整体目标保留。
+
+## 2026-11-08 新SC/AC骨架等效肌群与静力方向分析
+
+扩展等效驱动器生成的独立--unified-sc-ac输出，生成27张力通道代理及新质量惯量模型。新增study_channel_first_unified_force_balance，核对6协调分支各姿态正张力分配和无上限对照，保留所有残差。导数矩阵解析／差分核对通过。更新力学说明，未将几何路径视为驱动能力；下一步新骨面支承／方向修订和实体通道，整体目标active。
+
+## 2026-11-08 SC—AC联合运动几何搜索完成
+
+新增study_channel_first_SC_AC_paths，42条同轴恒比路径按每关节≤1°前行、首次边界≤0.1°细化及清楚采样回程独立复核，2478跨刚体对全部保留。保存实际肱骨方向、肩胛旋转、GH位置及端点最小间隙。完成结果表，明确零／极小间隙端点不作为工作姿态，不改变K指标和主指针。下一步退让与跨轴协调、真实支承及受力驱动。
+
+## 2026-11-08 SC—AC实体候选生成
+
+新增build_channel_first_AC_candidate。初次差集导出失败后，记录精确OBJ多容差与STL拒绝，改用GH保护的局部体积移植，98对象2673配对零位清。单体回读、GH保护区变化、10自由度链及2478配对19条单轴探针均完成；当前未做回程／细边界或力驱动，不替换主指针。文档说明历史失败被替代，下一步SC—AC联合胸壁路径与实际端部连接。
+
+## 2026-11-08 SC球窝候选完成零位及初步运动检查
+
+新增build_channel_first_SC_candidate，将旧参数化SC构造局部移植为unified_SC候选，保护36 mm外骨形。导出88对象，2323配对无初始重叠。扩展关节链显式reference及SC零件归属、运动检查显式目录；新模型0.1 s重力有限，1748跨刚体对探针完成并保留首次碰撞。文档记录耦合问题与未完成项，未改主骨架指针。下一步AC连接及SC—AC协同、SC安装／保持和完整通道驱动。
+
+## 2026-11-08 新基准关节链及完整零位骨对检查
+
+扩展build_channel_first_body_chain的独立--unified入口，保持旧输出目录，生成78几何体／10自由度模型与惯量报告。新增audit_channel_first_unified_motion，所有1498跨刚体对均计入；发现胸骨柄FJ3290—锁骨319.292 mm³初始重叠，角度探针未执行。保存SC重叠包围盒、距中心范围及来源，更新统一骨架说明。下一步落实SC局部机械连接；没有删除骨骼或排除碰撞。
+
+## 2026-11-08 统一肩肘骨架候选已生成
+
+新增build_channel_first_unified_skeleton及audit_channel_first_unified_channels，实际导出单体肱骨、来源与保护区核对、零位接口和通道复核。78对象MuJoCo静态模型加载成功，设置独立design/CHANNEL_FIRST_SKELETON.json入口，未修改历史S1指针。下一步基于唯一候选重建运动链与接触计算，并补SC/AC和端部连接；没有把既有固定端部动力学通过移作新装配证据。
+
+## 2026-11-07 真实骨面接触推进
+
+新增channel_first_bone_contact、verify_channel_first_bone_contact、simulate_channel_first_conduit_bone_contact。1100点解析／真实几何对照完成；首例25000步骨面接触试算完成，内部节点由受力决定，无数值警告。100000/400000 N/m²、骨面摩擦0.15、接触更新2步对照正在运行；另以每2 ms保存姿态的整条钢丝胶囊包络对64骨件复核，保持原目标，待得到结果后再登记路线状态。
+
+五组接触及整段轨迹筛查均结束，摘要及来源指纹验证通过，共1250保存姿态／64骨件，无钢丝重叠。新增实际骨骼基准求差，确认三肩骨存在变化；技术任务书及通道入口更新，局部接触预测不当整臂通过。全部进程已正常终结，未改骨骼源或S1指针。后续为唯一肩肘骨骼与端座，然后运动骨段接触和完整驱动链；整体目标保持active。
+
+## 2026-11-07 弹性导管动态试验进行中
+
+新增 simulate_channel_first_elastic_conduits.py。首例 FJ1468、15 MPa、5 N、5 mm 段／20 μs 步长完成，无警告、无轴向保护限位触发；最大偏移16.172 mm，通道最长缩短9.064 mm。5 MPa、40 MPa、零张力和2.5 mm段／10 μs步长对照已启动，等待实际进程结果，不把试验端部固定等同骨端安装已完成。
+
+六组最终对照已全部完成并哈希复核，摘要sensitivity_summary.json及README生成。双层细化加载异常后改为每节点单刚体，通过轴向DOF运动学检查；保存旧输出。阻尼按段长缩放后重新计算全部对照。新增anatomy_snapshot_screen：主例四个计算姿态、64骨件，加载钢丝进入肱骨，回弹／重力例未发现重叠。更新当前任务书与通道入口，保留完整目标及K指标，不宣称运动通道通过；下一步真实端座、骨面导向或最小晶格支承及其变形接触。
+
 ## 2026-11-04 肘部圆弧走线及连续孔壁
 
 三组零位绕行候选各试R4、6、8、12、16、20mm的切线圆弧。5°以内弧段采样，检测包络R2另加采样弓高。18组中段均避开固定件、转位五金和伸肌线包络。首组R20已生成两件开口连续孔壁OBJ，继承原R1.6外径半径及R0.85内孔半径，名义壁厚0.75mm。回读两芯各一实体，钢丝相交、超筛查包络和两芯互交均为零。每端仍留8mm接头区，贴骨座、端部过渡、全晶格和运动待验证。见 elbow_route_fillet_screen.json 和 elbow_relocated_channel_cores/channel_core_check.json。
@@ -345,3 +437,10 @@ MuJoCo187整体、实际衬垫背侧柱/侧槽独立细节及57对象单步骤�
 ## 2026-11-03 项目概览用途调整
 
 按用户说明，将说明文档改为供自己查阅的普通项目概览，重命名为docs/PROJECT_OVERVIEW.md，按目标、设计思路、当前结构、进展和下一步组织，去除导师汇报、口述稿和预约日期表述。同步当前入口，历史审查和几何／性能状态不改。
+# 2026-11-07 hollow-guide reconstruction in progress
+
+2026-11-11 已导出及回读 FJ1500 同侧盲孔支承，完成 12 条 SC／AC 单轴路径筛查。导出 FJ1504 双向弯管候选，复核 48 个组合刚体姿态及中立 TPU／局部钢丝。保留原出线作为对照。
+
+Read current generator and reports. Replaced repeated capsule-Boolean attempts with a new indexed annular sweep experiment. FJ1507/FJ1468/FJ1513 need 144 diffusion iterations; FJ1467 needs 400 to meet the provisional 3.2 mm sampled bend-radius screen. All four experimental sweeps exported with zero round-trip relative volume change. Next: integrate generator and rescreen changed geometry before adoption.
+
+Integrated generator now exports four single connected positive-volume hollow meshes, checks actual translated geometry against 64 bones, extended nominal wire passage, and all six guide pairs. All checks clear at neutral; current S1 assembly hash remains valid. Renderer loads 61 static geoms and generates two MuJoCo views; 145-degree image inspected. Removed four temporary experiment OBJ files. Review document records changed endpoint directions, sampled limits, reference assembly scope and pending end mounts / channel deformation. Full goal remains active.

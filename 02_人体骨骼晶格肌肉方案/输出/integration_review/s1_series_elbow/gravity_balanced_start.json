@@ -1,0 +1,5443 @@
+{
+  "generator": {
+    "file": "tools/study_s1_series_elbow_start_pose.py",
+    "sha256": "fb1601eca8dc7eee43605d1f25c59f53b35d746ff1a3e9e733f15267edf76293"
+  },
+  "baseline": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.json",
+    "sha256": "d44d2203e96ff4bde159ce6a7be51c3ed402940caccece0dd0e1ba53f8ba3d1f"
+  },
+  "angular_grid_deg": [
+    [
+      -20,
+      -15,
+      -10,
+      -5,
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    [
+      -15,
+      -10,
+      -5,
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    [
+      -80,
+      -70,
+      -60,
+      -50,
+      -40,
+      -30,
+      -20,
+      -10,
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80
+    ]
+  ],
+  "channels": [
+    "FJ1507",
+    "FJ1468",
+    "FJ1513",
+    "FJ1467"
+  ],
+  "balanced_samples": [
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7624784625369996,
+        0.15356059040234996,
+        -0.21796916815639011,
+        0.5895211454864926
+      ],
+      "rotation_from_original_deg": 80.63363289038783,
+      "shoulder_preload_N": [
+        3.2614339050746324,
+        0.0,
+        13.541713175610724,
+        21.61139496528057
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 123.49914671191259
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_bone_adapter",
+          "overlap_mm3": 11.913148139556224
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.037681134807912305
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9763262753309006,
+        0.16566696607451012,
+        -0.12820853990877443,
+        -0.053889059600422735
+      ],
+      "rotation_from_original_deg": 24.98396977295748,
+      "shoulder_preload_N": [
+        24.64492348880431,
+        0.0,
+        12.646709034047491,
+        1.635751660205438
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1507/distal",
+          "overlap_mm3": 0.2392421203129028
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.09750306269987004
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9706356248992346,
+        0.16142275652637703,
+        -0.111482956654542,
+        -0.1392146821547926
+      ],
+      "rotation_from_original_deg": 27.83854338019432,
+      "shoulder_preload_N": [
+        22.050557010195732,
+        0.0,
+        12.557502130096001,
+        2.815175705737605
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 10.238950274070515
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 5.275363333610539
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.09728850176980988
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.957557851276271,
+        0.1559500223313529,
+        -0.0939089207849188,
+        -0.22348079691784115
+      ],
+      "rotation_from_original_deg": 33.50537119168292,
+      "shoulder_preload_N": [
+        19.97292098632574,
+        0.0,
+        12.51290460662902,
+        4.235636504914179
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 505.57711176345333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 34.689584890587454
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 7.897619623318265
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.0925386246830146
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9371924842158561,
+        0.1492904143011891,
+        -0.07562018132436568,
+        -0.3060460878749503
+      ],
+      "rotation_from_original_deg": 40.82941432316809,
+      "shoulder_preload_N": [
+        18.172429958920105,
+        0.0,
+        12.525845078255223,
+        5.8676968431141665
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 772.593366939621
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 73.39992928389242
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 40.89570332805748
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 22.12862458066
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.08339775405121333
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9096945164582645,
+        0.1414946160741765,
+        -0.05675592662322022,
+        -0.3862821833076507
+      ],
+      "rotation_from_original_deg": 49.07365990281302,
+      "shoulder_preload_N": [
+        16.50528759640516,
+        0.0,
+        12.603408362824558,
+        7.700145673447802
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 710.7669769218085
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 109.21311873486187
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 79.79688859974115
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 67.94653088743917
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.07014363060304987
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8752732241418584,
+        0.1326219583820543,
+        -0.03745972505030657,
+        -0.46357843808182053
+      ],
+      "rotation_from_original_deg": 57.84534375779669,
+      "shoulder_preload_N": [
+        14.866396611571563,
+        0.0,
+        12.752276129044446,
+        9.732011867399178
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 577.6727269570829
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 79.80896862347048
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 78.6947793016018
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 71.54588666182008
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.05317897417258594
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8341905740853102,
+        0.12273996750731671,
+        -0.017878432350959733,
+        -0.5373465810258735
+      ],
+      "rotation_from_original_deg": 66.93670185211234,
+      "shoulder_preload_N": [
+        13.15693285058855,
+        0.0,
+        12.986604798014957,
+        11.964535870144317
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 470.9189439294611
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 114.0340799272647
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 73.6885912977374
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 25.795801865845522
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 5.6574900337592515
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 2.281463248976851
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.03301924726093152
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.7867592300619326,
+        0.11192385136742979,
+        0.0018389260138705482,
+        -0.607025192029583
+      ],
+      "rotation_from_original_deg": 76.23264090564187,
+      "shoulder_preload_N": [
+        11.253465209659824,
+        0.0,
+        13.344894923694666,
+        14.38528383705028
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 395.5130828728692
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 354.86010903852696
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 144.98171703534646
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 62.23633473444781
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 43.75251654672441
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 13.278862741047769
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 10.023435481050626
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 9.160882608887633
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.010276992968982067
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.733340173239572,
+        0.10025592713716751,
+        0.021542289041361396,
+        -0.6720839747901152
+      ],
+      "rotation_from_original_deg": 85.66570326376899,
+      "shoulder_preload_N": [
+        8.955434715274537,
+        0.0,
+        13.932934298227119,
+        16.92467383860956
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 571.7032524070858
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 335.1181222863555
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 133.38991636105203
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 34.259289381393785
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 21.879252795064655
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 10.50177147281261
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 7.735757317579691
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 1.3962040532339222
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.01435677681473719
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9810226619778297,
+        0.1677791561922121,
+        -0.08560818585363918,
+        -0.045999238561208626
+      ],
+      "rotation_from_original_deg": 22.360138405095682,
+      "shoulder_preload_N": [
+        25.0,
+        1.5299704714127724,
+        6.2552109279717065,
+        20.572122995429254
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.14618551394000068,
+        3.461976066995267,
+        3.9496571362605564
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.09309155158916635
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9759705256389286,
+        0.15978974413432753,
+        -0.06897627513501199,
+        -0.13111462245706515
+      ],
+      "rotation_from_original_deg": 25.171742115479812,
+      "shoulder_preload_N": [
+        20.896298799583242,
+        0.0,
+        7.081299745514274,
+        18.98719975260686
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.17111096169899498,
+        3.264308334263338,
+        3.746826829663125
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.08704531224104298
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9634906642927996,
+        0.15058423563989526,
+        -0.05181941331359372,
+        -0.21523214490684986
+      ],
+      "rotation_from_original_deg": 31.059884931548496,
+      "shoulder_preload_N": [
+        17.811927738796538,
+        0.0,
+        7.425389459366265,
+        19.625211293934864
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 135.47963351734674
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 7.059748780671118
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.07677032585242531
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9436780572198332,
+        0.14023269018699586,
+        -0.034268174467441764,
+        -0.297711620773171
+      ],
+      "rotation_from_original_deg": 38.64258570569806,
+      "shoulder_preload_N": [
+        15.280938885163694,
+        0.0,
+        7.771435729228462,
+        20.6556007583861
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 521.0352442026729
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 31.344164474050526
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 5.076036984664092
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.06257879268533498
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9166834903230338,
+        0.12881388928696008,
+        -0.01645613412190309,
+        -0.3779253314422168
+      ],
+      "rotation_from_original_deg": 47.108104573616856,
+      "shoulder_preload_N": [
+        13.0365173244711,
+        0.0,
+        8.157176885277462,
+        21.99831428256371
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 468.3369667476428
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 56.11224524211325
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 16.73068429092667
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 2.7576723108348395
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.04490191529379405
+    },
+    {
+      "parameters_deg": [
+        -20,
+        -10,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.882712408556251,
+        0.11641473690949755,
+        0.0014811473407887604,
+        -0.4552628021414332
+      ],
+      "rotation_from_original_deg": 56.057378242771414,
+      "shoulder_preload_N": [
+        10.912138292793749,
+        0.0,
+        8.607604407686352,
+        23.60385611925763
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 366.4231496388092
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 63.00827437615227
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 18.718834013309763
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 6.626039857766674
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.024276796652410844
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7639120474391554,
+        0.12229580298055458,
+        -0.19127696470711072,
+        0.6040655950499861
+      ],
+      "rotation_from_original_deg": 80.37940036935164,
+      "shoulder_preload_N": [
+        4.511970683895024,
+        0.31189195822359944,
+        12.477253133427867,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 275.1749396554866
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_bone_adapter",
+          "overlap_mm3": 32.550006449850784
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_left",
+          "overlap_mm3": 0.13478581761280406
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.05193476436076126
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        -30
+      ],
+      "quaternion_wxyz": [
+        0.9538378881110301,
+        0.13111616590945527,
+        -0.16193404864714353,
+        0.21628499284471608
+      ],
+      "rotation_from_original_deg": 34.95388432429009,
+      "shoulder_preload_N": [
+        21.849926959149094,
+        0.5296291420519612,
+        9.34617487384582,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.10369745134382669,
+        3.844426450700963,
+        4.179616323500091
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.037492468847557796
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9709462636019218,
+        0.12990281391275985,
+        -0.152137624458489,
+        0.13131167259288853
+      ],
+      "rotation_from_original_deg": 27.690178648938808,
+      "shoulder_preload_N": [
+        18.62973764202716,
+        0.561451681983866,
+        9.681344611320904,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.08938144316579516,
+        3.621620651240637,
+        3.9483817564115027
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.049020337560892746
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9806651517534198,
+        0.12770082306472477,
+        -0.14118334108449607,
+        0.04533899122447336
+      ],
+      "rotation_from_original_deg": 22.57045192650842,
+      "shoulder_preload_N": [
+        16.686510825945675,
+        0.38436536805581595,
+        9.94460389582111,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.0892825139512826,
+        3.498109093270831,
+        3.8308967216810057
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.05743530004447462
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9829205859582658,
+        0.12452695184530194,
+        -0.12915456723601795,
+        -0.040978747243591455
+      ],
+      "rotation_from_original_deg": 21.209194683877175,
+      "shoulder_preload_N": [
+        15.29433720892799,
+        0.006733077494946991,
+        10.2503934018946,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.09634910512483008,
+        3.424657123030934,
+        3.7701500669622967
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.062481671921416224
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9776954010002927,
+        0.12040535533090704,
+        -0.11614284914521389,
+        -0.12698461270148845
+      ],
+      "rotation_from_original_deg": 24.24797008022194,
+      "shoulder_preload_N": [
+        14.165582486053756,
+        0.0,
+        10.463508004119607,
+        0.831594767321536
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 104.51163250248017
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 2.8063433766997794
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.06400612173582361
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9650293636920835,
+        0.11536740135970264,
+        -0.10224721384344501,
+        -0.21202404858132157
+      ],
+      "rotation_from_original_deg": 30.39437491204619,
+      "shoulder_preload_N": [
+        13.179083250447968,
+        0.0,
+        10.708813446280953,
+        1.789890376414936
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 555.722416235173
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 27.287672567218195
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 4.588102050971269
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.06196232985149623
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9450188702255161,
+        0.10945143180340937,
+        -0.08757341550577181,
+        -0.29544985342783
+      ],
+      "rotation_from_original_deg": 38.17549314860626,
+      "shoulder_preload_N": [
+        12.262139331339078,
+        0.0,
+        10.995146214701045,
+        2.8563906188549537
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 616.1883534929319
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 62.043845664133016
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 26.937757912552524
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 14.824094881776775
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.05641239585062771
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9178162125385375,
+        0.10270247076251071,
+        -0.07223313059782567,
+        -0.3766271064922536
+      ],
+      "rotation_from_original_deg": 46.78222677538322,
+      "shoulder_preload_N": [
+        11.365402241575367,
+        0.0,
+        11.324485427969075,
+        4.030859661999089
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 522.2507270723244
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 77.10948340153983
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 40.812185553647645
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 31.342331708813816
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.047524951669436134
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8836284192815592,
+        0.09517188190566196,
+        -0.05634310795047332,
+        -0.45493799986260663
+      ],
+      "rotation_from_original_deg": 55.83359232217197,
+      "shoulder_preload_N": [
+        10.445900919501948,
+        0.0,
+        11.697984270563067,
+        5.31724737844032
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 422.95999437001393
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 71.36591003957115
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 22.36867723473721
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 16.939165647085506
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.03557003780210181
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8427156802044211,
+        0.08691697756115765,
+        -0.04002428023071915,
+        -0.5297865403549301
+      ],
+      "rotation_from_original_deg": 65.14398068783164,
+      "shoulder_preload_N": [
+        9.453618696258491,
+        0.0,
+        12.121715945623137,
+        6.720492943102217
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 370.40120932646147
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 162.53549125092994
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 65.28366853235015
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 62.035231337850504
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 23.814980912641477
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 9.294579721956906
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 7.574482577821692
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 4.938926119566329
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.02091089825700578
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.7953893659552872,
+        0.078000582535507,
+        -0.023400843571088018,
+        -0.6006030853812936
+      ],
+      "rotation_from_original_deg": 74.61590456108814,
+      "shoulder_preload_N": [
+        8.31308236590534,
+        0.0,
+        12.618964462299164,
+        8.239245081209594
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 459.8103239708977
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 328.7897901221522
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 143.79645636760586
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 46.671596364847545
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 27.646614254305373
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 14.535274471487146
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 9.973508115394836
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 2.7114010658342687
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.003992943571339807
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7420096583620035,
+        0.06849055597872168,
+        -0.00659931236206525,
+        -0.6668486782738469
+      ],
+      "rotation_from_original_deg": 84.19421965791308,
+      "shoulder_preload_N": [
+        6.8842200708091825,
+        0.0,
+        13.261776627035255,
+        9.843676762263208
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 646.2260566256952
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 284.47848381166057
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 49.696702237753726
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 15.451225661773087
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 7.210048820029715
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 4.410922511986467
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 1.389750819201407
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.8159761121479256
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.014669782762664117
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9746147562515654,
+        0.1389623801835913,
+        -0.10997562788961376,
+        0.13682432189014587
+      ],
+      "rotation_from_original_deg": 25.87505748430174,
+      "shoulder_preload_N": [
+        23.221956854079664,
+        0.0,
+        3.823890933953795,
+        17.673490303625666
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.14965878004575212,
+        3.4456648376382417,
+        3.923627322482307
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.05666649002203134
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9848770583677383,
+        0.13304477693540903,
+        -0.0984825060997011,
+        0.051161149551592656
+      ],
+      "rotation_from_original_deg": 19.954213067214223,
+      "shoulder_preload_N": [
+        18.539384145999676,
+        0.0,
+        4.752882778716348,
+        16.299663625711183
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.1382289950881457,
+        3.1653719857594376,
+        3.6211471457587354
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.059005466498274
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9876438513847056,
+        0.12611462260011558,
+        -0.08623987297300671,
+        -0.03489139002699488
+      ],
+      "rotation_from_original_deg": 18.03256008313553,
+      "shoulder_preload_N": [
+        15.610355473847662,
+        0.0,
+        5.3415071561773955,
+        15.861039244426859
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.13892793121955463,
+        2.9900412858206353,
+        3.44793789712326
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.057922645667076285
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9828940783369728,
+        0.1182246598367441,
+        -0.07334090233992872,
+        -0.12067838505947967
+      ],
+      "rotation_from_original_deg": 21.225694050840318,
+      "shoulder_preload_N": [
+        13.46488601422419,
+        0.0,
+        5.811011398455948,
+        15.964046837588164
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 1.6446964580678824
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.053450928491460166
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9706638878654247,
+        0.10943493602601358,
+        -0.0598837631555962,
+        -0.20554694471406065
+      ],
+      "rotation_from_original_deg": 27.825076723079928,
+      "shoulder_preload_N": [
+        11.714838193765834,
+        0.0,
+        6.248883667820947,
+        16.439748225220928
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 216.15829731237474
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 2.600729627057727
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.045726185835010376
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9510463591043407,
+        0.0998123462735041,
+        -0.04597087237484484,
+        -0.28885116800672905
+      ],
+      "rotation_from_original_deg": 36.00376636070372,
+      "shoulder_preload_N": [
+        10.170458311503761,
+        0.0,
+        6.69517385215632,
+        17.203535573793193
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 350.903716273064
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 21.950678364775964
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 1.1102708784499025
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.03498313009443215
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9241907932929799,
+        0.08943012429751077,
+        -0.0317081154973492,
+        -0.36995705949776236
+      ],
+      "rotation_from_original_deg": 44.90670369448161,
+      "shoulder_preload_N": [
+        8.721770596869993,
+        0.0,
+        7.169970857881143,
+        18.209493473160393
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 274.92334151274713
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 36.97189322996616
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 4.595997904994536
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.021548183582154833
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8903015775030015,
+        0.07836728507622795,
+        -0.017204040715035146,
+        -0.44824735437983765
+      ],
+      "rotation_from_original_deg": 54.17766507394989,
+      "shoulder_preload_N": [
+        7.2908591394492825,
+        0.0,
+        7.6860285702352735,
+        19.43048381574851
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 200.37271769134398
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 36.980149013622714
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 3.1775802997253906
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.005829560349543132
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8496366291294347,
+        0.06670802349605452,
+        -0.0025690327947958803,
+        -0.5231262162359295
+      ],
+      "rotation_from_original_deg": 63.65566172476908,
+      "shoulder_preload_N": [
+        5.805714978573811,
+        0.0,
+        8.258992742802953,
+        20.844868546012645
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 171.24891927438364
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 58.43962648534307
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 26.554210516519777
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 7.76249615718271
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 4.3531539184718735
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.5795700620052405
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.010178523015552854
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.011695137190486886
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8025054329835698,
+        0.0545410735776703,
+        0.012085527016236206,
+        -0.5940237717142205
+      ],
+      "rotation_from_original_deg": 73.25995190029758,
+      "shoulder_preload_N": [
+        4.176853284846847,
+        0.0,
+        8.92277440333557,
+        22.419618368117884
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 288.6313569589152
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 191.0898785650965
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 134.0046176158989
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 14.534955334209808
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 10.980709254521607
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 10.594460914689762
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 4.320103721152907
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.030493429971105112
+    },
+    {
+      "parameters_deg": [
+        -15,
+        -10,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7492666859266708,
+        0.04195903315655932,
+        0.026648108669234,
+        -0.6604004476084062
+      ],
+      "rotation_from_original_deg": 82.946208332743,
+      "shoulder_preload_N": [
+        2.260559577724628,
+        0.0,
+        9.762680297255958,
+        24.07415421385476
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 593.731052117999
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 188.96307220625425
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 41.13351832180928
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 7.9663849252625525
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.5606602519767818
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 0.15389263889330929
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.04999414137856912
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7638914823410882,
+        0.09079821854694661,
+        -0.1642206546840394,
+        0.6174601714204581
+      ],
+      "rotation_from_original_deg": 80.38305210932342,
+      "shoulder_preload_N": [
+        6.746935734731896,
+        2.699612222818522,
+        7.909663033373732,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 272.4236892256115
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_bone_adapter",
+          "overlap_mm3": 11.94479465481614
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_left",
+          "overlap_mm3": 10.648820030655152
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_right",
+          "overlap_mm3": 7.664943497468574
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_left",
+          "overlap_mm3": 2.8311351351381506
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_right",
+          "overlap_mm3": 2.8149698668320036
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_bolt_left",
+          "overlap_mm3": 0.898380934234168
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.06530356079070086
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -70
+      ],
+      "quaternion_wxyz": [
+        0.8155555267988999,
+        0.09229597530082913,
+        -0.16414548560672235,
+        0.5471808615128742
+      ],
+      "rotation_from_original_deg": 70.71534359033025,
+      "shoulder_preload_N": [
+        4.3047506175435535,
+        2.7819325219310804,
+        8.33600647200325,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 134.19262876941087
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_right",
+          "overlap_mm3": 7.829355132245056
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_right",
+          "overlap_mm3": 2.6862749438471005
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_bone_adapter",
+          "overlap_mm3": 0.05778532581631349
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.05045584114168091
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -50
+      ],
+      "quaternion_wxyz": [
+        0.8999170491546514,
+        0.09317815157170115,
+        -0.16025748827483943,
+        0.39469567284466855
+      ],
+      "rotation_from_original_deg": 51.705668280049935,
+      "shoulder_preload_N": [
+        15.883530466872017,
+        2.2948935242831485,
+        5.5209865761019135,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.09954968581296987,
+        3.403108840466626,
+        3.7492445013173326
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.021576170292307177
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -40
+      ],
+      "quaternion_wxyz": [
+        0.9319724849285843,
+        0.09255585719459666,
+        -0.15647425002760618,
+        0.31365029844288606
+      ],
+      "rotation_from_original_deg": 42.511186020904496,
+      "shoulder_preload_N": [
+        12.121632048348296,
+        2.3729712673704615,
+        6.369372249687511,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.05500004532656155,
+        3.1501148573017477,
+        3.460653927191607
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.008421713276892276
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -30
+      ],
+      "quaternion_wxyz": [
+        0.9569350473518384,
+        0.09122915685748674,
+        -0.15150014825592742,
+        0.230217855882725
+      ],
+      "rotation_from_original_deg": 33.752087556122646,
+      "shoulder_preload_N": [
+        10.834113937131322,
+        2.3248370582762505,
+        6.699177545502925,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.04763106449809781,
+        3.0628147695832304,
+        3.3810081713891784
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.003332771767310305
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9746147562515654,
+        0.08920814755102033,
+        -0.14537303887773048,
+        0.14503331642995435
+      ],
+      "rotation_from_original_deg": 25.875057484301742,
+      "shoulder_preload_N": [
+        10.073219588163957,
+        2.21045839281191,
+        6.965625072500426,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.050754576607598634,
+        3.017538106006506,
+        3.3549577527692795
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.013330130760290416
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9848770583677383,
+        0.08650821037633842,
+        -0.13813955289503316,
+        0.058744985865640933
+      ],
+      "rotation_from_original_deg": 19.95421306721422,
+      "shoulder_preload_N": [
+        9.49607377045691,
+        2.0305071275388222,
+        7.256886159080864,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.05874751878008561,
+        2.9920723933162026,
+        3.355230438797773
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.021266599007951355
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9876438513847056,
+        0.083149893485607,
+        -0.12985474150386206,
+        -0.027990429512302264
+      ],
+      "rotation_from_original_deg": 18.032560083135525,
+      "shoulder_preload_N": [
+        8.99647875933877,
+        1.7795697239187698,
+        7.607284691654618,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.06904844619829731,
+        2.9788333003422265,
+        3.373225575382556
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.02690103093863618
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9828940783369728,
+        0.07915875569817174,
+        -0.12058165712140989,
+        -0.11451282082057343
+      ],
+      "rotation_from_original_deg": 21.225694050840318,
+      "shoulder_preload_N": [
+        8.53193306442701,
+        1.4554726276243592,
+        8.035564725030586,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 179.94123368899577
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 64.75595400008599
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.1204728358998967
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.03006222718929152
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9706638878654247,
+        0.07456517198250981,
+        -0.11039087351906854,
+        -0.20016370041766832
+      ],
+      "rotation_from_original_deg": 27.825076723079928,
+      "shoulder_preload_N": [
+        8.081742024382663,
+        1.0636946073618287,
+        8.552651295291813,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 425.7693298686118
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 219.80910617447063
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 18.59076788383516
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.6577736995278852
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.030654136411481906
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9510463591043407,
+        0.0694041022843792,
+        -0.09935994871341522,
+        -0.28429121339243796
+      ],
+      "rotation_from_original_deg": 36.00376636070372,
+      "shoulder_preload_N": [
+        7.632484498634728,
+        0.6200152310799464,
+        9.163037449084747,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 391.2687450816123
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 241.86511619047553
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 42.31704369955396
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 8.255953192805721
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 2.082016791116636
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 0.3704587673859787
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.028658773743012934
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9241907932929799,
+        0.06371482546052167,
+        -0.08757283470287544,
+        -0.36625509857356314
+      ],
+      "rotation_from_original_deg": 44.90670369448161,
+      "shoulder_preload_N": [
+        7.17109223230371,
+        0.15133605542515383,
+        9.86490255887306,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 321.3886894584419
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 104.65596729772317
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 54.89330210969064
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 10.65755423388744
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 10.584631485649796
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 8.007848789775908
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.024136767268864306
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8903015775030015,
+        0.057540640342846124,
+        -0.07511923854232345,
+        -0.44543156130366857
+      ],
+      "rotation_from_original_deg": 54.17766507394988,
+      "shoulder_preload_N": [
+        6.686382501978693,
+        0.0,
+        10.50191405248281,
+        0.43950629985226924
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 263.27358778955556
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 53.65938892838989
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 20.3170487094766
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 5.671928818961121
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 3.3163115269640384
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 2.7332455006177896
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 1.8362453553717912
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 0.633572003467357
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 0.5763121090569614
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.21237293444793648
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.017225515867506404
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8496366291294348,
+        0.05092853620817295,
+        -0.062093939618228046,
+        -0.5212180208933226
+      ],
+      "rotation_from_original_deg": 63.65566172476908,
+      "shoulder_preload_N": [
+        6.162717266163945,
+        0.0,
+        11.114731515063387,
+        1.0579120078892705
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 257.2949414837559
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 228.9256078421005
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 137.1048400782254
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 47.59045965043768
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 17.229239572903555
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 9.796215321379465
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 6.958302514375732
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 2.3587934289708707
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.008135014415508028
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8025054329835697,
+        0.04392883516146465,
+        -0.048596068320292035,
+        -0.5930376966239328
+      ],
+      "rotation_from_original_deg": 73.25995190029758,
+      "shoulder_preload_N": [
+        5.559972288183063,
+        0.0,
+        11.78198671852592,
+        1.6248786741187102
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 526.9771379364296
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 240.23471933145052
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 90.73315918252227
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 25.918465449557743
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 14.535277572958234
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 14.023125082114097
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 1.291626256368057
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.14510538240358545
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 0.09198601904051751
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 0.008492672001565893
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.002858526800528355
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7492666859266707,
+        0.03659480915422168,
+        -0.0347283515993303,
+        -0.6603439973972832
+      ],
+      "rotation_from_original_deg": 82.94620833274301,
+      "shoulder_preload_N": [
+        4.793805113755746,
+        0.0,
+        12.552323699242738,
+        2.1023204527367474
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 647.0941023318096
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 293.81816299106987
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 247.83670635227764
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 53.370602771730745
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 31.709036672385125
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 26.96159443202576
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 8.651617717792172
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 8.557999152827959
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 3.6568562908974513
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 2.6677380985692762
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 0.9812944580827069
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.015421074593751687
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7650936971927995,
+        0.11949081115558126,
+        -0.13140816110369138,
+        0.6189389919536338
+      ],
+      "rotation_from_original_deg": 80.16934309681298,
+      "shoulder_preload_N": [
+        0.08443219344977987,
+        0.0,
+        6.73932686658959,
+        16.751853273550758
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.1655633147869852,
+        2.117567619594913,
+        2.3082281082708116
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.031205002145342598
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        -30
+      ],
+      "quaternion_wxyz": [
+        0.96053632091377,
+        0.10347926754574352,
+        -0.10991976721617623,
+        0.23362290591630194
+      ],
+      "rotation_from_original_deg": 32.30019146345883,
+      "shoulder_preload_N": [
+        16.333860958684344,
+        0.0,
+        1.5443876357846884,
+        14.072791473009989
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.14381385484768644,
+        3.0687718376726707,
+        3.5393046989714096
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.017072183110546157
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9786274954210411,
+        0.09778404559441961,
+        -0.10294611393457949,
+        0.14875685953561074
+      ],
+      "rotation_from_original_deg": 23.73405152224696,
+      "shoulder_preload_N": [
+        12.796646699235737,
+        0.0,
+        2.6426786114956333,
+        12.773745287729819
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.12014189287200096,
+        2.8791214997375727,
+        3.3225817173079935
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.021113931718231088
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9892707237767202,
+        0.09134462801250114,
+        -0.09518897856537746,
+        0.06275868363200589
+      ],
+      "rotation_from_original_deg": 16.801262243039005,
+      "shoulder_preload_N": [
+        10.740154285274569,
+        0.0,
+        3.324827845888273,
+        12.316593674754797
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.11516215041258114,
+        2.7702073370152513,
+        3.215605786209566
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.022852182824626394
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9923850045864636,
+        0.08421002265601311,
+        -0.08670739759261614,
+        -0.023717123748767763
+      ],
+      "rotation_from_original_deg": 14.15071650441625,
+      "shoulder_preload_N": [
+        9.26890774629768,
+        0.0,
+        3.87292577223746,
+        12.279275840167154
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.11869981635576249,
+        2.69315608642505,
+        3.15920557151959
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.022234120549462263
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9879466362928552,
+        0.07643452817971094,
+        -0.07756592096881693,
+        -0.11001242949702242
+      ],
+      "rotation_from_original_deg": 17.809796192051586,
+      "shoulder_preload_N": [
+        8.071893751406137,
+        0.0,
+        4.384106905555979,
+        12.507091378576769
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 11.702504546307885
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.01927852440221343
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9759893975585691,
+        0.06807732079153123,
+        -0.06783412085086142,
+        -0.19547047422948366
+      ],
+      "rotation_from_original_deg": 25.16181574230321,
+      "shoulder_preload_N": [
+        7.012826264178267,
+        0.0,
+        4.898531602466312,
+        12.929873279574881
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 178.99771949910266
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.09876863078760963
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.014075198676211915
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9566042901903514,
+        0.05920200388591773,
+        -0.05758606211386881,
+        -0.27944087062475914
+      ],
+      "rotation_from_original_deg": 33.88240379345973,
+      "shoulder_preload_N": [
+        6.02128078308397,
+        0.0,
+        5.433365558417626,
+        13.512159753064516
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 156.5236091912593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 9.117830055494144
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.006782243790630559
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9299388465603224,
+        0.04987612398358514,
+        -0.04689973867277465,
+        -0.36128455326356923
+      ],
+      "rotation_from_original_deg": 43.14943141587584,
+      "shoulder_preload_N": [
+        5.053800398011414,
+        0.0,
+        5.995198698857777,
+        14.235135257606819
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 99.86746205655777
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 16.904643839918652
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0023787475107436657
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8961960067955413,
+        0.04017065666171037,
+        -0.035856479901544225,
+        -0.440378642302466
+      ],
+      "rotation_from_original_deg": 52.675062551974314,
+      "shoulder_preload_N": [
+        4.075711204582005,
+        0.0,
+        6.586756652171674,
+        15.088149642290695
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 66.3140516454536
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 14.93152665803633
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.013129423142905366
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8556325742811022,
+        0.030159466386934328,
+        -0.024540331667528524,
+        -0.5161211839655464
+      ],
+      "rotation_from_original_deg": 62.34062144762168,
+      "shoulder_preload_N": [
+        3.048600928720177,
+        0.0,
+        7.213531177677328,
+        16.062465006648317
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 126.90198428475301
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 80.30857886019706
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 56.494918070176155
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 8.19602943966843
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 8.189688050820546
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.30648742157385855
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.025143129266873083
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8085572612313097,
+        0.019918744362170025,
+        -0.013037416691665533,
+        -0.5879357317761577
+      ],
+      "rotation_from_original_deg": 72.0895790030108,
+      "shoulder_preload_N": [
+        1.9154825773192479,
+        0.0,
+        7.895020463286493,
+        17.142183688847787
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 375.05568628191736
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 96.32634736802511
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 69.71770002810953
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 11.81365276415876
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 1.798589534176923
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.1562497783163969
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.038054835501303466
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -10,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7553283392033244,
+        0.009526428665542923,
+        -0.0014352791025715461,
+        -0.6552757336626511
+      ],
+      "rotation_from_original_deg": 81.89186480194685,
+      "shoulder_preload_N": [
+        0.5724713383397996,
+        0.0,
+        8.690182479134704,
+        18.282865331226002
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 567.223860003143
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 131.19030219019237
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 7.98418357577126
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 5.016396801021407
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 4.927537863070629
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 4.171398196847614
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 1.7237580410612467
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 1.5886482007064644
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.051472226185896704
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -5,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.995237096528515,
+        0.08510985326210874,
+        -0.043395001221926355,
+        -0.01939867109218429
+      ],
+      "rotation_from_original_deg": 11.188607573583388,
+      "shoulder_preload_N": [
+        9.551682514476749,
+        0.0,
+        0.29160474764440825,
+        24.384611142962502
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.15911995469358428,
+        2.370903256872019,
+        2.9137664358715334
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.01798409657492025
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -5,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.991118581675338,
+        0.07356480319260554,
+        -0.03440253367710107,
+        -0.10530262326122611
+      ],
+      "rotation_from_original_deg": 15.283778778080338,
+      "shoulder_preload_N": [
+        7.606429104602517,
+        0.0,
+        1.071848081465943,
+        23.90242282418829
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.16519696316101687,
+        2.281009807014643,
+        2.857925792302421
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": 0.00891253530509243
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -5,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9794570559618496,
+        0.06145988055116399,
+        -0.025148242078175266,
+        -0.19040515888378765
+      ],
+      "rotation_from_original_deg": 23.26726077800692,
+      "shoulder_preload_N": [
+        5.982147308212505,
+        0.0,
+        1.774704285133065,
+        23.851688630961565
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 24.536408596996832
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0020852415833286274
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -5,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9603412706401514,
+        0.04888721110823755,
+        -0.015702557172110804,
+        -0.2740585962774652
+      ],
+      "rotation_from_original_deg": 32.38044942444835,
+      "shoulder_preload_N": [
+        4.519942084018847,
+        0.0,
+        2.45724946383612,
+        24.120056299693644
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 47.082062577084514
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.014675072204729132
+    },
+    {
+      "parameters_deg": [
+        -10,
+        -5,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9339167083789682,
+        0.035942480469872286,
+        -0.006137366324503327,
+        -0.3556262822723664
+      ],
+      "rotation_from_original_deg": 41.892338903197135,
+      "shoulder_preload_N": [
+        3.130954929115881,
+        0.0,
+        3.1475526580063726,
+        24.64429635615006
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 8.141414879203841
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.02847442092644273
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7624168063896312,
+        0.059127794543701165,
+        -0.13685174131108513,
+        0.6296793772604892
+      ],
+      "rotation_from_original_deg": 80.644552100479,
+      "shoulder_preload_N": [
+        8.749094305751665,
+        5.356026847341278,
+        2.758600353025316,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 57.47843960649047
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_bolt_right",
+          "overlap_mm3": 24.348957100926373
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_right",
+          "overlap_mm3": 23.98441785734326
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_left",
+          "overlap_mm3": 10.195708612878407
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_right",
+          "overlap_mm3": 7.027005066343591
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_bolt_left",
+          "overlap_mm3": 2.16948797498509
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_left",
+          "overlap_mm3": 1.6959515454782566
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.07768577948459827
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -70
+      ],
+      "quaternion_wxyz": [
+        0.8146251485317848,
+        0.058403828156108006,
+        -0.13978489896197246,
+        0.5598526969288177
+      ],
+      "rotation_from_original_deg": 70.89937145366407,
+      "shoulder_preload_N": [
+        12.258697116363651,
+        5.073840672118392,
+        1.456164397466743,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_right",
+          "overlap_mm3": 19.57966231835969
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_bolt_right",
+          "overlap_mm3": 12.281074004359512
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_rigid_cap",
+          "overlap_mm3": 7.741550494799403
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "elbow:FJ1486_proximal_nut_washer_right",
+          "overlap_mm3": 5.638856806341664
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.06850793822652687
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -50
+      ],
+      "quaternion_wxyz": [
+        0.9000923121546484,
+        0.055631322834977424,
+        -0.14244544522807748,
+        0.4079807356401824
+      ],
+      "rotation_from_original_deg": 51.6595921772624,
+      "shoulder_preload_N": [
+        1.6182370411595444,
+        4.807338674857985,
+        5.077227681748577,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.07062760747834512,
+        2.4763716119540877,
+        2.6913040104063457
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.049227441677908115
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -40
+      ],
+      "quaternion_wxyz": [
+        0.9327006769137041,
+        0.053603884341018274,
+        -0.14215258547972837,
+        0.32709129201142245
+      ],
+      "rotation_from_original_deg": 42.2804147709629,
+      "shoulder_preload_N": [
+        3.5370893621972184,
+        4.563653833731212,
+        4.4894908190092195,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.02428561703087893,
+        2.57483381703566,
+        2.865493411282133
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.03971061451858838
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -30
+      ],
+      "quaternion_wxyz": [
+        0.9582106263413798,
+        0.05116848792031369,
+        -0.14077785872180065,
+        0.24371248614733354
+      ],
+      "rotation_from_original_deg": 33.244873686896284,
+      "shoulder_preload_N": [
+        4.139217974303592,
+        4.348485632371585,
+        4.410751561793628,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.0012862585581819635,
+        2.608173047567119,
+        2.9472523986519135
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.030663448174269692
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9764280143192023,
+        0.04834366841015776,
+        -0.1383317274550048,
+        0.1584788811060409
+      ],
+      "rotation_from_original_deg": 24.93001384236907,
+      "shoulder_preload_N": [
+        4.341386973973142,
+        4.145672066086513,
+        4.5281315569583285,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 267.1598122707116
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.022360836216236895
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.987214195524701,
+        0.04515092439269545,
+        -0.13483280821529564,
+        0.07203915608736654
+      ],
+      "rotation_from_original_deg": 18.344060645511114,
+      "shoulder_preload_N": [
+        4.359275463844965,
+        3.9503952507441293,
+        4.769296039182359,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 540.6897850720217
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 68.02827603710519
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 18.731423903593562
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "bone:humerus",
+          "overlap_mm3": 16.671888863433843
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 0.013823274483580672
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.01505504930751291
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9904870806060275,
+        0.04161455457773118,
+        -0.1303077298907925,
+        -0.014948830407564388
+      ],
+      "rotation_from_original_deg": 15.818650121342484,
+      "shoulder_preload_N": [
+        4.275786622968775,
+        3.7609376703684023,
+        5.1067815054920365,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 162.1253933532519
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "bone:humerus",
+          "overlap_mm3": 62.24389276233174
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 47.41362572906888
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 41.601071092410535
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 20.475846921034773
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 3.432440412285097
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 0.03662902758713991
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.008968070086411118
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.986221760931491,
+        0.03776147287487531,
+        -0.1247909310598619,
+        -0.10182304727674317
+      ],
+      "rotation_from_original_deg": 19.044273041216144,
+      "shoulder_preload_N": [
+        4.133733212883658,
+        3.5783152271653593,
+        5.525184708785392,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 164.4011900111064
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "bone:humerus",
+          "overlap_mm3": 93.56834187627325
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 79.36010921388711
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 22.033927858551024
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 13.939234201536362
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0042848483364056455
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9744506981592852,
+        0.033621003562440924,
+        -0.11832439789274145,
+        -0.187922329273709
+      ],
+      "rotation_from_original_deg": 25.958892887099477,
+      "shoulder_preload_N": [
+        3.9601598939171136,
+        3.406797343363856,
+        6.01164049902205,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 213.30734209456926
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 172.63374670475875
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 91.93018661209634
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "bone:humerus",
+          "overlap_mm3": 9.903444299403517
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 7.270170848154105
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 6.559201149461114
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0011476813805429513
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9552634771846685,
+        0.02922465811197935,
+        -0.11095734461143232,
+        -0.2725914088742971
+      ],
+      "rotation_from_original_deg": 34.40576768050499,
+      "shoulder_preload_N": [
+        3.774575176258097,
+        3.2541446537964753,
+        6.551841935189676,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 301.04475616825187
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 248.04359987142703
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 178.75415147284986
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 61.61359029943931
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 21.946499145929728
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.22385822752998466
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 0.13589544566997613
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.000348109550702366
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9288061243448185,
+        0.02460589536695458,
+        -0.10274583893975374,
+        -0.3551859032581589
+      ],
+      "rotation_from_original_deg": 43.501060228916955,
+      "shoulder_preload_N": [
+        3.592333192430675,
+        3.131127118010918,
+        7.127985861961744,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 729.1473551955086
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 442.7337403035385
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 160.53017606494723
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 118.8999311141905
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 45.18609909411159
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 31.2699893748768
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 13.056309404019292
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.6723538114387695
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": 0.0001570756067928478
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.895279996070233,
+        0.019799866900741453,
+        -0.09375237539410987,
+        -0.4350772184511141
+      ],
+      "rotation_from_original_deg": 52.91116583087423,
+      "shoulder_preload_N": [
+        3.426437564938508,
+        3.0501913854300313,
+        7.717754823739127,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 647.6248698744312
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 515.3923907960112
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 290.33515112319645
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 217.44781670579937
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 109.12272234695358
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 79.7796254530837
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 71.36365688986496
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 35.03586214067374
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 15.435400389766738
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 4.991970353615392
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.19186974113271665
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 0.16704673635085707
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0017149787425541235
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8549402464407113,
+        0.014843149491927166,
+        -0.08404539966248482,
+        -0.5116573333048491
+      ],
+      "rotation_from_original_deg": 62.49373180868558,
+      "shoulder_preload_N": [
+        3.2890383208420144,
+        3.0234419886284054,
+        8.294025648927233,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 438.67915768283194
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 268.40107351852095
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 226.2866649890667
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 224.88187760223056
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 127.68417878115892
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 121.65264861687459
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 104.23242181953735
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 96.82898240274632
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 72.19074836324808
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 27.700788996814325
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 24.221123334013264
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 14.535277572957687
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_right",
+          "overlap_mm3": 1.6168753186272333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_right",
+          "overlap_mm3": 0.6947748764166256
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_shaft",
+          "overlap_mm3": 0.11092257517507216
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.005211172073236441
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8080938853087409,
+        0.009773466752940635,
+        -0.07369878769142843,
+        -0.5843434269049893
+      ],
+      "rotation_from_original_deg": 72.1797705358144,
+      "shoulder_preload_N": [
+        3.1935233103069174,
+        3.0603597846047084,
+        8.824873331819074,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 582.0940515536931
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 286.2592309069214
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 137.19215835960244
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 65.17438250952387
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 44.45020368181578
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 28.068976782487276
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 12.789286711123044
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 12.599778805460184
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 8.269597673526237
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 7.624829919199112
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 0.8763281198497094
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 0.07262093092828331
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.010225274320064454
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7550974417691422,
+        0.0046294020305836375,
+        -0.06279128344549557,
+        -0.6525823141901745
+      ],
+      "rotation_from_original_deg": 81.9322305099437,
+      "shoulder_preload_N": [
+        3.158943831838549,
+        3.1657823338001996,
+        9.272612992832993,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 561.9077313771638
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 401.82840380289036
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 213.17334100196226
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 166.62272846109417
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 120.43045286155916
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 31.976027448670372
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_bolt",
+          "overlap_mm3": 25.805753859414775
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 11.981618179568285
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 11.718854434267058
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 7.1143314297411
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_front_washer",
+          "overlap_mm3": 6.959473752665257
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_cap_rotor",
+          "overlap_mm3": 4.5648031774306475
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.016604934523523556
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        -80
+      ],
+      "quaternion_wxyz": [
+        0.7648395127068215,
+        0.08749438623954227,
+        -0.10379091970221961,
+        0.6297560616352377
+      ],
+      "rotation_from_original_deg": 80.21456706319985,
+      "shoulder_preload_N": [
+        1.094167263292802,
+        1.186330214986137,
+        3.0961730887202696,
+        0.0
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.04092675038309743,
+        2.632136510343168,
+        2.8356902269124964
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.04317398652555625
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        -30
+      ],
+      "quaternion_wxyz": [
+        0.9623091589955267,
+        0.06293916061353949,
+        -0.09899852716183859,
+        0.24535491883060356
+      ],
+      "rotation_from_original_deg": 31.561609477542135,
+      "shoulder_preload_N": [
+        7.335186601544268,
+        0.0,
+        0.41251476391097397,
+        6.626886175223941
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.10073238948536845,
+        2.7103953923876443,
+        3.1509578485328578
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.016763242583272126
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.980777361531432,
+        0.05641957351677713,
+        -0.0957206362005961,
+        0.1604062300441623
+      ],
+      "rotation_from_original_deg": 22.504650888303924,
+      "shoulder_preload_N": [
+        6.105170267420579,
+        0.0,
+        1.0734880551100814,
+        7.097987858520408
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.09374306505083774,
+        2.632373895841541,
+        3.078721913883741
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.014490086670961083
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9917812561365209,
+        0.04947059939848219,
+        -0.0917142534001667,
+        0.07423675299115517
+      ],
+      "rotation_from_original_deg": 14.701723288140645,
+      "shoulder_preload_N": [
+        5.223812327011954,
+        0.0,
+        1.6337243495558884,
+        7.582806131999678
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.09667441569312542,
+        2.5801484487801223,
+        3.0484890754553278
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.013459370728493854
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.995237096528515,
+        0.042145124147600174,
+        -0.08700986975278173,
+        -0.012497710577491683
+      ],
+      "rotation_from_original_deg": 11.188607573583388,
+      "shoulder_preload_N": [
+        4.476608255493977,
+        0.0,
+        2.180437573280459,
+        8.052994219425438
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.10395178082248367,
+        2.5406529506464386,
+        3.0437341961561524
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.01370241253821488
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9911185816753378,
+        0.03449889905403319,
+        -0.08164328845858229,
+        -0.09913705902231987
+      ],
+      "rotation_from_original_deg": 15.283778778080341,
+      "shoulder_preload_N": [
+        3.7857124966598033,
+        0.0,
+        2.7448673394120084,
+        8.514067591101032
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 16.606698595896084
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.015211827397719079
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9794570559618497,
+        0.026590116507660223,
+        -0.07565535244164762,
+        -0.18502191458739528
+      ],
+      "rotation_from_original_deg": 23.267260778006918,
+      "shoulder_preload_N": [
+        3.118655356778961,
+        0.0,
+        3.3383630081398086,
+        8.975616491485347
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 79.87748052359413
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.017941752500303897
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9603412706401514,
+        0.018478967119112646,
+        -0.06909163351068122,
+        -0.26949864166317417
+      ],
+      "rotation_from_original_deg": 32.38044942444836,
+      "shoulder_preload_N": [
+        2.4605056002859023,
+        0.0,
+        3.963117855975804,
+        9.445254590610523
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 37.23379693001328
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.23245150652802016
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.02180924045313389
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9339167083789682,
+        0.010227181632883208,
+        -0.06200208553002958,
+        -0.3519243213481672
+      ],
+      "rotation_from_original_deg": 41.892338903197135,
+      "shoulder_preload_N": [
+        1.8025626895379998,
+        0.0,
+        4.616625800267004,
+        9.927324393323017
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 8.67159250431398
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 1.7352023029532537
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.026696779591807544
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.9003844760526947,
+        0.0018975611190864133,
+        -0.0544406642406116,
+        -0.43167164444998574
+      ],
+      "rotation_from_original_deg": 51.582697986484135,
+      "shoulder_preload_N": [
+        1.135976497155072,
+        0.0,
+        5.294782138995918,
+        10.422236275689633
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 6.354782161864671
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 1.5882242493996812
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 0.17536596332418353
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 0.13396118388030276
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.032455864512809816
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.8599997741966492,
+        -0.006446500980605355,
+        -0.046464916624150754,
+        -0.5081336856870743
+      ],
+      "rotation_from_original_deg": 61.36688492430268,
+      "shoulder_preload_N": [
+        0.44594423744798706,
+        0.0,
+        5.995906624224583,
+        10.924909531415313
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 144.69345107247216
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 68.35652876088528
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 15.042274875073256
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 11.228687367056509
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.8910190526211007
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.03891150833505173
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -10,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8130699547769057,
+        -0.01474150131533098,
+        -0.038135542935896355,
+        -0.5807285227565762
+      ],
+      "rotation_from_original_deg": 71.20606402468515,
+      "shoulder_preload_N": [
+        0.0,
+        5.861711215621579,
+        3.710735132975325,
+        20.14031987066304
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 391.0297954108201
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 30.617496285575836
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 15.90250100294283
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 5.204204243323427
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.045867559587709744
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -5,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9825989615896908,
+        0.019508613654823773,
+        -0.03284229272721199,
+        -0.18176930017070633
+      ],
+      "rotation_from_original_deg": 21.408537110766325,
+      "shoulder_preload_N": [
+        2.26876992199358,
+        0.0,
+        0.5217560177657721,
+        20.187045156557257
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 4.827011924263761
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.03431496464527557
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -5,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9635909999047413,
+        0.007698100362058874,
+        -0.027094402558630784,
+        -0.2658928684703438
+      ],
+      "rotation_from_original_deg": 31.016913038258007,
+      "shoulder_preload_N": [
+        1.1899875605643266,
+        0.0,
+        1.2104717125529059,
+        20.442959636646812
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.1603281853201936,
+        2.078478628198585,
+        2.8272451266459884
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.04354593248816005
+    },
+    {
+      "parameters_deg": [
+        -5,
+        -5,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9372495288783629,
+        -0.004171000122701382,
+        -0.021140307626530828,
+        -0.3479928314904184
+      ],
+      "rotation_from_original_deg": 40.810669951149634,
+      "shoulder_preload_N": [
+        0.13531025769463895,
+        0.0,
+        1.9130948785528,
+        20.85723017299264
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        0.16308413713447667,
+        2.035132173233365,
+        2.865078615035298
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.05313015283810459
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        -20
+      ],
+      "quaternion_wxyz": [
+        0.9763825861650424,
+        0.00738716434880199,
+        -0.13102709372680713,
+        0.17162277222459135
+      ],
+      "rotation_from_original_deg": 24.954120252232208,
+      "shoulder_preload_N": [
+        0.00036301287120160507,
+        6.16511649000176,
+        2.286633800200346,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 204.92882081260692
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 180.49014498527507
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 65.76130715826125
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "bone:humerus",
+          "overlap_mm3": 42.594526896410144
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 10.491867459209809
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 0.20929699815032993
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.05778093355920427
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        -10
+      ],
+      "quaternion_wxyz": [
+        0.9876721143508956,
+        0.003707691058260212,
+        -0.13126940162172446,
+        0.0851961956810419
+      ],
+      "rotation_from_original_deg": 18.011882178082477,
+      "shoulder_preload_N": [
+        0.30819794740929146,
+        5.957494838889531,
+        2.435871023873888,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 489.4705227590863
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 255.4715852321742
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 115.54846819823645
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 21.768282899001978
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.05125321522662835
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9914448613738104,
+        0.0,
+        -0.13051267010766862,
+        -0.001878775354509735
+      ],
+      "rotation_from_original_deg": 14.999999999999998,
+      "shoulder_preload_N": [
+        0.43445872531822705,
+        5.7991505343656735,
+        2.7263714289652285,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 699.7499427217497
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 282.1504907986221
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 157.55017289028285
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 65.27856774834423
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 2.3691219514836193
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.04485264563657139
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9876721143508956,
+        -0.003707691058260212,
+        -0.12876265836838863,
+        -0.08893944777517797
+      ],
+      "rotation_from_original_deg": 18.011882178082473,
+      "shoulder_preload_N": [
+        0.46097871438746973,
+        5.696932373896248,
+        3.11394954790718,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 802.7548303150626
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 305.86235702299854
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 213.4292069180214
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 117.95345602275955
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 82.5501506436496
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.03877370285718371
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        20
+      ],
+      "quaternion_wxyz": [
+        0.9763825861650424,
+        -0.00738716434880199,
+        -0.12603268504990636,
+        -0.17532323729517027
+      ],
+      "rotation_from_original_deg": 24.954120252232208,
+      "shoulder_preload_N": [
+        0.4394799269360716,
+        5.6566928108014185,
+        3.565302558421911,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 835.6570046731659
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 334.7631225940368
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 297.1135588862938
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 167.8178439885483
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 70.41731570538376
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.023612416334693173
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.03320109248872215
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        30
+      ],
+      "quaternion_wxyz": [
+        0.9576621969425486,
+        -0.011010416858157596,
+        -0.12234352689757835,
+        -0.2603727111162812
+      ],
+      "rotation_from_original_deg": 33.46386313025449,
+      "shoulder_preload_N": [
+        0.4085820004329699,
+        5.68319360256147,
+        4.04960769077451,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 858.3232879420594
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 397.9290203451468
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 364.2070750916895
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 200.83242971262908
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 20.72581420359181
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 4.253953225774091
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.02830413547735654
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        40
+      ],
+      "quaternion_wxyz": [
+        0.9316534201490776,
+        -0.014549873446951155,
+        -0.11772326063251849,
+        -0.34344059138845573
+      ],
+      "rotation_from_original_deg": 42.61192517632735,
+      "shoulder_preload_N": [
+        0.40201777561482566,
+        5.779709787094213,
+        4.534245522015479,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 940.0720961875712
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 410.5567241857557
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 331.3266805499462
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 210.94104189604425
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 14.18453002184834
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 11.002842790201692
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 7.09190416461509
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 0.24482044468498732
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.024231623383896787
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        50
+      ],
+      "quaternion_wxyz": [
+        0.8985541982805563,
+        -0.01797859671335962,
+        -0.11220704927079692,
+        -0.4238946813850653
+      ],
+      "rotation_from_original_deg": 52.06266188192192,
+      "shoulder_preload_N": [
+        0.4546183694968781,
+        5.947571381633716,
+        4.981492027905395,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 992.9382981547759
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 455.17763309278484
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 328.0451208101509
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 294.2101669716695
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 152.89478621333336
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 138.09889244459694
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 92.77675102359463
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 33.36174159144177
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 17.954098109381007
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 15.519435314003498
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 10.05295568495124
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 7.233876492263115
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 6.820711304270115
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.021107297427512474
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        60
+      ],
+      "quaternion_wxyz": [
+        0.858616436401261,
+        -0.02127049200300593,
+        -0.10583687451165581,
+        -0.5011226769017277
+      ],
+      "rotation_from_original_deg": 61.6768208387361,
+      "shoulder_preload_N": [
+        0.6098207074247592,
+        6.185948478532663,
+        5.344009314547082,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 713.2126063374773
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 561.4058693044682
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 311.1975507594523
+        },
+        {
+          "left": "thorax_reference:FJ3331",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 255.9938195336606
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 178.47359755702158
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_spacer_left",
+          "overlap_mm3": 119.20340902997494
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 48.57020381248654
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 30.333866533693904
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 18.30977067690204
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:forearm",
+          "overlap_mm3": 14.689026199541901
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 11.328422156785287
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 9.746346349344215
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 8.981572138350344
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 2.528304781245173
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.01902608867140325
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        70
+      ],
+      "quaternion_wxyz": [
+        0.8121440849941729,
+        -0.024400506005035127,
+        -0.09866121723142891,
+        -0.5745368262610229
+      ],
+      "rotation_from_original_deg": 71.3881071834995,
+      "shoulder_preload_N": [
+        0.9342149002367846,
+        6.492351623238189,
+        5.5553158023257625,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 521.143517913367
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 155.89747027574924
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 137.22313183540294
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:forearm",
+          "overlap_mm3": 74.78377768710311
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 62.07664645025262
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_bolt",
+          "overlap_mm3": 34.089493822466686
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 11.256125885295358
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_nut",
+          "overlap_mm3": 8.344530279111694
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_right",
+          "overlap_mm3": 6.2615536423417435
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_front_washer",
+          "overlap_mm3": 5.1411509470780565
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper_back_washer",
+          "overlap_mm3": 3.2929643001189226
+        },
+        {
+          "left": "thorax_reference:FJ3342",
+          "right": "series:b_shaft",
+          "overlap_mm3": 2.207073686726777
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 2.1403526555618897
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_right",
+          "overlap_mm3": 1.6058184904649528
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 1.3356415870059537
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 1.0255356487883454
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 0.3128772279188796
+        },
+        {
+          "left": "bone:scapula",
+          "right": "series:b_retainer_screw",
+          "overlap_mm3": 0.3040596953586067
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 0.14177989721291617
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 0.1342383130484898
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.018051233590480116
+    },
+    {
+      "parameters_deg": [
+        0,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.759490826714273,
+        -0.027344817422937654,
+        -0.09073468851479911,
+        -0.6435784034576508
+      ],
+      "rotation_from_original_deg": 81.1613383264517,
+      "shoulder_preload_N": [
+        1.5549316844355336,
+        6.86488497748545,
+        5.503791471565183,
+        0.0
+      ],
+      "rigid_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 328.75019311952127
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 183.4515179201789
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:forearm",
+          "overlap_mm3": 171.3419844974647
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:paired_bone_frame",
+          "overlap_mm3": 99.16956234081239
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 97.09165162089228
+        },
+        {
+          "left": "thorax_reference:FJ3342",
+          "right": "series:b_shaft",
+          "overlap_mm3": 31.233343198817625
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_keeper",
+          "overlap_mm3": 15.81613630178866
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 14.43190136648722
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_washer_left",
+          "overlap_mm3": 2.1440730080478962
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_nut_left",
+          "overlap_mm3": 0.6409900342567489
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:FJ1477_cap_rotor",
+          "overlap_mm3": 0.031633368457467295
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.01821235266307694
+    },
+    {
+      "parameters_deg": [
+        0,
+        -10,
+        -60
+      ],
+      "quaternion_wxyz": [
+        0.862729915662821,
+        0.04304019706713333,
+        -0.08264148283629365,
+        0.4970060556688046
+      ],
+      "rotation_from_original_deg": 60.75101305058632,
+      "shoulder_preload_N": [
+        0.3080828752943528,
+        4.736273648138896,
+        0.0,
+        15.701068657646063
+      ],
+      "rigid_hits": [],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+        -0.05761434514819507,
+        2.0492127735604093,
+        2.3330897769866983
+      ],
+      "unconstrained_neutral_elbow_moment_Nm": -0.052372859755897956
+    },
+    {
+      "parameters_deg": [
+        0,
+        -10,
+        0
+      ],
+      "quaternion_wxyz": [
+        0.9961946980917455,
+        0.0,
+        -0.08714671368055517,
+        -0.0012545073038079163
+      ],
+      "rotation_from_original_deg": 10.0,
+      "shoulder_preload_N": [
+        0.5336486555896607,
+        0.0,
+        0.16166114949608654,
+        3.0252177771375317
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 173.99899287888655
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 6.899009362140368
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 0.09978484034611511
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.04961345488008239
+    },
+    {
+      "parameters_deg": [
+        0,
+        -10,
+        10
+      ],
+      "quaternion_wxyz": [
+        0.9924038765061041,
+        -0.007502400686783167,
+        -0.08556524330846554,
+        -0.08807297552118622
+      ],
+      "rotation_from_original_deg": 14.133148778523218,
+      "shoulder_preload_N": [
+        0.14224093639287594,
+        0.0,
+        0.8136994640197398,
+        3.8449664123371865
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_shoulder_pin",
+          "overlap_mm3": 244.7619466211353
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "elbow:elbow_washer_left",
+          "overlap_mm3": 7.607461998886402
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 2.8493294957092745
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 0.1804960755524683
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.049757634505295065
+    },
+    {
+      "parameters_deg": [
+        5,
+        -15,
+        80
+      ],
+      "quaternion_wxyz": [
+        0.7624384777041165,
+        -0.05926698446231657,
+        -0.11850537494749212,
+        -0.6333494046555402
+      ],
+      "rotation_from_original_deg": 80.6407142833159,
+      "shoulder_preload_N": [
+        0.0,
+        11.366740316883497,
+        1.0719217683574649,
+        3.6678901479344987
+      ],
+      "rigid_hits": [
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:forearm",
+          "overlap_mm3": 1682.9984759493868
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "bone:humerus",
+          "overlap_mm3": 1003.7348436858294
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_bone_adapter",
+          "overlap_mm3": 112.29108974456852
+        },
+        {
+          "left": "thorax_reference:FJ3347",
+          "right": "bone:humerus",
+          "overlap_mm3": 103.20958908460119
+        },
+        {
+          "left": "thorax_reference:FJ3342",
+          "right": "series:b_shaft",
+          "overlap_mm3": 102.40428153058858
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_rigid_cap",
+          "overlap_mm3": 82.50669065218251
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_bolt_left",
+          "overlap_mm3": 58.407863649235246
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "elbow:FJ1477_cap_rotor",
+          "overlap_mm3": 47.343642822915896
+        },
+        {
+          "left": "thorax_reference:FJ3330",
+          "right": "bone:humerus",
+          "overlap_mm3": 24.432019116563477
+        },
+        {
+          "left": "bone:scapula",
+          "right": "elbow:FJ1477_proximal_head_washer_left",
+          "overlap_mm3": 12.152334844552774
+        },
+        {
+          "left": "thorax_reference:FJ3348",
+          "right": "elbow:FJ1477_distal_nut_left",
+          "overlap_mm3": 0.40510377863929714
+        }
+      ],
+      "shoulder_stiffness_eigenvalues_Nm_per_rad": null,
+      "unconstrained_neutral_elbow_moment_Nm": -0.0202310955897857
+    }
+  ],
+  "candidate": {
+    "parameters_deg": [
+      -5,
+      -10,
+      0
+    ],
+    "quaternion_wxyz": [
+      0.995237096528515,
+      0.042145124147600174,
+      -0.08700986975278173,
+      -0.012497710577491683
+    ],
+    "rotation_from_original_deg": 11.188607573583388,
+    "shoulder_preload_N": [
+      4.476608255493977,
+      0.0,
+      2.180437573280459,
+      8.052994219425438
+    ],
+    "rigid_hits": [],
+    "shoulder_stiffness_eigenvalues_Nm_per_rad": [
+      0.10395178082248367,
+      2.5406529506464386,
+      3.0437341961561524
+    ],
+    "unconstrained_neutral_elbow_moment_Nm": -0.01370241253821488
+  },
+  "cases": {
+    "hold": {
+      "peak_elbow_deg": 0.0,
+      "final_elbow_deg": -1.61202431364619e-09,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_hold.csv",
+        "sha256": "1c8f727acd3a6ec6be42bf809fc6b1e38a8d768cc09f4f3a7e08c40b0c2ea924"
+      }
+    },
+    "elbow_load_release": {
+      "peak_elbow_deg": 99.72990492595632,
+      "final_elbow_deg": -1.2599708010609081e-09,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_elbow_load_release.csv",
+        "sha256": "ebbf043385b21e3d408fa0189699d80f4812c128699746b3e9951996e8d07438"
+      }
+    }
+  },
+  "scope": "GH position grid used only to choose the initial pose. The prescribed shoulder preloads remain constant and elbow input is tension-only. Subsequent motion is solved, not prescribed. Geometry audits rigid cross-body overlaps, excluding wire and TPU. A positive GH stiffness test is local at fixed elbow, not a complete stability proof. Girdle is fixed, loads assumed."
+}

@@ -1,0 +1,44 @@
+{
+  "seed": 67103,
+  "analytic_box": {
+    "points": 500,
+    "near_points": 496,
+    "rejected_deep_inside_points": 1,
+    "maximum_signed_distance_error_mm": 0.0
+  },
+  "anatomy_checks": [
+    {
+      "bone": "bone:humerus",
+      "points": 300,
+      "near_points": 58,
+      "rejected_deep_inside_points": 0,
+      "maximum_signed_distance_error_mm": 0.0
+    },
+    {
+      "bone": "bone:scapula",
+      "points": 300,
+      "near_points": 19,
+      "rejected_deep_inside_points": 0,
+      "maximum_signed_distance_error_mm": 0.0
+    }
+  ],
+  "contact_weight_sum_m": 0.16487312766940546,
+  "beam_rest_length_m": 0.16487312766940548,
+  "anatomy_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_arm_reference.json",
+    "sha256": "d0407cb7f398ecbb068f40aed021f748c322a0ab7f9957498784dcd940f6dc4e"
+  },
+  "sample_trajectory": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elastic_conduit_bench/FJ1468_E15_T5_ds5_dt2e-05.json",
+    "sha256": "3472c8d480a21c2bef67c9e20413d5765e2bb1362d4893d70be88fa1652acc60"
+  },
+  "surface_module": {
+    "file": "tools/channel_first_bone_contact.py",
+    "sha256": "621e88dd107984585d4acf4ff4725ef1975f2feaebb50c2bd3fd1df97dca57dc"
+  },
+  "verification_script": {
+    "file": "tools/verify_channel_first_bone_contact.py",
+    "sha256": "76a72ef78dad984d291f3337510d304949dbbbb32dbe17fd3348d898134a5400"
+  },
+  "scope": "Analytic box signed distances; actual-mesh candidate-cache coverage compared with untruncated global triangle search sharing the point/triangle kernel; signs independently compared with native solid ray parity. This verifies these sampled queries, not all possible geometry or continuum contact."
+}

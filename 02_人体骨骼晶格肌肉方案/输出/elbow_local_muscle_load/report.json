@@ -1,0 +1,179 @@
+{
+  "interface_report": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/channel_first/elbow_passive_model/model_check.json",
+    "sha256": "910c2616c737d2b79dbc1ff89beba9fbf48b9e27e2c5a366dc13364819745ac5"
+  },
+  "interface_assembly": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/channel_first/elbow_mount_candidate/assembly.json",
+    "sha256": "bc3937d8405bf39851dccd1a4819d1859c3fc2b41ea46217371d58da8fd6696d"
+  },
+  "solver": "3.14.0",
+  "timestep_s": 0.0005,
+  "trace_interval_s": 0.01,
+  "load_profile": "1 s ramp, 1 s hold, 1 s release, 1 s recovery",
+  "assumptions": "One cap fixed; other cap guided along bore chord in a virtual bench. Equal and opposite actuator forces; ideal linear axial spring and dashpot represent TPU. Stiffness, damping and moving mass are assumed. No resolved lattice, cable, contact or elbow motion.",
+  "muscles": {
+    "FJ1486": {
+      "role": "flexor",
+      "proximal_fixed_bore_source_mm": [
+        -190.57320238918075,
+        -97.42401676293763,
+        1197.0549591832978
+      ],
+      "distal_moving_bore_source_mm": [
+        -204.4450712279192,
+        -83.77686505943915,
+        1017.368241162649
+      ],
+      "distal_pull_direction": [
+        0.07675153334238283,
+        -0.07550819800678556,
+        0.9941869613726391
+      ],
+      "proximal_pull_direction": [
+        -0.07675153334238283,
+        0.07550819800678556,
+        -0.9941869613726391
+      ],
+      "neutral_bore_span_mm": 180.737351224725,
+      "nominal_internal_tangent_angle_to_axial_pull_deg": 3.059063474956858,
+      "cases": [
+        {
+          "stiffness_N_per_m": 100.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 10.0,
+          "simulated_shortening_at_end_of_hold_mm": 10.000000000234484,
+          "end_of_hold_error_mm": 2.3448443187135126e-10,
+          "peak_shortening_mm": 10.084441570989233,
+          "shortening_at_end_of_release_mm": 0.10000000023448102,
+          "shortening_at_end_of_recovery_mm": -2.3448160939995986e-10,
+          "max_abs_TPU_reaction_N": 1.0105840162988524,
+          "max_abs_combined_fixed_fixture_load_N": 0.010584016298852594,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1486_k100.csv",
+            "sha256": "09aca6a49333d6bdccfb0fb21f9bebc93b6db4955e0db5d3d72b69cf9534e20d"
+          }
+        },
+        {
+          "stiffness_N_per_m": 200.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 5.0,
+          "simulated_shortening_at_end_of_hold_mm": 4.999999999855591,
+          "end_of_hold_error_mm": 1.4440892925904336e-10,
+          "peak_shortening_mm": 5.037235391769323,
+          "shortening_at_end_of_release_mm": 0.024999999855590555,
+          "shortening_at_end_of_recovery_mm": 1.444091171737135e-10,
+          "max_abs_TPU_reaction_N": 1.0077287488970585,
+          "max_abs_combined_fixed_fixture_load_N": 0.007728748917548822,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1486_k200.csv",
+            "sha256": "05833bdefbd72c9cf54d4dbb95f4bf3482c7e37bcd7a4f467ceee2d8f10b1920"
+          }
+        },
+        {
+          "stiffness_N_per_m": 400.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 2.5,
+          "simulated_shortening_at_end_of_hold_mm": 2.4999999999496803,
+          "end_of_hold_error_mm": 5.0319748368110595e-11,
+          "peak_shortening_mm": 2.513206704807996,
+          "shortening_at_end_of_release_mm": 0.006249999949677986,
+          "shortening_at_end_of_recovery_mm": 5.03218002474855e-11,
+          "max_abs_TPU_reaction_N": 1.0063140210878825,
+          "max_abs_combined_fixed_fixture_load_N": 0.006314021087882482,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1486_k400.csv",
+            "sha256": "f494c490336a7b8775ac8c655d916c7d2f97afddfca37ef5a8f3918787952c20"
+          }
+        }
+      ]
+    },
+    "FJ1477": {
+      "role": "extensor",
+      "proximal_fixed_bore_source_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ],
+      "distal_moving_bore_source_mm": [
+        -213.0033861150614,
+        -42.29334521741559,
+        1096.6637060006617
+      ],
+      "distal_pull_direction": [
+        0.16883472522879156,
+        -0.014699360134048272,
+        0.9855347606089641
+      ],
+      "proximal_pull_direction": [
+        -0.16883472522879156,
+        0.014699360134048272,
+        -0.9855347606089641
+      ],
+      "neutral_bore_span_mm": 172.18173854702894,
+      "nominal_internal_tangent_angle_to_axial_pull_deg": 6.312749122650643,
+      "cases": [
+        {
+          "stiffness_N_per_m": 100.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 10.0,
+          "simulated_shortening_at_end_of_hold_mm": 10.000000000234483,
+          "end_of_hold_error_mm": 2.3448265551451186e-10,
+          "peak_shortening_mm": 10.084441570989231,
+          "shortening_at_end_of_release_mm": 0.10000000023448097,
+          "shortening_at_end_of_recovery_mm": -2.344816093999594e-10,
+          "max_abs_TPU_reaction_N": 1.0105840162988524,
+          "max_abs_combined_fixed_fixture_load_N": 0.010584016298852585,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1477_k100.csv",
+            "sha256": "4a63375b111e4b48888781f4ca8be9c84eb73bac7359715a6d082f601e9e8cc6"
+          }
+        },
+        {
+          "stiffness_N_per_m": 200.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 5.0,
+          "simulated_shortening_at_end_of_hold_mm": 4.99999999985559,
+          "end_of_hold_error_mm": 1.4440981743746306e-10,
+          "peak_shortening_mm": 5.037235391769323,
+          "shortening_at_end_of_release_mm": 0.024999999855590555,
+          "shortening_at_end_of_recovery_mm": 1.444091171737135e-10,
+          "max_abs_TPU_reaction_N": 1.0077287488970585,
+          "max_abs_combined_fixed_fixture_load_N": 0.007728748917548822,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1477_k200.csv",
+            "sha256": "30701fa809c39fdea084482cfe7655c0a79152d8f19afb71da084706327be1cd"
+          }
+        },
+        {
+          "stiffness_N_per_m": 400.0,
+          "damping_Ns_per_m": 1.0,
+          "moving_mass_kg": 0.025,
+          "peak_force_N": 1.0,
+          "equilibrium_shortening_mm": 2.5,
+          "simulated_shortening_at_end_of_hold_mm": 2.4999999999496785,
+          "end_of_hold_error_mm": 5.0321524724949995e-11,
+          "peak_shortening_mm": 2.5132067048079954,
+          "shortening_at_end_of_release_mm": 0.006249999949677986,
+          "shortening_at_end_of_recovery_mm": 5.03218002474855e-11,
+          "max_abs_TPU_reaction_N": 1.006314021087882,
+          "max_abs_combined_fixed_fixture_load_N": 0.006314021087882038,
+          "trace": {
+            "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/FJ1477_k400.csv",
+            "sha256": "c3dff62d79a7f3e4a73db7a7389f64fe01d8f71d6a0ff264cd53b84464155b47"
+          }
+        }
+      ]
+    }
+  }
+}

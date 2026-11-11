@@ -1,0 +1,96 @@
+{
+  "route_screen": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply/route_screen.json",
+    "sha256": "63dc5cfebcfeef2376b5b4165775e6259186d2d84ddfc8175954c3316578cd46"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_reaction_mount/assembly.json",
+    "sha256": "916223ac87b51c29357276e28b6d0bdfbe153edcb953a61574d468403097210b"
+  },
+  "generator": {
+    "file": "tools/build_channel_first_external_sheaths.py",
+    "sha256": "4d7b26665f08940d5cd4141682fa06d949b271a5a62c2a836076f8c17abe286f"
+  },
+  "sources": {
+    "reference_sheath:FJ1486": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply/FJ1486_reference_sheath.obj",
+      "sha256": "2e711edd6659f78daa9358509e92b5f665cccf89866d8bbda2f89ae9e9df4cb3",
+      "translation_source_mm": [
+        -134.52414324806492,
+        -166.63717479479172,
+        1246.0624656184143
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        1267.8382456562147
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "reference_sheath:FJ1477": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply/FJ1477_reference_sheath.obj",
+      "sha256": "9e09b88ddd9fd360c83cc28036d9069817a405a05738024bb8bddebd4ac0da30",
+      "translation_source_mm": [
+        -153.47609585675588,
+        -140.54866653953414,
+        1313.3939887542715
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        1822.7659760045415
+      ],
+      "roundtrip_relative_volume_error": 1.2474101362240125e-16
+    }
+  },
+  "records": [
+    {
+      "id": "FJ1486",
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply/FJ1486_reference_sheath.obj",
+        "sha256": "2e711edd6659f78daa9358509e92b5f665cccf89866d8bbda2f89ae9e9df4cb3",
+        "translation_source_mm": [
+          -134.52414324806492,
+          -166.63717479479172,
+          1246.0624656184143
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          1267.8382456562147
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "path_length_mm": 214.90524918177715,
+      "outer_radius_mm": 1.5,
+      "inner_radius_mm": 0.6,
+      "circumferential_sides": 32,
+      "centreline_rings": 805,
+      "neutral_wall_interferences": [],
+      "scope": "Annular reference shell with flat physical seat faces. Not a measured material, compression-resistant sheath, manufactured final muscle or validated bending result."
+    },
+    {
+      "id": "FJ1477",
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply/FJ1477_reference_sheath.obj",
+        "sha256": "9e09b88ddd9fd360c83cc28036d9069817a405a05738024bb8bddebd4ac0da30",
+        "translation_source_mm": [
+          -153.47609585675588,
+          -140.54866653953414,
+          1313.3939887542715
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          1822.7659760045415
+        ],
+        "roundtrip_relative_volume_error": 1.2474101362240125e-16
+      },
+      "path_length_mm": 308.9686586426961,
+      "outer_radius_mm": 1.5,
+      "inner_radius_mm": 0.6,
+      "circumferential_sides": 32,
+      "centreline_rings": 805,
+      "neutral_wall_interferences": [],
+      "scope": "Annular reference shell with flat physical seat faces. Not a measured material, compression-resistant sheath, manufactured final muscle or validated bending result."
+    }
+  ],
+  "shell_pair_overlap_mm3": 0.0,
+  "status": "neutral_hollow_rest_geometry_not_dynamic_or_material_approval"
+}

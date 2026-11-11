@@ -1,0 +1,127 @@
+{
+  "assembly_sha256": "681c598507b920e7c560cc907294477b62baca56651b07345cf5a8293d6d75be",
+  "owner_reference_sha256": "46e53176c633ad0a60c4bbe62189065e8bc1f38140c70969d73db032f4a33769",
+  "axis_source": [
+    -0.9911648473318528,
+    0.10967071338784527,
+    0.07459611275814704
+  ],
+  "centre_source_mm": [
+    -209.86904634828838,
+    -72.12742580930231,
+    1044.5232075118065
+  ],
+  "moving_keys": [
+    "bone:forearm",
+    "elbow:FJ1477_active_wire_crimp_barrel",
+    "elbow:FJ1477_cap_rotor",
+    "elbow:FJ1477_distal_bolt_left",
+    "elbow:FJ1477_distal_bolt_right",
+    "elbow:FJ1477_distal_head_washer_left",
+    "elbow:FJ1477_distal_head_washer_right",
+    "elbow:FJ1477_distal_nut_left",
+    "elbow:FJ1477_distal_nut_right",
+    "elbow:FJ1477_distal_nut_washer_left",
+    "elbow:FJ1477_distal_nut_washer_right",
+    "elbow:FJ1477_keeper",
+    "elbow:FJ1477_keeper_back_washer",
+    "elbow:FJ1477_keeper_bolt",
+    "elbow:FJ1477_keeper_front_washer",
+    "elbow:FJ1477_keeper_nut",
+    "elbow:FJ1477_pin_-1",
+    "elbow:FJ1477_pin_1",
+    "elbow:FJ1477_washer_-1",
+    "elbow:FJ1477_washer_1",
+    "elbow:FJ1486_active_wire_crimp_barrel",
+    "elbow:FJ1486_cap_rotor",
+    "elbow:FJ1486_distal_bolt_left",
+    "elbow:FJ1486_distal_bolt_right",
+    "elbow:FJ1486_distal_head_washer_left",
+    "elbow:FJ1486_distal_head_washer_right",
+    "elbow:FJ1486_distal_nut_left",
+    "elbow:FJ1486_distal_nut_right",
+    "elbow:FJ1486_distal_nut_washer_left",
+    "elbow:FJ1486_distal_nut_washer_right",
+    "elbow:FJ1486_keeper",
+    "elbow:FJ1486_keeper_back_washer",
+    "elbow:FJ1486_keeper_bolt",
+    "elbow:FJ1486_keeper_front_washer",
+    "elbow:FJ1486_keeper_nut",
+    "elbow:FJ1486_pin_-1",
+    "elbow:FJ1486_pin_1",
+    "elbow:FJ1486_washer_-1",
+    "elbow:FJ1486_washer_1",
+    "elbow:bone_0_back_washer",
+    "elbow:bone_0_bolt",
+    "elbow:bone_0_front_washer",
+    "elbow:bone_0_nut",
+    "elbow:bone_1_back_washer",
+    "elbow:bone_1_bolt",
+    "elbow:bone_1_front_washer",
+    "elbow:bone_1_nut",
+    "elbow:elbow_bearing_bush",
+    "elbow:paired_bone_frame"
+  ],
+  "fixed_count": 272,
+  "excluded_unposed_elbow_tpu": [
+    "tpu:elbow_extensor",
+    "tpu:elbow_flexor"
+  ],
+  "path_deg": [
+    0,
+    120,
+    0
+  ],
+  "symmetric_return_uses_same_geometry": true,
+  "sample_step_deg": 1,
+  "onset_refinement_step_deg": 0.1,
+  "exact_checks": 1741,
+  "gap_cap_mm": 0.5,
+  "close_pairs": [
+    {
+      "moving": "bone:forearm",
+      "fixed": "bone:humerus",
+      "min_gap_mm": 0.05855075172564124,
+      "angle_deg": 50
+    },
+    {
+      "moving": "elbow:elbow_bearing_bush",
+      "fixed": "elbow:elbow_shoulder_pin",
+      "min_gap_mm": 0.12316554413458043,
+      "angle_deg": 8
+    },
+    {
+      "moving": "bone:forearm",
+      "fixed": "elbow:elbow_spacer_left",
+      "min_gap_mm": 0.19999999999987972,
+      "angle_deg": 59
+    },
+    {
+      "moving": "bone:forearm",
+      "fixed": "elbow:elbow_spacer_right",
+      "min_gap_mm": 0.19999999999990634,
+      "angle_deg": 69
+    },
+    {
+      "moving": "elbow:FJ1477_cap_rotor",
+      "fixed": "bone:humerus",
+      "min_gap_mm": 0.2614218447054524,
+      "angle_deg": 0
+    },
+    {
+      "moving": "elbow:elbow_bearing_bush",
+      "fixed": "elbow:elbow_spacer_right",
+      "min_gap_mm": 0.39999999999988595,
+      "angle_deg": 23
+    },
+    {
+      "moving": "elbow:elbow_bearing_bush",
+      "fixed": "elbow:elbow_spacer_left",
+      "min_gap_mm": 0.3999999999998922,
+      "angle_deg": 93
+    }
+  ],
+  "threshold_mm3": 0.001,
+  "overlaps": [],
+  "scope": "Elbow flexion at neutral shoulder with distal swivels locked to their neutral angle. Moving versus fixed pairs only. Neutral overlaps are listed without assuming legal contact. No soft deformation, elbow cable path motion, coupled shoulder path or load verification."
+}

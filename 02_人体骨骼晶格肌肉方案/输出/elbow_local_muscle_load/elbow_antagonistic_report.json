@@ -1,0 +1,311 @@
+{
+  "source": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/channel_first/elbow_passive_model/model.xml",
+    "sha256": "7e8fda87cc08b5714eb00ad3ad03f34c7b42187f46ba8409f8b728b888a3c65b"
+  },
+  "source_interfaces": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/channel_first/elbow_passive_model/model_check.json",
+    "sha256": "910c2616c737d2b79dbc1ff89beba9fbf48b9e27e2c5a366dc13364819745ac5"
+  },
+  "solver": "3.14.0",
+  "local_model": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_local_force.xml",
+    "sha256": "319f9d074e0f320a5803160960cd866f77d50bf9520fc0ecfc21fdeaa977a353"
+  },
+  "generator": {
+    "file": "tools/simulate_elbow_antagonistic_load.py",
+    "sha256": "14a2e0a21b9b2774849896df6d6ff0b1c08e2b67655b2d58dc51e7a77198e6f5"
+  },
+  "order": [
+    "FJ1486",
+    "FJ1477"
+  ],
+  "neutral_lengths_mm": [
+    180.73735122487813,
+    172.18173854703923
+  ],
+  "neutral_signed_moment_arms_mm": [
+    12.72787982666869,
+    -28.97049591930388
+  ],
+  "geometry": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_geometry.csv",
+    "sha256": "f7cf510b3e03a5bc99760ce4cafd72fe361911917ab0f20443deba1719199734"
+  },
+  "finite_difference_max_error_m": 1.5034711842536988e-10,
+  "geometry_scope": "Elbow angles sampled at 1 degree with both caps held neutral; no collision tests.",
+  "static_budget_scope": "Fixed neutral cap angles, both muscle springs at 200 N/m, zero velocity. Flexor tension balances signed elbow gravity and both passive forces when flexor arm is positive.",
+  "dynamics_scope": "Fixed humerus at neutral pose. Existing forearm/cap masses, gravity, hinge axes, joint damping, cap spring and software elbow limits retained. Assumed axial spring/damping and applied tension, no contact, cable, friction or lattice deformation. Elbow and caps free.",
+  "cases": [
+    {
+      "active_muscle": null,
+      "peak_tension_N": 0.0,
+      "stiffness_N_per_m": 100.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.211089970001467,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.005301224897579,
+      "cap_peak_abs_deg": [
+        0.05901266620097002,
+        1.1409614233943426
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.327804712819459
+      ],
+      "muscle_max_length_change_mm": [
+        1.0652273029689852,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_baseline_k100.csv",
+        "sha256": "4c80afbe98f3ceafe705ecce55c3315dfc5ec057d23ccc094b1e1063e63f28be"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 100.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.211089970001467,
+      "elbow_max_deg": 1.6692651243281595,
+      "elbow_final_deg": -5.005301224832313,
+      "cap_peak_abs_deg": [
+        4.020651850457591,
+        1.1409614163001836
+      ],
+      "muscle_min_length_change_mm": [
+        -0.4346255513530961,
+        -2.327804712819459
+      ],
+      "muscle_max_length_change_mm": [
+        1.0652273029689852,
+        0.8713205412096414
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_flexor_k100.csv",
+        "sha256": "ebec483b5059e87134e86af5fd2213625fbeadfa8bcc746ff2a92cfd02eb0d2b"
+      }
+    },
+    {
+      "active_muscle": "FJ1477",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 100.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.211089970001467,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.005301224851274,
+      "cap_peak_abs_deg": [
+        0.05901266620097002,
+        4.670312560510996
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.3539979756385945
+      ],
+      "muscle_max_length_change_mm": [
+        1.0652273029689852,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_extensor_k100.csv",
+        "sha256": "5a8542a0134d9a28e7aeefb55722b177a99f21e196dac88e623f85769f93f681"
+      }
+    },
+    {
+      "active_muscle": null,
+      "peak_tension_N": 0.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.193981748615974,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.003353579917975,
+      "cap_peak_abs_deg": [
+        0.10968736946679068,
+        2.696738770138889
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.2898914521863323
+      ],
+      "muscle_max_length_change_mm": [
+        1.0620423932400647,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_baseline_k200.csv",
+        "sha256": "14dc2c10901efd81f44cd3b0b98571913da7d1a7845bd6cb0f169b41dcdc32fb"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.193981748615974,
+      "elbow_max_deg": 1.3198888956951056,
+      "elbow_final_deg": -5.0033535798362765,
+      "cap_peak_abs_deg": [
+        3.7981473496941627,
+        2.6967384338448843
+      ],
+      "muscle_min_length_change_mm": [
+        -0.34774988828947806,
+        -2.2898914521863323
+      ],
+      "muscle_max_length_change_mm": [
+        1.0620423932400647,
+        0.6841825416313563
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_flexor_k200.csv",
+        "sha256": "75ce4479c10e34d1b65571cd3c60b7f6c861d6aff4365ae3808870fb03ed30be"
+      }
+    },
+    {
+      "active_muscle": "FJ1477",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.193981748615974,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.0033535796842035,
+      "cap_peak_abs_deg": [
+        0.10968736946679068,
+        4.614725470398162
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.3532825384197373
+      ],
+      "muscle_max_length_change_mm": [
+        1.0620423932400647,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_extensor_k200.csv",
+        "sha256": "9361467e3b96cec214e4a35294a365dfa6310a9c851d02047f230028b2a695d1"
+      }
+    },
+    {
+      "active_muscle": null,
+      "peak_tension_N": 0.0,
+      "stiffness_N_per_m": 400.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.141467757194368,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.000300449173774,
+      "cap_peak_abs_deg": [
+        0.20544080338300622,
+        7.384823224630758
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.172968388522767
+      ],
+      "muscle_max_length_change_mm": [
+        1.0522268036320392,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_baseline_k400.csv",
+        "sha256": "9f7408a35980218d29abdaa413c9d56414ae2c9e8724e34da47cbd6e3c81c3a9"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 400.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.141467757194368,
+      "elbow_max_deg": 0.930411265350444,
+      "elbow_final_deg": -5.00030044047855,
+      "cap_peak_abs_deg": [
+        3.550605954007911,
+        7.384805730422158
+      ],
+      "muscle_min_length_change_mm": [
+        -0.2522521731098959,
+        -2.172968388522767
+      ],
+      "muscle_max_length_change_mm": [
+        1.0522268036320392,
+        0.47866639641355735
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_flexor_k400.csv",
+        "sha256": "c59ff02340df0affc556d5884a213705dc901b0be88d73707e566958a4d930e3"
+      }
+    },
+    {
+      "active_muscle": "FJ1477",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 400.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -5.141467757194368,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -5.000300440338991,
+      "cap_peak_abs_deg": [
+        0.20544080338300622,
+        7.384805449119288
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -2.3516849699131983
+      ],
+      "muscle_max_length_change_mm": [
+        1.0522268036320392,
+        0.0
+      ],
+      "joint_limits_engaged": [
+        "elbow"
+      ],
+      "contact_steps": 0,
+      "minimum_contact_distance_mm": null,
+      "trace": {
+        "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/elbow_local_muscle_load/elbow_extensor_k400.csv",
+        "sha256": "50a94cc8fa97e75124a3316edb450de482f9644bcfdb43c9dd34f1d847919242"
+      }
+    }
+  ]
+}

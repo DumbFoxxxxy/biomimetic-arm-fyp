@@ -1,0 +1,294 @@
+{
+  "inputs": [
+    {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e6.json",
+      "sha256": "2bf5a5c7dcd83a55703b5abbd5b2647e03e7254544c8a1106ed55aeb79164600"
+    },
+    {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e7.json",
+      "sha256": "8881eb38071323c2c6dc2e09168a9d00447716076e6196d1bcb0983d1138abf7"
+    },
+    {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e8.json",
+      "sha256": "076bebf9a2afd6be55ee8dda90f91cff22637faa71dcd1b2adeb8b21fdec9a98"
+    },
+    {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_buffer_k1e6.json",
+      "sha256": "078a241ce7fed1efda7bdaed56c6d3b4d67f2c5dee02b0750451032547380d94"
+    }
+  ],
+  "trials": [
+    {
+      "label": "k1e6",
+      "contact_solref": [
+        [
+          -1000000.0,
+          -2000.0
+        ]
+      ],
+      "contact_margin_mm": [
+        0.0
+      ],
+      "elbow_range_deg": [
+        -0.003804781216156319,
+        1.624584302627847
+      ],
+      "final_elbow_deg": -4.974994435847793e-07,
+      "command_stroke_mm": 2.0,
+      "maximum_contact_penetration_mm": 0.0011952852099148396,
+      "maximum_endpoint_constraint_error_mm": 0.09299726307943068,
+      "saved_states": 1011,
+      "pad_edge_reached": false,
+      "pad_bottomed": false,
+      "channels": [
+        {
+          "id": "FJ1486",
+          "peak_tension_N": 18.09494584640905,
+          "centreline_length_range_mm": [
+            180.224873842604,
+            180.88806421212976
+          ],
+          "centreline_excursion_mm": 0.6631903695257506,
+          "slack_saved_states": 0,
+          "maximum_discrete_node_turn_deg": 4.196058171244386,
+          "minimum_three_node_radius_mm": 66.76551427494451
+        },
+        {
+          "id": "FJ1477",
+          "peak_tension_N": 4.684550032701118,
+          "centreline_length_range_mm": [
+            172.48722862999517,
+            172.96413370554623
+          ],
+          "centreline_excursion_mm": 0.4769050755510591,
+          "slack_saved_states": 58,
+          "maximum_discrete_node_turn_deg": 4.593306898144919,
+          "minimum_three_node_radius_mm": 61.466212927052474
+        }
+      ],
+      "solid_audit": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e6_solid_screen.json",
+        "sha256": "096f5174ac3fbcebbee572988e1136350272964fef72e7d29f019747c42ec03f"
+      },
+      "first_rigid_interference": {
+        "time_s": 1.3700199999990346,
+        "hits": [
+          {
+            "left": "bone:forearm",
+            "right": "stop:arm",
+            "overlap_mm3": 0.014372192060474407
+          }
+        ]
+      },
+      "wire_interferences": {
+        "FJ1486": null,
+        "FJ1477": null
+      },
+      "audit_rigid_states_checked": 696,
+      "statistics_scope": "Raw numerical whole-cycle values; motion interpretation ends at first solid interference."
+    },
+    {
+      "label": "k1e7",
+      "contact_solref": [
+        [
+          -10000000.0,
+          -6324.555320336759
+        ]
+      ],
+      "contact_margin_mm": [
+        0.0
+      ],
+      "elbow_range_deg": [
+        -0.0012051631990679058,
+        1.624584284150986
+      ],
+      "final_elbow_deg": -4.9761621636716825e-08,
+      "command_stroke_mm": 2.0,
+      "maximum_contact_penetration_mm": 0.00037861096068945066,
+      "maximum_endpoint_constraint_error_mm": 0.09299726326461588,
+      "saved_states": 1011,
+      "pad_edge_reached": false,
+      "pad_bottomed": false,
+      "channels": [
+        {
+          "id": "FJ1486",
+          "peak_tension_N": 18.09494594446291,
+          "centreline_length_range_mm": [
+            180.2248738473041,
+            180.88806421212976
+          ],
+          "centreline_excursion_mm": 0.6631903648256525,
+          "slack_saved_states": 0,
+          "maximum_discrete_node_turn_deg": 4.196058171244386,
+          "minimum_three_node_radius_mm": 66.76551427494451
+        },
+        {
+          "id": "FJ1477",
+          "peak_tension_N": 4.684549941881122,
+          "centreline_length_range_mm": [
+            172.48739624320277,
+            172.96413369590468
+          ],
+          "centreline_excursion_mm": 0.4767374527019115,
+          "slack_saved_states": 57,
+          "maximum_discrete_node_turn_deg": 4.593180281439125,
+          "minimum_three_node_radius_mm": 61.4679630491143
+        }
+      ],
+      "solid_audit": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e7_solid_screen.json",
+        "sha256": "9caaabce3c8d5bdf304452bd977036ba40755dbeff9ac1ffd396ec486a520b66"
+      },
+      "first_rigid_interference": {
+        "time_s": 1.3700199999990346,
+        "hits": [
+          {
+            "left": "bone:forearm",
+            "right": "stop:arm",
+            "overlap_mm3": 0.008993054976772961
+          }
+        ]
+      },
+      "wire_interferences": {
+        "FJ1486": null,
+        "FJ1477": null
+      },
+      "audit_rigid_states_checked": 696,
+      "statistics_scope": "Raw numerical whole-cycle values; motion interpretation ends at first solid interference."
+    },
+    {
+      "label": "k1e8",
+      "contact_solref": [
+        [
+          -100000000.0,
+          -20000.0
+        ]
+      ],
+      "contact_margin_mm": [
+        0.0
+      ],
+      "elbow_range_deg": [
+        -0.00038525788561970297,
+        1.6245842811631932
+      ],
+      "final_elbow_deg": -5.016990172239692e-09,
+      "command_stroke_mm": 2.0,
+      "maximum_contact_penetration_mm": 0.00012103209580850332,
+      "maximum_endpoint_constraint_error_mm": 0.09299726329814462,
+      "saved_states": 1011,
+      "pad_edge_reached": false,
+      "pad_bottomed": false,
+      "channels": [
+        {
+          "id": "FJ1486",
+          "peak_tension_N": 18.09494596136881,
+          "centreline_length_range_mm": [
+            180.2248738480587,
+            180.88806421212976
+          ],
+          "centreline_excursion_mm": 0.6631903640710561,
+          "slack_saved_states": 0,
+          "maximum_discrete_node_turn_deg": 4.196058171244386,
+          "minimum_three_node_radius_mm": 66.76551427494451
+        },
+        {
+          "id": "FJ1477",
+          "peak_tension_N": 4.68454992714366,
+          "centreline_length_range_mm": [
+            172.48745293742772,
+            172.96413369436237
+          ],
+          "centreline_excursion_mm": 0.4766807569346554,
+          "slack_saved_states": 57,
+          "maximum_discrete_node_turn_deg": 4.593133518211477,
+          "minimum_three_node_radius_mm": 61.46860502678919
+        }
+      ],
+      "solid_audit": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_k1e8_solid_screen.json",
+        "sha256": "0636b52eb9e5be0547a3a91add17c73de54bf54adcad594349abb86d3f13ca32"
+      },
+      "first_rigid_interference": {
+        "time_s": 1.3700199999990346,
+        "hits": [
+          {
+            "left": "bone:forearm",
+            "right": "stop:arm",
+            "overlap_mm3": 0.0017448700680958529
+          }
+        ]
+      },
+      "wire_interferences": {
+        "FJ1486": null,
+        "FJ1477": null
+      },
+      "audit_rigid_states_checked": 696,
+      "statistics_scope": "Raw numerical whole-cycle values; motion interpretation ends at first solid interference."
+    },
+    {
+      "label": "buffer_k1e6",
+      "contact_solref": [
+        [
+          -1000000.0,
+          -2000.0
+        ]
+      ],
+      "contact_margin_mm": [
+        0.005
+      ],
+      "elbow_range_deg": [
+        0.0,
+        1.6271425960043737
+      ],
+      "final_elbow_deg": 0.02863853625699354,
+      "command_stroke_mm": 2.0,
+      "maximum_contact_penetration_mm": 0.0,
+      "maximum_endpoint_constraint_error_mm": 0.0929998608698579,
+      "saved_states": 1012,
+      "pad_edge_reached": false,
+      "pad_bottomed": false,
+      "channels": [
+        {
+          "id": "FJ1486",
+          "peak_tension_N": 18.095851858446153,
+          "centreline_length_range_mm": [
+            180.2242481505993,
+            180.8880614838888
+          ],
+          "centreline_excursion_mm": 0.6638133332895109,
+          "slack_saved_states": 0,
+          "maximum_discrete_node_turn_deg": 4.196058697617627,
+          "minimum_three_node_radius_mm": 66.76550594082137
+        },
+        {
+          "id": "FJ1477",
+          "peak_tension_N": 4.697304986447977,
+          "centreline_length_range_mm": [
+            172.49015831274207,
+            172.96540788261146
+          ],
+          "centreline_excursion_mm": 0.4752495698693906,
+          "slack_saved_states": 34,
+          "maximum_discrete_node_turn_deg": 4.583693845104667,
+          "minimum_three_node_radius_mm": 61.595425335006205
+        }
+      ],
+      "solid_audit": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/cycle_buffer_k1e6_solid_screen.json",
+        "sha256": "3861e5561245c8f187bd53283f5b816dbb0039ffdc637b9b43ba4594f00008f2"
+      },
+      "first_rigid_interference": null,
+      "wire_interferences": {
+        "FJ1486": null,
+        "FJ1477": null
+      },
+      "audit_rigid_states_checked": 1012,
+      "statistics_scope": "Raw numerical whole-cycle values; motion interpretation ends at first solid interference."
+    }
+  ],
+  "generator": {
+    "file": "tools/summarize_channel_first_elbow_cycles.py",
+    "sha256": "00acde26f5e6122031651309d6ca7d8ea212eec9b1a5eae5bf305cde7678d6de"
+  },
+  "scope": "2s command pull/hold/payout/settle; not full K range. Frictionless cable and stop. Discrete bend radius from three beam nodes is a geometry warning metric, not continuous steel curvature or bend qualification. Missing audits remain pending; any first solid interference stops reachable-motion interpretation. No physical performance claim."
+}

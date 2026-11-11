@@ -1,0 +1,409 @@
+{
+  "generator": {
+    "file": "tools/build_s1_infraspinatus_coupled_tpu_cell.py",
+    "sha256": "7f75ddc3ddf7193b88e673adaf7c67529c2d7b40e9f199dee45539e94ea8d465"
+  },
+  "coupling_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_tpu_coupling_screen.json",
+    "sha256": "698679ec4059ef95e9e234725012f9c1c935d853ec3d404db5572273ba9ffff5"
+  },
+  "mesh": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_diagonal_TPU_cell.obj",
+    "sha256": "3964d7283b5c82b49b248232e9962627028e6d3a847030e79e083c16f666f5a4",
+    "translation_source_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mesh_import_mode": "exact_indexed_coordinates",
+    "component_volumes_mm3": [
+      755.0471792428419
+    ],
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "mesh_bounding_box_mm": [
+    -1.7831197640891223,
+    -8.5,
+    -4.3,
+    11.783119764089124,
+    8.5,
+    4.3
+  ],
+  "axial_rail_pitch_mm": 10.0,
+  "nominal_thickness_mm": 0.8,
+  "nominal_weaker_width_mm": 0.8,
+  "nominal_stronger_width_mm": 2.9856406460551015,
+  "bore_radius_mm": 1.1,
+  "channel_overlap_mm3": 0.0,
+  "target_stiffness_N_per_mm": [
+    [
+      0.30000000000000004,
+      -0.2
+    ],
+    [
+      -0.2,
+      0.4
+    ]
+  ],
+  "ideal_stiffness_per_modulus_mm": [
+    [
+      0.16993944308031708,
+      -0.11329296205354467
+    ],
+    [
+      -0.11329296205354467,
+      0.22658592410708936
+    ]
+  ],
+  "fitted_ideal_modulus_MPa": 1.7653347249008788,
+  "modulus_is_fit_parameter": true,
+  "pin_jointed_cycle": [
+    {
+      "shortening_mm": 0.0,
+      "free_sideways_mm": -9.887567063136475e-15,
+      "axial_force_N": 2.5219237804330052e-15,
+      "lateral_force_residual_N": -4.501161582345728e-15,
+      "links": [
+        {
+          "axial_strain": -5.814492627002974e-16,
+          "axial_link_force_N": -2.4516948214542163e-15,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 2.577449329208194e-13
+        },
+        {
+          "axial_strain": -5.814492627002974e-16,
+          "axial_link_force_N": -2.4516948214542163e-15,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 2.577449329208194e-13
+        },
+        {
+          "axial_strain": 4.651594101602378e-16,
+          "axial_link_force_N": 5.255437179969784e-16,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 0.0
+        },
+        {
+          "axial_strain": 4.651594101602378e-16,
+          "axial_link_force_N": 5.255437179969784e-16,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 0.0
+        }
+      ]
+    },
+    {
+      "shortening_mm": 0.25,
+      "free_sideways_mm": 0.12324860513200295,
+      "axial_force_N": 0.04873295503224949,
+      "lateral_force_residual_N": -6.306666994193577e-12,
+      "links": [
+        {
+          "axial_strain": -0.004458521709326339,
+          "axial_link_force_N": -0.01879946417909697,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 1.9763742988675157
+        },
+        {
+          "axial_strain": -0.004458521709326339,
+          "axial_link_force_N": -0.01879946417909697,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 1.9763742988675157
+        },
+        {
+          "axial_strain": -0.016787948453803783,
+          "axial_link_force_N": -0.01896726295382134,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 7.4417647861635485
+        },
+        {
+          "axial_strain": -0.016787948453803783,
+          "axial_link_force_N": -0.01896726295382134,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 7.4417647861635485
+        }
+      ]
+    },
+    {
+      "shortening_mm": 0.5,
+      "free_sideways_mm": 0.24291462604830336,
+      "axial_force_N": 0.09495093727385129,
+      "lateral_force_residual_N": -1.52315803025882e-09,
+      "links": [
+        {
+          "axial_strain": -0.008783833929727614,
+          "axial_link_force_N": -0.03703724733954507,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 3.893699471715064
+        },
+        {
+          "axial_strain": -0.008783833929727614,
+          "axial_link_force_N": -0.03703724733954507,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 3.893699471715064
+        },
+        {
+          "axial_strain": -0.0333434621054796,
+          "axial_link_force_N": -0.03767191776206062,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 14.780495831765254
+        },
+        {
+          "axial_strain": -0.0333434621054796,
+          "axial_link_force_N": -0.03767191776206062,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 14.780495831765254
+        }
+      ]
+    },
+    {
+      "shortening_mm": 1.0,
+      "free_sideways_mm": 0.4710903131219972,
+      "axial_force_N": 0.17993217352952548,
+      "lateral_force_residual_N": 5.391891877426502e-09,
+      "links": [
+        {
+          "axial_strain": -0.017071523790416723,
+          "axial_link_force_N": -0.07198249126144386,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 7.567468111977159
+        },
+        {
+          "axial_strain": -0.017071523790416723,
+          "axial_link_force_N": -0.07198249126144386,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 7.567468111977159
+        },
+        {
+          "axial_strain": -0.0657105954958382,
+          "axial_link_force_N": -0.07424076545453984,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 29.128204496480237
+        },
+        {
+          "axial_strain": -0.0657105954958382,
+          "axial_link_force_N": -0.07424076545453984,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 29.128204496480237
+        }
+      ]
+    },
+    {
+      "shortening_mm": 2.0,
+      "free_sideways_mm": 0.8808421214238384,
+      "axial_force_N": 0.3203595035417343,
+      "lateral_force_residual_N": 9.575611442658172e-09,
+      "links": [
+        {
+          "axial_strain": -0.03241524487978173,
+          "axial_link_force_N": -0.13667966081658686,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 14.369035534331244
+        },
+        {
+          "axial_strain": -0.03241524487978173,
+          "axial_link_force_N": -0.13667966081658686,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 14.369035534331244
+        },
+        {
+          "axial_strain": -0.12715480326978149,
+          "axial_link_force_N": -0.14366130537605448,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 56.36520388232503
+        },
+        {
+          "axial_strain": -0.12715480326978149,
+          "axial_link_force_N": -0.14366130537605448,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 56.36520388232503
+        }
+      ]
+    },
+    {
+      "shortening_mm": 3.0,
+      "free_sideways_mm": 1.2267061778144197,
+      "axial_force_N": 0.42109109392940347,
+      "lateral_force_residual_N": -1.3229680240200992e-08,
+      "links": [
+        {
+          "axial_strain": -0.046432921546386396,
+          "axial_link_force_N": -0.19578553212293412,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 20.58279374835109
+        },
+        {
+          "axial_strain": -0.046432921546386396,
+          "axial_link_force_N": -0.19578553212293412,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 20.58279374835109
+        },
+        {
+          "axial_strain": -0.18362672481732933,
+          "axial_link_force_N": -0.2074640855935037,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 81.39808734250222
+        },
+        {
+          "axial_strain": -0.18362672481732933,
+          "axial_link_force_N": -0.2074640855935037,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 81.39808734250222
+        }
+      ]
+    },
+    {
+      "shortening_mm": 4.0,
+      "free_sideways_mm": 1.509190304765902,
+      "axial_force_N": 0.4807282016559336,
+      "lateral_force_residual_N": 6.1385159733085e-09,
+      "links": [
+        {
+          "axial_strain": -0.05933705932328599,
+          "axial_link_force_N": -0.250196139879201,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 26.3029422446479
+        },
+        {
+          "axial_strain": -0.05933705932328599,
+          "axial_link_force_N": -0.250196139879201,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 26.3029422446479
+        },
+        {
+          "axial_strain": -0.23442533751977043,
+          "axial_link_force_N": -0.2648570807809662,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 103.91610544550234
+        },
+        {
+          "axial_strain": -0.23442533751977043,
+          "axial_link_force_N": -0.2648570807809662,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 103.91610544550234
+        }
+      ]
+    },
+    {
+      "shortening_mm": 2.0,
+      "free_sideways_mm": 0.8808421214238384,
+      "axial_force_N": 0.3203595035417343,
+      "lateral_force_residual_N": 9.575611442658172e-09,
+      "links": [
+        {
+          "axial_strain": -0.03241524487978173,
+          "axial_link_force_N": -0.13667966081658686,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 14.369035534331244
+        },
+        {
+          "axial_strain": -0.03241524487978173,
+          "axial_link_force_N": -0.13667966081658686,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 14.369035534331244
+        },
+        {
+          "axial_strain": -0.12715480326978149,
+          "axial_link_force_N": -0.14366130537605448,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 56.36520388232503
+        },
+        {
+          "axial_strain": -0.12715480326978149,
+          "axial_link_force_N": -0.14366130537605448,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 56.36520388232503
+        }
+      ]
+    },
+    {
+      "shortening_mm": 1.0,
+      "free_sideways_mm": 0.4710903131219972,
+      "axial_force_N": 0.17993217352952548,
+      "lateral_force_residual_N": 5.391891877426502e-09,
+      "links": [
+        {
+          "axial_strain": -0.017071523790416723,
+          "axial_link_force_N": -0.07198249126144386,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 7.567468111977159
+        },
+        {
+          "axial_strain": -0.017071523790416723,
+          "axial_link_force_N": -0.07198249126144386,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 7.567468111977159
+        },
+        {
+          "axial_strain": -0.0657105954958382,
+          "axial_link_force_N": -0.07424076545453984,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 29.128204496480237
+        },
+        {
+          "axial_strain": -0.0657105954958382,
+          "axial_link_force_N": -0.07424076545453984,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 29.128204496480237
+        }
+      ]
+    },
+    {
+      "shortening_mm": 0.0,
+      "free_sideways_mm": -9.887567063136475e-15,
+      "axial_force_N": 2.5219237804330052e-15,
+      "lateral_force_residual_N": -4.501161582345728e-15,
+      "links": [
+        {
+          "axial_strain": -5.814492627002974e-16,
+          "axial_link_force_N": -2.4516948214542163e-15,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 2.577449329208194e-13
+        },
+        {
+          "axial_strain": -5.814492627002974e-16,
+          "axial_link_force_N": -2.4516948214542163e-15,
+          "pin_ended_buckling_reference_N": 0.009512097070817644,
+          "compression_to_reference_ratio": 2.577449329208194e-13
+        },
+        {
+          "axial_strain": 4.651594101602378e-16,
+          "axial_link_force_N": 5.255437179969784e-16,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 0.0
+        },
+        {
+          "axial_strain": 4.651594101602378e-16,
+          "axial_link_force_N": 5.255437179969784e-16,
+          "pin_ended_buckling_reference_N": 0.0025487587284520356,
+          "compression_to_reference_ratio": 0.0
+        }
+      ]
+    }
+  ],
+  "previously_estimated_cap_excursion": [
+    {
+      "GH_deg": 60.0,
+      "max_from_unloaded_cap_travel_mm": 17.862985618487002
+    },
+    {
+      "GH_deg": 64.0,
+      "max_from_unloaded_cap_travel_mm": 17.410390352428845
+    },
+    {
+      "GH_deg": 68.0,
+      "max_from_unloaded_cap_travel_mm": 17.01041929516222
+    },
+    {
+      "GH_deg": 75.0,
+      "max_from_unloaded_cap_travel_mm": 16.410901672512633
+    },
+    {
+      "GH_deg": 85.0,
+      "max_from_unloaded_cap_travel_mm": 15.713061691624544
+    },
+    {
+      "GH_deg": 96.0,
+      "max_from_unloaded_cap_travel_mm": 15.079769675801808
+    }
+  ],
+  "scope": "Standalone geometry coupon with two mirrored diagonal ligament families, not an installed part. Truss model ignores fixed root bending, large-strain TPU, self-contact and sleeve loads. Euler compression values are screening references, not tested capacity. The steel wire is represented by a clear nominal neutral bore. Travel is not validated."
+}

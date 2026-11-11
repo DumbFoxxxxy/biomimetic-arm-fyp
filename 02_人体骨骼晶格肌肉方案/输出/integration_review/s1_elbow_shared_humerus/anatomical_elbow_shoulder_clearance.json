@@ -1,0 +1,651 @@
+{
+  "baseline_sha256": "a4ee1475c4b9143f8d38cf79c3a1e42caa0a748c77148ec07187328bfefff75a",
+  "route_sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51",
+  "overlap_mm3": 445.4222853825635,
+  "overlap_bounds_source_mm": [
+    [
+      -209.74109460674188,
+      -49.601952767086765,
+      1222.5497651867945
+    ],
+    [
+      -178.1529900744448,
+      -23.64913269042968,
+      1279.0872393917793
+    ]
+  ],
+  "trials": [
+    {
+      "method": "exact_overlap",
+      "cutter_padding_mm": 0.0,
+      "removed_deltoid_mm3": 445.42229593045016,
+      "clearance_capped_1mm": 0.0,
+      "remaining_overlap_mm3": 4.5911551601511064e-08,
+      "deltoid_component_volumes_mm3": [
+        49846.32863591775,
+        0.0054835701430027564,
+        0.0047133688018777264,
+        0.00048272556475899286,
+        0.0003630179589009572,
+        3.712064240939811e-05,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270602,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747
+      ],
+      "positive_material_components": 6,
+      "wire_region_removed_mm3": {
+        "FJ1468_r0.3": 0.0,
+        "FJ1468_r2.0": 1.6319405793955424e-07,
+        "FJ1513_r0.3": 0.0,
+        "FJ1513_r2.0": 3.6566021740090874e-07,
+        "FJ1467_r0.3": 0.0,
+        "FJ1467_r2.0": 2.6082415843248944e-07
+      }
+    },
+    {
+      "method": "convex_bands_1",
+      "cutter_padding_mm": 0.25,
+      "removed_deltoid_mm3": 2739.0049961536133,
+      "clearance_capped_1mm": 0.039072186176463304,
+      "remaining_overlap_mm3": 0.0,
+      "deltoid_component_volumes_mm3": [
+        47552.7570102299,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270602,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747
+      ],
+      "positive_material_components": 1,
+      "wire_region_removed_mm3": {
+        "FJ1468_r0.3": 0.0,
+        "FJ1468_r2.0": 1.6319405282334673e-07,
+        "FJ1513_r0.3": 0.0,
+        "FJ1513_r2.0": 3.6566241542487663e-07,
+        "FJ1467_r0.3": 0.0,
+        "FJ1467_r2.0": 2.608241465992031e-07
+      },
+      "candidate_source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_elbow_shared_humerus/deltoid_original_elbow_convex_bands_1.obj",
+        "sha256": "2b744251cc905122271731f9cfcccb87569ec95f74044154f084f5fc3622188f",
+        "translation_source_mm": [
+          -193.94704234059333,
+          -36.62554272875822,
+          1250.818502289287
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          47552.757058609706,
+          -2.167132053452342e-06,
+          -8.13824689875468,
+          -81.99400107946747,
+          -1.2091664123511925e-06,
+          -0.003251333783078761,
+          -0.8643600076142351,
+          -5.551822377214844e-06,
+          -0.46239286933991275,
+          -4.2902554246160296e-05,
+          -0.004956256627929999,
+          -1.440583013222861,
+          -1.3188374190270602
+        ],
+        "roundtrip_relative_volume_error": 1.0194123927837812e-09
+      },
+      "readback_clearance_mm_capped1": 0.039072186176463304,
+      "readback_overlap_mm3": 0.0,
+      "elbow_inventory_comparison": [
+        {
+          "part": "tpu:elbow_flexor",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_rigid_cap",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_nut_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_nut_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_nut_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_nut_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_bolt_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_head_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_nut_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_nut_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_bolt_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_head_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_nut_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_distal_nut_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_active_wire_crimp_barrel",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "tpu:elbow_extensor",
+          "before_mm3": 445.4222853825635,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_rigid_cap",
+          "before_mm3": 92.3895336405009,
+          "after_mm3": 89.17192486542925
+        },
+        {
+          "part": "elbow:FJ1477_proximal_nut_washer_left",
+          "before_mm3": 2.424563675776859,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_nut_left",
+          "before_mm3": 12.044615984715524,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_nut_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_nut_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_bolt_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_head_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_nut_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_nut_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_bolt_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_head_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_nut_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_distal_nut_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_active_wire_crimp_barrel",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_bolt_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_head_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_bolt_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_proximal_head_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_bolt_left",
+          "before_mm3": 12.029417998799971,
+          "after_mm3": 2.0575334933355873
+        },
+        {
+          "part": "elbow:FJ1477_proximal_head_washer_left",
+          "before_mm3": 0.8936475980947606,
+          "after_mm3": 0.8936475980947606
+        },
+        {
+          "part": "elbow:FJ1477_proximal_bolt_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_proximal_head_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_adapter",
+          "before_mm3": 168.19869319182584,
+          "after_mm3": 168.19869319182584
+        },
+        {
+          "part": "elbow:FJ1477_bone_adapter",
+          "before_mm3": 241.6759044058696,
+          "after_mm3": 241.6759044058696
+        },
+        {
+          "part": "elbow:FJ1486_bone_0_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_0_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_0_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_0_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_1_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_1_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_1_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_bone_1_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_0_bolt",
+          "before_mm3": 0.3475007369350258,
+          "after_mm3": 0.3475007369350258
+        },
+        {
+          "part": "elbow:FJ1477_bone_0_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_0_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_0_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_1_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_1_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_1_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_bone_1_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "bone:forearm",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_bearing_bush",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_spacer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_spacer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_shoulder_pin",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_washer_left",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_washer_right",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:elbow_retaining_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_0_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_0_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_0_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_0_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_1_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_1_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_1_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:bone_1_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_cap_rotor",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_pin_-1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_pin_1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_washer_-1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_washer_1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_cap_rotor",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_pin_-1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_pin_1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_washer_-1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_washer_1",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:paired_bone_frame",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_keeper",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_keeper_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_keeper_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_keeper_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1486_keeper_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_keeper",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_keeper_bolt",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_keeper_front_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_keeper_back_washer",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        },
+        {
+          "part": "elbow:FJ1477_keeper_nut",
+          "before_mm3": 0.0,
+          "after_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "method": "convex_bands_3",
+      "cutter_padding_mm": 0.25,
+      "removed_deltoid_mm3": 2025.442748967109,
+      "clearance_capped_1mm": 0.039072186176463304,
+      "remaining_overlap_mm3": 0.0,
+      "deltoid_component_volumes_mm3": [
+        48264.345218457194,
+        1.9740404380043932,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270602,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747
+      ],
+      "positive_material_components": 2,
+      "wire_region_removed_mm3": {
+        "FJ1468_r0.3": 0.0,
+        "FJ1468_r2.0": 1.6319405277816766e-07,
+        "FJ1513_r0.3": 0.0,
+        "FJ1513_r2.0": 3.6566736436401965e-07,
+        "FJ1467_r0.3": 0.0,
+        "FJ1467_r2.0": 2.608241447088926e-07
+      }
+    },
+    {
+      "method": "convex_bands_6",
+      "cutter_padding_mm": 0.25,
+      "removed_deltoid_mm3": 1845.8807376633902,
+      "clearance_capped_1mm": 0.0077312335467946405,
+      "remaining_overlap_mm3": 0.0,
+      "deltoid_component_volumes_mm3": [
+        48383.05790380414,
+        44.05547159119344,
+        12.183194415546327,
+        4.606643836453954,
+        1.9740404380043932,
+        0.004016196407497373,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270602,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747
+      ],
+      "positive_material_components": 6,
+      "wire_region_removed_mm3": {
+        "FJ1468_r0.3": 0.0,
+        "FJ1468_r2.0": 1.631940531305202e-07,
+        "FJ1513_r0.3": 0.0,
+        "FJ1513_r2.0": 3.6566176493689345e-07,
+        "FJ1467_r0.3": 0.0,
+        "FJ1467_r2.0": 2.608241483066565e-07
+      }
+    }
+  ],
+  "adopted": false,
+  "scope": "Neutral shoulder-only relief trials. Elbow display geometry, anchors and wire remain the baseline."
+}

@@ -1,0 +1,108 @@
+{
+  "generator": {
+    "file": "tools/audit_elbow_local_stop_response.py",
+    "sha256": "d22eaea2816b63023801efbd01f165f7be946092362e69f772d8f3db3112d303"
+  },
+  "response": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_response.json",
+    "sha256": "336659d6c1a5887b209f2f4a99856824d98e1c277daa1d6efac5cbc7e42d4fa6"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/assembly.json",
+    "sha256": "f57246d6e54c74bf4d78523f77dd12083e999da52914658ab4a703bc4855dc38"
+  },
+  "rigid_parts": 192,
+  "varying_pairs": 7687,
+  "threshold_mm3": 0.001,
+  "cases": [
+    {
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_original_ext200.csv",
+        "sha256": "22a44ecb0cd15c9f796d3d346c0d8934b7cd16d5c761a252b0515c8eafeb91c4"
+      },
+      "poses_checked": 1601,
+      "max_saved_joint_step_deg": 0.4043733162077352,
+      "last_pose_before_first_overlap": {
+        "time_s": 4.0,
+        "pose_deg": [
+          -2.1229638497458122e-09,
+          0.00913885778801355,
+          0.009220195605367423
+        ]
+      },
+      "first_stop_overlap": null,
+      "first_other_overlap": null
+    },
+    {
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_original_ext50.csv",
+        "sha256": "d9e4a3d363e3a391483d9ec0816242c345131bcb653eae82ed52595fdf360cdb"
+      },
+      "poses_checked": 1601,
+      "max_saved_joint_step_deg": 0.7071815401025034,
+      "last_pose_before_first_overlap": {
+        "time_s": 3.1175,
+        "pose_deg": [
+          0.05327218348341301,
+          -0.46217869156564023,
+          -0.32520334714973376
+        ]
+      },
+      "first_stop_overlap": {
+        "time_s": 3.12,
+        "pose_deg": [
+          -0.0005657762181750997,
+          -0.4391166711118189,
+          -0.31043984045935247
+        ],
+        "intersections": [
+          {
+            "parts": [
+              "bone:forearm",
+              "stop:arm"
+            ],
+            "overlap_mm3": 0.00442378573670419
+          }
+        ]
+      },
+      "first_other_overlap": null
+    },
+    {
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_shortlist_ext200.csv",
+        "sha256": "ed9dd4711af2ed922377e8b91ca626089f17ad0e3420a6595749c4a8018e559a"
+      },
+      "poses_checked": 1601,
+      "max_saved_joint_step_deg": 0.5983288184117868,
+      "last_pose_before_first_overlap": {
+        "time_s": 4.0,
+        "pose_deg": [
+          -2.122814117216653e-09,
+          0.007770223628105647,
+          0.004442831566299734
+        ]
+      },
+      "first_stop_overlap": null,
+      "first_other_overlap": null
+    },
+    {
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_shortlist_ext50.csv",
+        "sha256": "82c4134e5b7488aa65c04f6c9bc7696fd543abe3b036009ac258d5972f05058a"
+      },
+      "poses_checked": 1601,
+      "max_saved_joint_step_deg": 0.698927689981744,
+      "last_pose_before_first_overlap": {
+        "time_s": 4.0,
+        "pose_deg": [
+          -2.122872111301018e-09,
+          0.007770223707572312,
+          0.007266937449553486
+        ]
+      },
+      "first_stop_overlap": null,
+      "first_other_overlap": null
+    }
+  ],
+  "scope": "Saved dynamics poses through the first non-stop rigid overlap. The exact stop arm and forearm material pair is reported separately; its volume is still checked. No TPU, tool, cable, candidate connector geometry, or between-sample proof."
+}

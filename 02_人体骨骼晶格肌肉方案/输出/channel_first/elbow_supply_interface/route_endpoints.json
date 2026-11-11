@@ -1,0 +1,102 @@
+{
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/assembly.json",
+    "sha256": "668fd5441ac0d521687c8108fb8316c49d9c63dbf6c6118f19a48a75095287a3"
+  },
+  "generator": {
+    "file": "tools/describe_channel_first_elbow_ports.py",
+    "sha256": "58ec87117a0a4fc293263b1bb70470f5beb19376e50da9cb95710e2d79367f38"
+  },
+  "coordinate_frame": "BP3D source mm; original proportions and coordinates",
+  "routes": [
+    {
+      "id": "FJ1486",
+      "owner": "humerus",
+      "motor_mount": null,
+      "complete_supply_path": null,
+      "physical_ferrule_bearing_source_mm": [
+        -186.23268788382197,
+        -97.78059023661818,
+        1221.8250074106759
+      ],
+      "physical_sheath_reaction_seat_source_mm": [
+        -185.71493267443523,
+        -97.82312385176894,
+        1224.7796851316355
+      ],
+      "physical_ferrule_outlet_source_mm": [
+        -185.0245923952529,
+        -97.87983533863662,
+        1228.7192554262485
+      ],
+      "outward_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "ferrule_sheath_engagement_mm": 4.000000000000255,
+      "reference_only_stub_tip_source_mm": [
+        -182.7809864879104,
+        -98.06414767095659,
+        1241.5228588837401
+      ],
+      "reference_tip_fixed": false,
+      "legacy_field_meaning": "assembly.interfaces.supply_exit_source_mm is the neutral DISPLAY stub tip, not a rigid support or a fixed routing via point.",
+      "candidate_supply_boundary": "Sheath compression seats at the actual ferrule inner step. Translation support exists there; a clamped tangent through4mm engagement is a future approximation requiring retention/contact verification. All outer sheath nodes must remain free or have explicit guide/contact supports.",
+      "steel_connection": "Steel passes through sheath/ferrule/cap lumen into original muscle channel; proximal wire is not anchored to the cap. Remote spool and distal steel termination remain separate.",
+      "local_model_note": "Internal beam root at original first guide is still clamped as an equivalent boundary, not a resolved lattice-to-cap joint or full external supply.",
+      "unresolved": [
+        "sheath-to-ferrule pullout retention",
+        "thread/preload/tool access",
+        "remote motor/reaction mount",
+        "supported full supply curve and bending/compression response",
+        "distal steel termination review"
+      ]
+    },
+    {
+      "id": "FJ1477",
+      "owner": "humerus",
+      "motor_mount": null,
+      "complete_supply_path": null,
+      "physical_ferrule_bearing_source_mm": [
+        -179.59261509269936,
+        -45.18088007450547,
+        1291.1248427082212
+      ],
+      "physical_sheath_reaction_seat_source_mm": [
+        -179.07485988331263,
+        -45.223413689656226,
+        1294.0795204291808
+      ],
+      "physical_ferrule_outlet_source_mm": [
+        -178.3845196041303,
+        -45.28012517652391,
+        1298.0190907237939
+      ],
+      "outward_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "ferrule_sheath_engagement_mm": 4.000000000000255,
+      "reference_only_stub_tip_source_mm": [
+        -176.1409136967878,
+        -45.46443750884388,
+        1310.8226941812854
+      ],
+      "reference_tip_fixed": false,
+      "legacy_field_meaning": "assembly.interfaces.supply_exit_source_mm is the neutral DISPLAY stub tip, not a rigid support or a fixed routing via point.",
+      "candidate_supply_boundary": "Sheath compression seats at the actual ferrule inner step. Translation support exists there; a clamped tangent through4mm engagement is a future approximation requiring retention/contact verification. All outer sheath nodes must remain free or have explicit guide/contact supports.",
+      "steel_connection": "Steel passes through sheath/ferrule/cap lumen into original muscle channel; proximal wire is not anchored to the cap. Remote spool and distal steel termination remain separate.",
+      "local_model_note": "Internal beam root at original first guide is still clamped as an equivalent boundary, not a resolved lattice-to-cap joint or full external supply.",
+      "unresolved": [
+        "sheath-to-ferrule pullout retention",
+        "thread/preload/tool access",
+        "remote motor/reaction mount",
+        "supported full supply curve and bending/compression response",
+        "distal steel termination review"
+      ]
+    }
+  ],
+  "scope": "Authoritative roles for future supply routing on this local candidate; not selected whole-arm routes. No engineering backboard. Neutral display tip is explicitly not a support."
+}

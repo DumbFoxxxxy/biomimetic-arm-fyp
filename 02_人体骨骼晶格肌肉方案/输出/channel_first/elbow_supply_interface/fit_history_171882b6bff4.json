@@ -1,0 +1,238 @@
+{
+  "parent": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/assembly.json",
+    "sha256": "f57246d6e54c74bf4d78523f77dd12083e999da52914658ab4a703bc4855dc38"
+  },
+  "muscle_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_mount_candidate/assembly.json",
+    "sha256": "bc3937d8405bf39851dccd1a4819d1859c3fc2b41ea46217371d58da8fd6696d"
+  },
+  "parameters": {
+    "flexor_ear_deg": -30.0,
+    "extensor_ear_deg": -30.0
+  },
+  "generator": {
+    "file": "tools/build_channel_first_elbow_supply_interface.py",
+    "sha256": "db68e4e329eb064b8f00fd3c707537ba3229bbda0be0636a82b225ee239403d7"
+  },
+  "interfaces": [
+    {
+      "id": "FJ1486",
+      "cap_key": "elbow:FJ1486_proximal_rigid_cap",
+      "frame_columns": [
+        [
+          0.851804160043749,
+          0.49461506913540193,
+          0.17258506979557772
+        ],
+        [
+          -0.4999497444627755,
+          0.8659383586406043,
+          -0.014177871716920589
+        ],
+        [
+          -0.15646062106411474,
+          -0.07420709143335007,
+          0.9848925736532052
+        ]
+      ],
+      "origin_source_mm": [
+        -190.57320238918075,
+        -97.42401676293763,
+        1197.0549591832978
+      ],
+      "original_wire_tail_source_mm": [
+        -185.568235365109,
+        -97.83517504272832,
+        1225.6168438192408
+      ],
+      "reaction_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "ferrule_bearing_point_source_mm": [
+        -186.23268788382197,
+        -97.78059023661818,
+        1221.8250074106759
+      ],
+      "sheath_bearing_point_source_mm": [
+        -185.71493267443523,
+        -97.82312385176894,
+        1224.7796851316355
+      ],
+      "supply_exit_source_mm": [
+        -182.7809864879104,
+        -98.06414767095659,
+        1241.52285888374
+      ],
+      "supply_exit_tangent_outward": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "old_cap_removed_mm3": -4.263256414560601e-14,
+      "added_cap_mm3": 953.759376077725,
+      "ferrule_seat_radius_mm": 2.1,
+      "ferrule_outer_radius_mm": 2.0,
+      "flange_radius_mm": 3.0,
+      "maximum_ferrule_axial_float_mm": 0.2,
+      "sheath_outer_radius_mm": 1.5,
+      "sheath_lumen_radius_mm": 0.6,
+      "wire_radius_mm": 0.3,
+      "bearing_annulus_mm2": 10.296569922140547,
+      "owner": "humerus",
+      "reaction_chain": "sheath end -> ferrule step -> integral proximal-cap boss -> original cap M3s -> original bone frame -> humerus M3 mount seats",
+      "fixation": "ferrule flange captured by removable plate and two M2x14 envelope bolts, captive side-loaded M2 nuts",
+      "unresolved": "Sheath-to-ferrule crimp/bond retention, real thread engagement, strength, tolerances and assembly access not yet verified. Sheath stub material/compression law unspecified; not a bare TPU compression-proof claim."
+    },
+    {
+      "id": "FJ1477",
+      "cap_key": "elbow:FJ1477_proximal_rigid_cap",
+      "frame_columns": [
+        [
+          0.851804160043749,
+          0.49461506913540193,
+          0.17258506979557772
+        ],
+        [
+          -0.4999497444627755,
+          0.8659383586406043,
+          -0.014177871716920589
+        ],
+        [
+          -0.15646062106411474,
+          -0.07420709143335007,
+          0.9848925736532052
+        ]
+      ],
+      "origin_source_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ],
+      "original_wire_tail_source_mm": [
+        -178.92816257398638,
+        -45.23546488061561,
+        1294.916679116786
+      ],
+      "reaction_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "ferrule_bearing_point_source_mm": [
+        -179.59261509269936,
+        -45.18088007450547,
+        1291.1248427082212
+      ],
+      "sheath_bearing_point_source_mm": [
+        -179.07485988331263,
+        -45.223413689656226,
+        1294.0795204291808
+      ],
+      "supply_exit_source_mm": [
+        -176.1409136967878,
+        -45.46443750884388,
+        1310.8226941812852
+      ],
+      "supply_exit_tangent_outward": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "old_cap_removed_mm3": 2.930988785010413e-14,
+      "added_cap_mm3": 953.7593760777257,
+      "ferrule_seat_radius_mm": 2.1,
+      "ferrule_outer_radius_mm": 2.0,
+      "flange_radius_mm": 3.0,
+      "maximum_ferrule_axial_float_mm": 0.2,
+      "sheath_outer_radius_mm": 1.5,
+      "sheath_lumen_radius_mm": 0.6,
+      "wire_radius_mm": 0.3,
+      "bearing_annulus_mm2": 10.296569922140547,
+      "owner": "humerus",
+      "reaction_chain": "sheath end -> ferrule step -> integral proximal-cap boss -> original cap M3s -> original bone frame -> humerus M3 mount seats",
+      "fixation": "ferrule flange captured by removable plate and two M2x14 envelope bolts, captive side-loaded M2 nuts",
+      "unresolved": "Sheath-to-ferrule crimp/bond retention, real thread engagement, strength, tolerances and assembly access not yet verified. Sheath stub material/compression law unspecified; not a bare TPU compression-proof claim."
+    }
+  ],
+  "changed_components": {
+    "supply:FJ1477_nut_washer_1": 1,
+    "supply:FJ1486_nut_1": 1,
+    "supply:FJ1477_bolt_0": 1,
+    "supply:FJ1477_retainer": 1,
+    "supply:FJ1486_head_washer_0": 1,
+    "supply:FJ1477_nut_1": 1,
+    "supply:FJ1486_head_washer_1": 1,
+    "supply:FJ1477_ferrule": 1,
+    "elbow:FJ1486_proximal_rigid_cap": 1,
+    "supply:FJ1477_bolt_1": 1,
+    "supply:FJ1486_nut_washer_0": 1,
+    "supply:FJ1486_bolt_0": 1,
+    "supply:FJ1477_nut_0": 1,
+    "supply:FJ1477_nut_washer_0": 1,
+    "supply:FJ1477_head_washer_1": 1,
+    "supply:FJ1486_nut_washer_1": 1,
+    "supply:FJ1477_head_washer_0": 1,
+    "supply:FJ1486_retainer": 1,
+    "supply:FJ1486_ferrule": 1,
+    "elbow:FJ1477_proximal_rigid_cap": 1,
+    "supply:FJ1486_nut_0": 1,
+    "supply:FJ1486_bolt_1": 1
+  },
+  "rigid_interferences": [
+    {
+      "left": "elbow:FJ1486_proximal_rigid_cap",
+      "right": "elbow:FJ1486_bone_adapter",
+      "overlap_mm3": 45.30289964933731
+    },
+    {
+      "left": "elbow:FJ1477_proximal_rigid_cap",
+      "right": "elbow:FJ1477_bone_adapter",
+      "overlap_mm3": 15.145664172378188
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "supply:FJ1486_bolt_1",
+      "overlap_mm3": 13.968343296172455
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "supply:FJ1486_head_washer_1",
+      "overlap_mm3": 2.2209635337935687
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "supply:FJ1486_nut_washer_1",
+      "overlap_mm3": 0.5176305874100726
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "supply:FJ1486_nut_1",
+      "overlap_mm3": 7.335282773178693
+    },
+    {
+      "left": "elbow:FJ1486_bone_adapter",
+      "right": "supply:FJ1486_retainer",
+      "overlap_mm3": 30.4467015113043
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "supply:FJ1477_bolt_0",
+      "overlap_mm3": 4.292077168335177
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "supply:FJ1477_nut_washer_0",
+      "overlap_mm3": 0.7419847014091504
+    },
+    {
+      "left": "elbow:FJ1477_bone_adapter",
+      "right": "supply:FJ1477_nut_0",
+      "overlap_mm3": 8.26684972688999
+    }
+  ],
+  "sheath_stub_interferences": [],
+  "wire_entry_interferences": []
+}

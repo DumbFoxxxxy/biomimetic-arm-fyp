@@ -35,16 +35,18 @@ def save(path, value):
 def load_component(row):
     """Respect explicit precision for newly generated mechanical geometry."""
     path=ROOT/row['file']
-    if row.get('mesh_import_mode')!='exact_indexed_coordinates':
+    mode=row.get('mesh_import_mode')
+    if mode not in ('exact_indexed_coordinates','native_indexed_without_welding'):
         return A.load_checked(path,row['translation_source_mm'],row['sha256'])[0]
     assert sha(path)==row['sha256']
     vertices,faces=mesh_geom.load_obj(str(path))
-    unique,inverse=np.unique(vertices,axis=0,return_inverse=True)
-    faces=inverse[faces]
+    if mode=='exact_indexed_coordinates':
+        vertices,inverse=np.unique(vertices,axis=0,return_inverse=True)
+        faces=inverse[faces]
     _,boundary,nonmanifold=mesh_geom.edge_census(faces)
     assert boundary==nonmanifold==0
     return A.I._manifold().Manifold(A.I._manifold().Mesh64(
-        unique+np.array(row['translation_source_mm']),faces.astype(np.uint32)))
+        vertices+np.array(row['translation_source_mm']),faces.astype(np.uint32)))
 
 
 def export(solid, path, origin):

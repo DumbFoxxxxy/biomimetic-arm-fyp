@@ -1,0 +1,146 @@
+{
+  "original_uncompressed": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial1500_bend15/short_response.json",
+    "sha256": "2a321728200173ee861e83c27bd5674409c9e67dad748e3e5b9699838f34a2f2"
+  },
+  "archive": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial1500_bend15/short_response.json.gz",
+    "sha256": "493b2cb8657ed3ee1cc9213c2ffa4913bdc8d88d83dc8bfe83b26c6727740c3c"
+  },
+  "original_bytes": 428257089,
+  "archive_bytes": 99165762,
+  "decompressed_sha256": "2a321728200173ee861e83c27bd5674409c9e67dad748e3e5b9699838f34a2f2",
+  "rejection_reasons": [
+    "solver_warnings",
+    "numerical_axial_guard",
+    "insufficient_angular_sampling",
+    "nonmonotonic_time_after_solver_reset",
+    "requested_duration_not_completed"
+  ],
+  "metadata_without_poses": {
+    "model_check": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial1500_bend15/model_check.json",
+      "sha256": "e819fdf39b695d6c59a3d0c0b7c152eb581597a55c5be9848c50ad865d373b43"
+    },
+    "model": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial1500_bend15/model.xml",
+      "sha256": "7e0db4962dd3de7e75be2d6065127d07e229aa9af5d40aa9ee410c55e01fdf48"
+    },
+    "generator": {
+      "file": "tools/simulate_channel_first_elbow_channel_beams.py",
+      "sha256": "b922b91679d30c9c779fef3d9cf5237ba3db385dd68c2173f801334a03087702"
+    },
+    "duration_s": 0.2,
+    "command": {
+      "cycle": false,
+      "times_s": [
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2
+      ],
+      "pull_m": [
+        0.0,
+        0.002,
+        0.002,
+        0.0
+      ]
+    },
+    "runtime_contact_parameters": {
+      "stiffness_scale": 0.01,
+      "pair_solref": [
+        [
+          -1000000.0,
+          -2000.0
+        ]
+      ],
+      "pair_margin_m": [
+        5e-06
+      ]
+    },
+    "elbow_range_deg": [
+      0.0,
+      0.00016203420103112705
+    ],
+    "final_elbow_deg": 1.1418782109515738e-05,
+    "final_maximum_speed": 0.03554585947198078,
+    "peak_tensions_N": [
+      0.00010729772957545514,
+      3.2267275788096237,
+      0.0,
+      2.004933540672706e-06,
+      0.0,
+      18.38178018974651,
+      60.0,
+      0.00046324771563515397,
+      0.002396351601697895,
+      34.39592308132122,
+      0.0,
+      0.00018999220515104044,
+      9.565231364212718,
+      0.001603441250787117,
+      0.001078880548683324,
+      0.00048435200379494067,
+      0.0006275411334329262,
+      0.00048208779912529076,
+      40.44756335606704,
+      20.7269597890339,
+      0.00013087489202892323,
+      0.0,
+      0.0,
+      0.0,
+      0.0007856996080355409,
+      0.0,
+      0.0007773567692495399
+    ],
+    "pad_edge_reached": false,
+    "pad_bottomed": false,
+    "timestep_s": 2e-05,
+    "saved_interval_s": 0.002,
+    "trace": [],
+    "adaptive_rotation_trigger_deg": 0.5,
+    "maximum_recorded_rotation_increment_deg": 3.8292003326507946,
+    "maximum_endpoint_constraint_error_m": 0.002017679124346916,
+    "saturated_channel_steps": 2000,
+    "warning_counts": {
+      "5": 1
+    },
+    "contact_steps": 10000,
+    "maximum_contact_penetration_m": 0.0,
+    "maximum_absolute_segment_axial_strain": 1.633473776539282,
+    "numerical_axial_guard_hit": true,
+    "beam_axial_strain_extrema": {
+      "FJ1486": [
+        -0.00010427338743794881,
+        1.595566864779605e-05
+      ],
+      "FJ1477": [
+        -1.1834040665685961e-05,
+        2.3145172776004193e-05
+      ],
+      "FJ1486_supply": [
+        -1.3973290383087356,
+        1.633473776539282
+      ],
+      "FJ1477_supply": [
+        -0.013508788216626112,
+        0.020076976675661176
+      ]
+    },
+    "clamp_reaction_note": "Pre-integration constraint forces at evaluation_time, paired with saved pose one timestep later. Cartesian signs checked by exact J.T multiplication. Only humerus distal external clamps reported; no thorax-root wrench yet.",
+    "state_units": "MuJoCo tangent vector: rotational components radians, slide components metres",
+    "scope": "Short numerical response only, not full cycle or accepted motion. Curve nodes move through beam axial/bending forces. Original lattice not simulated; effective tube stiffness assumed. Any contact-solved parts are specified by model_check; no general bone/self contact, lumen collapse, friction or supplied conduit reaction. Constraint accuracy and actual wire geometry need auditing."
+  },
+  "saved_states": 6099,
+  "last_saved_time_s": 2e-05,
+  "nonmonotonic_time_intervals": 2000,
+  "original_generator_snapshot": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/diagnostics/simulate_channel_first_elbow_channel_beams_2a3217282001.py",
+    "sha256": "b922b91679d30c9c779fef3d9cf5237ba3db385dd68c2173f801334a03087702"
+  },
+  "generator": {
+    "file": "tools/archive_channel_first_failed_response.py",
+    "sha256": "caa0895b21ed5852fa3b9bb18d2739f87c102deb2dcf694846b213585ded74cb"
+  },
+  "scope": "Numerically invalid response, not a mechanical motion result. Every original byte retained in gzip and SHA256 verified before raw copy removal. Original code snapshot retained if still current."
+}

@@ -1,0 +1,30 @@
+{
+  "response": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/local_cycle.json",
+    "sha256": "98bdb11f227753b5ae06a29b0a63ec9cc0cf781c3aeeee3c300403844595dfcc"
+  },
+  "model_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/model_check.json",
+    "sha256": "fa1baa5d1c0f4cd57e045082eca4a34568affff75bd44572ab02c2a01d76de9d"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/assembly.json",
+    "sha256": "668fd5441ac0d521687c8108fb8316c49d9c63dbf6c6118f19a48a75095287a3"
+  },
+  "checked_states": {
+    "FJ1486": 1012,
+    "FJ1477": 1012
+  },
+  "first_interferences": {
+    "FJ1486": null,
+    "FJ1477": null
+  },
+  "wire_radius_mm": 0.3,
+  "rigid_obstacles": 208,
+  "threshold_mm3": 0.001,
+  "rigid_cross_body_pairs": 16364,
+  "rigid_states_checked": 1012,
+  "first_rigid_interference": null,
+  "broadphase": "Per-pose world AABBs, 1e-8mm conservative overlap epsilon; exact solid intersections decide all admitted pairs.",
+  "scope": "Saved adaptive poses: centerline capsule checks against all listed moving rigid parts, including caps and fasteners. No end-zone or adjacent-body exclusions. Stops per channel at first overlap. Elastic tube wall and original lattice not contact-solved; actual terminal tails and motor supply outside beam are absent. No continuous-motion acceptance."
+}

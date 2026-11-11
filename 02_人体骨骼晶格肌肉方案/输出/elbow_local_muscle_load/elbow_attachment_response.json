@@ -1,0 +1,153 @@
+{
+  "generator": {
+    "file": "tools/simulate_elbow_attachment_options.py",
+    "sha256": "a8a17574726dc673e00aee459200bc3d0d049d471a4c4e16fccb33a3d4341f24"
+  },
+  "stop": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_local_stop_response.json",
+    "sha256": "b5b335d8cfb1f478fb003dac18d4e8319246121b044bd0840c2672eec1eac20d"
+  },
+  "options": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_local_attachment_options.json",
+    "sha256": "a69c201c8867e513b94df6ebf5884aec4929c7b8a9491309f7f257f419e85a50"
+  },
+  "local_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_local_force_with_stop.xml",
+    "sha256": "c29f8fd97d1389ba9015f0deacf77d16c1a0fa1bcad65f47fb8ca69a78d8dd29"
+  },
+  "stop_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/model_check.json",
+    "sha256": "f3a9b02139eec32bc35f9748e211bcb10c2602c893e8a4ed348797dd861188f6"
+  },
+  "cases": [
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 25.0,
+      "stiffness_N_per_m": [
+        200.0,
+        200.0
+      ],
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -2.1428330041728456e-09,
+      "elbow_max_deg": 52.976906660648766,
+      "elbow_final_deg": -2.1229638497458122e-09,
+      "cap_peak_abs_deg": [
+        44.996929295996,
+        48.773925897319415
+      ],
+      "muscle_min_length_change_mm": [
+        -24.318263051537752,
+        -5.312883161190385e-06
+      ],
+      "muscle_max_length_change_mm": [
+        0.00015016867335737594,
+        39.41209385914421
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 82372,
+      "minimum_contact_distance_mm": -0.0009011913067988969,
+      "arrangement": "original",
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_original_ext200.csv",
+        "sha256": "22a44ecb0cd15c9f796d3d346c0d8934b7cd16d5c761a252b0515c8eafeb91c4"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 25.0,
+      "stiffness_N_per_m": [
+        200.0,
+        50.0
+      ],
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -0.0005657762181750997,
+      "elbow_max_deg": 98.5804280859974,
+      "elbow_final_deg": -2.1229643272411793e-09,
+      "cap_peak_abs_deg": [
+        84.20125669948098,
+        70.42515693266333
+      ],
+      "muscle_min_length_change_mm": [
+        -56.01282495300332,
+        -0.00014384257279731472
+      ],
+      "muscle_max_length_change_mm": [
+        0.00015016858914695952,
+        74.62294455418785
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 77246,
+      "minimum_contact_distance_mm": -0.002348554649612676,
+      "arrangement": "original",
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_original_ext50.csv",
+        "sha256": "d9e4a3d363e3a391483d9ec0816242c345131bcb653eae82ed52595fdf360cdb"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 25.0,
+      "stiffness_N_per_m": [
+        200.0,
+        200.0
+      ],
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -3.172124787096776e-09,
+      "elbow_max_deg": 54.64672608711492,
+      "elbow_final_deg": -2.122814117216653e-09,
+      "cap_peak_abs_deg": [
+        69.63431834279751,
+        27.536200379201563
+      ],
+      "muscle_min_length_change_mm": [
+        -26.568527179419295,
+        -0.3520506323972661
+      ],
+      "muscle_max_length_change_mm": [
+        0.0005848937882080296,
+        38.056013690166864
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 82718,
+      "minimum_contact_distance_mm": -0.0012042702735340857,
+      "arrangement": "shortlist",
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_shortlist_ext200.csv",
+        "sha256": "ed9dd4711af2ed922377e8b91ca626089f17ad0e3420a6595749c4a8018e559a"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 25.0,
+      "stiffness_N_per_m": [
+        200.0,
+        50.0
+      ],
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -2.2416806041891837e-09,
+      "elbow_max_deg": 98.18993120948325,
+      "elbow_final_deg": -2.122872111301018e-09,
+      "cap_peak_abs_deg": [
+        102.35000268064333,
+        55.514231545546295
+      ],
+      "muscle_min_length_change_mm": [
+        -56.75979794307501,
+        -0.00634441422009413
+      ],
+      "muscle_max_length_change_mm": [
+        0.0005848937941754784,
+        70.84282715375151
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 78492,
+      "minimum_contact_distance_mm": -0.002189051097504281,
+      "arrangement": "shortlist",
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_shortlist_ext50.csv",
+        "sha256": "82c4134e5b7488aa65c04f6c9bc7696fd543abe3b036009ac258d5972f05058a"
+      }
+    }
+  ],
+  "scope": "Force-only comparison. Candidate bore coordinates are hypothetical, attached to the existing moving cap frames. Model mass and pivots remain original; no candidate connector or rigid/TPU collision geometry is included. Springs start at each neutral span, with linear tension and compression stiffness equal within each muscle. Caps and elbow move freely."
+}

@@ -1,0 +1,97 @@
+{
+  "generator": {
+    "file": "tools/audit_elbow_series_guide.py",
+    "sha256": "6fbccb52240a43d557b192376a3684c0c2122aa1a84e5029259416b1bfc17235"
+  },
+  "design": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_guide.json",
+    "sha256": "d34ab00a4c4846372e9fdf613a09301f4143647e6d79d0a8f5f5579fb628337e"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/assembly.json",
+    "sha256": "f57246d6e54c74bf4d78523f77dd12083e999da52914658ab4a703bc4855dc38"
+  },
+  "trace": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_attachment_original_ext50.csv",
+    "sha256": "d9e4a3d363e3a391483d9ec0816242c345131bcb653eae82ed52595fdf360cdb"
+  },
+  "poses_checked": 1601,
+  "threshold_mm3": 0.001,
+  "maximum_carriage_mm": 50.4877131272394,
+  "max_carriage_step_mm": 0.4047171098206377,
+  "max_joint_step_deg": 0.7071815401025034,
+  "first_cycle_failure": null,
+  "moving_cap_stock_vs_existing_fasteners": {},
+  "fixed_parts_vs_existing_static": {
+    "adapter": {},
+    "guide_a": {},
+    "guide_b": {},
+    "collar_a": {},
+    "collar_b": {}
+  },
+  "fixed_parts_pair_overlaps": {},
+  "neutral_existing_extensor_wire_vs_new_material": {},
+  "end_contact_probes": {
+    "proximal": [
+      {
+        "overtravel_mm": 0.0,
+        "intersections_mm3": {}
+      },
+      {
+        "overtravel_mm": 0.05,
+        "intersections_mm3": {}
+      },
+      {
+        "overtravel_mm": 0.1,
+        "intersections_mm3": {}
+      },
+      {
+        "overtravel_mm": 0.25,
+        "intersections_mm3": {
+          "adapter": 4.6709439375908195
+        }
+      },
+      {
+        "overtravel_mm": 0.5,
+        "intersections_mm3": {
+          "adapter": 22.515034658497324
+        }
+      }
+    ],
+    "distal": [
+      {
+        "overtravel_mm": 0.0,
+        "intersections_mm3": {}
+      },
+      {
+        "overtravel_mm": 0.05,
+        "intersections_mm3": {
+          "collar_a": 1.755438324721559,
+          "collar_b": 1.7554383247218728
+        }
+      },
+      {
+        "overtravel_mm": 0.1,
+        "intersections_mm3": {
+          "collar_a": 3.5108766494510495,
+          "collar_b": 3.5108766494507067
+        }
+      },
+      {
+        "overtravel_mm": 0.25,
+        "intersections_mm3": {
+          "collar_a": 8.777191623631726,
+          "collar_b": 8.777191623631754
+        }
+      },
+      {
+        "overtravel_mm": 0.5,
+        "intersections_mm3": {
+          "collar_a": 17.554383247265346,
+          "collar_b": 17.554383247265395
+        }
+      }
+    ]
+  },
+  "scope": "Exported rigid geometry only. Existing elbow poses and series travel are prescribed. New guide parts and the translated cap are checked, including actual rigid elbow parts. Stop probes indicate geometric contact. Collar and shaft retention, spring, TPU, wire, force and torque capacity and assembly access remain unverified."
+}

@@ -1,0 +1,170 @@
+{
+  "generator": {
+    "file": "tools/study_s1_series_elbow_release_timing.py",
+    "sha256": "03b8b32c21de4f507f0e77147bd7d042175089d5322d62754a05f1c6f2522c0e"
+  },
+  "input_cycles": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_active_cycles.json",
+    "sha256": "0a557fc83f9e8accb6822706dfde7d67ebd774c5ad7fe7acc8c3cbc77bb9976a"
+  },
+  "baseline": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.json",
+    "sha256": "d44d2203e96ff4bde159ce6a7be51c3ed402940caccece0dd0e1ba53f8ba3d1f"
+  },
+  "cases": {
+    "synchronous": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 1.15,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": {
+        "time_s": 2.365,
+        "GH_delta_deg": 6.195472553416645,
+        "flexion_projection_deg": 4.146700585396272,
+        "elbow_deg": 0.9005169120776169,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.008405919289341465
+          }
+        ]
+      },
+      "model_peak_flexion_projection_deg": 4.146700585396272,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "final_GH_offset_deg": 1.9923773991298803,
+      "final_elbow_deg": -1.7186854031198417e-09
+    },
+    "shoulder_early": {
+      "shoulder_release_start_s": 0.85,
+      "elbow_release_start_s": 1.15,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": null,
+      "model_peak_flexion_projection_deg": 3.5567911950902658,
+      "model_peak_elbow_deg": 100.10281055055285,
+      "final_GH_offset_deg": 1.5367728578053488,
+      "final_elbow_deg": -1.6113101816237569e-09,
+      "first_collision": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_timing_shoulder_early.csv",
+        "sha256": "9896b0d608c2f1f4b8d298b82d65b6e3b18a981b146142be0d3cde0ff746638a"
+      },
+      "fully_audited": true,
+      "clear_frames": 801
+    },
+    "elbow_early": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 0.85,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": {
+        "time_s": 1.2200000000000002,
+        "GH_delta_deg": 7.609419121922833,
+        "flexion_projection_deg": 5.148430364563829,
+        "elbow_deg": 26.196852549759413,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.015140982723531989
+          }
+        ]
+      },
+      "model_peak_flexion_projection_deg": 5.680323875551707,
+      "model_peak_elbow_deg": 94.91616379399423,
+      "final_GH_offset_deg": 1.6136036720456879,
+      "final_elbow_deg": -1.188856446172234e-09
+    },
+    "elbow_delay_025": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 1.4,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": null,
+      "model_peak_flexion_projection_deg": 3.1508377227912767,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "final_GH_offset_deg": 2.1810193608439676,
+      "final_elbow_deg": -1.8325057582649521e-09,
+      "first_collision": {
+        "time_s": 1.9150000000000003,
+        "GH_delta_deg": 8.482035668095218,
+        "flexion_projection_deg": 0.3344803903453708,
+        "elbow_deg": -0.0001733770882278951,
+        "hits": [
+          {
+            "left": "bone:forearm",
+            "right": "stop:arm",
+            "overlap_mm3": 0.0013556413839846844
+          }
+        ]
+      },
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_timing_elbow_delay_025.csv",
+        "sha256": "b309a972b5ccf3ad5d13a6b14ecce89d43d6acc0d0b6e6f3f4d234e771910742"
+      },
+      "fully_audited": true,
+      "clear_frames": 383
+    },
+    "elbow_delay_050": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 1.65,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": null,
+      "model_peak_flexion_projection_deg": 3.554617155914014,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "final_GH_offset_deg": 2.805741842889828,
+      "final_elbow_deg": -1.1103507854890584e-09
+    },
+    "elbow_delay_075": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 1.9,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": null,
+      "model_peak_flexion_projection_deg": 3.9441212031286543,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "final_GH_offset_deg": 3.2080209085317843,
+      "final_elbow_deg": -8.076096551950978e-10
+    },
+    "elbow_delay_100": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 2.15,
+      "added_anterior_peak_N": 0.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": null,
+      "model_peak_flexion_projection_deg": 3.7640449701271512,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "final_GH_offset_deg": 4.140537136475513,
+      "final_elbow_deg": -1.890847423371569e-09
+    },
+    "anterior_pull_2N": {
+      "shoulder_release_start_s": 1.15,
+      "elbow_release_start_s": 1.15,
+      "added_anterior_peak_N": 2.0,
+      "sampled_frames": 801,
+      "first_pin_rib_collision": {
+        "time_s": 2.3200000000000003,
+        "GH_delta_deg": 6.849798540550091,
+        "flexion_projection_deg": 4.24184655181471,
+        "elbow_deg": 0.9227300249033041,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.0015895284363651799
+          }
+        ]
+      },
+      "model_peak_flexion_projection_deg": 4.386010910110726,
+      "model_peak_elbow_deg": 100.08863481747089,
+      "final_GH_offset_deg": 2.2338066063348903,
+      "final_elbow_deg": -1.7411774971980247e-09
+    }
+  },
+  "selected": "shoulder_early",
+  "period_s": 0.005,
+  "cross_body_pair_count": 17819,
+  "scope": "One fixed starting pose and provisional cable force parameters. A target pair is screened first, then the shortlisted trajectories are checked for rigid cross-body interference. Wire/TPU shape, contact dynamics outside the elbow stop, and physical repeatability are absent."
+}

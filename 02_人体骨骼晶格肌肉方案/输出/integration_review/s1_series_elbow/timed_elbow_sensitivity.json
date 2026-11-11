@@ -1,0 +1,190 @@
+{
+  "generator": {
+    "file": "tools/study_s1_series_elbow_timed_sensitivity.py",
+    "sha256": "59c4fa4f6f345758b66a26976677acaf16852c36fcbf8626397ec105fa33fa6f"
+  },
+  "source_timing": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_release_timing.json",
+    "sha256": "f6b6d9aca2921b3f7125f4b8229ed21d853cbf5d1f650722441e1e2dfca7fbdb"
+  },
+  "source_cycle": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_timing_shoulder_early.csv",
+    "sha256": "9896b0d608c2f1f4b8d298b82d65b6e3b18a981b146142be0d3cde0ff746638a"
+  },
+  "source_protocol": {
+    "file": "tools/study_s1_series_elbow_release_timing.py",
+    "sha256": "03b8b32c21de4f507f0e77147bd7d042175089d5322d62754a05f1c6f2522c0e"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.xml",
+    "sha256": "49487a93385ac50c4d7f5ca716459f2a6ab579d679af82fc4e71ffd9606dab34"
+  },
+  "sample_step_s": 0.005,
+  "slider_limit_mm": 50.48771312723949,
+  "K1_floor_deg": 116.0,
+  "K1_target_deg": 145.0,
+  "samples": {
+    "force_25_k_160_shoulder_0.85": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 160.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 111.2240349355487,
+      "model_peak_slide_mm": 50.488105133612,
+      "model_final_elbow_deg": -1.6795994230246922e-09,
+      "first_slide_limit_sample_s": 0.91,
+      "first_probe_collision": null
+    },
+    "force_25_k_200_shoulder_0.85": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 100.10281055055285,
+      "model_peak_slide_mm": 50.21907389383004,
+      "model_final_elbow_deg": -1.6113101816237569e-09,
+      "first_slide_limit_sample_s": null,
+      "first_probe_collision": null
+    },
+    "force_25_k_240_shoulder_0.85": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 240.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 90.53305667394429,
+      "model_peak_slide_mm": 46.16294137851693,
+      "model_final_elbow_deg": -1.5613877029417707e-09,
+      "first_slide_limit_sample_s": null,
+      "first_probe_collision": null
+    },
+    "force_30_k_160_shoulder_0.85": {
+      "flexor_force_N": 30.0,
+      "axial_flexor_stiffness_N_per_m": 160.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 135.10971560543447,
+      "model_peak_slide_mm": 50.48829095687021,
+      "model_final_elbow_deg": -1.8091000583336616e-09,
+      "first_slide_limit_sample_s": 0.775,
+      "first_probe_collision": null
+    },
+    "force_30_k_200_shoulder_0.85": {
+      "flexor_force_N": 30.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 124.90192141702057,
+      "model_peak_slide_mm": 50.49692302910658,
+      "model_final_elbow_deg": -1.7205514369129638e-09,
+      "first_slide_limit_sample_s": 0.79,
+      "first_probe_collision": null
+    },
+    "force_30_k_240_shoulder_0.85": {
+      "flexor_force_N": 30.0,
+      "axial_flexor_stiffness_N_per_m": 240.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 114.73578188914693,
+      "model_peak_slide_mm": 50.487983381766746,
+      "model_final_elbow_deg": -1.6169478749956532e-09,
+      "first_slide_limit_sample_s": 0.8200000000000001,
+      "first_probe_collision": null
+    },
+    "force_35_k_160_shoulder_0.85": {
+      "flexor_force_N": 35.0,
+      "axial_flexor_stiffness_N_per_m": 160.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 150.62647766897598,
+      "model_peak_slide_mm": 50.4883671977218,
+      "model_final_elbow_deg": -1.907139709993717e-09,
+      "first_slide_limit_sample_s": 0.7150000000000001,
+      "first_probe_collision": {
+        "time_s": 0.8600000000000001,
+        "elbow_deg": 146.79003212481098,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.2976392795986076
+          }
+        ]
+      }
+    },
+    "force_35_k_200_shoulder_0.85": {
+      "flexor_force_N": 35.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 143.70181727727413,
+      "model_peak_slide_mm": 50.48834720081633,
+      "model_final_elbow_deg": -1.8353808214090383e-09,
+      "first_slide_limit_sample_s": 0.7250000000000001,
+      "first_probe_collision": {
+        "time_s": 0.8900000000000001,
+        "elbow_deg": 142.09346429989583,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.34033395978368636
+          }
+        ]
+      }
+    },
+    "force_35_k_240_shoulder_0.85": {
+      "flexor_force_N": 35.0,
+      "axial_flexor_stiffness_N_per_m": 240.0,
+      "shoulder_release_s": 0.85,
+      "model_peak_elbow_deg": 135.27244614787608,
+      "model_peak_slide_mm": 50.48829429855709,
+      "model_final_elbow_deg": -1.7540464405487001e-09,
+      "first_slide_limit_sample_s": 0.7350000000000001,
+      "first_probe_collision": null
+    },
+    "force_25_k_200_shoulder_0.75": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 0.75,
+      "model_peak_elbow_deg": 100.28772965563401,
+      "model_peak_slide_mm": 50.28952904054989,
+      "model_final_elbow_deg": -1.600883730474599e-09,
+      "first_slide_limit_sample_s": null,
+      "first_probe_collision": null
+    },
+    "force_25_k_200_shoulder_0.95": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 0.95,
+      "model_peak_elbow_deg": 100.0017368819092,
+      "model_peak_slide_mm": 50.18012996049018,
+      "model_final_elbow_deg": -1.6291756029631282e-09,
+      "first_slide_limit_sample_s": null,
+      "first_probe_collision": {
+        "time_s": 2.33,
+        "elbow_deg": 0.756298939325992,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.0014276588301754753
+          }
+        ]
+      }
+    },
+    "force_25_k_200_shoulder_1.05": {
+      "flexor_force_N": 25.0,
+      "axial_flexor_stiffness_N_per_m": 200.0,
+      "shoulder_release_s": 1.05,
+      "model_peak_elbow_deg": 99.98458342870296,
+      "model_peak_slide_mm": 50.17263595436565,
+      "model_final_elbow_deg": -1.680210169585097e-09,
+      "first_slide_limit_sample_s": null,
+      "first_probe_collision": {
+        "time_s": 2.3350000000000004,
+        "elbow_deg": 0.8900643343652153,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.009590037196488585
+          }
+        ]
+      }
+    }
+  },
+  "confirmed_candidate": null,
+  "scope": "Five-millisecond state samples. Initial screen only checks elbow pin versus rib and forearm versus extension stop. Nominal slider bounds are recorded separately. Tested stiffness and force are provisional. Geometry of the wire and TPU is excluded."
+}

@@ -1,0 +1,1 @@
+Superseded two-body-per-segment bench. The 2.5 mm refinement terminated during native compilation without a result. Current generator uses one body per node; compare only regenerated current reports. Not final hardware validation.

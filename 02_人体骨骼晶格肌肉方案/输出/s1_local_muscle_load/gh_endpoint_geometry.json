@@ -1,0 +1,939 @@
+{
+  "generator": {
+    "file": "tools/study_s1_local_force_geometry.py",
+    "sha256": "cbcb5fff9d7ba831f8b383ffb93d5923ffc3670dd846d6fb3bed4d1b539b9ace"
+  },
+  "selection": {
+    "file": "design/S1_CURRENT_CANDIDATE.json",
+    "sha256": "1b931fbbc94c778f803bae304c271836f78bd709a3f19e7c98cbdf565ce80eb1"
+  },
+  "shoulder_assembly": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/assembly_check.json",
+    "sha256": "16e96f32d9380d4b42248ffd23675bbda4ec0ec68760a6e24e256e7760397dc2"
+  },
+  "bare_motion": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/bare_motion_review/bare_joint_motion_checks.json",
+    "sha256": "3d134a72ea2ea8f8fae147695d2e32890d642d78ae62365d2d66962aef734484"
+  },
+  "port_geometry": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_port_path_revision/routes_compact_distal_candidate.json",
+    "sha256": "ad8629c719bdd5bd8661b6cad2b3f221916c08377edeed8c1448b4c6786bab51"
+  },
+  "free_strand_geometry": {
+    "file": "02_\u4eba\u4f53\u9aa8\u9abc\u6676\u683c\u808c\u8089\u65b9\u6848/\u8f93\u51fa/shoulder_design/s1_y2_transition_stock/free_strand_routes/route_audit.json",
+    "sha256": "66eeb4adcf331720893578b777a9214bf0e8af68c39915654c5099a0b21105a7"
+  },
+  "axes": [
+    "flexion",
+    "abduction",
+    "longitudinal"
+  ],
+  "axes_source": [
+    [
+      -0.9849915762148533,
+      0.0,
+      0.17260241825008904
+    ],
+    [
+      0.0,
+      0.9998964030731843,
+      0.014393857068490468
+    ],
+    [
+      -0.17258506979557828,
+      0.014177871716920615,
+      -0.9848925736532052
+    ]
+  ],
+  "gh_centre_source_mm": [
+    -162.36764876508894,
+    -76.02966788682818,
+    1315.5998062770147
+  ],
+  "step_max_deg": 1.0,
+  "signed_longitudinal_anatomical_mapping_verified": false,
+  "neutral": {
+    "FJ1507": {
+      "origin_body": "scapula",
+      "distal_body": "humerus",
+      "proximal_port_source_mm": [
+        -116.73461054500298,
+        -4.771796455201665,
+        1212.6245230424452
+      ],
+      "distal_port_source_mm": [
+        -155.1939332290547,
+        -75.56077549248445,
+        1267.7033488740124
+      ],
+      "distal_geometry_key": "cap:FJ1507/distal",
+      "chord_mm": 97.59034844410071,
+      "distal_force_per_unit_tension": [
+        0.3940894084017031,
+        0.7253686472677201,
+        -0.5643880435893319
+      ],
+      "proximal_reaction_per_unit_tension": [
+        -0.3940894084017031,
+        -0.7253686472677201,
+        0.5643880435893319
+      ],
+      "moment_arms_mm": [
+        -33.09423404919186,
+        -14.752951352183473,
+        -11.103572675256125
+      ]
+    },
+    "FJ1468": {
+      "origin_body": "clavicle",
+      "distal_body": "humerus",
+      "proximal_port_source_mm": [
+        -120.53317391768276,
+        -94.24577642890053,
+        1346.7321455290585
+      ],
+      "distal_port_source_mm": [
+        -211.82361701499764,
+        -79.79924396388785,
+        1225.791397248659
+      ],
+      "distal_geometry_key": "stop:FJ1468_stop_blank",
+      "chord_mm": 152.21469014451168,
+      "distal_force_per_unit_tension": [
+        0.5997479153335614,
+        -0.09490892404207,
+        0.7945405805811455
+      ],
+      "proximal_reaction_per_unit_tension": [
+        -0.5997479153335614,
+        0.09490892404207,
+        -0.7945405805811455
+      ],
+      "moment_arms_mm": [
+        12.54620527589804,
+        -14.466019570389435,
+        -5.068124167676397
+      ]
+    },
+    "FJ1513": {
+      "origin_body": "scapula",
+      "distal_body": "humerus",
+      "proximal_port_source_mm": [
+        -128.94147614857323,
+        -16.871057222032967,
+        1314.3798925762067
+      ],
+      "distal_port_source_mm": [
+        -211.94053972617763,
+        -73.09884974728052,
+        1229.7714784565824
+      ],
+      "distal_geometry_key": "stop:FJ1513_stop_blank",
+      "chord_mm": 131.18305129421003,
+      "distal_force_per_unit_tension": [
+        0.6326965469911104,
+        0.42862086199796495,
+        0.6449645231217351
+      ],
+      "proximal_reaction_per_unit_tension": [
+        -0.6326965469911104,
+        -0.42862086199796495,
+        -0.6449645231217351
+      ],
+      "moment_arms_mm": [
+        -42.085100250625004,
+        -22.660748407684626,
+        15.761418072409988
+      ]
+    },
+    "FJ1467": {
+      "origin_body": "scapula",
+      "distal_body": "humerus",
+      "proximal_port_source_mm": [
+        -163.9935888458647,
+        -64.6274897980122,
+        1352.4665398178333
+      ],
+      "distal_port_source_mm": [
+        -210.44938795741916,
+        -79.79924396388785,
+        1233.4635217586826
+      ],
+      "distal_geometry_key": "stop:FJ1467_stop_blank",
+      "chord_mm": 128.64696538492237,
+      "distal_force_per_unit_tension": [
+        0.3611107263397536,
+        0.11793324561120036,
+        0.9250355630471641
+      ],
+      "proximal_reaction_per_unit_tension": [
+        -0.3611107263397536,
+        -0.11793324561120036,
+        -0.9250355630471641
+      ],
+      "moment_arms_mm": [
+        -6.850338910604075,
+        14.753464300325561,
+        3.3842145941588564
+      ]
+    }
+  },
+  "Y_neutral_conditional": {
+    "FJ1500": {
+      "free_terminal_exit_source_mm": [
+        -190.61029871878958,
+        -57.13486979901274,
+        1308.6966226638951
+      ],
+      "humeral_exit_source_mm": [
+        -193.6901090188949,
+        -61.84432486232782,
+        1269.1692022500506
+      ],
+      "nominal_unmeasured_length_mm": 39.929271692412684,
+      "neutral_chord_mm": 39.92594598817707,
+      "bone_exit_chord_direction": [
+        0.07713806708593254,
+        0.11795475214813061,
+        0.9900183811687131
+      ],
+      "bone_exit_tangent_direction": [
+        0.06971313497849735,
+        0.14005739530254843,
+        0.9876861874262165
+      ],
+      "tangent_projection_mm": [
+        -21.133623957132237,
+        27.61968958239528,
+        2.1470138993757546
+      ],
+      "chord_projection_mm": [
+        -20.054058711078376,
+        27.35647265537718,
+        1.7364496357084829
+      ],
+      "scope": "Prescribed neutral eye orientations. Conditional per-unit-tension projections only. Actual tension, swivel angle and free TPU terminal equilibrium remain unknown."
+    },
+    "FJ1504": {
+      "free_terminal_exit_source_mm": [
+        -152.91637919414,
+        -97.23991807871039,
+        1294.7432092982606
+      ],
+      "humeral_exit_source_mm": [
+        -173.2446239808875,
+        -93.36553218225713,
+        1265.1043545196871
+      ],
+      "nominal_unmeasured_length_mm": 36.64097081509394,
+      "neutral_chord_mm": 36.148445537393826,
+      "bone_exit_chord_direction": [
+        0.5623546043140057,
+        -0.10717987561720728,
+        0.8199205896118953
+      ],
+      "bone_exit_tangent_direction": [
+        0.3246895402385733,
+        -0.2598588693398292,
+        0.9094229326804385
+      ],
+      "tangent_projection_mm": [
+        29.913167346746125,
+        -6.381196872541511,
+        -3.4342012794487577
+      ],
+      "chord_projection_mm": [
+        21.2154739787857,
+        -19.318971416301885,
+        -7.63878418305658
+      ],
+      "scope": "Prescribed neutral eye orientations. Conditional per-unit-tension projections only. Actual tension, swivel angle and free TPU terminal equilibrium remain unknown."
+    }
+  },
+  "paths": {
+    "longitudinal_+1": {
+      "last_prior_bare_sample_deg": 120.0,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -13.587819898974603,
+            -2.3459813147199973
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            21.773022494284945
+          ],
+          "chord_change_at_last_sample_mm": 21.773022494284945,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -5.068124167676397,
+            9.185158660580543
+          ],
+          "chord_change_range_mm": [
+            -6.585094403792397,
+            1.5926876410051705
+          ],
+          "chord_change_at_last_sample_mm": -6.585094403792397,
+          "sign_change_brackets_deg": [
+            [
+              35.0,
+              36.0
+            ]
+          ]
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -1.367401276433576,
+            19.003450086662184
+          ],
+          "chord_change_range_mm": [
+            -28.59516048619429,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -28.554387912899998,
+          "sign_change_brackets_deg": [
+            [
+              116.0,
+              117.0
+            ]
+          ]
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -3.0808077947590315,
+            3.3842145941588564
+          ],
+          "chord_change_range_mm": [
+            -2.1683358682829663,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -0.5494812710293786,
+          "sign_change_brackets_deg": [
+            [
+              64.0,
+              65.0
+            ]
+          ]
+        }
+      },
+      "isolated_active_torque_probes": {
+        "0.0": {
+          "target_torque_Nm": 0.012441244017575903,
+          "tensions_N": [
+            0.0,
+            21.72561562814335,
+            2.407397393554705,
+            25.0
+          ],
+          "torque_source_Nm": [
+            -0.0021471729671171716,
+            0.00017639036168003486,
+            -0.012253288839917872
+          ]
+        },
+        "60.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "120.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "longitudinal_-1": {
+      "last_prior_bare_sample_deg": -120.0,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -13.31148665473577,
+            11.103572675256125
+          ],
+          "chord_change_range_mm": [
+            -5.172596527407578,
+            4.849431544782178
+          ],
+          "chord_change_at_last_sample_mm": 4.849431544782178,
+          "sign_change_brackets_deg": [
+            [
+              -48.0,
+              -49.0
+            ]
+          ]
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            4.158694981616532,
+            9.29204391291996
+          ],
+          "chord_change_range_mm": [
+            -16.069097534145868,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -16.069097534145868,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -15.761418072409988,
+            14.488441364336436
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            9.41175331542928
+          ],
+          "chord_change_at_last_sample_mm": 1.8399773181188834,
+          "sign_change_brackets_deg": [
+            [
+              -63.0,
+              -64.0
+            ]
+          ]
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -3.6944492270525964,
+            0.30424898660997424
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            5.220803275540476
+          ],
+          "chord_change_at_last_sample_mm": 5.207910046454231,
+          "sign_change_brackets_deg": [
+            [
+              -115.0,
+              -116.0
+            ]
+          ]
+        }
+      },
+      "isolated_active_torque_probes": {
+        "-0.0": {
+          "target_torque_Nm": 0.06383777053487583,
+          "tensions_N": [
+            3.2388622141273773,
+            22.193653842682426,
+            0.0,
+            25.0
+          ],
+          "torque_source_Nm": [
+            0.01101744608335568,
+            -0.0009050837213376894,
+            0.06287334611837658
+          ]
+        },
+        "-60.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "-120.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "flexion_+1": {
+      "last_prior_bare_sample_deg": 120.0,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -42.17944106540364,
+            -12.740255409480413
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            70.0743285897819
+          ],
+          "chord_change_at_last_sample_mm": 70.0743285897819,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            12.54620527589804,
+            33.50311362474414
+          ],
+          "chord_change_range_mm": [
+            -57.11904517460172,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -57.11904517460172,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -42.085100250625004,
+            18.466568956740808
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            35.4248556475938
+          ],
+          "chord_change_at_last_sample_mm": 30.111056541597094,
+          "sign_change_brackets_deg": [
+            [
+              87.0,
+              88.0
+            ]
+          ]
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -6.850338910604075,
+            35.78862993308419
+          ],
+          "chord_change_range_mm": [
+            -37.51595567628658,
+            0.9070801049618353
+          ],
+          "chord_change_at_last_sample_mm": -37.51595567628658,
+          "sign_change_brackets_deg": [
+            [
+              15.0,
+              16.0
+            ]
+          ]
+        }
+      },
+      "isolated_active_torque_probes": {
+        "0.0": {
+          "target_torque_Nm": 0.03241235193773134,
+          "tensions_N": [
+            0.0,
+            22.544214665517828,
+            1.881271989449252,
+            25.0
+          ],
+          "torque_source_Nm": [
+            -0.03192589362397655,
+            0.0,
+            0.005594450325625416
+          ]
+        },
+        "60.0": {
+          "target_torque_Nm": 0.03726246112079079,
+          "tensions_N": [
+            0.0,
+            2.060409340041439,
+            25.0,
+            18.496591350992652
+          ],
+          "torque_source_Nm": [
+            -0.036703210313012435,
+            -2.398081733190338e-17,
+            0.006431590899398429
+          ]
+        },
+        "96.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "120.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "flexion_-1": {
+      "last_prior_bare_sample_deg": -39.6,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -3.1666330069426154,
+            33.09423404919186
+          ],
+          "chord_change_range_mm": [
+            -11.67854006539497,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -11.599452420067465,
+          "sign_change_brackets_deg": [
+            [
+              -36.0,
+              -37.0
+            ]
+          ]
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -12.54620527589804,
+            5.345094997686397
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            3.0857085684579033
+          ],
+          "chord_change_at_last_sample_mm": 2.5392764224895643,
+          "sign_change_brackets_deg": [
+            [
+              -27.0,
+              -28.0
+            ]
+          ]
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            42.085100250625004,
+            45.714001888060494
+          ],
+          "chord_change_range_mm": [
+            -30.90770025847793,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -30.90770025847793,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            6.850338910604075,
+            23.34322610073488
+          ],
+          "chord_change_range_mm": [
+            -10.614842731427615,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -10.614842731427615,
+          "sign_change_brackets_deg": []
+        }
+      },
+      "isolated_active_torque_probes": {
+        "-0.0": {
+          "target_torque_Nm": 0.9520268910445902,
+          "tensions_N": [
+            16.044625302072017,
+            0.0,
+            5.935208228413848,
+            25.0
+          ],
+          "torque_source_Nm": [
+            0.9377384680089372,
+            2.842170943040401e-17,
+            -0.1643221436334103
+          ]
+        },
+        "-20.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            -0.0,
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "-39.6": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "abduction_+1": {
+      "last_prior_bare_sample_deg": 120.0,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -40.42980487226885,
+            -14.752951352183473
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            69.56981798607494
+          ],
+          "chord_change_at_last_sample_mm": 69.56981798607494,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -14.466019570389435,
+            48.033579470395146
+          ],
+          "chord_change_range_mm": [
+            -41.198179332946026,
+            3.077512169747763
+          ],
+          "chord_change_at_last_sample_mm": -41.198179332946026,
+          "sign_change_brackets_deg": [
+            [
+              24.0,
+              25.0
+            ]
+          ]
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -22.660748407684626,
+            20.67253743760905
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            13.354787440027792
+          ],
+          "chord_change_at_last_sample_mm": 2.6837202475017534,
+          "sign_change_brackets_deg": [
+            [
+              63.0,
+              64.0
+            ]
+          ]
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            14.753464300325561,
+            36.07703075696436
+          ],
+          "chord_change_range_mm": [
+            -61.85500152397573,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -61.85500152397573,
+          "sign_change_brackets_deg": []
+        }
+      },
+      "isolated_active_torque_probes": {
+        "0.0": {
+          "target_torque_Nm": 0.1379275128301602,
+          "tensions_N": [
+            0.6246238588224489,
+            15.325158948985854,
+            0.0,
+            25.0
+          ],
+          "torque_source_Nm": [
+            -2.842170943040401e-17,
+            0.1379132239637077,
+            0.0019853089054897026
+          ]
+        },
+        "60.0": {
+          "target_torque_Nm": 1.104314664009515,
+          "tensions_N": [
+            4.587207596218492,
+            25.0,
+            0.0,
+            22.22378288523607
+          ],
+          "torque_source_Nm": [
+            7.815970093361102e-17,
+            1.1042002604040864,
+            0.015895347432391106
+          ]
+        },
+        "96.0": {
+          "target_torque_Nm": 1.3366472215727028,
+          "tensions_N": [
+            6.373321897251673,
+            25.0,
+            0.0,
+            16.458685752496514
+          ],
+          "torque_source_Nm": [
+            2.842170943040401e-17,
+            1.3365087490283107,
+            0.019239509058312364
+          ]
+        },
+        "120.0": {
+          "target_torque_Nm": 1.3992141402217864,
+          "tensions_N": [
+            6.9792020632062535,
+            25.0,
+            0.0,
+            15.116657285393282
+          ],
+          "torque_source_Nm": [
+            1.1368683772161603e-16,
+            1.3990691859369027,
+            0.020140088342563204
+          ]
+        }
+      }
+    },
+    "abduction_-1": {
+      "last_prior_bare_sample_deg": -39.1,
+      "channels": {
+        "FJ1507": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -22.210411124891248,
+            14.752951352183473
+          ],
+          "chord_change_range_mm": [
+            -1.9851104872674483,
+            2.836147852546489
+          ],
+          "chord_change_at_last_sample_mm": 2.836147852546489,
+          "sign_change_brackets_deg": [
+            [
+              -15.0,
+              -16.0
+            ]
+          ]
+        },
+        "FJ1468": {
+          "signed_lever_range_in_motion_direction_mm": [
+            14.466019570389435,
+            35.505546136824734
+          ],
+          "chord_change_range_mm": [
+            -17.294942138268453,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -17.294942138268453,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1513": {
+          "signed_lever_range_in_motion_direction_mm": [
+            22.660748407684626,
+            28.64000290112727
+          ],
+          "chord_change_range_mm": [
+            -18.059989217939602,
+            0.0
+          ],
+          "chord_change_at_last_sample_mm": -18.059989217939602,
+          "sign_change_brackets_deg": []
+        },
+        "FJ1467": {
+          "signed_lever_range_in_motion_direction_mm": [
+            -14.753464300325561,
+            2.8420586804542136
+          ],
+          "chord_change_range_mm": [
+            0.0,
+            4.284804764024699
+          ],
+          "chord_change_at_last_sample_mm": 4.131018318042834,
+          "sign_change_brackets_deg": [
+            [
+              -32.0,
+              -33.0
+            ]
+          ]
+        }
+      },
+      "isolated_active_torque_probes": {
+        "-0.0": {
+          "target_torque_Nm": 0.32985505856223346,
+          "tensions_N": [
+            0.0,
+            25.0,
+            5.697181153990263,
+            10.905765329809869
+          ],
+          "torque_source_Nm": [
+            -5.684341886080802e-17,
+            -0.32982088659187186,
+            -0.004747886566263333
+          ]
+        },
+        "-20.0": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            0.0,
+            -0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "-39.1": {
+          "target_torque_Nm": 0.0,
+          "tensions_N": [
+            0.0,
+            -0.0,
+            -0.0,
+            0.0
+          ],
+          "torque_source_Nm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "sample_rows": 2264,
+  "isolated_torque_probe_bound_N_per_channel": 25.0,
+  "tension_bound_is_assumed": true,
+  "scope": "S1-Y2 fixed shoulder girdle, single GH axes, prescribed diagnostic poses. Chords are local endpoint force surrogates; clearance and TPU strain are not predicted. Four-channel torque fit excludes gravity, passive load and the two free-terminal Y muscles. Prior bare-motion limits are probe bounds, not local actuator or complete assembly limits."
+}

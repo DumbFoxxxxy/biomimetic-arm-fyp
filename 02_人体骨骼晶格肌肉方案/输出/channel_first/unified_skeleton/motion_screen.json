@@ -1,0 +1,27 @@
+{
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/geometry_mass_body_chain.xml",
+    "sha256": "8e2329af60b4a36bc0bad9abf1bfd81a2437e3cd309f8bde8d00ad54d2a4ec73"
+  },
+  "body_chain_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/geometry_mass_body_chain_check.json",
+    "sha256": "4ad962fca6bab164e046e73833d9b171a13faf3c6569f35f2e5d9362b6fc2217"
+  },
+  "reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_skeleton/assembly.json",
+    "sha256": "5ad334f0f374238a7d66e27335670e1dc892c931f2b5cbd674c11a61665acc94"
+  },
+  "tested_cross_body_pairs": 1498,
+  "baseline_interferences": [
+    {
+      "left": "thorax_reference:FJ3290",
+      "right": "bone:clavicle",
+      "overlap_mm3": 319.2921373387802
+    }
+  ],
+  "small_angle_probes": [],
+  "sampling_deg": 1.0,
+  "threshold_mm3": 0.001,
+  "status": "baseline_interferences_require_resolution",
+  "scope": "All cross-rigid-body solid pairs included, including adjacent bones and joint hardware. Same-body pairs do not change under these poses; internal assembly fit remains a separate task. No licensed contact regions assumed. No K-range or force-drive acceptance. Boundaries not yet refined; paths are outgoing probes only, not final outward/return validation."
+}

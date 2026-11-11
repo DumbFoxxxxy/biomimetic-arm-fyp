@@ -1,0 +1,139 @@
+{
+  "generator": {
+    "file": "tools/simulate_elbow_local_extension_stop.py",
+    "sha256": "a445d85a98aa861240fecee012f56e246a2953555df8c93f4af46e69fcea5050"
+  },
+  "local_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_local_force_with_stop.xml",
+    "sha256": "c29f8fd97d1389ba9015f0deacf77d16c1a0fa1bcad65f47fb8ca69a78d8dd29"
+  },
+  "force_generator": {
+    "file": "tools/simulate_elbow_antagonistic_load.py",
+    "sha256": "14a2e0a21b9b2774849896df6d6ff0b1c08e2b67655b2d58dc51e7a77198e6f5"
+  },
+  "stop_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/model_check.json",
+    "sha256": "f3a9b02139eec32bc35f9748e211bcb10c2602c893e8a4ed348797dd861188f6"
+  },
+  "passive_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_passive_model/model_check.json",
+    "sha256": "910c2616c737d2b79dbc1ff89beba9fbf48b9e27e2c5a366dc13364819745ac5"
+  },
+  "timestep_s": 2e-05,
+  "trace_interval_s": 0.005,
+  "cases": [
+    {
+      "active_muscle": null,
+      "peak_tension_N": 0.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -2.1231487111243567e-09,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -2.122964383565238e-09,
+      "cap_peak_abs_deg": [
+        0.009138861406470944,
+        0.009220197707171784
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        0.0
+      ],
+      "muscle_max_length_change_mm": [
+        0.0001501687329208412,
+        2.1556340601414092e-06
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 200000,
+      "minimum_contact_distance_mm": -1.1035737370354397e-07,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_stop_baseline.csv",
+        "sha256": "ffd3f8cc01687ff009b416dd89cf5b60e8f3f6fef6e3ea9b386c4c12d3d3eae2"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -2.1250124186538817e-09,
+      "elbow_max_deg": 1.2325723319614506,
+      "elbow_final_deg": -2.1229638656350307e-09,
+      "cap_peak_abs_deg": [
+        3.7448821519227593,
+        0.11152159673369352
+      ],
+      "muscle_min_length_change_mm": [
+        -0.32623040327103836,
+        -1.3640416851590231e-06
+      ],
+      "muscle_max_length_change_mm": [
+        0.00015016871127149223,
+        0.6379215150127959
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 132241,
+      "minimum_contact_distance_mm": -0.00011851843724407014,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_stop_flex5.csv",
+        "sha256": "d980e0df2bdf698db4ad6e73a81f439c1ad0d41bace371a9e882d4c6409b11fc"
+      }
+    },
+    {
+      "active_muscle": "FJ1486",
+      "peak_tension_N": 25.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -2.1428330041728456e-09,
+      "elbow_max_deg": 52.976906660648766,
+      "elbow_final_deg": -2.1229638497458122e-09,
+      "cap_peak_abs_deg": [
+        44.996929295996,
+        48.77343692598389
+      ],
+      "muscle_min_length_change_mm": [
+        -24.318263051537752,
+        -5.301661082368625e-06
+      ],
+      "muscle_max_length_change_mm": [
+        0.00015016867335737594,
+        39.41209385914421
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 82372,
+      "minimum_contact_distance_mm": -0.0009011913067988969,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_stop_flex25.csv",
+        "sha256": "faf65100e0cee3c2c69244a11c40f09ccc7b51015f4769450b613ae063bab7cd"
+      }
+    },
+    {
+      "active_muscle": "FJ1477",
+      "peak_tension_N": 5.0,
+      "stiffness_N_per_m": 200.0,
+      "damping_Ns_per_m": 1.0,
+      "elbow_min_deg": -7.320132524536734e-09,
+      "elbow_max_deg": 0.0,
+      "elbow_final_deg": -2.1229650179676726e-09,
+      "cap_peak_abs_deg": [
+        0.009138861406471192,
+        0.03670354923532949
+      ],
+      "muscle_min_length_change_mm": [
+        0.0,
+        -4.955316046384439e-06
+      ],
+      "muscle_max_length_change_mm": [
+        0.00015016987728322384,
+        2.1556340601414092e-06
+      ],
+      "joint_limits_engaged": [],
+      "contact_steps": 200000,
+      "minimum_contact_distance_mm": -1.1035737370354397e-07,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_stop_extend5.csv",
+        "sha256": "7e47c20d87bb6985595ea8548ab7a63847ae322f2498afbe8f929e3d0b9b6d29"
+      }
+    }
+  ],
+  "scope": "The two existing nominal stop faces are the only contact pair. Negative distance is numerical penetration. Original provisional masses, frictionless contact law, and assumed 200 N/m linear muscle springs. No full rigid-body, TPU or cable contact certification."
+}

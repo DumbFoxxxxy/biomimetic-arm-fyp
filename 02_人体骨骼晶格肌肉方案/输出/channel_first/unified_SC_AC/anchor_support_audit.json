@@ -1,0 +1,1573 @@
+{
+  "endpoint_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/arm_girdle_equivalent_drive_geometry_mass_check.json",
+    "sha256": "fbed4ca3b0d5ed3a3e82d8896098f7c8bef45cbac9f378bcfbc0ee5754254d08"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/unified_SC_AC/assembly.json",
+    "sha256": "30b4cee88fe256274379ce4341a33ad0ab873f1595c0425e8bdc8660692bd99b"
+  },
+  "anatomical_candidates": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/arm_girdle_endpoint_candidates.json",
+    "sha256": "bb4cd7a492af474c1515dd364c2a0b591cabe70333130def69799d7bd07d4c78"
+  },
+  "cervical_inventory": {
+    "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/sources.json",
+    "sha256": "8bf2fffc198a84c9c268b00a23b8909057571a4be0cbda0a7f7d5084f67dd15d"
+  },
+  "reference_cervical_sources": {
+    "cervical_reference:FJ3161": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3161.obj",
+      "sha256": "8f0de55a4feef85c256501a8afff7bb5aa3f77f4681af4c91801da87b54db103",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3164": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3164.obj",
+      "sha256": "a883dd5929817f87eb366a32ca9d82463fd0db40286c49b8adc9e9d1a8cecc34",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3167": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3167.obj",
+      "sha256": "b2485c3707b04f1fd455ee4d3a7b69670ec9c85d4ef9a54463e5c6089f1a69a7",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3170": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3170.obj",
+      "sha256": "ac100888f7e271851c138e8d41a52168070e4fe5c63e8876a4bcfba08f3b59aa",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3172": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3172.obj",
+      "sha256": "43bc0a1f9b3adffd5f45256b61f75affa15b56c85b387fa733b59de310216104",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3176": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3176.obj",
+      "sha256": "8ac9ee6d7631edc066a322af278ed508eab4d9c0919e9a77657ead17c14c8a79",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cervical_reference:FJ3177": {
+      "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3177.obj",
+      "sha256": "ae446bbf47561c5ff2a2c0a03bfb158ba2581477ae5078ac89cc95b92637adab",
+      "translation_source_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "generator": {
+    "file": "tools/audit_channel_first_anchor_supports.py",
+    "sha256": "c4716b4b268f7251406e7b855a2cb2d4d64923cb21f17f588db8fa96d4f4cffc"
+  },
+  "routes": [
+    {
+      "id": "FJ1500",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -89.94,
+            -15.0,
+            1271.07
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -89.93846334164104,
+            -15.003532201072721,
+            1271.069024117521
+          ],
+          "gap_mm": 0.003973677131209935,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -179.8,
+            -66.2,
+            1321.16
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -175.63245132492827,
+            -68.32350794950874,
+            1319.816430442135
+          ],
+          "gap_mm": 4.866510775446897,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "GH"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1504",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -102.23,
+            -39.27,
+            1289.54
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -106.64807258769002,
+            -32.55585259655109,
+            1291.0752387677514
+          ],
+          "gap_mm": 8.182670641015978,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -152.3,
+            -90.72,
+            1311.77
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -153.57264733562963,
+            -88.86703509905784,
+            1312.3223646745741
+          ],
+          "gap_mm": 2.314782257303297,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "GH"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1507",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -107.44,
+            -13.18,
+            1214.41
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -109.2452328768434,
+            -11.546142134726098,
+            1214.0638304281094
+          ],
+          "gap_mm": 2.459306942221051,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -166.49,
+            -74.73,
+            1272.75
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -166.40115694954588,
+            -74.73652434482521,
+            1272.7102823870835
+          ],
+          "gap_mm": 0.09753534469709985,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1468",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "clavicle",
+          "allowed_structure": "clavicle",
+          "proxy_point_source_mm": [
+            -116.76,
+            -83.71,
+            1347.18
+          ],
+          "nearest_bone_key": "bone:clavicle",
+          "bone_name": "bone:clavicle",
+          "surface_point_source_mm": [
+            -115.75491850613767,
+            -80.62694502835332,
+            1347.0885189298256
+          ],
+          "gap_mm": 3.2440384636591615,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "AC"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -199.65,
+            -76.11,
+            1227.57
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -200.4521126461943,
+            -76.20936746851527,
+            1227.7134108143619
+          ],
+          "gap_mm": 0.8208685964634699,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1513",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -123.8,
+            -24.04,
+            1321.28
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -122.8276239475809,
+            -25.394794435684236,
+            1322.583830193705
+          ],
+          "gap_mm": 2.1168269471772447,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -199.65,
+            -76.11,
+            1227.57
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -200.4521126461943,
+            -76.20936746851527,
+            1227.7134108143619
+          ],
+          "gap_mm": 0.8208685964634699,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1467",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -162.823,
+            -64.9978,
+            1348.45
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -163.72459448955652,
+            -64.62664761115849,
+            1348.1528745255239
+          ],
+          "gap_mm": 1.0192694770884272,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "AC"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -199.65,
+            -76.11,
+            1227.57
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -200.4521126461943,
+            -76.20936746851527,
+            1227.7134108143619
+          ],
+          "gap_mm": 0.8208685964634699,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1486",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -189.01993676102055,
+            -97.5516176083899,
+            1205.9189923461765
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -193.01856553709285,
+            -82.40447492951375,
+            1208.3781094240408
+          ],
+          "gap_mm": 15.857875652990483,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "forearm",
+          "allowed_structure": "forearm",
+          "proxy_point_source_mm": [
+            -205.9983368560794,
+            -83.64926421398685,
+            1008.5042079997702
+          ],
+          "nearest_bone_key": "bone:forearm",
+          "bone_name": "bone:forearm",
+          "surface_point_source_mm": [
+            -208.51347180273584,
+            -73.0781739959501,
+            1012.097393150594
+          ],
+          "gap_mm": 11.444860493945129,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "elbow"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1477",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -182.37986396989794,
+            -44.951907446277204,
+            1275.2188276437219
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -179.33667796238012,
+            -65.13553722854932,
+            1274.102307638268
+          ],
+          "gap_mm": 20.442272603278553,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "adapter_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "forearm",
+          "allowed_structure": "forearm",
+          "proxy_point_source_mm": [
+            -214.5566517432216,
+            -42.16574437196331,
+            1087.799672837783
+          ],
+          "nearest_bone_key": "bone:forearm",
+          "bone_name": "bone:forearm",
+          "surface_point_source_mm": [
+            -214.231,
+            -55.604,
+            1052.07
+          ],
+          "gap_mm": 38.17462880601897,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "elbow"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1456_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "ribs",
+          "proxy_point_source_mm": [
+            -97.94597795540354,
+            -150.74101692770725,
+            1240.4914423362186
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3340",
+          "bone_name": "right fourth rib",
+          "surface_point_source_mm": [
+            -97.94597795540356,
+            -150.74101692770728,
+            1240.4914423362186
+          ],
+          "gap_mm": 4.0194366942304644e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -125.24424743696302,
+            -89.68924112962873,
+            1322.0180660672468
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -125.24424659621137,
+            -89.6892416066115,
+            1322.0180632521503
+          ],
+          "gap_mm": 2.9764313834645256e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1459_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "ribs",
+          "proxy_point_source_mm": [
+            -121.68430050221016,
+            -63.46423563976727,
+            1138.9577330960888
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3347",
+          "bone_name": "right eighth rib",
+          "surface_point_source_mm": [
+            -121.68430050221016,
+            -63.46423563976727,
+            1138.9577330960888
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -88.32562408355778,
+            -4.880140544850735,
+            1210.920880960141
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -88.32562489059512,
+            -4.8801392783784365,
+            1210.9208810280081
+          ],
+          "gap_mm": 1.5032855025479077e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1459_g2",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "ribs",
+          "proxy_point_source_mm": [
+            -116.15701311487686,
+            -43.691158083826764,
+            1221.6896531440402
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3344",
+          "bone_name": "right sixth rib",
+          "surface_point_source_mm": [
+            -116.15701311487686,
+            -43.691158083826764,
+            1221.6896531440402
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -76.32399459603151,
+            -6.4534756336203,
+            1246.3387271959496
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -76.32399449199515,
+            -6.453475965824392,
+            1246.3387270959706
+          ],
+          "gap_mm": 3.6218629178605534e-07,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1459_g3",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "ribs",
+          "proxy_point_source_mm": [
+            -97.0306747497657,
+            -41.42843454832586,
+            1285.9610585665707
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3340",
+          "bone_name": "right fourth rib",
+          "surface_point_source_mm": [
+            -97.03067474976568,
+            -41.42843454832587,
+            1285.9610585665707
+          ],
+          "gap_mm": 1.5888218580782548e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -68.51617246159269,
+            -20.481088067021766,
+            1308.7553832693482
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -68.51617293925639,
+            -20.481087169711188,
+            1308.7553837572273
+          ],
+          "gap_mm": 1.1275437505651689e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1520_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "thoracic_spine",
+          "proxy_point_source_mm": [
+            -0.00790755126504944,
+            -2.793187189134922,
+            1166.644599905899
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3174",
+          "bone_name": "eighth thoracic vertebra",
+          "surface_point_source_mm": [
+            -0.007907551265056758,
+            -2.79318718913496,
+            1166.644599905899
+          ],
+          "gap_mm": 3.845055031169732e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -117.61296028777213,
+            -23.273749632107858,
+            1327.013434673917
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -117.61296157335033,
+            -23.27374805522673,
+            1327.0134336619853
+          ],
+          "gap_mm": 2.2722831850570783e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1536_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "thoracic_spine",
+          "proxy_point_source_mm": [
+            -2.1970190880829588,
+            -4.197188839856267,
+            1310.4784192626798
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3163",
+          "bone_name": "third thoracic vertebra",
+          "surface_point_source_mm": [
+            -2.1970190880829676,
+            -4.197188839856264,
+            1310.4784192626798
+          ],
+          "gap_mm": 9.272854936269104e-15,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -76.54102349253264,
+            1.6166140495713868,
+            1210.1456194695331
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -76.54102385595957,
+            1.6166146875978709,
+            1210.1456196245038
+          ],
+          "gap_mm": 7.504484089055882e-07,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1536_g2",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "thoracic_spine",
+          "proxy_point_source_mm": [
+            -0.23980905525970692,
+            -17.99125154308571,
+            1354.1351422582795
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3158",
+          "bone_name": "first thoracic vertebra",
+          "surface_point_source_mm": [
+            -0.2398090552597074,
+            -17.991251543085706,
+            1354.1351422582795
+          ],
+          "gap_mm": 3.583910153046161e-15,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -60.06923043938437,
+            -5.082521187506697,
+            1261.8199444865206
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -60.06923063968556,
+            -5.082521370681931,
+            1261.8199444252004
+          ],
+          "gap_mm": 2.782694671482746e-07,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1460_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "first_rib",
+          "proxy_point_source_mm": [
+            -52.041763471436184,
+            -127.26528421962719,
+            1318.0891932896532
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3334",
+          "bone_name": "right first rib",
+          "surface_point_source_mm": [
+            -52.0417634714362,
+            -127.26528421962722,
+            1318.0891932896532
+          ],
+          "gap_mm": 3.1776437161565096e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "clavicle",
+          "allowed_structure": "clavicle",
+          "proxy_point_source_mm": [
+            -80.76413422497696,
+            -102.51896120704765,
+            1334.4691346057934
+          ],
+          "nearest_bone_key": "bone:clavicle",
+          "bone_name": "bone:clavicle",
+          "surface_point_source_mm": [
+            -80.76413422497696,
+            -102.51896120704767,
+            1334.4691346057934
+          ],
+          "gap_mm": 1.4210854715202004e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1521_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "cervical_spine",
+          "proxy_point_source_mm": [
+            -1.641163820717217,
+            -38.12787639989703,
+            1433.9246613072708
+          ],
+          "nearest_bone_key": "cervical_reference:FJ3177",
+          "bone_name": "axis",
+          "surface_point_source_mm": [
+            -1.6411638207171957,
+            -38.127876399897026,
+            1433.9246613072708
+          ],
+          "gap_mm": 2.2469334198890888e-14,
+          "bone_present_in_selected_assembly": false,
+          "engineering_joint_regions": [],
+          "status": "missing_physical_support",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "clavicle",
+          "allowed_structure": "clavicle",
+          "proxy_point_source_mm": [
+            -100.0902189157072,
+            -72.81764214106185,
+            1350.5405719461783
+          ],
+          "nearest_bone_key": "bone:clavicle",
+          "bone_name": "bone:clavicle",
+          "surface_point_source_mm": [
+            -100.0902189157072,
+            -72.81764214106185,
+            1350.5405719461783
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1532_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "cervical_spine",
+          "proxy_point_source_mm": [
+            -28.753244668708366,
+            -77.60618109382051,
+            1434.6998721927248
+          ],
+          "nearest_bone_key": "cervical_reference:FJ3161",
+          "bone_name": "third cervical vertebra",
+          "surface_point_source_mm": [
+            -28.753244668708337,
+            -77.6061810938205,
+            1434.6998721927248
+          ],
+          "gap_mm": 3.1776437161565096e-14,
+          "bone_present_in_selected_assembly": false,
+          "engineering_joint_regions": [],
+          "status": "missing_physical_support",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -67.87165323398196,
+            -21.81300864726731,
+            1326.4685050952799
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -67.87165320218516,
+            -21.81300882394647,
+            1326.4685050328137
+          ],
+          "gap_mm": 1.9007519714261844e-07,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1537_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "cervical_spine",
+          "proxy_point_source_mm": [
+            -2.023070220015817,
+            -24.793422273770375,
+            1376.3484628300434
+          ],
+          "nearest_bone_key": "cervical_reference:FJ3172",
+          "bone_name": "seventh cervical vertebra",
+          "surface_point_source_mm": [
+            -2.023070220015809,
+            -24.793422273770375,
+            1376.3484628300434
+          ],
+          "gap_mm": 7.993605777301127e-15,
+          "bone_present_in_selected_assembly": false,
+          "engineering_joint_regions": [],
+          "status": "missing_physical_support",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -57.14476956316047,
+            -10.564098588784432,
+            1297.536818402239
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -57.14476832199761,
+            -10.564098013984742,
+            1297.536818491406
+          ],
+          "gap_mm": 1.370704441556814e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1506_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -102.65990922361033,
+            -41.7686334199969,
+            1314.5010625910284
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -102.65990832491063,
+            -41.76863459690236,
+            1314.501061123112
+          ],
+          "gap_mm": 2.0850769178276378e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -173.1616521623041,
+            -82.615874229798,
+            1334.7417336928854
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -170.09209529702446,
+            -80.67372790476158,
+            1328.7174908121783
+          ],
+          "gap_mm": 7.0346011957173635,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "AC",
+            "GH"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1508_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -119.42391490041521,
+            -32.65896440260563,
+            1261.892863758997
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -119.42391489008973,
+            -32.658961678175395,
+            1261.8928658137547
+          ],
+          "gap_mm": 3.412426703828833e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -181.71141563008365,
+            -64.94738966948577,
+            1305.7433231408493
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -175.00413809138658,
+            -68.5990333991525,
+            1309.394966870516
+          ],
+          "gap_mm": 8.4650207228299,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "GH"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1447_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "clavicle",
+          "allowed_structure": "clavicle",
+          "proxy_point_source_mm": [
+            -62.98300965628389,
+            -135.28387191456744,
+            1327.0291569230346
+          ],
+          "nearest_bone_key": "bone:clavicle",
+          "bone_name": "bone:clavicle",
+          "surface_point_source_mm": [
+            -62.98300965628387,
+            -135.2838719145674,
+            1327.0291569230346
+          ],
+          "gap_mm": 3.552713678800501e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -184.8591623828921,
+            -86.54187187243163,
+            1254.514216265828
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -184.8591623828921,
+            -86.54187187243161,
+            1254.514216265828
+          ],
+          "gap_mm": 1.4210854715202004e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1464_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "sternum",
+          "proxy_point_source_mm": [
+            -15.938179536358179,
+            -192.1907725442723,
+            1234.8122971904572
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3178",
+          "bone_name": "body of sternum",
+          "surface_point_source_mm": [
+            -15.938179536358218,
+            -192.1907725442723,
+            1234.8122971904572
+          ],
+          "gap_mm": 3.907985046680551e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -184.0859478430074,
+            -86.51500782127955,
+            1255.6351860684938
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -184.0859478430074,
+            -86.51500782127957,
+            1255.6351860684938
+          ],
+          "gap_mm": 1.4210854715202004e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1464_g2",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "thorax",
+          "allowed_structure": "sternum",
+          "proxy_point_source_mm": [
+            -16.035388437562094,
+            -161.3891234943258,
+            1300.1448755266551
+          ],
+          "nearest_bone_key": "thorax_reference:FJ3290",
+          "bone_name": "manubrium",
+          "surface_point_source_mm": [
+            -16.0353884375621,
+            -161.3891234943258,
+            1300.1448755266551
+          ],
+          "gap_mm": 7.105427357601002e-15,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "SC"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -177.29502405752504,
+            -86.23827302969497,
+            1270.588076663819
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -177.29502405752504,
+            -86.23827302969497,
+            1270.588076663819
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1488_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -132.9333997436796,
+            -100.91058002350647,
+            1320.600102520269
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -132.93339919550138,
+            -100.91057830407705,
+            1320.6001065932992
+          ],
+          "gap_mm": 4.454942357045386e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "humerus",
+          "allowed_structure": "humerus",
+          "proxy_point_source_mm": [
+            -185.26201356696754,
+            -71.57128606564957,
+            1191.331450226112
+          ],
+          "nearest_bone_key": "bone:humerus",
+          "bone_name": "bone:humerus",
+          "surface_point_source_mm": [
+            -185.26201356696754,
+            -71.57128606564957,
+            1191.331450226112
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1478_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -137.42689809521036,
+            -70.2887655241584,
+            1329.1136930249188
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -137.42689809521033,
+            -70.2887655241584,
+            1329.1136930249188
+          ],
+          "gap_mm": 2.842170943040401e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "AC"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "forearm",
+          "allowed_structure": "forearm",
+          "proxy_point_source_mm": [
+            -228.5885393074858,
+            -83.35345257328709,
+            1009.5315093890031
+          ],
+          "nearest_bone_key": "bone:forearm",
+          "bone_name": "bone:forearm",
+          "surface_point_source_mm": [
+            -228.5885393074858,
+            -83.35345257328709,
+            1009.5315093890031
+          ],
+          "gap_mm": 0.0,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "elbow"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    },
+    {
+      "id": "FJ1479_g1",
+      "endpoints": [
+        {
+          "role": "origin",
+          "body": "scapula",
+          "allowed_structure": "scapula",
+          "proxy_point_source_mm": [
+            -145.00245884483482,
+            -55.61493540874526,
+            1289.3555274120088
+          ],
+          "nearest_bone_key": "bone:scapula",
+          "bone_name": "bone:scapula",
+          "surface_point_source_mm": [
+            -145.00246079824134,
+            -55.614935030015644,
+            1289.3555263117619
+          ],
+          "gap_mm": 2.2737142286469255e-06,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [],
+          "status": "surface_candidate_hardware_pending",
+          "frozen_anchor": false
+        },
+        {
+          "role": "distal",
+          "body": "forearm",
+          "allowed_structure": "forearm",
+          "proxy_point_source_mm": [
+            -209.16734015785747,
+            -46.936110629158854,
+            1042.9095280143752
+          ],
+          "nearest_bone_key": "bone:forearm",
+          "bone_name": "bone:forearm",
+          "surface_point_source_mm": [
+            -209.16734015785747,
+            -46.93611062915882,
+            1042.9095280143752
+          ],
+          "gap_mm": 3.552713678800501e-14,
+          "bone_present_in_selected_assembly": true,
+          "engineering_joint_regions": [
+            "elbow"
+          ],
+          "status": "joint_interface_anchor_review_required",
+          "frozen_anchor": false
+        }
+      ],
+      "drive_end": null,
+      "supply_channel": null,
+      "reaction_seat": null,
+      "terminal_fixation": null,
+      "note": "Actual motor, sheath support and terminal hardware remain to be designed; projection is not a selected anchor."
+    }
+  ],
+  "scope": "54 force-proxy endpoints projected only onto anatomically allowed bone groups. Nearest projection does not choose a drill hole, terminal, safe bone wall or actual origin/insertion. Missing cervical supports and joint-region conflicts remain explicit. No endpoints or source geometry changed."
+}

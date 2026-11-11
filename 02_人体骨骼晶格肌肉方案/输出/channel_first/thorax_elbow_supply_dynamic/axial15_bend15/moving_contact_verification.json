@@ -1,0 +1,54 @@
+{
+  "model_check": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial15_bend15/model_check.json",
+    "sha256": "2374ade0c65103678ab14fcba44524f82d997a2a5f18ac483f220ea87e758ee4"
+  },
+  "pose_source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/thorax_elbow_supply_dynamic/axial15_bend15/short_response.json",
+    "sha256": "f6289d6a73786ef57b275291336939cc5d61f22bba379b48e5e6f83f936433cb"
+  },
+  "test_pose_time_s": 0.04001999999999871,
+  "synthetic_velocity_seed": 8419,
+  "contacts": [
+    {
+      "bone": "bone:scapula",
+      "station": 186,
+      "world_triangle_distance_error_mm": 7.16315895488151e-13,
+      "closest_point_error_mm": 8.048915707664887e-13,
+      "tangential_power_W": -3.1939642445369114e-05
+    },
+    {
+      "bone": "bone:scapula",
+      "station": 187,
+      "world_triangle_distance_error_mm": 6.94999613415348e-13,
+      "closest_point_error_mm": 5.5839799143736e-13,
+      "tangential_power_W": -5.26286138831228e-05
+    },
+    {
+      "bone": "bone:scapula",
+      "station": 188,
+      "world_triangle_distance_error_mm": 5.204725539442734e-13,
+      "closest_point_error_mm": 4.833779982986627e-13,
+      "tangential_power_W": -4.5720466133268136e-05
+    },
+    {
+      "bone": "bone:scapula",
+      "station": 189,
+      "world_triangle_distance_error_mm": 5.17585974080248e-13,
+      "closest_point_error_mm": 5.209785393794664e-13,
+      "tangential_power_W": -2.792812040116852e-05
+    }
+  ],
+  "independent_applyFT_error_max_abs_mixed_units": 2.7755575615628914e-17,
+  "brute_world_distance_error_max_mm": 7.16315895488151e-13,
+  "brute_world_closest_point_error_max_mm": 8.048915707664887e-13,
+  "generator": {
+    "file": "tools/verify_channel_first_moving_sheath_contact.py",
+    "sha256": "9a69eec242305ffe36f35d5eae1fb09ea9a82900e4249747ee701be7033fcb7e"
+  },
+  "contact_module": {
+    "file": "tools/channel_first_moving_sheath_contact.py",
+    "sha256": "989912b74573b2163d21eadd0d77d41a4a8ef49385d0a61138ebe4cdce1313e7"
+  },
+  "scope": "Checks moving source/world transform against brute triangles and force/moment mapping against independent MuJoCo applyFT. Synthetic velocities only for friction dissipation. Does not validate material/contact stiffness, trajectory or continuum deformation."
+}
