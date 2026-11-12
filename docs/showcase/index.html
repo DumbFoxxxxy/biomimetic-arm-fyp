@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10212b">
+  <meta name="description" content="Final-year project progress on an anatomically based shoulder–elbow mechanism with cable-driven TPU lattice muscles.">
+  <title>Biomimetic Arm · FYP Progress</title>
+  <link rel="stylesheet" href="./showcase.css">
+</head>
+<body>
+  <header class="site-header shell">
+    <a class="wordmark" href="./" aria-label="Biomimetic Arm showcase home"><span class="brand-mark" aria-hidden="true"></span>Biomimetic Arm</a>
+    <nav aria-label="Showcase navigation">
+      <a href="#motion">Motion</a>
+      <a href="#design">Design</a>
+      <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">Repository <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro shell" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">FINAL-YEAR PROJECT</p>
+        <h1 id="title">Biomimetic<br>shoulder &amp; elbow<span>.</span></h1>
+        <p class="lead">An anatomical right-arm mechanism with engineered joints and cable-driven TPU lattice muscles.</p>
+      </div>
+      <div class="intro-actions">
+        <a class="button primary" href="#motion">Watch the simulation <span aria-hidden="true">↓</span></a>
+        <a class="button secondary" href="#design">Explore the 3D models <span aria-hidden="true">↘</span></a>
+      </div>
+    </section>
+    <section class="shell" id="motion" aria-labelledby="motion-title">
+      <div class="section-heading">
+        <h2 id="motion-title">Shoulder–elbow motion</h2>
+        <span class="context">MuJoCo replay</span>
+      </div>
+      <video controls playsinline preload="metadata" poster="./media/motion-poster.png" aria-label="Two-view MuJoCo replay with elbow angle over time">
+        <source src="./media/shoulder-elbow.mp4" type="video/mp4">
+        <a href="./media/shoulder-elbow.gif">View the animated replay</a>.
+      </video>
+      <p class="caption">The two views show the same four-second loading and release cycle. The forearm is highlighted in green.</p>
+      <dl class="metrics">
+        <div><dt>Predicted peak elbow flexion</dt><dd>100.1°<small>Original comparison floor 116°</small></dd></div>
+        <div><dt>Rigid collision samples</dt><dd>801<small>No overlap above the screening threshold</small></dd></div>
+        <div><dt>Peak elbow-flexor input</dt><dd>25 N<small>Equivalent tensile force in the model</small></dd></div>
+      </dl>
+      <p class="boundary">The replay uses a fixed shoulder girdle and equivalent tensile inputs. TPU deformation, friction and physical drive range remain to be measured.</p>
+    </section>
+    <section class="shell design" id="design" aria-labelledby="design-title">
+      <div class="section-heading">
+        <h2 id="design-title">Explore the design</h2>
+        <span class="context">360° model viewers</span>
+      </div>
+      <div class="cards">
+        <a class="card" href="../?model=shoulder&amp;v=original-elbow-2">
+          <img src="../viewer/shoulder-preview.png" alt="S1-Y2 shoulder assembly with anatomical bones, engineered joint and lattice muscles" loading="lazy">
+          <div><h3>S1-Y2 shoulder</h3><span aria-hidden="true">↗</span></div>
+          <p>Inspect the glenohumeral joint and shoulder muscle attachments.</p>
+        </a>
+        <a class="card" href="../?v=original-elbow-2">
+          <img src="../viewer/preview.png" alt="Original elbow model with flexor and extensor lattice muscles and their cable paths" loading="lazy">
+          <div><h3>Anatomical elbow</h3><span aria-hidden="true">↗</span></div>
+          <p>Inspect the original antagonistic muscles and their local cable paths.</p>
+        </a>
+      </div>
+    </section>
+    <section class="evidence shell" aria-labelledby="evidence-title">
+      <div>
+        <h2 id="evidence-title">Latest design change</h2>
+        <p>Local relief on the elbow flexor cleared the observed humerus overlap in 123 resampled poses while preserving the cable channel and end attachments. Material stiffness and cable motion under load still need physical checks.</p>
+      </div>
+      <div class="evidence-links">
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/PROJECT_STATUS.md">Current project status <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow">Models, trajectories and verification <span aria-hidden="true">↗</span></a>
+        <a href="./media/source.json">Animation source data <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="shell">
+    <span>Anatomical meshes from BodyParts3D, DBCLS. <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">Attribution and licence</a>.</span>
+    <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">GitHub repository ↗</a>
+  </footer>
+</body>
+</html>

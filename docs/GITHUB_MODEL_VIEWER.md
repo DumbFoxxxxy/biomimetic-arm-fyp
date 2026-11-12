@@ -4,6 +4,8 @@
 
 网页地址：https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/ （GitHub Pages 首次部署成功后生效）。
 
+[FYP 展示页](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/) 提供英文项目概览、MuJoCo 双视角组合动画和两个 360° 模型入口。README 内嵌同一轨迹的 GIF。展示动画为记录轨迹回放，未渲染受载 TPU 变形。其原始数据及模型指纹见 [source.json](showcase/media/source.json)。
+
 README 使用实际模型截图作入口；点击进入独立网页后，可以拖动旋转、缩放、平移，切换骨骼、肌肉、钢丝和连接件，或开启自动旋转。完整自定义网页运行在 GitHub Pages 中。
 
 ## 模型与能力边界
@@ -21,6 +23,8 @@ python -m http.server 8765 --directory docs
 ```
 
 浏览器打开 http://127.0.0.1:8765/ 。不要直接双击 HTML；模型数据需要通过本地 HTTP 服务加载。
+
+展示页在 http://127.0.0.1:8765/showcase/ 。如需重新渲染展示素材，在项目 Python 环境安装 Pillow 和 imageio-ffmpeg 后运行 `python tools/build_fyp_showcase_media.py`。
 
 ## GitHub Pages
 

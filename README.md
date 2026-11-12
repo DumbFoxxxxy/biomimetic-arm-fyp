@@ -8,7 +8,13 @@
 
 **当前状态（2026-11-11）**：肩部 S1 与串联滑块肘部已有 MuJoCo 组合回放。当前优先验证 TPU 肌腹和局部钢丝传力。整臂供线留到集成阶段，最终胸廓通过底座立在桌面。
 
-肩先于肘 0.30 s 释放的等效模型完成 801 帧刚性筛查。肘屈曲预测峰值为 100.10°，释放后回到约 0°。两条肘部内线已完成随动几何检查，屈肌回程局部让位也已导出并复核。实际负载、柔性接触及实物驱动范围待验证。
+## FYP 进度演示
+
+[![MuJoCo 肩肘组合运动，含两个视角及肘屈曲曲线](docs/showcase/media/shoulder-elbow.gif)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/)
+
+**[打开英文展示页](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/)** · [查看关键姿态静图](docs/showcase/media/motion-poster.png) · [查看仿真记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md)
+
+肩部先于肘部 0.30 s 释放的等效模型完成 **801 帧**刚性筛查，肘屈曲预测峰值 **100.10°**，释放后回到约 **0°**。两条肘部内线已完成随动几何检查，屈肌回程局部让位已导出并复核。动画来自 MuJoCo 轨迹，实际负载、柔性接触及实物驱动范围待验证。
 
 
 | 入口 | 内容 |
