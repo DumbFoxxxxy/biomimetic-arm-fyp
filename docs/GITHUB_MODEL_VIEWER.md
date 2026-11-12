@@ -4,13 +4,15 @@
 
 网页地址：https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/ （GitHub Pages 首次部署成功后生效）。
 
-[FYP 展示页](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/) 提供英文项目概览、MuJoCo 双视角组合动画和两个 360° 模型入口。README 内嵌同一轨迹的 GIF。展示动画为记录轨迹回放，未渲染受载 TPU 变形。其原始数据及模型指纹见 [source.json](showcase/media/source.json)。
+[FYP 展示页](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/) 提供英文项目概览、MuJoCo 双视角组合动画以及组合、肩部与肘部 360° 模型入口。README 内嵌同一轨迹的 GIF。展示动画为记录轨迹回放，未渲染受载 TPU 变形。其原始数据及模型指纹见 [source.json](showcase/media/source.json)。
 
 README 使用实际模型截图作入口；点击进入独立网页后，可以拖动旋转、缩放、平移，切换骨骼、肌肉、钢丝和连接件，或开启自动旋转。完整自定义网页运行在 GitHub Pages 中。
 
 ## 模型与能力边界
 
 默认展示原版仿生肘部的零位装配，共 96 个对象。S1-Y2 肩部通过 `?model=shoulder` 单独展示，共 191 个对象。
+
+`?model=combined` 载入 236 个对象的静态组合候选，包含同一根肱骨上的 S1 肩部和串联滑块肘部、前臂、半透明胸廓参考、六个肌腹网格及两条名义肘部内线。屈肌使用回程让位修订版。部分肩部端部接口和整臂布线待集成。独立肩部和原版肘部保留用于比较。
 
 这不是整臂运动仿真，也不计算 TPU 变形、接触、强度或实际驱动范围。桌面 MuJoCo 查看方式见 [运行说明](../RUNNING.md)。
 
@@ -39,6 +41,8 @@ GitHub Pages 不提供 Git LFS 文件。网页模型 scene.bin 和预览图 prev
 ```powershell
 python tools/build_web_model.py
 ```
+
+只更新组合模型时运行 `python tools/build_web_model.py --combined-only`。
 
 在装有项目几何依赖的 Python 环境运行导出器。它读取原版肘部与 S1-Y2 肩部各自的装配源，校验网格文件哈希，并为两部分分别生成清单和模型数据。肘部钢丝根据原版走线参数显示。
 

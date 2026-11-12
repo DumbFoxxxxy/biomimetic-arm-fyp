@@ -28,6 +28,10 @@
 
 ## 360° 交互模型
 
+[![胸廓、S1 肩部和串联滑块肘部组合预览](docs/viewer/combined-preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=combined&v=combined-1)
+
+**[打开肩肘组合 3D](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=combined&v=combined-1)**。查看共用肱骨、前臂、TPU 肌腹、肘部内线与胸廓参考。
+
 | S1-Y2 肩部 | 原版仿生肘部 |
 | :---: | :---: |
 | [![S1-Y2 肩部预览](docs/viewer/shoulder-preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=shoulder&v=original-elbow-2) | [![原版仿生肘部预览](docs/viewer/preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?v=original-elbow-2) |

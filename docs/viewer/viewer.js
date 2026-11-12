@@ -6,6 +6,8 @@ const viewport = document.querySelector('#viewport');
 const loading = document.querySelector('#loading');
 const layers = Object.fromEntries(['bones', 'muscles', 'wires', 'hardware'].map(key => [key, new THREE.Group()]));
 const palette = { bones: '#d8cbb1', muscles: '#b84430', wires: '#387c91', hardware: '#78888d' };
+const selected = new URLSearchParams(location.search).get('model');
+const combined = selected === 'combined';
 let renderer, camera, controls, manifest, bounds;
 
 function applyVisibility(values) {
@@ -25,7 +27,8 @@ function fitView() {
   const vertical = THREE.MathUtils.degToRad(camera.fov / 2);
   const horizontal = Math.atan(Math.tan(vertical) * camera.aspect);
   const distance = size.length() / 2 / Math.sin(Math.min(vertical, horizontal)) * 1.1;
-  camera.position.copy(centre).add(new THREE.Vector3(1.2, -2.8, .9).normalize().multiplyScalar(distance));
+  const viewpoint = combined ? new THREE.Vector3(-1.8, -2.8, .8) : new THREE.Vector3(1.2, -2.8, .9);
+  camera.position.copy(centre).add(viewpoint.normalize().multiplyScalar(distance));
   camera.near = Math.max(.0001, distance / 1000);
   camera.far = distance * 50;
   camera.updateProjectionMatrix();
@@ -48,12 +51,20 @@ function showError(error) {
 }
 
 async function start() {
-  const shoulder = new URLSearchParams(location.search).get('model') === 'shoulder';
-  if (shoulder) {
-    document.querySelector('#model-name').textContent = 'S1-Y2 肩部';
-    document.querySelector('#scene-label').textContent = 'S1 SHOULDER';
+  const shoulder = selected === 'shoulder';
+  if (shoulder || combined) {
+    document.querySelector('#model-name').textContent = combined ? '胸廓 · S1 肩部 · 肘部' : 'S1-Y2 肩部';
+    document.querySelector('#scene-label').textContent = combined ? 'SHOULDER–ELBOW ASSEMBLY' : 'S1 SHOULDER';
     document.querySelector('#elbow-view').removeAttribute('aria-current');
-    document.querySelector('#shoulder-view').setAttribute('aria-current', 'page');
+    document.querySelector(combined ? '#combined-view' : '#shoulder-view').setAttribute('aria-current', 'page');
+  }
+  if (combined) {
+    document.querySelector('#design-description').textContent = '查看共用肱骨的 S1 肩部、前臂、串联滑块肘部和胸廓参考。肌肉按静置形态显示，部分肩部端部接口仍在整合。';
+    document.querySelector('#wire-label').textContent = '肘部局部钢丝';
+    document.querySelector('#design-record').href = 'https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow';
+    document.querySelector('#design-record').textContent = '查看组合装配与验证记录 ↗';
+  } else if (shoulder) {
+    document.querySelector('#design-description').textContent = '查看 S1-Y2 的肩胛、锁骨、盂肱关节及 TPU 晶格肌肉。';
   }
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
@@ -89,7 +100,7 @@ async function start() {
   };
   new ResizeObserver(resize).observe(host);
   resize();
-  const metaUrl = new URL(shoulder ? './shoulder.json' : './scene.json', import.meta.url);
+  const metaUrl = new URL(combined ? './combined.json' : shoulder ? './shoulder.json' : './scene.json', import.meta.url);
   metaUrl.search = new URL(import.meta.url).search;
   const metaResponse = await fetch(metaUrl, { cache: 'no-cache' });
   if (!metaResponse.ok) throw new Error(`Model manifest: HTTP ${metaResponse.status}`);
@@ -108,9 +119,11 @@ async function start() {
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
     geometry.setIndex(new THREE.BufferAttribute(indices, 1));
     geometry.computeVertexNormals();
+    const reference = combined && part.key.startsWith('thorax_reference:');
     const material = new THREE.MeshStandardMaterial({
-      color: palette[part.category], roughness: part.category === 'hardware' ? .5 : .76,
+      color: reference ? '#a2b6bd' : palette[part.category], roughness: part.category === 'hardware' ? .5 : .76,
       metalness: part.category === 'hardware' ? .18 : 0, side: THREE.DoubleSide,
+      transparent: reference, opacity: reference ? .29 : 1, depthWrite: !reference,
     });
     const mesh = new THREE.Mesh(geometry, material);
     mesh.name = part.key;

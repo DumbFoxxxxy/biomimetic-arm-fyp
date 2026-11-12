@@ -18,9 +18,9 @@
     <aside>
       <span class="eyebrow">ANATOMY × MECHANICS</span>
       <h1>从骨骼到<br>人工肌肉。</h1>
-      <p class="intro">分别查看原版仿生肘部与 S1 肩部，观察骨骼、工程关节和 TPU 晶格肌肉。</p>
+      <p class="intro">查看肩肘组合、S1 肩部或原版仿生肘部，观察骨骼、工程关节和 TPU 晶格肌肉。</p>
       <div class="version"><span class="dot"></span> <span id="model-name">原版肘部</span></div>
-      <nav aria-label="选择模型"><a id="elbow-view" href="?v=original-elbow-2" aria-current="page">原版肘部</a> · <a id="shoulder-view" href="?model=shoulder&amp;v=original-elbow-2">S1 肩部</a></nav>
+      <nav aria-label="选择模型"><a id="combined-view" href="?model=combined&amp;v=combined-1">肩肘组合</a> · <a id="shoulder-view" href="?model=shoulder&amp;v=combined-1">S1 肩部</a> · <a id="elbow-view" href="?v=combined-1" aria-current="page">原版肘部</a></nav>
       <section aria-label="显示方式">
         <h2>探索结构</h2>
         <div class="presets">
@@ -31,14 +31,14 @@
         <div class="layers">
           <label><span class="swatch bones"></span><span>解剖骨骼</span><input type="checkbox" data-layer="bones" checked disabled></label>
           <label><span class="swatch muscles"></span><span>TPU 晶格肌肉</span><input type="checkbox" data-layer="muscles" checked disabled></label>
-          <label><span class="swatch wires"></span><span>钢丝肌腱</span><input type="checkbox" data-layer="wires" checked disabled></label>
+          <label><span class="swatch wires"></span><span id="wire-label">钢丝肌腱</span><input type="checkbox" data-layer="wires" checked disabled></label>
           <label><span class="swatch hardware"></span><span>支架与连接件</span><input type="checkbox" data-layer="hardware" checked disabled></label>
         </div>
       </section>
       <section class="understanding">
         <h2>当前设计</h2>
-        <p>肘部沿用原版屈肌和伸肌的异形晶格、附着位置和钢丝走线。肩部单独展示。</p>
-        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/docs/PROJECT_OVERVIEW.md">阅读项目概览 <span>↗</span></a>
+        <p id="design-description">原版肘部保留屈肌和伸肌的异形晶格、附着位置和钢丝走线。</p>
+        <a id="design-record" href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/docs/PROJECT_OVERVIEW.md">阅读项目概览 <span>↗</span></a>
       </section>
       <p class="scope">此页面用于自由视角查看几何装配，不演示 TPU 形变或钢丝驱动。</p>
     </aside>
@@ -56,6 +56,6 @@
     </section>
   </main>
   <footer><span>真实骨形 · 工程关节 · 钢丝＋TPU 肌肉</span><span>骨骼参考：BodyParts3D / CC BY-SA 2.1 Japan</span></footer>
-  <script type="module" src="./viewer/viewer.js?v=original-elbow-2"></script>
+  <script type="module" src="./viewer/viewer.js?v=combined-1"></script>
 </body>
 </html>
