@@ -1,0 +1,105 @@
+{
+  "generator": {
+    "file": "tools/build_s1_series_elbow_extended_tpu_relief.py",
+    "sha256": "43934f0d058854245c03f5f462796cbf82b4c2795b9e59a7bebff2be7637edc7"
+  },
+  "input_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_elbow_muscle_geometry.json",
+    "sha256": "9324505c7e785435a0f8101bcc25cb317171f285551e1ef885832e7486c89762"
+  },
+  "muscle": "extensor",
+  "original": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_short_guides_mapped_relief_1.obj",
+    "sha256": "1a2b61f523d82949a613209e1a5444e81ed37c1c5ae77b69678073df8a12b97d",
+    "translation_source_mm": [
+      -183.93312959805814,
+      -44.82430660082491,
+      1266.354794480843
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "original_contact_frames": 11,
+  "training_frames": 45,
+  "additional_training_frame_indices": [
+    54,
+    56,
+    58,
+    62,
+    64,
+    66,
+    68,
+    70,
+    72,
+    76,
+    78,
+    82,
+    84,
+    86,
+    88,
+    90,
+    92,
+    94,
+    96,
+    310,
+    314,
+    318,
+    454,
+    456,
+    458,
+    462,
+    464,
+    466,
+    474,
+    476,
+    478,
+    482,
+    484,
+    486
+  ],
+  "checked_frames": 179,
+  "held_out_frames": 134,
+  "targeted_obstacles": [
+    "series:a_shaft"
+  ],
+  "guard_overlap_of_inverse_mapped_hulls_mm3": 0.0,
+  "trials": [
+    {
+      "margin_mm": 0.45,
+      "removed_volume_mm3": 120.25974305217608,
+      "protected_loss_mm3": -1.9715800387453777e-06,
+      "positive_component_volumes_mm3": [
+        29045.188307609144,
+        3.542466268531032e-05
+      ],
+      "detached_volume_mm3": 3.542466268531032e-05,
+      "overlap_frame_count": 0,
+      "residual_overlaps_mm3": {}
+    }
+  ],
+  "selected": {
+    "margin_mm": 0.45,
+    "removed_volume_mm3": 120.25974305217608,
+    "protected_loss_mm3": -1.9715800387453777e-06,
+    "positive_component_volumes_mm3": [
+      29045.188307609144,
+      3.542466268531032e-05
+    ],
+    "detached_volume_mm3": 3.542466268531032e-05,
+    "overlap_frame_count": 0,
+    "residual_overlaps_mm3": {},
+    "mesh": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1477_extended_relief_TPU.obj",
+      "sha256": "0af68d2eb9e8443464868304e2410b50d30d53c7bb87136a49ceebd992de7074",
+      "translation_source_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "residual_diagnosis": {},
+  "scope": "Projected overlap hulls cut only outside a nominal channel/guide and end-interface guard. A detached fragment may be discarded only within the 0.001 mm3 overlap tolerance and after rechecking guard loss. Clearance uses kinematic TPU interpolation and nominal wire."
+}

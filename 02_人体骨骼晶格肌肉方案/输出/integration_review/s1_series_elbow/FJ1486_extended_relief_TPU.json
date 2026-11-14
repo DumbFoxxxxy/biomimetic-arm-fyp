@@ -1,0 +1,471 @@
+{
+  "generator": {
+    "file": "tools/build_s1_series_elbow_extended_tpu_relief.py",
+    "sha256": "43934f0d058854245c03f5f462796cbf82b4c2795b9e59a7bebff2be7637edc7"
+  },
+  "input_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_elbow_muscle_geometry.json",
+    "sha256": "9324505c7e785435a0f8101bcc25cb317171f285551e1ef885832e7486c89762"
+  },
+  "muscle": "flexor",
+  "original": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1486_return_relief_TPU.obj",
+    "sha256": "255f3cd0e827acc8c578f1f74b250061a7658bd9e1b9cb28b09e507eb7896868",
+    "translation_source_mm": [
+      -140.0,
+      -86.0,
+      1100.0
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "original_contact_frames": 26,
+  "training_frames": 26,
+  "additional_training_frame_indices": [],
+  "checked_frames": 167,
+  "held_out_frames": 141,
+  "targeted_obstacles": [
+    "bone:humerus",
+    "elbow:FJ1486_keeper_nut",
+    "elbow:paired_bone_frame"
+  ],
+  "guard_overlap_of_inverse_mapped_hulls_mm3": 0.6511541876637267,
+  "trials": [
+    {
+      "margin_mm": 0.1,
+      "removed_volume_mm3": 41.986923079958785,
+      "protected_loss_mm3": 4.794357279793731e-13,
+      "positive_component_volumes_mm3": [
+        27066.686585058756
+      ],
+      "detached_volume_mm3": 0,
+      "overlap_frame_count": 30,
+      "residual_overlaps_mm3": {
+        "189": {
+          "elbow:FJ1486_keeper_nut": 0.009550207898304314
+        },
+        "190": {
+          "elbow:FJ1486_keeper_nut": 0.03459736045307294
+        },
+        "191": {
+          "elbow:FJ1486_keeper_nut": 0.07707819552978237
+        },
+        "192": {
+          "elbow:FJ1486_keeper_nut": 0.1297622966000194
+        },
+        "193": {
+          "elbow:FJ1486_keeper_nut": 0.18214290385277684
+        },
+        "194": {
+          "elbow:FJ1486_keeper_nut": 0.22987856316522548
+        },
+        "195": {
+          "elbow:FJ1486_keeper_nut": 0.2720261041084203
+        },
+        "196": {
+          "elbow:FJ1486_keeper_nut": 0.3082073599425931
+        },
+        "197": {
+          "elbow:FJ1486_keeper_nut": 0.3384115370653441
+        },
+        "198": {
+          "elbow:FJ1486_keeper_nut": 0.3627262727376725
+        },
+        "199": {
+          "elbow:FJ1486_keeper_nut": 0.38129222926768525
+        },
+        "200": {
+          "elbow:FJ1486_keeper_nut": 0.39427142802779913
+        },
+        "201": {
+          "elbow:FJ1486_keeper_nut": 0.40184900631706666
+        },
+        "202": {
+          "elbow:FJ1486_keeper_nut": 0.40421333574960594
+        },
+        "203": {
+          "elbow:FJ1486_keeper_nut": 0.40153693851704064
+        },
+        "204": {
+          "elbow:FJ1486_keeper_nut": 0.3939728098372109
+        },
+        "205": {
+          "elbow:FJ1486_keeper_nut": 0.38166324319132067
+        },
+        "206": {
+          "elbow:FJ1486_keeper_nut": 0.364757924932262
+        },
+        "207": {
+          "elbow:FJ1486_keeper_nut": 0.34342562420416445
+        },
+        "208": {
+          "elbow:FJ1486_keeper_nut": 0.3178467659133404
+        },
+        "209": {
+          "elbow:FJ1486_keeper_nut": 0.2882282931401928
+        },
+        "210": {
+          "elbow:FJ1486_keeper_nut": 0.25481533941906104
+        },
+        "211": {
+          "elbow:FJ1486_keeper_nut": 0.21793896487180034
+        },
+        "212": {
+          "elbow:FJ1486_keeper_nut": 0.17817759113117898
+        },
+        "213": {
+          "elbow:FJ1486_keeper_nut": 0.1362609932898998
+        },
+        "214": {
+          "elbow:FJ1486_keeper_nut": 0.0944926889881249
+        },
+        "215": {
+          "elbow:FJ1486_keeper_nut": 0.057147674355238126
+        },
+        "216": {
+          "elbow:FJ1486_keeper_nut": 0.02916829301627019
+        },
+        "217": {
+          "elbow:FJ1486_keeper_nut": 0.011338292500890728
+        },
+        "218": {
+          "elbow:FJ1486_keeper_nut": 0.0026812498602171164
+        }
+      }
+    }
+  ],
+  "selected": null,
+  "residual_diagnosis": {
+    "189": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.00954537266986283
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.009544699840435242
+        }
+      }
+    },
+    "190": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.03460196939052929
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.03458507909840888
+        }
+      }
+    },
+    "191": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.07713933240039489
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.07705954030466387
+        }
+      }
+    },
+    "192": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.13373444010773153
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.12973716124133175
+        }
+      }
+    },
+    "193": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.19874882655048914
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.1821120180890865
+        }
+      }
+    },
+    "194": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.2659689240468556
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.22984668741448971
+        }
+      }
+    },
+    "195": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.3312602376204182
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.2719945818120234
+        }
+      }
+    },
+    "196": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.3916763524151752
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.30817573616246424
+        }
+      }
+    },
+    "197": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.445143993030359
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.3383796221048489
+        }
+      }
+    },
+    "198": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.4901695260266964
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.3626940700609983
+        }
+      }
+    },
+    "199": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.5257172653669012
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.3812598136655211
+        }
+      }
+    },
+    "200": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.551126095346663
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.3942388774119682
+        }
+      }
+    },
+    "201": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.5660852424904557
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.40181638877066234
+        }
+      }
+    },
+    "202": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.5705865540064179
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.40418071167974934
+        }
+      }
+    },
+    "203": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.564876825838614
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.40150436421823915
+        }
+      }
+    },
+    "204": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.5494255513888352
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.39394034112583204
+        }
+      }
+    },
+    "205": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.524905540909139
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.38163093811660204
+        }
+      }
+    },
+    "206": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.4921833388012357
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.36472584472343367
+        }
+      }
+    },
+    "207": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.4523036894948127
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.3433938218975483
+        }
+      }
+    },
+    "208": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.4064549631473596
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.317815242097359
+        }
+      }
+    },
+    "209": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.35596964119230795
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.28819693445835165
+        }
+      }
+    },
+    "210": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.3023397802302586
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.2547838380302955
+        }
+      }
+    },
+    "211": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.24724555379016191
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.21790719110194137
+        }
+      }
+    },
+    "212": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.19267244922112153
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.1781472434049324
+        }
+      }
+    },
+    "213": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.14088992465949407
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.13623528121742898
+        }
+      }
+    },
+    "214": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.09491713229101459
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.09447271400982411
+        }
+      }
+    },
+    "215": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.05716764429518628
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.057130951631128836
+        }
+      }
+    },
+    "216": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.02916887926151681
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.029157712545511028
+        }
+      }
+    },
+    "217": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.01133330707965927
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.011332302938928153
+        }
+      }
+    },
+    "218": {
+      "original": {
+        "elbow:FJ1486_keeper_nut": 0.002680604814439984
+      },
+      "protected_stock": {
+        "channel_or_short_guides": {},
+        "end_stock": {
+          "elbow:FJ1486_keeper_nut": 0.0026806048144424194
+        }
+      }
+    }
+  },
+  "scope": "Projected overlap hulls cut only outside a nominal channel/guide and end-interface guard. A detached fragment may be discarded only within the 0.001 mm3 overlap tolerance and after rechecking guard loss. Clearance uses kinematic TPU interpolation and nominal wire."
+}

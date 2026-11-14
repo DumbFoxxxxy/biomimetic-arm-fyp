@@ -1,0 +1,299 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_girdle_flexion_channel.py",
+    "sha256": "005c6fb5d4d99651ea35e491712d230384547372f653b19e7c17ba82212dc512"
+  },
+  "assembly_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_girdle_flexion_channel_liner_assembly.json",
+    "sha256": "2112d1ada5b6de7df24cd8cc30b0ba63e4c4734cc9a19c17912d4ee65ef459e7"
+  },
+  "neighbor_channel_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/route_inventory.json",
+    "sha256": "c682bef9ac0a282e8f4cad6db906ed287757fb9b3809bb4970341f7e68510864"
+  },
+  "blend_window_mm": [
+    12.0,
+    133.4688353843193
+  ],
+  "zones": {
+    "bone:scapula": {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        30.0
+      ],
+      "overlap_mm3": 990.5049292157477,
+      "neutral_bounds_mm": [
+        [
+          -167.22854520988443,
+          -76.0110669305096,
+          1306.9838441711695
+        ],
+        [
+          -113.97797394752946,
+          -10.798996821958626,
+          1354.2273040383266
+        ]
+      ],
+      "axial_station_bounds_mm": [
+        16.388472675210505,
+        38.73870580395645
+      ],
+      "minimum_sampled_distance_to_channel_mm": 31.81748056859697,
+      "vertices_within_1p1_mm": 0,
+      "vertices_before_blend": 0,
+      "vertices_after_blend": 0,
+      "sampled_vertices": 4746,
+      "maximum_inverse_residual_mm": 2.9467818910121094e-10,
+      "hull_trial_removed_mm3": 1148.0443173680308,
+      "hull_trial_guard_hits_mm3": {
+        "channel:FJ1513": 2.6193386791396214,
+        "channel:FJ1467": 6.250953871925265
+      },
+      "hull_trial_remaining_components": 5,
+      "component_hull_count": 5,
+      "component_hull_removed_mm3": 937.7612893412125,
+      "component_hull_guard_hits_mm3": {
+        "channel:FJ1513": 0.8864242702854163,
+        "channel:FJ1467": 5.265189706606049
+      },
+      "component_hull_remaining_components": 4
+    },
+    "elbow:FJ1477_bone_adapter": {
+      "pose_deg": [
+        8.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overlap_mm3": 410.60924112551197,
+      "neutral_bounds_mm": [
+        [
+          -209.98292571777776,
+          -63.36242908937258,
+          1267.0939705418937
+        ],
+        [
+          -191.55553791829328,
+          -40.06903452710041,
+          1305.2204606110613
+        ]
+      ],
+      "axial_station_bounds_mm": [
+        88.57720791321827,
+        116.66491072625702
+      ],
+      "minimum_sampled_distance_to_channel_mm": 38.9479662499016,
+      "vertices_within_1p1_mm": 0,
+      "vertices_before_blend": 0,
+      "vertices_after_blend": 0,
+      "sampled_vertices": 4905,
+      "maximum_inverse_residual_mm": 2.3437142008433856e-13,
+      "hull_trial_removed_mm3": 1225.3072435107433,
+      "hull_trial_guard_hits_mm3": {
+        "channel:FJ1467": 32.24771995776527
+      },
+      "hull_trial_remaining_components": 4,
+      "component_hull_count": 5,
+      "component_hull_removed_mm3": 594.9133948275805,
+      "component_hull_guard_hits_mm3": {
+        "channel:FJ1467": 6.134904343275702
+      },
+      "component_hull_remaining_components": 2
+    }
+  },
+  "protected_combined_trials": [
+    {
+      "cutter_inset_mm": 0.0,
+      "removed_mm3": 1520.3881582723552,
+      "guard_hits_mm3": {},
+      "remaining_component_volumes_mm3": [
+        48979.99732362396,
+        16.122288477101726,
+        9.625699158116326,
+        5.174382055306703,
+        0.47657424046067837,
+        3.673688893539236e-07,
+        2.5971448269769854e-08,
+        1.9310239275812085e-08,
+        1.8803040454231264e-08,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        -1.4216600986716177e-17,
+        -1.1617729127761647e-12,
+        -3.4366239214994665e-11,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270302,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747,
+        -118.9624564587873
+      ]
+    },
+    {
+      "cutter_inset_mm": 0.25,
+      "removed_mm3": 1119.5475698733278,
+      "guard_hits_mm3": {},
+      "remaining_component_volumes_mm3": [
+        49414.158279641946,
+        1.9310239275812085e-08,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        -1.1617729127761647e-12,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.09973020471338048,
+        -0.32343030870199924,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270302,
+        -1.440583013222861,
+        -1.4981512031143909,
+        -8.13824689875468,
+        -81.99400107946747,
+        -118.9624564587873
+      ],
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_protected_belly_0.25.obj",
+        "sha256": "5569257e3f95998cf6998be87f0c4d4a988808c05219da2b94bef39963140d8b",
+        "translation_source_mm": [
+          -122.21762655950542,
+          -98.9492480489454,
+          1346.5322104973882
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 1.478881794462658e-16
+      },
+      "peak_pose_overlap_mm3": {
+        "bone:scapula": 257.0718283615919,
+        "elbow:FJ1477_bone_adapter": 60.10515514402017
+      }
+    },
+    {
+      "cutter_inset_mm": 0.5,
+      "removed_mm3": 770.695287665061,
+      "guard_hits_mm3": {},
+      "remaining_component_volumes_mm3": [
+        49760.622267910374,
+        0.4669821806856127,
+        1.9310239275812085e-08,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        -1.1617729127761647e-12,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270302,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747,
+        -118.9624564587873
+      ]
+    },
+    {
+      "cutter_inset_mm": 1.0,
+      "removed_mm3": 234.94686227836323,
+      "guard_hits_mm3": {},
+      "remaining_component_volumes_mm3": [
+        50296.83767547801,
+        1.9310239275812085e-08,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        -1.1617729127761647e-12,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270302,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747,
+        -118.9624564587873
+      ],
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_protected_belly_1.obj",
+        "sha256": "782ffe48f7d8974caaf77dd90685e0e051e50d775c82246653fbbca635ddfb0e",
+        "translation_source_mm": [
+          -122.21762655950542,
+          -98.9492480489454,
+          1346.5322104973882
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 1.4527610959922356e-16
+      },
+      "peak_pose_overlap_mm3": {
+        "bone:scapula": 913.3442329076502,
+        "elbow:FJ1477_bone_adapter": 289.3427917849432
+      }
+    },
+    {
+      "cutter_inset_mm": 2.0,
+      "removed_mm3": 2.5811677278533454,
+      "guard_hits_mm3": {},
+      "remaining_component_volumes_mm3": [
+        50529.20337001284,
+        1.9310239275812085e-08,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        4.69795353674426e-13,
+        -1.1617729127761647e-12,
+        -1.2091664123511925e-06,
+        -2.167132053452342e-06,
+        -5.551822377214844e-06,
+        -4.2902554246160296e-05,
+        -0.003251333783078761,
+        -0.004956256627929999,
+        -0.46239286933991275,
+        -0.8643600076142351,
+        -1.3188374190270302,
+        -1.440583013222861,
+        -8.13824689875468,
+        -81.99400107946747,
+        -118.9624564587873
+      ],
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_protected_belly_2.obj",
+        "sha256": "6b645fb1a9acfb3f9cdcdeda3faeb853849f10994aa1c99951aa1e70913d8412",
+        "translation_source_mm": [
+          -122.21762655950542,
+          -98.9492480489454,
+          1346.5322104973882
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "peak_pose_overlap_mm3": {
+        "bone:scapula": 990.5049292157477,
+        "elbow:FJ1477_bone_adapter": 409.7973905313359
+      }
+    }
+  ],
+  "scope": "Only the maximum sampled pose for each named pair. Inverse-mapped intersection vertices give sampled distances, not guaranteed cutting clearance. End-blend zones are screening regions and do not identify the exact attachment surface. Hulls are independent single-pose trials. Neighbor cable guards are baseline route candidates. Combined protected trials preserve the guarded stock. Eligible meshes are replayed at the two source peak poses for the corresponding pair."
+}

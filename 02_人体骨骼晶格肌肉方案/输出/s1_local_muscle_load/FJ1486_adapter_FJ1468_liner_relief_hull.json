@@ -1,0 +1,109 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_girdle_flexion_channel.py",
+    "sha256": "a90def2ddf4f7ccc7d65dcc7ff4fc7a912735be082091da84b0ffb6c208dba26"
+  },
+  "liner_contact": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_girdle_flexion_channel_liner_contact.json",
+    "sha256": "a29c61ad7791fa7521df42a77739bdb366e3ea8297906b93d43e88bea026a581"
+  },
+  "convex_cutter": true,
+  "cases": [
+    {
+      "radius_mm": 0.7,
+      "checked_poses": 150,
+      "components": 1,
+      "incremental_removed_mm3": 6.741923930961956,
+      "guard_hits_mm3": {},
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_liner_relief_0.70_hull.obj",
+        "sha256": "a202ef17253f3136f3609dc5614f19dd228ef34f150c30a5aea8d7f1ec7333c6",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5188.348609870805
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "maximum_readback_overlap_mm3": 0.00020195671159406459,
+      "readback_hit_poses": 0
+    },
+    {
+      "radius_mm": 0.85,
+      "checked_poses": 150,
+      "components": 1,
+      "incremental_removed_mm3": 9.908213034021989,
+      "guard_hits_mm3": {},
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_liner_relief_0.85_hull.obj",
+        "sha256": "2af31875a5f4d4828859fe721c5a1dfbe5954f5f79d77bb8f70a5c71a16406e5",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5185.1821106535
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "maximum_readback_overlap_mm3": 1.0252381478781652e-08,
+      "readback_hit_poses": 0
+    },
+    {
+      "radius_mm": 1.0,
+      "checked_poses": 150,
+      "components": 1,
+      "incremental_removed_mm3": 13.823655073897955,
+      "guard_hits_mm3": {},
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_liner_relief_1.00_hull.obj",
+        "sha256": "5e5a0b4a03bfb49e2fbadbfe49d1b84c4c1245774115ea4dea24f89c501720f3",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5181.264724926468,
+          -0.0069121564499246965,
+          -0.0005515314509803347
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "maximum_readback_overlap_mm3": 2.7670919412802007e-07,
+      "readback_hit_poses": 0
+    },
+    {
+      "radius_mm": 1.1,
+      "checked_poses": 150,
+      "components": 1,
+      "incremental_removed_mm3": 16.338230212867483,
+      "guard_hits_mm3": {},
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_liner_relief_1.10_hull.obj",
+        "sha256": "1bc83e897ff7e58aff36b2b3201293ad17f26bb6ae9e6a73f68e1525ce2a42d2",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5178.79311944244,
+          -0.0030522636899123576
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "maximum_readback_overlap_mm3": -1.4122977357223674e-09,
+      "readback_hit_poses": 0
+    }
+  ],
+  "scope": "Pose-dependent radial corridors in humerus coordinates. Clearance is verified against swept centreline envelopes rather than solving TPU deformation. Mechanical strength of remaining stock is not assessed."
+}

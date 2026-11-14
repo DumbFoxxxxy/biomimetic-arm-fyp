@@ -1,0 +1,120 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_series_elbow_spring_integration.py",
+    "sha256": "19a77a7ff38b9e5272b835efb9f7f7e67d241954c6500117a098d4da49471848"
+  },
+  "retention": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_pin_retention.json",
+    "sha256": "479d5ae4756edb3c1d0e1b5bc7ca9ef9896da8839ffb08b1959503d518a1b0f2"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "trace": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_anterior_friction_mu_30.csv",
+    "sha256": "190d48f7a291f58181371b3293cf4032cfe0a2cb844f1b6842717aa98b175805"
+  },
+  "friction": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_anterior_friction_integration.json",
+    "sha256": "b3160321452c92f599072cff4768f9d6fd16a2054e710fe26be16e0ecd522fb4"
+  },
+  "changed_sources": {
+    "elbow:FJ1477_bone_adapter": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_lug.obj",
+      "sha256": "8c03a01cc0dd1cfda901f63573c8a7da4ba864a8a8e86460de1457099a74e137",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        5391.550426456136
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:fixed_pin": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_pin.obj",
+      "sha256": "bebdcf55b05a727fb3ff6133df9d0c9b4d60b24143a65516d7b133e2fdb0d425",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        12.57755109650768
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:fixed_dog_screw": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_dog_screw.obj",
+      "sha256": "6e96590930831a16d9215b1cbc63c7c24905128ace23f7cfbcd52105e813f4f5",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4.1210192904754885
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_proximal_rigid_cap": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_lug.obj",
+      "sha256": "3d22f0c8d3c79677470c6b4ff1c55ba9219519675af372d58a6dc465824019a4",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        2452.3858625524413
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:moving_pin": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_pin.obj",
+      "sha256": "de483a9beb4272e7185f8896723e71e91324f51d646c5b77815a764e8732b1de",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        12.57755109650781
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:moving_dog_screw": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_dog_screw.obj",
+      "sha256": "0b76bb0cf3757d383afff3997f992f4690baaf5be95a3662397385e3aeab0b4e",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4.121019290475528
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "changed_owners": {
+    "elbow:FJ1477_bone_adapter": "humerus",
+    "series:fixed_pin": "humerus",
+    "series:fixed_dog_screw": "humerus",
+    "elbow:FJ1477_proximal_rigid_cap": "FJ1477_carriage",
+    "series:moving_pin": "FJ1477_carriage",
+    "series:moving_dog_screw": "FJ1477_carriage"
+  },
+  "nominal_rigid_and_wire_frames": 801,
+  "elbow_TPU_frames": 243,
+  "findings": [],
+  "scope": "Incremental replay of a 30 N trace using the recorded inertias and force controls. Solid coil and revised rigid geometry checked; both elbow TPU shapes use prescribed cap interpolation. Load response, friction, pin or screw strength and shoulder TPU geometry are outside this check."
+}

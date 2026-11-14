@@ -353,8 +353,43 @@ Delaunay生成199103tet，原始节点标签字典独立重算8非正体积、73
 用户明确当前只需要能动的实体模型，运动范围可通过实物测量。完整TPU体网格／有限元和理论全范围不作为试制前置条件，专项分析暂缓；切片、基本关节活动、穿线、端部固定、反力支承和实际肌肉传力仍需核查。保持原K1–K7为后续比较，既有失败不删、默认S1-Y2不自动换新孔径。新增design/PHYSICAL_PROTOTYPE_STAGE.md及docs/SUPERVISOR_UPDATE_2026-11-04.md，技术v0.9.19同步。远端main与本地起点相同c51f834；GitHub认证在允许网络环境下有效。全套31项现有测试通过；191／102场景加载通过，339链接及191源哈希／历史字节通过。
 # 2026-11-07 channel-first continuation
 
+2026-11-12 回位弹簧横销的外侧轴向空间受两支座限制。改用径向柱端螺钉卡入 1.00 mm 宽环槽，保留弹簧眼下方的原销轴直径。两处槽底名义直径 1.24 mm，止挡约在 0.14 mm，需复核槽底承载和螺纹材料。
+
+2026-11-12 伸肌回程峰值 0.285 mm³ 出现在 1.6292 s，位于远端外缘；峰值姿态深度约 0.157 mm，离最近短导向外包络 10.34 mm。小体积接触不能直接估计材料受力。弹簧销距在完整导轨行程下需达 86.49 mm，比现有轨迹峰值多约 2.14 mm。
+
+2026-11-12 FJ1486 的低外形螺母对照保留中心螺孔材料和垫圈贴合面后仍有接触。实际端部接口保护区由 10 件压接、转座和紧固零件膨胀 0.75 mm 生成。其外侧切去约 43.22 mm³ 即可在 167 帧保留原防脱件及钢丝通道，网格保持一件连通。
+
+2026-11-12 加长导轨 TPU 对照。屈肌在 167 帧的局部让位试算中清除肱骨和固定架接触；30 帧剩余防脱螺母接触的峰值几乎完全由远端过渡区保护材料解释，钢丝通道保护材料未见该相交。伸肌首轮补采样发现 12 帧低屈曲角度的 A 侧导轨接触，其中原短轴最大约 0.017 mm³，对应加长轴最高 14.71 mm³。用独立奇数帧复核增补拟合的候选，导出网格保留短导向和端部材料。
+
 2026-11-11 FJ1500 同侧盲孔支承清除背侧紧固件约束。保持端盖和孔轴后，肩胛单轴首碰转为 FJ1504 出线管；压缩弯管外廓后，整臂首要限制是肩胛骨及 FJ1504 螺栓与肋骨。单轴结果不能推定联动上回旋能力。
 
 Prior goal turn made progress: neutral curved route screening plus one hollow guide. Reinspection finds inherited terminal corners of 72–130 degrees and sampled local radius below 1 mm; passing a solid export alone does not establish a usable cable bend. Candidate smoothing retains endpoints while changing nearby routes and tangent directions. Four indexed hollow sweeps now round-trip without volume change, pending anatomy and passage checks. No backboard or unmounted spatial guides introduced.
 
 Completed follow-up: four actual hollow meshes clear of anatomy at neutral, minimum actual tube/bone gaps 1.522/1.123/>=2/1.078 mm, nominal extended wire/material overlap zero. Six pair overlaps and cross-wire checks zero; minimum pair gap 1.689 mm. Sampled bend radii 5.705/7.342/4.785/4.028 mm. This says nothing yet about maintaining the curve under pull; physical end supports and beam deformation are the next required mechanics work. Sources use the shared-humerus thorax reference, not a claimed merged Y2 engineering assembly.
+
+冈下肌分体在肩胛下肌近端五金后装时出现清晰的末段装入路线。18 mm 切口首 1 mm 保留更多连接环材料，22 mm 切口在后续 2–4 mm 保留更多材料。近端原材料各分三块，需重建承力座。
+FJ1504 背板、1 号后垫圈、1 号螺母在两个 FJ1500 切口、各三条路线中均存在预装与轴向后装冲突。前支承与两枚螺栓另有端盖或胸廓路径限制。
+FJ1504 同侧盲孔移除背侧五金后，六条冈下肌末段路线全部通过。移开胸廓参考后 1 号螺栓仍碰端盖，下一次需验证带螺栓端盖。
+FJ1504 螺栓入口让位仅去除 0.219 mm³，保留通道保护区和垫圈承压探针区。带盖组合在当前胸廓装配状态仍碰 FJ3340。
+携盖肩胛在锁骨及 SC 五金就位、AC 和 GH 五金后装时有三条末段 24 mm 直线装入路径。锁骨随行的对照碰到 FJ3290。
+肩锁右盖在锁骨侧保持时仍有两条携盖肩胛末段路径。右侧紧固件的轴向装入和工具包络仍受骨面限制。
+肩锁左后垫圈局部去料 0.101 mm³ 后通过末段送入；原右轴两端及 144 个斜向驱动杆包络仍受阻。
+肩锁 25 个临时姿态均未开放原螺栓头侧工具空间。17 条平移工具轴通畅，原贯穿螺栓平移后仍碰肩胛。
+肩锁右侧 6 mm 偏移轴支持短螺栓与局部承力座。右盖在锁骨侧保持时，两条回读肩胛路径清。
+短螺栓候选六阶段均清。正向单轴采样至 20°，三个负向首限均为 FJ1504 端盖与 FJ3340。
+原肩锁与短螺栓在肩肘组合中均到正向 20° 并清楚回程；负向限制集中于 FJ1504 端盖／0 号螺栓与 FJ3340，以及肩胛与 FJ3344。
+FJ1504 −0.25° 局部让位保留通道及垫圈保护；−0.5° 试切已进入通道保护区。
+FJ1504 让位在组合中纯 AC 通过至 −0.28°，两条 SC／AC 采样路径从零位到 −0.5°。
+肩胛负向一条联动分支到 −4° 搜索边界，往返 238+238 样点通过；另一分支止于 −0.5°。
+−4° SC／AC 往返时，FJ1468 前束参考端距缩短 2.489 mm、局部方向变化 0.871°。GH 与肘固定时其余七条参考端距无相对变化。
+FJ1468 曲线在 −4° 时三组插值增长 0.824–1.042 mm，近端仍有约 1.033 mm 三点弯曲半径及约 103.4° 最大折角。
+FJ1468 零位平滑过渡通过名义内线回读，最大折角降至 72.3°，仍有 5.71 mm³ 名义孔壁包络缺失。
+FJ1468 的 5.7065 mm³ TPU 壁体缺失区由近端刚性端盖占据。组合内线 1.00 mm 扫掠包络零位通过，1.40 mm 已碰端盖。
+FJ1468 近端改孔移植到远端支承配套 TPU 后，消除混用版本造成的 636 mm³ 支承重叠。前束两种包络通过九个运动样点。
+前束 0、−2、−4° 三个姿态可几何拉直约 0.407 mm，更直接的候选弦段首先碰 TPU，部分也碰端盖。
+FJ1468 固定孔壁无摩擦的两组钢丝平衡分别缩短 0.959／0.967 mm。10 N 下近端接触法向反力标量和约 14.5 N，单点结果对离散敏感。
+前束固定孔壁零位的 11 个有效反力点均对应 TPU，10 N 线张力下合力约 13.35 N。
+FJ1468 联立钢丝与单模态孔壁后，10 N／20 N/mm 的孔壁移动 0.436 mm，端盖采样净空 0.070 mm。
+放宽数值上限后，FJ1468 两个原触顶工况均在约 0.718 mm 模态位移处出现端盖承力。
+双区域非线性模型复现两个高张力／刚度比工况的端盖承力，TPU 位移分化为约 0.889／0.371 mm。
+前束 2 N 命令加到肩先释放对照时，四个摩擦系数给出 1.00–2.00 N 传递峰值。前三组销轴碰 FJ3330，0.3 工况在所查采样中清。

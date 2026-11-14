@@ -1,0 +1,524 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_elbow_cable_anchors.py",
+    "sha256": "d985dd1dbeeaa59df23f32aceed31eca4f4e834d6b5420230a63fde6dc09b071"
+  },
+  "register": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/s1_cable_anchor_register.json",
+    "sha256": "7c1cf81ea276a1ac08d833759e4aba1b376a35616c25dce1632f3c1cde612a13"
+  },
+  "retention": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_pin_retention.json",
+    "sha256": "479d5ae4756edb3c1d0e1b5bc7ca9ef9896da8839ffb08b1959503d518a1b0f2"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "wire_assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_mount_candidate/assembly.json",
+    "sha256": "bc3937d8405bf39851dccd1a4819d1859c3fc2b41ea46217371d58da8fd6696d"
+  },
+  "channels": {
+    "FJ1486": {
+      "old_ferrule_source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/route_endpoints.json",
+        "sha256": "52989dbde1974c6344f68dcdf0f84a55f726ca41cf885baeea32721e132f5e2f"
+      },
+      "inlet_cap": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/shifted_muscle/FJ1486/proximal_rigid_cap.obj",
+        "sha256": "918ee45ff216517c6c52df5575e12de034ea417a52ec5d45d0e4407792c1e48c",
+        "translation_source_mm": [
+          -140.0,
+          -86.0,
+          1100.0
+        ],
+        "source_elbow_geom": "FJ1486_proximal_rigid_cap",
+        "mesh_scale_m_per_file_unit": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      },
+      "inlet_body": "humerus",
+      "crimp_body": "FJ1486_distal_pivot",
+      "crimp_barrel": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/shifted_muscle/FJ1486/active_wire_crimp_barrel.obj",
+        "sha256": "6e52f2505a8dcab0698bd4c4f9c0a5890402e0fa3c9967f6836a1a2dd9121967",
+        "translation_source_mm": [
+          -140.0,
+          -86.0,
+          1100.0
+        ],
+        "source_elbow_geom": "FJ1486_active_wire_crimp_barrel",
+        "mesh_scale_m_per_file_unit": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      },
+      "inlet_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "old_reaction_xyz_mm": [
+        -185.71493267443523,
+        -97.82312385176894,
+        1224.7796851316355
+      ],
+      "old_reaction_axial_distance_from_model_point_mm": 28.14999999999994,
+      "old_reaction_offset_from_wire_axis_mm": 1.553677691793345e-14,
+      "old_reaction_distance_to_cap_axial_end_mm": 6.999999999999872,
+      "old_bearing_distance_past_cap_axial_end_mm": 3.9999999999999067,
+      "inlet_cap_probe": {
+        "axial_bounds_from_reference_mm": [
+          -17.000000000000124,
+          -6.999999999999872
+        ],
+        "radial_probe_samples": [
+          {
+            "station_mm": -17.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.799999999999996,
+              0.7999999999999639,
+              0.8000000000000103
+            ]
+          },
+          {
+            "station_mm": -16.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.8000000000000103,
+              0.7999999999999752,
+              0.799999999999996
+            ]
+          },
+          {
+            "station_mm": -15.0,
+            "first_radial_surface_mm": [
+              0.8000000000000032,
+              0.7999999999999818,
+              0.7999999999999359,
+              0.8000000000000103
+            ]
+          },
+          {
+            "station_mm": -14.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.799999999999996,
+              0.7999999999999639,
+              0.8000000000000103
+            ]
+          },
+          {
+            "station_mm": -13.0,
+            "first_radial_surface_mm": [
+              1.1000000000000092,
+              1.1000000000000003,
+              1.0999999999999643,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -12.0,
+            "first_radial_surface_mm": [
+              1.1000000000000203,
+              1.1000000000000003,
+              1.0999999999999532,
+              1.099999999999986
+            ]
+          },
+          {
+            "station_mm": -11.0,
+            "first_radial_surface_mm": [
+              1.1000000000000372,
+              1.1000000000000003,
+              1.0999999999999532,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -10.0,
+            "first_radial_surface_mm": [
+              1.0999999999999812,
+              1.1000000000000003,
+              1.1000000000000092,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -9.0,
+            "first_radial_surface_mm": [
+              1.0999999999999923,
+              1.1000000000000003,
+              1.1000000000000092,
+              1.099999999999986
+            ]
+          },
+          {
+            "station_mm": -8.0,
+            "first_radial_surface_mm": [
+              1.0999999999999923,
+              1.1000000000000003,
+              1.0999999999999812,
+              1.099999999999986
+            ]
+          },
+          {
+            "station_mm": -7.0,
+            "first_radial_surface_mm": [
+              1.0999999999999812,
+              2.556756756756757,
+              1.1000000000000092,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": 0.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          }
+        ]
+      },
+      "terminal_crimp_probe": {
+        "axial_bounds_from_reference_mm": [
+          12.099999999999962,
+          15.100000000000085
+        ],
+        "radial_probe_samples": [
+          {
+            "station_mm": 0.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": 13.0,
+            "first_radial_surface_mm": [
+              0.44999999999996426,
+              0.45000000000000634,
+              0.45000000000001195,
+              0.44999999999999213
+            ]
+          },
+          {
+            "station_mm": 14.0,
+            "first_radial_surface_mm": [
+              0.44999999999996426,
+              0.45000000000000634,
+              0.45000000000001195,
+              0.44999999999999213
+            ]
+          },
+          {
+            "station_mm": 15.0,
+            "first_radial_surface_mm": [
+              0.44999999999995594,
+              0.4499999999999779,
+              0.4500000000000399,
+              0.45000000000000634
+            ]
+          }
+        ]
+      },
+      "inlet_lead_cap_hits_mm3": {},
+      "terminal_lead_crimp_overlap_mm3": 0.0,
+      "crimp_bore_radial_samples_are_geometric": true
+    },
+    "FJ1477": {
+      "old_ferrule_source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_supply_interface/route_endpoints.json",
+        "sha256": "52989dbde1974c6344f68dcdf0f84a55f726ca41cf885baeea32721e132f5e2f"
+      },
+      "inlet_cap": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_lug.obj",
+        "sha256": "3d22f0c8d3c79677470c6b4ff1c55ba9219519675af372d58a6dc465824019a4",
+        "translation_source_mm": [
+          -209.0414249104217,
+          -46.82235458943658,
+          1278.2535889888277
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          2452.3858625524413
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "inlet_body": "FJ1477_carriage",
+      "crimp_body": "FJ1477_distal_pivot",
+      "crimp_barrel": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/anatomical_concept/direct_muscle_interfaces/extensor_reanchor_extended/muscle/FJ1477/active_wire_crimp_barrel.obj",
+        "sha256": "e845e310ae6fa6d7f934048348ad329ec4fac402307952d5d0ebf155c7f83868",
+        "translation_source_mm": [
+          -140.0,
+          -56.0,
+          1100.0
+        ],
+        "source_elbow_geom": "FJ1477_active_wire_crimp_barrel",
+        "mesh_scale_m_per_file_unit": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      },
+      "inlet_axis_source": [
+        0.17258506979557772,
+        -0.014177871716920589,
+        0.9848925736532052
+      ],
+      "old_reaction_xyz_mm": [
+        -179.07485988331263,
+        -45.223413689656226,
+        1294.0795204291808
+      ],
+      "old_reaction_axial_distance_from_model_point_mm": 28.14999999999994,
+      "old_reaction_offset_from_wire_axis_mm": 1.553677691793345e-14,
+      "old_reaction_distance_to_cap_axial_end_mm": 6.99999999999985,
+      "old_bearing_distance_past_cap_axial_end_mm": 3.9999999999998845,
+      "inlet_cap_probe": {
+        "axial_bounds_from_reference_mm": [
+          -23.562316286279177,
+          -6.99999999999985
+        ],
+        "radial_probe_samples": [
+          {
+            "station_mm": -23.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -22.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -21.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -20.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -19.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -18.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": -17.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.8000000000000103,
+              0.7999999999999918,
+              0.7999999999999889
+            ]
+          },
+          {
+            "station_mm": -16.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.8000000000000032,
+              0.8000000000000032,
+              0.7999999999999889
+            ]
+          },
+          {
+            "station_mm": -15.0,
+            "first_radial_surface_mm": [
+              0.8000000000000032,
+              0.799999999999996,
+              0.7999999999999639,
+              0.7999999999999889
+            ]
+          },
+          {
+            "station_mm": -14.0,
+            "first_radial_surface_mm": [
+              0.7999999999999918,
+              0.8000000000000032,
+              0.7999999999999918,
+              0.799999999999996
+            ]
+          },
+          {
+            "station_mm": -13.0,
+            "first_radial_surface_mm": [
+              1.1000000000000092,
+              1.1000000000000003,
+              1.0999999999999643,
+              1.0999999999999932
+            ]
+          },
+          {
+            "station_mm": -12.0,
+            "first_radial_surface_mm": [
+              1.0999999999999923,
+              1.0999999999999932,
+              1.0999999999999812,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -11.0,
+            "first_radial_surface_mm": [
+              1.1000000000000092,
+              1.1000000000000003,
+              1.0999999999999532,
+              1.0999999999999932
+            ]
+          },
+          {
+            "station_mm": -10.0,
+            "first_radial_surface_mm": [
+              1.0999999999999812,
+              1.1000000000000003,
+              1.1000000000000092,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -9.0,
+            "first_radial_surface_mm": [
+              1.0999999999999812,
+              1.1000000000000003,
+              1.1000000000000203,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": -8.0,
+            "first_radial_surface_mm": [
+              1.0999999999999923,
+              1.1000000000000003,
+              1.0999999999999812,
+              1.0999999999999932
+            ]
+          },
+          {
+            "station_mm": -7.0,
+            "first_radial_surface_mm": [
+              1.0999999999999812,
+              2.9999999999998477,
+              1.1000000000000092,
+              1.1000000000000003
+            ]
+          },
+          {
+            "station_mm": 0.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          }
+        ]
+      },
+      "terminal_crimp_probe": {
+        "axial_bounds_from_reference_mm": [
+          12.09999999999988,
+          15.100000000000113
+        ],
+        "radial_probe_samples": [
+          {
+            "station_mm": 0.0,
+            "first_radial_surface_mm": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "station_mm": 13.0,
+            "first_radial_surface_mm": [
+              0.45000000000001195,
+              0.44999999999999213,
+              0.44999999999995594,
+              0.45000000000000634
+            ]
+          },
+          {
+            "station_mm": 14.0,
+            "first_radial_surface_mm": [
+              0.45000000000001195,
+              0.44999999999999213,
+              0.44999999999998397,
+              0.44999999999999923
+            ]
+          },
+          {
+            "station_mm": 15.0,
+            "first_radial_surface_mm": [
+              0.44999999999998397,
+              0.44999999999999213,
+              0.4500000000000007,
+              0.45000000000000634
+            ]
+          }
+        ]
+      },
+      "inlet_lead_cap_hits_mm3": {},
+      "terminal_lead_crimp_overlap_mm3": 0.0,
+      "crimp_bore_radial_samples_are_geometric": true,
+      "carriage_relative_to_humerus": {
+        "axis_source": [
+          -0.08069207153960063,
+          0.165061667690409,
+          -0.9829768234551154
+        ],
+        "travel_mm": [
+          -1.3979186405192928e-05,
+          59.24895301754118
+        ],
+        "historical_seat_xyz_at_peak_if_carriage_owned_mm": [
+          -183.8557806388505,
+          -35.44368269567019,
+          1235.8391727989567
+        ]
+      }
+    }
+  },
+  "scope": "Neutral pose of the extended-rail candidate. Axial material bounds are projections, not a finding of a bearing face. The named crimp barrels are geometric solids, not evidence of cable retention. Historical ferrules remain reference only."
+}

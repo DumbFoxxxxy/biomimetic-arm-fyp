@@ -11,33 +11,48 @@ from build_channel_first_inventory import DEST, ROOT, provenance
 from build_s1_teres_origin_mount import load_component, save
 from simulate_elbow_antagonistic_load import write_csv
 from simulate_elbow_series_slider import SLIDE, SLIDE_DAMPING, SLIDE_STIFFNESS
+from simulate_channel_first_spool_drive import cable_tensions
 from study_s1_local_force_geometry import load_reference
 
 
-def run(model, initial, channels, preload, delta, shoulder_release, elbow_release, flexion_axis):
+def run(model, initial, channels, preload, delta, shoulder_release, elbow_release, flexion_axis, *,
+        sample_period_s=.005, shoulder_transmission=1., return_preload_N=.25,
+        return_stiffness_N_per_m=SLIDE_STIFFNESS, return_damping_Ns_per_m=SLIDE_DAMPING,
+        flexor_spool=None, flexor_transmission=None):
     data = mujoco.MjData(model)
     slide = model.joint(SLIDE)
     slide_q, slide_v = slide.qposadr.item(), slide.dofadr.item()
     gh_q = model.joint("GH").qposadr.item()
     elbow_q = model.joint("elbow").qposadr.item()
     elbow = model.actuator("FJ1486").id
+    if flexor_spool is not None:
+        tendon = model.tendon("FJ1486").id
+        gear = abs(model.actuator_gear[elbow, 0])
+        spool_times, spool_lengths, cable_stiffness = flexor_spool
     model.dof_frictionloss[slide_v] = .15
     mujoco.mj_setConst(model, data)
     data.qpos[gh_q:gh_q + 4] = initial
     initial_turn = Rotation.from_quat(np.roll(initial, -1))
     dt = model.opt.timestep
     final = round(4. / dt)
-    cadence = round(.005 / dt)
+    cadence = max(1, round(sample_period_s / dt))
     rows = []
     for step in range(final + 1):
         time = step * dt
         mujoco.mj_step1(model, data)
         shoulder_level = np.interp(time, [.2, .65, shoulder_release, shoulder_release + .4], [0., 1., 1., 0.])
         elbow_level = np.interp(time, [.2, .65, elbow_release, elbow_release + .4], [0., 1., 1., 0.])
-        data.ctrl[channels] = preload + shoulder_level * delta
+        data.ctrl[channels] = shoulder_transmission * (preload + shoulder_level * delta)
         data.ctrl[elbow] = 25. * elbow_level
-        data.qfrc_applied[slide_v] = -max(0., .25 + SLIDE_STIFFNESS * data.qpos[slide_q]
-                                       + SLIDE_DAMPING * data.qvel[slide_v])
+        if flexor_spool is not None:
+            available = np.interp(time, spool_times, spool_lengths)
+            tension, _ = cable_tensions(data.ten_length[tendon], 0., available, cable_stiffness, 0.)
+            if flexor_transmission is not None:
+                tension *= np.interp(time, spool_times, flexor_transmission)
+            data.ctrl[elbow] = np.clip(tension / gear, *model.actuator_ctrlrange[elbow])
+        data.qfrc_applied[slide_v] = -max(
+            0., return_preload_N + return_stiffness_N_per_m * data.qpos[slide_q]
+            + return_damping_Ns_per_m * data.qvel[slide_v])
         if step % cadence == 0 or step == final:
             current = Rotation.from_quat(np.roll(data.qpos[gh_q:gh_q + 4], -1))
             relative = current * initial_turn.inv()

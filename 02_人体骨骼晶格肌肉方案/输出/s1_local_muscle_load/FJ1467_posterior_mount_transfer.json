@@ -1,0 +1,6057 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_posterior_mount_transfer.py",
+    "sha256": "08323fa5d770e9049911806329d7907b397d9c6a744cd2591ce6ef63cc278559"
+  },
+  "historical_mount": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_middle_side_nut_mount/assembly_check.json",
+    "sha256": "84120d4c815d43c73194523e6c448a012b67e21df0e3fd447ea836ab56b7022c"
+  },
+  "posterior_locations": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1467_posterior_rigid_locations.json",
+    "sha256": "f9adfb26a242da9831e305e12cecbf1f753ba361e11fdd664a364aa3c8de1f2a"
+  },
+  "scapula_removed_mm3": 343.6408457446937,
+  "scapula_component_volumes_mm3": [
+    80505.48817619025,
+    3.942753342185492e-06,
+    4.452573444487835e-08,
+    2.9647029581303386e-08,
+    -4.086993586136665e-13,
+    -2.5420004718069574e-12,
+    -3.9400158136143433e-10,
+    -5.995292219843903e-10,
+    -1.2786767200633805e-09,
+    -2.7720035207017083e-08,
+    -4.363079765152597e-08,
+    -5.407384495562133e-08,
+    -1.1642897569414268e-07,
+    -2.1002873751447008e-07
+  ],
+  "transferred_part_keys": [
+    "cap:FJ1467/origin",
+    "origin:FJ1467/nut_0",
+    "origin:FJ1467/bolt_0",
+    "origin:FJ1467/front_washer_0",
+    "origin:FJ1467/nut_1",
+    "origin:FJ1467/bolt_1",
+    "origin:FJ1467/front_washer_1",
+    "origin:FJ1467/front_support"
+  ],
+  "donor_to_recipient_fit": {
+    "cap:FJ1467/origin": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {
+        "bone:scapula": 0.06812650088497332
+      }
+    },
+    "origin:FJ1467/nut_0": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {}
+    },
+    "origin:FJ1467/bolt_0": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {
+        "bone:scapula": 28.819786942348127
+      }
+    },
+    "origin:FJ1467/front_washer_0": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {}
+    },
+    "origin:FJ1467/nut_1": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {}
+    },
+    "origin:FJ1467/bolt_1": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {
+        "bone:scapula": 1.4114506137616785
+      }
+    },
+    "origin:FJ1467/front_washer_1": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {}
+    },
+    "origin:FJ1467/front_support": {
+      "donor_scapula_hits_mm3": {},
+      "recipient_scapula_hits_mm3": {
+        "bone:scapula": 235.8519966083983
+      }
+    }
+  },
+  "checked_mount_pairs": 1780,
+  "cases": [
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627810036324428
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.21465688218993928
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.20343463248433927
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.19256910871082933,
+        "elbow:FJ1477_proximal_rigid_cap": 0.022424614488570898
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.18200556857113875,
+        "elbow:FJ1477_proximal_rigid_cap": 0.07141849167014279
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        5.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1716848741152466,
+        "elbow:FJ1477_proximal_rigid_cap": 0.14259265906028193
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.16158505875920293,
+        "elbow:FJ1477_proximal_rigid_cap": 0.2294304648987384
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        7.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.15173154227753569,
+        "elbow:FJ1477_proximal_rigid_cap": 0.3267789961396083
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1421454622755548,
+        "elbow:FJ1477_proximal_rigid_cap": 0.42985394125190407
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        9.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.13284538452178546,
+        "elbow:FJ1477_proximal_rigid_cap": 0.5325344675681479
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1238482304469808,
+        "elbow:FJ1477_proximal_rigid_cap": 0.6275867941369891
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        11.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.11516745148267721,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7029902824641192
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        12.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.10681985744048537,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7639955335776291
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        13.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.09883437949516229,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8162284058622707
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        14.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0912533438314831,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8618723107449735
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        15.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.08411660426697042,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9025915982773816
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        16.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07746950433542454,
+        "elbow:FJ1477_proximal_rigid_cap": 0.938820304590306
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        17.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07136071109579653,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9710979256930234
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        18.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0658218393164221,
+        "elbow:FJ1477_proximal_rigid_cap": 1.000179447548043
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        19.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06079557762997321,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0269039622419989
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        20.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.05612007188916446,
+        "elbow:FJ1477_proximal_rigid_cap": 1.051530014157958
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        21.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.05170978362739404,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0740631563075562
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        22.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.047544065822581784,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0945153863899602
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.043608038642862015,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1130149347729343
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        24.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03988538861370492,
+        "elbow:FJ1477_proximal_rigid_cap": 1.129740478332864,
+        "origin:FJ1467/front_support": 0.001200413871267486
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        25.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.036364630652199026,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1449071730084563,
+        "origin:FJ1467/front_support": 0.02030712473998552
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        26.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.033039171701488707,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1587708035159243,
+        "origin:FJ1467/front_support": 0.06906260802162019
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        27.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.029901014414800548,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1715037843908747,
+        "origin:FJ1467/front_support": 0.14924463337651037
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        28.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.026943456873824007,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1831798600290675,
+        "origin:FJ1467/front_support": 0.2596676930996746
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        29.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.024162507488487868,
+        "elbow:FJ1477_proximal_rigid_cap": 1.193860389810334,
+        "origin:FJ1467/front_support": 0.39725295873774635
+      }
+    },
+    {
+      "pose_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        30.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083963
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348593
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909382
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445544
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495845
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.021556617439029896,
+        "elbow:FJ1477_proximal_rigid_cap": 1.2036056194547344,
+        "origin:FJ1467/front_support": 0.5560059271386266
+      }
+    },
+    {
+      "pose_deg": [
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839922
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347932
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137907412
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448238
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484414
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627813844422728
+      }
+    },
+    {
+      "pose_deg": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839618
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348582
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906986
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744549
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471806
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627829704224656
+      }
+    },
+    {
+      "pose_deg": [
+        1.3333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839336
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348326
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.41145061379063
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445407
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088474023
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262784664604604
+      }
+    },
+    {
+      "pose_deg": [
+        1.6666666666666665,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839626
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347907
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910063
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744443
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088486437
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627868516172128
+      }
+    },
+    {
+      "pose_deg": [
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839294
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234876
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791274
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447003
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497013
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627895300872608
+      }
+    },
+    {
+      "pose_deg": [
+        2.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083972
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348486
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137905436
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448635
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088477282
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22627944996406368
+      }
+    },
+    {
+      "pose_deg": [
+        3.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839726
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348312
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909961
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.20515464174439
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088506197
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628004603148144
+      }
+    },
+    {
+      "pose_deg": [
+        3.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840092
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234819
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910505
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447105
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484404
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262807120253121
+      }
+    },
+    {
+      "pose_deg": [
+        4.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840067
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348706
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906528
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443353
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088502106
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262814257296399
+      }
+    },
+    {
+      "pose_deg": [
+        4.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840007
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348653
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790369
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744727
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495947
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628213774076755
+      }
+    },
+    {
+      "pose_deg": [
+        5.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083981
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348532
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908986
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744921
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008848235
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628277357391918
+      }
+    },
+    {
+      "pose_deg": [
+        5.333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083959
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348028
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791326
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447545
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088489644
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628311596708747
+      }
+    },
+    {
+      "pose_deg": [
+        5.666666666666667,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839766
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347882
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791097
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417444559
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471821
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628338895798467
+      }
+    },
+    {
+      "pose_deg": [
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839547
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347772
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137897591
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446264
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088506364
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628359611439028
+      }
+    },
+    {
+      "pose_deg": [
+        6.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083929
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234854
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137914355
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446304
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008850142
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628379210096985
+      }
+    },
+    {
+      "pose_deg": [
+        7.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.851996608391
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348145
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790776
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443824
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497073
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262838644410409
+      }
+    },
+    {
+      "pose_deg": [
+        7.333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839714
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348774
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908087
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447216
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088507333
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262838527537545
+      }
+    },
+    {
+      "pose_deg": [
+        7.666666666666667,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840595
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348987
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909515
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744838
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008849898
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262837988279296
+      }
+    },
+    {
+      "pose_deg": [
+        8.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839783
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347807
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791184
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448893
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088479322
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628370648856763
+      }
+    },
+    {
+      "pose_deg": [
+        8.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840323
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347992
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137918825
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448917
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088511213
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628350432167899
+      }
+    },
+    {
+      "pose_deg": [
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839695
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348326
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908334
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448256
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497557
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628323841782047
+      }
+    },
+    {
+      "pose_deg": [
+        9.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083962
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347946
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791264
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447285
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088490455
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628291998011804
+      }
+    },
+    {
+      "pose_deg": [
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083957
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234785
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137912137
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448895
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088476521
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628256485398693
+      }
+    },
+    {
+      "pose_deg": [
+        10.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839447
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347736
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137905969
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744904
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484114
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628219184588474
+      }
+    },
+    {
+      "pose_deg": [
+        11.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660838964
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234742
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137903755
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446724
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088493905
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628183503882424
+      }
+    },
+    {
+      "pose_deg": [
+        11.333333333333334,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839916
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347932
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137901546
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446393
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088499031
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628162630947382
+      }
+    },
+    {
+      "pose_deg": [
+        11.666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839535
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348628
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137914653
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447532
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088482718
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628145444371936
+      }
+    },
+    {
+      "pose_deg": [
+        12.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839382
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348472
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791038
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448644
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.068126500885097
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262813300359871
+      }
+    },
+    {
+      "pose_deg": [
+        12.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083968
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348568
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908478
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447048
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088508872
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628125105769312
+      }
+    },
+    {
+      "pose_deg": [
+        13.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083971
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348635
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911746
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744898
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088516062
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628132379632146
+      }
+    },
+    {
+      "pose_deg": [
+        13.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839507
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234894
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137915421
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446042
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088508712
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628157053740364
+      }
+    },
+    {
+      "pose_deg": [
+        14.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840024
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347292
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910994
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744665
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008847818
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628200454533517
+      }
+    },
+    {
+      "pose_deg": [
+        14.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839436
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.8197869423477
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790392
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443142
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088476348
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628263449520897
+      }
+    },
+    {
+      "pose_deg": [
+        15.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839518
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348564
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911613
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446382
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088478495
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628346481930556
+      }
+    },
+    {
+      "pose_deg": [
+        15.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083902
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348347
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790394
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447765
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088509747
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262844819350212
+      }
+    },
+    {
+      "pose_deg": [
+        16.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839507
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234782
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909337
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447592
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497973
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628563952197875
+      }
+    },
+    {
+      "pose_deg": [
+        16.333333333333332,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839552
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348397
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911786
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088492633
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628644516129326
+      }
+    },
+    {
+      "pose_deg": [
+        16.666666666666668,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839655
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348113
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906868
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446732
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088499525
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628723880671286
+      }
+    },
+    {
+      "pose_deg": [
+        17.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083903
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348347
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910978
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446195
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008850033
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262879909491417
+      }
+    },
+    {
+      "pose_deg": [
+        17.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084021
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234773
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137907445
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417449155
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088494801
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2262890010753384
+      }
+    },
+    {
+      "pose_deg": [
+        18.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839345
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137903502
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088518657
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22628984601853724
+      }
+    },
+    {
+      "pose_deg": [
+        18.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839314
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348365
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909102
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447843
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471192
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22629052405884803
+      }
+    },
+    {
+      "pose_deg": [
+        19.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083999
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348763
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906662
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744812
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088503563
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22629104593630167
+      }
+    },
+    {
+      "pose_deg": [
+        19.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083954
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347697
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909095
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744378
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088494507
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22629142193133334
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.22629166420972724
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.21467035993106484
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.20344792306758197
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.19258222962431046,
+        "elbow:FJ1477_proximal_rigid_cap": 0.022424620229677
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.18201798809332947,
+        "elbow:FJ1477_proximal_rigid_cap": 0.07141809793961676
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        5.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.17169615619041254,
+        "elbow:FJ1477_proximal_rigid_cap": 0.14259066350451788
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.16159595454597642,
+        "elbow:FJ1477_proximal_rigid_cap": 0.2294310809800117
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        7.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.15174278042994807,
+        "elbow:FJ1477_proximal_rigid_cap": 0.32677871252438107
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1421569836453624,
+        "elbow:FJ1477_proximal_rigid_cap": 0.42985463166581717
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        9.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.13285678021524794,
+        "elbow:FJ1477_proximal_rigid_cap": 0.5325328772577202
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.12385948185481559,
+        "elbow:FJ1477_proximal_rigid_cap": 0.6275867808368185
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        11.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.11517973527909936,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7029902627970743
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        12.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.10683363172868374,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7639955316273398
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        13.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0988491634251528,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8162283761029843
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        14.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.09126864961486046,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8618723032519195
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        15.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.08413201487234749,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9025916013023879
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        16.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07748488565330551,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9388202743574574
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        17.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07137593169071564,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9710980045633519
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        18.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06583707410677407,
+        "elbow:FJ1477_proximal_rigid_cap": 1.000179440928992
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        19.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06081073430452585,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0269039609787822
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        20.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.056135134238436676,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0515299990412617
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        21.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.051724821943192764,
+        "elbow:FJ1477_proximal_rigid_cap": 1.074063167890374
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        22.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.047558841800167215,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0945153865563584
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.04362132136453209,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1130149257827806
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        24.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03989734695911753,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1297404792570944,
+        "origin:FJ1467/front_support": 0.001200162289215546
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        25.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.036375781822719506,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1449071557600157,
+        "origin:FJ1467/front_support": 0.020305921646754575
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        26.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.033048081073128774,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1587708143111604,
+        "origin:FJ1467/front_support": 0.06906146505760609
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        27.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.029908164401182043,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1715037678112716,
+        "origin:FJ1467/front_support": 0.14924406479109392
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        28.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.026950364258458252,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1831798784524366,
+        "origin:FJ1467/front_support": 0.2596662121583983
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        29.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.02416988969885024,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1938603658885643,
+        "origin:FJ1467/front_support": 0.39725094970214325
+      }
+    },
+    {
+      "pose_deg": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        30.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084055
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347815
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908847
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445795
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088496615
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.02156459598360419,
+        "elbow:FJ1477_proximal_rigid_cap": 1.2036056502272112,
+        "origin:FJ1467/front_support": 0.5560036227274759
+      }
+    },
+    {
+      "pose_deg": [
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839922
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347932
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137907412
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448238
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484414
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.21752435212490667
+      }
+    },
+    {
+      "pose_deg": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839618
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348582
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906986
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744549
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471806
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.2089980473364078
+      }
+    },
+    {
+      "pose_deg": [
+        1.3333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839336
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348326
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.41145061379063
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417445407
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088474023
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.20343503384208655
+      }
+    },
+    {
+      "pose_deg": [
+        1.6666666666666665,
+        0.0,
+        0.0,
+        0.0,
+        2.4999999999999996
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839626
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347907
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910063
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744443
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088486437
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.19796116157650145,
+        "elbow:FJ1477_proximal_rigid_cap": 0.007584731583821268
+      }
+    },
+    {
+      "pose_deg": [
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839294
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234876
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791274
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447003
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497013
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.19256992236009302,
+        "elbow:FJ1477_proximal_rigid_cap": 0.022424640855570797
+      }
+    },
+    {
+      "pose_deg": [
+        2.5,
+        0.0,
+        0.0,
+        0.0,
+        3.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083972
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348486
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137905436
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448635
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088477282
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1846224986388361,
+        "elbow:FJ1477_proximal_rigid_cap": 0.05687966820449443
+      }
+    },
+    {
+      "pose_deg": [
+        3.0,
+        0.0,
+        0.0,
+        0.0,
+        4.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839726
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348312
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909961
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.20515464174439
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088506197
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.17681977648953495,
+        "elbow:FJ1477_proximal_rigid_cap": 0.10463746663434542
+      }
+    },
+    {
+      "pose_deg": [
+        3.5,
+        0.0,
+        0.0,
+        0.0,
+        5.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840092
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234819
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910505
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447105
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484404
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.16913995415257999,
+        "elbow:FJ1477_proximal_rigid_cap": 0.16306322118389546
+      }
+    },
+    {
+      "pose_deg": [
+        4.0,
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840067
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348706
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906528
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443353
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088502106
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1615868204971016,
+        "elbow:FJ1477_proximal_rigid_cap": 0.22943114780048066
+      }
+    },
+    {
+      "pose_deg": [
+        4.5,
+        0.0,
+        0.0,
+        0.0,
+        6.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840007
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348653
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790369
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744727
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088495947
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.154172678966587,
+        "elbow:FJ1477_proximal_rigid_cap": 0.30170260508863733
+      }
+    },
+    {
+      "pose_deg": [
+        5.0,
+        0.0,
+        0.0,
+        0.0,
+        7.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083981
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348532
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908986
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744921
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008848235
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.14690642457291178,
+        "elbow:FJ1477_proximal_rigid_cap": 0.3779502818926698
+      }
+    },
+    {
+      "pose_deg": [
+        5.333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        8.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083959
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348028
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791326
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447545
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088489644
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.14214837720974363,
+        "elbow:FJ1477_proximal_rigid_cap": 0.42985385532167913
+      }
+    },
+    {
+      "pose_deg": [
+        5.666666666666667,
+        0.0,
+        0.0,
+        0.0,
+        8.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839766
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347882
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791097
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417444559
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471821
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.13746175961592091,
+        "elbow:FJ1477_proximal_rigid_cap": 0.48166040984938774
+      }
+    },
+    {
+      "pose_deg": [
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        9.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839547
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347772
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137897591
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446264
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088506364
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.13284875604112462,
+        "elbow:FJ1477_proximal_rigid_cap": 0.5325344498937843
+      }
+    },
+    {
+      "pose_deg": [
+        6.5,
+        0.0,
+        0.0,
+        0.0,
+        9.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083929
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234854
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137914355
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446304
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008850142
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.12607191566008857,
+        "elbow:FJ1477_proximal_rigid_cap": 0.605059582229347
+      }
+    },
+    {
+      "pose_deg": [
+        7.0,
+        0.0,
+        0.0,
+        0.0,
+        10.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.851996608391
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348145
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790776
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443824
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497073
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1194713273956385,
+        "elbow:FJ1477_proximal_rigid_cap": 0.6681620543203667
+      }
+    },
+    {
+      "pose_deg": [
+        7.333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        11.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839714
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348774
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908087
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447216
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088507333
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.1151719048832013,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7029902734912242
+      }
+    },
+    {
+      "pose_deg": [
+        7.666666666666667,
+        0.0,
+        0.0,
+        0.0,
+        11.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840595
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348987
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909515
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744838
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008849898
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.11095558010046318,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7346970715223198
+      }
+    },
+    {
+      "pose_deg": [
+        8.0,
+        0.0,
+        0.0,
+        0.0,
+        12.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839783
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347807
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791184
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448893
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088479322
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.10682507085680835,
+        "elbow:FJ1477_proximal_rigid_cap": 0.7639955461974697
+      }
+    },
+    {
+      "pose_deg": [
+        8.5,
+        0.0,
+        0.0,
+        0.0,
+        12.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840323
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347992
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137918825
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448917
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088511213
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.10079955424542639,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8038951824311081
+      }
+    },
+    {
+      "pose_deg": [
+        9.0,
+        0.0,
+        0.0,
+        0.0,
+        13.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839695
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348326
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908334
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448256
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497557
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.09499562090537544,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8397047606976361
+      }
+    },
+    {
+      "pose_deg": [
+        9.5,
+        0.0,
+        0.0,
+        0.0,
+        14.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083962
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347946
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791264
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447285
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088490455
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0894300283192229,
+        "elbow:FJ1477_proximal_rigid_cap": 0.8724967935310518
+      }
+    },
+    {
+      "pose_deg": [
+        10.0,
+        0.0,
+        0.0,
+        0.0,
+        15.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083957
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234785
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137912137
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448895
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088476521
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0841203820729344,
+        "elbow:FJ1477_proximal_rigid_cap": 0.902591600318513
+      }
+    },
+    {
+      "pose_deg": [
+        10.5,
+        0.0,
+        0.0,
+        0.0,
+        15.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839447
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347736
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137905969
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744904
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088484114
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07908656978192306,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9301572053938197
+      }
+    },
+    {
+      "pose_deg": [
+        11.0,
+        0.0,
+        0.0,
+        0.0,
+        16.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660838964
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234742
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137903755
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446724
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088493905
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.07434888914149589,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9554130508749049
+      }
+    },
+    {
+      "pose_deg": [
+        11.333333333333334,
+        0.0,
+        0.0,
+        0.0,
+        17.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839916
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347932
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137901546
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446393
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088499031
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.0713651379102587,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9710979988878234
+      }
+    },
+    {
+      "pose_deg": [
+        11.666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        17.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839535
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348628
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137914653
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447532
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088482718
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06852580751207103,
+        "elbow:FJ1477_proximal_rigid_cap": 0.9859755185458696
+      }
+    },
+    {
+      "pose_deg": [
+        12.0,
+        0.0,
+        0.0,
+        0.0,
+        18.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839382
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348472
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613791038
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448644
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.068126500885097
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06582684910269163,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0001794422023673
+      }
+    },
+    {
+      "pose_deg": [
+        12.5,
+        0.0,
+        0.0,
+        0.0,
+        18.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083968
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348568
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137908478
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447048
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088508872
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.06201839077446542,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0204235290965464
+      }
+    },
+    {
+      "pose_deg": [
+        13.0,
+        0.0,
+        0.0,
+        0.0,
+        19.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083971
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348635
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911746
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744898
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088516062
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.058427968695552425,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0394765817732516
+      }
+    },
+    {
+      "pose_deg": [
+        13.5,
+        0.0,
+        0.0,
+        0.0,
+        20.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839507
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234894
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137915421
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446042
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088508712
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.054999415610157844,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0573617396740698
+      }
+    },
+    {
+      "pose_deg": [
+        14.0,
+        0.0,
+        0.0,
+        0.0,
+        21.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660840024
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347292
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910994
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744665
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008847818
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.05171567822588008,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0740631647609202
+      }
+    },
+    {
+      "pose_deg": [
+        14.5,
+        0.0,
+        0.0,
+        0.0,
+        21.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839436
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.8197869423477
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790392
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417443142
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088476348
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.04856946218531364,
+        "elbow:FJ1477_proximal_rigid_cap": 1.0895915266970673
+      }
+    },
+    {
+      "pose_deg": [
+        15.0,
+        0.0,
+        0.0,
+        0.0,
+        22.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839518
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348564
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911613
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446382
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088478495
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.04555450873021176,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1039988920361354
+      }
+    },
+    {
+      "pose_deg": [
+        15.5,
+        0.0,
+        0.0,
+        0.0,
+        23.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083902
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348347
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.411450613790394
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447765
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088509747
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.042664023419535055,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1173549042177793
+      }
+    },
+    {
+      "pose_deg": [
+        16.0,
+        0.0,
+        0.0,
+        0.0,
+        24.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839507
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234782
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909337
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447592
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088497973
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.039891892668427485,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1297404706928287,
+        "origin:FJ1467/front_support": 0.0012001163972295865
+      }
+    },
+    {
+      "pose_deg": [
+        16.333333333333332,
+        0.0,
+        0.0,
+        0.0,
+        24.499999999999996
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839552
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348397
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137911786
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088492633
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03810724752258214,
+        "elbow:FJ1477_proximal_rigid_cap": 1.137503007663443,
+        "origin:FJ1467/front_support": 0.007348496941629748
+      }
+    },
+    {
+      "pose_deg": [
+        16.666666666666668,
+        0.0,
+        0.0,
+        0.0,
+        25.000000000000004
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839655
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348113
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906868
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446732
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088499525
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03637194413550063,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1449071981903773,
+        "origin:FJ1467/front_support": 0.020305854079933
+      }
+    },
+    {
+      "pose_deg": [
+        17.0,
+        0.0,
+        0.0,
+        0.0,
+        25.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083903
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348347
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137910978
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417446195
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.0681265008850033
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03468503479442854,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1519884221744028,
+        "origin:FJ1467/front_support": 0.040776691532359195
+      }
+    },
+    {
+      "pose_deg": [
+        17.5,
+        0.0,
+        0.0,
+        0.0,
+        26.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966084021
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.81978694234773
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137907445
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417449155
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088494801
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.03224358011683881,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1620564753117184,
+        "origin:FJ1467/front_support": 0.08617024220867403
+      }
+    },
+    {
+      "pose_deg": [
+        18.0,
+        0.0,
+        0.0,
+        0.0,
+        27.0
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839345
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137903502
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417448333
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088518657
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.02990638810124617,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1715037853374972,
+        "origin:FJ1467/front_support": 0.14924372675842376
+      }
+    },
+    {
+      "pose_deg": [
+        18.5,
+        0.0,
+        0.0,
+        0.0,
+        27.75
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.85199660839314
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348365
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909102
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.2051546417447843
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088471192
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.027671610509091647,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1803565741149082,
+        "origin:FJ1467/front_support": 0.22936280477478488
+      }
+    },
+    {
+      "pose_deg": [
+        19.0,
+        0.0,
+        0.0,
+        0.0,
+        28.5
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083999
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942348763
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137906662
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744812
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088503563
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.025536998048038342,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1886407475238532,
+        "origin:FJ1467/front_support": 0.3253305565808731
+      }
+    },
+    {
+      "pose_deg": [
+        19.5,
+        0.0,
+        0.0,
+        0.0,
+        29.25
+      ],
+      "new_mount_hits": [
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/front_support",
+          "overlap_mm3": 235.8519966083954
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_0",
+          "overlap_mm3": 28.819786942347697
+        },
+        {
+          "left": "bone:scapula",
+          "right": "origin:FJ1467/bolt_1",
+          "overlap_mm3": 1.4114506137909095
+        },
+        {
+          "left": "AC:AC_screw_right",
+          "right": "origin:FJ1467/nut_0",
+          "overlap_mm3": 1.205154641744378
+        },
+        {
+          "left": "bone:scapula",
+          "right": "cap:FJ1467/origin",
+          "overlap_mm3": 0.06812650088494507
+        }
+      ],
+      "wire_hits_mm3": {
+        "bone:scapula": 0.02350171632925628,
+        "elbow:FJ1477_proximal_rigid_cap": 1.1963820698918592,
+        "origin:FJ1467/front_support": 0.435317777610772
+      }
+    }
+  ],
+  "scope": "Transfer screen in the current rigid short-bolt assembly. Transfers the historic bone pocket cut and matching rigid parts without changing nominal cable. TPU, assembly access, screw preload and strength remain outside this check."
+}

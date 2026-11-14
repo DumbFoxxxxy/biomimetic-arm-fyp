@@ -1,0 +1,106 @@
+{
+  "generator": {
+    "file": "tools/study_s1_nominal_elbow_spool.py",
+    "sha256": "2504c4265291285da2cab527a28c627e948c055e9d42503e4215a30684425832"
+  },
+  "source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_nominal_wire_travel.json",
+    "sha256": "0bbeaf678ebb4b2d6bd516dbc8302aa53c372a05f662739ced65737a3bd2508b"
+  },
+  "drive_model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "stiffness_N_per_m": 10000.0,
+  "cases": [
+    {
+      "case": "seating_reference",
+      "mu": 0.3,
+      "command_adjusted": true,
+      "peak_inlet_tension_N": 46.458263280603205,
+      "peak_elbow_deg": 126.78761068867145,
+      "end_elbow_deg": -1.7299857275337026e-09,
+      "peak_tension_N": 30.019690678859668,
+      "command_travel_mm": 77.13742225273346,
+      "minimum_rail_reserve_mm": 1.0648307154677283,
+      "slack_samples": 539,
+      "peak_slack_mm": 0.5036581355540581,
+      "end_slack_mm": 0.5000000094490531,
+      "first_known_rib_hit": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/nominal_spring_spool_seating_reference.csv",
+        "sha256": "d95e380c904a6c3e93263ec24ffcdcd331a6bee9b65a6dcd8a104b334633aa15"
+      },
+      "maximum_prescribed_arc_loss_mm": 0.0,
+      "physical_command_travel_mm": 77.13742225273346
+    },
+    {
+      "case": "seating_k5",
+      "mu": 0.3,
+      "command_adjusted": true,
+      "peak_inlet_tension_N": 46.117535989474575,
+      "peak_elbow_deg": 126.0085067650959,
+      "end_elbow_deg": -1.7255072773684726e-09,
+      "peak_tension_N": 29.938970946429365,
+      "command_travel_mm": 76.7590837745626,
+      "minimum_rail_reserve_mm": 1.2387601096983047,
+      "slack_samples": 539,
+      "peak_slack_mm": 0.5003600938500719,
+      "end_slack_mm": 0.5000001377679641,
+      "first_known_rib_hit": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/nominal_spring_spool_seating_k5.csv",
+        "sha256": "c6a7a79d632f2cb1abc09eff652f4c67d3aba2b80f5ed9b848e07ea29e23dc09"
+      },
+      "maximum_prescribed_arc_loss_mm": 0.42741282468855957,
+      "physical_command_travel_mm": 77.13742225273346
+    },
+    {
+      "case": "seating_k20",
+      "mu": 0.3,
+      "command_adjusted": true,
+      "peak_inlet_tension_N": 46.135152631112256,
+      "peak_elbow_deg": 126.05596697963519,
+      "end_elbow_deg": -1.725961343502716e-09,
+      "peak_tension_N": 29.941880906946736,
+      "command_travel_mm": 76.7827451453284,
+      "minimum_rail_reserve_mm": 1.2280140318989154,
+      "slack_samples": 539,
+      "peak_slack_mm": 0.5003564841740693,
+      "end_slack_mm": 0.500000130201711,
+      "first_known_rib_hit": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/nominal_spring_spool_seating_k20.csv",
+        "sha256": "949a2178de313df5fc8abc506ecf89b7d0b4e2954b17fdc8f4188e0dab8304b1"
+      },
+      "maximum_prescribed_arc_loss_mm": 0.39716311833393547,
+      "physical_command_travel_mm": 77.13742225273346
+    },
+    {
+      "case": "seating_k50",
+      "mu": 0.3,
+      "command_adjusted": true,
+      "peak_inlet_tension_N": 46.143296861598934,
+      "peak_elbow_deg": 126.07583339845732,
+      "end_elbow_deg": -1.74125244889827e-09,
+      "peak_tension_N": 29.94272318025783,
+      "command_travel_mm": 76.7926087851977,
+      "minimum_rail_reserve_mm": 1.2235222690116032,
+      "slack_samples": 539,
+      "peak_slack_mm": 0.5003756136745807,
+      "end_slack_mm": 0.5000001272775778,
+      "first_known_rib_hit": null,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/nominal_spring_spool_seating_k50.csv",
+        "sha256": "051e34d91e983788f16ccbdcac800d4674b11e542e3ac5244ff5d3758de5f012"
+      },
+      "maximum_prescribed_arc_loss_mm": 0.38636916742734684,
+      "physical_command_travel_mm": 77.13742225273346
+    }
+  ],
+  "seating_study": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/nominal_spring_spool_mu_30_adjusted_flexor_wall_refined_segment.json",
+    "sha256": "3d4bc3166538df5561505b7b43f4eaeed29b2c1f2c7f75eb009d80dba075e5cb"
+  },
+  "scope": "Only FJ1486 uses an open-loop available-length command derived from a prior reference. Joint motion is solved by dynamics using the equivalent tendon path. Directional friction, when enabled, is a prescribed full-slip sensitivity using reference arc velocity and wrap, with tanh smoothing at 10 mm/s. It is not a stick-slip solver. Drive damping and external routes are omitted. Three known rib pairs checked at 5 ms. Seating is a time-prescribed sensitivity with the recorded compensated command and friction transmission held fixed. Available length in the case CSV is the effective length including the interpolated loss, not additional physical payout. The tendon Jacobian and local contact are not recomputed during integration."
+}

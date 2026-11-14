@@ -1,0 +1,90 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_girdle_flexion_channel.py",
+    "sha256": "a77d9379ee64e7cbc7c4e35e89bcec2e57ab45e29558a71a57478b6d7b8a53b1"
+  },
+  "rigid_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_girdle_flexion_clearance.json",
+    "sha256": "d998637c1dd82f6d38b3a45eff025b81e73dae214275be1543aefeb81e007b6d"
+  },
+  "detour": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_girdle_flexion_channel_detour.json",
+    "sha256": "fb7906747cb981b8d2b9c87f83b05932b145637c80a8a0871726004d9ce66548"
+  },
+  "cases": {
+    "original": {
+      "checked_poses": 150,
+      "guard_keys": [
+        "bone:humerus",
+        "elbow:FJ1486_proximal_rigid_cap",
+        "elbow:FJ1486_proximal_nut_washer_left",
+        "elbow:FJ1486_proximal_nut_left",
+        "elbow:FJ1486_proximal_nut_washer_right",
+        "elbow:FJ1486_proximal_nut_right",
+        "elbow:FJ1486_proximal_bolt_left",
+        "elbow:FJ1486_proximal_head_washer_left",
+        "elbow:FJ1486_proximal_bolt_right",
+        "elbow:FJ1486_proximal_head_washer_right",
+        "elbow:FJ1486_bone_0_bolt",
+        "elbow:FJ1486_bone_0_front_washer",
+        "elbow:FJ1486_bone_0_back_washer",
+        "elbow:FJ1486_bone_0_nut",
+        "elbow:FJ1486_bone_1_bolt",
+        "elbow:FJ1486_bone_1_front_washer",
+        "elbow:FJ1486_bone_1_back_washer",
+        "elbow:FJ1486_bone_1_nut"
+      ],
+      "radius_mm": 0.4,
+      "removed_mm3": 24.675167374462728,
+      "components": 2,
+      "bolt_hit_poses": 31,
+      "guard_hits_mm3": {}
+    },
+    "detour": {
+      "checked_poses": 150,
+      "guard_keys": [
+        "bone:humerus",
+        "elbow:FJ1486_proximal_rigid_cap",
+        "elbow:FJ1486_proximal_nut_washer_left",
+        "elbow:FJ1486_proximal_nut_left",
+        "elbow:FJ1486_proximal_nut_washer_right",
+        "elbow:FJ1486_proximal_nut_right",
+        "elbow:FJ1486_proximal_bolt_left",
+        "elbow:FJ1486_proximal_head_washer_left",
+        "elbow:FJ1486_proximal_bolt_right",
+        "elbow:FJ1486_proximal_head_washer_right",
+        "elbow:FJ1486_bone_0_bolt",
+        "elbow:FJ1486_bone_0_front_washer",
+        "elbow:FJ1486_bone_0_back_washer",
+        "elbow:FJ1486_bone_0_nut",
+        "elbow:FJ1486_bone_1_bolt",
+        "elbow:FJ1486_bone_1_front_washer",
+        "elbow:FJ1486_bone_1_back_washer",
+        "elbow:FJ1486_bone_1_nut"
+      ],
+      "radius_mm": 0.4,
+      "removed_mm3": 4.549488085484483,
+      "components": 1,
+      "bolt_hit_poses": 0,
+      "guard_hits_mm3": {},
+      "mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_FJ1468_detour.obj",
+        "sha256": "d0710f3dd4a454a1efcb8b0738ca7ac2be852202ce1c1803cd8629eefdd0f782",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5195.090323687522
+        ],
+        "roundtrip_relative_volume_error": 4.9994984388610096e-09
+      },
+      "readback_maximum_overlap_mm3": 0.00042498410199497767,
+      "readback_hit_poses": 0,
+      "readback_added_mm3": -7.10403957882022e-14
+    }
+  },
+  "scope": "Sampled cable clearance against the humerus-side adapter and installed extensor bolt. Protected volumes are 0.5 mm padded envelopes of nearby mounting hardware and bone. Connectivity and guard tests apply to the removed adapter material. The bolt and TPU remain fixed; the report is a geometric candidate screen."
+}

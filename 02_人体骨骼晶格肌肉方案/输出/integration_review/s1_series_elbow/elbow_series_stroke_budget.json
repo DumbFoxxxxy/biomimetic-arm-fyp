@@ -1,0 +1,111 @@
+{
+  "generator": {
+    "file": "tools/study_s1_series_elbow_stroke_budget.py",
+    "sha256": "487972b07c62321c2f2f26884ba245bb74561684f0f53b3fe1fb9da8eeab212e"
+  },
+  "timing": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_release_timing.json",
+    "sha256": "f6b6d9aca2921b3f7125f4b8229ed21d853cbf5d1f650722441e1e2dfca7fbdb"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.xml",
+    "sha256": "49487a93385ac50c4d7f5ca716459f2a6ab579d679af82fc4e71ffd9606dab34"
+  },
+  "assembly": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly_FJ1504_local_interface_bidirectional.json",
+    "sha256": "1b00e2424632e002ad79bd073fffeb14dd1b6b6595f1595c929220c99e66df0b"
+  },
+  "guide": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/elbow_local_muscle_load/elbow_series_guide.json",
+    "sha256": "d34ab00a4c4846372e9fdf613a09301f4143647e6d79d0a8f5f5579fb628337e"
+  },
+  "nominal_stroke_mm": 50.48771312723949,
+  "virtual_upper_limit_mm": 80.0,
+  "dynamics": [
+    {
+      "flexor_force_N": 25.0,
+      "flexor_stiffness_N_per_m": 200.0,
+      "peak_elbow_deg": 100.10281055055285,
+      "peak_slide_mm": 50.21907389383004,
+      "extra_for_full_cycle_mm": 0.0,
+      "reached_116_sample_time_s": null,
+      "peak_slide_through_first_116_mm": null,
+      "reached_numerical_upper": false
+    },
+    {
+      "flexor_force_N": 30.0,
+      "flexor_stiffness_N_per_m": 200.0,
+      "peak_elbow_deg": 126.33276952020074,
+      "peak_slide_mm": 58.348146902700115,
+      "extra_for_full_cycle_mm": 7.860433775460628,
+      "reached_116_sample_time_s": 0.8650000000000001,
+      "peak_slide_through_first_116_mm": 55.45552144238071,
+      "reached_numerical_upper": false
+    },
+    {
+      "flexor_force_N": 30.0,
+      "flexor_stiffness_N_per_m": 160.0,
+      "peak_elbow_deg": 136.7562790879643,
+      "peak_slide_mm": 60.2207012762497,
+      "extra_for_full_cycle_mm": 9.732988149010211,
+      "reached_116_sample_time_s": 0.8250000000000001,
+      "peak_slide_through_first_116_mm": 55.461917793235585,
+      "reached_numerical_upper": false
+    },
+    {
+      "flexor_force_N": 35.0,
+      "flexor_stiffness_N_per_m": 240.0,
+      "peak_elbow_deg": 136.790863538788,
+      "peak_slide_mm": 60.222610049504674,
+      "extra_for_full_cycle_mm": 9.734896922265186,
+      "reached_116_sample_time_s": 0.78,
+      "peak_slide_through_first_116_mm": 55.482457493010024,
+      "reached_numerical_upper": false
+    }
+  ],
+  "rail_geometry": [
+    {
+      "extra_travel_mm": 2.0,
+      "nominal_stroke_mm": 52.48771312723949,
+      "checked_samples": 176,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": false
+    },
+    {
+      "extra_travel_mm": 4.0,
+      "nominal_stroke_mm": 54.48771312723949,
+      "checked_samples": 180,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": false
+    },
+    {
+      "extra_travel_mm": 6.0,
+      "nominal_stroke_mm": 56.48771312723949,
+      "checked_samples": 185,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": false
+    },
+    {
+      "extra_travel_mm": 10.0,
+      "nominal_stroke_mm": 60.48771312723949,
+      "checked_samples": 202,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": true
+    },
+    {
+      "extra_travel_mm": 15.0,
+      "nominal_stroke_mm": 65.48771312723949,
+      "checked_samples": 202,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": true
+    },
+    {
+      "extra_travel_mm": 20.0,
+      "nominal_stroke_mm": 70.48771312723949,
+      "checked_samples": 202,
+      "first_added_material_interference": null,
+      "covers_benchmark_peak": true
+    }
+  ],
+  "scope": "Only the software upper limit is extended for the stroke-demand simulations. The axial rail probes reproduce the old shafts and extend both together. The 30 N, 200 N/m trajectory screens new shaft material at 20 ms plus peak travel. The extension geometry, retention strength, longer spring selection, flexible clearances and physical capability remain unverified."
+}

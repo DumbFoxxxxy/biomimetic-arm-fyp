@@ -14,6 +14,7 @@ from study_s1_local_force_geometry import load_reference
 
 ANGLE_SCALE = 10.  # mm-equivalent numerical coordinate per radian
 GRADIENT_STEP = 1e-4
+STRAND_POINTS, STRAND_WEIGHTS = np.polynomial.legendre.leggauss(12)
 
 
 def derivative(function, state):
@@ -24,7 +25,7 @@ def derivative(function, state):
 
 def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_levels,
                  retain_leads=False, installed_length_offset=0., lateral_coupling=None,
-                 translation_energy=None):
+                 translation_energy=None, strand_bending_Nmm2=None, series_stiffness_N_per_mm=None):
     pin_a = np.array(model["neutral_cap_pin_source_mm"])
     pin_b = np.array(model["neutral_bone_pin_source_mm"])
     axis_a = np.array(model["cap_pin_axis_source"])
@@ -33,7 +34,10 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
     offset_b = np.array(model["neutral_crimp_outer_exit_B_source_mm"]) - pin_b
     origin = np.array(ports["origin"]["inner_face_source_mm"])
     stop_offset = np.array(ports["distal"]["outer_face_source_mm"]) - pin_a
-    bone_pin = gh_centre + humerus_rotation.apply(pin_b - gh_centre)
+    if strand_bending_Nmm2 is not None and not retain_leads:
+        raise ValueError("A smooth strand requires defined crimp leads")
+    if series_stiffness_N_per_mm is not None and (series_stiffness_N_per_mm <= 0. or strand_bending_Nmm2 is None):
+        raise ValueError("A series spring requires positive stiffness and smooth strand geometry")
     strand_length = model["nominal_free_strand_material_length_mm"] + installed_length_offset
     path = np.array(model["active_strand_centreline_source_mm"])
     lead_a = path[1] - path[0] if retain_leads else np.zeros(3)
@@ -50,7 +54,7 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
         coupling_axis -= (coupling_axis @ active_axis) * active_axis
         coupling_axis /= np.linalg.norm(coupling_axis)
 
-    def geometry(state):
+    def geometry(state, arm=humerus_rotation):
         angle = state[3:] / ANGLE_SCALE
         cap = Rotation.from_rotvec(angle[:3])
         free_pin = pin_a + state[:3]
@@ -58,14 +62,34 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
         eye_a = Rotation.from_rotvec(axis_a * angle[3])
         eye_b = Rotation.from_rotvec(axis_b * angle[4])
         point_a = free_pin + cap.apply(eye_a.apply(offset_a))
-        point_b = bone_pin + humerus_rotation.apply(eye_b.apply(offset_b))
+        point_b = gh_centre + arm.apply(pin_b - gh_centre) + arm.apply(eye_b.apply(offset_b))
         tip_a = point_a + cap.apply(eye_a.apply(lead_a))
-        tip_b = point_b + humerus_rotation.apply(eye_b.apply(lead_b))
+        tip_b = point_b + arm.apply(eye_b.apply(lead_b))
         return stop, point_a, point_b, tip_a, tip_b
 
+    def smooth_geometry(placed, parameter):
+        _, point_a, point_b, tip_a, tip_b = placed
+        scale = np.linalg.norm(tip_b-tip_a) / 3.
+        a = (tip_a-point_a) / np.linalg.norm(tip_a-point_a) * scale
+        c = (point_b-tip_b) / np.linalg.norm(point_b-tip_b) * scale
+        b = tip_b-tip_a-a-c
+        t = np.asarray(parameter)[:, None]
+        velocity = 3.*((1.-t)**2*a + 2.*t*(1.-t)*b + t**2*c)
+        acceleration = 6.*((1.-t)*(b-a)+t*(c-b))
+        return velocity, acceleration
+
+    def measures(placed):
+        if strand_bending_Nmm2 is None:
+            return np.linalg.norm(placed[-1]-placed[-2]), 0.
+        v, a = smooth_geometry(placed, (STRAND_POINTS+1.)/2.)
+        speed = np.linalg.norm(v, axis=1)
+        integrated_curvature_squared = .5 * STRAND_WEIGHTS @ (
+            np.linalg.norm(np.cross(v, a), axis=1)**2 / np.maximum(speed**5, 1e-20))
+        return float(.5 * STRAND_WEIGHTS @ speed), .5 * strand_bending_Nmm2 * integrated_curvature_squared
+
     def gap(state):
-        _, _, _, tip_a, tip_b = geometry(state)
-        return strand_length - lead_length - np.linalg.norm(tip_a - tip_b)
+        length, _ = measures(geometry(state))
+        return strand_length - lead_length - length
 
     initial_length = np.linalg.norm(pin_a + stop_offset - origin)
 
@@ -75,10 +99,14 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
         lateral = displacement - axial_motion * active_axis
         lateral -= coupling_gain * axial_motion * coupling_axis
         angle = state[3:] / ANGLE_SCALE
-        stop, *_ = geometry(state)
+        placed = geometry(state)
+        stop = placed[0]
+        arc, bending = measures(placed)
+        if series_stiffness_N_per_mm is not None:
+            bending += .5 * series_stiffness_N_per_mm * max(arc + lead_length - strand_length, 0.)**2
         elastic = (.5 * (axial * axial_motion**2 + transverse * (lateral @ lateral))
                    if translation_energy is None else translation_energy(displacement))
-        return elastic + .5 * (cap_rotation * (angle[:3] @ angle[:3])
+        return bending + elastic + .5 * (cap_rotation * (angle[:3] @ angle[:3])
                      + eye_rotation * (angle[3:] @ angle[3:])) + pull * (np.linalg.norm(stop - origin) - initial_length)
 
     state = np.zeros(8)
@@ -87,35 +115,62 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
         def objective(position):
             return potential(position, pull)
 
-        result = minimize(objective, state, jac=lambda q: derivative(objective, q), method="SLSQP",
-                          constraints=[dict(type="ineq", fun=gap, jac=lambda q: derivative(gap, q))],
+        constraints = [dict(type="ineq", fun=gap, jac=lambda q: derivative(gap, q))] if series_stiffness_N_per_mm is None else []
+        result = minimize(objective, state, jac=lambda q: derivative(objective, q), method="SLSQP", constraints=constraints,
                           options=dict(ftol=1e-11, maxiter=250))
         state = result.x
         clearance = gap(state)
         gradient = derivative(objective, state)
         gap_gradient = derivative(gap, state)
-        tension = max(0., float(gradient @ gap_gradient / (gap_gradient @ gap_gradient))) if clearance < 1e-6 else 0.
-        residual = np.linalg.norm(gradient - tension * gap_gradient)
+        if series_stiffness_N_per_mm is None:
+            tension = max(0., float(gradient @ gap_gradient / (gap_gradient @ gap_gradient))) if clearance < 1e-6 else 0.
+            multiplier = tension
+        else:
+            tension = max(0., -series_stiffness_N_per_mm*clearance)
+            multiplier = 0.
+        residual = np.linalg.norm(gradient - multiplier * gap_gradient)
         def lagrangian(position):
-            return objective(position) - tension * gap(position)
+            return objective(position) - multiplier * gap(position)
 
-        tangent = null_space(gap_gradient.reshape(1, -1)) if tension > 1e-7 else np.eye(len(state))
+        tangent = null_space(gap_gradient.reshape(1, -1)) if multiplier > 1e-7 else np.eye(len(state))
         steps = tangent.T * .001
         curvature = tangent.T @ np.column_stack([
             (derivative(lagrangian, state + step) - derivative(lagrangian, state - step)) / .002
             for step in steps])
         minimum_curvature = float(np.linalg.eigvalsh((curvature + curvature.T) / 2.)[0])
-        if clearance < -1e-6 or residual > 5e-5 or minimum_curvature < -1e-6:
+        if (series_stiffness_N_per_mm is None and clearance < -1e-6) or residual > 5e-5 or minimum_curvature < -1e-6:
             raise RuntimeError(f"{model['head']} at {pull} N: {result.message}, gap {clearance}, residual {residual}")
-        stop, point_a, point_b, tip_a, tip_b = geometry(state)
+        placed = geometry(state)
+        stop, point_a, point_b, tip_a, tip_b = placed
         humeral_force = tension * (tip_a - tip_b) / np.linalg.norm(tip_a - tip_b)
         active_force = pull * (origin - stop) / np.linalg.norm(origin - stop)
         torque = np.cross(tip_b - gh_centre, humeral_force) / 1000.
+        smooth = {}
+        if strand_bending_Nmm2 is not None:
+            def terminal_energy(placed):
+                length, bend = measures(placed)
+                return bend + tension*length
+
+            step = np.eye(3) * 1e-5
+            torque = -np.array([(terminal_energy(geometry(state, Rotation.from_rotvec(delta)*humerus_rotation))
+                                 - terminal_energy(geometry(state, Rotation.from_rotvec(-delta)*humerus_rotation)))
+                                / .02 for delta in step])
+            humeral_force = -np.array([(terminal_energy((*placed[:2], point_b+delta, tip_a, tip_b+delta))
+                                        - terminal_energy((*placed[:2], point_b-delta, tip_a, tip_b-delta)))
+                                       / 2e-5 for delta in step])
+            velocity, acceleration = smooth_geometry(placed, np.linspace(0., 1., 513))
+            radius = np.linalg.norm(velocity, axis=1)**3 / np.maximum(np.linalg.norm(np.cross(velocity, acceleration), axis=1), 1e-15)
+            central_length, bending_energy = measures(placed)
+            smooth = dict(central_arc_length_mm=central_length, strand_gap_mm=clearance,
+                          minimum_sampled_radius_mm=float(radius.min()), bending_energy_Nmm=float(bending_energy))
+            if series_stiffness_N_per_mm is not None:
+                smooth.update(series_extension_mm=max(0., -clearance),
+                              remaining_slack_mm=max(0., clearance))
         rows.append(dict(
             commanded_muscle_tension_N=pull, short_tendon_tension_N=tension,
-            chord_gap_mm=clearance, stationarity_residual_N=float(residual),
+            chord_gap_mm=strand_length-lead_length-np.linalg.norm(tip_a-tip_b), stationarity_residual_N=float(residual),
             minimum_tangent_curvature_N_per_mm=minimum_curvature, solver_status=result.message,
-            complementarity_residual_Nmm=abs(clearance * tension),
+            complementarity_residual_Nmm=abs(clearance * multiplier),
             muscle_proxy_chord_change_mm=float(np.linalg.norm(stop - origin) - initial_length),
             cap_translation_source_mm=state[:3].tolist(),
             cap_rotation_vector_deg=np.rad2deg(state[3:6] / ANGLE_SCALE).tolist(),
@@ -124,7 +179,7 @@ def solve_branch(model, ports, gh_centre, humerus_rotation, stiffness, drive_lev
             lead_tips_source_mm=[tip_a.tolist(), tip_b.tolist()],
             proximal_actuation_reaction_N=(-active_force).tolist(),
             scapula_net_reaction_N=(-humeral_force).tolist(),
-            humerus_reaction_N=humeral_force.tolist(), GH_torque_source_Nm=torque.tolist()))
+            humerus_reaction_N=humeral_force.tolist(), GH_torque_source_Nm=torque.tolist(), **smooth))
     return rows
 
 

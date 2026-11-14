@@ -20,12 +20,19 @@ class BoneContactSurface:
     def __init__(self, solid, band_mm=4., cell_mm=2.):
         self.solid, self.band, self.cell = solid, band_mm, cell_mm
         vertices, faces = mesh_geom.manifold_mesh_to_arrays(solid.to_mesh64())
+        triangles = vertices[faces]
+        cross = np.cross(triangles[:, 1]-triangles[:, 0], triangles[:, 2]-triangles[:, 0])
+        usable = np.linalg.norm(cross, axis=1) > 1e-16
+        # Exact Boolean clipping can retain zero-area faces. They have no
+        # surface normal and must not participate in distance queries.
+        faces = faces[usable]
+        if not len(faces):
+            raise ValueError("No nondegenerate contact triangles")
         self.vertices, self.faces = vertices, faces
-        self.triangles = vertices[faces]
+        self.triangles = triangles[usable]
         self.centres = self.triangles.mean(axis=1)
         radii = np.linalg.norm(self.triangles-self.centres[:, None], axis=2).max(axis=1)
-        cross = np.cross(self.triangles[:, 1]-self.triangles[:, 0],
-                         self.triangles[:, 2]-self.triangles[:, 0])
+        cross = cross[usable]
         norm = np.linalg.norm(cross, axis=1)
         assert norm.min() > 1e-16
         self.face_normals = cross/norm[:, None]

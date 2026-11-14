@@ -1,0 +1,4236 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_ac_blind_coupled_motion.py",
+    "sha256": "a17957a6fd517296df96a0768bc0d846f411c4a1f17ddc324b951648742cc502"
+  },
+  "closure_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1504_AC_blind_closure_audit.json",
+    "sha256": "859064e4729dc5ae909489ecc1b17ca95780e09c156e2087a496f3b4d06eb846"
+  },
+  "pose_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_passive_model/model_check.json",
+    "sha256": "910c2616c737d2b79dbc1ff89beba9fbf48b9e27e2c5a366dc13364819745ac5"
+  },
+  "cases": {
+    "original_AC": {
+      "rigid_part_count": 222,
+      "neutral_hits": [],
+      "directions": {
+        "-1": {
+          "path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "attempted_transitions": 27,
+          "rejected_next_step": [
+            {
+              "target_deg": -0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.49897960850271206
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.1488822443493582
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                -0.3333333333333333,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.540782402215683
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 2.4061199422081296
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                -0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.264709725347037
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 4.907652471572908
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.4116263291826159
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.1565489348318275
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.0,
+                0.25,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.06264162365475812
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.3333333333333333,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.1597392233845075
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.03291301092109101
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                -0.3333333333333333,
+                -0.3333333333333333,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 1.6214090287598055
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.0,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.32266735947708075
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.0,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.2615619035449985
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.10063676760093813
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.03105446136679792
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.006831764652108326
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.3333333333333333,
+                -0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 1.071738978278955
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.3333333333333333,
+                0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 8.446626493644551
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.9973552452524133
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.07446113646252038
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.4,
+              "SC_rotvec_deg": [
+                0.0,
+                0.4,
+                -0.4
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.0034359509084826295
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.0,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.17063150969437535
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.3333333333333333,
+                -0.3333333333333333,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.6083539738926699
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.006994988805494335
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                0.0,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.03640176997049866
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                0.0,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 1.9923514176368466
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.336344852599612
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.0032754455449408634
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.07790023800236458
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                -0.25,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.9071691699127824
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                -0.25,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.8817399680971653
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.628338428730014
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                -0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.016660210692888387
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.06695980612256917
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                -0.25,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.36424174943678317
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                -0.25,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 3.608395140436886
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.29330335947255204
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.10050321471647068
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                -0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.0013359107456527852
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.33232976266368774
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.01820159665103835
+                }
+              ],
+              "limit": null
+            }
+          ],
+          "reverse_replay_hits": []
+        },
+        "1": {
+          "path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.29878939620408573,
+                0.0,
+                0.14653831928649197
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.9999999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.5962886435783616,
+                0.0,
+                0.2956784551151941
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                1.3333333333333335,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.7938935337064095,
+                0.0,
+                0.3965450654063716
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.6666666666666665,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                1.6666666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.9909082648974277,
+                0.0,
+                0.4985595808823291
+              ]
+            },
+            {
+              "scapular_coronal_deg": 2.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                2.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.18732616893476,
+                0.0,
+                0.6017185487314691
+              ]
+            },
+            {
+              "scapular_coronal_deg": 2.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                2.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.4808194371209424,
+                0.0,
+                0.7585952003805687
+              ]
+            },
+            {
+              "scapular_coronal_deg": 3.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                3.0000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.7729325403133487,
+                0.0,
+                0.9180270580709475
+              ]
+            },
+            {
+              "scapular_coronal_deg": 3.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                3.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.063643232968161,
+                0.0,
+                1.0800019804491967
+              ]
+            },
+            {
+              "scapular_coronal_deg": 4.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                4.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.3529293763405974,
+                0.0,
+                1.2445076324981983
+              ]
+            },
+            {
+              "scapular_coronal_deg": 4.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                4.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.640768940170801,
+                0.0,
+                1.411531486475269
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.9271400043616325,
+                0.0,
+                1.58106082286713
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.333333333333334,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.1172274398564923,
+                0.0,
+                1.695465947494995
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.666666666666667,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.666666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.3066460801939,
+                0.0,
+                1.8109750136620733
+              ]
+            },
+            {
+              "scapular_coronal_deg": 6.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                6.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.4953895142566864,
+                0.0,
+                1.9275841118162589
+              ]
+            },
+            {
+              "scapular_coronal_deg": 6.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                6.500000000000001,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.777224685560725,
+                0.0,
+                2.1045516752826643
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.0575048117202925,
+                0.0,
+                2.283971944994164
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.333333333333333,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.243483769815754,
+                0.0,
+                2.404941332939188
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.666666666666667,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.666666666666669,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.428755813161587,
+                0.0,
+                2.5269906493181225
+              ]
+            },
+            {
+              "scapular_coronal_deg": 8.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                8.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.613314670987506,
+                0.0,
+                2.650115763214899
+              ]
+            },
+            {
+              "scapular_coronal_deg": 8.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                8.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.8888020770224045,
+                0.0,
+                2.836811428455121
+              ]
+            },
+            {
+              "scapular_coronal_deg": 9.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                9.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.162649786990926,
+                0.0,
+                3.0259040355244906
+              ]
+            },
+            {
+              "scapular_coronal_deg": 9.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                9.499999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.43483694632971,
+                0.0,
+                3.2173791842890296
+              ]
+            },
+            {
+              "scapular_coronal_deg": 10.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                10.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.705342826932707,
+                0.0,
+                3.4112222931748875
+              ]
+            },
+            {
+              "scapular_coronal_deg": 10.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                10.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.974146828729886,
+                0.0,
+                3.607418600278379
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.241228481255689,
+                0.0,
+                3.8059531644917115
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.333333333333334,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.333333333333334,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.4183160060224225,
+                0.0,
+                3.939601113395156
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.666666666666666,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.666666666666664,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.594623006048977,
+                0.0,
+                4.074277048200884
+              ]
+            },
+            {
+              "scapular_coronal_deg": 12.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                12.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.770143513998335,
+                0.0,
+                4.209976410628542
+              ]
+            },
+            {
+              "scapular_coronal_deg": 12.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                12.499999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.031936615287606,
+                0.0,
+                4.415434324617081
+              ]
+            },
+            {
+              "scapular_coronal_deg": 13.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                13.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.291926812517971,
+                0.0,
+                4.623168962189993
+              ]
+            },
+            {
+              "scapular_coronal_deg": 13.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                13.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.55009430642923,
+                0.0,
+                4.833164503549597
+              ]
+            },
+            {
+              "scapular_coronal_deg": 14.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.806419436567154,
+                0.0,
+                5.045404956722223
+              ]
+            },
+            {
+              "scapular_coronal_deg": 14.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.060882682780857,
+                0.0,
+                5.2598741587764835
+              ]
+            },
+            {
+              "scapular_coronal_deg": 15.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.999999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.313464666708711,
+                0.0,
+                5.476555777051772
+              ]
+            },
+            {
+              "scapular_coronal_deg": 15.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                15.500000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.564146153255024,
+                0.0,
+                5.695433310403814
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.812908052053672,
+                0.0,
+                5.916490090461139
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.333333333333332,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.333333333333336,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.977673519071118,
+                0.0,
+                6.065063663322007
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.666666666666668,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.66666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.141571836605834,
+                0.0,
+                6.2145932830746915
+              ]
+            },
+            {
+              "scapular_coronal_deg": 17.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                17.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.304597457308574,
+                0.0,
+                6.365073888697452
+              ]
+            },
+            {
+              "scapular_coronal_deg": 17.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                17.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.547487519712888,
+                0.0,
+                6.5925667454830545
+              ]
+            },
+            {
+              "scapular_coronal_deg": 18.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                18.000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.78838310911749,
+                0.0,
+                6.822170528789684
+              ]
+            },
+            {
+              "scapular_coronal_deg": 18.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                18.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.027265880390644,
+                0.0,
+                7.0538677534002545
+              ]
+            },
+            {
+              "scapular_coronal_deg": 19.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                19.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.26411764168438,
+                0.0,
+                7.287640774673719
+              ]
+            },
+            {
+              "scapular_coronal_deg": 19.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                19.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.498920355820132,
+                0.0,
+                7.523471789889527
+              ]
+            },
+            {
+              "scapular_coronal_deg": 20.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                20.000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.731656141662086,
+                0.0,
+                7.7613428396032305
+              ]
+            }
+          ],
+          "attempted_transitions": 20,
+          "rejected_next_step": [],
+          "reverse_replay_hits": []
+        }
+      }
+    },
+    "short_right_screw": {
+      "rigid_part_count": 219,
+      "neutral_hits": [],
+      "directions": {
+        "-1": {
+          "path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "attempted_transitions": 27,
+          "rejected_next_step": [
+            {
+              "target_deg": -0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.49897960850271206
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.1488822443493582
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                -0.3333333333333333,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.540782402215683
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 2.4061199422081296
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                -0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.264709725347037
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 4.907652471572908
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.4116263291826159
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.1565489348318275
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.0,
+                0.25,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.06264162365475812
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.3333333333333333,
+                0.0,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.1597392233845075
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.03291301092109101
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                -0.3333333333333333,
+                -0.3333333333333333,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 1.6214090287598055
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.0,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.32266735947708075
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.0,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.2615619035449985
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.10063676760093813
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.03105446136679792
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.006831764652108326
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.3333333333333333,
+                -0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 1.071738978278955
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                -0.3333333333333333,
+                0.3333333333333333
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 8.446626493644551
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.9973552452524133
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.07446113646252038
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.4,
+              "SC_rotvec_deg": [
+                0.0,
+                0.4,
+                -0.4
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.0034359509084826295
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.0,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.17063150969437535
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.3333333333333333,
+              "SC_rotvec_deg": [
+                0.3333333333333333,
+                -0.3333333333333333,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.6083539738926699
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.006994988805494335
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                0.0,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.03640176997049866
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                0.0,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 1.9923514176368466
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.336344852599612
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.0032754455449408634
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                0.0
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.07790023800236458
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                -0.25,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.9071691699127824
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.25,
+                -0.25,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.8817399680971653
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.628338428730014
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                -0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.016660210692888387
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                -0.2,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.06695980612256917
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                -0.25,
+                -0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.36424174943678317
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.25,
+                -0.25,
+                0.25
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 3.608395140436886
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "cap:FJ1504/origin",
+                  "overlap_mm3": 0.29330335947255204
+                },
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.10050321471647068
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                -0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.0013359107456527852
+                }
+              ],
+              "limit": null
+            },
+            {
+              "target_deg": -0.2,
+              "SC_rotvec_deg": [
+                0.2,
+                0.2,
+                0.2
+              ],
+              "hits": [
+                {
+                  "left": "thorax_reference:FJ3340",
+                  "right": "origin:FJ1504/bolt_0",
+                  "overlap_mm3": 0.33232976266368774
+                },
+                {
+                  "left": "thorax_reference:FJ3344",
+                  "right": "bone:scapula",
+                  "overlap_mm3": 0.01820159665103835
+                }
+              ],
+              "limit": null
+            }
+          ],
+          "reverse_replay_hits": []
+        },
+        "1": {
+          "path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.29878939620408573,
+                0.0,
+                0.14653831928649197
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.9999999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.5962886435783616,
+                0.0,
+                0.2956784551151941
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.3333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                1.3333333333333335,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.7938935337064095,
+                0.0,
+                0.3965450654063716
+              ]
+            },
+            {
+              "scapular_coronal_deg": 1.6666666666666665,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                1.6666666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -0.9909082648974277,
+                0.0,
+                0.4985595808823291
+              ]
+            },
+            {
+              "scapular_coronal_deg": 2.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                2.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.18732616893476,
+                0.0,
+                0.6017185487314691
+              ]
+            },
+            {
+              "scapular_coronal_deg": 2.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                2.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.4808194371209424,
+                0.0,
+                0.7585952003805687
+              ]
+            },
+            {
+              "scapular_coronal_deg": 3.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                3.0000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -1.7729325403133487,
+                0.0,
+                0.9180270580709475
+              ]
+            },
+            {
+              "scapular_coronal_deg": 3.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                3.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.063643232968161,
+                0.0,
+                1.0800019804491967
+              ]
+            },
+            {
+              "scapular_coronal_deg": 4.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                4.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.3529293763405974,
+                0.0,
+                1.2445076324981983
+              ]
+            },
+            {
+              "scapular_coronal_deg": 4.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                4.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.640768940170801,
+                0.0,
+                1.411531486475269
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -2.9271400043616325,
+                0.0,
+                1.58106082286713
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.333333333333334,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.1172274398564923,
+                0.0,
+                1.695465947494995
+              ]
+            },
+            {
+              "scapular_coronal_deg": 5.666666666666667,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                5.666666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.3066460801939,
+                0.0,
+                1.8109750136620733
+              ]
+            },
+            {
+              "scapular_coronal_deg": 6.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                6.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.4953895142566864,
+                0.0,
+                1.9275841118162589
+              ]
+            },
+            {
+              "scapular_coronal_deg": 6.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                6.500000000000001,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -3.777224685560725,
+                0.0,
+                2.1045516752826643
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.0575048117202925,
+                0.0,
+                2.283971944994164
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.333333333333333,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.333333333333333,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.243483769815754,
+                0.0,
+                2.404941332939188
+              ]
+            },
+            {
+              "scapular_coronal_deg": 7.666666666666667,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                7.666666666666669,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.428755813161587,
+                0.0,
+                2.5269906493181225
+              ]
+            },
+            {
+              "scapular_coronal_deg": 8.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                8.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.613314670987506,
+                0.0,
+                2.650115763214899
+              ]
+            },
+            {
+              "scapular_coronal_deg": 8.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                8.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -4.8888020770224045,
+                0.0,
+                2.836811428455121
+              ]
+            },
+            {
+              "scapular_coronal_deg": 9.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                9.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.162649786990926,
+                0.0,
+                3.0259040355244906
+              ]
+            },
+            {
+              "scapular_coronal_deg": 9.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                9.499999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.43483694632971,
+                0.0,
+                3.2173791842890296
+              ]
+            },
+            {
+              "scapular_coronal_deg": 10.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                10.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.705342826932707,
+                0.0,
+                3.4112222931748875
+              ]
+            },
+            {
+              "scapular_coronal_deg": 10.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                10.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -5.974146828729886,
+                0.0,
+                3.607418600278379
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.241228481255689,
+                0.0,
+                3.8059531644917115
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.333333333333334,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.333333333333334,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.4183160060224225,
+                0.0,
+                3.939601113395156
+              ]
+            },
+            {
+              "scapular_coronal_deg": 11.666666666666666,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                11.666666666666664,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.594623006048977,
+                0.0,
+                4.074277048200884
+              ]
+            },
+            {
+              "scapular_coronal_deg": 12.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                12.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -6.770143513998335,
+                0.0,
+                4.209976410628542
+              ]
+            },
+            {
+              "scapular_coronal_deg": 12.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                12.499999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.031936615287606,
+                0.0,
+                4.415434324617081
+              ]
+            },
+            {
+              "scapular_coronal_deg": 13.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                13.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.291926812517971,
+                0.0,
+                4.623168962189993
+              ]
+            },
+            {
+              "scapular_coronal_deg": 13.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                13.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.55009430642923,
+                0.0,
+                4.833164503549597
+              ]
+            },
+            {
+              "scapular_coronal_deg": 14.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.000000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -7.806419436567154,
+                0.0,
+                5.045404956722223
+              ]
+            },
+            {
+              "scapular_coronal_deg": 14.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.500000000000002,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.060882682780857,
+                0.0,
+                5.2598741587764835
+              ]
+            },
+            {
+              "scapular_coronal_deg": 15.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                14.999999999999998,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.313464666708711,
+                0.0,
+                5.476555777051772
+              ]
+            },
+            {
+              "scapular_coronal_deg": 15.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                15.500000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.564146153255024,
+                0.0,
+                5.695433310403814
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.812908052053672,
+                0.0,
+                5.916490090461139
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.333333333333332,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.333333333333336,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -8.977673519071118,
+                0.0,
+                6.065063663322007
+              ]
+            },
+            {
+              "scapular_coronal_deg": 16.666666666666668,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                16.66666666666667,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.141571836605834,
+                0.0,
+                6.2145932830746915
+              ]
+            },
+            {
+              "scapular_coronal_deg": 17.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                17.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.304597457308574,
+                0.0,
+                6.365073888697452
+              ]
+            },
+            {
+              "scapular_coronal_deg": 17.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                17.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.547487519712888,
+                0.0,
+                6.5925667454830545
+              ]
+            },
+            {
+              "scapular_coronal_deg": 18.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                18.000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -9.78838310911749,
+                0.0,
+                6.822170528789684
+              ]
+            },
+            {
+              "scapular_coronal_deg": 18.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                18.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.027265880390644,
+                0.0,
+                7.0538677534002545
+              ]
+            },
+            {
+              "scapular_coronal_deg": 19.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                19.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.26411764168438,
+                0.0,
+                7.287640774673719
+              ]
+            },
+            {
+              "scapular_coronal_deg": 19.5,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                19.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.498920355820132,
+                0.0,
+                7.523471789889527
+              ]
+            },
+            {
+              "scapular_coronal_deg": 20.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                20.000000000000004,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                -10.731656141662086,
+                0.0,
+                7.7613428396032305
+              ]
+            }
+          ],
+          "attempted_transitions": 20,
+          "rejected_next_step": [],
+          "reverse_replay_hits": []
+        }
+      },
+      "SC_preposition_probes": [
+        {
+          "preposition_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "GH_displacement_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "negative_path": [],
+          "negative_failure": {
+            "target_deg": -0.25,
+            "SC_rotvec_deg": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.12217525916045595
+              },
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.0021533976969112315
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.0,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              0.0,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.028681844265315726
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            -0.5,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              -0.25,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.1494939160289354
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            0.0,
+            -0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              0.0,
+              -0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.0011880668020004853
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              0.0,
+              0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3344",
+                "right": "bone:scapula",
+                "overlap_mm3": 10.402138113892923
+              },
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.11787900658860036
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            0.5,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              0.5,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.010164057860240397
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.0,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.5,
+              0.0,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.002353225931967034
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            -0.5,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              -0.25,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.3169267040918666
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.0,
+            -0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              0.0,
+              -0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.03615097428270389
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.0,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              0.0,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.01726601786141886
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.5,
+            0.0
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.25,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.25,
+                -0.25,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.1442163461736925,
+                0.14421634617366408,
+                0.32497745309046877
+              ],
+              "GH_displacement_mm": [
+                0.1442163461736925,
+                0.1442163461736925,
+                0.32497745309046877
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                -0.5,
+                0.5,
+                0.0
+              ],
+              "AC_relative_rotvec_deg": [
+                0.5,
+                -0.5,
+                0.0
+              ],
+              "AC_joint_displacement_mm": [
+                0.2898479193193566,
+                0.2898479193193708,
+                0.6486902020371872
+              ],
+              "GH_displacement_mm": [
+                0.28984791931941345,
+                0.28984791931939924,
+                0.6486902020371872
+              ]
+            }
+          ],
+          "negative_path": [],
+          "negative_failure": {
+            "target_deg": -0.25,
+            "SC_rotvec_deg": [
+              -0.5,
+              0.5,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.01293481182940457
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            -0.5,
+            -0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              -0.25,
+              -0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.15573952364381916
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            -0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              -0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3344",
+                "right": "bone:scapula",
+                "overlap_mm3": 0.20243435491989814
+              },
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.13344789094698073
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            0.5,
+            -0.5
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.25,
+                -0.25
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                -0.25,
+                0.25
+              ],
+              "AC_joint_displacement_mm": [
+                0.4066256025867858,
+                0.5852840532735684,
+                0.5852840532734263
+              ],
+              "GH_displacement_mm": [
+                0.4066256025867858,
+                0.5852840532735826,
+                0.5852840532734263
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.0,
+                0.5,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0,
+                -0.5,
+                0.5
+              ],
+              "AC_joint_displacement_mm": [
+                0.8183509981014367,
+                1.1687827359627931,
+                1.16878273596285
+              ],
+              "GH_displacement_mm": [
+                0.8183509981014367,
+                1.1687827359628074,
+                1.16878273596285
+              ]
+            }
+          ],
+          "negative_path": [
+            {
+              "scapular_coronal_deg": -0.25,
+              "SC_rotvec_deg": [
+                0.0,
+                0.5,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                0.0010908342438238424,
+                -0.7499984134398631,
+                0.5000007932783064
+              ],
+              "AC_joint_displacement_mm": [
+                0.8183509981014367,
+                1.1687827359627931,
+                1.16878273596285
+              ],
+              "GH_displacement_mm": [
+                0.9682223951897697,
+                1.1687827359628074,
+                1.096492752617678
+              ]
+            }
+          ],
+          "negative_failure": {
+            "target_deg": -0.5,
+            "SC_rotvec_deg": [
+              0.0,
+              0.5,
+              -0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.010444811706004392
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.0,
+            0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.0,
+              0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.048767604671334445
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            -0.5,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              -0.25,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.039724652250964804
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.0,
+            -0.5
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.25,
+                0.0,
+                -0.25
+              ],
+              "AC_relative_rotvec_deg": [
+                -0.25,
+                0.0,
+                0.25
+              ],
+              "AC_joint_displacement_mm": [
+                0.2615277140679666,
+                0.44152268888710466,
+                0.2615277140678245
+              ],
+              "GH_displacement_mm": [
+                0.26152771406790976,
+                0.44152268888710466,
+                0.2615277140678245
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.5,
+                0.0,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                -0.5,
+                0.0,
+                0.5
+              ],
+              "AC_joint_displacement_mm": [
+                0.5249769429678963,
+                0.8807547264677851,
+                0.5249769429678963
+              ],
+              "GH_displacement_mm": [
+                0.5249769429679247,
+                0.8807547264677851,
+                0.5249769429678963
+              ]
+            }
+          ],
+          "negative_path": [],
+          "negative_failure": {
+            "target_deg": -0.25,
+            "SC_rotvec_deg": [
+              0.5,
+              0.0,
+              -0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.001126423469286656
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.0,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              0.0,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3344",
+                "right": "bone:scapula",
+                "overlap_mm3": 0.27243699277609756
+              },
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.03406906337250341
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              0.25,
+              0.0
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.005874056362306187
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              -0.25,
+              -0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.3138386002728279
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            -0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              -0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.30636969839738604
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.5,
+            -0.5
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                -0.25,
+                0.25,
+                -0.25
+              ],
+              "AC_relative_rotvec_deg": [
+                0.25,
+                -0.25,
+                0.25
+              ],
+              "AC_joint_displacement_mm": [
+                0.40636893941899643,
+                0.729498084395658,
+                0.32312914497674683
+              ],
+              "GH_displacement_mm": [
+                0.40636893941899643,
+                0.729498084395658,
+                0.32312914497651946
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                -0.5,
+                0.5,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                0.5000000000000001,
+                -0.5000000000000001,
+                0.5000000000000001
+              ],
+              "AC_joint_displacement_mm": [
+                0.8173191828720974,
+                1.4586121373064884,
+                0.6412929544344479
+              ],
+              "GH_displacement_mm": [
+                0.8173191828721258,
+                1.4586121373064742,
+                0.6412929544342205
+              ]
+            }
+          ],
+          "negative_path": [
+            {
+              "scapular_coronal_deg": -0.25,
+              "SC_rotvec_deg": [
+                -0.5,
+                0.5,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                0.5010916275221302,
+                -0.7499968268756987,
+                0.49890995903448254
+              ],
+              "AC_joint_displacement_mm": [
+                0.8173191828720974,
+                1.4586121373064884,
+                0.6412929544344479
+              ],
+              "GH_displacement_mm": [
+                0.9671905799604872,
+                1.4586121373064742,
+                0.5690029710890485
+              ]
+            }
+          ],
+          "negative_failure": {
+            "target_deg": -0.5,
+            "SC_rotvec_deg": [
+              -0.5,
+              0.5,
+              -0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.08938607461885109
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            -0.5,
+            0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              -0.25,
+              0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.0037013204713432276
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            -0.5,
+            -0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              -0.25,
+              -0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.05030840773994384
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            -0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              -0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3344",
+                "right": "bone:scapula",
+                "overlap_mm3": 0.9917428891199954
+              },
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "cap:FJ1504/origin",
+                "overlap_mm3": 0.026816508796884297
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.5,
+            -0.5
+          ],
+          "preposition_failure": null,
+          "preposition_path": [
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.25,
+                0.25,
+                -0.25
+              ],
+              "AC_relative_rotvec_deg": [
+                -0.25,
+                -0.25,
+                0.25
+              ],
+              "AC_joint_displacement_mm": [
+                0.4068796933402723,
+                0.43992938711373597,
+                0.8468090804540225
+              ],
+              "GH_displacement_mm": [
+                0.40687969334032914,
+                0.4399293871137502,
+                0.8468090804537951
+              ]
+            },
+            {
+              "scapular_coronal_deg": 0.0,
+              "SC_rotvec_deg": [
+                0.5,
+                0.5,
+                -0.5
+              ],
+              "AC_relative_rotvec_deg": [
+                -0.5000000000000001,
+                -0.5000000000000001,
+                0.5000000000000001
+              ],
+              "AC_joint_displacement_mm": [
+                0.8193621693853856,
+                0.874376013683559,
+                1.6937381830689446
+              ],
+              "GH_displacement_mm": [
+                0.8193621693853856,
+                0.8743760136835448,
+                1.6937381830687173
+              ]
+            }
+          ],
+          "negative_path": [],
+          "negative_failure": {
+            "target_deg": -0.25,
+            "SC_rotvec_deg": [
+              0.5,
+              0.5,
+              -0.5
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.010295814756062411
+              }
+            ],
+            "limit": null
+          }
+        },
+        {
+          "preposition_deg": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "preposition_failure": {
+            "target_deg": 0.0,
+            "SC_rotvec_deg": [
+              0.25,
+              0.25,
+              0.25
+            ],
+            "hits": [
+              {
+                "left": "thorax_reference:FJ3340",
+                "right": "origin:FJ1504/bolt_0",
+                "overlap_mm3": 0.1608815605483394
+              },
+              {
+                "left": "thorax_reference:FJ3344",
+                "right": "bone:scapula",
+                "overlap_mm3": 0.0038539245624045204
+              }
+            ],
+            "limit": null
+          }
+        }
+      ]
+    }
+  },
+  "scope": "Ideal SC/AC rigid geometry with GH and elbow held at neutral, and prescribed coronal scapular rotation. No flexible parts or driving forces. Discrete greedy path search and reverse replay; not a global feasibility proof."
+}

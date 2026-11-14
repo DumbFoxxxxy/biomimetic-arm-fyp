@@ -1,0 +1,145 @@
+{
+  "generator": {
+    "file": "tools/study_s1_return_spring_rate.py",
+    "sha256": "758d7996b9edfffc969736232fa7d36a9e7ca146caf3205bb67b385bc8025c51"
+  },
+  "retention": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_pin_retention.json",
+    "sha256": "479d5ae4756edb3c1d0e1b5bc7ca9ef9896da8839ffb08b1959503d518a1b0f2"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "spring_size": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_size_screen.json",
+    "sha256": "8dbb9886f4c352a23bedf28dec163ea7430f9ef969935b33471858d11f5b06a6"
+  },
+  "friction": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_anterior_friction_integration.json",
+    "sha256": "b3160321452c92f599072cff4768f9d6fd16a2054e710fe26be16e0ecd522fb4"
+  },
+  "preload_N": 0.25,
+  "assumed_damping_Ns_per_m": 0.2,
+  "cases": [
+    {
+      "rate_N_per_mm": 0.06349429393299974,
+      "modulus_MPa": 72000.0,
+      "anterior_command_peak_N": 0.0,
+      "anterior_delivered_peak_N": 0.0,
+      "elbow_peak_deg": 127.63930176130475,
+      "elbow_end_deg": -1.7437604454144105e-09,
+      "slide_peak_mm": 60.48855263633597,
+      "slide_end_mm": -1.2767912764907992e-05,
+      "remaining_rail_mm": -0.0008395090964796736,
+      "first_known_rib_interference": null,
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_low_front_0N.csv",
+        "sha256": "9f8818f9049be3171503c7e20465c319afedfdabbd4aa1bfc70de700a5dfa7e4"
+      }
+    },
+    {
+      "rate_N_per_mm": 0.06349429393299974,
+      "modulus_MPa": 72000.0,
+      "anterior_command_peak_N": 2.0,
+      "anterior_delivered_peak_N": 0.997495357965585,
+      "elbow_peak_deg": 127.74200608896463,
+      "elbow_end_deg": -1.7391233526413018e-09,
+      "slide_peak_mm": 60.489723919358404,
+      "slide_end_mm": -3.6917995632200754e-06,
+      "remaining_rail_mm": -0.0020107921189165268,
+      "first_known_rib_interference": {
+        "time_s": 0.9500000000000001,
+        "elbow_deg": 126.51760628392748,
+        "hits_mm3": {
+          "elbow:elbow_washer_left": {
+            "thorax_reference:FJ3330": 0.015854564774731444
+          }
+        }
+      },
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_low_front_2N.csv",
+        "sha256": "135fc2313d05058e381fb8d388f5656aec5a8ae6b250e73887a1d9fced9798ef"
+      }
+    },
+    {
+      "rate_N_per_mm": 0.06966735028759694,
+      "modulus_MPa": 79000.0,
+      "anterior_command_peak_N": 0.0,
+      "anterior_delivered_peak_N": 0.0,
+      "elbow_peak_deg": 126.78816880748604,
+      "elbow_end_deg": -1.7346898916361282e-09,
+      "slide_peak_mm": 59.4228968648643,
+      "slide_end_mm": -4.576688576680785e-06,
+      "remaining_rail_mm": 1.0648162623751887,
+      "first_known_rib_interference": null,
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_nominal_front_0N.csv",
+        "sha256": "dd6c72e9d35a2b453e515a2dd51c0a43f28fecfb35da7c897bbdc4bee47148fc"
+      }
+    },
+    {
+      "rate_N_per_mm": 0.06966735028759694,
+      "modulus_MPa": 79000.0,
+      "anterior_command_peak_N": 2.0,
+      "anterior_delivered_peak_N": 0.997495357965585,
+      "elbow_peak_deg": 126.89135876258055,
+      "elbow_end_deg": -1.7164853190850667e-09,
+      "slide_peak_mm": 59.44593797872084,
+      "slide_end_mm": -2.4526884150824877e-06,
+      "remaining_rail_mm": 1.0417751485186457,
+      "first_known_rib_interference": {
+        "time_s": 0.9650000000000001,
+        "elbow_deg": 126.22035263920435,
+        "hits_mm3": {
+          "elbow:elbow_washer_left": {
+            "thorax_reference:FJ3330": 0.006756235834553237
+          }
+        }
+      },
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_nominal_front_2N.csv",
+        "sha256": "0fdede5f99e8e0782ce3008f59d9ccbfd602c238fcc5f6c58a0f41bd68e1f590"
+      }
+    },
+    {
+      "rate_N_per_mm": 0.07231294586813859,
+      "modulus_MPa": 82000.0,
+      "anterior_command_peak_N": 0.0,
+      "anterior_delivered_peak_N": 0.0,
+      "elbow_peak_deg": 126.42565536443912,
+      "elbow_end_deg": -1.7370962735466407e-09,
+      "slide_peak_mm": 58.56629851579061,
+      "slide_end_mm": -8.254260998018868e-06,
+      "remaining_rail_mm": 1.9214146114488742,
+      "first_known_rib_interference": null,
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_high_front_0N.csv",
+        "sha256": "b01795923ef70d589af45bd020a57ea2518010e9c85bc0db5b1cdf0e87d40799"
+      }
+    },
+    {
+      "rate_N_per_mm": 0.07231294586813859,
+      "modulus_MPa": 82000.0,
+      "anterior_command_peak_N": 2.0,
+      "anterior_delivered_peak_N": 0.997495357965585,
+      "elbow_peak_deg": 126.52759355767188,
+      "elbow_end_deg": -1.7291428544501727e-09,
+      "slide_peak_mm": 58.58902772402752,
+      "slide_end_mm": -2.5392531112020193e-06,
+      "remaining_rail_mm": 1.8986854032119709,
+      "first_known_rib_interference": null,
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_high_front_2N.csv",
+        "sha256": "8fb6eb426d71aeb769cf1700a8cafc24f3bb8aa04aeb07449339cf4280f76ba5"
+      }
+    }
+  ],
+  "scope": "Force-driven GH/elbow model using sized spring rates and assumed damping/preload. The three known rib pairs are checked at 5 ms. Coil, TPU and other rigid pairs are not validated on these new trajectories."
+}

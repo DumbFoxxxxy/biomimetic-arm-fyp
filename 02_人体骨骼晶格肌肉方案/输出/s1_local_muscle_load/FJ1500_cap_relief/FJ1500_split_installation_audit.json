@@ -1,0 +1,2873 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_infraspinatus_split_installation.py",
+    "sha256": "c7b42807867c12dcf4d9559b3bf6f23ec10097a8efeee733c0ebe605ad3ac387"
+  },
+  "split": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_split_origin_screen.json",
+    "sha256": "75bb7c15b28ae5aeafb52922fa571bf46d84def8d3ef1c1e907939098a994f2d"
+  },
+  "intersection_threshold_mm3": 0.001,
+  "cases": [
+    {
+      "split_station_mm": 18.0,
+      "belly_mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_split_belly_18mm.obj",
+        "sha256": "1bd1f56ee9989838262bc722c085bb648d2cea426b5526a6b213685fd31e0c31",
+        "translation_source_mm": [
+          -96.70044584565522,
+          -13.35855376515368,
+          1274.83413221748
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5699.847625087856
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "stock": [
+        {
+          "interval_mm": [
+            0.0,
+            1.0
+          ],
+          "stock_mm3": 6.889695568612513,
+          "annulus_volume_mm3": 25.909145151305136,
+          "fraction": 0.26591751786397533
+        },
+        {
+          "interval_mm": [
+            1.0,
+            2.0
+          ],
+          "stock_mm3": 3.542048850807452,
+          "annulus_volume_mm3": 25.909145151307705,
+          "fraction": 0.1367103711883244
+        },
+        {
+          "interval_mm": [
+            2.0,
+            4.0
+          ],
+          "stock_mm3": 6.2120937232796685,
+          "annulus_volume_mm3": 51.818290302610585,
+          "fraction": 0.11988225946865533
+        }
+      ],
+      "results": {
+        "FJ1504_origin_deferred": {
+          "belly_insertion": [
+            {
+              "offset_direction_source": [
+                0.37363617090499646,
+                0.6520449380967736,
+                0.6597222222222222
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            },
+            {
+              "offset_direction_source": [
+                0.14161163348204542,
+                0.8239975691881493,
+                0.5486111111111112
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            },
+            {
+              "offset_direction_source": [
+                -0.16094533314023818,
+                0.8846978861398832,
+                0.4375
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            }
+          ],
+          "seated_hits_mm3": {},
+          "sleeve_after_belly": {
+            "offset_direction_source": [
+              0.6604258981179556,
+              0.6716343651992057,
+              -0.3357750922545505
+            ],
+            "travel_mm": 8.0,
+            "step_mm": 0.1,
+            "hits": []
+          }
+        },
+        "all_origin_hardware_installed": {
+          "belly_insertion": [
+            {
+              "offset_direction_source": [
+                0.37363617090499646,
+                0.6520449380967736,
+                0.6597222222222222
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 8.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.05462433354304492,
+                    "origin:FJ1504/nut_0": 0.6330240558697205
+                  }
+                },
+                {
+                  "offset_mm": 7.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.025252060469146742,
+                    "origin:FJ1504/nut_0": 0.8394416194970384,
+                    "origin:FJ1504/nut_1": 0.0010805766278272565
+                  }
+                },
+                {
+                  "offset_mm": 7.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.005058589325958485,
+                    "origin:FJ1504/nut_0": 1.0517225934494379,
+                    "origin:FJ1504/nut_1": 0.0032618094987243757
+                  }
+                },
+                {
+                  "offset_mm": 7.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.266333200996747,
+                    "origin:FJ1504/nut_1": 0.006741075068560074
+                  }
+                },
+                {
+                  "offset_mm": 7.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.4795615910873425,
+                    "origin:FJ1504/nut_1": 0.011826382420754783
+                  }
+                },
+                {
+                  "offset_mm": 7.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.6841841256148538,
+                    "origin:FJ1504/nut_1": 0.018825740126001824
+                  }
+                },
+                {
+                  "offset_mm": 7.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.8759768318087156,
+                    "origin:FJ1504/nut_1": 0.027526803113266975
+                  }
+                },
+                {
+                  "offset_mm": 7.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.0535073601074703,
+                    "origin:FJ1504/nut_1": 0.03707729058470164
+                  }
+                },
+                {
+                  "offset_mm": 7.2,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.2158299794711267,
+                    "origin:FJ1504/nut_1": 0.04748683621332474
+                  }
+                },
+                {
+                  "offset_mm": 7.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.363234203865639,
+                    "origin:FJ1504/bolt_1": 0.00433415305732214,
+                    "origin:FJ1504/nut_1": 0.058796374017822166
+                  }
+                },
+                {
+                  "offset_mm": 7.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.4955452972986953,
+                    "origin:FJ1504/bolt_1": 0.017464035567286176,
+                    "origin:FJ1504/nut_1": 0.07104684793180643
+                  }
+                },
+                {
+                  "offset_mm": 6.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.6104312862797214,
+                    "origin:FJ1504/bolt_1": 0.03976432834467177,
+                    "origin:FJ1504/nut_1": 0.08493829278208936
+                  }
+                },
+                {
+                  "offset_mm": 6.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.708393084444968,
+                    "origin:FJ1504/bolt_1": 0.07032993127954205,
+                    "origin:FJ1504/nut_1": 0.10106291212218181
+                  }
+                },
+                {
+                  "offset_mm": 6.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.7907337397617833,
+                    "origin:FJ1504/bolt_1": 0.10867097656605819,
+                    "origin:FJ1504/nut_1": 0.11859370781756827
+                  }
+                },
+                {
+                  "offset_mm": 6.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.8578169421292055,
+                    "origin:FJ1504/bolt_1": 0.15470299253589753,
+                    "origin:FJ1504/nut_1": 0.1374955988635788
+                  }
+                },
+                {
+                  "offset_mm": 6.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.90953398006988,
+                    "origin:FJ1504/bolt_1": 0.20827516048234174,
+                    "origin:FJ1504/nut_1": 0.24294532307164637
+                  }
+                },
+                {
+                  "offset_mm": 6.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.946740235233595,
+                    "origin:FJ1504/bolt_1": 0.26861445195543293,
+                    "origin:FJ1504/nut_1": 0.4297157114409417
+                  }
+                },
+                {
+                  "offset_mm": 6.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.9669952947262535,
+                    "origin:FJ1504/bolt_1": 0.33515775665376996,
+                    "origin:FJ1504/nut_1": 0.6031252473130106
+                  }
+                },
+                {
+                  "offset_mm": 6.2,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.960798385267893,
+                    "origin:FJ1504/bolt_1": 0.4076384859072797,
+                    "origin:FJ1504/nut_1": 0.7614227331657232
+                  }
+                },
+                {
+                  "offset_mm": 6.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.9362284568248946,
+                    "origin:FJ1504/bolt_1": 0.48578839199102897,
+                    "origin:FJ1504/nut_1": 0.9004244067039934
+                  }
+                },
+                {
+                  "offset_mm": 6.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.8992738134490494,
+                    "origin:FJ1504/bolt_1": 0.5693838073560439,
+                    "origin:FJ1504/nut_1": 1.0179778165587992
+                  }
+                },
+                {
+                  "offset_mm": 5.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.8509711409586385,
+                    "origin:FJ1504/bolt_1": 0.6576271735153447,
+                    "origin:FJ1504/nut_1": 1.1133945921717268
+                  }
+                },
+                {
+                  "offset_mm": 5.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.792674976849628,
+                    "origin:FJ1504/bolt_1": 0.7499464809814862,
+                    "origin:FJ1504/nut_1": 1.200874331630105
+                  }
+                },
+                {
+                  "offset_mm": 5.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.724978740556941,
+                    "origin:FJ1504/bolt_1": 0.8276722148206823,
+                    "origin:FJ1504/nut_1": 1.2773871572685105
+                  }
+                },
+                {
+                  "offset_mm": 5.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.6488375733237,
+                    "origin:FJ1504/bolt_1": 0.8915450006566146,
+                    "origin:FJ1504/nut_1": 1.3428424432663415
+                  }
+                },
+                {
+                  "offset_mm": 5.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.566952455167052,
+                    "origin:FJ1504/bolt_1": 0.9456859813361514,
+                    "origin:FJ1504/nut_1": 1.3967136197293604
+                  }
+                },
+                {
+                  "offset_mm": 5.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.4826786993113488,
+                    "origin:FJ1504/bolt_1": 0.991218284263706,
+                    "origin:FJ1504/nut_1": 1.440015123548792
+                  }
+                },
+                {
+                  "offset_mm": 5.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.3995208749317807,
+                    "origin:FJ1504/bolt_1": 1.02854927716895,
+                    "origin:FJ1504/nut_1": 1.472737464640963
+                  }
+                },
+                {
+                  "offset_mm": 5.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.320153602463784,
+                    "origin:FJ1504/bolt_1": 1.0577488164325357,
+                    "origin:FJ1504/nut_1": 1.4954536529991471
+                  }
+                },
+                {
+                  "offset_mm": 5.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.2452164060522173,
+                    "origin:FJ1504/bolt_1": 1.0780849861616821,
+                    "origin:FJ1504/nut_1": 1.5060817739197494
+                  }
+                },
+                {
+                  "offset_mm": 5.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.17369987765856,
+                    "origin:FJ1504/bolt_1": 1.0895637859467742,
+                    "origin:FJ1504/nut_1": 1.5024306056818286
+                  }
+                },
+                {
+                  "offset_mm": 4.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.1044869390072636,
+                    "origin:FJ1504/bolt_1": 1.0922383039210157,
+                    "origin:FJ1504/nut_1": 1.4767671939916367
+                  }
+                },
+                {
+                  "offset_mm": 4.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 2.039078014180779,
+                    "origin:FJ1504/bolt_1": 1.0873431678149181,
+                    "origin:FJ1504/nut_1": 1.440608023662113
+                  }
+                },
+                {
+                  "offset_mm": 4.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.980609618764217,
+                    "origin:FJ1504/bolt_1": 1.0762534228517056,
+                    "origin:FJ1504/nut_1": 1.4082825903755762
+                  }
+                },
+                {
+                  "offset_mm": 4.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.9269046750444037,
+                    "origin:FJ1504/bolt_1": 1.0599498616715846,
+                    "origin:FJ1504/nut_1": 1.3793954478102857
+                  }
+                },
+                {
+                  "offset_mm": 4.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.8746201189046388,
+                    "origin:FJ1504/bolt_1": 1.0388352670142107,
+                    "origin:FJ1504/nut_1": 1.3534782557229588
+                  }
+                },
+                {
+                  "offset_mm": 4.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.821325463001776,
+                    "origin:FJ1504/bolt_1": 1.0131888899434143,
+                    "origin:FJ1504/nut_1": 1.3300361597130097
+                  }
+                },
+                {
+                  "offset_mm": 4.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.7655368342260704,
+                    "origin:FJ1504/bolt_1": 0.9833797201344071,
+                    "origin:FJ1504/nut_1": 1.3080548708876614
+                  }
+                },
+                {
+                  "offset_mm": 4.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.6976508455781805,
+                    "origin:FJ1504/bolt_1": 0.949767151366905,
+                    "origin:FJ1504/nut_1": 1.28698120074495
+                  }
+                },
+                {
+                  "offset_mm": 4.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.6201779498602098,
+                    "origin:FJ1504/bolt_1": 0.91267209352462,
+                    "origin:FJ1504/nut_1": 1.2664940753719907
+                  }
+                },
+                {
+                  "offset_mm": 4.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.536333931264683,
+                    "origin:FJ1504/back_washer_0": 0.01490452170342018,
+                    "origin:FJ1504/bolt_1": 0.8725420661999461,
+                    "origin:FJ1504/nut_1": 1.2463959343003757
+                  }
+                },
+                {
+                  "offset_mm": 3.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.4465454745339357,
+                    "origin:FJ1504/back_washer_0": 0.059542189719707775,
+                    "origin:FJ1504/bolt_1": 0.8297043529542696,
+                    "origin:FJ1504/nut_1": 1.2266244045768213
+                  }
+                },
+                {
+                  "offset_mm": 3.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.3526510037784951,
+                    "origin:FJ1504/back_washer_0": 0.12550486169094002,
+                    "origin:FJ1504/bolt_1": 0.7843455206650033,
+                    "origin:FJ1504/nut_1": 1.207141497557847
+                  }
+                },
+                {
+                  "offset_mm": 3.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.2575348054927613,
+                    "origin:FJ1504/back_washer_0": 0.20071315331110162,
+                    "origin:FJ1504/bolt_1": 0.7366487490385244,
+                    "origin:FJ1504/nut_1": 1.1880304546691514
+                  }
+                },
+                {
+                  "offset_mm": 3.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.1623875432264894,
+                    "origin:FJ1504/back_washer_0": 0.282253633830233,
+                    "origin:FJ1504/bolt_1": 0.6867274491592915,
+                    "origin:FJ1504/nut_1": 1.1696670517498091
+                  }
+                },
+                {
+                  "offset_mm": 3.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.0677237121745535,
+                    "origin:FJ1504/back_washer_0": 0.3658062145971237,
+                    "origin:FJ1504/bolt_1": 0.6346688670614299,
+                    "origin:FJ1504/nut_1": 1.1525471156560214
+                  }
+                },
+                {
+                  "offset_mm": 3.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.97405826663872,
+                    "origin:FJ1504/back_washer_0": 0.44733560300020053,
+                    "origin:FJ1504/bolt_1": 0.5807465345087985,
+                    "origin:FJ1504/nut_1": 1.1371600413390015
+                  }
+                },
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.8822453470016706,
+                    "origin:FJ1504/back_washer_0": 0.5256464137271992,
+                    "origin:FJ1504/bolt_1": 0.5264116816867813,
+                    "origin:FJ1504/nut_1": 1.1235359256129769
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.7935960422089036,
+                    "origin:FJ1504/back_washer_0": 0.6000348743699656,
+                    "origin:FJ1504/bolt_1": 0.47328507555999927,
+                    "origin:FJ1504/nut_1": 1.1116389572878724
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.708548941154648,
+                    "origin:FJ1504/back_washer_0": 0.6696711913199045,
+                    "origin:FJ1504/bolt_1": 0.42241162378547265,
+                    "origin:FJ1504/nut_1": 1.1014401239546503
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.627336113672224,
+                    "origin:FJ1504/back_washer_0": 0.7318064815825583,
+                    "origin:FJ1504/bolt_1": 0.37474833871556507,
+                    "origin:FJ1504/nut_1": 1.0929306679571829
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5501896296140132,
+                    "origin:FJ1504/back_washer_0": 0.7709268539440256,
+                    "origin:FJ1504/bolt_1": 0.3315406989941928,
+                    "origin:FJ1504/nut_1": 1.086061679275536
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.4773415588350019,
+                    "origin:FJ1504/back_washer_0": 0.7806745104105062,
+                    "origin:FJ1504/bolt_1": 0.29457281000738916,
+                    "origin:FJ1504/nut_1": 1.0801333644060123
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.40917405130392387,
+                    "origin:FJ1504/back_washer_0": 0.7751698240007834,
+                    "origin:FJ1504/bolt_1": 0.26628196910214125,
+                    "origin:FJ1504/nut_1": 1.074032376186819
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.009632992994824617,
+                    "origin:FJ1504/nut_0": 0.3463323486257552,
+                    "origin:FJ1504/back_washer_0": 0.7578920865848477,
+                    "origin:FJ1504/bolt_1": 0.2484504013362109,
+                    "origin:FJ1504/nut_1": 1.066245928254902
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.046093049724821665,
+                    "origin:FJ1504/nut_0": 0.2889053495369752,
+                    "origin:FJ1504/back_washer_0": 0.7312522689333248,
+                    "origin:FJ1504/bolt_1": 0.23410948079004545,
+                    "origin:FJ1504/nut_1": 1.0537378120604206
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.09990896098643824,
+                    "origin:FJ1504/nut_0": 0.2369004684785003,
+                    "origin:FJ1504/back_washer_0": 0.69813083191401,
+                    "origin:FJ1504/bolt_1": 0.23025728544077398,
+                    "origin:FJ1504/nut_1": 1.0333989851778058
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.16020205371129523,
+                    "origin:FJ1504/nut_0": 0.19032511680669523,
+                    "origin:FJ1504/back_washer_0": 0.659881517809141,
+                    "origin:FJ1504/bolt_1": 0.23385141961991587,
+                    "origin:FJ1504/nut_1": 0.9959569250765072
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2244608041049118,
+                    "origin:FJ1504/nut_0": 0.1491869427214887,
+                    "origin:FJ1504/back_washer_0": 0.6174240948098851,
+                    "origin:FJ1504/bolt_1": 0.22071464940006785,
+                    "origin:FJ1504/nut_1": 0.9322089143593947
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2888039890235132,
+                    "origin:FJ1504/nut_0": 0.11353734933654201,
+                    "origin:FJ1504/back_washer_0": 0.5716619167933252,
+                    "origin:FJ1504/bolt_1": 0.18598005567298456,
+                    "origin:FJ1504/nut_1": 0.867704444199414
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3496413791121615,
+                    "origin:FJ1504/nut_0": 0.08354086237670429,
+                    "origin:FJ1504/back_washer_0": 0.5235006601098704,
+                    "origin:FJ1504/bolt_1": 0.13056440165149902,
+                    "origin:FJ1504/nut_1": 0.8038457508144639
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.40571905164942346,
+                    "origin:FJ1504/nut_0": 0.05901403850694049,
+                    "origin:FJ1504/back_washer_0": 0.4739653857910942,
+                    "origin:FJ1504/bolt_1": 0.06715282758554472,
+                    "origin:FJ1504/nut_1": 0.7412351541018087
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.4562791645989237,
+                    "origin:FJ1504/nut_0": 0.039719101997326874,
+                    "origin:FJ1504/back_washer_0": 0.42294397188764676,
+                    "origin:FJ1504/bolt_1": 0.017010368784914846,
+                    "origin:FJ1504/nut_1": 0.6800143295337897
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.5005734085752981,
+                    "origin:FJ1504/nut_0": 0.025417801242723203,
+                    "origin:FJ1504/back_washer_0": 0.37049127499438983,
+                    "origin:FJ1504/nut_1": 0.6191595797244256
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.5370463634257566,
+                    "origin:FJ1504/nut_0": 0.017481206193128113,
+                    "origin:FJ1504/back_washer_0": 0.3170712060075886,
+                    "origin:FJ1504/nut_1": 0.5575680516072219
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.5660837429302247,
+                    "origin:FJ1504/nut_0": 0.01397066468093806,
+                    "origin:FJ1504/back_washer_0": 0.26302847431546406,
+                    "origin:FJ1504/nut_1": 0.4987816667589425
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.5991557483405242,
+                    "origin:FJ1504/nut_0": 0.011174114367625233,
+                    "origin:FJ1504/back_washer_0": 0.20893362469992025,
+                    "origin:FJ1504/bolt_1": 0.00457654993862448,
+                    "origin:FJ1504/nut_1": 0.4455442998006441
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.6546896586732087,
+                    "origin:FJ1504/nut_0": 0.008709433695718584,
+                    "origin:FJ1504/back_washer_0": 0.15569424795191208,
+                    "origin:FJ1504/bolt_1": 0.09964350087663634,
+                    "origin:FJ1504/nut_1": 0.39729852739759713
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.7264888455173305,
+                    "origin:FJ1504/nut_0": 0.0014483880355869465,
+                    "origin:FJ1504/back_washer_0": 0.10518984171291298,
+                    "origin:FJ1504/bolt_1": 0.17285814087457033,
+                    "origin:FJ1504/nut_1": 0.3386375324619027
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.7907327774227018,
+                    "origin:FJ1504/back_washer_0": 0.062016344603353424,
+                    "origin:FJ1504/bolt_1": 0.2252031709034485,
+                    "origin:FJ1504/nut_1": 0.29504349902248606
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.837156164300157,
+                    "origin:FJ1504/back_washer_0": 0.040569476965204895,
+                    "origin:FJ1504/bolt_1": 0.25777930566494817,
+                    "origin:FJ1504/nut_1": 0.27661681523335785,
+                    "origin:FJ1504/back_washer_1": 0.042651508218671266
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.8581739801440653,
+                    "origin:FJ1504/back_washer_0": 0.024333084280387596,
+                    "origin:FJ1504/bolt_1": 0.2717632700012926,
+                    "origin:FJ1504/nut_1": 0.27899633008400887,
+                    "origin:FJ1504/back_washer_1": 0.08357692481566874
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.8496387713702017,
+                    "origin:FJ1504/back_washer_0": 0.015721008191761743,
+                    "origin:FJ1504/bolt_1": 0.2683456614603013,
+                    "origin:FJ1504/nut_1": 0.28652415001634696,
+                    "origin:FJ1504/back_washer_1": 0.11222246656730367
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.8083221823109215,
+                    "origin:FJ1504/back_washer_0": 0.012339585380975644,
+                    "origin:FJ1504/bolt_1": 0.24904765555321448,
+                    "origin:FJ1504/nut_1": 0.29080720956157463,
+                    "origin:FJ1504/back_washer_1": 0.12803526144508082
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.7314309780224024,
+                    "origin:FJ1504/back_washer_0": 0.009608260576398702,
+                    "origin:FJ1504/bolt_1": 0.21579300551458372,
+                    "origin:FJ1504/nut_1": 0.28338354940561905,
+                    "origin:FJ1504/back_washer_1": 0.13007087093158595
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.6158594619283395,
+                    "origin:FJ1504/back_washer_0": 0.007086243809038184,
+                    "origin:FJ1504/bolt_1": 0.17149293014856568,
+                    "origin:FJ1504/nut_1": 0.25720756477124906,
+                    "origin:FJ1504/back_washer_1": 0.11854291006172588
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.45867160475881985,
+                    "origin:FJ1504/back_washer_0": 0.0047114164081849905,
+                    "origin:FJ1504/bolt_1": 0.11884725301190176,
+                    "origin:FJ1504/nut_1": 0.20846300267113402,
+                    "origin:FJ1504/back_washer_1": 0.09492397780253398
+                  }
+                },
+                {
+                  "offset_mm": 0.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2578720314488771,
+                    "origin:FJ1504/back_washer_0": 0.0024825576171518494,
+                    "origin:FJ1504/bolt_1": 0.060971639313942595,
+                    "origin:FJ1504/nut_1": 0.12931150938643793,
+                    "origin:FJ1504/back_washer_1": 0.05871642943046197
+                  }
+                },
+                {
+                  "offset_mm": 0.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.015951470176099953,
+                    "origin:FJ1504/bolt_1": 0.004856361853996921,
+                    "origin:FJ1504/nut_1": 0.018398576807104636,
+                    "origin:FJ1504/back_washer_1": 0.010242460784792956
+                  }
+                }
+              ]
+            },
+            {
+              "offset_direction_source": [
+                0.14161163348204542,
+                0.8239975691881493,
+                0.5486111111111112
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 6.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0038439394552018747
+                  }
+                },
+                {
+                  "offset_mm": 6.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.013967122415419756
+                  }
+                },
+                {
+                  "offset_mm": 5.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.032661584674248054
+                  }
+                },
+                {
+                  "offset_mm": 5.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0580859523498915
+                  }
+                },
+                {
+                  "offset_mm": 5.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.08979219153347447
+                  }
+                },
+                {
+                  "offset_mm": 5.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.12842145083895062
+                  }
+                },
+                {
+                  "offset_mm": 5.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.1727979604643529
+                  }
+                },
+                {
+                  "offset_mm": 5.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.2201157857223893
+                  }
+                },
+                {
+                  "offset_mm": 5.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.2695223491806582,
+                    "origin:FJ1504/bolt_1": 0.07101576328112953
+                  }
+                },
+                {
+                  "offset_mm": 5.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.3204655806094262,
+                    "origin:FJ1504/bolt_1": 0.14056423577575933
+                  }
+                },
+                {
+                  "offset_mm": 5.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.3710576726856809,
+                    "origin:FJ1504/bolt_1": 0.20535057531348028
+                  }
+                },
+                {
+                  "offset_mm": 5.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.4188480064536806,
+                    "origin:FJ1504/bolt_1": 0.26266251017895886
+                  }
+                },
+                {
+                  "offset_mm": 4.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.46349878563230656,
+                    "origin:FJ1504/bolt_1": 0.3118841143221071
+                  }
+                },
+                {
+                  "offset_mm": 4.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5048695052210527,
+                    "origin:FJ1504/bolt_1": 0.35277302852309417
+                  }
+                },
+                {
+                  "offset_mm": 4.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5416180733765265,
+                    "origin:FJ1504/bolt_1": 0.3847037706034432
+                  }
+                },
+                {
+                  "offset_mm": 4.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5716046918680482,
+                    "origin:FJ1504/bolt_1": 0.40667433911835144
+                  }
+                },
+                {
+                  "offset_mm": 4.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5949196174420989,
+                    "origin:FJ1504/bolt_1": 0.41935496486436563
+                  }
+                },
+                {
+                  "offset_mm": 4.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.6115291645275621,
+                    "origin:FJ1504/bolt_1": 0.44142391100839246
+                  }
+                },
+                {
+                  "offset_mm": 4.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.6184898875547342,
+                    "origin:FJ1504/bolt_1": 0.4368982040520279
+                  }
+                },
+                {
+                  "offset_mm": 4.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.6234390560951992,
+                    "origin:FJ1504/bolt_1": 0.4036606332387211,
+                    "origin:FJ1504/nut_1": 0.08770818108937811
+                  }
+                },
+                {
+                  "offset_mm": 4.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.6118417239464528,
+                    "origin:FJ1504/bolt_1": 0.36926625289835024,
+                    "origin:FJ1504/nut_1": 0.22663260596067564
+                  }
+                },
+                {
+                  "offset_mm": 4.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5946277680075143,
+                    "origin:FJ1504/bolt_1": 0.3338491196114956,
+                    "origin:FJ1504/nut_1": 0.3607175497683494
+                  }
+                },
+                {
+                  "offset_mm": 3.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5760317446048293,
+                    "origin:FJ1504/bolt_1": 0.29771812785721513,
+                    "origin:FJ1504/nut_1": 0.48625687810266527
+                  }
+                },
+                {
+                  "offset_mm": 3.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5560282746763171,
+                    "origin:FJ1504/bolt_1": 0.2611218656443318,
+                    "origin:FJ1504/nut_1": 0.6028246511856937
+                  }
+                },
+                {
+                  "offset_mm": 3.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5345919791222414,
+                    "origin:FJ1504/bolt_1": 0.22445161348141254,
+                    "origin:FJ1504/nut_1": 0.7107630915440176
+                  }
+                },
+                {
+                  "offset_mm": 3.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.5116974789100692,
+                    "origin:FJ1504/bolt_1": 0.18824599950610996,
+                    "origin:FJ1504/nut_1": 0.8092946765970458
+                  }
+                },
+                {
+                  "offset_mm": 3.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.48731964573560965,
+                    "origin:FJ1504/bolt_1": 0.15310427973785876,
+                    "origin:FJ1504/nut_1": 0.8932091129207329
+                  }
+                },
+                {
+                  "offset_mm": 3.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.46143808877146375,
+                    "origin:FJ1504/bolt_1": 0.11919669964971391,
+                    "origin:FJ1504/nut_1": 0.9618352596381576
+                  }
+                },
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.4340366527594361,
+                    "origin:FJ1504/bolt_1": 0.08728644124763799,
+                    "origin:FJ1504/nut_1": 1.0125475956428251
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.4050993316232584,
+                    "origin:FJ1504/bolt_1": 0.05878839202482496,
+                    "origin:FJ1504/nut_1": 1.033472632353497
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.3746101192881606,
+                    "origin:FJ1504/bolt_1": 0.03736557603883817,
+                    "origin:FJ1504/nut_1": 1.0128604133776689
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.34255350422496966,
+                    "origin:FJ1504/bolt_1": 0.027993297118298413,
+                    "origin:FJ1504/nut_1": 0.9854499095625733
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.3089189889878053,
+                    "origin:FJ1504/bolt_1": 0.023904696816333455,
+                    "origin:FJ1504/nut_1": 0.9465383813403052
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.27368614049463086,
+                    "origin:FJ1504/bolt_1": 0.020055531803121394,
+                    "origin:FJ1504/nut_1": 0.896602130372968
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.2338365010779647,
+                    "origin:FJ1504/bolt_1": 0.01615635395554608,
+                    "origin:FJ1504/nut_1": 0.8458596322992056
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.19038882143597996,
+                    "origin:FJ1504/back_washer_0": 0.011959855084696996,
+                    "origin:FJ1504/bolt_1": 0.012122266538964943,
+                    "origin:FJ1504/nut_1": 0.7949495160610466
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.14585365563227767,
+                    "origin:FJ1504/back_washer_0": 0.04101096201249684,
+                    "origin:FJ1504/bolt_1": 0.007946712396644032,
+                    "origin:FJ1504/nut_1": 0.7441059418616573
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.10250422598995157,
+                    "origin:FJ1504/back_washer_0": 0.07331138322524046,
+                    "origin:FJ1504/bolt_1": 0.003709630561164835,
+                    "origin:FJ1504/nut_1": 0.6933404917637738
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.061460458990982146,
+                    "origin:FJ1504/back_washer_0": 0.10376565911561265,
+                    "origin:FJ1504/nut_1": 0.6426493213017905
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.024769193891758256,
+                    "origin:FJ1504/back_washer_0": 0.12895104636064048,
+                    "origin:FJ1504/nut_1": 0.591530855682898
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.011334857471257365,
+                    "origin:FJ1504/back_washer_0": 0.1481660315514175,
+                    "origin:FJ1504/nut_1": 0.5383280809973372
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.009883797913173245,
+                    "origin:FJ1504/back_washer_0": 0.16041409733755171,
+                    "origin:FJ1504/nut_1": 0.4831315276397597
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.008588435978819892,
+                    "origin:FJ1504/back_washer_0": 0.15902531149832577,
+                    "origin:FJ1504/nut_1": 0.4278782961541387
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.00744570489796898,
+                    "origin:FJ1504/back_washer_0": 0.14310875803454057,
+                    "origin:FJ1504/nut_1": 0.372735796623826
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.006729346500427508,
+                    "origin:FJ1504/nut_0": 0.006365066497304082,
+                    "origin:FJ1504/back_washer_0": 0.12101999624053979,
+                    "origin:FJ1504/nut_1": 0.3181634612436634
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.03988663057220917,
+                    "origin:FJ1504/nut_0": 0.005260554988064774,
+                    "origin:FJ1504/back_washer_0": 0.09586159952202652,
+                    "origin:FJ1504/nut_1": 0.2646468300740601
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.08051053504264372,
+                    "origin:FJ1504/nut_0": 0.004125868898951453,
+                    "origin:FJ1504/back_washer_0": 0.06986330058442708,
+                    "origin:FJ1504/nut_1": 0.21267140449434055
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.12294607705405415,
+                    "origin:FJ1504/nut_0": 0.002968855769479151,
+                    "origin:FJ1504/back_washer_0": 0.04557764935550086,
+                    "origin:FJ1504/nut_1": 0.16346009501994355
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.1609047255945774,
+                    "origin:FJ1504/nut_0": 0.001797361950205003,
+                    "origin:FJ1504/back_washer_0": 0.023988983207381926,
+                    "origin:FJ1504/nut_1": 0.1306679199557277
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.19224784133671366,
+                    "origin:FJ1504/back_washer_0": 0.008852321492363953,
+                    "origin:FJ1504/nut_1": 0.11010603159348788
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.21577861600424045,
+                    "origin:FJ1504/nut_1": 0.09784025900982217
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2301587649525705,
+                    "origin:FJ1504/nut_1": 0.09493502164821858
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.24910644599374077,
+                    "origin:FJ1504/bolt_1": 0.009478820443425882,
+                    "origin:FJ1504/nut_1": 0.10277481638172939
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2880095231332889,
+                    "origin:FJ1504/bolt_1": 0.06197358800749263,
+                    "origin:FJ1504/nut_1": 0.12046727477460266
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.32512028524699393,
+                    "origin:FJ1504/bolt_1": 0.09100424983669322,
+                    "origin:FJ1504/nut_1": 0.13733753535665857,
+                    "origin:FJ1504/back_washer_1": 0.0016418429455204997
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3329610024075622,
+                    "origin:FJ1504/back_washer_0": 0.005623422243750688,
+                    "origin:FJ1504/bolt_1": 0.0986295387631522,
+                    "origin:FJ1504/nut_1": 0.14434544316455952,
+                    "origin:FJ1504/back_washer_1": 0.03005109920761991
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3007338015046695,
+                    "origin:FJ1504/back_washer_0": 0.00395639982044052,
+                    "origin:FJ1504/bolt_1": 0.08799462126194732,
+                    "origin:FJ1504/nut_1": 0.1366456419747351,
+                    "origin:FJ1504/back_washer_1": 0.042932888746794566
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2231960123577131,
+                    "origin:FJ1504/back_washer_0": 0.0023484339631002892,
+                    "origin:FJ1504/bolt_1": 0.06264491566693542,
+                    "origin:FJ1504/nut_1": 0.10931254636010199,
+                    "origin:FJ1504/back_washer_1": 0.040234839322271086
+                  }
+                },
+                {
+                  "offset_mm": 0.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.09583276000986958,
+                    "origin:FJ1504/bolt_1": 0.026317606343115443,
+                    "origin:FJ1504/nut_1": 0.0529490740924005,
+                    "origin:FJ1504/back_washer_1": 0.0216793190755228
+                  }
+                }
+              ]
+            },
+            {
+              "offset_direction_source": [
+                -0.16094533314023818,
+                0.8846978861398832,
+                0.4375
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 4.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.005802188225257717
+                  }
+                },
+                {
+                  "offset_mm": 4.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.019752525310188573
+                  }
+                },
+                {
+                  "offset_mm": 4.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.037199618896706844
+                  }
+                },
+                {
+                  "offset_mm": 4.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.054543048499947656
+                  }
+                },
+                {
+                  "offset_mm": 4.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0707897232642641
+                  }
+                },
+                {
+                  "offset_mm": 4.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.084208154375235
+                  }
+                },
+                {
+                  "offset_mm": 4.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.09392429682397405
+                  }
+                },
+                {
+                  "offset_mm": 4.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.09957429895171917
+                  }
+                },
+                {
+                  "offset_mm": 4.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.10044452663276665
+                  }
+                },
+                {
+                  "offset_mm": 3.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0961762202621112
+                  }
+                },
+                {
+                  "offset_mm": 3.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.08680807348527038
+                  }
+                },
+                {
+                  "offset_mm": 3.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.07227069426947322
+                  }
+                },
+                {
+                  "offset_mm": 3.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.052662398735186515
+                  }
+                },
+                {
+                  "offset_mm": 3.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.028506976181630454
+                  }
+                },
+                {
+                  "offset_mm": 3.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0073989473620103535
+                  }
+                },
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.009520627804797305,
+                    "origin:FJ1504/nut_1": 0.034151375487074344
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.012170700583011375,
+                    "origin:FJ1504/nut_1": 0.1001730082403292
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.011062922704765138,
+                    "origin:FJ1504/nut_1": 0.15509342362392697
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.010039578888260011,
+                    "origin:FJ1504/nut_1": 0.1965972257750292
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.009101493859367555,
+                    "origin:FJ1504/nut_1": 0.22516152015696034
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.00823629343647074,
+                    "origin:FJ1504/nut_1": 0.24133552345974513
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.007403204954242473,
+                    "origin:FJ1504/nut_1": 0.24551574068095303
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.006578928991827845,
+                    "origin:FJ1504/nut_1": 0.24949883587922322
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.005752555733999282,
+                    "origin:FJ1504/nut_1": 0.25490518389190303
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.004925069045294186,
+                    "origin:FJ1504/nut_1": 0.22009348227339728
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.004098041852032596,
+                    "origin:FJ1504/nut_1": 0.18481609255670672
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0032730470287421036,
+                    "origin:FJ1504/nut_1": 0.15036988666224213
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0024516569576644603,
+                    "origin:FJ1504/nut_1": 0.12291369884285688
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.0016374520190258098,
+                    "origin:FJ1504/nut_1": 0.10060907714387927
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.08134772282502911
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.06516810493698867
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.052109882860914856
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.042169191465481454
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.03442669986012316
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.028528676989725492
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.01015606419624047,
+                    "origin:FJ1504/nut_1": 0.025202099297939016
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.030433473178245726,
+                    "origin:FJ1504/nut_1": 0.02493717102764209
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.050922601011481716,
+                    "origin:FJ1504/nut_1": 0.026873903755134397
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.06653128495143663,
+                    "origin:FJ1504/nut_1": 0.029417754257863058
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.07614605211044824,
+                    "origin:FJ1504/nut_1": 0.03140033044046077
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.07856918799034504,
+                    "origin:FJ1504/nut_1": 0.03323599623495088
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.07899915459498627,
+                    "origin:FJ1504/bolt_1": 0.004205001720579217,
+                    "origin:FJ1504/nut_1": 0.03954796162156899
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.0794745298570886,
+                    "origin:FJ1504/bolt_1": 0.017822892255638496,
+                    "origin:FJ1504/nut_1": 0.04060820607698316
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.06128942392260997,
+                    "origin:FJ1504/back_washer_0": 0.0010053425129550803,
+                    "origin:FJ1504/bolt_1": 0.01682284535017644,
+                    "origin:FJ1504/nut_1": 0.03219832338800496,
+                    "origin:FJ1504/back_washer_1": 0.004504503861115392
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.011564433427944396,
+                    "origin:FJ1504/bolt_1": 0.004077449878762408,
+                    "origin:FJ1504/nut_1": 0.008685410103229454,
+                    "origin:FJ1504/back_washer_1": 0.0032708723089057284
+                  }
+                }
+              ]
+            }
+          ],
+          "seated_hits_mm3": {},
+          "sleeve_after_belly": {
+            "offset_direction_source": [
+              0.6604258981179556,
+              0.6716343651992057,
+              -0.3357750922545505
+            ],
+            "travel_mm": 8.0,
+            "step_mm": 0.1,
+            "hits": []
+          }
+        }
+      }
+    },
+    {
+      "split_station_mm": 22.0,
+      "belly_mesh": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_split_belly_22mm.obj",
+        "sha256": "5ee403a32544304241a414b60e8355abd5a48e7dc433d93cd6fc7c7eb9b4ada1",
+        "translation_source_mm": [
+          -96.70044584565522,
+          -13.35855376515368,
+          1274.83413221748
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5330.194889650446
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "stock": [
+        {
+          "interval_mm": [
+            0.0,
+            1.0
+          ],
+          "stock_mm3": 4.756091609393942,
+          "annulus_volume_mm3": 25.909145151304905,
+          "fraction": 0.18356806377127433
+        },
+        {
+          "interval_mm": [
+            1.0,
+            2.0
+          ],
+          "stock_mm3": 5.1541840690112455,
+          "annulus_volume_mm3": 25.909145151307442,
+          "fraction": 0.19893300372942455
+        },
+        {
+          "interval_mm": [
+            2.0,
+            4.0
+          ],
+          "stock_mm3": 10.204901998934872,
+          "annulus_volume_mm3": 51.81829030261024,
+          "fraction": 0.19693629294482573
+        }
+      ],
+      "results": {
+        "FJ1504_origin_deferred": {
+          "belly_insertion": [
+            {
+              "offset_direction_source": [
+                0.37363617090499646,
+                0.6520449380967736,
+                0.6597222222222222
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            },
+            {
+              "offset_direction_source": [
+                0.14161163348204542,
+                0.8239975691881493,
+                0.5486111111111112
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            },
+            {
+              "offset_direction_source": [
+                -0.16094533314023818,
+                0.8846978861398832,
+                0.4375
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": []
+            }
+          ],
+          "seated_hits_mm3": {},
+          "sleeve_after_belly": {
+            "offset_direction_source": [
+              0.6604258981179556,
+              0.6716343651992057,
+              -0.3357750922545505
+            ],
+            "travel_mm": 8.0,
+            "step_mm": 0.1,
+            "hits": []
+          }
+        },
+        "all_origin_hardware_installed": {
+          "belly_insertion": [
+            {
+              "offset_direction_source": [
+                0.37363617090499646,
+                0.6520449380967736,
+                0.6597222222222222
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 8.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.05462433354304529,
+                    "origin:FJ1504/nut_0": 0.33337237694101635
+                  }
+                },
+                {
+                  "offset_mm": 7.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.02525206046914687,
+                    "origin:FJ1504/nut_0": 0.4758247225389477,
+                    "origin:FJ1504/nut_1": 0.0010805766278272565
+                  }
+                },
+                {
+                  "offset_mm": 7.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_0": 0.005058589325958582,
+                    "origin:FJ1504/nut_0": 0.6175231192362775,
+                    "origin:FJ1504/nut_1": 0.0032618094987243757
+                  }
+                },
+                {
+                  "offset_mm": 7.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.7557201923566896,
+                    "origin:FJ1504/nut_1": 0.006741075068560074
+                  }
+                },
+                {
+                  "offset_mm": 7.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.8876122037794836,
+                    "origin:FJ1504/nut_1": 0.011826382420754714
+                  }
+                },
+                {
+                  "offset_mm": 7.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.006444384374693,
+                    "origin:FJ1504/nut_1": 0.018825740126001838
+                  }
+                },
+                {
+                  "offset_mm": 7.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.107929475247802,
+                    "origin:FJ1504/nut_1": 0.02752680311326653
+                  }
+                },
+                {
+                  "offset_mm": 7.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.1905444299656487,
+                    "origin:FJ1504/nut_1": 0.03707729058470164
+                  }
+                },
+                {
+                  "offset_mm": 7.2,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.253699750353738,
+                    "origin:FJ1504/nut_1": 0.047486836213324286
+                  }
+                },
+                {
+                  "offset_mm": 7.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.2988620321242024,
+                    "origin:FJ1504/bolt_1": 0.00433415305732214,
+                    "origin:FJ1504/nut_1": 0.05879637401782238
+                  }
+                },
+                {
+                  "offset_mm": 7.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.3271700068546948,
+                    "origin:FJ1504/bolt_1": 0.01746403556728623,
+                    "origin:FJ1504/nut_1": 0.07104684793180654
+                  }
+                },
+                {
+                  "offset_mm": 6.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.337143144249576,
+                    "origin:FJ1504/bolt_1": 0.03976432834467177,
+                    "origin:FJ1504/nut_1": 0.08493829278209002
+                  }
+                },
+                {
+                  "offset_mm": 6.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.3294029674350938,
+                    "origin:FJ1504/bolt_1": 0.07032993127954205,
+                    "origin:FJ1504/nut_1": 0.10106291212218013
+                  }
+                },
+                {
+                  "offset_mm": 6.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.3057302027941708,
+                    "origin:FJ1504/bolt_1": 0.10867097656605819,
+                    "origin:FJ1504/nut_1": 0.11859370781756798
+                  }
+                },
+                {
+                  "offset_mm": 6.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.268353868501262,
+                    "origin:FJ1504/bolt_1": 0.15470299253589753,
+                    "origin:FJ1504/nut_1": 0.13749559886357318
+                  }
+                },
+                {
+                  "offset_mm": 6.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.2192418735273611,
+                    "origin:FJ1504/bolt_1": 0.20827516048234174,
+                    "origin:FJ1504/nut_1": 0.24294532307165276
+                  }
+                },
+                {
+                  "offset_mm": 6.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.1600476142776386,
+                    "origin:FJ1504/bolt_1": 0.26861445195543293,
+                    "origin:FJ1504/nut_1": 0.4297157114409563
+                  }
+                },
+                {
+                  "offset_mm": 6.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.091262803113982,
+                    "origin:FJ1504/bolt_1": 0.33515775665376996,
+                    "origin:FJ1504/nut_1": 0.6031252473130104
+                  }
+                },
+                {
+                  "offset_mm": 6.2,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 1.0130633986490767,
+                    "origin:FJ1504/bolt_1": 0.4076384859072797,
+                    "origin:FJ1504/nut_1": 0.7614227331656996
+                  }
+                },
+                {
+                  "offset_mm": 6.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.9274684573621471,
+                    "origin:FJ1504/bolt_1": 0.48578839199103074,
+                    "origin:FJ1504/nut_1": 0.9004244067040118
+                  }
+                },
+                {
+                  "offset_mm": 6.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.8364855300953215,
+                    "origin:FJ1504/bolt_1": 0.5693838073560448,
+                    "origin:FJ1504/nut_1": 1.0179778165587912
+                  }
+                },
+                {
+                  "offset_mm": 5.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.7421221720624371,
+                    "origin:FJ1504/bolt_1": 0.6576271735153484,
+                    "origin:FJ1504/nut_1": 1.1133945921717088
+                  }
+                },
+                {
+                  "offset_mm": 5.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.6463859202162986,
+                    "origin:FJ1504/bolt_1": 0.7499464809814946,
+                    "origin:FJ1504/nut_1": 1.2008743316301076
+                  }
+                },
+                {
+                  "offset_mm": 5.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.550371187288046,
+                    "origin:FJ1504/bolt_1": 0.8276722148206642,
+                    "origin:FJ1504/nut_1": 1.2773871572685256
+                  }
+                },
+                {
+                  "offset_mm": 5.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.4554356329595806,
+                    "origin:FJ1504/bolt_1": 0.8915450006565975,
+                    "origin:FJ1504/nut_1": 1.3428424432663078
+                  }
+                },
+                {
+                  "offset_mm": 5.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.364386907379444,
+                    "origin:FJ1504/bolt_1": 0.9456859813361552,
+                    "origin:FJ1504/nut_1": 1.3967136197293577
+                  }
+                },
+                {
+                  "offset_mm": 5.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.28003061078532393,
+                    "origin:FJ1504/bolt_1": 0.9912182842637028,
+                    "origin:FJ1504/nut_1": 1.4400151235488343
+                  }
+                },
+                {
+                  "offset_mm": 5.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.20514648896522295,
+                    "origin:FJ1504/bolt_1": 1.0285492771689637,
+                    "origin:FJ1504/nut_1": 1.4727374646409748
+                  }
+                },
+                {
+                  "offset_mm": 5.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.14251233195263702,
+                    "origin:FJ1504/bolt_1": 1.057748816432528,
+                    "origin:FJ1504/nut_1": 1.495453652999151
+                  }
+                },
+                {
+                  "offset_mm": 5.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.09282507203760301,
+                    "origin:FJ1504/bolt_1": 1.078084986161652,
+                    "origin:FJ1504/nut_1": 1.5060817739197563
+                  }
+                },
+                {
+                  "offset_mm": 5.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.055105762371389026,
+                    "origin:FJ1504/bolt_1": 1.0895637859467597,
+                    "origin:FJ1504/nut_1": 1.5024306056818213
+                  }
+                },
+                {
+                  "offset_mm": 4.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.028267608262054714,
+                    "origin:FJ1504/bolt_1": 1.0922383039210153,
+                    "origin:FJ1504/nut_1": 1.4767671939916327
+                  }
+                },
+                {
+                  "offset_mm": 4.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.01122354223896693,
+                    "origin:FJ1504/bolt_1": 1.0873431678149177,
+                    "origin:FJ1504/nut_1": 1.440608023662116
+                  }
+                },
+                {
+                  "offset_mm": 4.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_0": 0.002604625563899165,
+                    "origin:FJ1504/bolt_1": 1.0762534228517133,
+                    "origin:FJ1504/nut_1": 1.408282590375562
+                  }
+                },
+                {
+                  "offset_mm": 4.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 1.0599498616715894,
+                    "origin:FJ1504/nut_1": 1.379395447810274
+                  }
+                },
+                {
+                  "offset_mm": 4.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 1.0388352670141907,
+                    "origin:FJ1504/nut_1": 1.3534782557229827
+                  }
+                },
+                {
+                  "offset_mm": 4.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 1.013188889943407,
+                    "origin:FJ1504/nut_1": 1.3300361597130053
+                  }
+                },
+                {
+                  "offset_mm": 4.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.983379720134386,
+                    "origin:FJ1504/nut_1": 1.3080548708876811
+                  }
+                },
+                {
+                  "offset_mm": 4.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.9497671513668912,
+                    "origin:FJ1504/nut_1": 1.2869812007449597
+                  }
+                },
+                {
+                  "offset_mm": 4.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.9126720935246139,
+                    "origin:FJ1504/nut_1": 1.2664940753719933
+                  }
+                },
+                {
+                  "offset_mm": 4.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.8725420661999247,
+                    "origin:FJ1504/nut_1": 1.2463959343003927
+                  }
+                },
+                {
+                  "offset_mm": 3.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.8297043529542818,
+                    "origin:FJ1504/nut_1": 1.2266244045768282
+                  }
+                },
+                {
+                  "offset_mm": 3.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.7843455206649937,
+                    "origin:FJ1504/nut_1": 1.207141497557822
+                  }
+                },
+                {
+                  "offset_mm": 3.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.7366487490385172,
+                    "origin:FJ1504/nut_1": 1.1880304546691305
+                  }
+                },
+                {
+                  "offset_mm": 3.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.6867274491592951,
+                    "origin:FJ1504/nut_1": 1.1696670517498082
+                  }
+                },
+                {
+                  "offset_mm": 3.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.6346688670614247,
+                    "origin:FJ1504/nut_1": 1.1525471156560454
+                  }
+                },
+                {
+                  "offset_mm": 3.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.5807465345087862,
+                    "origin:FJ1504/nut_1": 1.1371600413389837
+                  }
+                },
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.5264116816867817,
+                    "origin:FJ1504/nut_1": 1.123535925612984
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.4732850755599992,
+                    "origin:FJ1504/nut_1": 1.1116389572878744
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.42241162378546465,
+                    "origin:FJ1504/nut_1": 1.1014401239546612
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.37474833871556484,
+                    "origin:FJ1504/nut_1": 1.0929306679571655
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.3315406989942019,
+                    "origin:FJ1504/nut_1": 1.0860616792755138
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.29457281000738245,
+                    "origin:FJ1504/nut_1": 1.0801333644060327
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.2662819691021209,
+                    "origin:FJ1504/nut_1": 1.0740323761868258
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.24845040133622165,
+                    "origin:FJ1504/nut_1": 1.0662459282549044
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.23410948079004223,
+                    "origin:FJ1504/nut_1": 1.0537378120604282
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.23025728544076665,
+                    "origin:FJ1504/nut_1": 1.0333989851777998
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.2338514196199161,
+                    "origin:FJ1504/nut_1": 0.995956925076516
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.22071464940006727,
+                    "origin:FJ1504/nut_1": 0.9322089143593958
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.18598005567299858,
+                    "origin:FJ1504/nut_1": 0.8677044441993942
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.13056440165151,
+                    "origin:FJ1504/nut_1": 0.8038457508144647
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.0671528275855511,
+                    "origin:FJ1504/nut_1": 0.7412351541018227
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.01701036878490641,
+                    "origin:FJ1504/nut_1": 0.6800143295338025
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.6191595797244228
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.5575680516072066
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.0017625440458413797,
+                    "origin:FJ1504/nut_1": 0.49878166675893376
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.01736424136796419,
+                    "origin:FJ1504/bolt_1": 0.004576549938646339,
+                    "origin:FJ1504/nut_1": 0.44554429980061355
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.0653110605225563,
+                    "origin:FJ1504/bolt_1": 0.0996435008766376,
+                    "origin:FJ1504/nut_1": 0.39729852739760135
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.13942384265054578,
+                    "origin:FJ1504/bolt_1": 0.17285814087457274,
+                    "origin:FJ1504/nut_1": 0.33863753246188333
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.215934760533478,
+                    "origin:FJ1504/bolt_1": 0.2252031709034495,
+                    "origin:FJ1504/nut_1": 0.2950434990225091
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.28498116952711794,
+                    "origin:FJ1504/bolt_1": 0.2577793056649475,
+                    "origin:FJ1504/nut_1": 0.27661681523336973,
+                    "origin:FJ1504/back_washer_1": 0.0426515082186726
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3390047918955566,
+                    "origin:FJ1504/bolt_1": 0.27176327000129086,
+                    "origin:FJ1504/nut_1": 0.27899633008400865,
+                    "origin:FJ1504/back_washer_1": 0.08357692481567226
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3736520533651814,
+                    "origin:FJ1504/bolt_1": 0.26834566146029887,
+                    "origin:FJ1504/nut_1": 0.2865241500163443,
+                    "origin:FJ1504/back_washer_1": 0.11222246656730359
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.38547368815302724,
+                    "origin:FJ1504/bolt_1": 0.2490476555532186,
+                    "origin:FJ1504/nut_1": 0.290807209561573,
+                    "origin:FJ1504/back_washer_1": 0.12803526144508715
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3714536611101662,
+                    "origin:FJ1504/bolt_1": 0.2157930055145822,
+                    "origin:FJ1504/nut_1": 0.28338354940562716,
+                    "origin:FJ1504/back_washer_1": 0.13007087093158737
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.3282828006294279,
+                    "origin:FJ1504/bolt_1": 0.17149293014856934,
+                    "origin:FJ1504/nut_1": 0.2572075647712304,
+                    "origin:FJ1504/back_washer_1": 0.11854291006171255
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.2529534189313982,
+                    "origin:FJ1504/bolt_1": 0.11884725301190335,
+                    "origin:FJ1504/nut_1": 0.20846300267112386,
+                    "origin:FJ1504/back_washer_1": 0.09492397780252959
+                  }
+                },
+                {
+                  "offset_mm": 0.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.14317060540674922,
+                    "origin:FJ1504/bolt_1": 0.060971639313935774,
+                    "origin:FJ1504/nut_1": 0.12931150938646496,
+                    "origin:FJ1504/back_washer_1": 0.058716429430455006
+                  }
+                },
+                {
+                  "offset_mm": 0.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.004856361854004913,
+                    "origin:FJ1504/nut_1": 0.018398576807112144,
+                    "origin:FJ1504/back_washer_1": 0.010242460784791177
+                  }
+                }
+              ]
+            },
+            {
+              "offset_direction_source": [
+                0.14161163348204542,
+                0.8239975691881493,
+                0.5486111111111112
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 5.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.07101576328113841
+                  }
+                },
+                {
+                  "offset_mm": 5.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.14056423577575222
+                  }
+                },
+                {
+                  "offset_mm": 5.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.20535057531347273
+                  }
+                },
+                {
+                  "offset_mm": 5.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.26266251017895886
+                  }
+                },
+                {
+                  "offset_mm": 4.9,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.3118841143221142
+                  }
+                },
+                {
+                  "offset_mm": 4.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.35277302852308706
+                  }
+                },
+                {
+                  "offset_mm": 4.699999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.3847037706034441
+                  }
+                },
+                {
+                  "offset_mm": 4.6,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.40667433911834433
+                  }
+                },
+                {
+                  "offset_mm": 4.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.41935496486435425
+                  }
+                },
+                {
+                  "offset_mm": 4.4,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.4414239110083871
+                  }
+                },
+                {
+                  "offset_mm": 4.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.43689820405202434
+                  }
+                },
+                {
+                  "offset_mm": 4.199999999999999,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.40366063323872126,
+                    "origin:FJ1504/nut_1": 0.087708181089378
+                  }
+                },
+                {
+                  "offset_mm": 4.1,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.36926625289834186,
+                    "origin:FJ1504/nut_1": 0.22663260596067564
+                  }
+                },
+                {
+                  "offset_mm": 4.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.33384911961148755,
+                    "origin:FJ1504/nut_1": 0.36071754976835163
+                  }
+                },
+                {
+                  "offset_mm": 3.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.29771812785720775,
+                    "origin:FJ1504/nut_1": 0.4862568781026666
+                  }
+                },
+                {
+                  "offset_mm": 3.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.26112186564432754,
+                    "origin:FJ1504/nut_1": 0.6028246511856948
+                  }
+                },
+                {
+                  "offset_mm": 3.7,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.22445161348140394,
+                    "origin:FJ1504/nut_1": 0.7107630915440156
+                  }
+                },
+                {
+                  "offset_mm": 3.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.18824599950610066,
+                    "origin:FJ1504/nut_1": 0.8092946765970462
+                  }
+                },
+                {
+                  "offset_mm": 3.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.15310427973786572,
+                    "origin:FJ1504/nut_1": 0.8932091129207339
+                  }
+                },
+                {
+                  "offset_mm": 3.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.11919669964970706,
+                    "origin:FJ1504/nut_1": 0.9618352596381572
+                  }
+                },
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.0872864412476412,
+                    "origin:FJ1504/nut_1": 1.0125475956428358
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.05878839202481783,
+                    "origin:FJ1504/nut_1": 1.0334726323534944
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.037365576038840755,
+                    "origin:FJ1504/nut_1": 1.0128604133776715
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.027993297118298358,
+                    "origin:FJ1504/nut_1": 0.985449909562576
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.023904696816333455,
+                    "origin:FJ1504/nut_1": 0.94653838134029
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.02005553180312145,
+                    "origin:FJ1504/nut_1": 0.8966021303729705
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.016156353955546193,
+                    "origin:FJ1504/nut_1": 0.8458596322991966
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.012122266538964853,
+                    "origin:FJ1504/nut_1": 0.7949495160610501
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.007946712396644032,
+                    "origin:FJ1504/nut_1": 0.7441059418616576
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/bolt_1": 0.0037096305611647932,
+                    "origin:FJ1504/nut_1": 0.693340491763775
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.6426493213017971
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.5915308556828875
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.5383280809973215
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.4831315276397602
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.42787829615412987
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.37273579662381134
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.3181634612436561
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.2646468300740578
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.21267140449433727
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.16346009501992537
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.13066791995572322
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.11010603159347011
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.09784025900981504
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.09493502164821872
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.014955416901969146,
+                    "origin:FJ1504/bolt_1": 0.009478820443425164,
+                    "origin:FJ1504/nut_1": 0.10277481638172765
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.059802030698583294,
+                    "origin:FJ1504/bolt_1": 0.06197358800749175,
+                    "origin:FJ1504/nut_1": 0.12046727477460087
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.11337007150368121,
+                    "origin:FJ1504/bolt_1": 0.0910042498366935,
+                    "origin:FJ1504/nut_1": 0.1373375353566549,
+                    "origin:FJ1504/back_washer_1": 0.0016418429455254992
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.14877153134264468,
+                    "origin:FJ1504/bolt_1": 0.09862953876315325,
+                    "origin:FJ1504/nut_1": 0.14434544316456213,
+                    "origin:FJ1504/back_washer_1": 0.03005109920761991
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.1552157336332004,
+                    "origin:FJ1504/bolt_1": 0.08799462126194725,
+                    "origin:FJ1504/nut_1": 0.1366456419747098,
+                    "origin:FJ1504/back_washer_1": 0.04293288874678835
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.12735590125365742,
+                    "origin:FJ1504/bolt_1": 0.06264491566693431,
+                    "origin:FJ1504/nut_1": 0.1093125463601041,
+                    "origin:FJ1504/back_washer_1": 0.04023483932227061
+                  }
+                },
+                {
+                  "offset_mm": 0.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.06027765260782264,
+                    "origin:FJ1504/bolt_1": 0.026317606343116855,
+                    "origin:FJ1504/nut_1": 0.05294907409240028,
+                    "origin:FJ1504/back_washer_1": 0.021679319075524523
+                  }
+                }
+              ]
+            },
+            {
+              "offset_direction_source": [
+                -0.16094533314023818,
+                0.8846978861398832,
+                0.4375
+              ],
+              "travel_mm": 8.0,
+              "step_mm": 0.1,
+              "hits": [
+                {
+                  "offset_mm": 3.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.03415137548707601
+                  }
+                },
+                {
+                  "offset_mm": 3.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.10017300824032736
+                  }
+                },
+                {
+                  "offset_mm": 3.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.1550934236239318
+                  }
+                },
+                {
+                  "offset_mm": 3.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.19659722577503252
+                  }
+                },
+                {
+                  "offset_mm": 2.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.22516152015696964
+                  }
+                },
+                {
+                  "offset_mm": 2.8,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.24133552345974338
+                  }
+                },
+                {
+                  "offset_mm": 2.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.24551574068096746
+                  }
+                },
+                {
+                  "offset_mm": 2.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.2494988358792205
+                  }
+                },
+                {
+                  "offset_mm": 2.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.2549051838919102
+                  }
+                },
+                {
+                  "offset_mm": 2.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.22009348227339107
+                  }
+                },
+                {
+                  "offset_mm": 2.3,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.1848160925566998
+                  }
+                },
+                {
+                  "offset_mm": 2.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.1503698866622377
+                  }
+                },
+                {
+                  "offset_mm": 2.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.12291369884284986
+                  }
+                },
+                {
+                  "offset_mm": 2.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.10060907714386864
+                  }
+                },
+                {
+                  "offset_mm": 1.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.08134772282502914
+                  }
+                },
+                {
+                  "offset_mm": 1.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.0651681049369816
+                  }
+                },
+                {
+                  "offset_mm": 1.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.05210988286091297
+                  }
+                },
+                {
+                  "offset_mm": 1.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.042169191465481315
+                  }
+                },
+                {
+                  "offset_mm": 1.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.03442669986012313
+                  }
+                },
+                {
+                  "offset_mm": 1.3999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.028528676989725506
+                  }
+                },
+                {
+                  "offset_mm": 1.2999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.02520209929793878
+                  }
+                },
+                {
+                  "offset_mm": 1.1999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.024937171027642202
+                  }
+                },
+                {
+                  "offset_mm": 1.0999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.026873903755134397
+                  }
+                },
+                {
+                  "offset_mm": 1.0,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.02941775425786471
+                  }
+                },
+                {
+                  "offset_mm": 0.8999999999999995,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.03140033044045894
+                  }
+                },
+                {
+                  "offset_mm": 0.7999999999999998,
+                  "hits_mm3": {
+                    "origin:FJ1504/nut_1": 0.03323599623495199
+                  }
+                },
+                {
+                  "offset_mm": 0.6999999999999993,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.006011924544721114,
+                    "origin:FJ1504/bolt_1": 0.004205001720579118,
+                    "origin:FJ1504/nut_1": 0.03954796162156799
+                  }
+                },
+                {
+                  "offset_mm": 0.5999999999999996,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.020410082690185107,
+                    "origin:FJ1504/bolt_1": 0.017822892255638108,
+                    "origin:FJ1504/nut_1": 0.04060820607698238
+                  }
+                },
+                {
+                  "offset_mm": 0.5,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.024909340446454292,
+                    "origin:FJ1504/bolt_1": 0.01682284535017679,
+                    "origin:FJ1504/nut_1": 0.03219832338799341,
+                    "origin:FJ1504/back_washer_1": 0.004504503861115837
+                  }
+                },
+                {
+                  "offset_mm": 0.39999999999999947,
+                  "hits_mm3": {
+                    "origin:FJ1504/backing_plate": 0.004086156086967352,
+                    "origin:FJ1504/bolt_1": 0.0040774498787627305,
+                    "origin:FJ1504/nut_1": 0.008685410103228961,
+                    "origin:FJ1504/back_washer_1": 0.0032708723089031194
+                  }
+                }
+              ]
+            }
+          ],
+          "seated_hits_mm3": {},
+          "sleeve_after_belly": {
+            "offset_direction_source": [
+              0.6604258981179556,
+              0.6716343651992057,
+              -0.3357750922545505
+            ],
+            "travel_mm": 8.0,
+            "step_mm": 0.1,
+            "hits": []
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Last 8 mm of fixed-orientation installation at neutral. The installed sleeve offset is measured outward from its seated position. The planar proximal pad is absent. Annulus intersections quantify available lattice material, with no strength or retention claim."
+}

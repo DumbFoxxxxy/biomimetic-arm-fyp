@@ -1,0 +1,115 @@
+{
+  "generator": {
+    "file": "tools/build_s1_series_elbow_extended_tpu_relief.py",
+    "sha256": "66a384ffc983070a4dcdc30e526bad678501f2080dbf2fa90f9d949382e55dd9"
+  },
+  "input_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_elbow_muscle_geometry.json",
+    "sha256": "9324505c7e785435a0f8101bcc25cb317171f285551e1ef885832e7486c89762"
+  },
+  "muscle": "flexor",
+  "original": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1486_return_relief_TPU.obj",
+    "sha256": "255f3cd0e827acc8c578f1f74b250061a7658bd9e1b9cb28b09e507eb7896868",
+    "translation_source_mm": [
+      -140.0,
+      -86.0,
+      1100.0
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "distal_interface_guard": {
+    "source_parts": [
+      "elbow:FJ1486_active_wire_crimp_barrel",
+      "elbow:FJ1486_cap_rotor",
+      "elbow:FJ1486_distal_bolt_left",
+      "elbow:FJ1486_distal_bolt_right",
+      "elbow:FJ1486_distal_head_washer_left",
+      "elbow:FJ1486_distal_head_washer_right",
+      "elbow:FJ1486_distal_nut_left",
+      "elbow:FJ1486_distal_nut_right",
+      "elbow:FJ1486_distal_nut_washer_left",
+      "elbow:FJ1486_distal_nut_washer_right"
+    ],
+    "cube_dilation_half_width_mm": 0.75,
+    "material_volume_mm3": 397.22250061918845
+  },
+  "original_contact_frames": 26,
+  "training_frames": 54,
+  "additional_training_frame_indices": [
+    192,
+    194,
+    196,
+    198,
+    202,
+    204,
+    208,
+    210,
+    212,
+    216,
+    218,
+    262,
+    264,
+    266,
+    268,
+    270,
+    274,
+    278,
+    286,
+    288,
+    290,
+    296,
+    298,
+    302,
+    306,
+    308,
+    310,
+    314
+  ],
+  "checked_frames": 167,
+  "held_out_frames": 113,
+  "targeted_obstacles": [
+    "bone:humerus",
+    "elbow:FJ1486_keeper_nut",
+    "elbow:paired_bone_frame"
+  ],
+  "guard_overlap_of_inverse_mapped_hulls_mm3": 0.0,
+  "trials": [
+    {
+      "margin_mm": 0.1,
+      "removed_volume_mm3": 43.21647614579193,
+      "protected_loss_mm3": 2.726740003494016e-13,
+      "positive_component_volumes_mm3": [
+        27065.457031992923
+      ],
+      "detached_volume_mm3": 0,
+      "overlap_frame_count": 0,
+      "residual_overlaps_mm3": {}
+    }
+  ],
+  "selected": {
+    "margin_mm": 0.1,
+    "removed_volume_mm3": 43.21647614579193,
+    "protected_loss_mm3": 2.726740003494016e-13,
+    "positive_component_volumes_mm3": [
+      27065.457031992923
+    ],
+    "detached_volume_mm3": 0,
+    "overlap_frame_count": 0,
+    "residual_overlaps_mm3": {},
+    "mesh": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1486_interface_relief_TPU.obj",
+      "sha256": "8c31d4eb5c9327d0a261646fa60c7b055ea7de2d72fc214c73ea057a88365ba4",
+      "translation_source_mm": [
+        -140.0,
+        -86.0,
+        1100.0
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "residual_diagnosis": {},
+  "scope": "Projected overlap hulls cut only outside a nominal channel/guide and end-interface guard. A detached fragment may be discarded only within the 0.001 mm3 overlap tolerance and after rechecking guard loss. Clearance uses kinematic TPU interpolation and nominal wire."
+}

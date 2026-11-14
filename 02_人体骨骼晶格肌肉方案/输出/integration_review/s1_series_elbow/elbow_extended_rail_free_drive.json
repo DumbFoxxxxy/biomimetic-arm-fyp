@@ -1,0 +1,60 @@
+{
+  "generator": {
+    "file": "tools/build_s1_series_elbow_extended_rail.py",
+    "sha256": "22f90f6a346df50d73751d0849c36d84b5143dea468265eb59d26be82235d17e"
+  },
+  "budget": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_series_stroke_budget.json",
+    "sha256": "1ea8ea7945ba00b114f7f239bc66879965124ccb3868c715af2f05346c2b1aa9"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "trajectory": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.csv",
+    "sha256": "c8a82acd89ccc6a921e5e7eef77f434b98df3dbacf6697e29a9c72e299c64e72"
+  },
+  "shafts": {
+    "series:a_shaft": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_series_retention_a_shaft.obj",
+      "sha256": "58dfdf16c9f9098c984b5c1e37fd31f338e2837e273564dfee3b1b4695c56b0e",
+      "translation_source_mm": [
+        -198.91918330106554,
+        -50.42198094557938,
+        1266.6450294569947
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        1143.6549038926044
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:b_shaft": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/extended_series_retention_b_shaft.obj",
+      "sha256": "e05edb09724001b8fb22aed5056a7c87596f4d7c2eae92795b9a245190ede066",
+      "translation_source_mm": [
+        -164.9426996234679,
+        -55.417832088574684,
+        1263.0170127147105
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        1143.6549038925984
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "rail_stroke_mm": 60.48771312723949,
+  "flexor_force_N": 30.0,
+  "checked_pair_count": 17819,
+  "sampled_count": 801,
+  "clear_samples": 801,
+  "first_interference": null,
+  "clear_peak_elbow_deg": 126.33276952020074,
+  "diagnostic_peak_elbow_deg": 126.33276952020074,
+  "peak_slide_mm": 58.348146902700115,
+  "remaining_peak_travel_mm": 2.1395662245393723,
+  "final_elbow_deg": -1.7304380853689173e-09,
+  "scope": "Two longer fixed flanged shafts. Neutral sockets and moving cap unchanged. Rigid cross-body screening at 5 ms stops at the first failed sample. Does not validate spring selection, bending stiffness, retention strength, TPU, or wire."
+}

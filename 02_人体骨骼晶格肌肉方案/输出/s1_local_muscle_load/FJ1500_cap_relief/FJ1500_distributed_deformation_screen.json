@@ -1,0 +1,4298 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_infraspinatus_distributed_deformation.py",
+    "sha256": "ba33dab251f8f8e528c10a215fbf9b1e9e4ba8f2e061dd70319d5a7298954a30"
+  },
+  "combined": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_combined_trace_screen.json",
+    "sha256": "014eedf78bdb4241bb22681585468728e98f979f1648f808181c97e52289a228"
+  },
+  "rest_geometry": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/lateral_rest_tpu_geometry.json",
+    "sha256": "456f1dcfc7cf9f71fcc1a11fedb7cc836ab56b61522cc1feab058279ce0ce535"
+  },
+  "pad_guard_intervals_mm": {
+    "proximal": [
+      {
+        "part": "cap:FJ1500/origin",
+        "interval_mm": [
+          -11.012667649394299,
+          11.941404531270067
+        ]
+      },
+      {
+        "part": "origin:FJ1500/front_support",
+        "interval_mm": [
+          -11.26342971186735,
+          11.65373457425461
+        ]
+      },
+      {
+        "part": "origin:FJ1500/bolt_0",
+        "interval_mm": [
+          1.173758129647794,
+          5.959714737638887
+        ]
+      },
+      {
+        "part": "origin:FJ1500/front_washer_0",
+        "interval_mm": [
+          1.5501595865136506,
+          7.976574301240695
+        ]
+      },
+      {
+        "part": "origin:FJ1500/bolt_1",
+        "interval_mm": [
+          -6.097449187696836,
+          -1.3114896670774385
+        ]
+      }
+    ],
+    "distal": [
+      {
+        "part": "stop:FJ1500/distal_stop_blank",
+        "interval_mm": [
+          113.84697097170633,
+          116.89531536114949
+        ]
+      },
+      {
+        "part": "free_terminal:FJ1500",
+        "interval_mm": [
+          110.20225804671608,
+          119.85996426348447
+        ]
+      }
+    ]
+  },
+  "muscle_axis_span_mm": 115.89120167049282,
+  "results": [
+    {
+      "name": "previous",
+      "blend_range_mm": [
+        34.76736050114784,
+        90.3951373029844
+      ],
+      "ramp_fraction": 0.0,
+      "cases": [
+        {
+          "frame": 0,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9884261029032545,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1587154704908527,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.08933424205022673
+        },
+        {
+          "frame": 0,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2742332000954972
+        },
+        {
+          "frame": 20,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9884261034024117,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15871546781460655,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.08933424702689188
+        },
+        {
+          "frame": 20,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.27423320252669475
+        },
+        {
+          "frame": 40,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9884261034482036,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15871546828606736,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0893342459113923
+        },
+        {
+          "frame": 40,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.27423320845726373
+        },
+        {
+          "frame": 60,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9888717769790328,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15753913145734752,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.09135546449743065
+        },
+        {
+          "frame": 60,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2750768637011205
+        },
+        {
+          "frame": 80,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9912213395582051,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1494820732684828,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.10725953778449245
+        },
+        {
+          "frame": 80,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.28146411267408333
+        },
+        {
+          "frame": 100,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9907640980825159,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.13555466408114872,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.14144363140431768
+        },
+        {
+          "frame": 100,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2923899633829823
+        },
+        {
+          "frame": 120,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9899105456668492,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.11947690229299916,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.19350884780030306
+        },
+        {
+          "frame": 120,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.3045459755493193
+        },
+        {
+          "frame": 140,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9902866979733584,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.11802246662848907,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.1969409547424662
+        },
+        {
+          "frame": 140,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.30417426961753474
+        },
+        {
+          "frame": 160,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.993412014572313,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15384224217736808,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.09403374559903037
+        },
+        {
+          "frame": 160,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2732809489061933
+        },
+        {
+          "frame": 180,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9943278009227269,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.19612454282755595,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.042065127789741676
+        },
+        {
+          "frame": 180,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.23700308222666405
+        },
+        {
+          "frame": 200,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953797261548044,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.20594126136645208,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03600775040276155
+        },
+        {
+          "frame": 200,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.22852743290782826
+        },
+        {
+          "frame": 201,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953147099072474,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.20547864311271102,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03626840651265057
+        },
+        {
+          "frame": 201,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.22892841035164055
+        },
+        {
+          "frame": 206,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9948774114346292,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.2020218793738769,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03829020015397396
+        },
+        {
+          "frame": 206,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2319180766771243
+        },
+        {
+          "frame": 220,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9941019114882869,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.18434222372418246,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05136019849204019
+        },
+        {
+          "frame": 220,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.24707579521885226
+        },
+        {
+          "frame": 240,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934108417426656,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.14896291310572182,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.10335606435479672
+        },
+        {
+          "frame": 240,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.27670944081429805
+        },
+        {
+          "frame": 260,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9908971645966909,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.11521336056188655,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.20376798416801964
+        },
+        {
+          "frame": 260,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.303792251741786
+        },
+        {
+          "frame": 271,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9902614158444981,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.10709818758106629,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.23717023303863707
+        },
+        {
+          "frame": 271,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.30924486388418104
+        },
+        {
+          "frame": 280,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9906448196376567,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.11097116297715802,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.21773321929323897
+        },
+        {
+          "frame": 280,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.30488466869352904
+        },
+        {
+          "frame": 300,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9944528037553789,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15538697204700036,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.08629374396068833
+        },
+        {
+          "frame": 300,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26666830286887633
+        },
+        {
+          "frame": 320,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9966178269066965,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.19535956507042976,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.040679010516865746
+        },
+        {
+          "frame": 320,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.23434084904526908
+        },
+        {
+          "frame": 340,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9955210188771881,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1739281541626458,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.06036277175753869
+        },
+        {
+          "frame": 340,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25312265871771455
+        },
+        {
+          "frame": 360,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9939439016811479,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.15354621114728245,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.09188693191894315
+        },
+        {
+          "frame": 360,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.27063135395956606
+        },
+        {
+          "frame": 380,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.993636494382533,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1509726940737145,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.09712369392463804
+        },
+        {
+          "frame": 380,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2730114148379793
+        },
+        {
+          "frame": 400,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.994388296071585,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16307431642063497,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07574243711907548
+        },
+        {
+          "frame": 400,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2630693041556606
+        },
+        {
+          "frame": 420,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953455254339921,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1824444484713248,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05190433101134
+        },
+        {
+          "frame": 420,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2470029356286884
+        },
+        {
+          "frame": 440,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9954645974356329,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.2007186267709919,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.038252490106175985
+        },
+        {
+          "frame": 440,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.23188881036313935
+        },
+        {
+          "frame": 460,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9964726634029922,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.21141367578804188,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03269608778602277
+        },
+        {
+          "frame": 460,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.22337382726180463
+        },
+        {
+          "frame": 475,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9964229593471436,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.21336032484337833,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.032054367094161026
+        },
+        {
+          "frame": 475,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.22231797547811366
+        },
+        {
+          "frame": 480,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9961892641963158,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.21289602342074368,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03238839774429006
+        },
+        {
+          "frame": 480,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.22293769750988113
+        },
+        {
+          "frame": 500,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9944488600677753,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.20629259853487336,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.03626930691756724
+        },
+        {
+          "frame": 500,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2294832090989024
+        },
+        {
+          "frame": 520,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9924385055029458,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.19292251276121725,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.04519545672966402
+        },
+        {
+          "frame": 520,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.24158487596706474
+        },
+        {
+          "frame": 540,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9916586543929795,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.17820140297374615,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05874714498023957
+        },
+        {
+          "frame": 540,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25443027739160207
+        },
+        {
+          "frame": 560,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.99262958186532,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16689907911402707,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07319250824118129
+        },
+        {
+          "frame": 560,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26392564827763393
+        },
+        {
+          "frame": 580,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9932643721971683,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16163562927982514,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.08108399286252518
+        },
+        {
+          "frame": 580,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26802705622555956
+        },
+        {
+          "frame": 600,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9933071440595093,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16258786389895943,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07914514545624092
+        },
+        {
+          "frame": 600,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.266838109666278
+        },
+        {
+          "frame": 620,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9936290227297355,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16788181944712172,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07086861332882444
+        },
+        {
+          "frame": 620,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2621486665923925
+        },
+        {
+          "frame": 640,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9927946759219399,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1746243529342991,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.062021663762078
+        },
+        {
+          "frame": 640,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2565176428289131
+        },
+        {
+          "frame": 660,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.992157730689107,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.18004440759962537,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05619149630523448
+        },
+        {
+          "frame": 660,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25231055137636094
+        },
+        {
+          "frame": 680,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915017231864723,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.18233904235915244,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05428768778774224
+        },
+        {
+          "frame": 680,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25098786257123074
+        },
+        {
+          "frame": 700,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9906540999552674,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1810499310707199,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.05607889383863746
+        },
+        {
+          "frame": 700,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25279617629932294
+        },
+        {
+          "frame": 720,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9898450267343617,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.17696501933564698,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.06099948718626704
+        },
+        {
+          "frame": 720,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.25688968227655445
+        },
+        {
+          "frame": 740,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9894728985384381,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.17165018591963085,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.06793221167721405
+        },
+        {
+          "frame": 740,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26179161446218213
+        },
+        {
+          "frame": 760,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9896944725607391,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1668035616899154,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07488118900612835
+        },
+        {
+          "frame": 760,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26599992726187904
+        },
+        {
+          "frame": 780,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9902828353981613,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.1636711942944533,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.07959882101469444
+        },
+        {
+          "frame": 780,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.2685021986678137
+        },
+        {
+          "frame": 800,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9908454866170823,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.16271673801947864,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.08086597871929362
+        },
+        {
+          "frame": 800,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": -0.26902795243642025
+        }
+      ]
+    },
+    {
+      "name": "extended_cubic",
+      "blend_range_mm": [
+        11.941404531270067,
+        110.20225804671608
+      ],
+      "ramp_fraction": 0.0,
+      "cases": [
+        {
+          "frame": 0,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915004052865476,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.494947184577475,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21185339837019385,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0010182801537876318
+        },
+        {
+          "frame": 20,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915004057785154,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4949471830321292,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.211853396947986,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.001018280185964282
+        },
+        {
+          "frame": 40,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915004058189142,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4949471833706917,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2118533928934351,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0010182804401755452
+        },
+        {
+          "frame": 60,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9918935648670022,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.49425831568751133,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21134512389106672,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0010301168728444887
+        },
+        {
+          "frame": 80,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.993941860115685,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.48957770497860886,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.20756843242757964,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0011214690079401728
+        },
+        {
+          "frame": 100,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9937023585803483,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4814634022763461,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.20109422579710734,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0012928792741485895
+        },
+        {
+          "frame": 120,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9931581690647678,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4720364702742487,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.19385319981190174,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0014993141233185653
+        },
+        {
+          "frame": 140,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9933861428897369,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.471058552209606,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.19390410317465448,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0015033381495945936
+        },
+        {
+          "frame": 160,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953610258556175,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4917605143644571,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21189410731116548,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0010255894302355628
+        },
+        {
+          "frame": 180,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9936838757741524,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5161356657102835,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.23294703148910917,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005987703075982093
+        },
+        {
+          "frame": 200,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934263687497873,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5217757797721956,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2378450164156443,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005085847395124923
+        },
+        {
+          "frame": 201,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934291791925005,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5215102504876543,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2376136357427862,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005127083408181035
+        },
+        {
+          "frame": 206,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934798203883813,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5195253374567911,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.23588745256115573,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005439496035319069
+        },
+        {
+          "frame": 220,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9945957311483532,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5093522311693522,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22711050984352119,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007122051641983416
+        },
+        {
+          "frame": 240,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953503104976965,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.48888010278255645,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.20981815570983145,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.001076829995938968
+        },
+        {
+          "frame": 260,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9937572653790984,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.46918107225171024,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.1938168093673648,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.001514050053798191
+        },
+        {
+          "frame": 271,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9933653528193518,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.46434774154767966,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.1904480987207311,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0016121336044358225
+        },
+        {
+          "frame": 280,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9936146313961454,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.466495115658503,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.19284493313642082,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0015439212745046449
+        },
+        {
+          "frame": 300,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9960366772343909,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4921626843165664,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21501965960198574,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0009506892008566692
+        },
+        {
+          "frame": 320,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9965790115938696,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5154043938075187,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2340471363327629,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.000572495852113282
+        },
+        {
+          "frame": 340,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9967170961130148,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5030921646083988,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22321792593094275,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007852953696747371
+        },
+        {
+          "frame": 360,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9957033795016392,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.491329811965912,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21305430645112103,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0009974981409204275
+        },
+        {
+          "frame": 380,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9955096227149342,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4898581695803277,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2116895171159716,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0010290543645306016
+        },
+        {
+          "frame": 400,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.995995862473054,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4968826873288469,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21751346551886158,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0008989597016750284
+        },
+        {
+          "frame": 420,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9964396881318408,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5080967862090359,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22689658347736277,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007116600137524755
+        },
+        {
+          "frame": 440,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9944918294281234,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.518659839080115,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2357150368494461,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005421941668766819
+        },
+        {
+          "frame": 460,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9938082926740672,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5248583913785115,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.24071918537761786,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0004546630147259298
+        },
+        {
+          "frame": 475,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9933514476134517,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5260244833913057,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.24140609983086347,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0004441067497668663
+        },
+        {
+          "frame": 480,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9931699259583872,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5257752307001622,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.24107588678049777,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0004499371174648409
+        },
+        {
+          "frame": 500,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9924062137985619,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5220520245284539,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.23740328088262372,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0005147227977422564
+        },
+        {
+          "frame": 520,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9921531303536124,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5144181149004311,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.23047952565443974,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0006448582428762589
+        },
+        {
+          "frame": 540,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9930333069707901,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5059642394231789,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22306089699620454,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007906704382870302
+        },
+        {
+          "frame": 560,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9945701579225812,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4994353546879363,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2175225333527543,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.000899978539717794
+        },
+        {
+          "frame": 580,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9952859468441946,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.49636454814696696,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21508263747456347,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.000950565609811993
+        },
+        {
+          "frame": 600,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9953177963906932,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4968798124344067,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2157172868203883,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.000935971730419316
+        },
+        {
+          "frame": 620,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9955268734329573,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.49991594710138376,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21841161183976363,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0008792548217396723
+        },
+        {
+          "frame": 640,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9944547473917006,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5038102680143423,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22169081289910195,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0008140095797131326
+        },
+        {
+          "frame": 660,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934490157242727,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5069651902812178,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2241823310339403,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007648918622742001
+        },
+        {
+          "frame": 680,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9925600910704984,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.508336650507522,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2250294208018195,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007487687399157176
+        },
+        {
+          "frame": 700,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9919279776567675,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5076500202878962,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22407004832980562,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0007685889460702384
+        },
+        {
+          "frame": 720,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915929981540315,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5053451958881058,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.22177115427442012,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0008147041120559568
+        },
+        {
+          "frame": 740,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9916503313652562,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5023121549005181,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21897049728423956,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0008701337915031967
+        },
+        {
+          "frame": 760,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.992115356917736,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4995245389434213,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21653332270710088,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0009194187173966473
+        },
+        {
+          "frame": 780,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9927560900506238,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.49770470703227926,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21505485435747584,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0009502365056893725
+        },
+        {
+          "frame": 800,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9932743521512214,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.4971303867144165,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.21470882398276359,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0009571107849934979
+        }
+      ]
+    },
+    {
+      "name": "extended_ramps_20pct",
+      "blend_range_mm": [
+        11.941404531270067,
+        110.20225804671608
+      ],
+      "ramp_fraction": 0.2,
+      "cases": [
+        {
+          "frame": 0,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9895986120150859,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5651845670404662,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3108077204154592,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9895986126548206,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5651845657518162,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31080771925552353,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9895986127046003,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5651845660679617,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3108077156485094,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9900971584154498,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5646066510094958,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31039143299813315,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9927147181743672,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5606953185729744,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3073248300359044,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9924589195548383,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5539179166815943,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.30206487630229883,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9918180490559545,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5460424978136438,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2961652781172589,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9920564180649195,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5451924623847878,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.296148394296913,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9943334453297518,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.56240445971343,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31065993382992374,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9919289284427554,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5827202960089082,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3277181682710563,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9916184370300986,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5874260606556436,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3316844988540726,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9916210284037332,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5872045288381385,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3314972153351091,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.991678670495034,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5855484773562566,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.33009980481904827,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9930956336715606,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5770613004407803,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3229894721051926,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9943091650019139,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5599873257738435,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3089582193528533,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9924510227448954,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5435626156552592,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2959706383283486,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9919977797921735,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5395133653740247,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2931904121250951,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9922893854593927,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5412680658278975,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.2950742187369468,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9951151979902618,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5625717982896193,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31295444934811095,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9956307040324747,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.581984032723401,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.32844493367386907,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9959101442916176,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5717446362178313,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31970116512411856,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9947257621250387,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.56195875431252,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3114761447871202,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.994502766838305,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5607399627782358,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31037708262270436,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9950753873461488,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5665953761266544,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.315105083374247,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9955088509369486,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.575948589044304,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.32271933171499373,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9929701388981601,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5847724291055985,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3298808551534377,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9921191779731918,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5899692597399718,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3339632828951729,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9915384628634923,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5909668843491143,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3345498169472792,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9913044969624405,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.590767412665515,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3342933368903579,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9903091338968719,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5876916709997803,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3313611026865384,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9899702337197004,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5813406844941461,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.32578015667440086,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9910984248946574,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5742943100499084,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31977741329537823,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9932858790316631,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5688449374625613,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31527988856168127,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9942694585159499,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5662737226450921,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31328343068088227,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.994309459245633,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5666908726449545,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.313778114130487,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9945549870532067,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.569213824881174,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31594953787962043,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9930490834374566,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5724618352000547,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31860822715880505,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9916301735887563,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5751048121204414,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.32064378194403076,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9904926225445394,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5762689642515861,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3213585735098672,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9896837937894042,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5757186437810248,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3206132967544993,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9893229371775599,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.573814285208756,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31877709982427077,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9895209789363396,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5712946373293518,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3165224804776399,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.990199075849691,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5689714338998606,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31454912693760706,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9910563606736256,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5674489155452334,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.313342246276669,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9917276836572554,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5669616685046295,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.31304797760292646,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        }
+      ]
+    },
+    {
+      "name": "extended_ramps_10pct",
+      "blend_range_mm": [
+        11.941404531270067,
+        110.20225804671608
+      ],
+      "ramp_fraction": 0.1,
+      "cases": [
+        {
+          "frame": 0,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9880306554695526,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6075193745355747,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 0,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.372445847128376,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9880306562317953,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6075193733807805,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 20,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3724458460846744,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9880306562893969,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6075193736776632,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 40,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3724458426973777,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.988616789497504,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6069987658974515,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 60,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37206715853898775,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.991704707082993,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6034852953145347,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 80,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.369294943528976,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9914343905510651,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5973901916293715,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 100,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3645341846719198,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9907125606343893,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5902904267172059,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 120,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.35917713039682425,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9909605166562017,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5894906544733175,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 140,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3591175305926935,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934910323768344,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6049260379712673,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 160,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3721807458240091,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.990105980287581,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6231219709531413,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 180,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3875213263904031,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.989461528786232,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6273305398622153,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 200,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3910828344516714,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9894786919255988,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6271324930160936,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 201,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.39091475232815753,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9896489136114749,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6256517531595444,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 206,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3896603472488943,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9917515010986506,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6180565911527637,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 220,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38327114408076973,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934557585468569,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6027424154720205,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 240,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3706295232933164,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9913759854063635,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5879573693161023,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 260,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.35887457166328296,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9908711701246263,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5842106443010441,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 271,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3563187421363177,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9911983058543025,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.5857872694480472,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 280,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.35797713382025936,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9943612676858169,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.604946379838047,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 300,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37406675332082034,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9946665970873959,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.622387444187618,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 320,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38806607443336805,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9952512540767869,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6132272650553001,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 340,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38021916762883995,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9939251509290749,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6044573335684681,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 360,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37282048570416076,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9936777349885456,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6033685746056282,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 380,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37183607678498826,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9943220874119926,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6086271682996404,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 400,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3761023989556334,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9947494358689489,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6170179038731607,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 420,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3829656944521209,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9912695301338037,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6249276349288485,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 440,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3894181154067379,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9899053586918704,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6295893494862068,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 460,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.39310456040037994,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9891455675752231,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6304937577706798,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 475,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.39364992916365577,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9888839908798746,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6303198972786096,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 480,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3934264256792344,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9879210673071399,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6275877920515084,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 500,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.390820363574609,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9878840771336969,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6219206104616783,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 520,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.385826213597533,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9895046050700665,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6156192335586383,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 540,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38043715256254296,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9922333457341296,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6107350787446473,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 560,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3763856796124139,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934356635700061,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6084222078215208,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 580,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3745753975797327,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9934823835151101,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6087868500824396,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 600,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3750066043186414,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9937582290090295,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.611042564887152,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 620,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3769528808661291,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9918983683092367,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6139537544095107,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 640,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37934688986408743,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9901307641591485,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6163289512197427,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 660,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38118990911903616,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9887435323808633,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6173844638762175,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 680,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3818522761211613,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.98781452531636,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6169067033454684,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 700,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.38120418453292154,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9874612797540546,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6152146971835898,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 720,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3795718298920879,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9877710884232274,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6129665082447174,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 740,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3775552220517667,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9886232073811302,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6108875545283895,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 760,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3757819035178115,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.989659193649656,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6095200925931424,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 780,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.37469006181307096,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 0.0,
+          "minimum_sampled_determinant": 0.9904569041395695,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 5.0,
+          "minimum_sampled_determinant": 0.6090771433845268,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        },
+        {
+          "frame": 800,
+          "input_N": 10.0,
+          "minimum_sampled_determinant": 0.3744152889674506,
+          "mesh_status": "Error.NoError",
+          "bone_and_cover_hits_mm3": {},
+          "nominal_internal_wire_overlap_mm3": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Prescribed interpolation of actual rest-shaped lattice and nominal inner route on sampled local equilibria. Protected pad bounds derived from actual geometry with a 0.5 mm cube dilation. No constitutive equilibrium, stiffness identification, actual inner cable sliding or contact forces."
+}

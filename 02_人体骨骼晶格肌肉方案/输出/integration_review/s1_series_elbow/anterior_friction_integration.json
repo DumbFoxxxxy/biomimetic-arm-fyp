@@ -1,0 +1,141 @@
+{
+  "generator": {
+    "file": "tools/study_s1_anterior_friction_integration.py",
+    "sha256": "282af79dfd8d02df4e661916b3494197bd6a8fc15eb9d42e03e932c5ba2e514c"
+  },
+  "timing": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/gravity_balanced_release_timing.json",
+    "sha256": "f6b6d9aca2921b3f7125f4b8229ed21d853cbf5d1f650722441e1e2dfca7fbdb"
+  },
+  "channel": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1468_revised_channel_motion.json",
+    "sha256": "71f5d61be9ae5f58bf0a35c6222be6dd349e971ef5b59aa29508d3c8dc126756"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/shoulder_elbow_free_drive.xml",
+    "sha256": "49487a93385ac50c4d7f5ca716459f2a6ab579d679af82fc4e71ffd9606dab34"
+  },
+  "anterior_input_increment_N": 2.0,
+  "near_port_wrap_rad": 2.3188498815249288,
+  "cases": [
+    {
+      "mu": 0.0,
+      "transmission": 1.0,
+      "anterior_delivered_peak_N": 2.0,
+      "shoulder_flexion_projection_peak_deg": 3.7485539071303475,
+      "elbow_peak_deg": 100.20631576070727,
+      "end_GH_offset_deg": 1.6568312085771302,
+      "end_elbow_deg": -1.6193433613400028e-09,
+      "first_rigid_collision": {
+        "time_s": 2.2800000000000002,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 0.029280815417903824
+          }
+        ]
+      },
+      "first_pin_rib_collision": {
+        "time_s": 2.27,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.001101024302155649
+          }
+        ]
+      },
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/anterior_friction_mu_00.csv",
+        "sha256": "a42c37daefc121c393ef5b2db034347e410722211ab6d4d3f63878884cd2840e"
+      }
+    },
+    {
+      "mu": 0.1,
+      "transmission": 0.7930373267499365,
+      "anterior_delivered_peak_N": 1.586074653499873,
+      "shoulder_flexion_projection_peak_deg": 3.706732678473177,
+      "elbow_peak_deg": 100.18085479907836,
+      "end_GH_offset_deg": 1.6303693891524966,
+      "end_elbow_deg": -1.60878054965367e-09,
+      "first_rigid_collision": {
+        "time_s": 2.3000000000000003,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 0.019855359537009856
+          }
+        ]
+      },
+      "first_pin_rib_collision": {
+        "time_s": 2.29,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.0017468248368148424
+          }
+        ]
+      },
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/anterior_friction_mu_10.csv",
+        "sha256": "4042c469f798eed7a945373bc2b7a60162464f62e3ffbe5e52175a9dc7f98eae"
+      }
+    },
+    {
+      "mu": 0.2,
+      "transmission": 0.6289082016186855,
+      "anterior_delivered_peak_N": 1.257816403237371,
+      "shoulder_flexion_projection_peak_deg": 3.6743449319709627,
+      "elbow_peak_deg": 100.16303134321718,
+      "end_GH_offset_deg": 1.6099889900816746,
+      "end_elbow_deg": -1.6060637332119506e-09,
+      "first_rigid_collision": {
+        "time_s": 2.3200000000000003,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3330",
+            "right": "elbow:elbow_shoulder_pin",
+            "overlap_mm3": 0.008617036110252552
+          }
+        ]
+      },
+      "first_pin_rib_collision": {
+        "time_s": 2.31,
+        "hits": [
+          {
+            "left": "elbow:elbow_shoulder_pin",
+            "right": "thorax_reference:FJ3330",
+            "overlap_mm3": 0.0012743141644459255
+          }
+        ]
+      },
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/anterior_friction_mu_20.csv",
+        "sha256": "1e77dd51d9b3163da7f510ee0c0f6e8e55232120b3a64e529a863dcb05636407"
+      }
+    },
+    {
+      "mu": 0.3,
+      "transmission": 0.4987476789827925,
+      "anterior_delivered_peak_N": 0.997495357965585,
+      "shoulder_flexion_projection_peak_deg": 3.6493292147784597,
+      "elbow_peak_deg": 100.14952123446949,
+      "end_GH_offset_deg": 1.5942223549580845,
+      "end_elbow_deg": -1.6051989918823678e-09,
+      "first_rigid_collision": null,
+      "first_pin_rib_collision": null,
+      "sample_count": 801,
+      "trace": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/anterior_friction_mu_30.csv",
+        "sha256": "6d2218d993ff7491f9c5cdf86db5ec661a1ba119ffc49ca84f6a1fd3bb3bcea7"
+      }
+    }
+  ],
+  "scope": "Forward full-slip capstan attenuation of FJ1468 only, applied as a fixed sensitivity factor across the command profile in the existing ideal GH/elbow force model. Wrap is a conservative sampled local proxy from a different prescribed SC/AC path. This is neither a stick-slip law nor a reverse-sliding prediction. Existing rigid assembly is checked at 20 ms intervals and the known pin-rib pair at 5 ms. Revised TPU and SC/AC motion are excluded."
+}

@@ -1,0 +1,138 @@
+{
+  "generator": {
+    "file": "tools/summarize_s1_nominal_elbow_wire_travel.py",
+    "sha256": "2c2be78849dc6c82c0a6df8a5aadaf74101d45aa009bc0e053436dae739aafdf"
+  },
+  "flexible_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_nominal_rate_flexible_audit.json",
+    "sha256": "0ed99207621db2b7af2c0bd1a4d9408c40594c2f349bac7bc64307d1c187a869"
+  },
+  "rigid_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_nominal_rate_rigid_audit.json",
+    "sha256": "803fbf2517d9a63e6f540e5b3c90e4d4fb7ed0232a4ee941f229a43e82014f43"
+  },
+  "trace": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_rate_nominal_front_0N.csv",
+    "sha256": "dd6c72e9d35a2b453e515a2dd51c0a43f28fecfb35da7c897bbdc4bee47148fc"
+  },
+  "model": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/elbow_extended_rail_free_drive.xml",
+    "sha256": "99a7a5095a3f216aea169c3934f360b2449ad88ed8ef01686b3a5618c118379e"
+  },
+  "table": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_nominal_wire_travel.csv",
+    "sha256": "4a8d3af09b1502c68ad6d225f2e6f2d090ab5a6ca789532a8136c02f34c9457c"
+  },
+  "sample_count": 801,
+  "channels": {
+    "FJ1486": {
+      "muscle": "flexor",
+      "local_neutral_arc_mm": 180.91217662779368,
+      "local_min_arc_mm": 111.78188827625968,
+      "local_max_arc_mm": 180.9126460554861,
+      "local_peak_to_peak_mm": 69.13075777922643,
+      "local_peak_shortening_mm": 69.130288351534,
+      "local_peak_extension_mm": 0.0004694276924226415,
+      "local_return_delta_mm": -0.00026600456283176754,
+      "model_tendon_excursion_mm": 72.39892102673161,
+      "local_arc_arm_mm": [
+        2.119327712790664,
+        25.033065382729088
+      ],
+      "model_tendon_arm_mm": [
+        12.724311339695758,
+        39.83145948041056
+      ],
+      "active_tension_peak_N": 30.0,
+      "peak_take_up_speed_mm_s": 218.36441996959184,
+      "peak_pay_out_speed_mm_s": 226.25275083218185,
+      "peak_active_take_up_power_W": 6.550932599087755,
+      "peak_active_take_up_power_time_s": 0.6950000000000001,
+      "local_polyline_turn_rad": [
+        0.750143130879267,
+        1.466375584118552
+      ],
+      "hypothetical_forward_full_slip": [
+        {
+          "mu": 0.0,
+          "forward_samples": 161,
+          "inlet_tension_peak_N": 30.0,
+          "inlet_mechanical_power_peak_W": 6.550932599087755
+        },
+        {
+          "mu": 0.1,
+          "forward_samples": 161,
+          "inlet_tension_peak_N": 34.73802610360859,
+          "inlet_mechanical_power_peak_W": 7.304736980098433
+        },
+        {
+          "mu": 0.2,
+          "forward_samples": 161,
+          "inlet_tension_peak_N": 40.22434858583306,
+          "inlet_mechanical_power_peak_W": 8.153677015503527
+        },
+        {
+          "mu": 0.3,
+          "forward_samples": 161,
+          "inlet_tension_peak_N": 46.57714903917734,
+          "inlet_mechanical_power_peak_W": 9.107764485059487
+        }
+      ]
+    },
+    "FJ1477": {
+      "muscle": "extensor",
+      "local_neutral_arc_mm": 172.52558108325084,
+      "local_min_arc_mm": 172.4457492191367,
+      "local_max_arc_mm": 213.35782334373948,
+      "local_peak_to_peak_mm": 40.91207412460278,
+      "local_peak_shortening_mm": 0.07983186411414067,
+      "local_peak_extension_mm": 40.83224226048864,
+      "local_return_delta_mm": -0.00061927684538432,
+      "model_tendon_excursion_mm": 29.759905049884622,
+      "local_arc_arm_mm": [
+        -72.59347179342512,
+        -28.222024008073273
+      ],
+      "model_tendon_arm_mm": [
+        -54.42601904377397,
+        -24.37917397486444
+      ],
+      "active_tension_peak_N": 0.0,
+      "peak_take_up_speed_mm_s": 139.6438845605153,
+      "peak_pay_out_speed_mm_s": 105.36231951291848,
+      "peak_active_take_up_power_W": 0.0,
+      "peak_active_take_up_power_time_s": null,
+      "local_polyline_turn_rad": [
+        0.8108551996912459,
+        1.1196988977490898
+      ],
+      "hypothetical_forward_full_slip": [
+        {
+          "mu": 0.0,
+          "forward_samples": 0,
+          "inlet_tension_peak_N": null,
+          "inlet_mechanical_power_peak_W": null
+        },
+        {
+          "mu": 0.1,
+          "forward_samples": 0,
+          "inlet_tension_peak_N": null,
+          "inlet_mechanical_power_peak_W": null
+        },
+        {
+          "mu": 0.2,
+          "forward_samples": 0,
+          "inlet_tension_peak_N": null,
+          "inlet_mechanical_power_peak_W": null
+        },
+        {
+          "mu": 0.3,
+          "forward_samples": 0,
+          "inlet_tension_peak_N": null,
+          "inlet_mechanical_power_peak_W": null
+        }
+      ]
+    }
+  },
+  "scope": "Internal steel path only, using the audited interpolation between its terminal supports. Moment arms are partial length derivatives holding the shoulder and slider fixed. Recorded tension is the active force command after actuator gearing. Passive TPU restoring force and external cable travel are excluded. The forward full-slip capstan scenario assumes every polyline bend participates in sliding; it does not predict contact, actual friction, or reverse sliding. Power uses simultaneous recorded active force and differentiated internal arc speed."
+}

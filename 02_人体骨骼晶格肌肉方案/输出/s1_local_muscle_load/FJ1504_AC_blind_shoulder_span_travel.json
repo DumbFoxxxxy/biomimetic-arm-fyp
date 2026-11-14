@@ -1,0 +1,84 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_girdle_tendon_travel.py",
+    "sha256": "8be0112910fbf3e59e79e47fc9820dbf0fe7a35e030112d54f73fe7b6b5f8d82"
+  },
+  "rigid_path": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1504_AC_blind_coupled_motion.json",
+    "sha256": "1d3666baba924d8d96606730163944b77513036bb87e7e171fcfc1050789c0af"
+  },
+  "local_endpoints": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/gh_endpoint_geometry.json",
+    "sha256": "fe8981f10ef49943a8c61e48bede56122371d4bd0afb28ae77577eabe77ba11a"
+  },
+  "table": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1504_AC_blind_shoulder_span_travel.csv",
+    "sha256": "104a01ad6b6a9013bd53bbecdf67b8bb6b5775a17b0224995c05b6fdbca47634"
+  },
+  "sampled_poses": 46,
+  "final_scapula_coronal_deg": 20.0,
+  "final_sc_rotvec_deg": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "channels": {
+    "FJ1507": {
+      "origin_body": "scapula",
+      "neutral_span_mm": 97.59034844410071,
+      "span_change_bounds_mm": [
+        -9.947598300641403e-14,
+        1.5631940186722204e-13
+      ],
+      "final_span_change_mm": -4.263256414560601e-14,
+      "span_excursion_mm": 2.5579538487363607e-13,
+      "ac_source_y_moment_arm_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    "FJ1468": {
+      "origin_body": "clavicle",
+      "neutral_span_mm": 152.21469014451168,
+      "span_change_bounds_mm": [
+        0.0,
+        6.8409619316939825
+      ],
+      "final_span_change_mm": 6.8409619316939825,
+      "span_excursion_mm": 6.8409619316939825,
+      "ac_source_y_moment_arm_mm": [
+        -21.92287577373864,
+        -16.982719821071356
+      ]
+    },
+    "FJ1513": {
+      "origin_body": "scapula",
+      "neutral_span_mm": 131.18305129421003,
+      "span_change_bounds_mm": [
+        -1.1368683772161603e-13,
+        1.4210854715202004e-13
+      ],
+      "final_span_change_mm": 2.842170943040401e-14,
+      "span_excursion_mm": 2.5579538487363607e-13,
+      "ac_source_y_moment_arm_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    "FJ1467": {
+      "origin_body": "scapula",
+      "neutral_span_mm": 128.64696538492237,
+      "span_change_bounds_mm": [
+        -1.4210854715202004e-13,
+        1.7053025658242404e-13
+      ],
+      "final_span_change_mm": -8.526512829121202e-14,
+      "span_excursion_mm": 3.126388037344441e-13,
+      "ac_source_y_moment_arm_mm": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "scope": "Endpoint chords at fixed relative GH and elbow coordinates. Evaluated on the saved positive rigid SC/AC path. AC arms hold SC fixed and use global source axes. Return traverses the same poses in reverse. Uses baseline fixed-endpoint ports; Y free terminals and actuator-side routing are excluded. This is a geometric adjustment estimate, not flexible contact or driven motion."
+}

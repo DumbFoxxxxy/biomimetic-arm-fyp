@@ -1,0 +1,239 @@
+{
+  "generator": {
+    "file": "tools/audit_s1_anterior_distal_reaction.py",
+    "sha256": "71f0029132f67920d9b686659fdeafb36c96eff36930c66dd7bdcfe1fbc76b05"
+  },
+  "route_audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_anchor_path_audit.json",
+    "sha256": "0b50a2a3e77395a68928e14eadddd197e141ca712766af3bd5b039b33c9314b4"
+  },
+  "node": 103,
+  "point_source_mm": [
+    -205.96101606760038,
+    -79.07316953744458,
+    1224.7412896071087
+  ],
+  "reaction_per_tension": 1.1798764826365873,
+  "force_on_support_direction_source": [
+    -0.40485327566219925,
+    -0.48487795248858484,
+    0.7752336398635349
+  ],
+  "components": {
+    "cap:FJ1468/distal": {
+      "signed_nearest_distance_mm": 2.1754276350838855,
+      "rays": [
+        {
+          "offset_deg": -25.0,
+          "entry_from_wire_axis_mm": 3.74065500545018,
+          "gap_from_nominal_wire_mm": 3.4406550054501803
+        },
+        {
+          "offset_deg": -10.0,
+          "entry_from_wire_axis_mm": 3.4424863008869617,
+          "gap_from_nominal_wire_mm": 3.142486300886962
+        },
+        {
+          "offset_deg": 0.0,
+          "entry_from_wire_axis_mm": 3.3901886816372393,
+          "gap_from_nominal_wire_mm": 3.0901886816372395
+        },
+        {
+          "offset_deg": 10.0,
+          "entry_from_wire_axis_mm": 3.4424886753279167,
+          "gap_from_nominal_wire_mm": 3.142488675327917
+        },
+        {
+          "offset_deg": 25.0,
+          "entry_from_wire_axis_mm": 3.7406554815633615,
+          "gap_from_nominal_wire_mm": 3.4406554815633617
+        }
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_port_path_revision/unified_deltoid_upper_origin_edge14p0/FJ1468_distal_cap.stl",
+        "sha256": "89f94c4103ac4efe73a145863186c38c76c88861d8d0ad2a7a1dd14163078a8c",
+        "translation_source_mm": [
+          -116.76,
+          -83.71,
+          1347.18
+        ],
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "volume_mm3": 1386.6067136744073
+      }
+    },
+    "stop:FJ1468_stop_blank": {
+      "signed_nearest_distance_mm": 3.4789439811338787,
+      "rays": [
+        {
+          "offset_deg": -25.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": -10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 0.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 25.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        }
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/shoulder_design/s1_port_path_revision/triplex_terminal/FJ1468_stop_blank.stl",
+        "sha256": "ac56c0ca6a7fe877c13856e007d85da32e01a46aa11bdad9300ad854a412a656",
+        "translation_source_mm": [
+          -199.65,
+          -76.11,
+          1227.57
+        ],
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "volume_mm3": 10.612913557927879
+      }
+    },
+    "bone:humerus": {
+      "signed_nearest_distance_mm": 5.215426978598449,
+      "rays": [
+        {
+          "offset_deg": -25.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": -10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 0.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 25.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        }
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/channel_first/elbow_extension_stop/bone_humerus.obj",
+        "sha256": "5c8d44423231d32cfcb8932b953dc9c32c6261f1fe11ec95b757b68c3cf40f94",
+        "translation_source_mm": [
+          -209.86904634828838,
+          -72.12742580930231,
+          1044.5232075118065
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          121867.75274278792
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      }
+    },
+    "elbow:FJ1486_bone_adapter": {
+      "signed_nearest_distance_mm": 8.71182793476215,
+      "rays": [
+        {
+          "offset_deg": -25.0,
+          "entry_from_wire_axis_mm": 11.579139234301756,
+          "gap_from_nominal_wire_mm": 11.279139234301756
+        },
+        {
+          "offset_deg": -10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 0.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 10.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        },
+        {
+          "offset_deg": 25.0,
+          "entry_from_wire_axis_mm": null,
+          "gap_from_nominal_wire_mm": null
+        }
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1486_adapter_liner_relief_1.10_hull.obj",
+        "sha256": "1bc83e897ff7e58aff36b2b3201293ad17f26bb6ae9e6a73f68e1525ce2a42d2",
+        "translation_source_mm": [
+          -162.3676487647,
+          -76.02966788668,
+          1315.5998062814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          5178.79311944244,
+          -0.0030522636899123576
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      }
+    },
+    "tpu:existing_front_guide": {
+      "signed_nearest_distance_mm": 0.8487069734930275,
+      "rays": [
+        {
+          "offset_deg": -25.0,
+          "entry_from_wire_axis_mm": 1.0141172298973273,
+          "gap_from_nominal_wire_mm": 0.7141172298973273
+        },
+        {
+          "offset_deg": -10.0,
+          "entry_from_wire_axis_mm": 1.055939290408801,
+          "gap_from_nominal_wire_mm": 0.7559392904088009
+        },
+        {
+          "offset_deg": 0.0,
+          "entry_from_wire_axis_mm": 1.0627725187138886,
+          "gap_from_nominal_wire_mm": 0.7627725187138885
+        },
+        {
+          "offset_deg": 10.0,
+          "entry_from_wire_axis_mm": 1.0530698380875982,
+          "gap_from_nominal_wire_mm": 0.7530698380875982
+        },
+        {
+          "offset_deg": 25.0,
+          "entry_from_wire_axis_mm": 1.015957056639587,
+          "gap_from_nominal_wire_mm": 0.715957056639587
+        }
+      ],
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_lined_detour_TPU.obj",
+        "sha256": "f0a1c3c5e370d7dd19f4b43cbede9febd68e3c5eb214ac997d596c47809ab2c0",
+        "translation_source_mm": [
+          -122.21762655950542,
+          -98.9492480489454,
+          1346.5322104973882
+        ],
+        "mesh_import_mode": "native_indexed_without_welding",
+        "roundtrip_relative_volume_error": 1.445977884711206e-16
+      }
+    }
+  },
+  "scope": "Neutral geometric rays in the equal-tension turn load direction and a transverse fan. No contact equilibrium, material stiffness, or fastener capacity inferred. Nearest distances are capped at 15 mm. The existing TPU mesh is checked as evidence of the present geometry; it is not changed."
+}
