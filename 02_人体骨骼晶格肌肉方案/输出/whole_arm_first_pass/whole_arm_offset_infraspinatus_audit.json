@@ -1,0 +1,3959 @@
+{
+  "motion": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_motion.json",
+    "sha256": "edb03212f6d48e90dc20af4e5ae73475bfba27f4987d5cdcc06af54e4ad17a69"
+  },
+  "base": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/tabletop_base_check.json",
+    "sha256": "a92948102297ea738048043e530f654747de29de34b3f1cf4aa318df2fbdfafb"
+  },
+  "original_kinematics": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/y_terminal_retained_lead_equilibrium.json",
+    "sha256": "90cb73ca1bc9448ebf7ae924a91f3d2a3651b91bdf57597440764d8376ac80e1"
+  },
+  "stiffness": [
+    0.2,
+    0.4,
+    50.0,
+    1.0
+  ],
+  "humeral_revision": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1500_cap_relief/FJ1500_humeral_exit_screen.json",
+    "sha256": "3de50b59d2d6d22547f26a0a6c4289ab38b5e4fdb9d6a7fa2b0ca2612e931496"
+  },
+  "installed_length_adjustment_mm": -14.78779084536233,
+  "fixed_revision_overlap_mm3": {
+    "collar:jaw_upper": {
+      "elbow:FJ1477_bone_adapter": 122.56651225883137,
+      "elbow:FJ1477_bone_1_bolt": 17.65340119283539
+    }
+  },
+  "loads_N": [
+    0.0,
+    5.0,
+    10.0,
+    5.0,
+    0.0
+  ],
+  "axes": [
+    "flexion",
+    "abduction",
+    "longitudinal"
+  ],
+  "cases": {
+    "FJ1500": {
+      "K7_SC1_pos": [
+        {
+          "input_deg": 0.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091807763717796,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000523
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500422227,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812711330958,
+              "central_chord_mm": 21.941480847050343,
+              "retained_lead_lengths_mm": [
+                1.6000000000000678,
+                1.60000000000007
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400290197747958,
+                -0.003071738030718449,
+                0.01717586414460402
+              ],
+              "terminal_shift_mm": 22.870616304434108,
+              "stationarity_residual_N": 3.599804636961059e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03882859496328372,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.3775171038326315,
+              "central_chord_mm": 21.941480847050435,
+              "retained_lead_lengths_mm": [
+                1.6000000000000005,
+                1.600000000000099
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.13285820421785574,
+                -0.07338173147931347,
+                0.11858121799278729
+              ],
+              "terminal_shift_mm": 31.49721722316973,
+              "stationarity_residual_N": 1.7549491522389726e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03788258002100458,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812125609724,
+              "central_chord_mm": 21.941480847051245,
+              "retained_lead_lengths_mm": [
+                1.599999999999975,
+                1.5999999999999903
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400288932799867,
+                -0.0030717367795828018,
+                0.01717586231014344
+              ],
+              "terminal_shift_mm": 22.870615920242425,
+              "stationarity_residual_N": 3.810370748817145e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038828595661946984,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091809048817694,
+              "retained_lead_lengths_mm": [
+                1.60000000000014,
+                1.6000000000000578
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 2.4192425935318497e-06,
+              "stationarity_residual_N": 1.120889615058935e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033118835067,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 1.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 19.669763672557984,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000074
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500422923,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8993512600818372,
+              "central_chord_mm": 21.94148084705516,
+              "retained_lead_lengths_mm": [
+                1.6000000000000043,
+                1.5999999999999408
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023278390078151457,
+                -0.004059712912931039,
+                0.019400899469546373
+              ],
+              "terminal_shift_mm": 22.52364007439045,
+              "stationarity_residual_N": 6.00448902731617e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03725565420996557,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.486412276789595,
+              "central_chord_mm": 21.941480847050506,
+              "retained_lead_lengths_mm": [
+                1.6000000000000882,
+                1.6000000000000971
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.12839217362214084,
+                -0.07387297939980127,
+                0.12660393785608828
+              ],
+              "terminal_shift_mm": 30.425465397369134,
+              "stationarity_residual_N": 1.3880846582529446e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037290567453138856,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8993513491487356,
+              "central_chord_mm": 21.941480847050787,
+              "retained_lead_lengths_mm": [
+                1.6000000000000594,
+                1.6000000000001249
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0232783921157428,
+                -0.004059713277005212,
+                0.019400901073319654
+              ],
+              "terminal_shift_mm": 22.523640841566245,
+              "stationarity_residual_N": 2.821846425794747e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03725565487084942,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 19.66976515241503,
+              "retained_lead_lengths_mm": [
+                1.6000000000000054,
+                1.6000000000000507
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.688130386054422e-06,
+              "stationarity_residual_N": 7.545281594505684e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0403312067534126,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 2.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.300848323690484,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.600000000000134
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500439285,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.9440735435942047,
+              "central_chord_mm": 21.941480847051757,
+              "retained_lead_lengths_mm": [
+                1.6000000000000747,
+                1.599999999999963
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023178199599385205,
+                -0.005133531585016628,
+                0.02185436263846353
+              ],
+              "terminal_shift_mm": 22.143773058727653,
+              "stationarity_residual_N": 8.268844755380175e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040026728541606486,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.586937387212469,
+              "central_chord_mm": 21.94148084705035,
+              "retained_lead_lengths_mm": [
+                1.600000000000073,
+                1.5999999999999663
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.12326600538907834,
+                -0.07427856675119174,
+                0.13431736602900204
+              ],
+              "terminal_shift_mm": 29.36474036538633,
+              "stationarity_residual_N": 1.319531338516251e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03939834326411304,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.9440734080215428,
+              "central_chord_mm": 21.94148084705942,
+              "retained_lead_lengths_mm": [
+                1.6000000000001213,
+                1.600000000000096
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02317819876603989,
+                -0.005133528912372656,
+                0.021854359463731154
+              ],
+              "terminal_shift_mm": 22.14377329844241,
+              "stationarity_residual_N": 1.9061020460895016e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040026738976303045,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.300850157018438,
+              "retained_lead_lengths_mm": [
+                1.6000000000001053,
+                1.6000000000000472
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.8642060187965224e-06,
+              "stationarity_residual_N": 7.235150373866912e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331219686772446,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 3.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 17.00209291944178,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000902
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500441378,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.9962895817858093,
+              "central_chord_mm": 21.94148084705099,
+              "retained_lead_lengths_mm": [
+                1.6000000000000132,
+                1.6000000000000256
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02302731476076933,
+                -0.006302127547773581,
+                0.024522162958495016
+              ],
+              "terminal_shift_mm": 21.73148825855027,
+              "stationarity_residual_N": 8.720477187383719e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03748925088334077,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.680278258187602,
+              "central_chord_mm": 21.94148084705371,
+              "retained_lead_lengths_mm": [
+                1.6000000000000716,
+                1.599999999999949
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.11753324690956049,
+                -0.0746296706048515,
+                0.1417010443722836
+              ],
+              "terminal_shift_mm": 28.31681378820787,
+              "stationarity_residual_N": 8.422710074477468e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038611952241522474,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.9962894771631696,
+              "central_chord_mm": 21.94148084705567,
+              "retained_lead_lengths_mm": [
+                1.60000000000008,
+                1.5999999999999948
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02302731491846522,
+                -0.006302125069511382,
+                0.02452215988577071
+              ],
+              "terminal_shift_mm": 21.731488455187726,
+              "stationarity_residual_N": 1.4392687161522393e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037489248743240985,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 17.002095409201146,
+              "retained_lead_lengths_mm": [
+                1.6000000000000707,
+                1.6000000000000174
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 3.4394239992799185e-06,
+              "stationarity_residual_N": 1.2942471032970728e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033124493408136,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 4.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.794797153109396,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000323
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500400621,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.0548630930276937,
+              "central_chord_mm": 21.941480847050645,
+              "retained_lead_lengths_mm": [
+                1.5999999999999883,
+                1.6000000000000045
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.022765794928359534,
+                -0.00757143055730654,
+                0.027385686496837553
+              ],
+              "terminal_shift_mm": 21.288288665798397,
+              "stationarity_residual_N": 7.849343451196552e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038311850606415065,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.767626100844686,
+              "central_chord_mm": 21.941480847050112,
+              "retained_lead_lengths_mm": [
+                1.6000000000000991,
+                1.600000000000083
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.11124461230962332,
+                -0.07495429775261893,
+                0.1487401198524662
+              ],
+              "terminal_shift_mm": 27.28342955883396,
+              "stationarity_residual_N": 4.821172555711046e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03724863988321311,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.0548629736187656,
+              "central_chord_mm": 21.94148084705346,
+              "retained_lead_lengths_mm": [
+                1.600000000000016,
+                1.6000000000000008
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.022765795111819052,
+                -0.0075714279914702075,
+                0.027385683032314416
+              ],
+              "terminal_shift_mm": 21.28828854826647,
+              "stationarity_residual_N": 1.0943141664168702e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03831184889515201,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.794796839568363,
+              "retained_lead_lengths_mm": [
+                1.6000000000001489,
+                1.6000000000000887
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 7.210599322942734e-07,
+              "stationarity_residual_N": 3.356379605028669e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331225317901925,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 5.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.705201066532265,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.600000000000111
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500416741,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.1189645618042445,
+              "central_chord_mm": 21.94148084705037,
+              "retained_lead_lengths_mm": [
+                1.600000000000009,
+                1.6000000000001142
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02234528073432058,
+                -0.008945472438009016,
+                0.030424737866114028
+              ],
+              "terminal_shift_mm": 20.81627940759102,
+              "stationarity_residual_N": 5.665172869850817e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03857519810405339,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.8501658327422685,
+              "central_chord_mm": 21.941480847050908,
+              "retained_lead_lengths_mm": [
+                1.6000000000000427,
+                1.6000000000001415
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.10444754068134533,
+                -0.07527701259408266,
+                0.15542482176810563
+              ],
+              "terminal_shift_mm": 26.26632724287724,
+              "stationarity_residual_N": 1.2921136164158931e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03831368879338145,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.118964414578271,
+              "central_chord_mm": 21.941480847052055,
+              "retained_lead_lengths_mm": [
+                1.6000000000000283,
+                1.6000000000001129
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.022345280047023994,
+                -0.008945470184371765,
+                0.0304247341066222
+              ],
+              "terminal_shift_mm": 20.81627903125852,
+              "stationarity_residual_N": 8.456921652899193e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038575201589521324,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.705200098906387,
+              "retained_lead_lengths_mm": [
+                1.6000000000000496,
+                1.5999999999999888
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 7.016439190262656e-07,
+              "stationarity_residual_N": 3.3947408842062054e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033123230533511,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 6.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 13.76460010321697,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000001036
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331205004198394,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.1880322429251464,
+              "central_chord_mm": 21.941480847050276,
+              "retained_lead_lengths_mm": [
+                1.6000000000000145,
+                1.6000000000000743
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.021727213573238573,
+                -0.010427126905169072,
+                0.03361944333131553
+              ],
+              "terminal_shift_mm": 20.317895225179363,
+              "stationarity_residual_N": 1.3534228933978167e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03731731929740354,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.92906626113753,
+              "central_chord_mm": 21.941480847050496,
+              "retained_lead_lengths_mm": [
+                1.6000000000000278,
+                1.600000000000119
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.09718581943761052,
+                -0.0756187634328614,
+                0.1617499172344991
+              ],
+              "terminal_shift_mm": 25.267273669813846,
+              "stationarity_residual_N": 3.503702652577196e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03962366259028444,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.188032104344009,
+              "central_chord_mm": 21.94148084705136,
+              "retained_lead_lengths_mm": [
+                1.6000000000000298,
+                1.600000000000023
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.021727211639386734,
+                -0.010427125471158821,
+                0.03361943887807302
+              ],
+              "terminal_shift_mm": 20.31789483601619,
+              "stationarity_residual_N": 6.67147963838568e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037317318068686836,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 13.76459828936198,
+              "retained_lead_lengths_mm": [
+                1.6000000000001426,
+                1.6000000000000776
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 8.976622961621043e-07,
+              "stationarity_residual_N": 3.9895295963705374e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033124607128551,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 7.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 13.008183905052023,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.5999999999999859
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500434729,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.2617265250151113,
+              "central_chord_mm": 21.941480847050588,
+              "retained_lead_lengths_mm": [
+                1.6000000000000032,
+                1.6000000000001289
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02088083811751978,
+                -0.012018459302852887,
+                0.03695140907664381
+              ],
+              "terminal_shift_mm": 19.795751370460685,
+              "stationarity_residual_N": 5.754620499966863e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04026104961255193,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 6.005469675088239,
+              "central_chord_mm": 21.941480847050375,
+              "retained_lead_lengths_mm": [
+                1.6000000000000727,
+                1.6000000000000807
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.08949931829800921,
+                -0.07599666763139355,
+                0.16771412188488122
+              ],
+              "terminal_shift_mm": 24.288096766562198,
+              "stationarity_residual_N": 7.04438006727465e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03746156655043165,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.26172613338838,
+              "central_chord_mm": 21.941480847053704,
+              "retained_lead_lengths_mm": [
+                1.600000000000109,
+                1.6000000000001071
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.020880835270394593,
+                -0.012018455779734247,
+                0.03695140146530937
+              ],
+              "terminal_shift_mm": 19.795750655746858,
+              "stationarity_residual_N": 2.6051419368435338e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040261039884239916,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 13.008181198544799,
+              "retained_lead_lengths_mm": [
+                1.6000000000000665,
+                1.6000000000001522
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.2277545197802076e-06,
+              "stationarity_residual_N": 5.02134492572343e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033125913357214,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 8.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.471741799616328,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000763
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331205004230285,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.339885599325542,
+              "central_chord_mm": 21.94148084705065,
+              "retained_lead_lengths_mm": [
+                1.5999999999999905,
+                1.5999999999999974
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.019781334259033483,
+                -0.013720695951786325,
+                0.04040441753940663
+              ],
+              "terminal_shift_mm": 19.252584637239046,
+              "stationarity_residual_N": 5.178164317911447e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037279295865353945,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 6.080482994442597,
+              "central_chord_mm": 21.941480847050375,
+              "retained_lead_lengths_mm": [
+                1.6000000000000636,
+                1.600000000000141
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.08142375233828533,
+                -0.07642390307384823,
+                0.17331959133766267
+              ],
+              "terminal_shift_mm": 23.33073158194948,
+              "stationarity_residual_N": 6.878983745874715e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03758579246265012,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.3398854124830393,
+              "central_chord_mm": 21.941480847051746,
+              "retained_lead_lengths_mm": [
+                1.600000000000053,
+                1.599999999999979
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.019781334058693697,
+                -0.013720693722039658,
+                0.04040441427966463
+              ],
+              "terminal_shift_mm": 19.252584266541497,
+              "stationarity_residual_N": 1.6785532460087879e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037279295245541355,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.47173873326546,
+              "retained_lead_lengths_mm": [
+                1.5999999999999732,
+                1.6000000000001018
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.4861933722719433e-06,
+              "stationarity_residual_N": 5.985205251996209e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033126168580736,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 9.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.185900272425418,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000691
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500421431,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.422484882024961,
+              "central_chord_mm": 21.94148084705418,
+              "retained_lead_lengths_mm": [
+                1.6000000000000953,
+                1.6000000000000116
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.018408198030561665,
+                -0.015533810723685976,
+                0.04396486945539651
+              ],
+              "terminal_shift_mm": 18.691259558524617,
+              "stationarity_residual_N": 1.2304962166253834e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03953792668350845,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 6.155168629697823,
+              "central_chord_mm": 21.941480847050798,
+              "retained_lead_lengths_mm": [
+                1.600000000000035,
+                1.600000000000121
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07299056861291012,
+                -0.07690948485517157,
+                0.1785713494609205
+              ],
+              "terminal_shift_mm": 22.39726720403186,
+              "stationarity_residual_N": 1.6609059811800829e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04023449446797534,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.422484851929448,
+              "central_chord_mm": 21.94148084705095,
+              "retained_lead_lengths_mm": [
+                1.6000000000000711,
+                1.5999999999999817
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.018408196750590862,
+                -0.015533811030023376,
+                0.04396486771160338
+              ],
+              "terminal_shift_mm": 18.691259727302366,
+              "stationarity_residual_N": 7.842370517112445e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03953793224881302,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.185897336407475,
+              "retained_lead_lengths_mm": [
+                1.6000000000000254,
+                1.5999999999999648
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.6702359416654087e-06,
+              "stationarity_residual_N": 7.039058019815462e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331257411191306,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 10.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.169126216513263,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.600000000000021
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500424475,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.5095997144306585,
+              "central_chord_mm": 21.94148084705262,
+              "retained_lead_lengths_mm": [
+                1.60000000000003,
+                1.6000000000000871
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.01674389532172279,
+                -0.017455661738169093,
+                0.04762210013157197
+              ],
+              "terminal_shift_mm": 18.11482413533051,
+              "stationarity_residual_N": 8.642879094717585e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037500843155305635,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 6.23053754301064,
+              "central_chord_mm": 21.941480847050585,
+              "retained_lead_lengths_mm": [
+                1.6000000000000612,
+                1.59999999999999
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.06422687036410593,
+                -0.07745805722970953,
+                0.1834768753708854
+              ],
+              "terminal_shift_mm": 21.49001099302948,
+              "stationarity_residual_N": 1.2199846368753666e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037703590532810104,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.5095997322535786,
+              "central_chord_mm": 21.94148084705061,
+              "retained_lead_lengths_mm": [
+                1.6000000000000718,
+                1.5999999999999654
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.01674389446989409,
+                -0.01745566203531052,
+                0.047622099046631956
+              ],
+              "terminal_shift_mm": 18.114824426897894,
+              "stationarity_residual_N": 1.8745553245506102e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03750083993917066,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 12.169123796809236,
+              "retained_lead_lengths_mm": [
+                1.5999999999999563,
+                1.6000000000001344
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 1.7286592655150617e-06,
+              "stationarity_residual_N": 7.814882012730867e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033124843128226,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        }
+      ],
+      "GH_axial_positive": [
+        {
+          "input_deg": 0.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091807763717796,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000523
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500422227,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812711330958,
+              "central_chord_mm": 21.941480847050343,
+              "retained_lead_lengths_mm": [
+                1.6000000000000678,
+                1.60000000000007
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400290197747958,
+                -0.003071738030718449,
+                0.01717586414460402
+              ],
+              "terminal_shift_mm": 22.870616304434108,
+              "stationarity_residual_N": 3.599804636961059e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03882859496328372,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.3775171038326315,
+              "central_chord_mm": 21.941480847050435,
+              "retained_lead_lengths_mm": [
+                1.6000000000000005,
+                1.600000000000099
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.13285820421785574,
+                -0.07338173147931347,
+                0.11858121799278729
+              ],
+              "terminal_shift_mm": 31.49721722316973,
+              "stationarity_residual_N": 1.7549491522389726e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03788258002100458,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812125609724,
+              "central_chord_mm": 21.941480847051245,
+              "retained_lead_lengths_mm": [
+                1.599999999999975,
+                1.5999999999999903
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400288932799867,
+                -0.0030717367795828018,
+                0.01717586231014344
+              ],
+              "terminal_shift_mm": 22.870615920242425,
+              "stationarity_residual_N": 3.810370748817145e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038828595661946984,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091809048817694,
+              "retained_lead_lengths_mm": [
+                1.60000000000014,
+                1.6000000000000578
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 2.4192425935318497e-06,
+              "stationarity_residual_N": 1.120889615058935e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033118835067,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 10.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.198825442096908,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000001577
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500422227,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.242731719605683,
+              "retained_lead_lengths_mm": [
+                1.5999999999999497,
+                1.6000000000001577
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856398910616,
+              "stationarity_residual_N": 1.4664947966619022e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500424021,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 4.266697201249692,
+              "central_chord_mm": 21.941480847051217,
+              "retained_lead_lengths_mm": [
+                1.6000000000000811,
+                1.6000000000001429
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.10704953470658324,
+                -0.06697431152278396,
+                0.10083767778928775
+              ],
+              "terminal_shift_mm": 35.144075948000946,
+              "stationarity_residual_N": 2.873407617524398e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03839010724080854,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.242729294635545,
+              "retained_lead_lengths_mm": [
+                1.599999999999992,
+                1.600000000000139
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856900407398,
+              "stationarity_residual_N": 1.5725627069634096e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033125602977615,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.198823721817625,
+              "retained_lead_lengths_mm": [
+                1.6000000000000238,
+                1.6000000000000012
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 2.161426301551975e-06,
+              "stationarity_residual_N": 4.913106287092594e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331248650814805,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 20.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.09857002115841691,
+              "central_chord_mm": 21.94148084705066,
+              "retained_lead_lengths_mm": [
+                1.5999999999999426,
+                1.6000000000000496
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.001587089168566666,
+                0.002906275226330177,
+                -0.0009331544519773282
+              ],
+              "terminal_shift_mm": 0.372229080856502,
+              "stationarity_residual_N": 5.216145993779815e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039300316756983984,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.19060385739052,
+              "retained_lead_lengths_mm": [
+                1.6000000000001222,
+                1.5999999999999746
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.9998564109784,
+              "stationarity_residual_N": 5.082202403479968e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120999410921,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 3.0938008563756982,
+              "central_chord_mm": 21.941480847050247,
+              "retained_lead_lengths_mm": [
+                1.5999999999999897,
+                1.5999999999999805
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07980659581583226,
+                -0.055144419063926156,
+                0.07657452916042502
+              ],
+              "terminal_shift_mm": 39.33814120498726,
+              "stationarity_residual_N": 1.0219575540845438e-07,
+              "central_wire_hits_mm3": {
+                "elbow:FJ1477_bone_adapter": 0.3110580914946564
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039865005473336136,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.190604989593677,
+              "retained_lead_lengths_mm": [
+                1.6000000000000185,
+                1.6000000000001526
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.99985665048516,
+              "stationarity_residual_N": 1.9158599031714895e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033119395481473,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.09856999651590008,
+              "central_chord_mm": 21.941480847058433,
+              "retained_lead_lengths_mm": [
+                1.600000000000005,
+                1.600000000000095
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0015870885644190913,
+                0.002906274231081593,
+                -0.0009331542062035227
+              ],
+              "terminal_shift_mm": 0.3722293712246317,
+              "stationarity_residual_N": 5.401804317761524e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039300371648432135,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 30.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.4867715272981809,
+              "central_chord_mm": 21.941480847050283,
+              "retained_lead_lengths_mm": [
+                1.6000000000000294,
+                1.600000000000113
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.007299658252586447,
+                0.01383193122185999,
+                -0.005839751139845572
+              ],
+              "terminal_shift_mm": 1.9617409561894916,
+              "stationarity_residual_N": 3.738845847297211e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03877792151473553,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.889752372747871,
+              "retained_lead_lengths_mm": [
+                1.6000000000000105,
+                1.6000000000001564
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856437889626,
+              "stationarity_residual_N": 1.456961985330129e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331201828614965,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 1.8392662191410352,
+              "central_chord_mm": 21.94148084705023,
+              "retained_lead_lengths_mm": [
+                1.6000000000000416,
+                1.5999999999999894
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.04947362087709194,
+                -0.03678725867224739,
+                0.04638791653206517
+              ],
+              "terminal_shift_mm": 43.832323859468076,
+              "stationarity_residual_N": 9.965914764296929e-08,
+              "central_wire_hits_mm3": {
+                "elbow:FJ1477_bone_adapter": 1.3696274973532852
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0400830148410527,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.88975431698433,
+              "retained_lead_lengths_mm": [
+                1.6000000000001304,
+                1.6000000000000225
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999857980495985,
+              "stationarity_residual_N": 1.41403946071155e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331162578067285,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.48677139810276393,
+              "central_chord_mm": 21.94148084705802,
+              "retained_lead_lengths_mm": [
+                1.5999999999999526,
+                1.6000000000001335
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.007299652680182148,
+                0.013831925630319942,
+                -0.005839750311623691
+              ],
+              "terminal_shift_mm": 1.961741629227409,
+              "stationarity_residual_N": 1.5183726385851007e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03877787501881553,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 40.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.927891172406888,
+              "central_chord_mm": 21.941480847051047,
+              "retained_lead_lengths_mm": [
+                1.6000000000000771,
+                1.5999999999999794
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.013318832527761545,
+                0.025124000525786033,
+                -0.01239034805494524
+              ],
+              "terminal_shift_mm": 3.8808857471534797,
+              "stationarity_residual_N": 7.528340993827774e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0374768118305481,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.778183110825326,
+              "retained_lead_lengths_mm": [
+                1.5999999999999845,
+                1.6000000000000774
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856457569624,
+              "stationarity_residual_N": 2.2498384244664264e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120116982363,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.5096039827773665,
+              "central_chord_mm": 21.941480847053114,
+              "retained_lead_lengths_mm": [
+                1.6000000000000971,
+                1.5999999999999828
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.014308813612029927,
+                -0.011381425324801039,
+                0.012655329978302175
+              ],
+              "terminal_shift_mm": 48.32807916790214,
+              "stationarity_residual_N": 3.7017859747559427e-07,
+              "central_wire_hits_mm3": {
+                "elbow:FJ1477_bone_adapter": 1.5230926696883769
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03726178235597502,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.778182483049646,
+              "retained_lead_lengths_mm": [
+                1.6000000000000416,
+                1.6000000000000127
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999855991223185,
+              "stationarity_residual_N": 4.667330619015636e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033116306429997,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.927891235018824,
+              "central_chord_mm": 21.941480847051306,
+              "retained_lead_lengths_mm": [
+                1.5999999999999563,
+                1.600000000000034
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.013318833831666009,
+                0.02512400122539106,
+                -0.012390348331150484
+              ],
+              "terminal_shift_mm": 3.8808855037798438,
+              "stationarity_residual_N": 7.361218648546653e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037476817637767695,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 50.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.4023204105766,
+              "central_chord_mm": 21.94148084705046,
+              "retained_lead_lengths_mm": [
+                1.6000000000000523,
+                1.6000000000001264
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.01982986530410353,
+                0.036084130147411436,
+                -0.019525668575822726
+              ],
+              "terminal_shift_mm": 5.978864099568224,
+              "stationarity_residual_N": 3.1270383826623234e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039114507575144626,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.154712415144118,
+              "retained_lead_lengths_mm": [
+                1.60000000000007,
+                1.5999999999999563
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856437837266,
+              "stationarity_residual_N": 2.561055536009603e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120777089637,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.37270005324405,
+              "retained_lead_lengths_mm": [
+                1.6000000000000434,
+                1.6000000000001227
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 49.99447542389748,
+              "stationarity_residual_N": 5.486567895529451e-08,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120739088257,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.154712649616917,
+              "retained_lead_lengths_mm": [
+                1.6000000000000698,
+                1.6000000000000667
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856941839287,
+              "stationarity_residual_N": 5.306528289429223e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120704043885,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.4023203767704935,
+              "central_chord_mm": 21.941480847051753,
+              "retained_lead_lengths_mm": [
+                1.5999999999999674,
+                1.6000000000000076
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.01982986488627567,
+                0.03608412839767916,
+                -0.01952566802672054
+              ],
+              "terminal_shift_mm": 5.978864245155025,
+              "stationarity_residual_N": 1.1914172272879659e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03911449239268033,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 60.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.9023100576991971,
+              "central_chord_mm": 21.941480847050777,
+              "retained_lead_lengths_mm": [
+                1.5999999999999872,
+                1.600000000000112
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02705606117906256,
+                0.046507943622702635,
+                -0.02675682472365477
+              ],
+              "terminal_shift_mm": 8.176070805363103,
+              "stationarity_residual_N": 6.074234804236204e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037795279823292297,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 16.91016111287957,
+              "retained_lead_lengths_mm": [
+                1.600000000000109,
+                1.600000000000084
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856443710275,
+              "stationarity_residual_N": 9.146407209279852e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0403312107115014,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 17.73716524915205,
+              "retained_lead_lengths_mm": [
+                1.6000000000000993,
+                1.600000000000164
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 49.994475423047035,
+              "stationarity_residual_N": 6.064889122721082e-08,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120992239162,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 16.910160672678042,
+              "retained_lead_lengths_mm": [
+                1.6000000000000594,
+                1.6000000000000172
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856943281628,
+              "stationarity_residual_N": 5.292619213684375e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331209195844875,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.9023100958285422,
+              "central_chord_mm": 21.941480847051306,
+              "retained_lead_lengths_mm": [
+                1.6000000000001016,
+                1.6000000000000318
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.02705606403916545,
+                0.04650794300774783,
+                -0.026756825054406595
+              ],
+              "terminal_shift_mm": 8.176070798461923,
+              "stationarity_residual_N": 1.3170445753167402e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03779528128799,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 70.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.4238859672657274,
+              "central_chord_mm": 21.941480847051487,
+              "retained_lead_lengths_mm": [
+                1.600000000000118,
+                1.6000000000000096
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.035112730495539146,
+                0.0563068873135188,
+                -0.03389366911950203
+              ],
+              "terminal_shift_mm": 10.424875903483924,
+              "stationarity_residual_N": 1.911721352267175e-06,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.243422298933779
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037891290656653726,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 19.635403405193802,
+              "retained_lead_lengths_mm": [
+                1.6000000000001127,
+                1.5999999999999779
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856285594035,
+              "stationarity_residual_N": 2.3705743190736105e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033118341309617,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 15.171806279155726,
+              "retained_lead_lengths_mm": [
+                1.6000000000001156,
+                1.6000000000000147
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 49.99447542133493,
+              "stationarity_residual_N": 8.025547960137333e-08,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033118640905642,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 19.635402855266896,
+              "retained_lead_lengths_mm": [
+                1.6000000000001129,
+                1.6000000000000139
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.999856939933462,
+              "stationarity_residual_N": 5.305286976007107e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040331189158404994,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.4238859064327287,
+              "central_chord_mm": 21.941480847053068,
+              "retained_lead_lengths_mm": [
+                1.5999999999999863,
+                1.5999999999999543
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.035112743661500134,
+                0.056306884604436926,
+                -0.0338936588482238
+              ],
+              "terminal_shift_mm": 10.424876646271416,
+              "stationarity_residual_N": 1.8277450092192293e-06,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.243424537709878
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03789127749750111,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 80.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.9652754847859564,
+              "central_chord_mm": 21.941480847051956,
+              "retained_lead_lengths_mm": [
+                1.6000000000000036,
+                1.6000000000000971
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.04404853478079994,
+                0.06544038106776197,
+                -0.04084750288276626
+              ],
+              "terminal_shift_mm": 12.691340682572566,
+              "stationarity_residual_N": 4.7075759207938045e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.6970567565602575
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03866554105182222,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.011083917403132894,
+              "central_chord_mm": 21.941480847050837,
+              "retained_lead_lengths_mm": [
+                1.6000000000001464,
+                1.6000000000000567
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.00020999990810123038,
+                0.0002110518736771788,
+                -0.00021062406406451988
+              ],
+              "terminal_shift_mm": 25.044442225824703,
+              "stationarity_residual_N": 1.2597191673351014e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03787625742318696,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.3557520883593,
+              "retained_lead_lengths_mm": [
+                1.6000000000000922,
+                1.6000000000000485
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 49.99447553073863,
+              "stationarity_residual_N": 5.955054217443991e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [
+                {
+                  "left": "elbow:FJ1477_bone_adapter",
+                  "right": "link:FJ1500/muscle_bolt",
+                  "overlap_mm3": 9.779484599086995
+                },
+                {
+                  "left": "elbow:FJ1477_bone_adapter",
+                  "right": "link:FJ1500/muscle_nut",
+                  "overlap_mm3": 8.747446844127847
+                },
+                {
+                  "left": "series:fixed_pin",
+                  "right": "link:FJ1500/muscle_bolt",
+                  "overlap_mm3": 2.480041817833355
+                },
+                {
+                  "left": "series:fixed_pin",
+                  "right": "link:FJ1500/muscle_nut",
+                  "overlap_mm3": 0.5152852073193626
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.011083844051684994,
+              "central_chord_mm": 21.941480847051157,
+              "retained_lead_lengths_mm": [
+                1.5999999999999854,
+                1.6000000000000392
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0002099985613953025,
+                0.0002110504893256998,
+                -0.00021062266811675413
+              ],
+              "terminal_shift_mm": 25.04444272409952,
+              "stationarity_residual_N": 4.4872480662988644e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0378762427897796,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.9652754286480207,
+              "central_chord_mm": 21.941480847051643,
+              "retained_lead_lengths_mm": [
+                1.5999999999999936,
+                1.6000000000000687
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.04404854024116686,
+                0.0654403752479814,
+                -0.04084750066608075
+              ],
+              "terminal_shift_mm": 12.69134115572685,
+              "stationarity_residual_N": 1.275343206468463e-06,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.697056436246495
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03866554972500336,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 82.2,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 3.0869958004256772,
+              "central_chord_mm": 21.941480847050162,
+              "retained_lead_lengths_mm": [
+                1.6000000000001409,
+                1.599999999999982
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0461348119800326,
+                0.06735954736025404,
+                -0.04234540843648645
+              ],
+              "terminal_shift_mm": 13.189385688343396,
+              "stationarity_residual_N": 9.799920872926271e-08,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.7596218432916118
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03991577559003964,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.020361636484633548,
+              "central_chord_mm": 21.941480847050475,
+              "retained_lead_lengths_mm": [
+                1.6000000000001333,
+                1.600000000000005
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.00038729707910821714,
+                0.0003798220289632358,
+                -0.0003802755968115495
+              ],
+              "terminal_shift_mm": 25.080938294920408,
+              "stationarity_residual_N": 5.1145441241960546e-09,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037732132590439484,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 14.456520866805946,
+              "retained_lead_lengths_mm": [
+                1.5999999999999772,
+                1.6000000000000327
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 49.99447544554118,
+              "stationarity_residual_N": 3.958307502535037e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [
+                {
+                  "left": "series:fixed_pin",
+                  "right": "link:FJ1500/muscle_bolt",
+                  "overlap_mm3": 4.697920385036063
+                },
+                {
+                  "left": "elbow:FJ1477_bone_adapter",
+                  "right": "link:FJ1500/muscle_nut",
+                  "overlap_mm3": 4.478676507421799
+                },
+                {
+                  "left": "elbow:FJ1477_bone_adapter",
+                  "right": "link:FJ1500/muscle_bolt",
+                  "overlap_mm3": 2.415951169566785
+                },
+                {
+                  "left": "elbow:FJ1477_bone_adapter",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 1.5020123943694492
+                },
+                {
+                  "left": "series:fixed_pin",
+                  "right": "link:FJ1500/muscle_nut",
+                  "overlap_mm3": 0.41643868504875625
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0203615896781138,
+              "central_chord_mm": 21.941480847050627,
+              "retained_lead_lengths_mm": [
+                1.600000000000029,
+                1.6000000000001084
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.00038729632251248495,
+                0.0003798211998902582,
+                -0.0003802747057921254
+              ],
+              "terminal_shift_mm": 25.08093853775374,
+              "stationarity_residual_N": 5.319242128229377e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03773215807035061,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 3.086995814585116,
+              "central_chord_mm": 21.941480847050702,
+              "retained_lead_lengths_mm": [
+                1.6000000000000638,
+                1.6000000000000214
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.04613481942607745,
+                0.06735954164382385,
+                -0.042345406631860684
+              ],
+              "terminal_shift_mm": 13.18938603851628,
+              "stationarity_residual_N": 1.3001209555865328e-06,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.7596214642173837
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03991578304709711,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        }
+      ],
+      "GH_axial_negative": [
+        {
+          "input_deg": 0.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091807763717796,
+              "retained_lead_lengths_mm": [
+                1.6000000000000532,
+                1.6000000000000523
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 0.0,
+              "stationarity_residual_N": 0.0,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120500422227,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812711330958,
+              "central_chord_mm": 21.941480847050343,
+              "retained_lead_lengths_mm": [
+                1.6000000000000678,
+                1.60000000000007
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400290197747958,
+                -0.003071738030718449,
+                0.01717586414460402
+              ],
+              "terminal_shift_mm": 22.870616304434108,
+              "stationarity_residual_N": 3.599804636961059e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03882859496328372,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 5.3775171038326315,
+              "central_chord_mm": 21.941480847050435,
+              "retained_lead_lengths_mm": [
+                1.6000000000000005,
+                1.600000000000099
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.13285820421785574,
+                -0.07338173147931347,
+                0.11858121799278729
+              ],
+              "terminal_shift_mm": 31.49721722316973,
+              "stationarity_residual_N": 1.7549491522389726e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03788258002100458,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.8635812125609724,
+              "central_chord_mm": 21.941480847051245,
+              "retained_lead_lengths_mm": [
+                1.599999999999975,
+                1.5999999999999903
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.023400288932799867,
+                -0.0030717367795828018,
+                0.01717586231014344
+              ],
+              "terminal_shift_mm": 22.870615920242425,
+              "stationarity_residual_N": 3.810370748817145e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038828595661946984,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 21.091809048817694,
+              "retained_lead_lengths_mm": [
+                1.60000000000014,
+                1.6000000000000578
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 2.4192425935318497e-06,
+              "stationarity_residual_N": 1.120889615058935e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033118835067,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 10.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.0650500461923014,
+              "central_chord_mm": 21.941480847052524,
+              "retained_lead_lengths_mm": [
+                1.6000000000000185,
+                1.5999999999999721
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.001416409379403672,
+                0.0016070155289838054,
+                0.0005932481849894625
+              ],
+              "terminal_shift_mm": 0.1678818233261042,
+              "stationarity_residual_N": 3.89517945579669e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03723078066873133,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.992321597209268,
+              "central_chord_mm": 21.94148084705112,
+              "retained_lead_lengths_mm": [
+                1.6000000000000452,
+                1.6000000000000532
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.05193824972045537,
+                -0.004412185455616562,
+                0.03908314570540689
+              ],
+              "terminal_shift_mm": 20.207481450449254,
+              "stationarity_residual_N": 2.5622365725387163e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03736312119132504,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 6.450495285781559,
+              "central_chord_mm": 21.941480847051015,
+              "retained_lead_lengths_mm": [
+                1.600000000000001,
+                1.5999999999999839
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.15841693135003865,
+                -0.07547796373688985,
+                0.12983736036211527
+              ],
+              "terminal_shift_mm": 28.63758169361234,
+              "stationarity_residual_N": 1.7786992355939644e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03736080394015544,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 1.992321601854173,
+              "central_chord_mm": 21.941480847050254,
+              "retained_lead_lengths_mm": [
+                1.6000000000000676,
+                1.599999999999964
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.05193824944626763,
+                -0.00441218462458226,
+                0.039083145425999735
+              ],
+              "terminal_shift_mm": 20.20748139174744,
+              "stationarity_residual_N": 8.508732604231396e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03736312146013218,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.06505004605067327,
+              "central_chord_mm": 21.941480847051555,
+              "retained_lead_lengths_mm": [
+                1.5999999999999874,
+                1.6000000000000771
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.001416409382428738,
+                0.0016070155157177721,
+                0.0005932481987149537
+              ],
+              "terminal_shift_mm": 0.16788186074394265,
+              "stationarity_residual_N": 1.0697374446425962e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03723078055619657,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 20.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.830378643117698,
+              "central_chord_mm": 21.941480847050347,
+              "retained_lead_lengths_mm": [
+                1.6000000000000154,
+                1.5999999999999726
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.01757900376212276,
+                0.018072944153178144,
+                0.011012027792222531
+              ],
+              "terminal_shift_mm": 2.0766317578310547,
+              "stationarity_residual_N": 8.386991272285192e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03752610665666737,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 3.1087485518494122,
+              "central_chord_mm": 21.94148084705107,
+              "retained_lead_lengths_mm": [
+                1.6000000000000867,
+                1.6000000000001418
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07813214698741942,
+                -0.0024728217050864498,
+                0.05865332686876785
+              ],
+              "terminal_shift_mm": 18.140021705119704,
+              "stationarity_residual_N": 3.2005104813728567e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.0391074183944588,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 7.503575251826567,
+              "central_chord_mm": 21.941480847050435,
+              "retained_lead_lengths_mm": [
+                1.6000000000000347,
+                1.6000000000000056
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1844179660970006,
+                -0.07429982388113615,
+                0.13477861696636328
+              ],
+              "terminal_shift_mm": 26.772740945133148,
+              "stationarity_residual_N": 4.73352373689028e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039105173830670116,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 3.108749072265125,
+              "central_chord_mm": 21.941480847051693,
+              "retained_lead_lengths_mm": [
+                1.6000000000000696,
+                1.5999999999999974
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07813215791701916,
+                -0.0024728345104420724,
+                0.05865333813298664
+              ],
+              "terminal_shift_mm": 18.14002521822799,
+              "stationarity_residual_N": 2.320126008060648e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039107426319572744,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.8303786289687266,
+              "central_chord_mm": 21.941480847054066,
+              "retained_lead_lengths_mm": [
+                1.6000000000000756,
+                1.6000000000000927
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.017579005346009424,
+                0.018072944002972154,
+                0.011012029057439771
+              ],
+              "terminal_shift_mm": 2.076631811045113,
+              "stationarity_residual_N": 9.938632628762895e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03752610663991756,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 30.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.8285118983390074,
+              "central_chord_mm": 21.94148084705089,
+              "retained_lead_lengths_mm": [
+                1.6000000000001549,
+                1.600000000000019
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.03681033877874608,
+                0.03673528607841383,
+                0.028864200849230828
+              ],
+              "terminal_shift_mm": 4.587584622698731,
+              "stationarity_residual_N": 3.1112852189593877e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037714046462477634,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 4.227664366322079,
+              "central_chord_mm": 21.941480847051885,
+              "retained_lead_lengths_mm": [
+                1.600000000000025,
+                1.5999999999999535
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.10271303469829332,
+                0.002424003255265314,
+                0.07513180518968139
+              ],
+              "terminal_shift_mm": 17.028446538135963,
+              "stationarity_residual_N": 1.908414007030765e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040155990612995615,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 8.539938554435764,
+              "central_chord_mm": 21.94148084705025,
+              "retained_lead_lengths_mm": [
+                1.6000000000000416,
+                1.6000000000000927
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.2110447480824902,
+                -0.07086565099350224,
+                0.13356827083575912
+              ],
+              "terminal_shift_mm": 26.0050455526029,
+              "stationarity_residual_N": 4.124979371663068e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039801577982144974,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 4.22766453871915,
+              "central_chord_mm": 21.941480847050283,
+              "retained_lead_lengths_mm": [
+                1.6000000000000152,
+                1.5999999999999663
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1027130387211175,
+                0.0024239962179113785,
+                0.07513181308604126
+              ],
+              "terminal_shift_mm": 17.028447383214168,
+              "stationarity_residual_N": 8.123712137944243e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.040155993695909616,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 1.8285118726754654,
+              "central_chord_mm": 21.941480847051604,
+              "retained_lead_lengths_mm": [
+                1.6000000000000447,
+                1.60000000000016
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.036810339775167844,
+                0.03673528459321268,
+                0.028864201880106497
+              ],
+              "terminal_shift_mm": 4.5875846935572095,
+              "stationarity_residual_N": 3.281174596580296e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03771404366668568,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 40.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.959099300750265,
+              "central_chord_mm": 21.941480847050027,
+              "retained_lead_lengths_mm": [
+                1.6000000000001355,
+                1.6000000000001395
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.05593526380037437,
+                0.0561776920853376,
+                0.05083102218548662
+              ],
+              "terminal_shift_mm": 7.451654559410321,
+              "stationarity_residual_N": 3.8001719953498536e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03800415643320822,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 5.348824108942294,
+              "central_chord_mm": 21.94148084705057,
+              "retained_lead_lengths_mm": [
+                1.600000000000103,
+                1.600000000000126
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1260802388103722,
+                0.009525839073638586,
+                0.08758235337616764
+              ],
+              "terminal_shift_mm": 17.0751316298886,
+              "stationarity_residual_N": 9.538378098743113e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03940384736552128,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 9.544666913483121,
+              "central_chord_mm": 21.941480847050354,
+              "retained_lead_lengths_mm": [
+                1.6000000000000998,
+                1.599999999999985
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.23799060641438188,
+                -0.06619046204607824,
+                0.1264146115608699
+              ],
+              "terminal_shift_mm": 26.261487815801463,
+              "stationarity_residual_N": 2.24340884528887e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [
+                {
+                  "left": "series:b_retainer_screw",
+                  "right": "link:FJ1500/muscle_uncrimped_sleeve",
+                  "overlap_mm3": 0.9480601382609035
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 5.348824114781125,
+              "central_chord_mm": 21.941480847050176,
+              "retained_lead_lengths_mm": [
+                1.6000000000000145,
+                1.6000000000000472
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.12608023263213017,
+                0.009525839473446325,
+                0.08758235205182853
+              ],
+              "terminal_shift_mm": 17.075131475708442,
+              "stationarity_residual_N": 2.6843258369352168e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03940384417259561,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 2.9590993521149866,
+              "central_chord_mm": 21.941480847059356,
+              "retained_lead_lengths_mm": [
+                1.6000000000000643,
+                1.599999999999968
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.05593526723324421,
+                0.056177688290963555,
+                0.05083102561784586
+              ],
+              "terminal_shift_mm": 7.4516543473498285,
+              "stationarity_residual_N": 1.0256891273874837e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03800414125075543,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 50.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 4.168249911242034,
+              "central_chord_mm": 21.94148084705033,
+              "retained_lead_lengths_mm": [
+                1.600000000000139,
+                1.6000000000001058
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0738822318297794,
+                0.07521716974371988,
+                0.07386406195657967
+              ],
+              "terminal_shift_mm": 10.484231542901847,
+              "stationarity_residual_N": 1.4034024813362441e-06,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03795373277318335,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 6.453839018584225,
+              "central_chord_mm": 21.941480847050602,
+              "retained_lead_lengths_mm": [
+                1.5999999999999757,
+                1.600000000000081
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.14845380799417418,
+                0.017811820055927723,
+                0.09477326971518969
+              ],
+              "terminal_shift_mm": 18.20121752122008,
+              "stationarity_residual_N": 4.208034920722545e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03810171310303797,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 10.488868835879257,
+              "central_chord_mm": 21.94148084705138,
+              "retained_lead_lengths_mm": [
+                1.600000000000035,
+                1.6000000000000152
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.26455216149002553,
+                -0.061182052482524125,
+                0.11370749290816957
+              ],
+              "terminal_shift_mm": 27.307759462876867,
+              "stationarity_residual_N": 2.0391189684773143e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 2.9422171623172497
+              },
+              "overlaps": [
+                {
+                  "left": "series:b_retainer_screw",
+                  "right": "link:FJ1500/muscle_uncrimped_sleeve",
+                  "overlap_mm3": 2.786881128682602
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 6.453839028103224,
+              "central_chord_mm": 21.941480847050645,
+              "retained_lead_lengths_mm": [
+                1.6000000000000625,
+                1.600000000000038
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.14845380768636462,
+                0.017811820520546636,
+                0.09477327015691694
+              ],
+              "terminal_shift_mm": 18.201217477284303,
+              "stationarity_residual_N": 1.7925966895893777e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.038101713320794005,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 4.168249869337134,
+              "central_chord_mm": 21.941480847051338,
+              "retained_lead_lengths_mm": [
+                1.6000000000000496,
+                1.6000000000000674
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07388222540925625,
+                0.07521716531084247,
+                0.07386405675375544
+              ],
+              "terminal_shift_mm": 10.484231603936895,
+              "stationarity_residual_N": 4.2867306875565683e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03795373804401232,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 60.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 5.401329281546164,
+              "central_chord_mm": 21.941480847051107,
+              "retained_lead_lengths_mm": [
+                1.599999999999992,
+                1.5999999999999808
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.09040126995027575,
+                0.09241381819547588,
+                0.09443544127719955
+              ],
+              "terminal_shift_mm": 13.535357568411605,
+              "stationarity_residual_N": 8.430495503659867e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03741826310516532,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 7.5070714724100975,
+              "central_chord_mm": 21.94148084705042,
+              "retained_lead_lengths_mm": [
+                1.6000000000000598,
+                1.5999999999999635
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.16990308783509628,
+                0.02621066150481188,
+                0.09553412948138162
+              ],
+              "terminal_shift_mm": 20.092606942852505,
+              "stationarity_residual_N": 1.3716059621455412e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03724213940259832,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 11.339328226703604,
+              "central_chord_mm": 21.94148084705034,
+              "retained_lead_lengths_mm": [
+                1.600000000000019,
+                1.6000000000000227
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.2898218019333612,
+                -0.05650185238249169,
+                0.09606699375884584
+              ],
+              "terminal_shift_mm": 28.850547768038734,
+              "stationarity_residual_N": 4.7654882840471196e-08,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.8240036058498807
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 0.13627585763915961
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 7.507071470374095,
+              "central_chord_mm": 21.941480847050393,
+              "retained_lead_lengths_mm": [
+                1.599999999999996,
+                1.6000000000000105
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1699030866979007,
+                0.0262106618072882,
+                0.09553413034677716
+              ],
+              "terminal_shift_mm": 20.09260689375497,
+              "stationarity_residual_N": 1.5674065649432706e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037242139250007994,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 5.401329271496401,
+              "central_chord_mm": 21.941480847050777,
+              "retained_lead_lengths_mm": [
+                1.5999999999999657,
+                1.600000000000134
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.09040127299236915,
+                0.09241380835748295,
+                0.0944354410319507
+              ],
+              "terminal_shift_mm": 13.535357517815749,
+              "stationarity_residual_N": 1.371815574802196e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037418264200196324,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 70.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 6.595045396258366,
+              "central_chord_mm": 21.941480847050094,
+              "retained_lead_lengths_mm": [
+                1.6000000000001289,
+                1.5999999999999883
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.10569744538727471,
+                0.10664814734532559,
+                0.10871072564324007
+              ],
+              "terminal_shift_mm": 16.4878466348659,
+              "stationarity_residual_N": 9.117158186895204e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03750132757080065,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 8.463188056058717,
+              "central_chord_mm": 21.941480847050254,
+              "retained_lead_lengths_mm": [
+                1.6000000000000605,
+                1.600000000000063
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1902473199705948,
+                0.03382835901237414,
+                0.08939303887241522
+              ],
+              "terminal_shift_mm": 22.37580165883015,
+              "stationarity_residual_N": 2.2726298525799698e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 1.6557372902538698
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 0.8472327785094806
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 12.067349846027811,
+              "central_chord_mm": 21.94148084705034,
+              "retained_lead_lengths_mm": [
+                1.6000000000001182,
+                1.6000000000000485
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.31292876673796727,
+                -0.05251750227080039,
+                0.07425230185463891
+              ],
+              "terminal_shift_mm": 30.63893983518747,
+              "stationarity_residual_N": 5.646318451821558e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.966730323756294
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 0.9928406182191614
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 8.46318809640162,
+              "central_chord_mm": 21.94148084705089,
+              "retained_lead_lengths_mm": [
+                1.6000000000000305,
+                1.6000000000000167
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.19024731628860486,
+                0.033828359137817045,
+                0.0893930389303173
+              ],
+              "terminal_shift_mm": 22.37580170912201,
+              "stationarity_residual_N": 4.2114269554078226e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 1.6557367688770732
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 0.8472332861467456
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 6.595045401734229,
+              "central_chord_mm": 21.941480847050485,
+              "retained_lead_lengths_mm": [
+                1.5999999999999972,
+                1.6000000000000583
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.1056974484820362,
+                0.10664815083687364,
+                0.10871073119692443
+              ],
+              "terminal_shift_mm": 16.487846626606633,
+              "stationarity_residual_N": 1.4237009712561438e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.037501327187404926,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 80.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 7.682324659147861,
+              "central_chord_mm": 21.941480847050816,
+              "retained_lead_lengths_mm": [
+                1.6000000000000956,
+                1.6000000000001446
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.12013499889804179,
+                0.1175700053750678,
+                0.11365342926096435
+              ],
+              "terminal_shift_mm": 19.25624156092776,
+              "stationarity_residual_N": 6.109359283608754e-08,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03933264302210644,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 9.280028309888793,
+              "central_chord_mm": 21.941480847050304,
+              "retained_lead_lengths_mm": [
+                1.600000000000083,
+                1.600000000000006
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.20899535452305948,
+                0.04009427100907676,
+                0.07692788989951456
+              ],
+              "terminal_shift_mm": 24.745873089929177,
+              "stationarity_residual_N": 9.426962882990319e-08,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.0004673859015987
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 5.466960252607837
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "bone:humerus",
+                "link:FJ1500/bone_uncrimped_sleeve"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 12.651911104356941,
+              "central_chord_mm": 21.94148084705498,
+              "retained_lead_lengths_mm": [
+                1.6000000000000068,
+                1.600000000000096
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.3331863217354972,
+                -0.049364167644926064,
+                0.04907857932201311
+              ],
+              "terminal_shift_mm": 32.502289192214604,
+              "stationarity_residual_N": 1.0645667724048077e-06,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 4.072732964004871
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 2.1858971932018223
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 9.280028316886243,
+              "central_chord_mm": 21.94148084705081,
+              "retained_lead_lengths_mm": [
+                1.6000000000000323,
+                1.5999999999999712
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.20899535333904215,
+                0.0400942724530933,
+                0.07692789102078594
+              ],
+              "terminal_shift_mm": 24.74587303711802,
+              "stationarity_residual_N": 2.0826588072959988e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.0004673044103
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 5.466959703616693
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "bone:humerus",
+                "link:FJ1500/bone_uncrimped_sleeve"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 7.682324660567827,
+              "central_chord_mm": 21.941480847049878,
+              "retained_lead_lengths_mm": [
+                1.6000000000000865,
+                1.6000000000001178
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.12013499867947916,
+                0.11757000491111798,
+                0.11365343067590784
+              ],
+              "terminal_shift_mm": 19.256241558118017,
+              "stationarity_residual_N": 2.321167907791997e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.03933264258358535,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        },
+        {
+          "input_deg": 90.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 8.606118256402912,
+              "central_chord_mm": 21.941480847050233,
+              "retained_lead_lengths_mm": [
+                1.5999999999999768,
+                1.5999999999999777
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.13386723476228118,
+                0.12555653794285565,
+                0.1084444571712979
+              ],
+              "terminal_shift_mm": 21.77943858381066,
+              "stationarity_residual_N": 2.865232881781346e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 0.6875010564259906
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 9.928608617957885,
+              "central_chord_mm": 21.941480847050258,
+              "retained_lead_lengths_mm": [
+                1.600000000000086,
+                1.6000000000000063
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.22547455544604258,
+                0.044776877473985205,
+                0.05948010036496727
+              ],
+              "terminal_shift_mm": 27.005570097389345,
+              "stationarity_residual_N": 1.957832119133213e-08,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.4134934807431354
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 8.186327271514815
+                },
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 0.31262298394454624
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 13.078193985988088,
+              "central_chord_mm": 21.941480847050997,
+              "retained_lead_lengths_mm": [
+                1.60000000000006,
+                1.6000000000000696
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.35008598424657583,
+                -0.0470379614301097,
+                0.021441715724172812
+              ],
+              "terminal_shift_mm": 34.33832866434196,
+              "stationarity_residual_N": 1.96204980444687e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 5.136183371040993
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 3.4174390970727453
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 9.928608608057186,
+              "central_chord_mm": 21.941480847050855,
+              "retained_lead_lengths_mm": [
+                1.6000000000001218,
+                1.600000000000059
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.22547455629572963,
+                0.04477687776058853,
+                0.05948010123764132
+              ],
+              "terminal_shift_mm": 27.005570044607943,
+              "stationarity_residual_N": 2.322765897656164e-07,
+              "central_wire_hits_mm3": {
+                "bone:humerus": 3.4134934707966513
+              },
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 8.18632775883182
+                },
+                {
+                  "left": "bone:humerus",
+                  "right": "link:FJ1500/bone_uncrimped_sleeve",
+                  "overlap_mm3": 0.3126229139034987
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 8.606118252125395,
+              "central_chord_mm": 21.941480847051775,
+              "retained_lead_lengths_mm": [
+                1.6000000000000505,
+                1.600000000000138
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.13386723536290346,
+                0.12555653310245946,
+                0.10844445987198048
+              ],
+              "terminal_shift_mm": 21.779438580165174,
+              "stationarity_residual_N": 6.797349115170703e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [
+                {
+                  "left": "bone:humerus",
+                  "right": "free_terminal:FJ1500",
+                  "overlap_mm3": 0.6875012422544614
+                }
+              ],
+              "min_gap_capped_1mm": 0.0,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "generator": {
+    "file": "tools/audit_whole_arm_floating_terminals.py",
+    "sha256": "6c17108f79bae3affe30ae6d1fe50a0cd1b7b23434ac6698e0a049754a25bbae"
+  },
+  "scope": "One cuff terminal assessed at a time with its original free cap and swivel hardware reintroduced on the shared chassis. Conditional, uncalibrated local static equilibrium. Straight tensioned central tendon chord only; smooth lead bends, its TPU belly, mutual cuff interactions and the other cables are outside this screen. A slack chord has no validated shape. Repeated tension levels sample a load cycle at fixed joint pose."
+}

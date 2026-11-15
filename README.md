@@ -1,26 +1,26 @@
 # 仿生右臂：人体骨骼＋工程关节＋异形 TPU 晶格肌肉
 
-**当前优先：完成骨架、关节、肌肉固定及钢丝传力的机械结构；打印准备暂缓。最终实现钢丝＋TPU肌肉驱动，运动范围可后续实测。**
+**整臂首版可查看。** 桌面胸廓、肩胛、肩部 S1、肘部、八块 TPU 和回位弹簧已合入同一套设计。交付文件包含 K7 动画、十条局部钢丝与导向坐标、K1–K7 的几何范围和待验证项。[整臂首版](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/README.md)
 
-[项目概览](docs/PROJECT_OVERVIEW.md) · [机械结构阶段](design/MECHANICAL_DESIGN_STAGE.md)
+[项目概览](docs/PROJECT_OVERVIEW.md) · [整臂首版技术方案](design/WHOLE_ARM_FIRST_PASS.md) · [首版 Goal](design/WHOLE_ARM_GOAL.md)
 
 以真实解剖骨骼为基础，通过工程关节保证运动，以钢丝和可变形 TPU 晶格肌肉传力。允许短钢丝肌腱连接骨侧接口。
 
-**当前状态（2026-11-14）**：优先核对 S1 肩部和肘部的八条钢丝入口、反力座、远端锚点及绕行支承，随后围绕确认的走线设计 TPU 肌腹。肘屈肌套管座候选已通过 801 帧几何检查。肘伸肌滑动套管座的试装发现局部干涉，全行程让位试算触及紧固及承压保护区。整臂供线留到集成阶段，胸廓通过桌面底座固定。[钢丝锚点与走线记录](design/S1_CABLE_ANCHORS.md)
+首版登记十条局部钢丝路径、锚点与导向，整臂供线留到后续阶段。[钢丝与接口交接表](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_cable_handoff.md)
 
 ## FYP 进度演示
 
-[![MuJoCo 肩肘组合运动，含两个视角及肘屈曲曲线](docs/showcase/media/shoulder-elbow.gif)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/)
+[![首版整臂 K7 联合抬升的 MuJoCo 双视角](docs/showcase/media/whole-arm-first-pass.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#motion)
 
-**[打开英文展示页](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/)** · [查看关键姿态静图](docs/showcase/media/motion-poster.png) · [查看仿真记录](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md)
+**[播放首版整臂动画](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#motion)** · [查看 K1–K7 范围](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/README.md)
 
-上方动画记录较早的肩肘释放时序试验，肘屈曲预测峰值为 **100.10°**。当前本地回放新增了加长导轨、回位弹簧与贴壁修正工况，预测肘屈曲峰值 **126.01°**，释放后回到约 **0°**。实际负载、柔性接触及实物驱动范围待验证。
+K7 联合抬升的肱骨方向变化约 **17.33°**。同一设计的 K1 八线几何回放达到 **31.31°**。整臂独立驱动、TPU 受载接触和实物行程仍待验证。
 
 
 | 入口 | 内容 |
 |---|---|
 | [PROJECT_STATUS](PROJECT_STATUS.md) | 唯一当前状态入口 |
-| [肩肘组合、时序和内线验证](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md) | 最新组合模型、检查与 MuJoCo 回放 |
+| [肩肘组合、时序和内线验证](02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/README.md) | 早期肩肘局部研究与回放 |
 | [肩部 S1 技术方案](02_人体骨骼晶格肌肉方案/输出/shoulder_design/SHOULDER_DESIGN.md) | 传力链、证据、限制及待讨论方向 |
 | [当前有效规格](design/CURRENT_BASELINE.md) | 用户要求、比较指标与验收边界 |
 | [设计任务书](design/DESIGN_BRIEF.md) | 当前入口与历史设计记录 |
@@ -28,9 +28,9 @@
 
 ## 360° 交互模型
 
-[![胸廓、S1 肩部和串联滑块肘部组合预览](docs/viewer/combined-preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=combined&v=combined-1)
+[![桌面整臂首版 3D 模型预览](docs/viewer/first-pass-preview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&v=first-pass-1)
 
-**[打开肩肘组合 3D](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=combined&v=combined-1)**。查看共用肱骨、前臂、TPU 肌腹、肘部内线与胸廓参考。
+**[打开整臂首版 3D](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&v=first-pass-1)** · [查看先前肩肘组合](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=combined&v=combined-1)
 
 | S1-Y2 肩部 | 原版仿生肘部 |
 | :---: | :---: |

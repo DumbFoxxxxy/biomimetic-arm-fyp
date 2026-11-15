@@ -21,8 +21,8 @@
     <section class="intro shell" aria-labelledby="title">
       <div>
         <p class="eyebrow">FINAL-YEAR PROJECT</p>
-        <h1 id="title">Biomimetic<br>shoulder &amp; elbow<span>.</span></h1>
-        <p class="lead">An anatomical right-arm mechanism with engineered joints and cable-driven TPU lattice muscles.</p>
+        <h1 id="title">Biomimetic<br>whole arm<span>.</span></h1>
+        <p class="lead">The first tabletop assembly integrates the thorax, scapula, engineered shoulder and elbow, eight TPU lattice muscles and a return spring.</p>
       </div>
       <div class="intro-actions">
         <a class="button primary" href="#motion">Watch the simulation <span aria-hidden="true">↓</span></a>
@@ -31,20 +31,20 @@
     </section>
     <section class="shell" id="motion" aria-labelledby="motion-title">
       <div class="section-heading">
-        <h2 id="motion-title">Shoulder–elbow motion</h2>
+        <h2 id="motion-title">K7 combined arm elevation</h2>
         <span class="context">MuJoCo replay</span>
       </div>
-      <video controls playsinline preload="metadata" poster="./media/motion-poster.png" aria-label="Two-view MuJoCo replay with elbow angle over time">
-        <source src="./media/shoulder-elbow.mp4" type="video/mp4">
-        <a href="./media/shoulder-elbow.gif">View the animated replay</a>.
+      <video controls playsinline preload="metadata" poster="./media/whole-arm-first-pass.png" aria-label="Two-view MuJoCo replay of combined arm elevation and return">
+        <source src="./media/whole-arm-first-pass.mp4" type="video/mp4">
+        <a href="./media/whole-arm-first-pass.mp4">Open the K7 video</a>.
       </video>
-      <p class="caption">The two views show the same four-second loading and release cycle. The forearm is highlighted in green.</p>
+      <p class="caption">The two views show the same outward and return motion, including the return spring, eight interpolated TPU meshes, local wires and cuff hardware.</p>
       <dl class="metrics">
-        <div><dt>Predicted peak elbow flexion</dt><dd>100.1°<small>Original comparison floor 116°</small></dd></div>
-        <div><dt>Rigid collision samples</dt><dd>801<small>No overlap above the screening threshold</small></dd></div>
-        <div><dt>Peak elbow-flexor input</dt><dd>25 N<small>Equivalent tensile force in the model</small></dd></div>
+        <div><dt>K7 humerus direction change</dt><dd>17.33°<small>Relative to neutral</small></dd></div>
+        <div><dt>K1 elbow flexion</dt><dd>31.31°<small>In the separate eight-wire geometric replay</small></dd></div>
+        <div><dt>K7 playback</dt><dd>27 frames<small>14 outward samples plus the return</small></dd></div>
       </dl>
-      <p class="boundary">The replay uses a fixed shoulder girdle and equivalent tensile inputs. TPU deformation, friction and physical drive range remain to be measured.</p>
+      <p class="boundary">The replay uses prescribed joint poses and geometric TPU interpolation. Independent actuation, contact under load and physical travel remain to be verified.</p>
     </section>
     <section class="shell design" id="design" aria-labelledby="design-title">
       <div class="section-heading">
@@ -52,10 +52,10 @@
         <span class="context">360° model viewers</span>
       </div>
       <div class="cards">
-        <a class="card combined-card" href="../?model=combined&amp;v=combined-1">
-          <img src="../viewer/combined-preview.png" alt="Integrated shoulder and elbow assembly on one humerus, with forearm, lattice muscles and a translucent thorax reference" loading="lazy">
-          <div><h3>Integrated shoulder &amp; elbow</h3><span aria-hidden="true">↗</span></div>
-          <p>Rotate the assembly to inspect the shared humerus, shoulder joint, forearm and elbow slider. The 3D view shows the static design candidate.</p>
+        <a class="card combined-card" href="../?model=first-pass&amp;v=first-pass-1">
+          <img src="../viewer/first-pass-preview.png" alt="First-pass tabletop arm with the thorax, engineered shoulder and elbow, red lattice muscles and a return spring" loading="lazy">
+          <div><h3>Tabletop whole-arm assembly</h3><span aria-hidden="true">↗</span></div>
+          <p>Rotate the neutral assembly and toggle the bones, hardware, eight TPU meshes and eight fixed-end wire paths.</p>
         </a>
         <a class="card" href="../?model=shoulder&amp;v=original-elbow-2">
           <img src="../viewer/shoulder-preview.png" alt="S1-Y2 shoulder assembly with anatomical bones, engineered joint and lattice muscles" loading="lazy">
@@ -71,13 +71,13 @@
     </section>
     <section class="evidence shell" aria-labelledby="evidence-title">
       <div>
-        <h2 id="evidence-title">Latest design change</h2>
-        <p>Local relief on the elbow flexor cleared the observed humerus overlap in 123 resampled poses while preserving the cable channel and end attachments. Material stiffness and cable motion under load still need physical checks.</p>
+        <h2 id="evidence-title">Design records</h2>
+        <p>The first-pass records identify the local anchors, guide points and the first observed limit for each planned action. The earlier shoulder–elbow study remains available in the repository.</p>
       </div>
       <div class="evidence-links">
         <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/PROJECT_STATUS.md">Current project status <span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow">Models, trajectories and verification <span aria-hidden="true">↗</span></a>
-        <a href="./media/source.json">Animation source data <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass">Assembly, cable guides and K1–K7 ranges <span aria-hidden="true">↗</span></a>
+        <a href="./media/whole-arm-first-pass.json">Animation source data <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>

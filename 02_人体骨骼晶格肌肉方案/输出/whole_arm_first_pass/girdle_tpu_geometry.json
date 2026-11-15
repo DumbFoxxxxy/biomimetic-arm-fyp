@@ -1,0 +1,1155 @@
+{
+  "scene": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_scene_check.json",
+    "sha256": "87b78384dbcd74b719a73c8d7e8ba96a66b42a73046c053776dcd17f8c7b3179"
+  },
+  "motion": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_motion.json",
+    "sha256": "edb03212f6d48e90dc20af4e5ae73475bfba27f4987d5cdcc06af54e4ad17a69"
+  },
+  "seats": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/girdle_seat_pair.json",
+    "sha256": "1dddc904bc8c5642fdea11bae9d75b008c643a5b18744f48eae3b4c64e84b00a"
+  },
+  "existing_tpu_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/assembly_FJ1504_local_interface_bidirectional.json",
+    "sha256": "1b00e2424632e002ad79bd073fffeb14dd1b6b6595f1595c929220c99e66df0b"
+  },
+  "existing_tpu_solids_checked": [
+    "tpu:elbow_extensor",
+    "tpu:deltoid",
+    "tpu:infraspinatus",
+    "tpu:subscapularis",
+    "tpu:teres_major"
+  ],
+  "existing_tpu_solids_unavailable": {
+    "tpu:elbow_flexor": "Open/nonmanifold input D:\\XJTLU\\PSP\\02_人体骨骼晶格肌肉方案\\输出\\anatomical_concept\\direct_muscle_interfaces\\mechanical_yoke_reanchored_pair\\paired_swivel_support\\captive_keepers\\continuous_channel_candidate\\FJ1486\\TPU_muscle.obj: 0/9"
+  },
+  "generator": {
+    "file": "tools/build_whole_arm_girdle_tpu.py",
+    "sha256": "5b738b611b4e4b982a9d7abda9f4591ca7dc2ad4f4d7c5621d036a7ed19eb501"
+  },
+  "muscles": {
+    "FJ1459_g3": {
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/FJ1459_g3_TPU_lattice.obj",
+        "sha256": "b3979a29b22241c38c9ed35ad2bde402af73c7ee1e3c3d2704c2224c2ab904a4",
+        "translation_source_mm": [
+          -80.22902129890608,
+          -24.521235174474175,
+          1276.6105766670814
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          383.5774433000616
+        ],
+        "roundtrip_relative_volume_error": 0.0
+      },
+      "anatomy": {
+        "file": "02_人体骨骼晶格肌肉方案/输入/muscle/FJ1459.obj",
+        "sha256": "33f4ae8c7a84785e2bc5f4f21432d13de0805e485a29f3e6762bac6f85cb61d5"
+      },
+      "ring_count": 6,
+      "chosen_width_scale": 0.35,
+      "taper_increments_mm": [
+        1.75,
+        0.6915288933988536
+      ],
+      "channel_diameter_mm": 1.6,
+      "terminal_free_length_mm": 2.0,
+      "neutral_port_distance_mm": 34.39189160300338,
+      "neutral_trials": [
+        {
+          "scale": 1.0,
+          "rigid_overlap_mm3": {
+            "thorax_reference:FJ3340": 19.089408538044133,
+            "bone:scapula": 14.59444640943165
+          }
+        },
+        {
+          "scale": 0.65,
+          "rigid_overlap_mm3": {
+            "thorax_reference:FJ3340": 9.68304165060927,
+            "bone:scapula": 4.961801242590006
+          }
+        },
+        {
+          "scale": 0.35,
+          "rigid_overlap_mm3": {
+            "thorax_reference:FJ3340": 1.898574279443957,
+            "bone:scapula": 4.047875303849405
+          }
+        }
+      ],
+      "neutral_relief_against": [
+        "bone:scapula",
+        "thorax_reference:FJ3340"
+      ],
+      "neutral_removed_volume_mm3": 5.946449583295589,
+      "neutral_reloaded_overlap_mm3": {},
+      "neutral_existing_tpu_overlap_mm3": {}
+    },
+    "FJ1536_g2": {
+      "source": {
+        "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/FJ1536_g2_TPU_lattice.obj",
+        "sha256": "30f36a64b994bb06ec597e9893700ec10356c194c712a9a6be55a1dee37e75c7",
+        "translation_source_mm": [
+          -2.6009854889013226,
+          -15.727456800951298,
+          1352.7386774050158
+        ],
+        "mesh_import_mode": "exact_indexed_coordinates",
+        "component_volumes_mm3": [
+          1245.7268906270738
+        ],
+        "roundtrip_relative_volume_error": 1.8252289258103497e-16
+      },
+      "anatomy": {
+        "file": "02_人体骨骼晶格肌肉方案/输入/muscle/FJ1536.obj",
+        "sha256": "81b84d6d2e7c859004ee2d71f8fef2768ec422fbace3967d54e3f3b2965bdb89"
+      },
+      "ring_count": 17,
+      "chosen_width_scale": 0.35,
+      "taper_increments_mm": [
+        1.1241335015712264,
+        0.35
+      ],
+      "channel_diameter_mm": 1.6,
+      "terminal_free_length_mm": 2.0,
+      "neutral_port_distance_mm": 108.06539606834265,
+      "neutral_trials": [
+        {
+          "scale": 1.0,
+          "rigid_overlap_mm3": {
+            "bone:scapula": 0.37045237726798047
+          }
+        },
+        {
+          "scale": 0.65,
+          "rigid_overlap_mm3": {
+            "bone:scapula": 0.36097073218799375
+          }
+        },
+        {
+          "scale": 0.35,
+          "rigid_overlap_mm3": {
+            "bone:scapula": 0.3540300406613446
+          }
+        }
+      ],
+      "neutral_relief_against": [
+        "bone:scapula"
+      ],
+      "neutral_removed_volume_mm3": 0.3540300405832113,
+      "neutral_reloaded_overlap_mm3": {},
+      "neutral_existing_tpu_overlap_mm3": {}
+    }
+  },
+  "paths": {
+    "scapular_SC1_pos": [
+      {
+        "input_deg": 0.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 34.39189160300338,
+            "axial_scale": 1.0,
+            "rigid_overlaps_mm3": {},
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 108.06539606834265,
+            "axial_scale": 1.0,
+            "rigid_overlaps_mm3": {},
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 1.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 35.32672840461875,
+            "axial_scale": 1.0307594148408645,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.3621716720858343
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.8517040839469,
+            "axial_scale": 0.9979465606006495,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.00634862808809579
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 2.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 36.273614955297866,
+            "axial_scale": 1.061915308756515,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.6690202474695344
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.63092709367464,
+            "axial_scale": 0.9958250389554787,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.012832870998676412
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 3.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 37.23135456495985,
+            "axial_scale": 1.0934283064393355,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.8931879264668301
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.40308886846456,
+            "axial_scale": 0.9936356634875715,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.01945505689406736
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 4.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 38.19885021988909,
+            "axial_scale": 1.1252623122842902,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.0262377168575678
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.16821399964715,
+            "axial_scale": 0.9913786705034371,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.0262178001496527
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 5.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 39.17509538135523,
+            "axial_scale": 1.1573842076311947,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.06926220933565
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.92632790263968,
+            "axial_scale": 0.9890543042285169,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.03312395146576374
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 6.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 40.15916550194968,
+            "axial_scale": 1.1897635716223853,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.022893215214548
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.67745682083304,
+            "axial_scale": 0.9866628168445339,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04017630584466476
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 7.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 41.150210256114605,
+            "axial_scale": 1.2223724255598278,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9518742353568096
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.42162782968254,
+            "axial_scale": 0.9842044685288027,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04737778501369152
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 8.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 42.14744646171712,
+            "axial_scale": 1.2551850000000433,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9243233237831171
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.15886884100689,
+            "axial_scale": 0.9816795274955405,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.05473143058469763
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 9.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 43.150151657079455,
+            "axial_scale": 1.2881775234158366,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9393622199798174
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.88920860751088,
+            "axial_scale": 0.979088270039326,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06223827662153163
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 10.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 44.15765829068593,
+            "axial_scale": 1.3213280310172428,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9603220569298954
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.61267672753279,
+            "axial_scale": 0.9764309805807196,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06989674856551725
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      }
+    ],
+    "K7_SC1_pos": [
+      {
+        "input_deg": 0.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 34.39189160300338,
+            "axial_scale": 1.0,
+            "rigid_overlaps_mm3": {},
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 108.06539606834265,
+            "axial_scale": 1.0,
+            "rigid_overlaps_mm3": {},
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 0.3333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 34.70208674337697,
+            "axial_scale": 1.0102065098291853,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.12352816261100497
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.99495406344047,
+            "axial_scale": 0.9993230986709942,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.0021012916640750015
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 0.6666666666666666,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 35.01371512279307,
+            "axial_scale": 1.0204601782578167,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.24464949369308378
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.92372311859668,
+            "axial_scale": 0.9986386161481293,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.00421746279831076
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 1.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 35.32672840461875,
+            "axial_scale": 1.0307594148408645,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.3621716720858343
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.8517040839469,
+            "axial_scale": 0.9979465606006495,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.00634862808809579
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 1.3333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 35.64107964631941,
+            "axial_scale": 1.0411026750040324,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.4733427096641034
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.77889781969898,
+            "axial_scale": 0.9972469402945864,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.008494868367016645
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 1.6666666666666667,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 35.95672325691323,
+            "axial_scale": 1.0514884586438578,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.57567396508462
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.70530519614482,
+            "axial_scale": 0.9965397635928724,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.01065625323425578
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 2.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 36.273614955297866,
+            "axial_scale": 1.061915308756515,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.6690202474695344
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.63092709367464,
+            "axial_scale": 0.9958250389554787,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.012832870998676412
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 2.3333333333333335,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 36.59171172948873,
+            "axial_scale": 1.07238181009661,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.754203009473152
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.55576440279278,
+            "axial_scale": 0.995102774939566,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.015024814927647602
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 2.6666666666666665,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 36.91097179679511,
+            "axial_scale": 1.0828865878668372,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.8287240601758991
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.47981802413133,
+            "axial_scale": 0.9943729801996165,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.017232178317982492
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 3.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 37.23135456495985,
+            "axial_scale": 1.0934283064393355,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.8931879264668301
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.40308886846456,
+            "axial_scale": 0.9936356634875715,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.01945505689406736
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 3.3333333333333335,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 37.55282059427465,
+            "axial_scale": 1.1040056681091512,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9478113186934751
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.32557785672579,
+            "axial_scale": 0.9928908336529945,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.021693549609446222
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 3.6666666666666665,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 37.87533156068586,
+            "axial_scale": 1.1146174118802872,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9922834684654595
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.24728592002116,
+            "axial_scale": 0.992138499643203,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.0239477609405284
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 4.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 38.19885021988909,
+            "axial_scale": 1.1252623122842902,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.0262377168575678
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.16821399964715,
+            "axial_scale": 0.9913786705034371,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.0262178001496527
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 4.333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 38.523340372424826,
+            "axial_scale": 1.1359391782317745,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.0506266173818697
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.08836304710421,
+            "axial_scale": 0.9906113553769901,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.02850377735050659
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 4.666666666666667,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 38.84876682975996,
+            "axial_scale": 1.1466468518963835,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.065336011862869
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 107.00773402411477,
+            "axial_scale": 0.9898365635053819,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.03080579438673032
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 5.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 39.17509538135523,
+            "axial_scale": 1.1573842076311947,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.06926220933565
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.92632790263968,
+            "axial_scale": 0.9890543042285169,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.03312395146576374
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 5.333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 39.502292762713594,
+            "axial_scale": 1.168150150917398,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.0627572937666192
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.84414566489438,
+            "axial_scale": 0.9882645869848394,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.035458351506855196
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 5.666666666666667,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 39.83032662438877,
+            "axial_scale": 1.1789436173445667,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.0461390653696425
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.76118830336702,
+            "axial_scale": 0.9874674213115077,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.03780910016549306
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 6.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 40.15916550194968,
+            "axial_scale": 1.1897635716223853,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 1.022893215214548
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.67745682083304,
+            "axial_scale": 0.9866628168445339,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04017630584466476
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 6.333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 40.48877878687535,
+            "axial_scale": 1.2006090066229858,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9971459149031348
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.59295223037802,
+            "axial_scale": 0.9858507833190041,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04256007967529907
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 6.666666666666667,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 40.81913669837726,
+            "axial_scale": 1.2114789424538066,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9726085991148733
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.50767555541015,
+            "axial_scale": 0.985031330569198,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.044960534680180055
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 7.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 41.150210256114605,
+            "axial_scale": 1.2223724255598278,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9518742353568096
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.42162782968254,
+            "axial_scale": 0.9842044685288027,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04737778501369152
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 7.333333333333333,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 41.48197125379811,
+            "axial_scale": 1.2332885278550438,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.936991826003086
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.33481009730906,
+            "axial_scale": 0.9833702072310658,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.04981194595477896
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 7.666666666666667,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 41.814392233651546,
+            "axial_scale": 1.2442263458821583,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9279853305945521
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.24722341278539,
+            "axial_scale": 0.9825285568089971,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.05226314268634121
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 8.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 42.14744646171712,
+            "axial_scale": 1.2551850000000433,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9243233237831171
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.15886884100689,
+            "axial_scale": 0.9816795274955405,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.05473143058469763
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 8.333333333333334,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 42.481107903980515,
+            "axial_scale": 1.2661636335981714,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9256639187648852
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 106.0697474572888,
+            "axial_scale": 0.9808231296237679,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.057216756732110394
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 8.666666666666666,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 42.81535120329456,
+            "axial_scale": 1.277161412337321,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9314995839511399
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.97986034738523,
+            "axial_scale": 0.9799593736270624,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.05971906033821059
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 9.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 43.150151657079455,
+            "axial_scale": 1.2881775234158366,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9393622199798174
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.88920860751088,
+            "axial_scale": 0.979088270039326,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06223827662153163
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 9.333333333333334,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 43.48548519577986,
+            "axial_scale": 1.299211174860792,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9472399020115194
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.79779334436017,
+            "axial_scale": 0.978209829495164,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06477434032785447
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 9.666666666666666,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 43.821328362056896,
+            "axial_scale": 1.3102615948433325,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9543602664117888
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.70561567512789,
+            "axial_scale": 0.9773240627300834,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06732718619298997
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      },
+      {
+        "input_deg": 10.0,
+        "muscles": {
+          "FJ1459_g3": {
+            "port_distance_mm": 44.15765829068593,
+            "axial_scale": 1.3213280310172428,
+            "rigid_overlaps_mm3": {
+              "thorax_reference:FJ3340": 0.9603220569298954
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          },
+          "FJ1536_g2": {
+            "port_distance_mm": 105.61267672753279,
+            "axial_scale": 0.9764309805807196,
+            "rigid_overlaps_mm3": {
+              "bone:scapula": 0.06989674856551725
+            },
+            "own_wire_overlap_mm3": 0.0,
+            "neighbor_wire_overlap_mm3": 0.0
+          }
+        },
+        "pair_overlap_mm3": 0.0
+      }
+    ]
+  },
+  "scope": "Neutral connected lattice geometry plus axial-only, fixed-cross-section affine preview. Overlaps flag where compliant contact and the actual channel support need testing. One sampling pass covers geometry shared by outward and return poses. No material fit, force balance, compressive instability or physical performance verified."
+}

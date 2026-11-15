@@ -8,6 +8,7 @@ const layers = Object.fromEntries(['bones', 'muscles', 'wires', 'hardware'].map(
 const palette = { bones: '#d8cbb1', muscles: '#b84430', wires: '#387c91', hardware: '#78888d' };
 const selected = new URLSearchParams(location.search).get('model');
 const combined = selected === 'combined';
+const firstPass = selected === 'first-pass';
 let renderer, camera, controls, manifest, bounds;
 
 function applyVisibility(values) {
@@ -27,7 +28,7 @@ function fitView() {
   const vertical = THREE.MathUtils.degToRad(camera.fov / 2);
   const horizontal = Math.atan(Math.tan(vertical) * camera.aspect);
   const distance = size.length() / 2 / Math.sin(Math.min(vertical, horizontal)) * 1.1;
-  const viewpoint = combined ? new THREE.Vector3(-1.8, -2.8, .8) : new THREE.Vector3(1.2, -2.8, .9);
+  const viewpoint = combined || firstPass ? new THREE.Vector3(-1.8, -2.8, .8) : new THREE.Vector3(1.2, -2.8, .9);
   camera.position.copy(centre).add(viewpoint.normalize().multiplyScalar(distance));
   camera.near = Math.max(.0001, distance / 1000);
   camera.far = distance * 50;
@@ -52,13 +53,18 @@ function showError(error) {
 
 async function start() {
   const shoulder = selected === 'shoulder';
-  if (shoulder || combined) {
-    document.querySelector('#model-name').textContent = combined ? '胸廓 · S1 肩部 · 肘部' : 'S1-Y2 肩部';
-    document.querySelector('#scene-label').textContent = combined ? 'SHOULDER–ELBOW ASSEMBLY' : 'S1 SHOULDER';
+  if (shoulder || combined || firstPass) {
+    document.querySelector('#model-name').textContent = firstPass ? '桌面整臂首版' : combined ? '胸廓 · S1 肩部 · 肘部' : 'S1-Y2 肩部';
+    document.querySelector('#scene-label').textContent = firstPass ? 'FIRST-PASS WHOLE ARM' : combined ? 'SHOULDER–ELBOW ASSEMBLY' : 'S1 SHOULDER';
     document.querySelector('#elbow-view').removeAttribute('aria-current');
-    document.querySelector(combined ? '#combined-view' : '#shoulder-view').setAttribute('aria-current', 'page');
+    document.querySelector(firstPass ? '#first-pass-view' : combined ? '#combined-view' : '#shoulder-view').setAttribute('aria-current', 'page');
   }
-  if (combined) {
+  if (firstPass) {
+    document.querySelector('#design-description').textContent = '从桌面底座、胸廓到肩胛、S1 肩部和肘部，观察八块 TPU 晶格、回位弹簧与八条固定端钢丝。肩袖活动件和中央肌腱见 K7 动画。';
+    document.querySelector('#wire-label').textContent = '八条局部钢丝';
+    document.querySelector('#design-record').href = 'https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass';
+    document.querySelector('#design-record').textContent = '查看首版装配与动作范围 ↗';
+  } else if (combined) {
     document.querySelector('#design-description').textContent = '查看共用肱骨的 S1 肩部、前臂、串联滑块肘部和胸廓参考。肌肉按静置形态显示，部分肩部端部接口仍在整合。';
     document.querySelector('#wire-label').textContent = '肘部局部钢丝';
     document.querySelector('#design-record').href = 'https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow';
@@ -100,7 +106,8 @@ async function start() {
   };
   new ResizeObserver(resize).observe(host);
   resize();
-  const metaUrl = new URL(combined ? './combined.json' : shoulder ? './shoulder.json' : './scene.json', import.meta.url);
+  const modelFile = firstPass ? 'first-pass.json' : combined ? 'combined.json' : shoulder ? 'shoulder.json' : 'scene.json';
+  const metaUrl = new URL(`./${modelFile}`, import.meta.url);
   metaUrl.search = new URL(import.meta.url).search;
   const metaResponse = await fetch(metaUrl, { cache: 'no-cache' });
   if (!metaResponse.ok) throw new Error(`Model manifest: HTTP ${metaResponse.status}`);

@@ -1,0 +1,127 @@
+{
+  "audit": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_posterior_detour_audit.json",
+    "sha256": "dc501191d576a1dc73b897e69d0a660d2ec8d9e0673170cc8a0d61f020a4dec3"
+  },
+  "historical_guide": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1467_distal_guide_TPU.json",
+    "sha256": "8b83f6b7e49a5d77bf70c98b8274b19f40fea0cb4e48a7767c0ba5597279fd8f"
+  },
+  "source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/deltoid_posterior_detour_TPU.obj",
+    "sha256": "ccc86a6a3694d3c477e43cb2b4aacf9428c4ac4ff163265c36384cddc49cda9e",
+    "translation_source_mm": [
+      -187.62,
+      -46.1,
+      1312.45
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "parent": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/s1_local_muscle_load/FJ1468_protected_belly_0.25.obj",
+    "sha256": "5569257e3f95998cf6998be87f0c4d4a988808c05219da2b94bef39963140d8b",
+    "translation_source_mm": [
+      -122.21762655950542,
+      -98.9492480489454,
+      1346.5322104973882
+    ],
+    "mesh_import_mode": "native_indexed_without_welding",
+    "roundtrip_relative_volume_error": 1.478881794462658e-16
+  },
+  "edited_with_transitions_node_indices": [
+    64,
+    77
+  ],
+  "outer_radius_mm": 0.95,
+  "lumen_radius_mm": 0.52,
+  "existing_neighbor_checks": {
+    "FJ1468": {
+      "removed_in_guard_mm3": 0.0,
+      "new_liner_wire_overlap_mm3": 0.0
+    },
+    "FJ1513": {
+      "removed_in_guard_mm3": 0.0,
+      "new_liner_wire_overlap_mm3": 0.0
+    }
+  },
+  "samples": [
+    {
+      "input_deg": 0.0,
+      "local_TPU_rigid_hits_mm3": {
+        "elbow:FJ1477_proximal_rigid_cap": 0.005125870982047254
+      },
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 0.3333333333333333,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 0.6666666666666666,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 1.0,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 1.3333333333333333,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 1.6666666666666667,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 2.0,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 2.3333333333333335,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 2.6666666666666665,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 3.0,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 3.3333333333333335,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 3.6666666666666665,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 4.0,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    },
+    {
+      "input_deg": 4.333333333333333,
+      "local_TPU_rigid_hits_mm3": {},
+      "local_TPU_wire_overlap_mm3": 0.0
+    }
+  ],
+  "generator": {
+    "file": "tools/build_whole_arm_posterior_liner.py",
+    "sha256": "c3ccedc66f316248f1d5ffcd4638cf8e22ebebf2b4b1ed4652faeea26e04966c"
+  },
+  "scope": "Connected neutral lattice and local geometric interpolation at the posterior channel. Includes sampled poses before the first wire limit. No load, fatigue, or full-belly deformation validation."
+}

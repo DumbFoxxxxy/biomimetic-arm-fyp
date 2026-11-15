@@ -10,6 +10,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'mujoco_arm/tools'))
 import mesh_geom
 from build_s1_teres_origin_mount import A
+from build_channel_first_inventory import DEST, ROOT as PROJECT_ROOT, provenance
+from study_s1_local_force_geometry import load_reference
 
 def sha(path):
     with path.open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
@@ -37,9 +39,14 @@ def load_parts(sources):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--combined-only', action='store_true')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--combined-only', action='store_true')
+    mode.add_argument('--first-pass-only', action='store_true')
     args = parser.parse_args()
     integration = ROOT/'02_人体骨骼晶格肌肉方案/输出/integration_review'
+    if args.first_pass_only:
+        write_first_pass()
+        return
     if args.combined_only:
         write_combined(integration)
         return
@@ -67,6 +74,39 @@ def main():
         raise ValueError('Shoulder source changed')
     write_scene(load_parts(read(shoulder)['sources']), 'shoulder', 'S1-Y2 shoulder', shoulder)
     write_combined(integration)
+    write_first_pass()
+
+
+def write_first_pass():
+    folder = DEST.parent / 'whole_arm_first_pass'
+    assembly_file = folder / 'whole_arm_first_pass_assembly.json'
+    assembly = read(assembly_file)
+    mjcf = PROJECT_ROOT / assembly['installed']['file']
+    if provenance(mjcf) != assembly['installed']:
+        raise ValueError('First-pass MJCF changed since verification')
+    k7 = load_reference(assembly['k7'])
+    combined = load_reference(k7['combined'])
+    scene = load_reference(load_reference(combined['motion'])['scene_check'])
+    transfer = load_reference(scene['transfer'])
+    support = load_reference(combined['support'])
+    revision = load_reference(load_reference(support['audit'])['humeral_revision'])['selected']['meshes']
+    fixed = {**transfer['shared_sources'], **transfer['added_sources'], **transfer['revisions']}
+    fixed.update({key: source for key, source in revision.items() if key.startswith('link:') and key in fixed})
+    fixed['base:T12'] = load_reference(k7['base'])['source']
+    fixed['series:return_spring'] = assembly['spring_mesh']
+    sources = {**fixed, **{key if key.startswith('tpu:') else f'tpu:{key}': value
+                         for key, value in k7['tpu_sources'].items()}, **assembly['replacements']}
+    if len(sources) != assembly['geometry_count']:
+        raise ValueError('Web geometry source count differs from the first-pass MJCF')
+    parts = load_parts(sources)
+    for key, route in load_reference(combined['routed'])['routes'].items():
+        cable = A.D.outer_envelope(np.asarray(route['points_source_mm']), .30)
+        vertices, faces = mesh_geom.manifold_mesh_to_arrays(cable.to_mesh64())
+        parts.append((f'wire:{key}', vertices, faces))
+    write_scene(parts, 'first-pass', 'First-pass tabletop biomimetic arm', assembly_file,
+                scope='Neutral tabletop assembly with eight TPU meshes, return spring and eight fixed-end cable paths. '
+                      'Dynamic cuff hardware and its tendons are placed in the separate K7 replay.',
+                evidence={'mjcf': mjcf, 'k7_geometry': PROJECT_ROOT / assembly['k7']['file']})
 
 
 def write_combined(integration):

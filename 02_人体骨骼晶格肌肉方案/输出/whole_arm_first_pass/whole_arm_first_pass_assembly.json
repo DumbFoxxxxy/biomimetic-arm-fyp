@@ -1,0 +1,84 @@
+{
+  "installed": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_first_pass_assembled.xml",
+    "sha256": "98336aafc372d886ac1f9d2272916546ba354e99fcaa3c0e6af9eb91742162e5"
+  },
+  "neutral_reference": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_latest_neutral.xml",
+    "sha256": "98fd7579942262eeb3850055a9d3ad26602f457ea06c7bbf74ac9808ff6fe7a5"
+  },
+  "k1": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_k1_spring_relief_refined.json",
+    "sha256": "d637d03f0e4742a6c5c08a289fcdbdb7b46e8848f92eb5c839811101313acd4b"
+  },
+  "k7": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_k7_spring_relief.json",
+    "sha256": "8a31ac59ffd335260cd16e8525b4461780e80f2be094529a46924ceec2f08388"
+  },
+  "replacements": {
+    "tpu:deltoid": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/K1_spring_relief_deltoid_refined.obj",
+      "sha256": "1a3cff4a25b40849ee8e1514a0551eae00efad5b93db849359a50a08400888a4",
+      "translation_source_mm": [
+        -187.62,
+        -46.1,
+        1312.45
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_bone_adapter": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/K1_spring_relief_fixed_seat.obj",
+      "sha256": "10512651a43be14de0885d3d8da0206077857886f606bdf52abb9722b39d880a",
+      "translation_source_mm": [
+        -189.4848676071652,
+        -62.47465371314799,
+        1275.8718271165378
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        6824.861660041764
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_proximal_rigid_cap": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/K1_spring_relief_moving_seat.obj",
+      "sha256": "8d48f72c7fee0a9fb1a0d5a5c507b4a94165feec06d228b5fc0d9b798802d040",
+      "translation_source_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        2428.6948314720107
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "spring_mesh": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_neutral.obj",
+    "sha256": "b87a97cb86f0395b3e32cd890443fca73eb8fce61c16842c549b6b360d1ba599",
+    "translation_source_mm": [
+      -206.9434310503921,
+      -51.11395794938721,
+      1303.8109863986606
+    ],
+    "mesh_import_mode": "exact_indexed_coordinates",
+    "component_volumes_mm3": [
+      100.618045382179
+    ],
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "guide_points": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_guide_points.json",
+    "sha256": "75978596b36fc0c0b937dfaee7ef393a7223033a9336165f3233b0dd74251838"
+  },
+  "geometry_count": 239,
+  "qpos_count": 16,
+  "generator": {
+    "file": "tools/build_whole_arm_first_pass_assembly.py",
+    "sha256": "0eabf21b0284968f946eab16cd358e821cdd3c4a77a56580977387e9777c44f7"
+  },
+  "scope": "Neutral review assembly with a posed return spring, eight TPU meshes and the shared engineered joints. Exact loaded cuff parts and local wire lines are placed by the K7 replay. The spring is visual here; deformation, forces and assembly tolerance are separate checks."
+}

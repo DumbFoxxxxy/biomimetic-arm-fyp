@@ -1,0 +1,178 @@
+{
+  "generator": {
+    "file": "tools/build_whole_arm_table_base.py",
+    "sha256": "0fc8b5f98c4c90889bf3289663a73a3e9a6fc20de05b4316af01b694590138fd"
+  },
+  "scene": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_scene_check.json",
+    "sha256": "87b78384dbcd74b719a73c8d7e8ba96a66b42a73046c053776dcd17f8c7b3179"
+  },
+  "motion": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_motion.json",
+    "sha256": "edb03212f6d48e90dc20af4e5ae73475bfba27f4987d5cdcc06af54e4ad17a69"
+  },
+  "source": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/tabletop_T12_socket.obj",
+    "sha256": "9018f073836129bcaf29a1974879de6f04261b48b7f6ad892bfb5515a4ef36e7",
+    "translation_source_mm": [
+      -155.0,
+      -232.0,
+      929.0
+    ],
+    "mesh_import_mode": "exact_indexed_coordinates",
+    "component_volumes_mm3": [
+      902582.958101675
+    ],
+    "roundtrip_relative_volume_error": 0.0
+  },
+  "bone_receiver": "thorax_reference:FJ3156",
+  "bone_receiver_source": {
+    "file": "02_人体骨骼晶格肌肉方案/输入/骨骼/支撑参考/FJ3156.obj",
+    "sha256": "ffeebd0dead6ed95395e35c0843888b079acf67543e2820437e99978c69642a0",
+    "translation_source_mm": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fixed_owner": "thorax",
+  "table_plane_z_source_mm": 929.0,
+  "plate": {
+    "size_mm": [
+      310.0,
+      262.0,
+      10.0
+    ],
+    "lower_corner_source_mm": [
+      -155.0,
+      -232.0,
+      929.0
+    ]
+  },
+  "post": {
+    "size_mm": [
+      32.0,
+      24.0,
+      109.0
+    ],
+    "lower_corner_source_mm": [
+      -16.0,
+      -56.0,
+      938.0
+    ]
+  },
+  "seat": {
+    "size_mm": [
+      26.0,
+      18.0,
+      35.0
+    ],
+    "lower_corner_source_mm": [
+      -13.0,
+      -51.0,
+      1035.0
+    ],
+    "T12_stock_intersection_mm3": 3138.6931604572615,
+    "nominal_pocket_offset_mm": 0.2
+  },
+  "neutral_fixed_overlaps_mm3": {},
+  "motion_checks": {
+    "K1_elbow_fixed_passive_interfaces": {
+      "checked_outward_samples": 146,
+      "same_pose_return_samples": 146,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K2_GH_flexion": {
+      "checked_outward_samples": 121,
+      "same_pose_return_samples": 121,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K3_GH_abduction": {
+      "checked_outward_samples": 121,
+      "same_pose_return_samples": 121,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "GH_axial_positive": {
+      "checked_outward_samples": 85,
+      "same_pose_return_samples": 85,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "GH_axial_negative": {
+      "checked_outward_samples": 91,
+      "same_pose_return_samples": 91,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "SC_AC_coordinated": {
+      "checked_outward_samples": 1,
+      "same_pose_return_samples": 1,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "SC_AC_with_elbow": {
+      "checked_outward_samples": 1,
+      "same_pose_return_samples": 1,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K7_coordinated_with_GH_elevation": {
+      "checked_outward_samples": 1,
+      "same_pose_return_samples": 1,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "scapular_SC0_pos": {
+      "checked_outward_samples": 11,
+      "same_pose_return_samples": 11,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K7_SC0_pos": {
+      "checked_outward_samples": 31,
+      "same_pose_return_samples": 31,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "scapular_SC1_pos": {
+      "checked_outward_samples": 11,
+      "same_pose_return_samples": 11,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K7_SC1_pos": {
+      "checked_outward_samples": 31,
+      "same_pose_return_samples": 31,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "scapular_SC2_pos": {
+      "checked_outward_samples": 11,
+      "same_pose_return_samples": 11,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K7_SC2_pos": {
+      "checked_outward_samples": 23,
+      "same_pose_return_samples": 23,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "scapular_SC1_neg": {
+      "checked_outward_samples": 12,
+      "same_pose_return_samples": 12,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    },
+    "K7_SC1_neg": {
+      "checked_outward_samples": 13,
+      "same_pose_return_samples": 13,
+      "minimum_clearance_capped_15mm": 15.0,
+      "first_hit": null
+    }
+  },
+  "scope": "Nominal bonded conformal T12 socket. The visual thorax is one fixed body. Thoracic inter-bone connections, adhesive bond strength, installation sequence, tip resistance and load limits are pending. Return reuses audited outward poses. Clearance is to moving rigid geometry; flexible mesh deformation and cable loading are excluded."
+}

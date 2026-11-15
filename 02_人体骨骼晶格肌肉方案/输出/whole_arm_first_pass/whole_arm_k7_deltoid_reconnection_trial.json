@@ -1,0 +1,120 @@
+{
+  "baseline": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_k7_tpu_audit.json",
+    "sha256": "3a2e584bf9b996a26c3707a51e27cc828edcc4f7b56e3ab8c52a44036079a7fa"
+  },
+  "design": {
+    "overlap_before_mm3": {
+      "elbow:FJ1477_proximal_rigid_cap": 231.9079596947644,
+      "elbow:FJ1477_proximal_nut_washer_left": 2.424563675776859,
+      "elbow:FJ1477_proximal_nut_left": 12.044615984715524,
+      "elbow:FJ1477_proximal_bolt_left": 12.029417998799971,
+      "elbow:FJ1477_proximal_head_washer_left": 0.8936475980947606,
+      "elbow:FJ1486_bone_adapter": 158.83546967441362,
+      "elbow:FJ1477_bone_adapter": 77.20115247260496,
+      "elbow:FJ1477_bone_0_bolt": 0.3475007369350258,
+      "series:a_shaft": 210.6825670760007,
+      "series:a_retainer_screw": 7.204847581009208,
+      "series:fixed_pin": 0.15012709584650505,
+      "series:moving_pin": 4.090104795751506,
+      "tpu:elbow_extensor": 402.7833061886307
+    },
+    "overlap_after_mm3": {
+      "elbow:FJ1477_proximal_rigid_cap": 0.005125870982045921
+    },
+    "positive_components": 6,
+    "components_before_bracing": 7,
+    "repairs": [
+      {
+        "start_source_mm": [
+          -208.8700387573242,
+          -52.16746994018554,
+          1297.1397702026368
+        ],
+        "end_source_mm": [
+          -209.39007354736327,
+          -52.16184707641601,
+          1297.3753659057618
+        ],
+        "radius_mm": 0.65
+      }
+    ],
+    "component_volumes_mm3": [
+      47900.240378850205,
+      7.210779125051623,
+      0.03453758261462743,
+      0.006750072224168645,
+      0.0019394895200698758,
+      0.0006183337606762014
+    ],
+    "detached_parts": [
+      {
+        "volume_mm3": 7.210779125051623,
+        "bounds_source_mm": [
+          -195.1755515717856,
+          -25.96258325775582,
+          1237.9943757090175,
+          -193.01303731368094,
+          -23.717062022630294,
+          1241.9246226347966
+        ],
+        "wire_guard_overlap_mm3": 0.0
+      },
+      {
+        "volume_mm3": 0.03453758261462743,
+        "bounds_source_mm": [
+          -200.96343756187977,
+          -34.25792284312052,
+          1243.7007962081325,
+          -200.55197086357003,
+          -33.08751500055363,
+          1244.5320010658345
+        ],
+        "wire_guard_overlap_mm3": 0.0
+      },
+      {
+        "volume_mm3": 0.006750072224168645,
+        "bounds_source_mm": [
+          -205.684654438892,
+          -50.619065246582025,
+          1305.6012975768338,
+          -205.32146024134383,
+          -50.396153472719256,
+          1306.1078341757411
+        ],
+        "wire_guard_overlap_mm3": 0.0
+      },
+      {
+        "volume_mm3": 0.0019394895200698758,
+        "bounds_source_mm": [
+          -199.9779026706566,
+          -57.3891818259756,
+          1284.670739237428,
+          -199.63526328239578,
+          -57.10950717040566,
+          1285.225452972371
+        ],
+        "wire_guard_overlap_mm3": 0.0
+      },
+      {
+        "volume_mm3": 0.0006183337606762014,
+        "bounds_source_mm": [
+          -194.45301980828557,
+          -52.78769545723951,
+          1293.6152696879967,
+          -194.01614452707244,
+          -52.35403674818975,
+          1293.7106630026701
+        ],
+        "wire_guard_overlap_mm3": 0.0
+      }
+    ],
+    "residual_inside_wire_guards_mm3": {
+      "elbow:FJ1477_proximal_rigid_cap": 0.005125870982051
+    },
+    "removed_mm3": 1627.6088978662344,
+    "removed_in_wire_guards_mm3": 0.0
+  },
+  "adopted": false,
+  "scope": "Neutral cut trial; preserve three channel guard volumes."
+}

@@ -1,0 +1,955 @@
+{
+  "replay": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_passive_elbow_audit.json",
+    "sha256": "8203b1e279d111b2aa8e332142b6e52685946e79463943c0a5f7114815639116"
+  },
+  "retention": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/return_spring_pin_retention.json",
+    "sha256": "479d5ae4756edb3c1d0e1b5bc7ca9ef9896da8839ffb08b1959503d518a1b0f2"
+  },
+  "source_meshes": {
+    "flexor": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1486_interface_relief_TPU.obj",
+      "sha256": "8c31d4eb5c9327d0a261646fa60c7b055ea7de2d72fc214c73ea057a88365ba4",
+      "translation_source_mm": [
+        -140.0,
+        -86.0,
+        1100.0
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "extensor": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/FJ1477_extended_relief_TPU.obj",
+      "sha256": "0af68d2eb9e8443464868304e2410b50d30d53c7bb87136a49ceebd992de7074",
+      "translation_source_mm": [
+        -183.93312959805814,
+        -44.82430660082491,
+        1266.354794480843
+      ],
+      "mesh_import_mode": "native_indexed_without_welding",
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "revisions": {
+    "elbow:FJ1477_bone_adapter": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_lug.obj",
+      "sha256": "8c03a01cc0dd1cfda901f63573c8a7da4ba864a8a8e86460de1457099a74e137",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        5391.550426456136
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:fixed_pin": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_pin.obj",
+      "sha256": "bebdcf55b05a727fb3ff6133df9d0c9b4d60b24143a65516d7b133e2fdb0d425",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        12.57755109650768
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:fixed_dog_screw": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_fixed_dog_screw.obj",
+      "sha256": "6e96590930831a16d9215b1cbc63c7c24905128ace23f7cfbcd52105e813f4f5",
+      "translation_source_mm": [
+        -206.9434310503921,
+        -51.11395794938721,
+        1303.8109863986606
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4.1210192904754885
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "elbow:FJ1477_proximal_rigid_cap": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_lug.obj",
+      "sha256": "3d22f0c8d3c79677470c6b4ff1c55ba9219519675af372d58a6dc465824019a4",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        2452.3858625524413
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:moving_pin": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_pin.obj",
+      "sha256": "de483a9beb4272e7185f8896723e71e91324f51d646c5b77815a764e8732b1de",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        12.57755109650781
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    },
+    "series:moving_dog_screw": {
+      "file": "02_人体骨骼晶格肌肉方案/输出/integration_review/s1_series_elbow/spring_moving_dog_screw.obj",
+      "sha256": "0b76bb0cf3757d383afff3997f992f4690baaf5be95a3662397385e3aeab0b4e",
+      "translation_source_mm": [
+        -209.0414249104217,
+        -46.82235458943658,
+        1278.2535889888277
+      ],
+      "mesh_import_mode": "exact_indexed_coordinates",
+      "component_volumes_mm3": [
+        4.121019290475528
+      ],
+      "roundtrip_relative_volume_error": 0.0
+    }
+  },
+  "hardware_checked_pair_count": 1371,
+  "samples": [
+    {
+      "trace_frame": 0,
+      "input_deg": 0.0,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 32,
+      "input_deg": -1.5826441489366758e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 64,
+      "input_deg": 1.7114281546136396,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 96,
+      "input_deg": 17.1491477592922,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 128,
+      "input_deg": 55.2224772157183,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 160,
+      "input_deg": 103.9773018463647,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 192,
+      "input_deg": 125.22914552443854,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 201,
+      "input_deg": 126.0085067650959,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 206,
+      "input_deg": 125.76754335875343,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 216,
+      "input_deg": 124.22693887815518,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 248,
+      "input_deg": 113.4368270301836,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 280,
+      "input_deg": 78.01087042532433,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 284,
+      "input_deg": 70.89605031641776,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {
+            "bone:humerus": 0.0026205077568327694
+          },
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 288,
+      "input_deg": 63.23711115329942,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {
+            "bone:humerus": 0.009025858198507302
+          },
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 292,
+      "input_deg": 55.1439023966097,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 296,
+      "input_deg": 46.78696748375882,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 300,
+      "input_deg": 38.40079226668286,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 304,
+      "input_deg": 30.26777124963064,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 308,
+      "input_deg": 22.62692696593933,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {
+            "bone:humerus": 0.027199001850301874
+          },
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 312,
+      "input_deg": 15.682614335558544,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {
+            "bone:humerus": 0.5183629788886942
+          },
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 316,
+      "input_deg": 9.763018502906725,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 320,
+      "input_deg": 4.989005019774112,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 324,
+      "input_deg": 1.3022613216603887,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 328,
+      "input_deg": 0.07141398214787917,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {
+            "bone:humerus": 0.008079443323257607
+          },
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 332,
+      "input_deg": -3.974287968493938e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 336,
+      "input_deg": -4.740093001540224e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 340,
+      "input_deg": -4.72726790848484e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 344,
+      "input_deg": -4.706535615645209e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 376,
+      "input_deg": -3.2687060429257607e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 408,
+      "input_deg": -9.91460953883717e-10,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 440,
+      "input_deg": 0.09893506671582127,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 472,
+      "input_deg": 0.5925933478988683,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 504,
+      "input_deg": 8.587834551680536e-05,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 536,
+      "input_deg": -2.522821162526021e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 568,
+      "input_deg": -2.5874689859900375e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 600,
+      "input_deg": -1.8093211500809194e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 632,
+      "input_deg": -1.0271779829921133e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 664,
+      "input_deg": -8.237117658035837e-10,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 696,
+      "input_deg": -1.2217661755056024e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 728,
+      "input_deg": -1.7372618240393178e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 760,
+      "input_deg": -1.961727442901773e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 792,
+      "input_deg": -1.8102312039457734e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    },
+    {
+      "trace_frame": 800,
+      "input_deg": -1.7255072773684726e-09,
+      "hardware_hits": [],
+      "spring_hits_mm3": {},
+      "muscles": {
+        "flexor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        },
+        "extensor": {
+          "body_intersections_mm3": {},
+          "wire_intersections_mm3": {},
+          "wire_TPU_intersections_mm3": {}
+        }
+      },
+      "muscle_pair_overlap_mm3": 0.0
+    }
+  ],
+  "generator": {
+    "file": "tools/audit_whole_arm_elbow_flexibles.py",
+    "sha256": "f09b0a844d9801fff5d7b9b1f264aad3c13c5a30f40b2a555549d253aec85c42"
+  },
+  "scope": "Prescribed existing elbow replay, every eighth previously audited pose plus peaks, endpoint and contact neighborhoods. Indexed original lattices with existing local relief revisions; prescribed cap interpolation, not compliant equilibrium. Shared rigid arm and base used; shoulder TPU remains unposed."
+}

@@ -1,0 +1,3617 @@
+{
+  "combined": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_combined_cuff_k7.json",
+    "sha256": "ad123824f2400b0148b8b8ddb931edbaa8d4fab900a89e9e9059ea3619344523"
+  },
+  "base": {
+    "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/tabletop_base_check.json",
+    "sha256": "a92948102297ea738048043e530f654747de29de34b3f1cf4aa318df2fbdfafb"
+  },
+  "generator": {
+    "file": "tools/audit_whole_arm_anatomical_actions.py",
+    "sha256": "4ec891b06ddd037867c1f68bd85d0f9279ed47584415981e88cbd3f1ca18d92b"
+  },
+  "anterior_axis": [
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "medial_axis": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "neutral_bent_elbow_marker": [
+    -0.10961155260776242,
+    -0.99396242724125,
+    0.0048990578276467585
+  ],
+  "thorax_axis_landmarks_source_mm": {
+    "manubrium": [
+      -3.552713678800501e-15,
+      -146.03997384274928,
+      1304.9444992255462
+    ],
+    "T4": [
+      -0.589850000000002,
+      -34.901398,
+      1299.575
+    ]
+  },
+  "axial": {
+    "K5_external": {
+      "source_path": "GH_axial_positive",
+      "marker_medial_change_at_first_step": -0.01706706060756699,
+      "rigid_range_deg": 82.2,
+      "first_rigid_limit": {
+        "input_deg": 82.3,
+        "qpos": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.7529894373157873,
+          -0.11356660280568098,
+          0.009329501838209844,
+          -0.6480914244251975,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hits": [
+          {
+            "left": "bone:scapula",
+            "right": "elbow:FJ1477_proximal_bolt_left",
+            "overlap_mm3": 0.0014828477061597234
+          }
+        ],
+        "humerus_direction_change_deg": 0.0
+      },
+      "checked_rigid_return": 85,
+      "individual_cuff_test": {
+        "source": {
+          "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_shared_infraspinatus_audit.json",
+          "sha256": "467cae0786b2c6d403854647fa6fe17e33df2434ff0b0e38d86a975c3e890c95"
+        },
+        "id": "FJ1500",
+        "accepted": [
+          {
+            "input_deg": 0.0,
+            "torque_Nm": 0.11858121799278729,
+            "minimum_gap_mm": 0.03788258002100458
+          },
+          {
+            "input_deg": 10.0,
+            "torque_Nm": 0.10083767778928775,
+            "minimum_gap_mm": 0.03839010724080854
+          }
+        ],
+        "first_limit": {
+          "input_deg": 20.0,
+          "states": [
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.09857002115841691,
+              "central_chord_mm": 21.94148084705066,
+              "retained_lead_lengths_mm": [
+                1.5999999999999426,
+                1.6000000000000496
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.001587089168566666,
+                0.002906275226330177,
+                -0.0009331544519773282
+              ],
+              "terminal_shift_mm": 0.372229080856502,
+              "stationarity_residual_N": 5.216145993779815e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039300316756983984,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.19060385739052,
+              "retained_lead_lengths_mm": [
+                1.6000000000001222,
+                1.5999999999999746
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.9998564109784,
+              "stationarity_residual_N": 5.082202403479968e-07,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033120999410921,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 10.0,
+              "tendon_N": 3.0938008563756982,
+              "central_chord_mm": 21.941480847050247,
+              "retained_lead_lengths_mm": [
+                1.5999999999999897,
+                1.5999999999999805
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.07980659581583226,
+                -0.055144419063926156,
+                0.07657452916042502
+              ],
+              "terminal_shift_mm": 39.33814120498726,
+              "stationarity_residual_N": 1.0219575540845438e-07,
+              "central_wire_hits_mm3": {
+                "elbow:FJ1477_bone_adapter": 0.3110580914946564
+              },
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039865005473336136,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 5.0,
+              "tendon_N": 0.0,
+              "central_chord_mm": 18.190604989593677,
+              "retained_lead_lengths_mm": [
+                1.6000000000000185,
+                1.6000000000001526
+              ],
+              "humeral_torque_axis_Nm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "terminal_shift_mm": 24.99985665048516,
+              "stationarity_residual_N": 1.9158599031714895e-06,
+              "central_wire_hits_mm3": null,
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.04033119395481473,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            },
+            {
+              "command_N": 0.0,
+              "tendon_N": 0.09856999651590008,
+              "central_chord_mm": 21.941480847058433,
+              "retained_lead_lengths_mm": [
+                1.600000000000005,
+                1.600000000000095
+              ],
+              "humeral_torque_axis_Nm": [
+                -0.0015870885644190913,
+                0.002906274231081593,
+                -0.0009331542062035227
+              ],
+              "terminal_shift_mm": 0.3722293712246317,
+              "stationarity_residual_N": 5.401804317761524e-07,
+              "central_wire_hits_mm3": {},
+              "overlaps": [],
+              "min_gap_capped_1mm": 0.039300371648432135,
+              "nearest_pair": [
+                "free_terminal:FJ1500",
+                "link:FJ1500/muscle_groove_ring"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "K4_internal": {
+      "source_path": "GH_axial_negative",
+      "marker_medial_change_at_first_step": 0.017100449348322305,
+      "rigid_range_deg": 90.0,
+      "first_rigid_limit": null,
+      "checked_rigid_return": 91,
+      "individual_cuff_test": {
+        "source": {
+          "file": "02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/whole_arm_floating_terminal_audit.json",
+          "sha256": "093806f5f33932391289f6fdb33b12247765cb09c914bbf64ddabc7cf25af7fb"
+        },
+        "id": "FJ1504",
+        "accepted": [
+          {
+            "input_deg": 0.0,
+            "torque_Nm": -0.09421117095469948,
+            "minimum_gap_mm": 0.014633173874787263
+          },
+          {
+            "input_deg": 10.0,
+            "torque_Nm": -0.09482712077384906,
+            "minimum_gap_mm": 0.014633173874524381
+          },
+          {
+            "input_deg": 20.0,
+            "torque_Nm": -0.09079542231277074,
+            "minimum_gap_mm": 0.014633173874907703
+          },
+          {
+            "input_deg": 30.0,
+            "torque_Nm": -0.08248859732547853,
+            "minimum_gap_mm": 0.014633173874816975
+          },
+          {
+            "input_deg": 40.0,
+            "torque_Nm": -0.07059095758228583,
+            "minimum_gap_mm": 0.014633173874693565
+          },
+          {
+            "input_deg": 50.0,
+            "torque_Nm": -0.05620748443455782,
+            "minimum_gap_mm": 0.014633173874882246
+          },
+          {
+            "input_deg": 60.0,
+            "torque_Nm": -0.040903082745974303,
+            "minimum_gap_mm": 0.014633173874775265
+          },
+          {
+            "input_deg": 70.0,
+            "torque_Nm": -0.026546836854214665,
+            "minimum_gap_mm": 0.014633173874711226
+          },
+          {
+            "input_deg": 80.0,
+            "torque_Nm": -0.014855743349192197,
+            "minimum_gap_mm": 0.01463317387464303
+          },
+          {
+            "input_deg": 90.0,
+            "torque_Nm": -0.006672487264100804,
+            "minimum_gap_mm": 0.014633173874782076
+          }
+        ],
+        "first_limit": null
+      }
+    }
+  },
+  "scapular": {
+    "protraction": {
+      "SC_axis": 2,
+      "SC_direction": 1.0,
+      "AC_per_SC_same_axis": 0.5,
+      "accepted": [
+        {
+          "input_deg": 0.0,
+          "qpos": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": 0.0,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": 7.020209066843641e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281785,
+              "signed_leverage_mm": 10.81759472764766
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": -1.22514845490862e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449444,
+              "signed_leverage_mm": 1.0814916670542907e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -1.4026865606531214e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": -6.708500942254059e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.39189160300327,
+              "signed_leverage_mm": 41.813508290355045
+            },
+            "FJ1536_g2": {
+              "length_mm": 108.06539606834275,
+              "signed_leverage_mm": -86.11377163088234
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03331948651698473,
+          "hits": []
+        },
+        {
+          "input_deg": 0.5,
+          "qpos": [
+            0.9999904807207345,
+            0.0,
+            0.0,
+            0.004363309284746571,
+            0.9999976201773518,
+            0.0,
+            0.0,
+            0.0021816598343367697,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.3919958340731853,
+          "AC_anterior_displacement_mm": 1.1745975835959257,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.09412762521074554,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908055,
+              "signed_leverage_mm": -3.0222135558033436e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.1658146422968,
+              "signed_leverage_mm": 10.809870445047904
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": 6.071532165918825e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449447,
+              "signed_leverage_mm": -1.9949319973733282e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": -6.911788849595091e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 1.0299920638612292e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.044502121717514,
+              "signed_leverage_mm": 37.77178897491757
+            },
+            "FJ1536_g2": {
+              "length_mm": 108.82358217868583,
+              "signed_leverage_mm": -87.64583385271237
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.034558918130088066,
+          "hits": []
+        },
+        {
+          "input_deg": 1.0,
+          "qpos": [
+            0.9999619230641713,
+            0.0,
+            0.0,
+            0.008726535498373935,
+            0.9999904807207345,
+            0.0,
+            0.0,
+            0.004363309284746571,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 2.787520551959531,
+          "AC_anterior_displacement_mm": 2.3536533814519487,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.19225597259503333,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 9.75781955236954e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.07151523805197,
+              "signed_leverage_mm": 10.801924010565012
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -1.0842021724855044e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": -1.441988889405721e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -1.2332799712022613e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": 2.15485181781494e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 33.7331731863242,
+              "signed_leverage_mm": 33.55012120363364
+            },
+            "FJ1536_g2": {
+              "length_mm": 109.59503691809283,
+              "signed_leverage_mm": -89.15468321859218
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03587622834771714,
+          "hits": []
+        },
+        {
+          "input_deg": 1.5,
+          "qpos": [
+            0.999914327574007,
+            0.0,
+            0.0,
+            0.013089595571344441,
+            0.9999785816641292,
+            0.0,
+            0.0,
+            0.006544937967351859,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 4.186447273160113,
+          "AC_anterior_displacement_mm": 3.5370776039042084,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.2943870683012673,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": -9.493545272826198e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.97728614947306,
+              "signed_leverage_mm": 10.793755253454952
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473466,
+              "signed_leverage_mm": -1.0733601507606494e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -8.61940727125976e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -8.605854744103691e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": -1.9651164376299768e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 33.45944354826035,
+              "signed_leverage_mm": 29.156125486633453
+            },
+            "FJ1536_g2": {
+              "length_mm": 110.37955686801187,
+              "signed_leverage_mm": -90.64013068297798
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03727144662748894,
+          "hits": []
+        },
+        {
+          "input_deg": 2.0,
+          "qpos": [
+            0.9998476951563913,
+            0.0,
+            0.0,
+            0.01745240643728351,
+            0.9999619230641713,
+            0.0,
+            0.0,
+            0.008726535498373935,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 5.588648950094807,
+          "AC_anterior_displacement_mm": 4.724780128616317,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.4005228586372904,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908055,
+              "signed_leverage_mm": -2.1141942363467336e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.88312931741683,
+              "signed_leverage_mm": 10.78536400826335
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 5.204170427930421e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -1.7076184216646695e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779363,
+              "signed_leverage_mm": -9.41900637346782e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325061,
+              "signed_leverage_mm": -1.0570971181733668e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 33.22477543279674,
+              "signed_leverage_mm": 24.599728058851127
+            },
+            "FJ1536_g2": {
+              "length_mm": 111.17693709792417,
+              "signed_leverage_mm": -92.1020185387501
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03874372512663456,
+          "hits": []
+        },
+        {
+          "input_deg": 2.5,
+          "qpos": [
+            0.9997620270799091,
+            0.0,
+            0.0,
+            0.02181488503456112,
+            0.9999405050001497,
+            0.0,
+            0.0,
+            0.010908091494182374,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 6.9939983812925135,
+          "AC_anterior_displacement_mm": 5.916670507442689,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.5106651903966567,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": -3.681205188767189e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.78904668416067,
+              "signed_leverage_mm": 10.776750114861775
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": 2.9110828331235794e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -1.2739375526704677e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": 1.5043305143236374e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": -3.2526065174565133e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 33.03053430042904,
+              "signed_leverage_mm": 19.893176184228643
+            },
+            "FJ1536_g2": {
+              "length_mm": 111.98697143263772,
+              "signed_leverage_mm": -93.54021899714299
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04029123969316557,
+          "hits": []
+        },
+        {
+          "input_deg": 3.0,
+          "qpos": [
+            0.9996573249755573,
+            0.0,
+            0.0,
+            0.026176948307873153,
+            0.999914327574007,
+            0.0,
+            0.0,
+            0.013089595571344441,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 8.402368224576549,
+          "AC_anterior_displacement_mm": 7.112657973316331,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.6248157903645363,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908058,
+              "signed_leverage_mm": -8.182338270476541e-16
+            },
+            "FJ1468": {
+              "length_mm": 186.69504019335594,
+              "signed_leverage_mm": 10.767913418483358
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734662,
+              "signed_leverage_mm": -2.097931203759451e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": 1.5720931501039814e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -1.3010426069826053e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": -2.1819568721270777e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.877968790960885,
+              "signed_leverage_mm": 15.050979638687807
+            },
+            "FJ1536_g2": {
+              "length_mm": 112.80945270713688,
+              "signed_leverage_mm": -94.95463275718828
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.041911114781224126,
+          "hits": []
+        },
+        {
+          "input_deg": 3.5,
+          "qpos": [
+            0.9995335908367129,
+            0.0,
+            0.0,
+            0.03053851320982266,
+            0.9998833909103383,
+            0.0,
+            0.0,
+            0.015271037346674515,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 9.81363101024391,
+          "AC_anterior_displacement_mm": 8.312651447161315,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.7429762440015615,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": 1.1817803680091998e-14
+            },
+            "FJ1468": {
+              "length_mm": 186.60111178998105,
+              "signed_leverage_mm": 10.758853769758726
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": 4.716279450311944e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644943,
+              "signed_leverage_mm": 3.63207727782644e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": 8.809142651444724e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325061,
+              "signed_leverage_mm": -5.963111948670274e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.768191524114656,
+              "signed_leverage_mm": 10.089772253621133
+            },
+            "FJ1536_g2": {
+              "length_mm": 113.64417300893149,
+              "signed_leverage_mm": -96.34518757263935
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04359937957983966,
+          "hits": []
+        },
+        {
+          "input_deg": 4.0,
+          "qpos": [
+            0.9993908270190958,
+            0.0,
+            0.0,
+            0.03489949670250097,
+            0.9998476951563913,
+            0.0,
+            0.0,
+            0.01745240643728351,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 11.22765915423659,
+          "AC_anterior_displacement_mm": 9.516559544828581,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.8651479733032352,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 2.1684043449710089e-16
+            },
+            "FJ1468": {
+              "length_mm": 186.50726342029432,
+              "signed_leverage_mm": 10.749571024751564
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": 7.047314121155779e-16
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -2.40692882291782e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": 3.3542504711270293e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": -2.6156377411212794e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.70216146484115,
+              "signed_leverage_mm": 5.028091928659521
+            },
+            "FJ1536_g2": {
+              "length_mm": 114.49092390791566,
+              "signed_leverage_mm": -97.71183682366838
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04535096155418085,
+          "hits": []
+        },
+        {
+          "input_deg": 4.5,
+          "qpos": [
+            0.9992290362407229,
+            0.0,
+            0.0,
+            0.03925981575906861,
+            0.9998072404820648,
+            0.0,
+            0.0,
+            0.0196336924606283,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 12.64432497130369,
+          "AC_anterior_displacement_mm": 10.724290584055439,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.9913322138360592,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908055,
+              "signed_leverage_mm": 8.646512325571898e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.41349703178625,
+              "signed_leverage_mm": 10.740065044994067
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 4.2825985813177425e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": 1.0950441942103595e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779363,
+              "signed_leverage_mm": 5.034763838479561e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": 3.957337929572091e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.68066855270036,
+              "signed_leverage_mm": -0.11391718737318787
+            },
+            "FJ1536_g2": {
+              "length_mm": 115.3494966738074,
+              "signed_leverage_mm": -99.05455809995364
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.02411321547516951,
+          "hits": []
+        },
+        {
+          "input_deg": 5.0,
+          "qpos": [
+            0.9990482215818578,
+            0.0,
+            0.0,
+            0.043619387365336,
+            0.9997620270799091,
+            0.0,
+            0.0,
+            0.02181488503456112,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 14.06350068815199,
+          "AC_anterior_displacement_mm": 11.935752591447269,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -1.1215299909500758,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": 1.1207939958068902e-14
+            },
+            "FJ1468": {
+              "length_mm": 186.31981457313174,
+              "signed_leverage_mm": 10.730335697522282
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473466,
+              "signed_leverage_mm": -4.7704895589362195e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": -1.441988889405721e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": 6.979551485375435e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 4.933119884809045e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.70432123810877,
+              "signed_leverage_mm": -5.314871080870014
+            },
+            "FJ1536_g2": {
+              "length_mm": 116.2196824812953,
+              "signed_leverage_mm": -100.37335180111087
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        },
+        {
+          "input_deg": 5.5,
+          "qpos": [
+            0.9988483864849507,
+            0.0,
+            0.0,
+            0.04797812852134394,
+            0.9997120551651237,
+            0.0,
+            0.0,
+            0.023995973777378995,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 15.485058456584483,
+          "AC_anterior_displacement_mm": 13.150853309481889,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -1.255742095170497,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908053,
+              "signed_leverage_mm": -1.463672932855431e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.22621799414173,
+              "signed_leverage_mm": 10.720382854911247
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -2.721347452938616e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -8.239936510889834e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": 7.223496974184673e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 1.3823577699190182e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 32.773537464011056,
+              "signed_leverage_mm": -10.552566304877276
+            },
+            "FJ1536_g2": {
+              "length_mm": 117.10127260306626,
+              "signed_leverage_mm": -101.6682397597713
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        }
+      ],
+      "checked_return": 12,
+      "first_limit": {
+        "input_deg": 5.6,
+        "qpos": [
+          0.9988061373414341,
+          0.0,
+          0.0,
+          0.04884976979561326,
+          0.9997014897811831,
+          0.0,
+          0.0,
+          0.024432178152653153,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "anterior_displacement_mm": 15.769644601322739,
+        "AC_anterior_displacement_mm": 13.394301960116707,
+        "superior_displacement_mm": 0.0,
+        "coronal_scapular_deg": -1.2830662868046436,
+        "routes": {
+          "FJ1507": {
+            "length_mm": 117.62512808908056,
+            "signed_leverage_mm": 2.7376104855258987e-15
+          },
+          "FJ1468": {
+            "length_mm": 186.20750915556403,
+            "signed_leverage_mm": 10.718365456150954
+          },
+          "FJ1513": {
+            "length_mm": 165.43008534734653,
+            "signed_leverage_mm": -2.5045070184415152e-14
+          },
+          "FJ1467": {
+            "length_mm": 177.31220066449438,
+            "signed_leverage_mm": -6.830473686658678e-15
+          },
+          "FJ1486": {
+            "length_mm": 180.91217662779385,
+            "signed_leverage_mm": 5.753047777751208e-15
+          },
+          "FJ1477": {
+            "length_mm": 172.52558108325087,
+            "signed_leverage_mm": 1.4609624274242172e-14
+          },
+          "FJ1459_g3": {
+            "length_mm": 32.79287136316667,
+            "signed_leverage_mm": -11.602529509887914
+          },
+          "FJ1536_g2": {
+            "length_mm": 117.27894079483356,
+            "signed_leverage_mm": -101.9243520125098
+          }
+        },
+        "girdle_wire_gap_capped_3mm": null,
+        "hits": [
+          {
+            "left": "FJ1459_g3_insertion",
+            "right": "FJ1459_g3",
+            "overlap_mm3": 0.0012283061336124264
+          }
+        ]
+      },
+      "line_summary": {
+        "FJ1459_g3": {
+          "excursion_mm": 1.7112230503029124,
+          "net_mm": -1.618354138992217,
+          "signed_leverage_range_mm": [
+            -10.552566304877276,
+            41.813508290355045
+          ]
+        },
+        "FJ1536_g2": {
+          "excursion_mm": 9.035876534723513,
+          "net_mm": 9.035876534723513,
+          "signed_leverage_range_mm": [
+            -101.6682397597713,
+            -86.11377163088234
+          ]
+        }
+      },
+      "minimum_girdle_gap_mm": 0.0
+    },
+    "retraction": {
+      "SC_axis": 2,
+      "SC_direction": -1.0,
+      "AC_per_SC_same_axis": 0.5,
+      "accepted": [
+        {
+          "input_deg": 0.0,
+          "qpos": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": 0.0,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": -7.020209066843641e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281785,
+              "signed_leverage_mm": -10.81759472764766
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 1.22514845490862e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449444,
+              "signed_leverage_mm": -1.0814916670542907e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": 1.4026865606531214e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 6.708500942254059e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.39189160300327,
+              "signed_leverage_mm": -41.813508290355045
+            },
+            "FJ1536_g2": {
+              "length_mm": 108.06539606834275,
+              "signed_leverage_mm": 86.11377163088234
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03331948651698473,
+          "hits": []
+        }
+      ],
+      "checked_return": 1,
+      "first_limit": {
+        "input_deg": 0.1,
+        "qpos": [
+          0.9999996192282494,
+          0.0,
+          0.0,
+          -0.0008726645152351496,
+          0.9999999048070578,
+          0.0,
+          0.0,
+          -0.0004363322991533301,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "anterior_displacement_mm": -0.27796454781584146,
+        "AC_anterior_displacement_mm": -0.23437665334225244,
+        "superior_displacement_mm": 0.0,
+        "coronal_scapular_deg": 0.01834562118180111,
+        "routes": {
+          "FJ1507": {
+            "length_mm": 117.62512808908058,
+            "signed_leverage_mm": -1.0137290312739466e-14
+          },
+          "FJ1468": {
+            "length_mm": 187.27906401351495,
+            "signed_leverage_mm": -10.819112941337378
+          },
+          "FJ1513": {
+            "length_mm": 165.43008534734656,
+            "signed_leverage_mm": 2.4665599424045226e-15
+          },
+          "FJ1467": {
+            "length_mm": 177.31220066449436,
+            "signed_leverage_mm": 8.267041565201971e-15
+          },
+          "FJ1486": {
+            "length_mm": 180.91217662779363,
+            "signed_leverage_mm": -6.5865281978494394e-15
+          },
+          "FJ1477": {
+            "length_mm": 172.52558108325061,
+            "signed_leverage_mm": 1.938011383317839e-15
+          },
+          "FJ1459_g3": {
+            "length_mm": 34.4655571455376,
+            "signed_leverage_mm": -42.599745791136016
+          },
+          "FJ1536_g2": {
+            "length_mm": 107.91536885971294,
+            "signed_leverage_mm": 85.80459256908586
+          }
+        },
+        "girdle_wire_gap_capped_3mm": null,
+        "hits": [
+          {
+            "left": "thorax_reference:FJ3340",
+            "right": "cap:FJ1504/origin",
+            "overlap_mm3": 0.07445421880432347
+          }
+        ]
+      },
+      "line_summary": {
+        "FJ1459_g3": {
+          "excursion_mm": 0.0,
+          "net_mm": 0.0,
+          "signed_leverage_range_mm": [
+            -41.813508290355045,
+            -41.813508290355045
+          ]
+        },
+        "FJ1536_g2": {
+          "excursion_mm": 0.0,
+          "net_mm": 0.0,
+          "signed_leverage_range_mm": [
+            86.11377163088234,
+            86.11377163088234
+          ]
+        }
+      },
+      "minimum_girdle_gap_mm": 0.03331948651698473
+    },
+    "upward_rotation": {
+      "SC_axis": 1,
+      "SC_direction": 1.0,
+      "AC_per_SC_same_axis": 0.0,
+      "accepted": [
+        {
+          "input_deg": 0.0,
+          "qpos": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": 0.0,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": 9.107298248878237e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281785,
+              "signed_leverage_mm": -5.421010862427522e-16
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 2.6020852139652106e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449444,
+              "signed_leverage_mm": 4.423544863740858e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": 1.5937771935536915e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": -8.673617379884035e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.39189160300327,
+              "signed_leverage_mm": -53.1926084056564
+            },
+            "FJ1536_g2": {
+              "length_mm": 108.06539606834275,
+              "signed_leverage_mm": 12.040236073625286
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03331948651698473,
+          "hits": []
+        },
+        {
+          "input_deg": 0.5,
+          "qpos": [
+            0.9999904807207345,
+            0.0,
+            0.004363309284746571,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 1.3176097446905715,
+          "coronal_scapular_deg": 0.5000000000001598,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908058,
+              "signed_leverage_mm": 2.168404344971009e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": -1.0842021724855044e-16
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734633,
+              "signed_leverage_mm": 3.686287386450715e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": 6.179952383167375e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779349,
+              "signed_leverage_mm": 1.2576745200831851e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.5255810832508,
+              "signed_leverage_mm": -1.0842021724855044e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.857724832422605,
+              "signed_leverage_mm": -53.565318901861055
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.95943715561371,
+              "signed_leverage_mm": 12.243703619528281
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03408352152778975,
+          "hits": []
+        },
+        {
+          "input_deg": 1.0,
+          "qpos": [
+            0.9999619230641713,
+            0.0,
+            0.008726535498373935,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 2.635227472330371,
+          "coronal_scapular_deg": 0.9999999999999887,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 3.686287386450715e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.2601824228179,
+              "signed_leverage_mm": 3.0249240612345574e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734645,
+              "signed_leverage_mm": -3.2526065174565133e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449458,
+              "signed_leverage_mm": 3.415236843329339e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -1.0299920638612292e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325098,
+              "signed_leverage_mm": 6.505213034913027e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 35.32672840461888,
+              "signed_leverage_mm": -53.919334325104344
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.8517040839469,
+              "signed_leverage_mm": 12.446842377802865
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03484955121040536,
+          "hits": []
+        },
+        {
+          "input_deg": 1.5,
+          "qpos": [
+            0.999914327574007,
+            0.0,
+            0.013089595571344441,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 3.95275284122863,
+          "coronal_scapular_deg": 1.5000000000000722,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 2.6020852139652106e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": 1.7889335846010823e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 1.7780915628762273e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": -9.432558900623889e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277937,
+              "signed_leverage_mm": -1.734723475976807e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 0.0
+            },
+            "FJ1459_g3": {
+              "length_mm": 35.79874270329157,
+              "signed_leverage_mm": -54.25545725904974
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.74219974804778,
+              "signed_leverage_mm": 12.649646504190184
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.035617020697943966,
+          "hits": []
+        },
+        {
+          "input_deg": 2.0,
+          "qpos": [
+            0.9998476951563913,
+            0.0,
+            0.01745240643728351,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 5.270085516727022,
+          "coronal_scapular_deg": 1.9999999999999392,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": -2.3852447794681098e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281782,
+              "signed_leverage_mm": 1.22514845490862e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": 1.5720931501039814e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449458,
+              "signed_leverage_mm": -1.9678269430611905e-13
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779363,
+              "signed_leverage_mm": -1.1275702593849246e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325073,
+              "signed_leverage_mm": -7.806255641895632e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 36.27361495529768,
+              "signed_leverage_mm": -54.57445364587866
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.63092709367481,
+              "signed_leverage_mm": 12.852110142199189
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03638542845277134,
+          "hits": []
+        },
+        {
+          "input_deg": 2.5,
+          "qpos": [
+            0.9997620270799091,
+            0.0,
+            0.02181488503456112,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 6.587125178842371,
+          "coronal_scapular_deg": 2.4999999999999845,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": -1.0625181290357943e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281782,
+              "signed_leverage_mm": 1.5178830414797062e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734636,
+              "signed_leverage_mm": 3.7947076036992655e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": -6.385950795939621e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -1.0842021724855044e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.5255810832509,
+              "signed_leverage_mm": -7.37257477290143e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 36.751198915970726,
+              "signed_leverage_mm": -54.87705396128654
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.51788911774905,
+              "signed_leverage_mm": 13.054227422782832
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03715432199630995,
+          "hits": []
+        },
+        {
+          "input_deg": 3.0,
+          "qpos": [
+            0.9996573249755573,
+            0.0,
+            0.026176948307873153,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 7.903771529904816,
+          "coronal_scapular_deg": 2.9999999999999787,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908056,
+              "signed_leverage_mm": 3.2526065174565133e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.2601824228181,
+              "signed_leverage_mm": 2.6346112791397758e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 5.789639601072594e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": 1.1926223897340549e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -2.190088388420719e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325098,
+              "signed_leverage_mm": -9.540979117872439e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 37.23135456495994,
+              "signed_leverage_mm": -55.16395444698708
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.40308886846466,
+              "signed_leverage_mm": 13.255992464008337
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03792329392394094,
+          "hits": []
+        },
+        {
+          "input_deg": 3.5,
+          "qpos": [
+            0.9995335908367129,
+            0.0,
+            0.03053851320982266,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 9.219924302197796,
+          "coronal_scapular_deg": 3.500000000000037,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908058,
+              "signed_leverage_mm": 2.1684043449710089e-16
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": 1.1817803680091998e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734645,
+              "signed_leverage_mm": 1.6154612370034016e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": -3.69712940817557e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277934,
+              "signed_leverage_mm": 6.071532165918825e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325042,
+              "signed_leverage_mm": 1.0408340855860843e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 37.71394781300492,
+              "signed_leverage_mm": -55.435818380612346
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.28652944540224,
+              "signed_leverage_mm": 13.457399370720601
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0386919781910888,
+          "hits": []
+        },
+        {
+          "input_deg": 4.0,
+          "qpos": [
+            0.9993908270190958,
+            0.0,
+            0.03489949670250097,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 10.53548326559121,
+          "coronal_scapular_deg": 4.0000000000000435,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908043,
+              "signed_leverage_mm": -4.0766001685454967e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.2601824228181,
+              "signed_leverage_mm": -7.047314121155779e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734648,
+              "signed_leverage_mm": 4.2609145378680324e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449453,
+              "signed_leverage_mm": 1.4734307524078005e-13
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779397,
+              "signed_leverage_mm": 5.421010862427522e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325093,
+              "signed_leverage_mm": -6.938893903907228e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 38.198850219889074,
+              "signed_leverage_mm": -55.69327736612934
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.16821399964726,
+              "signed_leverage_mm": 13.658442234198123
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03946004666171287,
+          "hits": []
+        },
+        {
+          "input_deg": 4.5,
+          "qpos": [
+            0.9992290362407229,
+            0.0,
+            0.03925981575906861,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 11.850348235177307,
+          "coronal_scapular_deg": 4.500000000000051,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908045,
+              "signed_leverage_mm": -2.6237692574149207e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281793,
+              "signed_leverage_mm": 1.0083080204115191e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": 1.452830911130576e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449455,
+              "signed_leverage_mm": -9.063930161978817e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779368,
+              "signed_leverage_mm": -2.7538735181131813e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": -4.336808689942018e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 38.685938723693724,
+              "signed_leverage_mm": -55.9369326307267
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.04814573390779,
+              "signed_leverage_mm": 13.85911513180274
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.040227205906287665,
+          "hits": []
+        },
+        {
+          "input_deg": 5.0,
+          "qpos": [
+            0.9990482215818578,
+            0.0,
+            0.043619387365336,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 13.164419078897708,
+          "coronal_scapular_deg": 5.000000000000109,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908048,
+              "signed_leverage_mm": 2.0816681711721685e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.2601824228178,
+              "signed_leverage_mm": 2.0816681711721685e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": -5.702903427273753e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644943,
+              "signed_leverage_mm": -1.951563910473908e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -4.553649124439119e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.525581083251,
+              "signed_leverage_mm": 4.7704895589362195e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 39.175095381355256,
+              "signed_leverage_mm": -56.16735631658873
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.92632790263956,
+              "signed_leverage_mm": 14.059412126621128
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.040993194237694146,
+          "hits": []
+        },
+        {
+          "input_deg": 5.5,
+          "qpos": [
+            0.9988483864849507,
+            0.0,
+            0.04797812852134394,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 14.47759572516975,
+          "coronal_scapular_deg": 5.500000000000167,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908072,
+              "signed_leverage_mm": 6.505213034913027e-16
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281785,
+              "signed_leverage_mm": 4.9873299934333204e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734662,
+              "signed_leverage_mm": -1.3227266504323154e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": 2.933851078745775e-13
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779383,
+              "signed_leverage_mm": 1.8214596497756474e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 1.214306433183765e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 39.66620712043552,
+              "signed_leverage_mm": -56.38509275810008
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.80276381217132,
+              "signed_leverage_mm": 14.25932726709923
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04175777896973703,
+          "hits": []
+        },
+        {
+          "input_deg": 6.0,
+          "qpos": [
+            0.9986295347545738,
+            0.0,
+            0.052335956242943835,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 15.789778170507816,
+          "coronal_scapular_deg": 5.999999999999919,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": 1.8648277366750676e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281796,
+              "signed_leverage_mm": -1.8865117801247777e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": 3.447762908503904e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": 1.1709383462843448e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277936,
+              "signed_leverage_mm": -1.6263032587282567e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 8.673617379884035e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 40.159165501949474,
+              "signed_leverage_mm": -56.59065973687218
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.67745682083334,
+              "signed_leverage_mm": 14.4588545866693
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.042520753887016795,
+          "hits": []
+        },
+        {
+          "input_deg": 6.5,
+          "qpos": [
+            0.9983916705573488,
+            0.0,
+            0.056692787563377506,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 17.100866487138774,
+          "coronal_scapular_deg": 6.500000000000067,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": -6.505213034913027e-16
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281793,
+              "signed_leverage_mm": 1.9949319973733282e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": -3.5128150388530344e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449453,
+              "signed_leverage_mm": -1.5612511283791264e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277939,
+              "signed_leverage_mm": 2.190088388420719e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325096,
+              "signed_leverage_mm": -1.734723475976807e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 40.65386649402258,
+              "signed_leverage_mm": -56.78454970854842
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.55041033909134,
+              "signed_leverage_mm": 14.65798810336837
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.043281936911441166,
+          "hits": []
+        },
+        {
+          "input_deg": 7.0,
+          "qpos": [
+            0.9981347984218669,
+            0.0,
+            0.06104853953485687,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 18.41076083061057,
+          "coronal_scapular_deg": 7.000000000000029,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908063,
+              "signed_leverage_mm": 1.0842021724855044e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281796,
+              "signed_leverage_mm": 1.0625181290357943e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734625,
+              "signed_leverage_mm": 8.890457814381136e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449427,
+              "signed_leverage_mm": 3.120333852413282e-13
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779374,
+              "signed_leverage_mm": -9.324138683375338e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325104,
+              "signed_leverage_mm": -2.5153490401663703e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 41.15021025611461,
+              "signed_leverage_mm": -56.96723099669755
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.42162782968266,
+              "signed_leverage_mm": 14.856721819448918
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.044041167954880826,
+          "hits": []
+        },
+        {
+          "input_deg": 7.5,
+          "qpos": [
+            0.9978589232386035,
+            0.0,
+            0.06540312923014306,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 19.719361447398114,
+          "coronal_scapular_deg": 7.500000000000252,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908069,
+              "signed_leverage_mm": 6.505213034913027e-16
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": 4.119968255444917e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734636,
+              "signed_leverage_mm": -1.713039432527097e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449447,
+              "signed_leverage_mm": 2.862293735361732e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": 1.6046192152785466e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.5255810832508,
+              "signed_leverage_mm": -2.688821387764051e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 41.64810093350667,
+              "signed_leverage_mm": -57.1391489502445
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.29111280775422,
+              "signed_leverage_mm": 15.055049720981733
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04479830694107202,
+          "hits": []
+        },
+        {
+          "input_deg": 8.0,
+          "qpos": [
+            0.9975640502598242,
+            0.0,
+            0.0697564737441253,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 1.4210854715202004e-14,
+          "AC_anterior_displacement_mm": 1.4210854715202004e-14,
+          "superior_displacement_mm": 21.026568682497327,
+          "coronal_scapular_deg": 8.000000000000018,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908075,
+              "signed_leverage_mm": 2.8189256484623115e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281782,
+              "signed_leverage_mm": 3.3393426912553537e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 1.1926223897340549e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": 7.589415207398531e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277937,
+              "signed_leverage_mm": -1.431146867680866e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.5255810832509,
+              "signed_leverage_mm": -2.2551405187698492e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 42.14744646171704,
+              "signed_leverage_mm": -57.30072706185065
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.15886884100719,
+              "signed_leverage_mm": 15.252965777449361
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04555323199061572,
+          "hits": []
+        },
+        {
+          "input_deg": 8.5,
+          "qpos": [
+            0.9972501850994857,
+            0.0,
+            0.07410849019539924,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 22.332282987016697,
+          "coronal_scapular_deg": 8.500000000000094,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908063,
+              "signed_leverage_mm": 2.3852447794681098e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.2601824228178,
+              "signed_leverage_mm": 7.15573433840433e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734665,
+              "signed_leverage_mm": 4.81385764583564e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449455,
+              "signed_leverage_mm": 5.2475385148298415e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779377,
+              "signed_leverage_mm": -2.47198095326695e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.5255810832509,
+              "signed_leverage_mm": -2.992397996059992e-14
+            },
+            "FJ1459_g3": {
+              "length_mm": 42.64815838050291,
+              "signed_leverage_mm": -57.45236804547013
+            },
+            "FJ1536_g2": {
+              "length_mm": 106.02489954984223,
+              "signed_leverage_mm": 15.45046394133167
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04630583775216714,
+          "hits": []
+        },
+        {
+          "input_deg": 9.0,
+          "qpos": [
+            0.996917333733128,
+            0.0,
+            0.07845909572784494,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 23.636404925756324,
+          "coronal_scapular_deg": 8.999999999999872,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908039,
+              "signed_leverage_mm": 2.862293735361732e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281808,
+              "signed_leverage_mm": -2.1250362580715887e-14
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 4.7921736023859296e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449467,
+              "signed_leverage_mm": -2.3852447794681098e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779349,
+              "signed_leverage_mm": 1.9949319973733282e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325067,
+              "signed_leverage_mm": -6.938893903907228e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 43.15015165707927,
+              "signed_leverage_mm": -57.59445487198054
+            },
+            "FJ1536_g2": {
+              "length_mm": 105.88920860751091,
+              "signed_leverage_mm": 15.647538147681793
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04705603387294192,
+          "hits": []
+        },
+        {
+          "input_deg": 9.5,
+          "qpos": [
+            0.9965655024977614,
+            0.0,
+            0.08280820751220434,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 24.938835184781965,
+          "coronal_scapular_deg": 9.500000000000096,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908065,
+              "signed_leverage_mm": -1.5178830414797062e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": -7.15573433840433e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734642,
+              "signed_leverage_mm": 1.0191500421363742e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -2.482822974991805e-13
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277937,
+              "signed_leverage_mm": 3.3393426912553537e-14
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": -6.5052130349130266e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 43.653344518194814,
+              "signed_leverage_mm": -57.72735176235134
+            },
+            "FJ1536_g2": {
+              "length_mm": 105.75179974026867,
+              "signed_leverage_mm": 15.844182313693524
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04780374359503483,
+          "hits": []
+        },
+        {
+          "input_deg": 10.0,
+          "qpos": [
+            0.9961946980917455,
+            0.0,
+            0.08715574274765817,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 26.239474578986346,
+          "coronal_scapular_deg": 9.999999999999963,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908042,
+              "signed_leverage_mm": 1.0625181290357943e-14
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281788,
+              "signed_leverage_mm": 1.5178830414797062e-15
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734633,
+              "signed_leverage_mm": -2.940356291780688e-13
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644945,
+              "signed_leverage_mm": -1.1275702593849246e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.9121766277938,
+              "signed_leverage_mm": 7.37257477290143e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325093,
+              "signed_leverage_mm": -7.806255641895632e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 44.15765829068593,
+              "signed_leverage_mm": -57.85140513826945
+            },
+            "FJ1536_g2": {
+              "length_mm": 105.6126767275329,
+              "signed_leverage_mm": 16.04039033825895
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04854890247100443,
+          "hits": []
+        }
+      ],
+      "checked_return": 21,
+      "first_limit": null,
+      "line_summary": {
+        "FJ1459_g3": {
+          "excursion_mm": 9.765766687682657,
+          "net_mm": 9.765766687682657,
+          "signed_leverage_range_mm": [
+            -57.85140513826945,
+            -53.1926084056564
+          ]
+        },
+        "FJ1536_g2": {
+          "excursion_mm": 2.4527193408098498,
+          "net_mm": -2.4527193408098498,
+          "signed_leverage_range_mm": [
+            12.040236073625286,
+            16.04039033825895
+          ]
+        }
+      },
+      "minimum_girdle_gap_mm": 0.03331948651698473
+    },
+    "retraction_alternative": {
+      "SC_axis": 2,
+      "SC_direction": -1.0,
+      "AC_per_SC_same_axis": -1.1,
+      "accepted": [
+        {
+          "input_deg": 0.0,
+          "qpos": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": 0.0,
+          "AC_anterior_displacement_mm": 0.0,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": 0.0,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908062,
+              "signed_leverage_mm": -5.545694112263355e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.26018242281785,
+              "signed_leverage_mm": 23.79870840082488
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": -4.054916125095787e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449444,
+              "signed_leverage_mm": -1.4891516839088403e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -9.175060884658581e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 1.8079071226195782e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.39189160300327,
+              "signed_leverage_mm": -27.42918185089029
+            },
+            "FJ1536_g2": {
+              "length_mm": 108.06539606834275,
+              "signed_leverage_mm": 12.802206073398915
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.03331948651698473,
+          "hits": []
+        },
+        {
+          "input_deg": 0.5,
+          "qpos": [
+            0.9999904807207345,
+            0.0,
+            0.0,
+            -0.004363309284746571,
+            0.9999884816759264,
+            0.0,
+            0.0,
+            0.004799637014974645,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -1.1555285359904417,
+          "AC_anterior_displacement_mm": -1.1700499191821336,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.006150749679109042,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": -3.6483403104137224e-15
+            },
+            "FJ1468": {
+              "length_mm": 187.0526637329963,
+              "signed_leverage_mm": 23.760677710713033
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": -1.0598076236045806e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": 6.174531372304948e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": -4.336808689942041e-17
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 6.589238703280654e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.65721056006601,
+              "signed_leverage_mm": -33.352934743946804
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.95878355665158,
+              "signed_leverage_mm": 11.631337777076443
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.036015131001555324,
+          "hits": []
+        },
+        {
+          "input_deg": 1.0,
+          "qpos": [
+            0.9999619230641713,
+            0.0,
+            0.0,
+            -0.008726535498373935,
+            0.999953926969049,
+            0.0,
+            0.0,
+            0.009599163462400142,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -2.306424279652447,
+          "AC_anterior_displacement_mm": -2.335463070119161,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.012319271710991208,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908056,
+              "signed_leverage_mm": -2.4421653935235987e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.84548725144415,
+              "signed_leverage_mm": 23.720279390445764
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 1.2387009820646888e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": 8.912141857830845e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": -1.1099519740820352e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 6.532318089225166e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 34.973550866758345,
+              "signed_leverage_mm": -39.11891157301839
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.86239456334012,
+              "signed_leverage_mm": 10.459219741381204
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.038201838665051294,
+          "hits": []
+        },
+        {
+          "input_deg": 1.5,
+          "qpos": [
+            0.999914327574007,
+            0.0,
+            0.0,
+            -0.013089595571344441,
+            0.9998963366753925,
+            0.0,
+            0.0,
+            0.014398468777274446,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -3.452598491318099,
+          "AC_anterior_displacement_mm": -3.4961507020875047,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.018505566720358326,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 8.459487450818148e-15
+            },
+            "FJ1468": {
+              "length_mm": 186.63867365630702,
+              "signed_leverage_mm": 23.677509664301137
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": 2.570643350963131e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -7.930938891731463e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -1.8444989459409644e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": 2.3554292197247584e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 35.33944872643118,
+              "signed_leverage_mm": -44.70773678780464
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.77623811904463,
+              "signed_leverage_mm": 9.286282197037949
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0398307204351094,
+          "hits": []
+        },
+        {
+          "input_deg": 2.0,
+          "qpos": [
+            0.9998476951563913,
+            0.0,
+            0.0,
+            -0.01745240643728351,
+            0.9998157121216442,
+            0.0,
+            0.0,
+            0.01919744239968967,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -4.593962791183117,
+          "AC_anterior_displacement_mm": -4.652024424230248,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.024709635331184338,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": -1.3490185531150889e-14
+            },
+            "FJ1468": {
+              "length_mm": 186.4322436574739,
+              "signed_leverage_mm": 23.632365033612288
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -7.274996577377735e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": 1.8409752888803865e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -1.8770250111155296e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 2.710505431213838e-17
+            },
+            "FJ1459_g3": {
+              "length_mm": 35.75328584000177,
+              "signed_leverage_mm": -50.103393595583114
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.70031948978416,
+              "signed_leverage_mm": 8.112957598295445
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04159451919518008,
+          "hits": []
+        },
+        {
+          "input_deg": 2.5,
+          "qpos": [
+            0.9997620270799091,
+            0.0,
+            0.0,
+            -0.02181488503456112,
+            0.9997120551651237,
+            0.0,
+            0.0,
+            0.023995973777378995,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -5.730429166037894,
+          "AC_anterior_displacement_mm": -5.802996212288278,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.03093147816634907,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 1.9792110658722883e-14
+            },
+            "FJ1468": {
+              "length_mm": 186.2262179941418,
+              "signed_leverage_mm": 23.584842280804775
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473466,
+              "signed_leverage_mm": 1.4799359654427136e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": -2.2995928078417552e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -1.0963994469259664e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325084,
+              "signed_leverage_mm": 5.719166459861042e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 36.21331897323865,
+              "signed_leverage_mm": -55.293261667601676
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.63464016023268,
+              "signed_leverage_mm": 6.9396800082518055
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04348421608646122,
+          "hits": []
+        },
+        {
+          "input_deg": 3.0,
+          "qpos": [
+            0.9996573249755573,
+            0.0,
+            0.0,
+            -0.026176948307873153,
+            0.9995853681937397,
+            0.0,
+            0.0,
+            0.028793952368263473,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -6.861909975971116,
+          "AC_anterior_displacement_mm": -6.94897841530377,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.0371710958479054,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908056,
+              "signed_leverage_mm": 1.6355189771943834e-14
+            },
+            "FJ1468": {
+              "length_mm": 186.02061743234532,
+              "signed_leverage_mm": 23.534938473395915
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734656,
+              "signed_leverage_mm": 3.1225022567582524e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -3.783865581974411e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779363,
+              "signed_leverage_mm": -1.9596954267675497e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": -3.1604493327952454e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 36.717709325717664,
+              "signed_leverage_mm": -60.26803702690245
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.57919782238731,
+              "signed_leverage_mm": 5.7668844772965775
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.046328875512570415,
+          "hits": []
+        },
+        {
+          "input_deg": 3.5,
+          "qpos": [
+            0.9995335908367129,
+            0.0,
+            0.0,
+            -0.03053851320982266,
+            0.9994356541259354,
+            0.0,
+            0.0,
+            0.03359126764299847,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -7.988317961044643,
+          "AC_anterior_displacement_mm": -8.08988376229511,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.04342848899699023,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908052,
+              "signed_leverage_mm": -3.0032400177848473e-15
+            },
+            "FJ1468": {
+              "length_mm": 185.8154627624516,
+              "signed_leverage_mm": 23.482650967952754
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 3.1712913545201005e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644943,
+              "signed_leverage_mm": -6.591949208711867e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": 1.2780033108172882e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325061,
+              "signed_leverage_mm": 1.3715157481941631e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 37.264550759662534,
+              "signed_leverage_mm": -65.02155457766476
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.5339863696823,
+              "signed_leverage_mm": 4.595006416821083
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04851894127437119,
+          "hits": []
+        },
+        {
+          "input_deg": 4.0,
+          "qpos": [
+            0.9993908270190958,
+            0.0,
+            0.0,
+            -0.03489949670250097,
+            0.9992629164106211,
+            0.0,
+            0.0,
+            0.038387809087519945,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -9.109566247939469,
+          "AC_anterior_displacement_mm": -9.225625368902953,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.049703658233633596,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": -1.5449880957918438e-14
+            },
+            "FJ1468": {
+              "length_mm": 185.61077479662046,
+              "signed_leverage_mm": 23.42797741400656
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": -9.475926987523309e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -2.1575623232461538e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -4.2148359455373975e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325061,
+              "signed_leverage_mm": 1.4636729328554305e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 37.8518961390191,
+              "signed_leverage_mm": -69.5505364234407
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.49899589658177,
+              "signed_leverage_mm": 3.4244809703847245
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.04995187766272573,
+          "hits": []
+        },
+        {
+          "input_deg": 4.5,
+          "qpos": [
+            0.9992290362407229,
+            0.0,
+            0.0,
+            -0.03925981575906861,
+            0.999067159027095,
+            0.0,
+            0.0,
+            0.043183466205590326,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -10.225568356572325,
+          "AC_anterior_displacement_mm": -10.35611674400672,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.05599660417682233,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908056,
+              "signed_leverage_mm": -1.5384828827569308e-14
+            },
+            "FJ1468": {
+              "length_mm": 185.40657436623104,
+              "signed_leverage_mm": 23.370915757919498
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -8.413408858487514e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -8.651933336434327e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": -4.499439015814842e-16
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": 1.7320129705455935e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 38.47778123404885,
+              "signed_leverage_mm": -73.85428943531338
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.47421270366259,
+              "signed_leverage_mm": 2.255742384540259
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0226283817679674,
+          "hits": []
+        },
+        {
+          "input_deg": 5.0,
+          "qpos": [
+            0.9990482215818578,
+            0.0,
+            0.0,
+            -0.043619387365336,
+            0.9988483864849507,
+            0.0,
+            0.0,
+            0.04797812852134394,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -11.336238206682353,
+          "AC_anterior_displacement_mm": -11.48127179631134,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.06230732744476722,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908058,
+              "signed_leverage_mm": -9.719872476332547e-15
+            },
+            "FJ1468": {
+              "length_mm": 185.20288231927483,
+              "signed_leverage_mm": 23.311464246701977
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -1.1590121223870042e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -2.878556767949014e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": -1.07742590890747e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": 2.2090619264392153e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 39.140245845794325,
+              "signed_leverage_mm": -77.93437396776673
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.45961930818171,
+              "signed_leverage_mm": 1.0892233815296901
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        },
+        {
+          "input_deg": 5.5,
+          "qpos": [
+            0.9988483864849507,
+            0.0,
+            0.0,
+            -0.04797812852134394,
+            0.9986066038239745,
+            0.0,
+            0.0,
+            0.05277168558183206,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -12.441490124387194,
+          "AC_anterior_displacement_mm": -12.601004840903357,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.06863582865438136,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908058,
+              "signed_leverage_mm": -7.59754672369217e-15
+            },
+            "FJ1468": {
+              "length_mm": 184.99971951771553,
+              "signed_leverage_mm": 23.249621431776543
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -3.436920886779049e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449438,
+              "signed_leverage_mm": -1.0744443529331349e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779388,
+              "signed_leverage_mm": -3.745918505937418e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": -7.453889935837847e-16
+            },
+            "FJ1459_g3": {
+              "length_mm": 39.837351984155745,
+              "signed_leverage_mm": -81.79426277251805
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.45519446010128,
+              "signed_leverage_mm": -0.07464546394822524
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        },
+        {
+          "input_deg": 5.6,
+          "qpos": [
+            0.9988061373414341,
+            0.0,
+            0.0,
+            -0.04884976979561326,
+            0.9985554865583393,
+            0.0,
+            0.0,
+            0.053730254645202154,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -12.661882845733068,
+          "AC_anterior_displacement_mm": -12.824293297619263,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.06990366230353576,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.6251280890806,
+              "signed_leverage_mm": 1.1587410718438829e-14
+            },
+            "FJ1468": {
+              "length_mm": 184.95915230352995,
+              "signed_leverage_mm": 23.236965806522075
+            },
+            "FJ1513": {
+              "length_mm": 165.4300853473465,
+              "signed_leverage_mm": 2.345129299086146e-14
+            },
+            "FJ1467": {
+              "length_mm": 177.31220066449436,
+              "signed_leverage_mm": -1.349831704744453e-14
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779385,
+              "signed_leverage_mm": -3.8977068100853884e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325087,
+              "signed_leverage_mm": -4.49672851038363e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 39.98076213811044,
+              "signed_leverage_mm": -82.54023732893442
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.45552758217781,
+              "signed_leverage_mm": -0.30706351130117826
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        },
+        {
+          "input_deg": 5.7,
+          "qpos": [
+            0.9987631275635946,
+            0.0,
+            0.0,
+            -0.049721373868657846,
+            0.9985034491561524,
+            0.0,
+            0.0,
+            0.054688774197882165,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "anterior_displacement_mm": -12.882054757914347,
+          "AC_anterior_displacement_mm": -13.047360781628939,
+          "superior_displacement_mm": 0.0,
+          "coronal_scapular_deg": -0.07117220709987043,
+          "routes": {
+            "FJ1507": {
+              "length_mm": 117.62512808908059,
+              "signed_leverage_mm": 2.0681156440160997e-15
+            },
+            "FJ1468": {
+              "length_mm": 184.91860726109581,
+              "signed_leverage_mm": 23.22421447486919
+            },
+            "FJ1513": {
+              "length_mm": 165.43008534734653,
+              "signed_leverage_mm": -1.062518129035794e-15
+            },
+            "FJ1467": {
+              "length_mm": 177.3122006644944,
+              "signed_leverage_mm": -3.068292148133977e-15
+            },
+            "FJ1486": {
+              "length_mm": 180.91217662779366,
+              "signed_leverage_mm": 1.66831609291207e-15
+            },
+            "FJ1477": {
+              "length_mm": 172.52558108325064,
+              "signed_leverage_mm": 2.100641709190665e-15
+            },
+            "FJ1459_g3": {
+              "length_mm": 40.12546678381979,
+              "signed_leverage_mm": -83.27764905563359
+            },
+            "FJ1536_g2": {
+              "length_mm": 107.45626624034195,
+              "signed_leverage_mm": -0.539355021699002
+            }
+          },
+          "girdle_wire_gap_capped_3mm": 0.0,
+          "hits": []
+        }
+      ],
+      "checked_return": 14,
+      "first_limit": {
+        "input_deg": 5.8,
+        "qpos": [
+          0.9987193571841863,
+          0.0,
+          0.0,
+          -0.05059294007671331,
+          0.9984504916653646,
+          0.0,
+          0.0,
+          0.05564724335662734,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "anterior_displacement_mm": -13.102005181516994,
+        "AC_anterior_displacement_mm": -13.270206613430133,
+        "superior_displacement_mm": 0.0,
+        "coronal_scapular_deg": -0.07244146304838522,
+        "routes": {
+          "FJ1507": {
+            "length_mm": 117.62512808908059,
+            "signed_leverage_mm": -2.4015078120553927e-15
+          },
+          "FJ1468": {
+            "length_mm": 184.87808455745872,
+            "signed_leverage_mm": 23.21136742968383
+          },
+          "FJ1513": {
+            "length_mm": 165.43008534734656,
+            "signed_leverage_mm": 3.935653886122383e-15
+          },
+          "FJ1467": {
+            "length_mm": 177.31220066449438,
+            "signed_leverage_mm": 1.991679390855872e-14
+          },
+          "FJ1486": {
+            "length_mm": 180.91217662779385,
+            "signed_leverage_mm": -2.1033522146218786e-15
+          },
+          "FJ1477": {
+            "length_mm": 172.52558108325084,
+            "signed_leverage_mm": -2.916503843986007e-15
+          },
+          "FJ1459_g3": {
+            "length_mm": 40.271451018761645,
+            "signed_leverage_mm": -84.00654688990086
+          },
+          "FJ1536_g2": {
+            "length_mm": 107.4574102107755,
+            "signed_leverage_mm": -0.7715165932859966
+          }
+        },
+        "girdle_wire_gap_capped_3mm": null,
+        "hits": [
+          {
+            "left": "FJ1459_g3_origin",
+            "right": "FJ1459_g3",
+            "overlap_mm3": 0.0012575255705801099
+          }
+        ]
+      },
+      "line_summary": {
+        "FJ1459_g3": {
+          "excursion_mm": 5.733575180816516,
+          "net_mm": 5.733575180816516,
+          "signed_leverage_range_mm": [
+            -83.27764905563359,
+            -27.42918185089029
+          ]
+        },
+        "FJ1536_g2": {
+          "excursion_mm": 0.6102016082414679,
+          "net_mm": -0.6091298280008033,
+          "signed_leverage_range_mm": [
+            -0.539355021699002,
+            12.802206073398915
+          ]
+        }
+      },
+      "minimum_girdle_gap_mm": 0.0
+    }
+  },
+  "retraction_AC_ratio_trials": [
+    {
+      "AC_per_SC_same_axis": 0.0,
+      "input_deg": 0.5,
+      "hits": [
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "cap:FJ1504/origin",
+          "overlap_mm3": 0.9327998776872246
+        }
+      ],
+      "anterior_displacement_mm": -1.315479992123386
+    },
+    {
+      "AC_per_SC_same_axis": 1.0,
+      "input_deg": 0.5,
+      "hits": [
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "cap:FJ1504/origin",
+          "overlap_mm3": 3.5078385020614005
+        },
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "bone:scapula",
+          "overlap_mm3": 1.2643973397647739
+        },
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "origin:FJ1504/bolt_0",
+          "overlap_mm3": 0.19149858284975527
+        }
+      ],
+      "anterior_displacement_mm": -1.4612954733137968
+    },
+    {
+      "AC_per_SC_same_axis": -0.5,
+      "input_deg": 0.5,
+      "hits": [
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "cap:FJ1504/origin",
+          "overlap_mm3": 0.24731056719836544
+        }
+      ],
+      "anterior_displacement_mm": -1.2427160867323863
+    },
+    {
+      "AC_per_SC_same_axis": 1.5,
+      "input_deg": 0.5,
+      "hits": [
+        {
+          "left": "thorax_reference:FJ3344",
+          "right": "bone:scapula",
+          "overlap_mm3": 14.724748386465672
+        },
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "cap:FJ1504/origin",
+          "overlap_mm3": 5.340823574862488
+        },
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "origin:FJ1504/bolt_0",
+          "overlap_mm3": 0.7296765171674313
+        }
+      ],
+      "anterior_displacement_mm": -1.5343442729966057
+    },
+    {
+      "AC_per_SC_same_axis": -1.0,
+      "input_deg": 0.5,
+      "hits": [
+        {
+          "left": "thorax_reference:FJ3340",
+          "right": "cap:FJ1504/origin",
+          "overlap_mm3": 0.0011880668020016654
+        }
+      ],
+      "anterior_displacement_mm": -1.1700499191821336
+    },
+    {
+      "AC_per_SC_same_axis": -1.1,
+      "input_deg": 0.5,
+      "hits": [],
+      "anterior_displacement_mm": -1.1555285359904417,
+      "initial_rhomboid_pull_supported": true,
+      "full_screen_last_clear_deg": 5.7
+    }
+  ],
+  "scope": "SC/AC probes to 10 degrees, sampled at 0.5 degrees and at 0.1 degrees from the last clear sample to the first blocked sample. Go/return exact rigid and eight fixed-end wire envelopes with the shared support and tabletop base. No moving cuff or TPU is tested in the new scapular probes. Anterior displacement is measured at the GH centre, with GH held neutral relative to scapula. Axial labelling uses a synthetic bent elbow marker; rigid motion limits are from the original straight-elbow probes, not the bent probe. Cuff tests evaluate each channel independently, including the local load and unload sequence."
+}
