@@ -11,9 +11,9 @@
 .swatch.opensim-engineering { background: #cb6000; }
 .swatch.opensim-candidates { background: #a13ace; }
 #motion-view { margin-right: .8em; }
-.motion-mode .layers label[hidden] { display: none; }
+.motion-mode .layers label[hidden], .motion-mode .presets[hidden] { display: none; }
 .motion-mode .view-tools { top: 48px; bottom: auto; }
-.motion-mode #canvas-host { top: 24px; bottom: 176px; }
+.motion-mode #canvas-host { top: 24px; bottom: 197px; }
 #arm-motion-controls { position: absolute; right: 18px; bottom: 58px; left: 18px; max-width: 580px; margin: auto; padding: 12px 14px; border: 1px solid #d7d8ce; border-radius: 8px; background: #faf8f1f5; color: #263b35; }
 .motion-controls-row { display: flex; align-items: center; gap: 8px; }
 #arm-action, #arm-play { min-width: 0; padding: 8px; border: 1px solid #b7beb5; border-radius: 5px; background: #fbf9f3; color: inherit; font: inherit; font-size: .87rem; }
@@ -22,9 +22,13 @@
 #arm-measurement { min-width: 65px; font-size: .85rem; text-align: right; font-variant-numeric: tabular-nums; }
 #arm-time { display: block; width: 100%; margin: 10px 0 6px; accent-color: #3e6150; }
 .motion-evidence { justify-content: space-between; color: #505c52; font-size: .7rem; }
+.tpu-toggle { display: flex; align-items: center; gap: 4px; white-space: nowrap; cursor: pointer; }
+.tpu-toggle input { accent-color: #aa4e3b; }
+.tpu-toggle:has(input:disabled) { color: #81847d; cursor: default; }
+#arm-tpu-status { min-height: 1.2em; margin: 5px 0 0; }
 @media (max-width: 650px) {
   .opensim-mode .viewport { order: -1; min-height: 390px; height: 51vh; }
   .motion-mode .viewport { order: -1; min-height: 440px; height: 68vh; }
-  .motion-mode #canvas-host { bottom: 155px; }
+  .motion-mode #canvas-host { bottom: 180px; }
   #arm-motion-controls { right: 10px; bottom: 48px; left: 10px; padding: 9px; }
 }

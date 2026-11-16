@@ -9,6 +9,7 @@ import mujoco
 import numpy as np
 from PIL import Image, ImageDraw
 
+from arm_action_timing import geometric_replay_indices
 from render_scapular_routing import (
     BG, FOLDER, GUIDE, HEIGHT, INK, NEW, RESULT, ROOT, SUBTLE, WIDTH,
     arm_points, camera, font, forearm_reference, marker, panel, project, provenance, read, setup_colors, tube,
@@ -103,9 +104,7 @@ class Replay:
             return frames
         # Visual timing only. Preserve the peak with a short pause, and play the
         # same geometric path in reverse.
-        peak = len(frames) // 2
-        outbound = [frames[round(position)] for position in np.linspace(0, peak, 22)]
-        return [*outbound, *[outbound[-1]] * 7, *outbound[-2::-1]]
+        return [frames[index] for index in geometric_replay_indices(len(frames))]
 
     def display(self, key):
         from mujoco import viewer

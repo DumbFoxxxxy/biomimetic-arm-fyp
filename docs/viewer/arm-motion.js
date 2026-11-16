@@ -1,9 +1,10 @@
 import * as THREE from 'three';
+import { createTPUMotion } from './tpu-motion.js?v=tpu-motion-1';
 
 const lineColors = ['#22846e', '#78972a', '#4575b7', '#8753a4'];
 const up = new THREE.Vector3(0, 1, 0);
 
-export async function startArmMotion(manifest, bodyGroups, wireLayer, initialAction) {
+export async function startArmMotion(manifest, bodyGroups, layers, initialAction) {
   const url = new URL(manifest.motion_file, import.meta.url);
   url.search = new URL(import.meta.url).search;
   const response = await fetch(url, { cache: 'no-cache' });
@@ -22,13 +23,14 @@ export async function startArmMotion(manifest, bodyGroups, wireLayer, initialAct
     const length = Math.max(...Object.values(data.actions).map(entry => entry.samples[0][2][index]?.length ?? 1));
     return Array.from({ length: length - 1 }, () => {
       const mesh = new THREE.Mesh(geometry, material);
-      wireLayer.add(mesh);
+      layers.wires.add(mesh);
       return mesh;
     });
   });
   const a = new THREE.Vector3(), b = new THREE.Vector3(), direction = new THREE.Vector3();
   const endRotation = new THREE.Quaternion();
   let action, position, running = false, previous = 0;
+  const tpu = createTPUMotion(manifest.mesh_sha256, layers, renderPose);
 
   for (const [key, entry] of Object.entries(data.actions)) {
     const label = key.startsWith('K') ? `${key} ${entry.label}` : entry.label;
@@ -56,12 +58,14 @@ export async function startArmMotion(manifest, bodyGroups, wireLayer, initialAct
         group.quaternion.set(qx, qy, qz, qw).normalize().slerp(endRotation, fraction);
       }
     });
+    const value = THREE.MathUtils.lerp(extent, nextExtent, fraction);
+    const tpuVisible = tpu.pose(select.value, frame);
     lines.forEach((segments, id) => {
       const path = paths[id];
       const next = nextPaths[id];
       const axial = id === 2 && ['K4', 'K5'].includes(select.value);
       segments.forEach((mesh, i) => {
-        mesh.visible = Boolean(path && i + 1 < path.length);
+        mesh.visible = !tpuVisible && Boolean(path && i + 1 < path.length);
         if (!mesh.visible) return;
         a.fromArray(path[i]).lerp(direction.fromArray(next[i]), fraction);
         b.fromArray(path[i + 1]).lerp(direction.fromArray(next[i + 1]), fraction);
@@ -77,7 +81,6 @@ export async function startArmMotion(manifest, bodyGroups, wireLayer, initialAct
       });
     });
     slider.value = frame;
-    const value = THREE.MathUtils.lerp(extent, nextExtent, fraction);
     readout.value = `${(Math.abs(value) < .005 ? 0 : value).toFixed(2)} ${action.units}`;
   }
 
@@ -86,7 +89,7 @@ export async function startArmMotion(manifest, bodyGroups, wireLayer, initialAct
     position = 0;
     slider.max = action.samples.length - 1;
     evidence.textContent = action.active ? '钢丝牵引与回位 · 理想重力预平衡' : '规定姿态 · 几何往返';
-    renderPose();
+    tpu.choose(select.value);
   }
 
   select.value = Object.hasOwn(data.actions, initialAction) ? initialAction : 'K1';

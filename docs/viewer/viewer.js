@@ -64,12 +64,12 @@ async function start() {
     document.querySelector('#elbow-view').removeAttribute('aria-current');
     document.querySelector('#motion-view').setAttribute('aria-current', 'page');
     document.querySelector('#wire-label').textContent = '肩胛钢丝与导向';
-    document.querySelector('#model-scope').textContent = '浏览器回放已验证的 MuJoCo 轨迹。回放使用刚体与局部钢丝，未计算 TPU 形变。';
-    document.querySelector('#design-description').textContent = '在播放中拖动模型可从任意方向查看动作。K6 和肩胛后缩采用钢丝牵引，其余动作使用规定姿态。内外旋的橙线为肱骨方向标记。';
+    document.querySelector('#model-scope').textContent = 'K1 与 K7 显示几何插值生成的 TPU 形变。接触压力、材料应变和实际行程需另行验证。';
+    document.querySelector('#design-description').textContent = '在播放中拖动模型可从任意方向查看动作。K1 可查看肘部拮抗晶格，K7 可查看八块肌腹。K6 与肩胛后缩采用钢丝牵引。内外旋的橙线为肱骨方向标记。';
     document.querySelector('#design-record').href = './showcase/#all-actions';
     document.querySelector('#design-record').textContent = '查看动作范围和验证记录 ↗';
     document.querySelector('[data-layer="muscles"]').closest('label').hidden = true;
-    document.querySelector('[data-preset="muscles"]').hidden = true;
+    document.querySelector('.presets').hidden = true;
   }
   if (shoulder || combined || firstPass) {
     document.querySelector('#model-name').textContent = firstPass ? '桌面整臂首版' : combined ? '胸廓 · S1 肩部 · 肘部' : 'S1-Y2 肩部';
@@ -208,7 +208,7 @@ async function start() {
     moduleUrl.search = new URL(import.meta.url).search;
     try {
       const { startArmMotion } = await import(moduleUrl);
-      motion = await startArmMotion(manifest, bodyGroups.map(groups => [...groups.values()]), layers.wires, parameters.get('action'));
+      motion = await startArmMotion(manifest, bodyGroups.map(groups => [...groups.values()]), layers, parameters.get('action'));
       document.querySelector('#arm-motion-controls').hidden = false;
     } catch (error) {
       document.querySelector('#scene-count').textContent = '动作数据加载失败 · 可旋转查看中立位';

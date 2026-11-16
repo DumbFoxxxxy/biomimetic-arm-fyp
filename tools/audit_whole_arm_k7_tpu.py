@@ -141,7 +141,7 @@ def reconnect_lattice(candidate, targets, bores):
     return candidate, repairs
 
 
-def main():
+def main(argv=None, replay_factory=None):
     parser = argparse.ArgumentParser(description=__doc__)
     variants = parser.add_mutually_exclusive_group()
     variants.add_argument("--deltoid-relief", action="store_true",
@@ -162,7 +162,7 @@ def main():
                         help="Check the refined K1 spring clearance parts in K7")
     parser.add_argument("--sweep-elbow-min-volume", type=float, default=.005,
                         help="Minimum per-component contact used to build a swept-relief cutter")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.render_replay and not args.check_moving_cuffs:
         parser.error("--render-replay requires --check-moving-cuffs")
     if args.k1_spring_relief and not args.check_moving_cuffs:
@@ -253,9 +253,11 @@ def main():
         if not args.render_replay:
             moving_sliders = {key: load_component(source) for key, source in cuff_motion["moving_sources"].items()}
     if args.render_replay:
-        from render_whole_arm_k7_replay import K7Replay
+        if replay_factory is None:
+            from render_whole_arm_k7_replay import K7Replay
 
-        replay = K7Replay(folder, combo_ref, tpu_sources, cuff_ref, cuff_motion, spring_trial_ref)
+            replay_factory = K7Replay
+        replay = replay_factory(folder, combo_ref, tpu_sources, cuff_ref, cuff_motion, spring_trial_ref)
     if args.relieve_teres_ends:
         teres_ref = provenance(folder / "whole_arm_k7_teres_channel_tracking.json")
         baseline = load_reference(teres_ref)
