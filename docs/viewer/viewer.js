@@ -10,8 +10,10 @@ const parameters = new URLSearchParams(location.search);
 const selected = parameters.get('model');
 const combined = selected === 'combined';
 const firstPass = selected === 'first-pass';
+const motionMode = selected === 'motion';
 const comparison = firstPass && parameters.get('compare') === 'opensim';
 document.body.classList.toggle('opensim-mode', comparison);
+document.body.classList.toggle('motion-mode', motionMode);
 let renderer, camera, controls, manifest, bounds;
 
 function applyVisibility(values) {
@@ -31,7 +33,7 @@ function fitView() {
   const vertical = THREE.MathUtils.degToRad(camera.fov / 2);
   const horizontal = Math.atan(Math.tan(vertical) * camera.aspect);
   const distance = size.length() / 2 / Math.sin(Math.min(vertical, horizontal)) * 1.1;
-  const viewpoint = combined || firstPass ? new THREE.Vector3(-1.8, -2.8, .8) : new THREE.Vector3(1.2, -2.8, .9);
+  const viewpoint = combined || firstPass || motionMode ? new THREE.Vector3(-1.8, -2.8, .8) : new THREE.Vector3(1.2, -2.8, .9);
   camera.position.copy(centre).add(viewpoint.normalize().multiplyScalar(distance));
   camera.near = Math.max(.0001, distance / 1000);
   camera.far = distance * 50;
@@ -56,6 +58,19 @@ function showError(error) {
 
 async function start() {
   const shoulder = selected === 'shoulder';
+  if (motionMode) {
+    document.querySelector('#model-name').textContent = '整臂运动回放';
+    document.querySelector('#scene-label').textContent = '整臂 · MuJoCo 轨迹';
+    document.querySelector('#elbow-view').removeAttribute('aria-current');
+    document.querySelector('#motion-view').setAttribute('aria-current', 'page');
+    document.querySelector('#wire-label').textContent = '肩胛钢丝与导向';
+    document.querySelector('#model-scope').textContent = '浏览器回放已验证的 MuJoCo 轨迹。回放使用刚体与局部钢丝，未计算 TPU 形变。';
+    document.querySelector('#design-description').textContent = '在播放中拖动模型可从任意方向查看动作。K6 和肩胛后缩采用钢丝牵引，其余动作使用规定姿态。内外旋的橙线为肱骨方向标记。';
+    document.querySelector('#design-record').href = './showcase/#all-actions';
+    document.querySelector('#design-record').textContent = '查看动作范围和验证记录 ↗';
+    document.querySelector('[data-layer="muscles"]').closest('label').hidden = true;
+    document.querySelector('[data-preset="muscles"]').hidden = true;
+  }
   if (shoulder || combined || firstPass) {
     document.querySelector('#model-name').textContent = firstPass ? '桌面整臂首版' : combined ? '胸廓 · S1 肩部 · 肘部' : 'S1-Y2 肩部';
     document.querySelector('#scene-label').textContent = firstPass ? 'FIRST-PASS WHOLE ARM' : combined ? 'SHOULDER–ELBOW ASSEMBLY' : 'S1 SHOULDER';
@@ -109,7 +124,8 @@ async function start() {
   };
   new ResizeObserver(resize).observe(host);
   resize();
-  const modelFile = firstPass ? 'first-pass.json' : combined ? 'combined.json' : shoulder ? 'shoulder.json' : 'scene.json';
+  const modelFile = motionMode ? 'whole-arm-actions.json' : firstPass ? 'first-pass.json'
+    : combined ? 'combined.json' : shoulder ? 'shoulder.json' : 'scene.json';
   const metaUrl = new URL(`./${modelFile}`, import.meta.url);
   metaUrl.search = new URL(import.meta.url).search;
   const metaResponse = await fetch(metaUrl, { cache: 'no-cache' });
@@ -121,7 +137,8 @@ async function start() {
   if (!binaryResponse.ok) throw new Error(`Model geometry: HTTP ${binaryResponse.status}`);
   const buffer = await binaryResponse.arrayBuffer();
   if (buffer.byteLength !== manifest.mesh_bytes) throw new Error('Model byte count differs from exported manifest');
-  for (const part of manifest.parts) {
+  const bodyGroups = motionMode ? Array.from({ length: Math.max(...manifest.part_body) + 1 }, () => new Map()) : [];
+  for (const [partIndex, part] of manifest.parts.entries()) {
     const geometry = new THREE.BufferGeometry();
     const vertices = new Float32Array(buffer, part.position_byte_offset, part.vertex_count * 3);
     const Indices = part.index_component_bytes === 2 ? Uint16Array : Uint32Array;
@@ -137,7 +154,17 @@ async function start() {
     });
     const mesh = new THREE.Mesh(geometry, material);
     mesh.name = part.key;
-    layers[part.category].add(mesh);
+    let parent = layers[part.category];
+    if (motionMode) {
+      const groups = bodyGroups[manifest.part_body[partIndex]];
+      if (!groups.has(part.category)) {
+        const group = new THREE.Group();
+        parent.add(group);
+        groups.set(part.category, group);
+      }
+      parent = groups.get(part.category);
+    }
+    parent.add(mesh);
   }
   bounds = new THREE.Box3(new THREE.Vector3(...manifest.bounds_m[0]), new THREE.Vector3(...manifest.bounds_m[1]));
   const size = bounds.getSize(new THREE.Vector3()).length();
@@ -175,12 +202,26 @@ async function start() {
     } catch { document.querySelector('#fullscreen').textContent = '当前浏览器不支持全屏'; }
   });
   if (!viewport.requestFullscreen) document.querySelector('#fullscreen').disabled = true;
+  let motion;
+  if (motionMode) {
+    const moduleUrl = new URL('./arm-motion.js', import.meta.url);
+    moduleUrl.search = new URL(import.meta.url).search;
+    try {
+      const { startArmMotion } = await import(moduleUrl);
+      motion = await startArmMotion(manifest, bodyGroups.map(groups => [...groups.values()]), layers.wires, parameters.get('action'));
+      document.querySelector('#arm-motion-controls').hidden = false;
+    } catch (error) {
+      document.querySelector('#scene-count').textContent = '动作数据加载失败 · 可旋转查看中立位';
+      window.__armViewerMotionError = String(error);
+    }
+  }
   loading.hidden = true;
   let previous = 0;
   function animate(time) {
     requestAnimationFrame(animate);
     if (document.hidden || time - previous < 30) return;
     previous = time;
+    motion?.update(time);
     controls.update();
     renderer.render(scene, camera);
   }

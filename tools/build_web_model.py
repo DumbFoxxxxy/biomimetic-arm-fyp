@@ -9,9 +9,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'mujoco_arm/tools'))
 import mesh_geom
-from build_s1_teres_origin_mount import A
 from build_channel_first_inventory import DEST, ROOT as PROJECT_ROOT, provenance
-from study_s1_local_force_geometry import load_reference
 
 def sha(path):
     with path.open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
@@ -38,6 +36,8 @@ def load_parts(sources):
 
 
 def main():
+    from build_s1_teres_origin_mount import A
+
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--combined-only', action='store_true')
@@ -78,6 +78,9 @@ def main():
 
 
 def write_first_pass():
+    from build_s1_teres_origin_mount import A
+    from study_s1_local_force_geometry import load_reference
+
     folder = DEST.parent / 'whole_arm_first_pass'
     assembly_file = folder / 'whole_arm_first_pass_assembly.json'
     assembly = read(assembly_file)

@@ -14,7 +14,7 @@
 
 [![整臂九项动作的峰值姿态](docs/showcase/media/current-actions-overview.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#all-actions)
 
-**[播放九项动作并按项跳转](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#all-actions)** · [验证范围、逐帧数据与本地 MuJoCo 查看](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/action_showcase/README.md)
+**[360° 交互运动回放](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=motion&v=arm-motion-1)** · [双视角视频](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#all-actions) · [验证范围、逐帧数据与本地 MuJoCo 查看](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/action_showcase/README.md)
 
 K1–K7 加肩胛前伸、后缩共九项。上回旋达到 **11.79°**、后缩达到 **2.86 mm**，两项均完成受约束仿真中的钢丝牵引与回位。其他七项为几何往返。主动前伸的回程干涉及实物验证缺口已登记。
 
