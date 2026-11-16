@@ -12,7 +12,7 @@
   <header class="site-header shell">
     <a class="wordmark" href="./" aria-label="Biomimetic Arm showcase home"><span class="brand-mark" aria-hidden="true"></span>Biomimetic Arm</a>
     <nav aria-label="Showcase navigation">
-      <a href="#motion">Motion</a>
+      <a href="#scapular-routing">Motion</a>
       <a href="#design">Design</a>
       <a href="#opensim">OpenSim</a>
       <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">Repository <span aria-hidden="true">↗</span></a>
@@ -26,11 +26,33 @@
         <p class="lead">The first tabletop assembly integrates the thorax, scapula, engineered shoulder and elbow, eight TPU lattice muscles and a return spring.</p>
       </div>
       <div class="intro-actions">
-        <a class="button primary" href="#motion">Watch the simulation <span aria-hidden="true">↓</span></a>
+        <a class="button primary" href="#scapular-routing">Watch the latest replay <span aria-hidden="true">↓</span></a>
         <a class="button secondary" href="#design">Explore the 3D models <span aria-hidden="true">↘</span></a>
       </div>
     </section>
-    <section class="shell" id="motion" aria-labelledby="motion-title">
+    <section class="shell" id="scapular-routing" aria-labelledby="scapular-routing-title">
+      <div class="section-heading">
+        <h2 id="scapular-routing-title">K6 scapular cable routing</h2>
+        <span class="context">Whole-arm MuJoCo replay</span>
+      </div>
+      <video controls playsinline preload="metadata" poster="./media/k6-whole-arm.png" aria-label="Two views of the whole arm during active scapular upward rotation and return">
+        <source src="./media/k6-whole-arm.mp4" type="video/mp4">
+        <a href="./media/k6-whole-arm.mp4">Open the K6 replay</a>.
+      </video>
+      <p class="caption">An extra guide carries the serratus anterior cable past the sixth rib. The white dashed line shows the neutral arm position in both views.</p>
+      <dl class="metrics">
+        <div><dt>Active scapular upward rotation</dt><dd>11.79°<small>Up from 4.15° in the preceding routing trial</small></dd></div>
+        <div><dt>Shoulder centre rise</dt><dd>30.9 mm<small>At the peak pose</small></dd></div>
+        <div><dt>Geometric limit</dt><dd>27.50°<small>Last passing sampled pose</small></dd></div>
+      </dl>
+      <p class="boundary">This single-axis trial uses ideal gravity compensation with the glenohumeral joint and elbow held fixed. Beyond about 11.8°, the serratus cable changes torque direction. Protraction clearance and physical guide fit remain open.</p>
+      <div class="evidence-links">
+        <a href="./media/k6-routing-comparison.mp4">Watch the cable close-up <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/blob/main/02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/scapular_control/ROUTING_REFINEMENT.md">Read the routing and validation report <span aria-hidden="true">↗</span></a>
+        <a href="#motion">See the first-pass combined K7 motion <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <section class="shell design" id="motion" aria-labelledby="motion-title">
       <div class="section-heading">
         <h2 id="motion-title">K7 combined arm elevation</h2>
         <span class="context">MuJoCo replay</span>
@@ -74,7 +96,7 @@
       <div>
         <h2 id="opensim-title">OpenSim anatomy and cable layout</h2>
         <p>Compare 17 anatomical muscle bundles with 10 engineering routes in the neutral whole-arm assembly. Toggle human reference paths, cable routes and candidate attachment points.</p>
-        <p>The K1 rigid-geometry and cable check reached <strong>31.31°</strong> of elbow flexion. On the sampled scapular upward-rotation path, the current serratus anterior cable pays out. Physical travel remains unverified.</p>
+        <p>The K1 rigid-geometry and cable check reached <strong>31.31°</strong> of elbow flexion. The first-pass serratus anterior cable pays out along the sampled upward-rotation path. The later routing candidate is shown in the K6 replay above.</p>
       </div>
       <div class="evidence-links">
         <a href="../?model=first-pass&amp;compare=opensim&amp;v=opensim-1">Open interactive comparison <span aria-hidden="true">↗</span></a>

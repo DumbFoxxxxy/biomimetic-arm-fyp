@@ -1,5 +1,9 @@
 # 项目当前状态
 
+## 2026-11-16 · 肩胛钢丝主动控制
+
+从 Seth 衍生模型复算 11 条肩胛相关肌束，建立前锯肌中束、上斜方肌和大菱形肌三条局部候选。新增胸廓导向后，K6 在理想重力预平衡下主动上回旋至 11.79° 并回位。前锯肌约在 11.8° 的力臂变号，几何扫描至 27.50°。该候选的前伸与中立位安装间隙仍待处理。[试验报告和数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/scapular_control/ROUTING_REFINEMENT.md) · [整臂运动回放](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#scapular-routing)
+
 ## 2026-11-16 · OpenSim 解剖对照
 
 完成 10 条整臂工程钢丝路线与 17 条人体肌束的对照。肘部保留现有导向与转座。K1 刚体与八线候选复核至 31.31°。前锯肌现有路线在所查上回旋轨迹中放线，OpenSim 中束候选需要局部绕行。[浏览器交互对照](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&compare=opensim&v=opensim-1) · [技术报告与数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/OPENSIM_COMPARISON.md)

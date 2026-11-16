@@ -10,9 +10,17 @@
 
 ## FYP 进度演示
 
+### 肩胛主动上回旋 · K6
+
+[![新增导向后的整臂 MuJoCo 双视角](docs/showcase/media/k6-whole-arm.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#scapular-routing)
+
+新增一处前锯肌钢丝导向后，单轴主动上回旋仿真由 **4.15°** 提高到 **11.79°**，并完成回位。约 11.8° 时前锯肌力臂变号。**27.50°** 为该路径的几何检查范围。前伸间隙和实际导向安装仍待验证。
+
+**[播放整臂回放](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#scapular-routing)** · [走线报告](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/scapular_control/ROUTING_REFINEMENT.md) · [局部锚点及反力](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/scapular_control/serratus_guide_points.csv)
+
 ### OpenSim 解剖对照
 
-在整臂中立位叠加 **17 条人体肌束、10 条工程钢丝路线和骨面候选点**。现有前锯肌线在所查肩胛上回旋路径中需要放线，前锯肌中束的骨面候选已登记为局部绕行起点。
+在整臂中立位叠加 **17 条人体肌束、10 条工程钢丝路线和骨面候选点**。该对照展示首版走线，新增导向候选见上面的 K6 回放。
 
 **[打开 360° OpenSim 对照](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&compare=opensim&v=opensim-1)** · [技术报告](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/OPENSIM_COMPARISON.md) · [逐束数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/opensim_comparison.csv)
 
