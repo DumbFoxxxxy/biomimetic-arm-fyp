@@ -12,7 +12,7 @@
   <header class="site-header shell">
     <a class="wordmark" href="./" aria-label="Biomimetic Arm showcase home"><span class="brand-mark" aria-hidden="true"></span>Biomimetic Arm</a>
     <nav aria-label="Showcase navigation">
-      <a href="#scapular-routing">Motion</a>
+      <a href="#all-actions">Motion</a>
       <a href="#design">Design</a>
       <a href="#opensim">OpenSim</a>
       <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">Repository <span aria-hidden="true">↗</span></a>
@@ -26,11 +26,41 @@
         <p class="lead">The first tabletop assembly integrates the thorax, scapula, engineered shoulder and elbow, eight TPU lattice muscles and a return spring.</p>
       </div>
       <div class="intro-actions">
-        <a class="button primary" href="#scapular-routing">Watch the latest replay <span aria-hidden="true">↓</span></a>
+        <a class="button primary" href="#all-actions">Watch all nine actions <span aria-hidden="true">↓</span></a>
         <a class="button secondary" href="#design">Explore the 3D models <span aria-hidden="true">↘</span></a>
       </div>
     </section>
-    <section class="shell" id="scapular-routing" aria-labelledby="scapular-routing-title">
+    <section class="shell" id="all-actions" aria-labelledby="all-actions-title">
+      <div class="section-heading">
+        <h2 id="all-actions-title">Nine whole-arm actions</h2>
+        <span class="context">31-second MuJoCo replay</span>
+      </div>
+      <video id="whole-arm-actions-video" class="action-video" controls playsinline preload="metadata" poster="./media/current-actions-overview.png" aria-label="Two-view replay of nine whole-arm actions">
+        <source src="./media/current-actions.mp4" type="video/mp4">
+        <a href="./media/current-actions.mp4">Open the whole-arm replay</a>.
+      </video>
+      <p class="caption">Select an action below to jump to its replay. Each movement starts at neutral. Scapular upward rotation and retraction use cable tension and return to neutral in simulation with ideal gravity compensation. The other seven replays use prescribed joint poses.</p>
+      <table class="action-table">
+        <thead><tr><th scope="col">Action</th><th scope="col">Travel</th><th scope="col">Verification</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=0" data-seek="0">K1 Elbow flexion</a></th><td>31.31°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=3.34" data-seek="3.34">K2 Shoulder flexion</a></th><td>41.70°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=6.67" data-seek="6.67">K3 Shoulder abduction</a></th><td>13.60°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=10" data-seek="10">K4 Shoulder internal rotation</a></th><td>90.00°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=13.34" data-seek="13.34">K5 Shoulder external rotation</a></th><td>10.00°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=16.67" data-seek="16.67">K6 Scapular upward rotation</a></th><td>11.79°</td><td>Cable pull and return</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=20.74" data-seek="20.74">K7 Combined shoulder and elbow elevation</a></th><td>17.33°</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=24.07" data-seek="24.07">Scapular protraction</a></th><td>15.49 mm</td><td>Geometry</td></tr>
+          <tr><th scope="row"><a href="./media/current-actions.mp4#t=27.4" data-seek="27.4">Scapular retraction</a></th><td>2.86 mm</td><td>Cable pull and return</td></tr>
+        </tbody>
+      </table>
+      <p class="boundary">During the separate active protraction trial, the shoulder centre moved 3.55 mm forward. After release it overshot neutral by 0.22 mm, where the serratus cable contacted the sixth rib and the guide envelope intersected the scapula. TPU deformation, simultaneous joint actuation and physical travel remain to be verified.</p>
+      <div class="evidence-links">
+        <a href="./media/current-actions-overview.png">Open all nine peak poses <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp/tree/main/02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/action_showcase">Read the verification report and replay data <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section class="shell design" id="scapular-routing" aria-labelledby="scapular-routing-title">
       <div class="section-heading">
         <h2 id="scapular-routing-title">K6 scapular cable routing</h2>
         <span class="context">Whole-arm MuJoCo replay</span>
@@ -120,5 +150,16 @@
     <span>Anatomical meshes from BodyParts3D, DBCLS. <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">Attribution and licence</a>.</span>
     <a href="https://github.com/DumbFoxxxxy/biomimetic-arm-fyp">GitHub repository ↗</a>
   </footer>
+  <script>
+    const actionVideo = document.querySelector("#whole-arm-actions-video");
+    document.querySelector(".action-table").addEventListener("click", (event) => {
+      const action = event.target.closest("a[data-seek]");
+      if (!action || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || actionVideo.error) return;
+      event.preventDefault();
+      actionVideo.currentTime = Number(action.dataset.seek);
+      actionVideo.focus();
+      actionVideo.play().catch(() => {});
+    });
+  </script>
 </body>
 </html>

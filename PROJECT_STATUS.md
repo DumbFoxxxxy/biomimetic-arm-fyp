@@ -1,5 +1,9 @@
 # 项目当前状态
 
+## 2026-11-16 · 整臂九项动作回放
+
+同一整臂装配复核了 K1–K7 和肩胛前伸、后缩。钢丝牵引仿真中，上回旋 11.79°、后缩 2.86 mm 均完成回位。其余七项提供几何回放。主动前伸达到 3.55 mm，但回程超越中立位后发生干涉。[双视角视频与动作索引](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#all-actions) · [验证记录](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/action_showcase/README.md)
+
 ## 2026-11-16 · 肩胛钢丝主动控制
 
 从 Seth 衍生模型复算 11 条肩胛相关肌束，建立前锯肌中束、上斜方肌和大菱形肌三条局部候选。新增胸廓导向后，K6 在理想重力预平衡下主动上回旋至 11.79° 并回位。前锯肌约在 11.8° 的力臂变号，几何扫描至 27.50°。该候选的前伸与中立位安装间隙仍待处理。[试验报告和数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/scapular_control/ROUTING_REFINEMENT.md) · [整臂运动回放](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#scapular-routing)

@@ -37,6 +37,12 @@ section { scroll-margin-top: 20px; }
 h2 { margin-bottom: 0; font-size: clamp(1.45rem, 3vw, 2.2rem); letter-spacing: -.035em; }
 .context { color: var(--muted); font-size: .86rem; text-align: right; }
 video { display: block; width: 100%; aspect-ratio: 5 / 3; border: 1px solid var(--line); border-radius: 9px; background: #0b1a22; }
+.action-video { aspect-ratio: 147 / 73; }
+.action-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .94rem; }
+.action-table th, .action-table td { padding: .65em .55em; border-bottom: 1px solid var(--line); }
+.action-table tbody th { font-weight: 500; }
+.action-table td:first-of-type { white-space: nowrap; color: var(--accent); font-variant-numeric: tabular-nums; }
+.action-table a:hover { color: var(--accent); }
 .caption, .boundary { color: var(--muted); font-size: .9rem; line-height: 1.55; }
 .caption { margin: 12px 0 21px; }
 .metrics { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; border-block: 1px solid var(--line); }
