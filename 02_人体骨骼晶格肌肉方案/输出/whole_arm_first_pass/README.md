@@ -4,6 +4,8 @@
 
 [首版整臂 MJCF](whole_arm_first_pass_assembled.xml) · [零件来源与回读检查](whole_arm_first_pass_assembly.json) · [十条钢丝与接口交接表](whole_arm_cable_handoff.md) · [锚点坐标 CSV](whole_arm_cable_handoff.csv) · [钢丝折线及导向接口坐标](whole_arm_guide_points.json)
 
+现有整臂的十条局部钢丝与 OpenSim 肌束完成了逐束对照。肘部沿用已有导向与转座，肩胛路径保留附着区和作用方向差距记录。[对照报告、逐束数据与 MuJoCo 回放](OPENSIM_COMPARISON.md)
+
 首版装配包含桌面胸廓、肩胛、肩部 S1、肘部、八块 TPU、修订后的两处弹簧端座和中立位回位弹簧。用 `--first-pass` 可旋转查看 239 个几何体及八条固定端钢丝。肩袖活动件和两条中央短肌腱按不同载荷改变位姿，在下方 K7 回放中显示。
 
 ### K7 整臂演示

@@ -10,6 +10,14 @@
 
 ## FYP 进度演示
 
+### OpenSim 解剖对照
+
+在整臂中立位叠加 **17 条人体肌束、10 条工程钢丝路线和骨面候选点**。现有前锯肌线在所查肩胛上回旋路径中需要放线，前锯肌中束的骨面候选已登记为局部绕行起点。
+
+**[打开 360° OpenSim 对照](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&compare=opensim&v=opensim-1)** · [技术报告](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/OPENSIM_COMPARISON.md) · [逐束数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/opensim_comparison.csv)
+
+### 整臂联合抬升
+
 [![首版整臂 K7 联合抬升的 MuJoCo 双视角](docs/showcase/media/whole-arm-first-pass.png)](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#motion)
 
 **[播放首版整臂动画](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/showcase/#motion)** · [查看 K1–K7 范围](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/README.md)

@@ -1,5 +1,9 @@
 # 项目当前状态
 
+## 2026-11-16 · OpenSim 解剖对照
+
+完成 10 条整臂工程钢丝路线与 17 条人体肌束的对照。肘部保留现有导向与转座。K1 刚体与八线候选复核至 31.31°。前锯肌现有路线在所查上回旋轨迹中放线，OpenSim 中束候选需要局部绕行。[浏览器交互对照](https://dumbfoxxxxy.github.io/biomimetic-arm-fyp/?model=first-pass&compare=opensim&v=opensim-1) · [技术报告与数据](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/OPENSIM_COMPARISON.md)
+
 ## 2026-11-14 当前主线：整臂首版
 
 整臂首版已导出一套可旋转查看的 239 几何体装配和对应的 27 帧 K7 双视角动画，包含修订端座、弹簧及八块 TPU。K1 让位版八线几何到 31.31°，K7 实际肱骨方向变化约 17.33°。安装间隙、未标定接触和整臂受力限制已随各动作登记。[首版装配与动作范围](02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/README.md)

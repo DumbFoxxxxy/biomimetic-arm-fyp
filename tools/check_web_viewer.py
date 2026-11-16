@@ -1,4 +1,5 @@
 """Exercise the real local WebGL page and record desktop/mobile screenshots."""
+import argparse
 from functools import partial
 import hashlib
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
@@ -13,7 +14,70 @@ DEST=ROOT/'reviews/S1_2026-11-03/web_viewer'
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self,*args):pass
 
+
+def check_opensim(browser, base):
+    errors, responses = [], []
+    page = browser.new_page(viewport={"width": 1440, "height": 960}, device_scale_factor=1)
+    page.on("pageerror", lambda error: errors.append(str(error)))
+    page.on("response", lambda response: responses.append(response.url) if response.status >= 400 else None)
+    page.goto(f"{base}/showcase/#opensim", wait_until="domcontentloaded")
+    page.get_by_role("link", name="Open interactive comparison").click()
+    page.wait_for_function("window.__armViewer?.comparison", timeout=90000)
+    state = lambda expression: page.evaluate(f"() => {{const v = window.__armViewer; return {expression};}}")
+    assert state("v.manifest.part_count") == 247
+    assert state("v.comparison.data.summary") == {"route_count": 10, "bundle_count": 17}
+    assert state("v.comparison.geometry.FJ1486.reference[0].visible")
+    assert not state("v.comparison.geometry.FJ1459_g3.reference[0].visible")
+    assert not state("v.layers.wires.visible")
+    selector = page.locator("#opensim-route")
+    selector.select_option("shoulder")
+    assert state("v.comparison.geometry.FJ1500.engineering[0].visible")
+    selector.select_option("scapula")
+    assert state("v.comparison.geometry.FJ1459_g3.reference[0].visible")
+    assert not state("v.comparison.geometry.FJ1486.reference[0].visible")
+    for layer in ("reference", "engineering", "candidates"):
+        toggle = page.locator(f'[data-compare-layer="{layer}"]')
+        toggle.uncheck()
+        assert not state(f"v.comparison.visibility.{layer}.visible")
+        toggle.check()
+        assert state(f"v.comparison.visibility.{layer}.visible")
+    selector.select_option("elbow")
+    box = page.locator("canvas").bounding_box()
+    before = state("v.camera.position.toArray()")
+    x, y = box["x"] + box["width"] * .5, box["y"] + box["height"] * .45
+    page.mouse.move(x, y)
+    page.mouse.down()
+    page.mouse.move(x + 115, y + 45, steps=8)
+    page.mouse.up()
+    page.wait_for_function(
+        "before => window.__armViewer.camera.position.toArray().some((value, i) => Math.abs(value - before[i]) > 1e-4)",
+        arg=before,
+    )
+    page.get_by_role("button", name="重置视角").click()
+    page.wait_for_timeout(500)
+    page.locator("#viewport").screenshot(path=str(ROOT / "tmp/opensim-web-desktop.png"))
+    page.set_viewport_size({"width": 390, "height": 844})
+    selector.select_option("FJ1459_g3")
+    assert "SerratusAnterior_M" in page.locator("#opensim-detail").inner_text()
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+    assert page.locator("canvas").bounding_box()["width"] >= 300
+    page.locator("#viewport").scroll_into_view_if_needed()
+    rendered = state("v.renderer.info.render.frame")
+    page.wait_for_function("frame => window.__armViewer.renderer.info.render.frame > frame + 1", arg=rendered)
+    page.screenshot(path=str(ROOT / "tmp/opensim-web-mobile.png"), full_page=True)
+    for query, count in (("", 96), ("?model=shoulder", 191), ("?model=combined", 236), ("?model=first-pass", 247)):
+        page.goto(f"{base}/{query}", wait_until="domcontentloaded")
+        page.wait_for_function("window.__armViewer?.ready", timeout=90000)
+        assert state("v.manifest.part_count") == count
+        assert page.locator("#opensim-controls").is_hidden()
+    assert not errors and not responses, (errors, responses)
+    print("OpenSim desktop/mobile interaction and four original model entrances passed")
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--opensim", action="store_true", help="Check the comparison and existing model entrances")
+    args = parser.parse_args()
     DEST.mkdir(parents=True,exist_ok=True)
     server=ThreadingHTTPServer(('127.0.0.1',0),partial(QuietHandler,directory=str(ROOT/'docs')))
     threading.Thread(target=server.serve_forever,daemon=True).start()
@@ -22,6 +86,11 @@ def main():
         with sync_playwright() as p:
             browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,
                 args=['--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+            if args.opensim:
+                (ROOT / "tmp").mkdir(exist_ok=True)
+                check_opensim(browser, f"http://127.0.0.1:{server.server_port}")
+                browser.close()
+                return
             page=browser.new_page(viewport={'width':1440,'height':960},device_scale_factor=1)
             page.on('pageerror',lambda error:errors.append(str(error)))
             page.on('response',lambda response:bad_responses.append(dict(url=response.url,status=response.status)) if response.status>=400 else None)

@@ -650,3 +650,8 @@ Result: four real hollow guides round-trip exactly, nominal wire passage and all
 - [x] 将前束全滑动摩擦假设接入现有肩肘等效模型，对照同一输入和释放时序。
 - [x] 在 30 N 加长导轨上重复前束摩擦对照，区分首次干涉前峰值与数值峰值。
 - [ ] 复核双区域接触收敛及实际摩擦回程，落实右盖临时保持及冈下肌承力座。
+
+## 2026-11-16 OpenSim 对照工作
+
+- [x] 将 Arm26 和 Seth 衍生模型映射至现有整臂，记录残差与工程接口。
+- [x] 复核局部钢丝动作并交付逐肌肉对照、可复现脚本和 MuJoCo 回放。

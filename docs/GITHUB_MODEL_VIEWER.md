@@ -14,6 +14,8 @@ README 使用实际模型截图作入口；点击进入独立网页后，可以�
 
 `?model=first-pass` 载入桌面整臂首版，共 247 个对象，含八块 TPU、回位弹簧及八条固定端钢丝。肩袖活动件和短肌腱见 K7 动画。
 
+`?model=first-pass&compare=opensim` 在同一整臂中立位叠加 OpenSim 对照。可选择肘部、肩部、肩胛或单条路线，并分别切换人体参考、工程钢丝和候选附着点。运行 `python tools/export_web_opensim.py` 可根据已有对照数据和整臂清单重新导出网页叠加层。模型来源与指纹记录在[技术报告及其数据](../02_人体骨骼晶格肌肉方案/输出/whole_arm_first_pass/OPENSIM_COMPARISON.md)。
+
 `?model=combined` 载入 236 个对象的静态组合候选，包含同一根肱骨上的 S1 肩部和串联滑块肘部、前臂、半透明胸廓参考、六个肌腹网格及两条名义肘部内线。屈肌使用回程让位修订版。部分肩部端部接口和整臂布线待集成。独立肩部和原版肘部保留用于比较。
 
 这不是整臂运动仿真，也不计算 TPU 变形、接触、强度或实际驱动范围。桌面 MuJoCo 查看方式见 [运行说明](../RUNNING.md)。
@@ -52,6 +54,7 @@ python tools/build_web_model.py
 
 ```powershell
 python tools/check_web_viewer.py
+python tools/check_web_viewer.py --opensim
 ```
 
 已有浏览器检查与移动端截图见 [web_viewer](../reviews/S1_2026-11-03/web_viewer/browser_checks.json)。本地全部依赖已随网页保存，加载时无需外部 CDN。渲染使用 Three.js 0.180.0；许可及下载来源校验值见 viewer/vendor/LICENSE 和 viewer/vendor/manifest.json。

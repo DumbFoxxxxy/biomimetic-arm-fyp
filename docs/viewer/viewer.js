@@ -6,9 +6,12 @@ const viewport = document.querySelector('#viewport');
 const loading = document.querySelector('#loading');
 const layers = Object.fromEntries(['bones', 'muscles', 'wires', 'hardware'].map(key => [key, new THREE.Group()]));
 const palette = { bones: '#d8cbb1', muscles: '#b84430', wires: '#387c91', hardware: '#78888d' };
-const selected = new URLSearchParams(location.search).get('model');
+const parameters = new URLSearchParams(location.search);
+const selected = parameters.get('model');
 const combined = selected === 'combined';
 const firstPass = selected === 'first-pass';
+const comparison = firstPass && parameters.get('compare') === 'opensim';
+document.body.classList.toggle('opensim-mode', comparison);
 let renderer, camera, controls, manifest, bounds;
 
 function applyVisibility(values) {
@@ -146,7 +149,7 @@ async function start() {
   scene.add(grid);
   fitView();
   document.querySelector('#scene-count').textContent = `${manifest.part_count} 个对象 · 可自由旋转`;
-  document.querySelectorAll('button:disabled, input:disabled').forEach(element => { element.disabled = false; });
+  document.querySelectorAll('button:disabled, input:disabled:not([data-compare-layer])').forEach(element => { element.disabled = false; });
   document.querySelectorAll('[data-layer]').forEach(input => input.addEventListener('change', () => {
     layers[input.dataset.layer].visible = input.checked;
     document.querySelectorAll('[data-preset]').forEach(button => button.setAttribute('aria-pressed', 'false'));
@@ -183,6 +186,26 @@ async function start() {
   }
   requestAnimationFrame(animate);
   window.__armViewer = { ready: true, renderer, scene, camera, controls, layers, manifest, fitView };
+  if (comparison) {
+    const panel = document.querySelector('#opensim-controls');
+    panel.hidden = false;
+    document.querySelector('#first-pass-view').removeAttribute('aria-current');
+    document.querySelector('#opensim-view').setAttribute('aria-current', 'page');
+    document.querySelector('#scene-label').textContent = 'OPENSIM · NEUTRAL';
+    const moduleUrl = new URL('./opensim.js', import.meta.url);
+    moduleUrl.search = new URL(import.meta.url).search;
+    try {
+      const { startOpenSim } = await import(moduleUrl);
+      window.__armViewer.comparison = await startOpenSim(scene, manifest);
+      applyVisibility(presets.skeleton);
+      document.querySelectorAll('[data-preset]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.preset === 'skeleton'));
+      });
+    } catch (error) {
+      document.querySelector('#opensim-status').textContent = '暂时无法载入对照数据。可刷新重试，或使用下方装配图层。';
+      window.__armViewer.comparisonError = String(error);
+    }
+  }
 }
 
 start().catch(showError);
